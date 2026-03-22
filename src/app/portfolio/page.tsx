@@ -2,22 +2,36 @@ import styles from "./page.module.css";
 
 const projects = [
     {
-        title: "Project Alpha",
-        category: "Production",
-        year: "2024",
-        description: "A dark ambient exploration of soundscapes."
+        title: "Social Media Accessibility Audit",
+        category: "UX Research",
+        year: "2026",
+        description: "Comprehensive accessibility audit of Kent State College of Aeronautics and Engineering's Instagram account. Evaluated color contrast, alt text quality, emoji usage, and WCAG compliance across 20+ posts. Identified systemic issues with auto-generated alt text and provided actionable recommendations for each post.",
+        tags: ["Accessibility", "Social Media", "WCAG", "Audit"],
+        link: "/portfolio/social-media-accessibility",
     },
     {
-        title: "Neon Nights",
-        category: "DJ Set",
-        year: "2023",
-        description: "Live recording from the underground bunker."
+        title: "Card Sort Case Study Analysis",
+        category: "UX Research",
+        year: "2025",
+        description: "Comparative analysis of two academic card-sort studies examining how the methodology affects research outcomes. Analyzed differences in SCCT vs. Capability Approach frameworks, sorting techniques, and quantitative analysis methods. Delivered insights on implementing card sorting in non-IA research contexts.",
+        tags: ["Card Sorting", "Mixed Methods", "Research Design"],
+        link: "/portfolio/card-sort-analysis",
     },
     {
-        title: "Tech Noir",
-        category: "Engineering",
-        year: "2023",
-        description: "Mixing and mastering for the synthwave collective."
+        title: "Moderated Usability Testing",
+        category: "UX Research",
+        year: "2025",
+        description: "End-to-end moderated usability study including screener creation, test plan development, informed consent protocols, and session moderation. Documented moderator techniques for maintaining rapport while extracting actionable feedback from participants.",
+        tags: ["Usability Testing", "Moderation", "User Research"],
+        link: "/portfolio/usability-testing",
+    },
+    {
+        title: "Web Contrast & Color Blindness Evaluation",
+        category: "UX Research",
+        year: "2025",
+        description: "Systematic evaluation of color contrast ratios and color blindness accessibility across five major websites. Applied WCAG 2.1 standards to assess AA and AAA compliance. Developed recommendations for improving visual accessibility without compromising design intent.",
+        tags: ["Color Accessibility", "WCAG", "Web Accessibility"],
+        link: "/portfolio/contrast-evaluation",
     },
 ];
 
@@ -27,7 +41,7 @@ export default function Portfolio() {
             <main className="container">
                 <header className={styles.header}>
                     <h1 className="heading-gradient big-title">Portfolio</h1>
-                    <p className={styles.subtitle}>Selected works and sonic experiments.</p>
+                    <p className={styles.subtitle}>UX research and design work from graduate studies and independent projects.</p>
                 </header>
 
                 <div className={styles.grid}>
@@ -40,16 +54,38 @@ export default function Portfolio() {
                                 </div>
                                 <h2 className={styles.title}>{project.title}</h2>
                                 <p className={styles.description}>{project.description}</p>
+                                <div className={styles.tags}>
+                                    {project.tags.map((tag, i) => (
+                                        <span key={i} className={styles.tag}>{tag}</span>
+                                    ))}
+                                </div>
                             </div>
                             <div className={styles.cardOverlay} />
                         </article>
                     ))}
-
-                    {/* Placeholder for future content */}
-                    <div className={`${styles.card} ${styles.placeholder}`}>
-                        <p>More projects coming soon...</p>
-                    </div>
                 </div>
+
+                <section className={styles.musicSection}>
+                    <h3 className={styles.sectionTitle}>Music & Audio</h3>
+                    <div className={styles.grid}>
+                        <article className={styles.card}>
+                            <div className={styles.cardContent}>
+                                <div className={styles.meta}>
+                                    <span className={styles.category}>Music Production</span>
+                                    <span className={styles.year}>Ongoing</span>
+                                </div>
+                                <h2 className={styles.title}>Electronic Music Production</h2>
+                                <p className={styles.description}>30 years of electronic music production and curation. Former Pittsburgh Ableton User Group organizer in direct partnership with Ableton's North American team. Available for DJ sets, production, and collaboration.</p>
+                                <div className={styles.tags}>
+                                    <span className={styles.tag}>Ableton</span>
+                                    <span className={styles.tag}>Electronic</span>
+                                    <span className={styles.tag}>DJ</span>
+                                </div>
+                            </div>
+                            <div className={styles.cardOverlay} />
+                        </article>
+                    </div>
+                </section>
             </main>
         </div>
     );
