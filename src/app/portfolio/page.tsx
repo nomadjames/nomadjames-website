@@ -25,8 +25,8 @@ const work = [
     category: "UX Research",
     year: "2025",
     methods: ["Contextual Inquiry", "Semi-Structured Interviews", "Affinity Mapping", "Journey Mapping"],
-    status: "soon",
-    link: null,
+    status: "published",
+    link: "/portfolio/food-insecurity",
   },
   {
     num: "04",
@@ -34,8 +34,8 @@ const work = [
     category: "UX Research",
     year: "2025",
     methods: ["Information Architecture", "Content Strategy", "Plain Language"],
-    status: "soon",
-    link: null,
+    status: "published",
+    link: "/portfolio/health-translator",
   },
   {
     num: "05",
