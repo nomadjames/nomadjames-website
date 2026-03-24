@@ -1,96 +1,145 @@
-import Image from "next/image";
-import SocialLinks from "@/components/SocialLinks";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main>
+      <main className="container">
+
+        {/* Hero */}
         <section className={styles.hero}>
-          <div className={styles.heroBackground}>
-            <Image
-              src="/images/hero-banner.png"
-              alt="Abstract digital landscape background"
-              fill
-              priority
-              sizes="100vw"
-              className={styles.bannerImage}
-            />
-            <div className={styles.overlay} />
+          <div className={styles.eyebrow}>
+            <span className={styles.eyebrowLabel}>UX Designer & AI Researcher</span>
+            <span className={styles.eyebrowDot}>·</span>
+            <span className={styles.eyebrowLabel}>Kent State University MS UX</span>
+            <span className={styles.eyebrowDot}>·</span>
+            <span className={styles.eyebrowLabel}>Pittsburgh, PA</span>
           </div>
+          <h1 className={styles.name}>James Dishman</h1>
+          <div className={styles.thesis}>
+            <p>Technology should make humans better.</p>
+            <p>I design the part where that actually happens.</p>
+          </div>
+          <p className={styles.bio}>
+            Thirty years of electronic music and a decade leading Pittsburgh&apos;s Ableton User Group gave me a
+            framework for thinking about tools — what they enable, what they foreclose, and who they leave out.
+            I&apos;m in graduate school now building that instinct into a research practice, with a thesis taking
+            shape around AI, creativity, and the ethics of designed cognition.
+          </p>
+        </section>
 
-          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-            <h1 className="text-gradient-accent" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', fontFamily: 'var(--font-heading)', fontWeight: 700, lineHeight: 1.1, marginBottom: '0.5rem', letterSpacing: '-0.03em' }}>
-              nomad james
-            </h1>
-            <p style={{ fontSize: '1.5rem', color: 'var(--foreground)', marginBottom: '1rem', fontWeight: 500 }}>
-              James C. Dishman II
-            </p>
-            <h2 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', color: 'rgba(255,255,255,0.9)', fontWeight: 400, maxWidth: '800px', lineHeight: 1.4 }}>
-              Artificial intelligence and UX Researcher, Writer, Designer, Audio Engineer
-            </h2>
+        {/* Selected Work */}
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>Selected Work</span>
+            <div className={styles.sectionLine} />
+          </div>
+          <ol className={styles.workList}>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>01</span>
+              <div className={styles.workContent}>
+                <a href="/portfolio/accessibility-audit" className={styles.workTitle}>
+                  Accessibility Audit Suite
+                </a>
+                <div className={styles.workMeta}>
+                  <span>UX Research</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>WCAG 2.1 · Heuristic Evaluation · VoiceOver · PDF Remediation</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>2025</span>
+                </div>
+              </div>
+              <span className={styles.workArrow}>→</span>
+            </li>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>02</span>
+              <div className={styles.workContent}>
+                <span className={styles.workTitle}>Moderated Usability Testing</span>
+                <div className={styles.workMeta}>
+                  <span>UX Research</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>Screener Design · Test Protocol · Session Moderation</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>2025</span>
+                </div>
+              </div>
+              <span className={styles.workStatus}>Soon</span>
+            </li>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>03</span>
+              <div className={styles.workContent}>
+                <span className={styles.workTitle}>Food Insecurity Discovery Research</span>
+                <div className={styles.workMeta}>
+                  <span>UX Research</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>Contextual Inquiry · Affinity Mapping · Journey Mapping</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>2025</span>
+                </div>
+              </div>
+              <span className={styles.workStatus}>Soon</span>
+            </li>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>04</span>
+              <div className={styles.workContent}>
+                <span className={styles.workTitle}>SensorSynth FM</span>
+                <div className={styles.workMeta}>
+                  <span>Product Design</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>Hardware · Interface Design · Sensor Integration</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>2026</span>
+                </div>
+              </div>
+              <span className={`${styles.workStatus} ${styles.wip}`}>WIP</span>
+            </li>
+          </ol>
+        </section>
 
-            <div className={styles.bio}>
-              <p>
-                I work at the intersection of AI, human-computer interaction, and creativity-support tools,
-                asking how algorithmic systems shape human judgment and whether they encode our biases or create new ones.
-              </p>
-              <p>
-                My background spans 30 years in electronic music production and curation, team leadership across distributed systems,
-                and a decade running Pittsburgh&apos;s Ableton User Group in direct partnership with Ableton&apos;s North American team.
-                I hold a BA in English with concentrations in Philosophy and Political Science from the University of Pittsburgh,
-                and I&apos;m finishing an MS in User Experience at Kent State University while preparing PhD applications focused on
-                designing systems that cultivate human creativity and human-AI collaboration.
-              </p>
-              <p>
-                What connects these experiences isn&apos;t domain expertise; it&apos;s pattern recognition across systems,
-                understanding how tools mediate human capability, and translating complex problems into clear frameworks.
-                I&apos;m interested in questions where human creativity, algorithmic mediation, and decision-making collide.
-              </p>
-              <p>
-                I&apos;m available for research collaboration, speaking engagements, UX research opportunities,
-                and the occasional uncompromising DJ set.
-              </p>
-              <p>
-                If you&apos;re working on problems at the intersection of creativity, AI, and human decision-making, let&apos;s talk.
+        {/* Currently Building */}
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>Currently Building</span>
+            <div className={styles.sectionLine} />
+          </div>
+          <div className={styles.buildingGrid}>
+            <div className={styles.buildingItem}>
+              <span className={styles.buildingName}>Clarence</span>
+              <p className={styles.buildingDesc}>
+                An autonomous AI research agent that reads the web, manages long-term memory, and surfaces the
+                signal I need. A practical study in what it means to design for machine collaboration rather than
+                machine compliance.
               </p>
             </div>
-
-            <SocialLinks />
+            <div className={styles.buildingItem}>
+              <span className={styles.buildingName}>SensorSynth FM</span>
+              <p className={styles.buildingDesc}>
+                A hardware synthesizer that reads environmental sensors — temperature, light, motion — and
+                translates physical space into FM synthesis parameters. The interface question is the
+                interesting part.
+              </p>
+            </div>
           </div>
         </section>
 
-        <section className={styles.musicSection}>
-          <div className={styles.secondaryBackground}>
-            <Image
-              src="/images/secondary-banner.png"
-              alt=""
-              fill
-              className={styles.bannerImage}
-            />
-            <div className={styles.overlayHeavy} />
+        {/* Music */}
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>Music</span>
+            <div className={styles.sectionLine} />
           </div>
-
-          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-            <h3 className={styles.sectionTitle}>Music by nomadjames</h3>
-            <div className={styles.musicLinks}>
-              <a href="https://soundcloud.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.musicCard}>
-                <span className={styles.musicIcon}>☁️</span>
-                <div className={styles.musicInfo}>
-                  <strong>SoundCloud</strong>
-                  <span>Stream latest tracks</span>
-                </div>
-              </a>
-              <a href="https://nomadjames.bandcamp.com/" target="_blank" rel="noopener noreferrer" className={styles.musicCard}>
-                <span className={styles.musicIcon}>🎵</span>
-                <div className={styles.musicInfo}>
-                  <strong>Bandcamp</strong>
-                  <span>Support & Buy</span>
-                </div>
-              </a>
-            </div>
+          <p className={styles.musicStatement}>
+            Thirty years in electronic music production. Pittsburgh Ableton User Group. Available for DJ sets and collaboration.
+          </p>
+          <div className={styles.musicLinks}>
+            <a href="https://soundcloud.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
+              SoundCloud ↗
+            </a>
+            <a href="https://nomadjames.bandcamp.com/" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
+              Bandcamp ↗
+            </a>
           </div>
         </section>
+
       </main>
     </div>
   );
