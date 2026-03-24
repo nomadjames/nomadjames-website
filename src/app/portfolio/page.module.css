@@ -1,131 +1,233 @@
 .page {
-    padding-top: 120px;
-    padding-bottom: 4rem;
-    min-height: 100vh;
+  padding-top: 7rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
 }
 
+/* ── Header ────────────────────────────────────────────── */
+
 .header {
-    margin-bottom: 4rem;
+  padding: 4rem 0 3.5rem;
+}
+
+.headerRule {
+  width: 2.5rem;
+  height: 2px;
+  background: var(--orange);
+  margin-bottom: 1.5rem;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--fg);
+  margin-bottom: 1rem;
 }
 
 .subtitle {
-    color: var(--foreground-muted);
-    font-size: 1.2rem;
-    margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--fg-muted);
+  max-width: 520px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+/* ── Work list ─────────────────────────────────────────── */
+
+.workList {
+  border-top: 1px solid var(--border);
 }
 
-.card {
-    position: relative;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
+.workItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-start);
+.workNum {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--fg-dim);
+  padding-top: 0.3rem;
+  min-width: 2rem;
 }
 
-.cardContent {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.workContent {
+  flex: 1;
+  min-width: 0;
 }
 
-.meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-    font-size: 0.85rem;
-    color: var(--foreground-muted);
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+.workTitle {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 0.4rem;
+  transition: color 0.2s;
 }
 
-.title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-family: var(--font-heading);
+a.workTitle:hover {
+  color: var(--orange);
+  opacity: 1;
 }
 
-.description {
-    color: var(--foreground-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
+.workMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--fg-muted);
+  margin-bottom: 0.75rem;
 }
 
-.cardOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.06),
-            transparent 40%);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s;
-    pointer-events: none;
+.category {
+  color: var(--orange);
 }
 
-.card:hover .cardOverlay {
-    opacity: 1;
+.year {
+  color: var(--fg-muted);
 }
 
-.placeholder {
-    border-style: dashed;
-    background: transparent;
-    align-items: center;
-    justify-content: center;
-    color: var(--foreground-muted);
+.metaDot {
+  color: var(--fg-dim);
 }
 
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: auto;
-    padding-top: 1rem;
+.methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
-.tag {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
-    background: rgba(139, 92, 246, 0.15);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 20px;
-    color: var(--accent-start);
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.method {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
+
+.statusBlock {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.readLink {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--orange);
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+
+.readLink:hover {
+  opacity: 0.7;
+}
+
+.statusBadge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+}
+
+.wipBadge {
+  color: var(--orange);
+  border-color: rgba(232, 145, 58, 0.4);
+}
+
+/* ── Music section ─────────────────────────────────────── */
 
 .musicSection {
-    margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
 }
 
-.sectionTitle {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: var(--foreground);
+.musicHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--fg-dim);
+  white-space: nowrap;
+}
+
+.sectionLine {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.musicContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.musicDesc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 560px;
+}
+
+.musicLinks {
+  display: flex;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.musicLink {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: opacity 0.2s;
+}
+
+.musicLink:hover {
+  opacity: 0.65;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .workItem {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .statusBlock {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .musicContent {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }

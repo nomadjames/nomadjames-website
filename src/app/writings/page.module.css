@@ -1,61 +1,120 @@
 .page {
-    padding-top: 120px;
-    padding-bottom: 4rem;
-    min-height: 100vh;
+  padding-top: 7rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
 }
 
+/* ── Header ────────────────────────────────────────────── */
+
 .header {
-    margin-bottom: 4rem;
+  padding: 4rem 0 3.5rem;
+}
+
+.headerRule {
+  width: 2.5rem;
+  height: 2px;
+  background: var(--orange);
+  margin-bottom: 1.5rem;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--fg);
+  margin-bottom: 1rem;
 }
 
 .subtitle {
-    color: var(--foreground-muted);
-    font-size: 1.2rem;
-    margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--fg-muted);
+  max-width: 480px;
 }
 
-.list {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    max-width: 800px;
+/* ── Writing list ──────────────────────────────────────── */
+
+.writingList {
+  border-top: 1px solid var(--border);
+  max-width: 800px;
 }
 
-.item {
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--border);
+.writingItem {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
-.item:last-child {
-    border-bottom: none;
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.meta {
-    font-size: 0.85rem;
-    color: var(--accent-start);
-    margin-bottom: 0.5rem;
-    display: flex;
-    gap: 0.5rem;
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.itemNum {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--fg-dim);
 }
 
-.title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.02em;
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
 }
 
-.link:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--accent-end);
-    text-underline-offset: 4px;
+.itemType {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
 }
 
-.excerpt {
-    color: var(--foreground-muted);
-    font-size: 1.1rem;
-    line-height: 1.6;
+.itemDate {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--fg-muted);
+}
+
+.metaDot {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--fg-dim);
+}
+
+.statusBadge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.itemTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.itemExcerpt {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+}
+
+@media (max-width: 640px) {
+  .itemTitle {
+    font-size: 1.25rem;
+  }
 }

@@ -1,24 +1,32 @@
 :root {
-  /* Colors */
-  --background: #050505;
-  --surface: #0a0a0a;
-  --surface-highlight: #121212;
-  --foreground: #ededed;
-  --foreground-muted: #a1a1aa;
+  /* Core palette */
+  --bg: #141414;
+  --surface: #1a1a1a;
+  --surface-highlight: #222222;
+  --fg: #e4e4e4;
+  --fg-muted: #888888;
+  --fg-dim: #444444;
 
+  /* SensorSynthFM accent palette */
+  --orange: #E8913A;
+  --blue: #2E6B9E;
+  --green: #2D8B4E;
+
+  /* Legacy aliases — backward compat with existing CSS module refs */
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --foreground-muted: var(--fg-muted);
   --primary: #ffffff;
-  --accent-start: #7928ca;
-  --accent-end: #ff0080;
-  /* Vercel-ish pink/purple or similar premium gradient */
-
-  --border: #27272a;
+  --border: #2a2a2a;
+  --accent-start: var(--orange);
+  --accent-end: var(--orange);
 
   /* Typography */
   --font-heading: var(--font-outfit), sans-serif;
   --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jb-mono), 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* Reset & Base */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -32,8 +40,8 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--bg);
+  color: var(--fg);
   font-family: var(--font-body);
   line-height: 1.6;
 }
@@ -48,11 +56,10 @@ a:hover {
   opacity: 0.8;
 }
 
-/* Utilities */
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 .heading-gradient {
@@ -63,7 +70,7 @@ a:hover {
 }
 
 .text-gradient-accent {
-  background: linear-gradient(to right, var(--accent-start), var(--accent-end));
+  background: linear-gradient(to right, var(--orange), #f0b070);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
