@@ -60,7 +60,7 @@ export default function AccessibilityAudit() {
             <li><strong>Social media content audit</strong> - Instagram (Kent State College of Aeronautics)</li>
             <li><strong>Contrast ratio and color blindness analysis</strong> - Three music tech websites via WebAIM Contrast Checker</li>
             <li><strong>Heuristic evaluation</strong> - Ableton&apos;s Learning Music platform (learningmusic.ableton.com)</li>
-            <li><strong>Assistive technology hands-on</strong> - VoiceOver testing on GroundNews web and mobile</li>
+            <li><strong>Assistive technology hands-on</strong> - VoiceOver testing on GroundNews web</li>
             <li><strong>PDF remediation</strong> - Adobe Acrobat accessibility checker on a scanned document</li>
             <li><strong>Cognitive accessibility research</strong> - Original reflection on AI, cognitive load, and machine readability</li>
           </ul>
@@ -146,9 +146,7 @@ export default function AccessibilityAudit() {
             design decisions and design failures. The site&apos;s strengths are real: strong consistency and
             standards throughout, a clear visual language, and content that respects the learner&apos;s intelligence.
             But the interactive modules have a problem with error recovery - when a user makes a mistake in a
-            sequencer exercise, feedback is minimal and recovery paths aren&apos;t obvious (Heuristic 9). The chord
-            sequencer had visibility of system status issues: it wasn&apos;t always clear what state the module was
-            in or whether an action had registered.
+            sequencer exercise, feedback is minimal and recovery paths aren&apos;t obvious (Heuristic 9).
           </p>
           <p className={styles.body}>
             For advanced users, the platform offers little in the way of flexibility or efficiency shortcuts -

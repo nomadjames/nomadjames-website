@@ -24,7 +24,7 @@ export default function FoodInsecurityResearch() {
           </div>
           <h1 className={styles.title}>Food Insecurity<br />Discovery Research</h1>
           <div className={styles.methods}>
-            {["Screener Design", "Semi-Structured Interviews", "Affinity Mapping", "Questionnaire Design", "JTBD Analysis", "Card Sort Analysis", "Mixed Methods"].map((m) => (
+            {["Screener Design", "Semi-Structured Interviews", "Affinity Mapping", "Questionnaire Design", "JTBD Analysis", "Mixed Methods"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
             ))}
           </div>
@@ -178,32 +178,33 @@ export default function FoodInsecurityResearch() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The JTBD Question</h2>
           <p className={styles.body}>
-            The course applied a Jobs-to-Be-Done framework to the research data, and I had real reservations
-            about the fit. JTBD is a framework built around the idea that people &ldquo;hire&rdquo; products and services
-            to accomplish specific functional goals. The vocabulary maps well onto consumer product contexts -
-            the canonical example of someone hiring a milkshake for a morning commute is instructive precisely
-            because it&apos;s so banal.
+            One course module used a published JTBD study as a critical analysis case - evaluating how
+            another research team had applied Jobs-to-Be-Done to consumer behavior data. Working through
+            that paper raised questions I kept turning back toward my own data. JTBD is a framework built
+            around the idea that people &ldquo;hire&rdquo; products and services to accomplish specific functional
+            goals. The vocabulary maps well onto consumer product contexts - the canonical example of
+            someone hiring a milkshake for a morning commute is instructive precisely because it&apos;s so banal.
           </p>
           <p className={styles.body}>
-            Food insecurity is not banal. The &ldquo;job&rdquo; framing risks reducing a complex, constrained, dignity-laden
-            experience to a functional transaction. When you apply JTBD to someone navigating chronic food
-            scarcity, you risk producing a clean-looking analysis that misses everything socially and
-            emotionally significant about what that person is actually going through.
+            Food insecurity is not banal. The &ldquo;job&rdquo; framing risks reducing a complex, constrained,
+            dignity-laden experience to a functional transaction. If you applied JTBD to someone navigating
+            chronic food scarcity, you&apos;d risk producing a clean-looking analysis that misses everything
+            socially and emotionally significant about what that person is actually going through.
           </p>
           <p className={styles.body}>
             That said: the functional job layer - what people are concretely trying to accomplish when they
-            engage with food assistance systems - did yield useful signal. Participants wanted reliable access,
-            reduced planning burden, and options that didn&apos;t require them to sacrifice quality or dignity.
-            Those are designable jobs. The critique isn&apos;t that JTBD produces no insight here - it&apos;s that
-            taken alone, without the emotional and social job dimensions, it produces incomplete and potentially
-            misleading insight.
+            engage with food assistance systems - does yield real signal. What participants wanted was
+            reliable access, reduced planning burden, and options that didn&apos;t require them to sacrifice
+            quality or dignity. Those are designable. The critique isn&apos;t that JTBD produces no insight
+            in this domain - it&apos;s that taken alone, without the emotional and social job dimensions,
+            it produces incomplete and potentially misleading insight.
           </p>
           <p className={styles.body}>
-            The more honest version of a JTBD analysis in this context requires foregrounding the emotional
-            and social job layers - not treating them as secondary to the functional. For a population
-            managing chronic constraint, the functional job is often straightforward. The emotional job
-            (maintain dignity, avoid judgment, preserve a sense of agency) is where the real design
-            challenge lives.
+            The more honest version of a JTBD analysis in a context like this requires foregrounding the
+            emotional and social job layers - not treating them as secondary to the functional. For a
+            population managing chronic constraint, the functional job is often straightforward. The
+            emotional job (maintain dignity, avoid judgment, preserve a sense of agency) is where the
+            real design challenge lives.
           </p>
         </section>
 

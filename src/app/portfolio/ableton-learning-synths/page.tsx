@@ -41,9 +41,9 @@ export default function AbletonLearningsynths() {
             topic for users who don&apos;t yet have the vocabulary to ask the right questions.
           </p>
           <p className={styles.body}>
-            I&apos;ve been involved with Ableton as a user, community organizer, and advocate for over thirty
-            years. I lead the Pittsburgh Ableton User Group and have watched countless beginners encounter
-            synthesis for the first time. That background shaped why I picked this site — and it meant I
+            I&apos;ve been making electronic music for thirty years and working with Ableton — as a user,
+            community organizer, and advocate — for over a decade. I lead the Pittsburgh Ableton User
+            Group and have watched countless beginners encounter synthesis for the first time. That background shaped why I picked this site — and it meant I
             could bring genuine domain fluency to the evaluation while still working from a rigorous novice
             perspective.
           </p>
