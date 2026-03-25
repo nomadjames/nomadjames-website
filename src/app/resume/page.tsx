@@ -199,8 +199,8 @@ export default function Resume() {
                 <span className={styles.projectYear}>2026 - in progress</span>
               </div>
               <p className={styles.projectDesc}>
-                MS UX Capstone. iPad FM synthesizer using MPE multi-touch and environmental sensors
-                (temperature, light, motion) as real-time synthesis parameters.
+                MS UX Capstone. iPad FM synthesizer using the device&apos;s physical sensors — accelerometer,
+                gyroscope, TrueDepth camera — as real-time FM modulation sources. Built with AudioKit 5 and SwiftUI.
               </p>
             </div>
           </div>

@@ -21,9 +21,9 @@ export default function Home() {
           </div>
           <p className={styles.bio}>
             Thirty years of electronic music and a decade leading Pittsburgh&apos;s Ableton User Group gave me a
-            framework for thinking about tools - what they enable, what they foreclose, and who they leave out.
+            framework for thinking about tools — what they enable, what they foreclose, and who they leave out.
             I&apos;m in graduate school now building that instinct into a research practice, with a thesis taking
-            shape around AI, creativity, and the ethics of designed cognition.
+            shape around AI, creativity, and what it means to design systems that shape how people think.
           </p>
           <div className={styles.heroLinks}>
             <a href="https://www.linkedin.com/in/james-dishman-3a512163/" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
@@ -64,43 +64,47 @@ export default function Home() {
             <li className={styles.workItem}>
               <span className={styles.workNum}>02</span>
               <div className={styles.workContent}>
-                <span className={styles.workTitle}>Moderated Usability Testing</span>
+                <a href="/portfolio/food-insecurity" className={styles.workTitle}>
+                  Food Insecurity Discovery Research
+                </a>
                 <div className={styles.workMeta}>
                   <span>UX Research</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Screener Design · Test Protocol · Session Moderation</span>
+                  <span>Semi-Structured Interviews · Affinity Mapping · JTBD Analysis</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2025</span>
                 </div>
               </div>
-              <span className={styles.workStatus}>Soon</span>
+              <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
             <li className={styles.workItem}>
               <span className={styles.workNum}>03</span>
               <div className={styles.workContent}>
-                <span className={styles.workTitle}>Food Insecurity Discovery Research</span>
+                <a href="/portfolio/health-translator" className={styles.workTitle}>
+                  Health Translator
+                </a>
                 <div className={styles.workMeta}>
-                  <span>UX Research</span>
+                  <span>AI / UX Research</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Contextual Inquiry · Affinity Mapping · Journey Mapping</span>
+                  <span>Trust-Centered Design · Plain Language · Multimodal Interaction</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2025</span>
                 </div>
               </div>
-              <span className={styles.workStatus}>Soon</span>
+              <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
             <li className={styles.workItem}>
               <span className={styles.workNum}>04</span>
               <div className={styles.workContent}>
                 <a href="/portfolio/clarence" className={styles.workTitle}>
-                  Clarence - Autonomous Agent Ecosystem
+                  Clarence — Autonomous Agent Ecosystem
                 </a>
                 <div className={styles.workMeta}>
                   <span>AI Systems Design</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>Agent Architecture · Human-AI Collaboration · Rust · Python</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2025-2026</span>
+                  <span>2025–2026</span>
                 </div>
               </div>
               <span className={styles.workArrow} aria-hidden="true">→</span>
@@ -108,16 +112,18 @@ export default function Home() {
             <li className={styles.workItem}>
               <span className={styles.workNum}>05</span>
               <div className={styles.workContent}>
-                <span className={styles.workTitle}>SensorSynth FM</span>
+                <a href="/portfolio/sensorsynth" className={styles.workTitle}>
+                  SensorSynth FM
+                </a>
                 <div className={styles.workMeta}>
-                  <span>Product Design</span>
+                  <span>Product Design · iOS</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Hardware · Interface Design · Sensor Integration</span>
+                  <span>Embodied Interaction · FM Synthesis · Sensor Mapping · AudioKit</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2026</span>
                 </div>
               </div>
-              <span className={`${styles.workStatus} ${styles.wip}`}>WIP</span>
+              <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
           </ol>
         </section>
@@ -141,10 +147,11 @@ export default function Home() {
             <div className={styles.buildingItem}>
               <span className={styles.buildingName}>SensorSynth FM</span>
               <p className={styles.buildingDesc}>
-                A hardware synthesizer that reads environmental sensors - temperature, light, motion - and
-                translates physical space into FM synthesis parameters. The interface question is the
-                interesting part.
+                An iPad FM synthesizer that uses the device&apos;s physical sensors — accelerometer, gyroscope,
+                TrueDepth camera — as modulation sources. The design question is what it feels like when your
+                body is the instrument, not just the thing holding it.
               </p>
+              <a href="/portfolio/sensorsynth" className={styles.buildingLink}>Read the case study →</a>
             </div>
           </div>
         </section>
