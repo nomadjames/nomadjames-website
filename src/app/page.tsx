@@ -32,6 +32,9 @@ export default function Home() {
             <a href="https://github.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
               GitHub ↗
             </a>
+            <a href="https://substack.com/@nomadjames057" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
+              Substack ↗
+            </a>
             <a href="/contact" className={styles.heroLink}>
               Contact ↗
             </a>
