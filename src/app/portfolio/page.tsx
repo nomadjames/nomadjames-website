@@ -48,12 +48,12 @@ const work = [
   },
   {
     num: "06",
-    title: "SensorSynth FM",
-    category: "Product Design",
+    title: "SensorSynth FM: Your Body as the Interface",
+    category: "Product Design · iOS",
     year: "2026",
-    methods: ["Hardware UI", "Sensor Integration", "Interaction Design", "Figma"],
+    methods: ["Embodied Interaction", "FM Synthesis", "Sensor Mapping", "AudioKit / SwiftUI"],
     status: "wip",
-    link: null,
+    link: "/portfolio/sensorsynth",
   },
 ];
 
