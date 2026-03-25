@@ -26,6 +26,12 @@ export default function Navigation() {
           >
             Writing
           </Link>
+          <Link
+            href="/resume"
+            className={`${styles.link} ${pathname.startsWith("/resume") ? styles.active : ""}`}
+          >
+            Résumé
+          </Link>
         </div>
       </div>
     </nav>
