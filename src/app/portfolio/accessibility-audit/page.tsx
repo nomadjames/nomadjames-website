@@ -73,11 +73,16 @@ export default function AccessibilityAudit() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Instagram: Accessibility as Afterthought</h3>
             <p className={styles.body}>
-              The Kent State College of Aeronautics feed had no alt text on any images - not reduced alt text,
-              not generic alt text, none. Decorative emoji were scattered throughout captions with no
-              aria-hidden treatment, meaning screen readers announced each one by name. Story text overlays
-              failed contrast requirements. Video content had no captions. Any of these in isolation is a
-              fixable problem. All of them together signals a workflow issue, not just a content issue.
+              The Kent State College of Aeronautics feed had alt text on images, but all of it was
+              auto-generated — not human-authored, not contextually accurate. Auto-generated alt text
+              that misidentifies or vaguely describes an image is a different failure than missing alt
+              text: it creates false confidence. A screen reader user gets a description, but the
+              description is wrong. Decorative emoji were scattered throughout captions with no
+              aria-hidden treatment, meaning screen readers announced each one by name. Story text
+              overlays failed contrast requirements. Video content had no captions. The alt text problem
+              in isolation is fixable with workflow changes. Combined with the rest, it signals that
+              accessibility is being handled by automation rather than intention — which is its own
+              category of problem.
             </p>
           </div>
 
