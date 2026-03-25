@@ -12,7 +12,7 @@ export default function Home() {
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
             <span className={styles.eyebrowLabel}>Kent State University MS UX</span>
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>Pittsburgh, PA</span>
+            <span className={styles.eyebrowLabel}>Youngstown, OH</span>
           </div>
           <h1 className={styles.name}>James Dishman</h1>
           <div className={styles.thesis}>
@@ -163,7 +163,7 @@ export default function Home() {
             <div className={styles.sectionLine} />
           </div>
           <p className={styles.musicStatement}>
-            Thirty years in electronic music production. Pittsburgh Ableton User Group. Available for DJ sets and collaboration.
+            Thirty years in electronic music production. Pittsburgh Ableton User Group. Available for DJ sets, live performances, and collaboration.
           </p>
           <div className={styles.musicLinks}>
             <a href="https://soundcloud.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>

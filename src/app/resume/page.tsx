@@ -16,7 +16,7 @@ export default function Resume() {
         <header className={styles.header}>
           <h1 className={styles.name}>James Dishman</h1>
           <div className={styles.contact}>
-            <span>Pittsburgh, PA</span>
+            <span>Youngstown, OH</span>
             <span className={styles.dot}>·</span>
             <a href="/contact">nomadjames.com/contact</a>
             <span className={styles.dot}>·</span>
