@@ -185,17 +185,6 @@ export default function SensorSynthFM() {
               <span key={skill} className={styles.skill}>{skill}</span>
             ))}
           </div>
-          <p className={styles.body} style={{ marginTop: "1.5rem" }}>
-            <strong>Repository:</strong>{" "}
-            <a
-              href="https://github.com/nomadjames/SensorSynthFM"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "var(--orange)" }}
-            >
-              github.com/nomadjames/SensorSynthFM ↗
-            </a>
-          </p>
         </section>
 
       </main>

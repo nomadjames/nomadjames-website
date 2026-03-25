@@ -52,7 +52,7 @@ const work = [
     category: "Product Design · iOS",
     year: "2026",
     methods: ["Embodied Interaction", "FM Synthesis", "Sensor Mapping", "AudioKit / SwiftUI"],
-    status: "wip",
+    status: "published",
     link: "/portfolio/sensorsynth",
   },
 ];
