@@ -32,8 +32,8 @@ export default function Home() {
             <a href="https://github.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
               GitHub ↗
             </a>
-            <a href="mailto:nomadjames@gmail.com" className={styles.heroLink}>
-              nomadjames@gmail.com
+            <a href="/contact" className={styles.heroLink}>
+              Contact ↗
             </a>
           </div>
         </section>

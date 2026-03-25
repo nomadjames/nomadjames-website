@@ -1,0 +1,136 @@
+.page {
+  padding-top: 6.5rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+}
+
+.backLink {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin-bottom: 3rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: var(--orange);
+  opacity: 1;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+}
+
+.eyebrowLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--fg-muted);
+  max-width: 44ch;
+  line-height: 1.6;
+}
+
+/* ── Form ─────────────────────────────────────────────────── */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 520px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+}
+
+.input,
+.textarea {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--orange);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit {
+  align-self: flex-start;
+  background: var(--orange);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.submit:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.success {
+  font-size: 1rem;
+  color: var(--green);
+  padding: 1.25rem 0;
+}
+
+.errorMsg {
+  font-size: 0.875rem;
+  color: #c0392b;
+}

@@ -18,9 +18,7 @@ export default function Resume() {
           <div className={styles.contact}>
             <span>Pittsburgh, PA</span>
             <span className={styles.dot}>·</span>
-            <a href="mailto:nomadjames@gmail.com">nomadjames@gmail.com</a>
-            <span className={styles.dot}>·</span>
-            <span>(724) 813-6332</span>
+            <a href="/contact">nomadjames.com/contact</a>
             <span className={styles.dot}>·</span>
             <a href="https://linkedin.com/in/james-dishman-3a512163" target="_blank" rel="noopener noreferrer">
               LinkedIn ↗
