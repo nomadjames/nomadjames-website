@@ -1,0 +1,176 @@
+.page {
+  padding-top: 6.5rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+}
+
+/* ── Back link ─────────────────────────────────────────── */
+
+.backLink {
+  margin-bottom: 2.5rem;
+}
+
+.backLink a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-muted);
+  transition: color 0.2s;
+}
+
+.backLink a:hover {
+  color: var(--orange);
+  opacity: 1;
+}
+
+/* ── Header ────────────────────────────────────────────── */
+
+.header {
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3.5rem;
+}
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrowLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eyebrowDot {
+  color: var(--orange);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--fg);
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 600px;
+}
+
+/* ── Sketch grid ───────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* ── Sketch card ───────────────────────────────────────── */
+
+.card {
+  background: #2a2a2a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  border-color: rgba(232, 145, 58, 0.5);
+  box-shadow: 0 0 24px rgba(232, 145, 58, 0.12), 0 0 8px rgba(232, 145, 58, 0.08);
+}
+
+/* ── iframe ────────────────────────────────────────────── */
+
+.iframeWrapper {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  background: #141414;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── Card body ─────────────────────────────────────────── */
+
+.cardBody {
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-top: 1px solid #333;
+}
+
+.cardTitle {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.6rem;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin-bottom: 1rem;
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.5rem;
+}
+
+.courseTag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-dim);
+}
+
+.hint {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-style: italic;
+  color: #555;
+  letter-spacing: 0.02em;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .iframeWrapper {
+    height: 340px;
+  }
+
+  .cardBody {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; display: flex; align-items: center; justify-content: center; width: 100%; height: 100vh; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script>
+    let isAnimating = true;
+    let angle = 0;
+    let numShapes = 25;
+    function setup() {
+      createCanvas(600, 600);
+    }
+    function draw() {
+      if (!isAnimating) return;
+      frameRate(map(mouseY, 0, height, 5, 60));
+      background(random(100, 255), random(100, 255), random(100, 255), 50);
+      for (let i = 0; i < numShapes; i++) {
+        drawRandomShape();
+      }
+      push();
+      translate(width / 2, height / 2);
+      rotate(angle);
+      drawNestedSquares();
+      pop();
+      angle += 0.02;
+    }
+    function mousePressed() {
+      isAnimating = !isAnimating;
+      if (isAnimating) { loop(); } else { noLoop(); }
+    }
+    function drawRandomShape() {
+      let shapeType = floor(random(3));
+      let x = random(width);
+      let y = random(height);
+      let size = random(20, 100);
+      let fillColor = color(random(255), random(255), random(255), 150);
+      fill(fillColor);
+      noStroke();
+      switch (shapeType) {
+        case 0: ellipse(x, y, size, size); break;
+        case 1: rect(x, y, size, size); break;
+        case 2: triangle(x, y, x + size / 2, y - size, x + size, y); break;
+      }
+    }
+    function drawNestedSquares() {
+      let numSquares = 6;
+      let maxSize = width * 0.6;
+      let step = maxSize / numSquares;
+      for (let i = 0; i < numSquares; i++) {
+        fill(random(255), random(255), random(255), 100);
+        noStroke();
+        let s = maxSize - i * step;
+        rectMode(CENTER);
+        rect(0, 0, s, s);
+      }
+    }
+  </script>
+</body>
+</html>

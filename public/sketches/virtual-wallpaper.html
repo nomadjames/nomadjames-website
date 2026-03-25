@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; display: flex; align-items: center; justify-content: center; width: 100%; height: 100vh; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script>
+    let currentColor;
+    let gridSize = 50;
+    function setup() {
+      createCanvas(600, 600);
+      noStroke();
+      frameRate(5);
+      currentColor = color(100, 250, 200);
+    }
+    function draw() {
+      background(random(100,250), random(100,250), random(100,250), random(100,250));
+      textSize(14);
+      textAlign(LEFT, TOP);
+      const textMargin = 10;
+      let header = "Do not watch television. Do not use social media. Do not read the news. Press and hold or click the mouse to reset your brain. Cleanliness is next to godliness. A clean brain is a happy brain.";
+      let headerHeight = textAscent() + textDescent();
+      fill(0);
+      text(header, textMargin, textMargin, 600 - 2 * textMargin);
+      const padX = 600 * 0.07;
+      const padY = 600 * 0.07;
+      const gridTopMargin = padY + headerHeight + textMargin + 30;
+      const regionWidth = 600 - 2 * padX;
+      const regionHeight = 600 - gridTopMargin - padY;
+      const cols = floor(regionWidth / gridSize);
+      const rows = floor(regionHeight / gridSize);
+      const extraX = (regionWidth - cols * gridSize) / 2;
+      const extraY = (regionHeight - rows * gridSize) / 2;
+      const startX = padX + extraX;
+      const startY = gridTopMargin + extraY;
+      for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+          const x = startX + i * gridSize;
+          const y = startY + j * gridSize;
+          fill(currentColor);
+          ellipse(x + gridSize/2, y + gridSize/2, gridSize * 0.7, gridSize * 0.9);
+          let initialSize = gridSize * 0.7;
+          let count = 5;
+          for (let size = initialSize; size > 5; size *= 0.7) {
+            push();
+            translate(x + gridSize/2, y + gridSize/2);
+            if (mouseIsPressed && count % 2 === 0) { rotate(random(-PI, PI)); }
+            if (count % 2 === 0) { fill(255, 150); } else { fill(0, 150); }
+            stroke(0); strokeWeight(1);
+            rect(-size/2, -size*0.3, size, size*0.6);
+            noStroke();
+            pop();
+            count++;
+          }
+        }
+      }
+    }
+    function mousePressed() {
+      currentColor = color(random(255), random(255), random(255), random(255));
+      gridSize = random(50, 150);
+    }
+  </script>
+</body>
+</html>
