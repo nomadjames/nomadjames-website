@@ -247,3 +247,45 @@ a.projectTitle:hover {
   font-size: 0.875rem;
   line-height: 1.7;
 }
+
+/* ── Print / Save as PDF ────────────────────────────────── */
+
+@media print {
+  :root {
+    --bg: #ffffff;
+    --fg: #0a0a0a;
+    --fg-muted: #444444;
+    --fg-dim: #888888;
+    --border: #dddddd;
+    --orange: #c4711f;
+  }
+
+  .page {
+    padding: 0;
+  }
+
+  .downloadBtn {
+    display: none;
+  }
+
+  nav, footer {
+    display: none !important;
+  }
+
+  .section {
+    break-inside: avoid;
+  }
+
+  .role {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a[href]::after {
+    content: none;
+  }
+}
