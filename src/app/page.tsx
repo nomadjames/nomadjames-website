@@ -25,6 +25,17 @@ export default function Home() {
             I&apos;m in graduate school now building that instinct into a research practice, with a thesis taking
             shape around AI, creativity, and the ethics of designed cognition.
           </p>
+          <div className={styles.heroLinks}>
+            <a href="https://www.linkedin.com/in/james-dishman-3a512163/" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
+              LinkedIn ↗
+            </a>
+            <a href="https://github.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
+              GitHub ↗
+            </a>
+            <a href="mailto:nomadjames@gmail.com" className={styles.heroLink}>
+              nomadjames@gmail.com
+            </a>
+          </div>
         </section>
 
         {/* Selected Work */}
