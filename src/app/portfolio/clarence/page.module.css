@@ -38,7 +38,101 @@
   line-height: 1.4;
 }
 
-/* ── Architecture stack ────────────────────────────────── */
+/* ── Architecture diagram ──────────────────────────────── */
+
+.archDiagram {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1.75rem;
+  border: 1px solid var(--border);
+}
+
+.archDiagramRow {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 1.5rem;
+  row-gap: 0.75rem;
+  align-items: start;
+}
+
+.archDiagramRow:last-child {
+  border-bottom: none;
+}
+
+.archDiagramLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  padding-top: 0.25rem;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.archDiagramNodes {
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.archDiagramNote {
+  grid-row: 2;
+  grid-column: 2;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+.archDiagramNode {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.archDiagramNodeAccent {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--orange);
+  border-radius: 2px;
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+.archDiagramArrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--fg-dim);
+}
+
+.archDiagramConnector {
+  text-align: center;
+  padding: 0.5rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--fg-dim);
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Architecture stack (legacy, keep for compat) ──────── */
 
 .archStack {
   display: flex;
@@ -81,7 +175,7 @@
 
 .agentGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 0;
   border: 1px solid var(--border);
   margin-top: 1.5rem;
@@ -104,7 +198,7 @@
 .agentName {
   display: block;
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--fg);
   margin-bottom: 0.2rem;
@@ -113,9 +207,9 @@
 .agentRole {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.63rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--orange);
   margin-bottom: 0.75rem;
 }
@@ -127,7 +221,7 @@
   margin: 0;
 }
 
-/* ── Nightly work list ─────────────────────────────────── */
+/* ── Overnight work timeline ───────────────────────────── */
 
 .workList {
   display: flex;
@@ -155,7 +249,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--orange);
-  padding-top: 0.1rem;
+  padding-top: 0.15rem;
   white-space: nowrap;
 }
 
@@ -164,6 +258,44 @@
   line-height: 1.7;
   color: var(--fg-muted);
   margin: 0;
+}
+
+.workDesc strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* ── Header meta extras ────────────────────────────────── */
+
+.context {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--fg-dim);
+}
+
+/* ── Case navigation ───────────────────────────────────── */
+
+.caseNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+.navLink {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--orange);
+  opacity: 1;
 }
 
 /* ── Responsive ────────────────────────────────────────── */
@@ -179,6 +311,26 @@
 
   .stat {
     border-bottom: 1px solid var(--border);
+  }
+
+  .archDiagramRow {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .archDiagramLabel {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .archDiagramNodes {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .archDiagramNote {
+    grid-row: 3;
+    grid-column: 1;
   }
 
   .archLayer {
@@ -202,5 +354,11 @@
 
   .agentCard:last-child {
     border-bottom: none;
+  }
+
+  .caseNav {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
   }
 }
