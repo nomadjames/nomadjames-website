@@ -30,7 +30,7 @@ export default function ClarencePage() {
               "Agent Orchestration",
               "Multi-Model Routing",
               "OpenClaw",
-              "cc-forge (Rust)",
+              "Custom Model Bridge (Rust)",
               "Claude Opus 4",
               "Gemini 2.5 Pro",
               "Telegram API",
@@ -135,16 +135,15 @@ export default function ClarencePage() {
             <div className={cs.archDiagramRow}>
               <div className={cs.archDiagramLabel}>Model Routing</div>
               <div className={cs.archDiagramNodes}>
-                <span className={cs.archDiagramNodeAccent}>cc-forge :8321</span>
+                <span className={cs.archDiagramNodeAccent}>Model Bridge :8321</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Claude Opus 4 / Sonnet 4</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Gemini 2.5 Pro / Flash</span>
               </div>
               <p className={cs.archDiagramNote}>
-                cc-forge is a custom Rust proxy that translates OpenAI-compatible API calls into
-                Claude Code CLI invocations. This routes Claude through Anthropic&apos;s own toolchain
-                without a separate API key configuration.
+                A custom Rust bridge translates between the orchestrator&apos;s API format and the
+                underlying model providers, enabling multi-model routing without separate key configurations.
               </p>
             </div>
 
@@ -316,16 +315,16 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>Infrastructure Decisions and Why</h2>
 
           <div className={styles.finding}>
-            <h3 className={styles.findingTitle}>cc-forge: Bridging Two Systems</h3>
+            <h3 className={styles.findingTitle}>Bridging the Orchestrator and Model Providers</h3>
             <p className={styles.body}>
-              OpenClaw speaks the OpenAI-compatible API. Claude Code speaks Anthropic&apos;s own protocol and CLI.
-              cc-forge is a Rust proxy that translates between them, making Claude available to OpenClaw
-              without requiring a direct Anthropic API key in the orchestrator config.
+              OpenClaw speaks the OpenAI-compatible API. The underlying model providers speak their own
+              protocols. A custom Rust bridge translates between them, making Claude and Gemini available
+              to the orchestrator without separate API key configurations per agent.
             </p>
             <p className={styles.body}>
               This adds a dependency layer that can fail independently of either system. The tradeoff was
-              worth it: deeper integration with Claude&apos;s toolchain, including tool access and session context
-              that the raw API would not provide in the same form.
+              worth it: deeper integration with the model toolchain, including tool access and session context
+              that direct API calls would not provide in the same form.
             </p>
           </div>
 
@@ -335,8 +334,8 @@ export default function ClarencePage() {
               Not every job needs Opus. The routing policy separates tasks into tiers:
             </p>
             <ul className={styles.methodList}>
-              <li><strong>Opus 4 via cc-forge</strong> for tasks requiring judgment, synthesis, or consequential writing — scrum master, autonomous employee, self-audit, evening goals reminder</li>
-              <li><strong>Gemini 2.5 Pro via cc-forge</strong> for research and coordination tasks — research briefing, chief of staff, market scouting, weekly memory hygiene</li>
+              <li><strong>Opus 4 via model bridge</strong> for tasks requiring judgment, synthesis, or consequential writing — scrum master, autonomous employee, self-audit, evening goals reminder</li>
+              <li><strong>Gemini 2.5 Pro via model bridge</strong> for research and coordination tasks — research briefing, chief of staff, market scouting, weekly memory hygiene</li>
               <li><strong>MiniMax M2.7 via Ollama (free)</strong> for mechanical tasks — health checks, daily backup, memory consolidation, sergeant digest, heartbeats</li>
             </ul>
             <p className={styles.body}>
