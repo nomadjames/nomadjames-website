@@ -65,7 +65,7 @@ export default function Portfolio() {
           <div className={styles.headerRule} />
           <h1 className={styles.pageTitle}>Work</h1>
           <p className={styles.subtitle}>
-            Research, design, and systems thinking — graduate studies and independent projects.
+            Research, design, and systems thinking - graduate studies and independent projects.
           </p>
         </header>
 

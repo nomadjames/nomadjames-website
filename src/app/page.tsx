@@ -21,7 +21,7 @@ export default function Home() {
           </div>
           <p className={styles.bio}>
             Thirty years of electronic music and a decade leading Pittsburgh&apos;s Ableton User Group gave me a
-            framework for thinking about tools — what they enable, what they foreclose, and who they leave out.
+            framework for thinking about tools - what they enable, what they foreclose, and who they leave out.
             I&apos;m in graduate school now building that instinct into a research practice, with a thesis taking
             shape around AI, creativity, and the ethics of designed cognition.
           </p>
@@ -81,6 +81,22 @@ export default function Home() {
             <li className={styles.workItem}>
               <span className={styles.workNum}>04</span>
               <div className={styles.workContent}>
+                <a href="/portfolio/clarence" className={styles.workTitle}>
+                  Clarence - Autonomous Agent Ecosystem
+                </a>
+                <div className={styles.workMeta}>
+                  <span>AI Systems Design</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>Agent Architecture · Human-AI Collaboration · Rust · Python</span>
+                  <span className={styles.metaDot}>·</span>
+                  <span>2025-2026</span>
+                </div>
+              </div>
+              <span className={styles.workArrow}>→</span>
+            </li>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>05</span>
+              <div className={styles.workContent}>
                 <span className={styles.workTitle}>SensorSynth FM</span>
                 <div className={styles.workMeta}>
                   <span>Product Design</span>
@@ -105,15 +121,16 @@ export default function Home() {
             <div className={styles.buildingItem}>
               <span className={styles.buildingName}>Clarence</span>
               <p className={styles.buildingDesc}>
-                An autonomous AI research agent that reads the web, manages long-term memory, and surfaces the
-                signal I need. A practical study in what it means to design for machine collaboration rather than
-                machine compliance.
+                An autonomous AI agent ecosystem: 21 scheduled jobs, 11 named agents, a custom Rust API bridge,
+                multi-model routing, and a nightly R&amp;D Council that debates open questions while I sleep.
+                The design question is what it means to build a genuine collaborator rather than a responsive tool.
               </p>
+              <a href="/portfolio/clarence" className={styles.buildingLink}>Read the case study →</a>
             </div>
             <div className={styles.buildingItem}>
               <span className={styles.buildingName}>SensorSynth FM</span>
               <p className={styles.buildingDesc}>
-                A hardware synthesizer that reads environmental sensors — temperature, light, motion — and
+                A hardware synthesizer that reads environmental sensors - temperature, light, motion - and
                 translates physical space into FM synthesis parameters. The interface question is the
                 interesting part.
               </p>

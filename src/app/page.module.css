@@ -199,6 +199,20 @@ a.workTitle:hover {
   font-size: 0.95rem;
   line-height: 1.75;
   color: var(--fg-muted);
+  margin-bottom: 0.75rem;
+}
+
+.buildingLink {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  transition: opacity 0.2s;
+}
+
+.buildingLink:hover {
+  opacity: 0.65;
 }
 
 /* ── Music ─────────────────────────────────────────────── */

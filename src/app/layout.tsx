@@ -23,7 +23,7 @@ const jbMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "James Dishman — UX Designer & AI Researcher",
+  title: "James Dishman | UX Designer & AI Researcher",
   description:
     "UX researcher and designer working at the intersection of AI, creativity, and human decision-making. MS UX candidate at Kent State University.",
 };

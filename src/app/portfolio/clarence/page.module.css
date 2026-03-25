@@ -1,0 +1,206 @@
+/* ── Stats bar ─────────────────────────────────────────── */
+
+.statsBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.stat {
+  padding: 1.5rem;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.statNum {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  line-height: 1.4;
+}
+
+/* ── Architecture stack ────────────────────────────────── */
+
+.archStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+
+.archLayer {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.archLayer:last-child {
+  border-bottom: none;
+}
+
+.archLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  padding-top: 0.1rem;
+}
+
+.archDesc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+/* ── Agent grid ────────────────────────────────────────── */
+
+.agentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+
+.agentCard {
+  padding: 1.5rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.agentCard:nth-child(3n) {
+  border-right: none;
+}
+
+.agentCard:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.agentName {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 0.2rem;
+}
+
+.agentRole {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  margin-bottom: 0.75rem;
+}
+
+.agentDesc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+/* ── Nightly work list ─────────────────────────────────── */
+
+.workList {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+
+.workEntry {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.workEntry:last-child {
+  border-bottom: none;
+}
+
+.workTime {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  padding-top: 0.1rem;
+  white-space: nowrap;
+}
+
+.workDesc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .statsBar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat:nth-child(2n) {
+    border-right: none;
+  }
+
+  .stat {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .archLayer {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .workEntry {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .agentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .agentCard {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .agentCard:last-child {
+    border-bottom: none;
+  }
+}

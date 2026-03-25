@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import styles from "./resume.module.css";
 
 export const metadata: Metadata = {
-  title: "Résumé — James Dishman",
+  title: "Résumé | James Dishman",
   description:
     "UX researcher and designer. MS UX candidate at Kent State University. Background in accessibility, discovery research, and AI product design.",
 };
@@ -199,7 +199,7 @@ export default function Resume() {
             <div className={styles.project}>
               <div className={styles.projectHeader}>
                 <span className={styles.projectTitle}>SensorSynth FM</span>
-                <span className={styles.projectYear}>2026 — in progress</span>
+                <span className={styles.projectYear}>2026 - in progress</span>
               </div>
               <p className={styles.projectDesc}>
                 MS UX Capstone. iPad FM synthesizer using MPE multi-touch and environmental sensors
