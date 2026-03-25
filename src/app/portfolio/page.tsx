@@ -123,6 +123,9 @@ export default function Portfolio() {
               <a href="https://nomadjames.bandcamp.com/" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
                 Bandcamp ↗
               </a>
+              <a href="https://www.mixcloud.com/nomadjames/" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
+                Mixcloud ↗
+              </a>
             </div>
           </div>
         </section>
