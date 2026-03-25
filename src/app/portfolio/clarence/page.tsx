@@ -135,7 +135,7 @@ export default function ClarencePage() {
             <div className={cs.archDiagramRow}>
               <div className={cs.archDiagramLabel}>Model Routing</div>
               <div className={cs.archDiagramNodes}>
-                <span className={cs.archDiagramNodeAccent}>Model Bridge :8321</span>
+                <span className={cs.archDiagramNodeAccent}>Model Bridge</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Claude Opus 4 / Sonnet 4</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
