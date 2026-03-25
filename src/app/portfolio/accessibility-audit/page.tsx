@@ -18,9 +18,9 @@ export default function AccessibilityAudit() {
         <header className={styles.header}>
           <div className={styles.headerMeta}>
             <span className={styles.category}>UX Research</span>
-            <span className={styles.metaDot}>·</span>
+            <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2025</span>
-            <span className={styles.metaDot}>·</span>
+            <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>UX 60504 - Accessibility and Universal Design · Kent State MS UX</span>
           </div>
           <h1 className={styles.title}>Accessibility Audit Suite:<br />Music Tech Meets WCAG</h1>

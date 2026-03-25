@@ -268,9 +268,7 @@ a.projectTitle:hover {
     display: none;
   }
 
-  nav, footer {
-    display: none !important;
-  }
+  /* nav and footer hidden in print — see globals.css @media print */
 
   .section {
     break-inside: avoid;
@@ -280,12 +278,5 @@ a.projectTitle:hover {
     break-inside: avoid;
   }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  a[href]::after {
-    content: none;
-  }
+  /* a and a[href]::after print rules moved to globals.css @media print */
 }

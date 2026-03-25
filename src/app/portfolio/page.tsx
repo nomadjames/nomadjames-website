@@ -81,7 +81,7 @@ export default function Portfolio() {
                 )}
                 <div className={styles.workMeta}>
                   <span className={styles.category}>{item.category}</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span className={styles.year}>{item.year}</span>
                 </div>
                 <div className={styles.methods}>

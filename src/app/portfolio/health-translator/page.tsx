@@ -17,9 +17,9 @@ export default function HealthTranslator() {
         <header className={styles.header}>
           <div className={styles.headerMeta}>
             <span className={styles.category}>AI / UX Research</span>
-            <span className={styles.metaDot}>·</span>
+            <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2025</span>
-            <span className={styles.metaDot}>·</span>
+            <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>UX 60521 - AI in UX/HCI Design · Kent State MS UX · Team Capstone</span>
           </div>
           <h1 className={styles.title}>Health Translator:<br />AI That Earns Its Place</h1>

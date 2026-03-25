@@ -17,9 +17,9 @@ export default function FoodInsecurityResearch() {
         <header className={styles.header}>
           <div className={styles.headerMeta}>
             <span className={styles.category}>UX Research</span>
-            <span className={styles.metaDot}>·</span>
+            <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2025</span>
-            <span className={styles.metaDot}>·</span>
+            <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>UX 60531 - Discovery Research · Kent State MS UX</span>
           </div>
           <h1 className={styles.title}>Food Insecurity<br />Discovery Research</h1>

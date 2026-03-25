@@ -9,9 +9,9 @@ export default function Home() {
         <section className={styles.hero}>
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowLabel}>UX Designer & AI Researcher</span>
-            <span className={styles.eyebrowDot}>·</span>
+            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
             <span className={styles.eyebrowLabel}>Kent State University MS UX</span>
-            <span className={styles.eyebrowDot}>·</span>
+            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
             <span className={styles.eyebrowLabel}>Pittsburgh, PA</span>
           </div>
           <h1 className={styles.name}>James Dishman</h1>
@@ -53,13 +53,13 @@ export default function Home() {
                 </a>
                 <div className={styles.workMeta}>
                   <span>UX Research</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>WCAG 2.1 · Heuristic Evaluation · VoiceOver · PDF Remediation</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2025</span>
                 </div>
               </div>
-              <span className={styles.workArrow}>→</span>
+              <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
             <li className={styles.workItem}>
               <span className={styles.workNum}>02</span>
@@ -67,9 +67,9 @@ export default function Home() {
                 <span className={styles.workTitle}>Moderated Usability Testing</span>
                 <div className={styles.workMeta}>
                   <span>UX Research</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>Screener Design · Test Protocol · Session Moderation</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2025</span>
                 </div>
               </div>
@@ -81,9 +81,9 @@ export default function Home() {
                 <span className={styles.workTitle}>Food Insecurity Discovery Research</span>
                 <div className={styles.workMeta}>
                   <span>UX Research</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>Contextual Inquiry · Affinity Mapping · Journey Mapping</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2025</span>
                 </div>
               </div>
@@ -97,13 +97,13 @@ export default function Home() {
                 </a>
                 <div className={styles.workMeta}>
                   <span>AI Systems Design</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>Agent Architecture · Human-AI Collaboration · Rust · Python</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2025-2026</span>
                 </div>
               </div>
-              <span className={styles.workArrow}>→</span>
+              <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
             <li className={styles.workItem}>
               <span className={styles.workNum}>05</span>
@@ -111,9 +111,9 @@ export default function Home() {
                 <span className={styles.workTitle}>SensorSynth FM</span>
                 <div className={styles.workMeta}>
                   <span>Product Design</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>Hardware · Interface Design · Sensor Integration</span>
-                  <span className={styles.metaDot}>·</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2026</span>
                 </div>
               </div>

@@ -19,9 +19,9 @@ export default function ClarencePage() {
         <header className={styles.header}>
           <div className={styles.headerMeta}>
             <span className={styles.category}>Systems Design</span>
-            <span className={styles.metaDot}>·</span>
+            <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2026</span>
-            <span className={styles.metaDot}>·</span>
+            <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={cs.context}>Independent Research · Ongoing</span>
           </div>
           <h1 className={styles.title}>Clarence:<br />Designing an Autonomous AI Collaborator</h1>
@@ -102,9 +102,9 @@ export default function ClarencePage() {
               <div className={cs.archDiagramLabel}>Interface</div>
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNode}>Telegram Bot</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Brain Reader HTTP :7474</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Tailscale VPN</span>
               </div>
               <p className={cs.archDiagramNote}>
@@ -119,9 +119,9 @@ export default function ClarencePage() {
               <div className={cs.archDiagramLabel}>Orchestration</div>
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>OpenClaw :18789</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>21 Cron Jobs</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Agent Crew</span>
               </div>
               <p className={cs.archDiagramNote}>
@@ -136,9 +136,9 @@ export default function ClarencePage() {
               <div className={cs.archDiagramLabel}>Model Routing</div>
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>cc-forge :8321</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Claude Opus 4 / Sonnet 4</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Gemini 2.5 Pro / Flash</span>
               </div>
               <p className={cs.archDiagramNote}>
@@ -154,9 +154,9 @@ export default function ClarencePage() {
               <div className={cs.archDiagramLabel}>Fallback Tier</div>
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNode}>MiniMax M2.7 (Ollama)</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Gemini 2.0 Flash</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Kimi K2.5 (Ollama)</span>
               </div>
               <p className={cs.archDiagramNote}>
@@ -172,9 +172,9 @@ export default function ClarencePage() {
               <div className={cs.archDiagramLabel}>Memory</div>
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNode}>brain/ (workspace files)</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>~/.claude/projects/ bridge</span>
-                <span className={cs.archDiagramArrow}>→</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>WORKING.md + MEMORY.md</span>
               </div>
               <p className={cs.archDiagramNote}>

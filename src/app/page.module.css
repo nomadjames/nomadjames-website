@@ -170,7 +170,7 @@ a.workTitle:hover {
 }
 
 .metaDot {
-  color: var(--fg-dim);
+  color: var(--fg-muted);  /* decorative separator — aria-hidden in JSX */
 }
 
 .workArrow {
