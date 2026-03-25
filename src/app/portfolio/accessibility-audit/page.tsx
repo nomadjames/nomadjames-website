@@ -87,17 +87,20 @@ export default function AccessibilityAudit() {
           </div>
 
           <div className={styles.finding}>
-            <h3 className={styles.findingTitle}>Contrast Audit: Even Good Teams Leave Gaps</h3>
+            <h3 className={styles.findingTitle}>Contrast Audit: Specific Failures, Not Generic Ones</h3>
             <p className={styles.body}>
-              The audit covered three music tech sites I know well: Ableton.com, Fors.fm, and Audiothingies.com.
-              Audiothingies had the most significant failures - body text rendering at a 2.8:1 contrast ratio
-              against its background, well below the WCAG AA minimum of 4.5:1 for normal text (Success Criterion
-              1.4.3). Fors.fm showed low-contrast navigation that would fail for users with moderate low vision.
-              Ableton largely passed, with one interactive element falling short of the 3:1 minimum for non-text
-              contrast under SC 1.4.11.
+              The audit covered three music tech sites: Ableton.com, Fors.fm, and Audiothingies.com.
+              Fors.fm was a surprise — I expected to find violations there and didn&apos;t. Ableton largely passed.
+              The significant failures were concentrated at Audiothingies.com: gold-colored link text at a 2.4:1
+              contrast ratio (well below the 4.5:1 WCAG AA minimum under SC 1.4.3), red heading text at 4.3:1
+              that just misses the threshold, an &quot;Out of Stock&quot; notification and a CTA button that both
+              fail contrast requirements, and small red header text (23px) that doesn&apos;t qualify for the large-text
+              exception.
             </p>
             <p className={styles.body}>
-              The takeaway: even well-resourced companies with strong visual design cultures leave gaps.
+              The takeaway: failures cluster in specific interactive elements and status indicators, not uniformly
+              across a site. That makes them easy to miss in a casual review — and consequential for users with
+              low vision who depend on those exact touchpoints.
             </p>
           </div>
 
