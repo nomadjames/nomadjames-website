@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "Card Sort Analysis: AmeriCorps | James Dishman",
@@ -30,6 +31,10 @@ export default function CardSortAmericorps() {
             ))}
           </div>
         </header>
+
+        <Tldr>
+          An open card sort with 10 participants on AmeriCorps navigation taxonomy, using Lyssna. The sort produced clean, actionable IA recommendations, but the real finding was what it could not fix: AmeriCorps.gov&apos;s search is so broken that better navigation labels would not solve the actual usability problem.
+        </Tldr>
 
         {/* Context */}
         <section className={styles.section}>

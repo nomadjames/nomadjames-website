@@ -1,5 +1,6 @@
 import styles from "../accessibility-audit/page.module.css";
 import cs from "./page.module.css";
+import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
@@ -45,6 +46,10 @@ export default function ClarencePage() {
             ))}
           </div>
         </header>
+
+        <Tldr>
+          I built a 16-agent autonomous AI system that runs 27 nightly cron jobs, manages a 463-memory knowledge database, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
+        </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>

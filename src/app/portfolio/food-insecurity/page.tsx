@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "Food Insecurity Discovery Research | James Dishman",
@@ -29,6 +30,10 @@ export default function FoodInsecurityResearch() {
             ))}
           </div>
         </header>
+
+        <Tldr>
+          Full-cycle discovery research in the Mahoning Valley, from screener design through interviews, affinity mapping, and questionnaire construction. The core finding: food insecurity is not primarily an access problem. It is a sustained cognitive and emotional burden, and the systems meant to help often add friction instead of removing it.
+        </Tldr>
 
         {/* The Problem */}
         <section className={styles.section}>

@@ -1,0 +1,25 @@
+.tldr {
+  max-width: 760px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 0;
+  border-left: 3px solid var(--orange);
+  background: var(--surface);
+  border-radius: 0 4px 4px 0;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+  margin-bottom: 0.75rem;
+}
+
+.text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(228, 228, 228, 0.85);
+  margin: 0;
+}

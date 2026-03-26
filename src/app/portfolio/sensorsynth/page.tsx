@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "SensorSynth FM | James Dishman",
@@ -30,6 +31,10 @@ export default function SensorSynthFM() {
             ))}
           </div>
         </header>
+
+        <Tldr>
+          An in-progress iPad FM synthesizer that uses accelerometer, gyroscope, and TrueDepth camera data as modulation sources. The design question: what changes when your body is the instrument, not just the thing pressing buttons? This is my MS UX capstone and a research artifact exploring embodied interaction with sound.
+        </Tldr>
 
         {/* The Idea */}
         <section className={styles.section}>

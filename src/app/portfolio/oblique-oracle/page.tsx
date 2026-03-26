@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "Oblique Oracle | James Dishman",
@@ -30,6 +31,10 @@ export default function ObliqueOracle() {
             ))}
           </div>
         </header>
+
+        <Tldr>
+          A divination app that combines I Ching hexagram generation, Brian Eno&apos;s Oblique Strategies, and Claude API synthesis into a single reading. The point is not prediction. It is studying what happens to human reflection and judgment when algorithmic output is framed as wisdom instead of information.
+        </Tldr>
 
         {/* The Idea */}
         <section className={styles.section}>

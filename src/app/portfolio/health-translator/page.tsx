@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "Health Translator | James Dishman",
@@ -29,6 +30,10 @@ export default function HealthTranslator() {
             ))}
           </div>
         </header>
+
+        <Tldr>
+          A team capstone designing an AI-powered plain-language translation layer for healthcare portals. The research showed that patient skepticism about AI in healthcare is not irrational; it is well-calibrated to the stakes. That reframe made trust the central design constraint, not a feature to bolt on afterward.
+        </Tldr>
 
         {/* The Problem */}
         <section className={styles.section}>

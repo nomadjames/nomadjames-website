@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "Accessibility Audit Suite | James Dishman",
@@ -30,6 +31,10 @@ export default function AccessibilityAudit() {
             ))}
           </div>
         </header>
+
+        <Tldr>
+          I evaluated five music technology platforms across WCAG compliance, VoiceOver testing, contrast analysis, PDF remediation, and cognitive accessibility. The biggest finding wasn&apos;t any single violation. It was that accessibility best practices for people and machine readability for AI are the same goal, and most teams are failing at both.
+        </Tldr>
 
         {/* The Problem */}
         <section className={styles.section}>

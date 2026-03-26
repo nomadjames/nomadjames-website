@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "Ableton UX Evaluation Suite | James Dishman",
@@ -40,6 +41,10 @@ export default function AbletonEvaluationSuite() {
             ))}
           </div>
         </header>
+
+        <Tldr>
+          Four UX evaluation methods applied to three Ableton products over four graduate courses, grounded in 30 years of music production and a decade leading the Pittsburgh Ableton User Group. The suite revealed a consistent pattern: Ableton designs for insiders, and that works until someone shows up for the first time.
+        </Tldr>
 
         {/* Context */}
         <section className={styles.section}>
