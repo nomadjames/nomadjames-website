@@ -4,7 +4,7 @@ import cs from "./page.module.css";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with 25 scheduled cron jobs, 16 named agents, a SQLite knowledge database with semantic RAG layer, multi-model routing, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with 26 scheduled cron jobs, 16 named agents, a SQLite knowledge database with semantic RAG layer, multi-model routing, session lifecycle hooks, and a nightly self-audit loop.",
 };
 
 export default function ClarencePage() {
@@ -31,8 +31,9 @@ export default function ClarencePage() {
               "Multi-Model Routing",
               "OpenClaw",
               "Custom Model Bridge (Rust)",
-              "Claude Opus 4",
+              "Claude Opus 4.6",
               "Gemini 3.1 Pro",
+              "Session Lifecycle Hooks",
               "Telegram API",
               "Tailscale VPN",
               "Self-Improving Systems",
@@ -111,6 +112,8 @@ export default function ClarencePage() {
               <p className={cs.archDiagramNote}>
                 All device access is over a private mesh network. Brain Reader serves the
                 workspace as browsable markdown so James can read any file from iPhone without a terminal.
+                Telegram brief mode reduced per-message context injection from ~10KB to ~150 bytes, a 270x
+                reduction in startup overhead.
               </p>
             </div>
 
@@ -127,7 +130,9 @@ export default function ClarencePage() {
               </div>
               <p className={cs.archDiagramNote}>
                 OpenClaw schedules and dispatches agent sessions. Each cron job runs isolated with its
-                own model, context scope, and Telegram delivery target.
+                own model, context scope, and Telegram delivery target. Session lifecycle hooks auto-load
+                database context and HANDOFF.md on start, then write a fresh handoff note on stop, eliminating
+                cold starts between sessions.
               </p>
             </div>
 
@@ -138,7 +143,7 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>Model Bridge</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Claude Opus 4 / Sonnet 4</span>
+                <span className={cs.archDiagramNode}>Claude Opus 4.6 (pinned)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Gemini 3.1 Pro / Flash</span>
               </div>
@@ -180,11 +185,13 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A SQLite knowledge database is shared by all agents through a custom MCP server.
-                Agent names, user preferences, and project facts are stored with deterministic lookup.
-                A vector search layer (sqlite-vec + all-MiniLM-L6-v2) enables semantic retrieval across
-                all 175+ memory records. Agents can query by meaning, not just key. Syncs bidirectionally
-                with an Obsidian vault: what James writes, agents can read.
+                A single consolidated SQLite database (clarence.db) is shared by all agents through a
+                custom MCP server. Earlier iterations used separate workspace.db and sqlite_mcp_server.db
+                files; these were retired and consolidated into one authoritative store. Agent names, user
+                preferences, and project facts are stored with deterministic lookup. A vector search layer
+                (sqlite-vec + all-MiniLM-L6-v2) enables semantic retrieval across all 200+ memory and fact
+                records. Agents can query by meaning, not just key. Syncs bidirectionally with an Obsidian
+                vault: what James writes, agents can read.
               </p>
             </div>
 
@@ -198,6 +205,14 @@ export default function ClarencePage() {
             Naming agents was a deliberate choice. Names create identity and accountability. When a named agent
             produces output, I read it differently than I read output from an anonymous system call. The names
             also make role boundaries explicit across the codebase and the cron job config.
+          </p>
+          <p className={styles.body}>
+            The delegation architecture follows hard rules: Clarence coordinates, subagents execute. Every
+            non-trivial task is delegated to a background subagent via the Agent tool. Three agent types
+            handle different work: Explore subagents for research and discovery, Plan subagents for
+            architecture and strategy, and general-purpose subagents for code and execution. Multiple
+            independent tasks run in parallel. Clarence never blocks on a subagent&mdash;it stays available
+            to coordinate while agents run in the background.
           </p>
 
           <div className={cs.agentGrid}>
@@ -246,13 +261,13 @@ export default function ClarencePage() {
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>Autonomous Employee</span>
-              <span className={cs.agentRole}>Claude Opus 4 · 2:00 AM daily</span>
+              <span className={cs.agentRole}>Claude Opus 4.6 · 2:00 AM daily</span>
               <p className={cs.agentDesc}>The 2am shift. Reads the quick-wins queue from the nightly audit, picks the top unchecked task, executes it fully, marks it done, logs output, sends James a one-sentence summary. No user present. No approval loop.</p>
             </div>
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>Clarence (Self-Audit)</span>
-              <span className={cs.agentRole}>Claude Opus 4 · 3:33 AM daily</span>
+              <span className={cs.agentRole}>Claude Opus 4.6 · 3:33 AM daily</span>
               <p className={cs.agentDesc}>The meta-agent. Reviews system performance, researches new developments, writes improvement proposals, updates WORKING.md, writes the memory bridge for Claude Code, and populates the quick-wins queue for the Autonomous Employee.</p>
             </div>
 
@@ -263,8 +278,9 @@ export default function ClarencePage() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Overnight Loop</h2>
           <p className={styles.body}>
-            The most consequential design element is what happens between midnight and 8am. The jobs are
-            sequenced deliberately to build on each other:
+            The most consequential design element is what happens between midnight and 8am. The 26 cron
+            jobs are staggered with 20+ minute spacing to prevent API rate limits. They are sequenced
+            deliberately to build on each other:
           </p>
 
           <div className={cs.workList}>
@@ -286,7 +302,7 @@ export default function ClarencePage() {
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>3:00 AM</span>
-              <p className={cs.workDesc}><strong>Memory Consolidation:</strong> extracts durable facts from daily logs into MEMORY.md. Runs on MiniMax to preserve Opus budget.</p>
+              <p className={cs.workDesc}><strong>Memory Consolidation:</strong> extracts durable facts from daily logs into clarence.db. Runs on MiniMax to preserve Opus budget.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>3:33 AM</span>
@@ -340,7 +356,7 @@ export default function ClarencePage() {
               Not every job needs Opus. The routing policy separates tasks into tiers:
             </p>
             <ul className={styles.methodList}>
-              <li><strong>Opus 4 via model bridge</strong> for tasks requiring judgment, synthesis, or consequential writing: scrum master, autonomous employee, self-audit, evening goals reminder</li>
+              <li><strong>Opus 4.6 (pinned in settings.json) via model bridge</strong> for tasks requiring judgment, synthesis, or consequential writing: scrum master, autonomous employee, self-audit, evening goals reminder. Session cost ceiling set at $100 to support extended autonomous runs</li>
               <li><strong>Gemini 3.1 Pro via model bridge</strong> for research and synthesis tasks: research briefing, market scouting, vibe coding research, income research</li>
               <li><strong>MiniMax M2.7 via Ollama (free)</strong> for mechanical tasks: health checks, daily backup, memory consolidation, sergeant digest, heartbeats</li>
             </ul>
@@ -364,13 +380,15 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is stored in a structured SQLite knowledge database shared by all agents
-              through a custom MCP server. The schema separates concerns: a <em>profiles</em> table holds
-              identity facts (agent names, user preferences, project constants) with deterministic key lookup.
-              No fuzzy search for things that must be exact. A <em>memories</em> table stores durable knowledge
-              with soft invalidation: when a fact changes, the old record is marked invalid and a new one is
-              written, preserving the audit trail. Separate tables track entities, facts, work items, sessions,
-              and agent interactions.
+              Long-term memory is stored in a single consolidated SQLite database (clarence.db) shared by all
+              agents through a custom MCP server. Earlier iterations split data across workspace.db and
+              sqlite_mcp_server.db; both were retired and merged into one authoritative store. The schema
+              separates concerns: a <em>profiles</em> table holds identity facts (agent names, user preferences,
+              project constants) with deterministic key lookup. No fuzzy search for things that must be exact.
+              A <em>memories</em> table (182 records) stores durable knowledge with soft invalidation: when a
+              fact changes, the old record is marked invalid and a new one is written, preserving the audit
+              trail. A <em>facts</em> table (23 records) tracks discrete assertions. Separate tables track
+              entities, work items, sessions, and agent interactions.
             </p>
             <p className={styles.body}>
               The MCP server exposes 13 tools to any OpenClaw agent. Every agent that writes to the database
@@ -380,7 +398,7 @@ export default function ClarencePage() {
             <p className={styles.body}>
               A semantic retrieval layer sits on top of the relational store. sqlite-vec adds vector search
               directly inside the SQLite file. No separate vector database, no network hop. The embedding
-              model (all-MiniLM-L6-v2 via sentence-transformers) runs fully locally. All 175 memory and fact
+              model (all-MiniLM-L6-v2 via sentence-transformers) runs fully locally. All 200+ memory and fact
               records are embedded nightly. Agents can now query the knowledge base by meaning: &ldquo;what does
               James think about AI agent UX?&rdquo; returns the five most relevant records across all tables,
               regardless of how they were originally tagged. This matters increasingly as the knowledge base
@@ -433,7 +451,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Budget Constraint as Design Constraint</h3>
             <p className={styles.body}>
-              The entire routing policy exists because Opus 4 at scale has real cost. 26 cron jobs running
+              The entire routing policy exists because Opus 4.6 at scale has real cost. 26 cron jobs running
               daily, some multiple times, would be expensive if all of them used the most capable model.
               The fallback chain exists to contain that.
             </p>
@@ -478,13 +496,18 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>26 scheduled cron jobs running reliably, delivering Telegram notifications across all devices</li>
+            <li>26 scheduled cron jobs running reliably with 20+ minute staggering to prevent API rate limits, delivering Telegram notifications across all devices</li>
             <li>Nightly self-audit running three consecutive nights, each producing usable research and proposals</li>
-            <li>A working memory bridge between OpenClaw and Claude Code, linking two separate AI systems</li>
+            <li>Session lifecycle hooks: SessionStart auto-loads database context and HANDOFF.md; Stop hook writes a fresh handoff note. No more cold starts between sessions</li>
+            <li>Database consolidation into a single clarence.db (182 memories, 23 facts). Earlier workspace.db and sqlite_mcp_server.db retired</li>
             <li>SQLite knowledge database with MCP server. All 16 agents read and write shared memory with deterministic profile lookup and soft invalidation</li>
-            <li>Semantic RAG layer built into the database: 175 embedded records, sqlite-vec + all-MiniLM-L6-v2 running fully locally, nightly re-embedding job</li>
+            <li>Semantic RAG layer built into the database: 200+ embedded records, sqlite-vec + all-MiniLM-L6-v2 running fully locally, nightly re-embedding job, opt-in via --rag flag</li>
             <li>Bidirectional Obsidian sync. What James writes in his vault, agents can read. New vault notes feed the RAG layer automatically</li>
+            <li>Delegation architecture codified: 11 hard rules, three subagent types (Explore, Plan, general-purpose), all running in background</li>
+            <li>Model pinned to Claude Opus 4.6 with $100 session cost ceiling</li>
+            <li>Telegram brief mode: per-message context injection reduced from ~10KB to ~150 bytes (270x faster startup)</li>
             <li>Multi-model routing containing Opus budget while running lighter work on free-tier models</li>
+            <li>Three system cron jobs (vault-sync, vault-index, weekly JSONL cleanup) running alongside OpenClaw&apos;s 26 agent cron jobs</li>
             <li>Brain Reader HTTP server making the workspace searchable from any device on the Tailscale network</li>
             <li>Public Twitter presence (@ClarencetheOGBot) with autonomous posting capability</li>
             <li>Daily research briefings covering AI model releases, UX research, music tech, and MCP ecosystem</li>
@@ -539,7 +562,7 @@ export default function ClarencePage() {
             <li>
               <strong>OWASP Agentic Top 10 integration:</strong> the new OWASP threat model for AI agents
               covers Confused Deputy and Skill-Inject attacks that are directly relevant to a system running
-              14+ cron jobs with file and network access. Bruno&apos;s security audit needs these checks.
+              26 cron jobs with file and network access. Bruno&apos;s security audit needs these checks.
             </li>
             <li>
               <strong>Google Colab MCP:</strong> configuring the Colab MCP server gives every agent in the
@@ -551,9 +574,10 @@ export default function ClarencePage() {
               waiting.
             </li>
             <li>
-              <strong>Refining the human-in-the-loop boundary:</strong> the current line between what
-              Clarence does autonomously and what requires James was drawn quickly. A more principled framework
-              for delegation is the next design iteration.
+              <strong>Refining the human-in-the-loop boundary:</strong> the delegation rules now codify 11
+              hard principles for how Clarence coordinates and subagents execute. The next iteration is
+              calibrating where autonomous action ends and human approval begins for higher-stakes tasks
+              beyond research and writing.
             </li>
           </ul>
         </section>
@@ -568,7 +592,9 @@ export default function ClarencePage() {
               "Cron-based autonomous workflows",
               "Self-improving system architecture",
               "Human-in-the-loop boundary design",
+              "Session lifecycle hooks",
               "Memory persistence across AI sessions",
+              "Delegation architecture design",
               "SQLite knowledge database design",
               "Semantic vector search (sqlite-vec)",
               "RAG pipeline design",
