@@ -115,7 +115,7 @@ export default function Resume() {
             </div>
             <ul className={styles.bullets}>
               <li>Founded and led monthly community meetings for Ableton users across the Pittsburgh region, growing an active practitioner network</li>
-              <li>Served as direct liaison between user community and Ableton&apos;s North American corporate team, channeling field feedback into product development cycles</li>
+              <li>Served as direct liaison between user community and Ableton&apos;s international corporate team, channeling field feedback into product development cycles</li>
               <li>Collaborated with university faculty and educators to expand music technology education access and inclusivity</li>
             </ul>
           </div>

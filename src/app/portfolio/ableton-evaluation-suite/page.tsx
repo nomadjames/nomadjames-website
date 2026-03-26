@@ -47,7 +47,7 @@ export default function AbletonEvaluationSuite() {
           <p className={styles.body}>
             I have been making electronic music for thirty years. I have led the Pittsburgh
             Ableton User Group for over a decade, serving as a direct liaison to Ableton&apos;s
-            North American team. I have watched countless beginners encounter synthesis,
+            international team. I have watched countless beginners encounter synthesis,
             music theory, and production workflows for the first time. The way Ableton
             communicates ideas about music shaped how I think about UX and why I decided
             to pursue it professionally.

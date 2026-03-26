@@ -113,7 +113,7 @@ export default function Portfolio() {
           <div className={styles.musicContent}>
             <p className={styles.musicDesc}>
               Electronic music production and curation spanning 30 years. Pittsburgh Ableton User Group organizer,
-              in direct partnership with Ableton&apos;s North American team. Available for DJ sets, production, and
+              in direct partnership with Ableton&apos;s international team. Available for DJ sets, production, and
               consultation.
             </p>
             <div className={styles.musicLinks}>
