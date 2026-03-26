@@ -135,7 +135,7 @@ export default function SensorSynthFM() {
           </p>
           <p className={styles.body}>
             No sensors are flowing to audio yet. No sequencer exists. MPE hasn&apos;t been implemented.
-            The project is being honest about that on this page because honest about process is the
+            The project is being honest about that on this page because being honest about process is the
             point. What&apos;s here is a foundation, not a finished product.
           </p>
         </section>

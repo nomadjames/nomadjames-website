@@ -44,7 +44,7 @@ export default function LabPage() {
     <div className={styles.page}>
       <main className="container">
         <div className={styles.backLink}>
-          <a href="/">← Work</a>
+          <a href="/portfolio">← Work</a>
         </div>
 
         <header className={styles.header}>
@@ -57,8 +57,8 @@ export default function LabPage() {
           </div>
           <h1 className={styles.title}>Lab</h1>
           <p className={styles.subtitle}>
-            Creative coding experiments from EMAT-60310, a graduate course in
-            generative art and computational thinking.
+            Creative coding experiments from EMAT-60310 (Educational Media and Technology),
+            a Kent State graduate course in generative art and computational thinking.
           </p>
         </header>
 

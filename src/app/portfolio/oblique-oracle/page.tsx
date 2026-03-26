@@ -37,8 +37,8 @@ export default function ObliqueOracle() {
           <p className={styles.body}>
             Most AI interactions are transactional: you ask a question, you get an answer. Oblique
             Oracle inverts that relationship. Instead of optimizing for the &ldquo;right&rdquo; answer,
-            it deliberately introduces indeterminacy &mdash; ancient divination systems and lateral
-            thinking prompts &mdash; then asks AI to find meaning in the collision.
+            it deliberately introduces indeterminacy: ancient divination systems and lateral
+            thinking prompts, then asks AI to find meaning in the collision.
           </p>
           <p className={styles.body}>
             The question isn&apos;t whether the oracle is &ldquo;accurate.&rdquo; The question is what
@@ -65,7 +65,7 @@ export default function ObliqueOracle() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Oblique Strategies</h3>
             <p className={styles.body}>
-              Draws a random card from Brian Eno and Peter Schmidt&apos;s creative prompt deck &mdash;
+              Draws a random card from Brian Eno and Peter Schmidt&apos;s creative prompt deck:
               lateral thinking tools originally designed to break creative blocks in the recording studio.
             </p>
           </div>
@@ -86,12 +86,12 @@ export default function ObliqueOracle() {
             What does it mean to design a system where the user cannot distinguish between algorithmic
             pattern-matching and genuine insight? The I Ching has survived three thousand years not
             because it predicts the future, but because it creates a structured space for reflection.
-            Oblique Strategies work the same way &mdash; they don&apos;t solve problems, they reframe them.
+            Oblique Strategies work the same way: they don&apos;t solve problems, they reframe them.
           </p>
           <p className={styles.body}>
             AI adds a third layer: the synthesis feels authoritative because it&apos;s fluent, but
             fluency is not wisdom. Oblique Oracle sits at that intersection deliberately. It&apos;s a
-            research artifact as much as a product &mdash; a way to study how people relate to algorithmic
+            research artifact as much as a product: a way to study how people relate to algorithmic
             authority when the frame is explicitly non-rational.
           </p>
         </section>

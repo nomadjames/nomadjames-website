@@ -84,7 +84,7 @@ export default function HealthTranslator() {
           <h2 className={styles.sectionTitle}>The Design Challenge: Trust</h2>
           <p className={styles.body}>
             Healthcare is high stakes. That sounds obvious until you try to design an AI feature for it and
-            realize how thoroughly that stakes-ness changes every assumption you might bring from consumer
+            realize how thoroughly the stakes change every assumption you might bring from consumer
             product design.
           </p>
           <p className={styles.body}>

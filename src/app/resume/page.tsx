@@ -195,6 +195,19 @@ export default function Resume() {
             </div>
             <div className={styles.project}>
               <div className={styles.projectHeader}>
+                <a href="/portfolio/clarence" className={styles.projectTitle}>
+                  Clarence: AI Agent Orchestration System →
+                </a>
+                <span className={styles.projectYear}>2025–2026</span>
+              </div>
+              <p className={styles.projectDesc}>
+                Sixteen-agent autonomous system with persistent memory, conversation distillation,
+                and trust calibration. Designed and built as a working research platform for
+                human-AI collaboration patterns.
+              </p>
+            </div>
+            <div className={styles.project}>
+              <div className={styles.projectHeader}>
                 <span className={styles.projectTitle}>SensorSynth FM</span>
                 <span className={styles.projectYear}>2026 - in progress</span>
               </div>

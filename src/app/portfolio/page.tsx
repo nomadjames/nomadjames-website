@@ -14,7 +14,7 @@ const work = [
     num: "02",
     title: "Ableton UX Evaluation Suite",
     category: "UX Research · Interaction Design",
-    year: "2025–2026",
+    year: "2024–2026",
     methods: ["Heuristic Evaluation", "Cognitive Walkthrough", "Stakeholder Analysis"],
     status: "published",
     link: "/portfolio/ableton-evaluation-suite",
@@ -30,7 +30,7 @@ const work = [
   },
   {
     num: "04",
-    title: "Health Tech Translator",
+    title: "Health Translator",
     category: "UX Research",
     year: "2025",
     methods: ["Information Architecture", "Content Strategy", "Plain Language"],
@@ -39,6 +39,15 @@ const work = [
   },
   {
     num: "05",
+    title: "Clarence: Autonomous Agent Ecosystem",
+    category: "AI Systems Design",
+    year: "2025–2026",
+    methods: ["Agent Architecture", "Human-AI Collaboration", "Rust", "Python"],
+    status: "published",
+    link: "/portfolio/clarence",
+  },
+  {
+    num: "06",
     title: "Card Sort Analysis: Methodology in Non-IA Contexts",
     category: "UX Research",
     year: "2024",
@@ -47,7 +56,7 @@ const work = [
     link: "/portfolio/card-sort-americorps",
   },
   {
-    num: "06",
+    num: "07",
     title: "SensorSynth FM: Your Body as the Interface",
     category: "Product Design · iOS",
     year: "2026",
@@ -56,7 +65,7 @@ const work = [
     link: "/portfolio/sensorsynth",
   },
   {
-    num: "07",
+    num: "08",
     title: "Oblique Oracle: Algorithmic Divination as Design Research",
     category: "Product Design · AI Integration",
     year: "2026",
