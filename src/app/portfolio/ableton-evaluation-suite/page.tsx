@@ -1,4 +1,4 @@
-import styles from "../ableton-learning-synths/page.module.css";
+import styles from "./page.module.css";
 
 export const metadata = {
   title: "Ableton UX Evaluation Suite | James Dishman",
