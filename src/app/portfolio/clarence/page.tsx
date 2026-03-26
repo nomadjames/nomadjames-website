@@ -47,7 +47,7 @@ export default function ClarencePage() {
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>21</span>
+            <span className={cs.statNum}>26</span>
             <span className={cs.statLabel}>Cron jobs scheduled nightly</span>
           </div>
           <div className={cs.stat}>
@@ -79,7 +79,7 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system built on top of OpenClaw (an agent orchestration platform) that runs 21 scheduled cron jobs,
+            system built on top of OpenClaw (an agent orchestration platform) that runs 26 scheduled cron jobs,
             manages a named crew of specialized agents, routes tasks across multiple models based on cost and
             capability, and writes nightly self-improvement reports that feed into what it does while I sleep.
           </p>
@@ -121,7 +121,7 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>OpenClaw</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>21 Cron Jobs</span>
+                <span className={cs.archDiagramNode}>26 Cron Jobs</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Agent Crew</span>
               </div>
@@ -433,7 +433,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Budget Constraint as Design Constraint</h3>
             <p className={styles.body}>
-              The entire routing policy exists because Opus 4 at scale has real cost. 21 cron jobs running
+              The entire routing policy exists because Opus 4 at scale has real cost. 26 cron jobs running
               daily, some multiple times, would be expensive if all of them used the most capable model.
               The fallback chain exists to contain that.
             </p>
@@ -478,7 +478,7 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>21 scheduled cron jobs running reliably, delivering Telegram notifications across all devices</li>
+            <li>26 scheduled cron jobs running reliably, delivering Telegram notifications across all devices</li>
             <li>Nightly self-audit running three consecutive nights, each producing usable research and proposals</li>
             <li>A working memory bridge between OpenClaw and Claude Code, linking two separate AI systems</li>
             <li>SQLite knowledge database with MCP server. All 16 agents read and write shared memory with deterministic profile lookup and soft invalidation</li>

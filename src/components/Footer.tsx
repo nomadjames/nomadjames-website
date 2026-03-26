@@ -14,7 +14,7 @@ export default function Footer() {
             <a href="https://nomadjames.bandcamp.com/" target="_blank" rel="noopener noreferrer">Bandcamp</a>
             <a href="https://www.linkedin.com/in/james-dishman-3a512163/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/nomadjames" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://twitter.com/nomadjames" target="_blank" rel="noopener noreferrer">X</a>
+
           </div>
         </div>
       </div>

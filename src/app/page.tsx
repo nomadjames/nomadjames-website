@@ -33,10 +33,10 @@ export default function Home() {
               GitHub ↗
             </a>
             <a href="/lab" className={styles.heroLink}>Lab ↗</a>
-            <a href="https://substack.com/@nomadjames057" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
-              Substack ↗
+            <a href="https://medium.com/@nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
+              Medium ↗
             </a>
-            <a href="/contact" className={styles.heroLink}>
+<a href="/contact" className={styles.heroLink}>
               Contact ↗
             </a>
           </div>
