@@ -169,7 +169,7 @@ export default function AccessibilityAudit() {
               toolchain, and capacity for remediation changes what you prioritize
             </li>
             <li>
-              <strong>User testing with disabled participants</strong> - heuristic evaluation and automated checkers
+              <strong>User testing with assistive technology users</strong> - heuristic evaluation and automated checkers
               find a lot, but they don&apos;t find everything. Nothing replaces watching a screen reader user navigate
               in real time
             </li>
