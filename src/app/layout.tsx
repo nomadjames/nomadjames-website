@@ -3,6 +3,7 @@ import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ScrollRestoration from "@/components/ScrollRestoration";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${inter.variable} ${jbMono.variable}`}
     >
       <body className="antialiased">
+        <ScrollRestoration />
         <Navigation />
         {children}
         <Footer />

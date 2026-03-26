@@ -25,7 +25,7 @@ export default function AccessibilityAudit() {
           </div>
           <h1 className={styles.title}>Accessibility Audit Suite:<br />Music Tech Meets WCAG</h1>
           <div className={styles.methods}>
-            {["WCAG 2.1 AA/AAA", "Contrast Analysis", "Nielsen Heuristics", "VoiceOver", "PDF Remediation", "Social Media Audit"].map((m) => (
+            {["WCAG 2.1 AA/AAA", "Contrast Analysis", "VoiceOver", "PDF Remediation", "Social Media Audit", "Cognitive Accessibility"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
             ))}
           </div>
@@ -42,7 +42,7 @@ export default function AccessibilityAudit() {
             have low vision, or process information differently.
           </p>
           <p className={styles.body}>
-            That&apos;s the landscape I audited across six methods during this course. The goal wasn&apos;t to produce
+            That&apos;s the landscape I audited across five methods during this course. The goal wasn&apos;t to produce
             a scorecard. It was to develop a professional audit practice - one I could carry into real design work.
           </p>
         </section>
@@ -59,7 +59,6 @@ export default function AccessibilityAudit() {
           <ul className={styles.methodList}>
             <li><strong>Social media content audit</strong> - Instagram (Kent State College of Aeronautics)</li>
             <li><strong>Contrast ratio and color blindness analysis</strong> - Three music tech websites via WebAIM Contrast Checker</li>
-            <li><strong>Heuristic evaluation</strong> - Ableton&apos;s Learning Music platform (learningmusic.ableton.com)</li>
             <li><strong>Assistive technology hands-on</strong> - VoiceOver testing on GroundNews web</li>
             <li><strong>PDF remediation</strong> - Adobe Acrobat accessibility checker on a scanned document</li>
             <li><strong>Cognitive accessibility research</strong> - Original reflection on AI, cognitive load, and machine readability</li>
@@ -125,39 +124,6 @@ export default function AccessibilityAudit() {
               alone doesn&apos;t.
             </p>
           </div>
-        </section>
-
-        {/* The Ableton Evaluation */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>The Ableton Evaluation</h2>
-          <p className={styles.body}>
-            I chose learningmusic.ableton.com for the heuristic evaluation because I wanted to audit something
-            I care about enough to be honest about its failures.
-          </p>
-          <p className={styles.body}>
-            I&apos;ve volunteered with Ableton for over a decade. I lead the Pittsburgh Ableton User Group. The way
-            Ableton communicates ideas about music - their documentation, their interfaces, the Learning Music
-            site - shaped how I think about UX and why I decided to pursue it professionally. That&apos;s not a
-            credential I&apos;m citing. It&apos;s the reason this evaluation carries more weight for me than a generic
-            audit would.
-          </p>
-          <p className={styles.body}>
-            Applying Nielsen&apos;s 10 heuristics to a platform I know well meant I could distinguish between
-            design decisions and design failures. The site&apos;s strengths are real: strong consistency and
-            standards throughout, a clear visual language, and content that respects the learner&apos;s intelligence.
-            But the interactive modules have a problem with error recovery - when a user makes a mistake in a
-            sequencer exercise, feedback is minimal and recovery paths aren&apos;t obvious (Heuristic 9).
-          </p>
-          <p className={styles.body}>
-            For advanced users, the platform offers little in the way of flexibility or efficiency shortcuts -
-            Heuristic 7. Someone who already understands music theory is forced through the same linear
-            progression as a complete beginner. That&apos;s a pedagogical choice, but it&apos;s also an accessibility
-            gap: it doesn&apos;t account for the range of expertise users actually bring.
-          </p>
-          <p className={styles.body}>
-            None of this diminishes the site. Ableton built something genuinely good. Being able to say that
-            clearly, and say where it falls short just as clearly, is what I was going for.
-          </p>
         </section>
 
         {/* The Insight */}
@@ -231,7 +197,6 @@ export default function AccessibilityAudit() {
               "WCAG 2.1 AA/AAA application and citation",
               "Contrast ratio analysis (WebAIM)",
               "Color blindness simulation and evaluation",
-              "Nielsen's 10 Heuristics - applied evaluation",
               "VoiceOver / screen reader testing",
               "PDF remediation (Adobe Acrobat)",
               "Social media content accessibility audit",

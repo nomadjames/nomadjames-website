@@ -58,7 +58,7 @@ export default function Home() {
                 <div className={styles.workMeta}>
                   <span>UX Research</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>WCAG 2.1 · Heuristic Evaluation · VoiceOver · PDF Remediation</span>
+                  <span>WCAG 2.1 · Contrast Analysis · VoiceOver · PDF Remediation</span>
                   <span className={styles.metaDot} aria-hidden="true">·</span>
                   <span>2025</span>
                 </div>
@@ -67,6 +67,22 @@ export default function Home() {
             </li>
             <li className={styles.workItem}>
               <span className={styles.workNum}>02</span>
+              <div className={styles.workContent}>
+                <a href="/portfolio/ableton-evaluation-suite" className={styles.workTitle}>
+                  Ableton UX Evaluation Suite
+                </a>
+                <div className={styles.workMeta}>
+                  <span>UX Research · Interaction Design</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
+                  <span>Heuristic Evaluation · Cognitive Walkthrough · Stakeholder Analysis</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
+                  <span>2024–2026</span>
+                </div>
+              </div>
+              <span className={styles.workArrow} aria-hidden="true">→</span>
+            </li>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>03</span>
               <div className={styles.workContent}>
                 <a href="/portfolio/food-insecurity" className={styles.workTitle}>
                   Food Insecurity Discovery Research
@@ -82,7 +98,7 @@ export default function Home() {
               <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
             <li className={styles.workItem}>
-              <span className={styles.workNum}>03</span>
+              <span className={styles.workNum}>04</span>
               <div className={styles.workContent}>
                 <a href="/portfolio/health-translator" className={styles.workTitle}>
                   Health Translator
@@ -98,7 +114,7 @@ export default function Home() {
               <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
             <li className={styles.workItem}>
-              <span className={styles.workNum}>04</span>
+              <span className={styles.workNum}>05</span>
               <div className={styles.workContent}>
                 <a href="/portfolio/clarence" className={styles.workTitle}>
                   Clarence: Autonomous Agent Ecosystem
@@ -114,7 +130,7 @@ export default function Home() {
               <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
             <li className={styles.workItem}>
-              <span className={styles.workNum}>05</span>
+              <span className={styles.workNum}>06</span>
               <div className={styles.workContent}>
                 <a href="/portfolio/sensorsynth" className={styles.workTitle}>
                   SensorSynth FM

@@ -6,7 +6,7 @@ const work = [
     title: "Accessibility Audit Suite: Music Tech Meets WCAG",
     category: "UX Research",
     year: "2025",
-    methods: ["WCAG 2.1", "Heuristic Evaluation", "VoiceOver", "PDF Remediation", "Contrast Analysis"],
+    methods: ["WCAG 2.1", "Contrast Analysis", "VoiceOver", "PDF Remediation", "Cognitive Accessibility"],
     status: "published",
     link: "/portfolio/accessibility-audit",
   },
