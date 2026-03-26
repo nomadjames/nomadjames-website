@@ -145,6 +145,22 @@ export default function Home() {
               </div>
               <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>07</span>
+              <div className={styles.workContent}>
+                <a href="/portfolio/oblique-oracle" className={styles.workTitle}>
+                  Oblique Oracle
+                </a>
+                <div className={styles.workMeta}>
+                  <span>Product Design &middot; AI</span>
+                  <span className={styles.metaDot} aria-hidden="true">&middot;</span>
+                  <span>Divination &middot; I Ching &middot; Oblique Strategies</span>
+                  <span className={styles.metaDot} aria-hidden="true">&middot;</span>
+                  <span>2026</span>
+                </div>
+              </div>
+              <span className={styles.workArrow} aria-hidden="true">→</span>
+            </li>
           </ol>
         </section>
 

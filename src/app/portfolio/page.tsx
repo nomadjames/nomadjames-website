@@ -55,6 +55,15 @@ const work = [
     status: "published",
     link: "/portfolio/sensorsynth",
   },
+  {
+    num: "07",
+    title: "Oblique Oracle: Algorithmic Divination as Design Research",
+    category: "Product Design · AI Integration",
+    year: "2026",
+    methods: ["I Ching", "Oblique Strategies", "AI Synthesis", "React Native / Expo", "Claude API"],
+    status: "published",
+    link: "/portfolio/oblique-oracle",
+  },
 ];
 
 export default function Portfolio() {
