@@ -337,14 +337,16 @@ export default function AbletonEvaluationSuite() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Heuristic Evaluation: Ableton Learning Music</h2>
           <p className={styles.body}>
-            <strong>Courses:</strong> UX 60541 (2026) and UX 60504, Accessibility and
-            Universal Design (2025)
+            <strong>Course:</strong> UX 60504 (2025), with additional analysis in UX 60541 (2026)
           </p>
           <p className={styles.body}>
             Learning Music (<em>learningmusic.ableton.com</em>) is a free, browser-based
             music theory course that teaches rhythm, melody, and basic composition to
             complete beginners. No downloads, no sign-in, no cost. The evaluation applied
-            Nielsen&apos;s 10 Heuristics with a four-point severity scale.
+            Nielsen&apos;s 10 Heuristics with a four-point severity scale, assessing the
+            interface against established usability principles: learnability, efficiency,
+            error handling, and whether the design supports effective mental models for
+            novice users.
           </p>
 
           <div className={styles.finding}>
@@ -528,7 +530,7 @@ export default function AbletonEvaluationSuite() {
             </li>
             <li>
               <a href="/pdfs/ableton-learning-music-heuristic-eval.pdf" target="_blank" rel="noopener noreferrer">
-                Heuristic Evaluation: Ableton Learning Music (UX 60541 / UX 60504)
+                Heuristic Evaluation: Ableton Learning Music (UX 60504 / UX 60541)
               </a>
             </li>
           </ul>
