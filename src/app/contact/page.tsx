@@ -49,7 +49,7 @@ export default function Contact() {
 
         {status === "sent" ? (
           <div className={styles.success}>
-            <p>Got it — I&apos;ll be in touch.</p>
+            <p>Got it. I&apos;ll be in touch.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className={styles.form}>

@@ -74,14 +74,14 @@ export default function AccessibilityAudit() {
             <h3 className={styles.findingTitle}>Instagram: Accessibility as Afterthought</h3>
             <p className={styles.body}>
               The Kent State College of Aeronautics feed had alt text on images, but all of it was
-              auto-generated — not human-authored, not contextually accurate. Auto-generated alt text
+              auto-generated, not human-authored, not contextually accurate. Auto-generated alt text
               that misidentifies or vaguely describes an image is a different failure than missing alt
               text: it creates false confidence. A screen reader user gets a description, but the
               description is wrong. Decorative emoji were scattered throughout captions with no
               aria-hidden treatment, meaning screen readers announced each one by name. Story text
               overlays failed contrast requirements. Video content had no captions. The alt text problem
               in isolation is fixable with workflow changes. Combined with the rest, it signals that
-              accessibility is being handled by automation rather than intention — which is its own
+              accessibility is being handled by automation rather than intention, which is its own
               category of problem.
             </p>
           </div>
@@ -90,7 +90,7 @@ export default function AccessibilityAudit() {
             <h3 className={styles.findingTitle}>Contrast Audit: Specific Failures, Not Generic Ones</h3>
             <p className={styles.body}>
               The audit covered three music tech sites: Ableton.com, Fors.fm, and Audiothingies.com.
-              Fors.fm was a surprise — I expected to find violations there and didn&apos;t. Ableton largely passed.
+              Fors.fm was a surprise. I expected to find violations there and didn&apos;t. Ableton largely passed.
               The significant failures were concentrated at Audiothingies.com: gold-colored link text at a 2.4:1
               contrast ratio (well below the 4.5:1 WCAG AA minimum under SC 1.4.3), red heading text at 4.3:1
               that just misses the threshold, an &quot;Out of Stock&quot; notification and a CTA button that both
@@ -99,7 +99,7 @@ export default function AccessibilityAudit() {
             </p>
             <p className={styles.body}>
               The takeaway: failures cluster in specific interactive elements and status indicators, not uniformly
-              across a site. That makes them easy to miss in a casual review — and consequential for users with
+              across a site. That makes them easy to miss in a casual review, and consequential for users with
               low vision who depend on those exact touchpoints.
             </p>
           </div>
@@ -242,6 +242,14 @@ export default function AccessibilityAudit() {
               <span key={skill} className={styles.skill}>{skill}</span>
             ))}
           </div>
+        </section>
+
+        {/* Original submission */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Original Submission</h2>
+          <p className={styles.body}>
+            <a href="/pdfs/accessibility-audit.pdf" target="_blank" rel="noopener noreferrer">View original PDF →</a>
+          </p>
         </section>
 
       </main>

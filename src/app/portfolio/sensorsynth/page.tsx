@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 export const metadata = {
   title: "SensorSynth FM | James Dishman",
   description:
-    "An iPad FM synthesizer that uses physical sensors — accelerometer, gyroscope, TrueDepth camera — as modulation sources. MS UX capstone, in active development.",
+    "An iPad FM synthesizer that uses physical sensors (accelerometer, gyroscope, TrueDepth camera) as modulation sources. MS UX capstone, in active development.",
 };
 
 export default function SensorSynthFM() {
@@ -36,13 +36,13 @@ export default function SensorSynthFM() {
           <h2 className={styles.sectionTitle}>The Idea</h2>
           <p className={styles.body}>
             Most instruments have a closed loop: you touch a surface, it responds with sound.
-            The interface is a boundary. SensorSynth FM starts from a different premise — what if
+            The interface is a boundary. SensorSynth FM starts from a different premise: what if
             the instrument was open to the environment? What if the way you hold the device, tilt
             it, lean toward it, move through space with it, was itself the performance?
           </p>
           <p className={styles.body}>
-            SensorSynth FM is an iPad FM synthesizer that uses the device&apos;s physical sensors —
-            accelerometer, gyroscope, and TrueDepth camera — as modulation sources. The result
+            SensorSynth FM is an iPad FM synthesizer that uses the device&apos;s physical sensors
+            (accelerometer, gyroscope, and TrueDepth camera) as modulation sources. The result
             is an instrument where your body isn&apos;t operating the controls. Your body is the control.
           </p>
           <p className={styles.body}>
@@ -58,18 +58,18 @@ export default function SensorSynthFM() {
           <p className={styles.body}>
             Paul Dourish&apos;s work on embodied interaction draws a distinction that matters here:
             the difference between interfaces you <em>learn to operate</em> and interfaces that feel
-            <em> inevitable</em> — where the mapping between action and outcome becomes transparent
+            <em>inevitable</em>: where the mapping between action and outcome becomes transparent
             through use. Gesture instruments succeed when you stop thinking about what to do and
             start just doing it.
           </p>
           <p className={styles.body}>
             The design question I&apos;m pursuing is: what does it feel like when your body <em>is</em>
-            the instrument? Not when your body is pressing buttons that trigger sounds — when the
+            the instrument? Not when your body is pressing buttons that trigger sounds. When the
             physical fact of being in your body, moving through space, leaning in and pulling back,
             is itself the expressive act.
           </p>
           <p className={styles.body}>
-            That question changes every UX decision downstream — how onboarding works, how gesture
+            That question changes every UX decision downstream: how onboarding works, how gesture
             calibration is communicated, what visual feedback means in a performance context, how
             you design for a mapping that needs to feel discovered rather than taught.
           </p>
@@ -85,7 +85,7 @@ export default function SensorSynthFM() {
               The synthesis core is a 4-operator FM engine with 8 algorithms, built on AudioKit 5.
               FM synthesis was the right choice for this project: it&apos;s computationally efficient
               on mobile, capable of enormous timbral range from a small set of parameters, and
-              it responds to continuous modulation in ways that feel musically coherent — qualities
+              it responds to continuous modulation in ways that feel musically coherent, qualities
               that matter when the modulation source is a human body in motion.
             </p>
           </div>
@@ -95,8 +95,7 @@ export default function SensorSynthFM() {
             <p className={styles.body}>
               Four sensor sources feed the modulation system: the accelerometer (tilt, orientation),
               gyroscope (rotational velocity), TrueDepth camera (proximity, facial expression), and
-              microphone (ambient amplitude). Each maps to FM parameters — carrier frequency, modulation
-              index, operator ratios, amplitude — through a smoothing layer that prevents the abrupt
+              microphone (ambient amplitude). Each maps to FM parameters (carrier frequency, modulation index, operator ratios, amplitude) through a smoothing layer that prevents the abrupt
               jumps that would make the instrument feel unstable rather than expressive.
             </p>
             <p className={styles.body}>
@@ -113,7 +112,7 @@ export default function SensorSynthFM() {
               The UI is organized into three views across a landscape iPad layout: a Performance View
               for live playing, an FM Engine View for dialing in the synthesis parameters, and a Sensor
               Modulation View for mapping physical gestures to audio parameters. The visual language
-              is dark, minimal, and oriented toward live use — high contrast, readable at a glance,
+              is dark, minimal, and oriented toward live use: high contrast, readable at a glance,
               nothing you need to hunt for during a performance.
             </p>
           </div>
@@ -124,12 +123,12 @@ export default function SensorSynthFM() {
           <h2 className={styles.sectionTitle}>Where It Stands</h2>
           <p className={styles.body}>
             The architecture is fully documented and the design decisions are made. The Xcode project
-            compiles and runs — the SwiftUI screens are built and working, a native audio engine is
+            compiles and runs. The SwiftUI screens are built and working, a native audio engine is
             confirmed producing sound in the simulator, and AudioKit is integrated as a dependency.
             The next step is replacing the test sine wave with the actual FM oscillator.
           </p>
           <p className={styles.body}>
-            The gap between documentation richness and running code is intentional — this is a
+            The gap between documentation richness and running code is intentional. This is a
             documentation-first build, which means the hard decisions (4-operator structure, 8 algorithms,
             sensor smoothing parameters, threading model, audio safety rules) are already made and
             recorded. That makes implementation faster and more deliberate than the alternative.
@@ -137,7 +136,7 @@ export default function SensorSynthFM() {
           <p className={styles.body}>
             No sensors are flowing to audio yet. No sequencer exists. MPE hasn&apos;t been implemented.
             The project is being honest about that on this page because honest about process is the
-            point — what&apos;s here is a foundation, not a finished product.
+            point. What&apos;s here is a foundation, not a finished product.
           </p>
         </section>
 
@@ -146,7 +145,7 @@ export default function SensorSynthFM() {
           <h2 className={styles.sectionTitle}>Building Without a Development Background</h2>
           <p className={styles.body}>
             I don&apos;t have a software development background. This project is being built with Claude
-            Code as a primary implementation collaborator — I provide the domain expertise, the design
+            Code as a primary implementation collaborator: I provide the domain expertise, the design
             decisions, and the judgment about what&apos;s musically and experientially right. Claude
             writes the code.
           </p>
@@ -155,7 +154,7 @@ export default function SensorSynthFM() {
             in the repository contains audio thread safety rules, architectural constraints, and
             communication preferences that keep the AI collaborator aligned across sessions that
             don&apos;t share context. It&apos;s a form of design documentation that most solo developers never
-            need to write — but it turns out to be valuable precisely because it forces precision about
+            need to write. It turns out to be valuable precisely because it forces precision about
             what the system should and shouldn&apos;t do.
           </p>
           <p className={styles.body}>

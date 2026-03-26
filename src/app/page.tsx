@@ -21,7 +21,7 @@ export default function Home() {
           </div>
           <p className={styles.bio}>
             Thirty years of electronic music and a decade leading Pittsburgh&apos;s Ableton User Group gave me a
-            framework for thinking about tools — what they enable, what they foreclose, and who they leave out.
+            framework for thinking about tools: what they enable, what they foreclose, and who they leave out.
             I&apos;m in graduate school now building that instinct into a research practice, with a thesis taking
             shape around AI, creativity, and what it means to design systems that shape how people think.
           </p>
@@ -101,7 +101,7 @@ export default function Home() {
               <span className={styles.workNum}>04</span>
               <div className={styles.workContent}>
                 <a href="/portfolio/clarence" className={styles.workTitle}>
-                  Clarence — Autonomous Agent Ecosystem
+                  Clarence: Autonomous Agent Ecosystem
                 </a>
                 <div className={styles.workMeta}>
                   <span>AI Systems Design</span>
@@ -151,8 +151,8 @@ export default function Home() {
             <div className={styles.buildingItem}>
               <span className={styles.buildingName}>SensorSynth FM</span>
               <p className={styles.buildingDesc}>
-                An iPad FM synthesizer that uses the device&apos;s physical sensors — accelerometer, gyroscope,
-                TrueDepth camera — as modulation sources. The design question is what it feels like when your
+                An iPad FM synthesizer that uses the device&apos;s physical sensors (accelerometer, gyroscope,
+                TrueDepth camera) as modulation sources. The design question is what it feels like when your
                 body is the instrument, not just the thing holding it.
               </p>
               <a href="/portfolio/sensorsynth" className={styles.buildingLink}>Read the case study →</a>

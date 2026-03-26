@@ -4,7 +4,7 @@ import cs from "./page.module.css";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence — a named, autonomous AI assistant with 25 scheduled cron jobs, 16 named agents, a SQLite knowledge database, multi-model routing, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with 25 scheduled cron jobs, 16 named agents, a SQLite knowledge database with semantic RAG layer, multi-model routing, and a nightly self-audit loop.",
 };
 
 export default function ClarencePage() {
@@ -37,6 +37,7 @@ export default function ClarencePage() {
               "Tailscale VPN",
               "Self-Improving Systems",
               "Human-in-the-Loop Design",
+              "Semantic Vector Search (RAG)",
             ].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
             ))}
@@ -174,12 +175,16 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>MCP Server (13 tools)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
+                <span className={cs.archDiagramNode}>sqlite-vec RAG layer</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
                 A SQLite knowledge database is shared by all agents through a custom MCP server.
                 Agent names, user preferences, and project facts are stored with deterministic lookup.
-                Syncs bidirectionally with an Obsidian vault — what James writes, agents can read.
+                A vector search layer (sqlite-vec + all-MiniLM-L6-v2) enables semantic retrieval across
+                all 175+ memory records. Agents can query by meaning, not just key. Syncs bidirectionally
+                with an Obsidian vault: what James writes, agents can read.
               </p>
             </div>
 
@@ -198,45 +203,45 @@ export default function ClarencePage() {
           <div className={cs.agentGrid}>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Felix — Chief of Staff</span>
+              <span className={cs.agentName}>Felix, Chief of Staff</span>
               <span className={cs.agentRole}>Claude Sonnet · 8:00 AM daily</span>
               <p className={cs.agentDesc}>Morning coordination. Compiles yesterday&apos;s status, writes the daily brain log, posts a Telegram summary. Coordinates across all projects rather than executing tasks directly.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Rex — Scrum Master</span>
+              <span className={cs.agentName}>Rex, Scrum Master</span>
               <span className={cs.agentRole}>Claude Sonnet · 8:00 AM + 1:00 PM</span>
-              <p className={cs.agentDesc}>Morning and midday task checks. Queries the knowledge database for active work items, tracks blockers, posts morning report. Midday run only alerts if new blockers appeared since morning — no noise.</p>
+              <p className={cs.agentDesc}>Morning and midday task checks. Queries the knowledge database for active work items, tracks blockers, posts morning report. Midday run only alerts if new blockers appeared since morning. No noise.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Bruno — Sergeant-at-Arms</span>
+              <span className={cs.agentName}>Bruno, Sergeant-at-Arms</span>
               <span className={cs.agentRole}>Claude Sonnet · 7:00 AM + 2:30 AM</span>
               <p className={cs.agentDesc}>Daily digest and nightly security audit. Reviews sysops.log, checks gateway health, monitors leash alerts, researches CVEs. Escalates to James only if status is RED.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Eddie — Marketing Scout</span>
+              <span className={cs.agentName}>Eddie, Marketing Scout</span>
               <span className={cs.agentRole}>Gemini 3.1 Pro · 3x daily</span>
               <p className={cs.agentDesc}>Three daily market scans. Runs dual-source search on AI tools, UX research, music tech, and indie builder topics. Tags each finding with its source so divergent results are visible.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Sage — Researcher</span>
+              <span className={cs.agentName}>Sage, Researcher</span>
               <span className={cs.agentRole}>Gemini 3.1 Pro · 4:00 AM daily</span>
               <p className={cs.agentDesc}>Daily research briefing. Four topics, two search sources each: AI model releases, UX/HCI papers, music tech, MCP ecosystem. Synthesizes across sources and notes where they diverge.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Ada — Memory Keeper</span>
+              <span className={cs.agentName}>Ada, Memory Keeper</span>
               <span className={cs.agentRole}>Claude Sonnet · 3:00 AM daily</span>
               <p className={cs.agentDesc}>Nightly memory consolidation. Reads daily logs, extracts durable facts, writes to the knowledge database. Only posts to Telegram if new durable facts were added. Keeps the knowledge layer honest.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>R&D Council — Atlas, Iris, Newton, Vesper, Raven</span>
+              <span className={cs.agentName}>R&D Council: Atlas, Iris, Newton, Vesper, Raven</span>
               <span className={cs.agentRole}>Mixed models · Opus synthesis · 11:00 PM</span>
-              <p className={cs.agentDesc}>Five-agent nightly debate. Each member holds a fixed lens — market analysis, UX research, technical architecture, product strategy, devil&apos;s advocate. Two debate rounds, then Opus synthesizes into an executive memo. Designed to surface disagreement, not consensus.</p>
+              <p className={cs.agentDesc}>Five-agent nightly debate. Each member holds a fixed lens: market analysis, UX research, technical architecture, product strategy, devil&apos;s advocate. Two debate rounds, then Opus synthesizes into an executive memo. Designed to surface disagreement, not consensus.</p>
             </div>
 
             <div className={cs.agentCard}>
@@ -265,35 +270,35 @@ export default function ClarencePage() {
           <div className={cs.workList}>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>2:00 AM</span>
-              <p className={cs.workDesc}><strong>Daily Backup</strong> — workspace snapshot before anything mutates the brain files.</p>
+              <p className={cs.workDesc}><strong>Daily Backup:</strong> workspace snapshot before anything mutates the brain files.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>2:00 AM</span>
-              <p className={cs.workDesc}><strong>Autonomous Employee</strong> — reads the quick-wins queue from the previous night&apos;s audit and executes the top task. Portfolio content, case study drafts, documentation prep. No approval required for research and writing work.</p>
+              <p className={cs.workDesc}><strong>Autonomous Employee:</strong> reads the quick-wins queue from the previous night&apos;s audit and executes the top task. Portfolio content, case study drafts, documentation prep. No approval required for research and writing work.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>2:23 AM</span>
-              <p className={cs.workDesc}><strong>RTX 3090 Deal Alert</strong> — scans eBay and r/hardwareswap for GPU deals under $850. Only messages James if something worth buying appears. No noise by default.</p>
+              <p className={cs.workDesc}><strong>RTX 3090 Deal Alert:</strong> scans eBay and r/hardwareswap for GPU deals under $850. Only messages James if something worth buying appears. No noise by default.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>2:30 AM</span>
-              <p className={cs.workDesc}><strong>Bruno Security Audit</strong> — reviews leash alerts, sysops log, CVE feeds. Writes a status report, escalates only if RED.</p>
+              <p className={cs.workDesc}><strong>Bruno Security Audit:</strong> reviews leash alerts, sysops log, CVE feeds. Writes a status report, escalates only if RED.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>3:00 AM</span>
-              <p className={cs.workDesc}><strong>Memory Consolidation</strong> — extracts durable facts from daily logs into MEMORY.md. Runs on MiniMax to preserve Opus budget.</p>
+              <p className={cs.workDesc}><strong>Memory Consolidation:</strong> extracts durable facts from daily logs into MEMORY.md. Runs on MiniMax to preserve Opus budget.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>3:33 AM</span>
-              <p className={cs.workDesc}><strong>Nightly Self-Audit</strong> — Clarence reviews system performance, researches what changed in the world, writes improvement proposals, updates WORKING.md, writes the Claude Code memory bridge, and populates the quick-wins queue for tomorrow&apos;s Autonomous Employee. The loop closes here.</p>
+              <p className={cs.workDesc}><strong>Nightly Self-Audit:</strong> Clarence reviews system performance, researches what changed in the world, writes improvement proposals, updates WORKING.md, writes the Claude Code memory bridge, and populates the quick-wins queue for tomorrow&apos;s Autonomous Employee. The loop closes here.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>3:45 AM</span>
-              <p className={cs.workDesc}><strong>Model Usage Report</strong> — parses cron job states, generates a breakdown of which agents ran on which models, total compute time by provider.</p>
+              <p className={cs.workDesc}><strong>Model Usage Report:</strong> parses cron job states, generates a breakdown of which agents ran on which models, total compute time by provider.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:00 AM</span>
-              <p className={cs.workDesc}><strong>Research Briefing</strong> — dual-source research across four domains, saved to dated files in brain/research/. Ready when James wakes up.</p>
+              <p className={cs.workDesc}><strong>Research Briefing:</strong> dual-source research across four domains, saved to dated files in brain/research/. Ready when James wakes up.</p>
             </div>
           </div>
 
@@ -306,7 +311,7 @@ export default function ClarencePage() {
           <p className={styles.body}>
             In practice this loop has a write-only failure mode I have not fully solved: the audit produces
             excellent proposals, but the execution step does not always pick up the queue file correctly.
-            The proposals accumulate without always turning into action. This is documented and real — the
+            The proposals accumulate without always turning into action. This is documented and real. The
             system knows about it. Reporting awareness is not the same as fixing the underlying reliability issue.
           </p>
         </section>
@@ -335,9 +340,9 @@ export default function ClarencePage() {
               Not every job needs Opus. The routing policy separates tasks into tiers:
             </p>
             <ul className={styles.methodList}>
-              <li><strong>Opus 4 via model bridge</strong> for tasks requiring judgment, synthesis, or consequential writing — scrum master, autonomous employee, self-audit, evening goals reminder</li>
-              <li><strong>Gemini 3.1 Pro via model bridge</strong> for research and synthesis tasks — research briefing, market scouting, vibe coding research, income research</li>
-              <li><strong>MiniMax M2.7 via Ollama (free)</strong> for mechanical tasks — health checks, daily backup, memory consolidation, sergeant digest, heartbeats</li>
+              <li><strong>Opus 4 via model bridge</strong> for tasks requiring judgment, synthesis, or consequential writing: scrum master, autonomous employee, self-audit, evening goals reminder</li>
+              <li><strong>Gemini 3.1 Pro via model bridge</strong> for research and synthesis tasks: research briefing, market scouting, vibe coding research, income research</li>
+              <li><strong>MiniMax M2.7 via Ollama (free)</strong> for mechanical tasks: health checks, daily backup, memory consolidation, sergeant digest, heartbeats</li>
             </ul>
             <p className={styles.body}>
               Gemini runs free at scale via model bridge. MiniMax runs fully locally via Ollama.
@@ -357,12 +362,12 @@ export default function ClarencePage() {
           </div>
 
           <div className={styles.finding}>
-            <h3 className={styles.findingTitle}>SQLite Knowledge Database</h3>
+            <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
               Long-term memory is stored in a structured SQLite knowledge database shared by all agents
               through a custom MCP server. The schema separates concerns: a <em>profiles</em> table holds
-              identity facts (agent names, user preferences, project constants) with deterministic key lookup —
-              no fuzzy search for things that must be exact. A <em>memories</em> table stores durable knowledge
+              identity facts (agent names, user preferences, project constants) with deterministic key lookup.
+              No fuzzy search for things that must be exact. A <em>memories</em> table stores durable knowledge
               with soft invalidation: when a fact changes, the old record is marked invalid and a new one is
               written, preserving the audit trail. Separate tables track entities, facts, work items, sessions,
               and agent interactions.
@@ -370,13 +375,22 @@ export default function ClarencePage() {
             <p className={styles.body}>
               The MCP server exposes 13 tools to any OpenClaw agent. Every agent that writes to the database
               stamps its entries with <code>author_agent</code> and <code>confidence</code>, enabling conflict
-              resolution when multiple agents hold different versions of the same fact. An Obsidian vault syncs
-              bidirectionally with the database — what James writes in his notes, agents can read, and what
-              agents log overnight, James can review.
+              resolution when multiple agents hold different versions of the same fact.
             </p>
             <p className={styles.body}>
-              The original file-based memory layer (brain/ markdown files, MEMORY.md, WORKING.md) remains
-              as a human-readable backup and audit surface. The database is the query layer on top of it.
+              A semantic retrieval layer sits on top of the relational store. sqlite-vec adds vector search
+              directly inside the SQLite file. No separate vector database, no network hop. The embedding
+              model (all-MiniLM-L6-v2 via sentence-transformers) runs fully locally. All 175 memory and fact
+              records are embedded nightly. Agents can now query the knowledge base by meaning: &ldquo;what does
+              James think about AI agent UX?&rdquo; returns the five most relevant records across all tables,
+              regardless of how they were originally tagged. This matters increasingly as the knowledge base
+              grows past the scale where exact-match queries are sufficient.
+            </p>
+            <p className={styles.body}>
+              An Obsidian vault syncs bidirectionally with the database. New vault notes are picked up by the
+              nightly embedding job automatically. Writing in Obsidian feeds the RAG layer without any
+              additional wiring. The original file-based layer (brain/ markdown files, MEMORY.md, WORKING.md)
+              remains as a human-readable backup and audit surface.
             </p>
           </div>
 
@@ -450,7 +464,7 @@ export default function ClarencePage() {
             <p className={styles.body}>
               Three tools were in the agent tool profile but unavailable at runtime, generating dozens
               of WARN log entries daily. Each warning was individually harmless. Together they buried
-              real errors — Bruno&apos;s security audits were scanning logs where signal-to-noise had
+              real errors. Bruno&apos;s security audits were scanning logs where signal-to-noise had
               degraded enough that genuine failures could be missed. The fix was explicit: disable the
               three tools at the config level rather than leaving them as dead references. This is a
               documented case of how low-stakes configuration drift compounds into an observability gap.
@@ -466,9 +480,10 @@ export default function ClarencePage() {
           <ul className={styles.methodList}>
             <li>21 scheduled cron jobs running reliably, delivering Telegram notifications across all devices</li>
             <li>Nightly self-audit running three consecutive nights, each producing usable research and proposals</li>
-            <li>A working memory bridge between OpenClaw and Claude Code — two separate AI systems sharing context</li>
-            <li>SQLite knowledge database with MCP server — all 16 agents read and write shared memory with deterministic profile lookup and soft invalidation</li>
-            <li>Bidirectional Obsidian sync — what James writes in his vault, agents can read; what agents log overnight, James can review</li>
+            <li>A working memory bridge between OpenClaw and Claude Code, linking two separate AI systems</li>
+            <li>SQLite knowledge database with MCP server. All 16 agents read and write shared memory with deterministic profile lookup and soft invalidation</li>
+            <li>Semantic RAG layer built into the database: 175 embedded records, sqlite-vec + all-MiniLM-L6-v2 running fully locally, nightly re-embedding job</li>
+            <li>Bidirectional Obsidian sync. What James writes in his vault, agents can read. New vault notes feed the RAG layer automatically</li>
             <li>Multi-model routing containing Opus budget while running lighter work on free-tier models</li>
             <li>Brain Reader HTTP server making the workspace searchable from any device on the Tailscale network</li>
             <li>Public Twitter presence (@ClarencetheOGBot) with autonomous posting capability</li>
@@ -517,26 +532,26 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Is Next</h2>
           <ul className={styles.reflectionList}>
             <li>
-              <strong>Closing the execution loop</strong> — the quick-wins queue and autonomous employee need
+              <strong>Closing the execution loop:</strong> the quick-wins queue and autonomous employee need
               a more reliable handoff. The goal is a self-improving loop that actually closes: research
               identifies an improvement, the queue captures it, the employee executes it overnight.
             </li>
             <li>
-              <strong>OWASP Agentic Top 10 integration</strong> — the new OWASP threat model for AI agents
+              <strong>OWASP Agentic Top 10 integration:</strong> the new OWASP threat model for AI agents
               covers Confused Deputy and Skill-Inject attacks that are directly relevant to a system running
               14+ cron jobs with file and network access. Bruno&apos;s security audit needs these checks.
             </li>
             <li>
-              <strong>Google Colab MCP</strong> — configuring the Colab MCP server gives every agent in the
+              <strong>Google Colab MCP:</strong> configuring the Colab MCP server gives every agent in the
               crew access to a cloud Python sandbox, solving ad-hoc compute needs without waiting on a GPU.
             </li>
             <li>
-              <strong>RTX 3090 acquisition</strong> — local GPU unlocks local inference for larger models
+              <strong>RTX 3090 acquisition:</strong> local GPU unlocks local inference for larger models
               and removes the Ollama dependency on cloud-hosted free tiers. The deal alert is running and
               waiting.
             </li>
             <li>
-              <strong>Refining the human-in-the-loop boundary</strong> — the current line between what
+              <strong>Refining the human-in-the-loop boundary:</strong> the current line between what
               Clarence does autonomously and what requires James was drawn quickly. A more principled framework
               for delegation is the next design iteration.
             </li>
@@ -555,6 +570,8 @@ export default function ClarencePage() {
               "Human-in-the-loop boundary design",
               "Memory persistence across AI sessions",
               "SQLite knowledge database design",
+              "Semantic vector search (sqlite-vec)",
+              "RAG pipeline design",
               "MCP server development",
               "Budget-aware compute allocation",
               "API proxy design (Rust)",

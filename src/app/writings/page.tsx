@@ -8,7 +8,7 @@ const writing = [
     date: "March 2025",
     type: "Essay",
     excerpt:
-      "Accessibility best practices don't just help people - they help machines. Clean semantic structure, descriptive alt text, logical reading order: the same work that makes a page navigable for a screen reader user makes it parseable by an LLM. The two goals turn out to be the same goal.",
+      "Accessibility best practices don't just help people. They help machines. Clean semantic structure, descriptive alt text, logical reading order: the same work that makes a page navigable for a screen reader user makes it parseable by an LLM. The two goals turn out to be the same goal.",
     status: "coming",
   },
   {
@@ -18,7 +18,7 @@ const writing = [
     date: "2025",
     type: "Essay",
     excerpt:
-      "Thirty years of making music with software gave me a lens for thinking about tools. Not what they do - what they allow. And crucially: who they were built imagining, and who has to work around that imagination.",
+      "Thirty years of making music with software gave me a lens for thinking about tools. Not what they do. What they allow. And crucially: who they were built imagining, and who has to work around that imagination.",
     status: "coming",
   },
   {
@@ -28,7 +28,7 @@ const writing = [
     date: "2025",
     type: "Reflection",
     excerpt:
-      "I've volunteered with Ableton for over a decade. At some point I realized their documentation and interface design had shaped how I think about systems - and that this was worth examining carefully.",
+      "I've volunteered with Ableton for over a decade. At some point I realized their documentation and interface design had shaped how I think about systems. That felt worth examining carefully.",
     status: "coming",
   },
 ];

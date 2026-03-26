@@ -58,7 +58,7 @@ export default function Resume() {
             <div className={styles.skillGroup}>
               <h3 className={styles.skillGroupTitle}>Design & Tools</h3>
               <p className={styles.skillList}>
-                Figma · Adobe XD · Axure RP · Miro · Adobe Acrobat · Google Forms
+                Figma · Photoshop · Miro · Adobe Acrobat · Google Forms
               </p>
             </div>
             <div className={styles.skillGroup}>
@@ -199,8 +199,8 @@ export default function Resume() {
                 <span className={styles.projectYear}>2026 - in progress</span>
               </div>
               <p className={styles.projectDesc}>
-                MS UX Capstone. iPad FM synthesizer using the device&apos;s physical sensors — accelerometer,
-                gyroscope, TrueDepth camera — as real-time FM modulation sources. Built with AudioKit 5 and SwiftUI.
+                MS UX Capstone. iPad FM synthesizer using the device&apos;s physical sensors (accelerometer,
+                gyroscope, TrueDepth camera) as real-time FM modulation sources. Built with AudioKit 5 and SwiftUI.
               </p>
             </div>
           </div>

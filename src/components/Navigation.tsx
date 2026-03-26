@@ -22,18 +22,18 @@ export default function Navigation() {
             Work
           </Link>
           <Link
-            href="/writings"
-            className={`${styles.link} ${pathname.startsWith("/writings") ? styles.active : ""}`}
-            aria-current={pathname.startsWith("/writings") ? "page" : undefined}
-          >
-            Writing
-          </Link>
-          <Link
             href="/resume"
             className={`${styles.link} ${pathname.startsWith("/resume") ? styles.active : ""}`}
             aria-current={pathname.startsWith("/resume") ? "page" : undefined}
           >
             Résumé
+          </Link>
+          <Link
+            href="/contact"
+            className={`${styles.link} ${pathname.startsWith("/contact") ? styles.active : ""}`}
+            aria-current={pathname.startsWith("/contact") ? "page" : undefined}
+          >
+            Contact
           </Link>
         </div>
       </div>

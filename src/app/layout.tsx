@@ -26,6 +26,18 @@ export const metadata: Metadata = {
   title: "James Dishman | UX Designer & AI Researcher",
   description:
     "UX researcher and designer working at the intersection of AI, creativity, and human decision-making. MS UX candidate at Kent State University.",
+  openGraph: {
+    title: "James Dishman | UX Designer & AI Researcher",
+    description:
+      "UX researcher and designer working at the intersection of AI, creativity, and human decision-making. MS UX candidate at Kent State University.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "James Dishman | UX Designer & AI Researcher",
+    description:
+      "UX researcher and designer working at the intersection of AI, creativity, and human decision-making. MS UX candidate at Kent State University.",
+  },
 };
 
 export default function RootLayout({

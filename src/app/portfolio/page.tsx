@@ -12,12 +12,12 @@ const work = [
   },
   {
     num: "02",
-    title: "Cognitive Walkthrough: Ableton Learning Synths",
-    category: "UX Research",
-    year: "2026",
-    methods: ["Cognitive Walkthrough", "Learnability Evaluation", "Novice User Modeling", "Redesign Recommendations"],
+    title: "Ableton UX Evaluation Suite",
+    category: "UX Research · Interaction Design",
+    year: "2025–2026",
+    methods: ["Heuristic Evaluation", "Cognitive Walkthrough", "Stakeholder Analysis"],
     status: "published",
-    link: "/portfolio/ableton-learning-synths",
+    link: "/portfolio/ableton-evaluation-suite",
   },
   {
     num: "03",
