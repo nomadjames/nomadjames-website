@@ -161,7 +161,7 @@ export default function ClarencePage() {
                 underlying model providers. Every cron job runs on either Gemini Flash (free via model bridge)
                 or MiniMax via Ollama (free, local). Zero cron jobs run on expensive models. Opus and Gemini
                 Pro are reserved for interactive sessions where model quality changes the output in ways that
-                matter. Model switching is immediate via <code>openclaw models set ccforge/&lt;model&gt;</code>,
+                matter. Model switching is immediate via <code>openclaw models set &lt;model&gt;</code>,
                 no restart required.
               </p>
             </div>
@@ -407,7 +407,7 @@ export default function ClarencePage() {
               signal, and the overnight loop runs at zero model cost.
             </p>
             <p className={styles.body}>
-              Model switching is now immediate. <code>openclaw models set ccforge/&lt;model&gt;</code> changes
+              Model switching is now immediate. <code>openclaw models set &lt;model&gt;</code> changes
               the active model with no restart. This means routing decisions can be made at the task level
               rather than the configuration level. The system can adapt to what each job actually needs.
             </p>
@@ -484,7 +484,7 @@ export default function ClarencePage() {
           </div>
 
           <div className={styles.finding}>
-            <h3 className={styles.findingTitle}>@ClarencetheOGBot: Extending into Public Space</h3>
+            <h3 className={styles.findingTitle}>@ClarenceTheOG: Extending into Public Space</h3>
             <p className={styles.body}>
               The Twitter/X bot extends the output surface beyond private Telegram and brain files into a
               public space. This raises the design stakes: errors that stay in a log file are recoverable.
@@ -576,7 +576,7 @@ export default function ClarencePage() {
             <li>Model switching immediate via <code>openclaw models set</code>, lightContext enabled on all cron jobs</li>
             <li>Telegram brief mode: per-message context injection reduced from ~10KB to ~150 bytes (270x faster startup)</li>
             <li>Brain Reader HTTP server making the workspace searchable from any device on the Tailscale network</li>
-            <li>Public Twitter presence (@ClarencetheOGBot) with autonomous posting capability</li>
+            <li>Public Twitter presence (@ClarenceTheOG) with autonomous posting capability</li>
             <li>Daily research briefings covering AI model releases, UX research, music tech, and MCP ecosystem</li>
             <li>Bruno security audit infrastructure monitoring the gateway, leash alerts, and CVE feeds nightly</li>
           </ul>
