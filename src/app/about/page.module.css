@@ -1,0 +1,170 @@
+.page {
+  padding-top: 6.5rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+}
+
+/* ── Back link ─────────────────────────────────────────── */
+
+.backLink {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin-top: 1rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: var(--orange);
+  opacity: 1;
+}
+
+/* ── Header ────────────────────────────────────────────── */
+
+.header {
+  padding: 3rem 0 3.5rem;
+  max-width: 860px;
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+}
+
+.eyebrowLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--fg-muted);
+  max-width: 44ch;
+  line-height: 1.6;
+}
+
+/* ── Sections ──────────────────────────────────────────── */
+
+.section {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  max-width: 760px;
+}
+
+.sectionAccent {
+  border-top-color: var(--orange);
+  border-top-width: 2px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin-bottom: 1.5rem;
+}
+
+.subheading {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(228, 228, 228, 0.8);
+  margin-bottom: 1.25rem;
+}
+
+.body:last-child {
+  margin-bottom: 0;
+}
+
+.body strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* ── Split grid (James / Clarence) ─────────────────────── */
+
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.splitCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.splitLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.splitList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.splitList li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(228, 228, 228, 0.7);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.splitList li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .splitGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

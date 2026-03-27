@@ -22,6 +22,13 @@ export default function Navigation() {
             Work
           </Link>
           <Link
+            href="/about"
+            className={`${styles.link} ${pathname.startsWith("/about") ? styles.active : ""}`}
+            aria-current={pathname.startsWith("/about") ? "page" : undefined}
+          >
+            About
+          </Link>
+          <Link
             href="/resume"
             className={`${styles.link} ${pathname.startsWith("/resume") ? styles.active : ""}`}
             aria-current={pathname.startsWith("/resume") ? "page" : undefined}

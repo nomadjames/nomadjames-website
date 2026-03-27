@@ -1,0 +1,194 @@
+import styles from "./page.module.css";
+import Tldr from "@/components/Tldr";
+
+export const metadata = {
+  title: "About | James Dishman",
+  description:
+    "50 years old, grad student, meter tech, electronic music producer, AI builder. This is who I actually am.",
+};
+
+export default function AboutPage() {
+  return (
+    <div className={styles.page}>
+      <main className="container">
+
+        {/* Back link */}
+        <a href="/" className={styles.backLink}>&larr; Home</a>
+
+        {/* Header */}
+        <header className={styles.header}>
+          <div className={styles.eyebrow}>
+            <span className={styles.eyebrowLabel}>About</span>
+          </div>
+          <h1 className={styles.title}>James Dishman</h1>
+          <p className={styles.subtitle}>
+            Youngstown, OH. 50 years old. Still building things.
+          </p>
+        </header>
+
+        <Tldr>
+          MS UX candidate at Kent State, 30+ years in electronic music, founder of the Pittsburgh
+          Ableton User Group, currently building AI agent systems as both creative tools and research
+          platforms. I work as a smart meter tech during the day. I design at night. Every piece of
+          work in this portfolio exists because I cared about the subject before I cared about the
+          credential.
+        </Tldr>
+
+        {/* The Short Version */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>The Short Version</h2>
+          <p className={styles.body}>
+            I design things at the intersection of AI, creativity, and human decision-making. I am
+            finishing an MS in User Experience Design at Kent State University. Before that, I got a
+            BA from the University of Pittsburgh in English, Philosophy, and Political Science,
+            which turns out to be a surprisingly good foundation for thinking about how people
+            actually use things.
+          </p>
+          <p className={styles.body}>
+            I have been producing electronic music for over 30 years. I founded the Pittsburgh
+            Ableton User Group more than a decade ago and still lead it. I am the direct liaison to
+            Ableton&apos;s international community team. That is not a line on a resume. It is a
+            relationship I built by showing up, year after year, because I care about the tool and
+            the people who use it.
+          </p>
+          <p className={styles.body}>
+            Right now I work as a smart meter technician at Wellington Energy. It is not glamorous.
+            It pays the bills while I finish grad school. I drive around, swap meters, and think
+            about interaction design problems between stops. Some of my best design decisions happen
+            in the truck.
+          </p>
+        </section>
+
+        {/* What I Actually Believe */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>What I Actually Believe</h2>
+          <p className={styles.body}>
+            Technology should make humans better. I design the part where that actually happens.
+          </p>
+          <p className={styles.body}>
+            That is not a tagline. It is a filter. Every project I take on, every system I build,
+            gets measured against that. If the technology does not make the person using it more
+            capable, more creative, or more connected to the thing they care about, I am not
+            interested in building it.
+          </p>
+          <p className={styles.body}>
+            I see design through Don Norman&apos;s frameworks as a standing lens. Affordances,
+            signifiers, mapping, feedback, conceptual models. Not because they are trendy (they are
+            decades old), but because they work. They are the vocabulary for asking whether
+            something actually serves the person in front of it.
+          </p>
+          <p className={styles.body}>
+            I am influenced by Hunter S. Thompson&apos;s radical honesty, not his substance abuse.
+            The part where you look at the thing clearly and say what you see, even when it is
+            uncomfortable. That matters more in design than people want to admit.
+          </p>
+        </section>
+
+        {/* The Differentiator */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>The Differentiator</h2>
+          <p className={styles.body}>
+            Every other candidate positions around skills and tools. I position around giving a shit.
+          </p>
+          <p className={styles.body}>
+            The Ableton evaluations in my portfolio are credible because I have lived inside that
+            ecosystem for 30 years. The Oblique Oracle exists because I cherish the I Ching, not
+            because I saw a market opportunity. Clarence is not a demo project. It is a system I use
+            every day, one that runs 25 jobs while I sleep and has over 1,500 memories in its
+            knowledge database.
+          </p>
+          <p className={styles.body}>
+            I build things out of devotion to the subject, not market calculation. That devotion is
+            the reason the work is good.
+          </p>
+        </section>
+
+        {/* What is Next */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>What is Next</h2>
+          <p className={styles.body}>
+            I am in the capstone phase of my MS at Kent State. After that, I am applying to PhD
+            programs in Human-Computer Interaction. The research questions I care about sit at the
+            boundary of AI and creativity: what happens when the tool starts having opinions, and how
+            do you design for that without pretending it is simple?
+          </p>
+          <p className={styles.body}>
+            I run Ubuntu. I use Firefox. I value open source. I love my dog. I am 50 years old and
+            still figuring things out. That last part is not a disclaimer. It is the whole point.
+          </p>
+        </section>
+
+        {/* Building This Site */}
+        <section className={`${styles.section} ${styles.sectionAccent}`}>
+          <h2 className={styles.sectionTitle}>Building This Site</h2>
+          <p className={styles.body}>
+            This site was built over about three days in late March 2026. The stack is Next.js,
+            TypeScript, CSS Modules, deployed to GitHub Pages with Cloudflare in front of it. No
+            templates. No themes. Built from scratch.
+          </p>
+          <p className={styles.body}>
+            It was a collaboration between me and Clarence, my AI agent system running on Claude.
+            I directed every decision. Clarence executed. That distinction matters. I chose the
+            typography, the layout, the voice, the color palette, the information architecture.
+            Clarence wrote the code, ran the builds, managed the deployments, and kept track of
+            forty things at once while I was out in the field swapping meters.
+          </p>
+
+          <h3 className={styles.subheading}>How It Actually Worked</h3>
+          <p className={styles.body}>
+            I would review the site on my iPad and phone between stops on my meter route, then send
+            corrections via Telegram. Clarence would pick them up and push changes. Sometimes this
+            worked beautifully. Sometimes the build broke at 5am and I would wake up to error logs.
+          </p>
+          <p className={styles.body}>
+            The process was messy. There were em dash hunts across every page because I kept finding
+            them in body text. Cached pages that would not update no matter what we tried. Fights
+            about delegation when Clarence tried to make decisions I had not approved. At one point,
+            Clarence ran on the wrong model (Sonnet instead of Opus) for an entire day because a
+            settings file could not be edited from the interface we were using. The output quality
+            dropped noticeably and we did not figure out why until that evening.
+          </p>
+
+          <h3 className={styles.subheading}>What Each Side Brought</h3>
+          <div className={styles.splitGrid}>
+            <div className={styles.splitCard}>
+              <span className={styles.splitLabel}>James</span>
+              <ul className={styles.splitList}>
+                <li>Vision and creative direction</li>
+                <li>Taste. Knowing when something looked wrong even if it was technically correct</li>
+                <li>Domain expertise in UX, music, and the subject matter of every case study</li>
+                <li>Quality control from a real device in real lighting conditions</li>
+                <li>The word &quot;no&quot; when Clarence got ahead of itself</li>
+              </ul>
+            </div>
+            <div className={styles.splitCard}>
+              <span className={styles.splitLabel}>Clarence</span>
+              <ul className={styles.splitList}>
+                <li>Execution speed. Parallel agents building multiple pages simultaneously</li>
+                <li>Memory systems that tracked every decision and preference across sessions</li>
+                <li>Code generation, build management, deployment pipeline</li>
+                <li>The ability to hold the full context of a growing codebase in working memory</li>
+                <li>Patience for the fifteenth round of &quot;make this two pixels smaller&quot;</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 className={styles.subheading}>What is Honest About This</h3>
+          <p className={styles.body}>
+            The portfolio content comes directly from my grad school coursework at Kent State.
+            Every case study is grounded in real academic work, not made up for a portfolio site.
+            The images are still missing. It is text-only right now. That is honest, not a failure.
+            The words came first because the words are the work.
+          </p>
+          <p className={styles.body}>
+            The changelog tracks every commit and who made it. This is not a &quot;look how amazing
+            AI is&quot; story. It is a &quot;we built something real with a lot of friction and it
+            works&quot; story. The friction is the interesting part. It is where the design questions
+            live.
+          </p>
+        </section>
+
+      </main>
+    </div>
+  );
+}
