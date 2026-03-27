@@ -78,18 +78,15 @@ export default function AboutPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>The Differentiator</h2>
           <p className={styles.body}>
-            My work is better when it comes from devotion to the subject, not market calculation.
+            I do my best work when I know the subject deeply. The Ableton evaluations in my
+            portfolio are credible because I have lived inside that ecosystem for years. The Oblique
+            Oracle exists because I cherish the I Ching, not because I saw a market opportunity.
+            Clarence is not a demo project. It is a system I use every day, one that runs 25 cron
+            jobs while I sleep and has over 1,500 memories in its knowledge database.
           </p>
           <p className={styles.body}>
-            The Ableton evaluations in my portfolio are credible because I have lived inside that
-            ecosystem for years. The Oblique Oracle exists because I cherish the I Ching, not
-            because I saw a market opportunity. Clarence is not a demo project. It is a system I use
-            every day, one that runs 25 jobs while I sleep and has over 1,500 memories in its
-            knowledge database.
-          </p>
-          <p className={styles.body}>
-            I build things out of devotion to the subject, not market calculation. That devotion is
-            the reason the work is good.
+            That depth is what I bring to a team. I learn the domain, I learn the users, and I
+            build things that reflect both.
           </p>
         </section>
 
@@ -103,8 +100,8 @@ export default function AboutPage() {
             do you design for that without pretending it is simple?
           </p>
           <p className={styles.body}>
-            I run Ubuntu. I use Firefox. I value open source. I love my dog. I am still figuring
-            things out. That is not a disclaimer. It is the whole point.
+            If you are working on research problems or building tools that need someone who
+            understands both the design and the system underneath it, I would like to talk.
           </p>
         </section>
 
@@ -137,6 +134,14 @@ export default function AboutPage() {
             Clarence ran on the wrong model (Sonnet instead of Opus) for an entire day because a
             settings file could not be edited from the interface we were using. The output quality
             dropped noticeably and we did not figure out why until that evening.
+          </p>
+          <p className={styles.body}>
+            The part that matters most: Clarence has a knowledge database with over 1,500 memories
+            built from our conversations, my coursework, and every correction I have ever given it.
+            It distills what I care about, how I think, and what I will not tolerate. The portfolio
+            content was not generated from a generic prompt. It was extracted from a system that
+            knows my voice, my work, and my standards because I spent months teaching it. That
+            database is the real artifact. The site is just what it looks like when you render it.
           </p>
 
           <h3 className={styles.subheading}>What Each Side Brought</h3>
