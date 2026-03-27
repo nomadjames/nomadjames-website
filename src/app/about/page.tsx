@@ -78,7 +78,7 @@ export default function AboutPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>The Differentiator</h2>
           <p className={styles.body}>
-            Every other candidate positions around skills and tools. I position around giving a shit.
+            My work is better when it comes from devotion to the subject, not market calculation.
           </p>
           <p className={styles.body}>
             The Ableton evaluations in my portfolio are credible because I have lived inside that
