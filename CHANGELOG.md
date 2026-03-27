@@ -6,6 +6,15 @@ Sequential record of all changes to the portfolio site. Includes both Clarence-e
 
 ## 2026-03-27
 
+### 3f4d7c7 -- Fix About page: remove age, trim grandstanding, honest voice
+- **Who:** Clarence
+- Removed all age references (50) from about page metadata, header, and closing paragraph
+- Deleted entire smart meter technician paragraph (truck/swapping meters copy)
+- Removed "work during day, design at night" line from TLDR
+- Changed all "30 years" / "thirty years" of music production to simple present tense across 5 files
+- Rewrote Pittsburgh Ableton User Group section: factual, includes Paul Miller, no grandstanding
+- Files changed: about/page.tsx, page.tsx, resume/page.tsx, portfolio/page.tsx, portfolio/ableton-evaluation-suite/page.tsx
+
 ### Add Google Analytics (GA4)
 - **Who:** Clarence
 - Added GA4 tracking with measurement ID G-VWV4GHNHV7
