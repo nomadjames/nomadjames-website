@@ -15,6 +15,7 @@ export default function Home() {
             <span className={styles.eyebrowLabel}>Youngstown, OH</span>
           </div>
           <h1 className={styles.name}>James Dishman</h1>
+          <p className={styles.mantra}>Every problem has a solution.</p>
           <div className={styles.thesis}>
             <p>Technology should make humans better.</p>
             <p>I design the part where that actually happens.</p>
