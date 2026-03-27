@@ -4,6 +4,13 @@ Sequential record of all changes to the portfolio site. Includes both Clarence-e
 
 ---
 
+## 2026-03-27
+
+### Add Google Analytics (GA4)
+- **Who:** Clarence
+- Added GA4 tracking with measurement ID G-VWV4GHNHV7
+- Uses next/script with afterInteractive strategy in layout.tsx
+
 ## 2026-03-26
 
 ### aa72e08 — Clarence case study reflects system overhaul
