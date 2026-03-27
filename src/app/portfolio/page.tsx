@@ -73,6 +73,15 @@ const work = [
     status: "published",
     link: "/portfolio/oblique-oracle",
   },
+  {
+    num: "09",
+    title: "Usability Testing Methods",
+    category: "UX Research",
+    year: "2024–2026",
+    methods: ["Moderated Testing", "Unmoderated Testing", "Usability Brief", "Loop11", "Test Plan Design"],
+    status: "published",
+    link: "/portfolio/usability-testing",
+  },
 ];
 
 export default function Portfolio() {

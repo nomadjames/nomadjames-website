@@ -161,6 +161,22 @@ export default function Home() {
               </div>
               <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>08</span>
+              <div className={styles.workContent}>
+                <a href="/portfolio/usability-testing" className={styles.workTitle}>
+                  Usability Testing Methods
+                </a>
+                <div className={styles.workMeta}>
+                  <span>UX Research</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
+                  <span>Moderated Testing · Unmoderated Testing · Loop11 · Test Plan Design</span>
+                  <span className={styles.metaDot} aria-hidden="true">·</span>
+                  <span>2024–2026</span>
+                </div>
+              </div>
+              <span className={styles.workArrow} aria-hidden="true">→</span>
+            </li>
           </ol>
         </section>
 

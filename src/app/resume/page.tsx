@@ -45,7 +45,8 @@ export default function Resume() {
               <h3 className={styles.skillGroupTitle}>Research Methods</h3>
               <p className={styles.skillList}>
                 Contextual inquiry · Semi-structured interviews · Moderated usability testing ·
-                Affinity mapping · JTBD analysis · Card sorting · Survey design · Heuristic evaluation
+                Unmoderated usability testing · Cognitive walkthrough · Journey mapping ·
+                Affinity mapping · JTBD analysis · Card sorting · Paper prototyping · Survey design · Heuristic evaluation
               </p>
             </div>
             <div className={styles.skillGroup}>
@@ -58,13 +59,13 @@ export default function Resume() {
             <div className={styles.skillGroup}>
               <h3 className={styles.skillGroupTitle}>Design & Tools</h3>
               <p className={styles.skillList}>
-                Figma · Photoshop · Miro · Adobe Acrobat · Google Forms
+                Figma · Photoshop · Miro · Adobe Acrobat · Google Forms · Loop11 · Lyssna
               </p>
             </div>
             <div className={styles.skillGroup}>
               <h3 className={styles.skillGroupTitle}>Technical</h3>
               <p className={styles.skillList}>
-                HTML/CSS · Next.js · Python · AI prompt design · Multi-agent system design
+                HTML/CSS · Next.js · TypeScript · React Native / Expo · Python · Rust · p5.js · SQLite · AI prompt design · Multi-agent system design
               </p>
             </div>
           </div>
