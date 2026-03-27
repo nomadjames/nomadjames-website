@@ -4,7 +4,7 @@ import Tldr from "@/components/Tldr";
 export const metadata = {
   title: "Ableton UX Evaluation Suite | James Dishman",
   description:
-    "A four-study UX evaluation suite across Ableton's product ecosystem: stakeholder analysis, heuristic evaluations, and cognitive walkthrough. Conducted with 30 years of music production domain expertise and a decade as Pittsburgh Ableton User Group leader.",
+    "A four-study UX evaluation suite across Ableton's product ecosystem: stakeholder analysis, heuristic evaluations, and cognitive walkthrough. Conducted with deep music production domain expertise and a decade as Pittsburgh Ableton User Group leader.",
 };
 
 export default function AbletonEvaluationSuite() {
@@ -43,14 +43,14 @@ export default function AbletonEvaluationSuite() {
         </header>
 
         <Tldr>
-          Four UX evaluation methods applied to three Ableton products over four graduate courses, grounded in 30 years of music production and a decade leading the Pittsburgh Ableton User Group. The suite revealed a consistent pattern: Ableton designs for insiders, and that works until someone shows up for the first time.
+          Four UX evaluation methods applied to three Ableton products over four graduate courses, grounded in deep music production experience and a decade leading the Pittsburgh Ableton User Group. The suite revealed a consistent pattern: Ableton designs for insiders, and that works until someone shows up for the first time.
         </Tldr>
 
         {/* Context */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Why This Suite Exists</h2>
           <p className={styles.body}>
-            I have been making electronic music for thirty years. I have led the Pittsburgh
+            I produce electronic music. I have led the Pittsburgh
             Ableton User Group for over a decade, serving as a direct liaison to Ableton&apos;s
             international team. I have watched countless beginners encounter synthesis,
             music theory, and production workflows for the first time. The way Ableton
@@ -505,7 +505,7 @@ export default function AbletonEvaluationSuite() {
               "iOS mobile UX evaluation",
               "Educational UX evaluation",
               "Ecosystem design analysis",
-              "Music production domain expertise (30 years)",
+              "Music production domain expertise",
               "Cross-method synthesis",
               "Redesign recommendation writing",
             ].map((skill) => (

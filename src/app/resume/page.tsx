@@ -32,7 +32,7 @@ export default function Resume() {
           <p className={styles.summary}>
             UX researcher and designer finishing an MS in User Experience at Kent State University.
             Background spans accessibility auditing, discovery research, and AI product design.
-            Thirty years in electronic music and a decade as Pittsburgh&apos;s Ableton User Group organizer
+            Electronic music production and a decade as Pittsburgh&apos;s Ableton User Group organizer
             inform a practice focused on expert users, cognitively demanding systems, and tools that
             genuinely extend human capability.
           </p>
