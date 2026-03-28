@@ -606,6 +606,50 @@ export default function ClarencePage() {
             </p>
           </div>
 
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Spontaneous Task Delegation Breaks Down</h3>
+            <p className={styles.body}>
+              The overnight cron loop works because every job has a clear prompt, a fixed model, and
+              a predictable execution path. Spontaneous tasks during live sessions are a different problem.
+              When a cheaper model receives an unstructured real-time request, it sometimes hallucinates
+              tool syntax instead of executing actual tool calls, dumping raw markup into Telegram messages
+              where a human expects a coherent response.
+            </p>
+            <p className={styles.body}>
+              This reveals a gap between scheduled autonomy and reactive autonomy. The system is reliable
+              when it knows what to do in advance. It degrades when asked to improvise with models that
+              lack the reasoning depth to handle ambiguity. The current workaround is routing complex
+              spontaneous work to higher-capability models, but this defeats the cost architecture.
+              The real fix is better prompt scaffolding for spontaneous tasks, not just better models.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Visibility of System Status (Nielsen #1)</h3>
+            <p className={styles.body}>
+              This is the most persistent unsolved design problem in the system. Nielsen&apos;s first
+              usability heuristic states that a system should always keep users informed about what is
+              going on through appropriate feedback within reasonable time. Clarence violates this
+              consistently.
+            </p>
+            <p className={styles.body}>
+              Twenty-six cron jobs run overnight. Many complete successfully but report
+              &ldquo;not-delivered&rdquo; on their Telegram notifications. The Sergeant-at-Arms posts
+              a digest, but only if something needs attention, which means silence is ambiguous: does
+              silence mean everything worked, or that the reporting layer itself failed? When James
+              wakes up, the system status is reconstructed from scattered log files and database
+              queries rather than surfaced through a coherent status interface.
+            </p>
+            <p className={styles.body}>
+              The problem compounds during live sessions. When agents are delegated tasks in parallel,
+              there is no progress indicator, no heartbeat, no way to distinguish &ldquo;working on
+              it&rdquo; from &ldquo;silently failed.&rdquo; The user is left interpreting silence, which
+              is the opposite of visibility. This is not a logging problem. It is a feedback design
+              problem, and solving it requires treating system status as a first-class UX surface rather
+              than a side effect of Telegram messages.
+            </p>
+          </div>
+
         </section>
 
         {/* Accomplishments */}
