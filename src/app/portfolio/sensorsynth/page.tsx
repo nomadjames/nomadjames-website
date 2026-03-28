@@ -4,7 +4,7 @@ import Tldr from "@/components/Tldr";
 export const metadata = {
   title: "SensorSynth FM | James Dishman",
   description:
-    "An iPad FM synthesizer that uses every available device sensor as modulation sources — accelerometer, gyroscope, magnetometer, barometer, LiDAR, TrueDepth camera, ambient light, microphone, and GPS. MS UX capstone, in active development.",
+    "An iPad FM synthesizer that uses every available device sensor as modulation sources — motion, environment, camera/spatial, and touch inputs including ARKit face and body tracking, quaternion orientation, configurable polling rates, and Apple Pencil. MS UX capstone, in active development.",
 };
 
 export default function SensorSynthFM() {
@@ -26,14 +26,14 @@ export default function SensorSynthFM() {
           </div>
           <h1 className={styles.title}>SensorSynth FM:<br />Your Body as the Interface</h1>
           <div className={styles.methods}>
-            {["Embodied Interaction Design", "FM Synthesis", "Sensor Mapping", "AudioKit / SwiftUI", "Human-AI Collaboration", "NIME Research"].map((m) => (
+            {["Embodied Interaction Design", "FM Synthesis", "Full Sensor Array", "ARKit Face/Body Tracking", "AudioKit / SwiftUI", "Human-AI Collaboration", "NIME Research"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
             ))}
           </div>
         </header>
 
         <Tldr>
-          An in-progress iPad FM synthesizer that treats every available device sensor as a modulation source: accelerometer, gyroscope, magnetometer, barometer, LiDAR, TrueDepth camera, ambient light, microphone, and GPS. The more environmental variables feeding the synthesis engine, the more unpredictable and unrepeatable each patch becomes. The design question: what happens when the instrument responds not just to your body, but to the full physical context you exist in? This is my MS UX capstone and a research artifact exploring embodied interaction with sound.
+          An in-progress iPad FM synthesizer that treats every available device sensor as a modulation source: motion (accelerometer, gyroscope, quaternion, gravity vector), environment (magnetometer, barometer, ambient light, microphone, GPS, proximity, battery), camera/spatial (LiDAR, ARKit face tracking with 52 blend shapes, body tracking, device tracking), and touch (coordinate, radius, pressure, Apple Pencil). The more environmental variables feeding the synthesis engine, the more unpredictable and unrepeatable each patch becomes. The design question: what happens when the instrument responds not just to your body, but to the full physical context you exist in? This is my MS UX capstone and a research artifact exploring embodied interaction with sound.
         </Tldr>
 
         {/* The Idea */}
@@ -47,10 +47,13 @@ export default function SensorSynthFM() {
           </p>
           <p className={styles.body}>
             SensorSynth FM is an iPad FM synthesizer that treats every available device sensor as
-            a modulation source: accelerometer, gyroscope, magnetometer, barometer, LiDAR, TrueDepth
-            camera, ambient light, microphone, and GPS. The more environmental data feeding the engine,
-            the more each performance becomes a product of where you are, how you move, and what
-            surrounds you. No two patches sound the same because no two moments are physically identical.
+            a modulation source. Motion, environment, camera, spatial, and touch inputs all feed the
+            FM engine simultaneously. The approach draws from tools like ZIG SIM Pro, which proved
+            that treating a mobile device as a full sensor bundle (not just a screen with an
+            accelerometer) opens up an entirely different design space. The more environmental data
+            feeding the engine, the more each performance becomes a product of where you are, how
+            you move, and what surrounds you. No two patches sound the same because no two moments
+            are physically identical.
           </p>
           <p className={styles.body}>
             This is my MS UX capstone at Kent State, built with AudioKit and SwiftUI, and it&apos;s
@@ -100,14 +103,30 @@ export default function SensorSynthFM() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Sensor Mapping Layer</h3>
             <p className={styles.body}>
-              The modulation system ingests every sensor the iPad exposes: accelerometer (tilt,
-              orientation), gyroscope (rotational velocity), magnetometer (compass heading, magnetic
-              field disturbances), barometer (altitude, atmospheric pressure), LiDAR (spatial depth
-              mapping, on Pro models), TrueDepth camera (proximity, facial expression), ambient light
-              sensor (environmental brightness), microphone (ambient amplitude, spectral content), and
-              GPS (latitude, longitude, altitude). Each feeds FM parameters (carrier frequency,
-              modulation index, operator ratios, amplitude) through a smoothing layer that prevents
-              abrupt jumps.
+              The modulation system ingests every sensor the iPad exposes, organized into four
+              input classes:
+            </p>
+            <p className={styles.body}>
+              <strong>Motion:</strong> Accelerometer (tilt, orientation), gyroscope (rotational velocity),
+              quaternion (full 3D orientation as a single smooth value), and gravity vector (device
+              orientation separated from user movement).
+              {" "}<strong>Environment:</strong> Magnetometer (compass heading, magnetic field disturbances),
+              barometer (altitude, atmospheric pressure), ambient light sensor (environmental brightness),
+              microphone (ambient amplitude, spectral content), GPS (latitude, longitude, altitude),
+              proximity sensor, and battery level.
+              {" "}<strong>Camera/Spatial:</strong> LiDAR depth mapping (Pro models), TrueDepth camera with
+              ARKit face tracking (52 blend shapes: eyebrow raise, jaw open, smile, each individually
+              mappable), ARKit body tracking (full skeleton pose data), and ARKit device tracking
+              (world-space position and orientation).
+              {" "}<strong>Touch:</strong> Touch coordinate, touch radius, touch pressure, and Apple Pencil
+              input (pressure, tilt, azimuth) for fine-grained stylus control on Pro models.
+            </p>
+            <p className={styles.body}>
+              Each feeds FM parameters (carrier frequency, modulation index, operator ratios, amplitude)
+              through a smoothing layer that prevents abrupt jumps. Sensor polling rate is
+              user-configurable (1, 10, 30, or 60 Hz), which is a design lever, not just a technical
+              setting: higher rates produce more responsive, jittery modulation while lower rates yield
+              smoother, dreamier textures.
             </p>
             <p className={styles.body}>
               The key insight: the more environmental variables you pipe into the synthesis engine,
@@ -192,7 +211,9 @@ export default function SensorSynthFM() {
             {[
               "Embodied interaction design theory (Dourish)",
               "FM synthesis architecture and parameter design",
-              "Sensor-to-audio mapping design",
+              "Full sensor array design (motion, environment, camera, touch)",
+              "ARKit face/body tracking integration",
+              "Configurable sensor polling rates",
               "AudioKit 5 / SwiftUI / iOS",
               "Xcode project architecture",
               "Human-AI collaborative development",
