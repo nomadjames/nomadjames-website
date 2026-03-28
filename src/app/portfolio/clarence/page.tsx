@@ -371,7 +371,7 @@ export default function ClarencePage() {
             they do not have permanent answers.
           </p>
           <p className={styles.body}>
-            The March 25-26 changes made this concrete. Moving all 25 cron jobs to free-tier models was
+            The March 25-26 changes made this concrete. Moving all 26 cron jobs to free-tier models was
             not just a cost decision. It was a trust decision. The system proved that Gemini Flash and
             MiniMax could handle nightly work reliably enough that Opus budget should be reserved for
             interactive sessions where I am present and the stakes are higher. Trust in the overnight
@@ -522,7 +522,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Budget Constraint as Design Constraint</h3>
             <p className={styles.body}>
-              The entire routing policy exists because running expensive models at scale has real cost. 25
+              The entire routing policy exists because running expensive models at scale has real cost. 26
               cron jobs running nightly would be expensive if all of them used Opus. The March 25-26 pass
               eliminated expensive models from cron entirely: 15 jobs on Gemini Flash, 10 on MiniMax. But
               this creates a different kind of debt.
@@ -634,7 +634,7 @@ export default function ClarencePage() {
             <li>
               <strong>OWASP Agentic Top 10 integration:</strong> the new OWASP threat model for AI agents
               covers Confused Deputy and Skill-Inject attacks that are directly relevant to a system running
-              25 cron jobs with file and network access. Bruno&apos;s security audit needs these checks.
+              26 cron jobs with file and network access. Bruno&apos;s security audit needs these checks.
             </li>
             <li>
               <strong>Refining the human-in-the-loop boundary:</strong> the delegation rules now codify hard
