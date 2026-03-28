@@ -489,6 +489,109 @@ export default function AbletonEvaluationSuite() {
           </div>
         </section>
 
+        {/* Cognitive Accessibility Evaluation */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Cognitive Accessibility Evaluation: Web and Live 12</h2>
+          <p className={styles.body}>
+            <strong>Course:</strong> UX 60504, Accessibility and Universal Design (2026)
+          </p>
+          <p className={styles.body}>
+            Applied eight COGA-grounded criteria to ableton.com (including Learning Music and
+            Learning Synths) and Ableton Live 12. The scope: ADHD, dyslexia, autism spectrum,
+            working memory impairments, and executive function challenges. The method:
+            expert inspection against W3C cognitive accessibility principles. The finding:
+            Ableton designs for people who already speak their language.
+          </p>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>What Works: Learning Music as Benchmark</h3>
+            <p className={styles.body}>
+              Learning Music is what cognitive accessibility looks like when it is built on
+              purpose. Chapters are concept-based (&ldquo;Beats,&rdquo; &ldquo;Chords,&rdquo; &ldquo;Melodies&rdquo;) and
+              sub-lessons are outcome-oriented: &ldquo;Make beats,&rdquo; &ldquo;Make some chords.&rdquo; A
+              beginner or someone with cognitive processing differences can orient by what
+              they want to create, not what they already know. Generous whitespace, muted
+              color palette, and tight audio-visual synchronization reduce distraction and
+              support focus. This is not accidental. It directly addresses working memory
+              limitations and attention challenges.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>What Fails: Icon Labeling (Both Platforms)</h3>
+            <p className={styles.body}>
+              Labeled icons achieve 88% comprehension. Unlabeled icons drop to 60%. Icons
+              unique to a specific app fall to 34%. The transport bar, browser, device
+              chain, and mixer in Live 12 all rely on small, unlabeled icons. The Capture
+              button (a dotted circle) is meaningless without prior knowledge. For users
+              with visual processing differences or working memory impairments, this
+              creates a mandatory memorization burden before basic navigation is possible.
+              ableton.com&apos;s product pages fail similarly: terms like &ldquo;waveshaping,&rdquo;
+              &ldquo;FM operators,&rdquo; and &ldquo;filter topologies&rdquo; appear without definitions.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Live 12: Motor Accessibility Yes, Cognitive No</h3>
+            <p className={styles.body}>
+              Live 12 made real progress on screen reader support, keyboard navigation, and
+              high-contrast themes. That investment is genuine and it matters. But it all
+              targets motor and sensory accessibility. Cognitive accessibility got nothing:
+              no simplified view, no focus mode, no icon labels, no plain-language tooltips.
+              The engineering capacity is there. The will is demonstrably there. Cognitive
+              was simply not on the agenda.
+            </p>
+            <p className={styles.body}>
+              The interface is a cognitive load problem by default. On first launch, a user
+              sees clip slots, multiple tracks, send channels, a Master track, a browser
+              panel, an unlabeled toolbar, a transport section, and an information overlay
+              simultaneously. For a working producer, that is a workspace. For a first-time
+              user, it is overwhelming. There is no &ldquo;start here&rdquo; state and no progressive
+              disclosure. Every feature is visible at once.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>The Dual-View Cognitive Switch</h3>
+            <p className={styles.body}>
+              Session View and Arrangement View represent fundamentally different mental
+              models of music: nonlinear clips versus linear timeline. Switching between
+              them requires holding the state of one view in working memory while operating
+              in the other. For users with working memory impairments, this context switch
+              is where sessions fall apart. There is no contextual explanation anywhere in
+              Live about when or why to use each view.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Recommendations</h3>
+            <p className={styles.body}>
+              Icon labels (persistent or a &ldquo;Show labels&rdquo; toggle, as Push hardware already
+              does). A &ldquo;First Session&rdquo; simplified mode that hides everything except
+              transport, one audio track, one MIDI track, and browser. Glossary tooltips
+              on product pages. Apply Learning Music&apos;s outcome-based navigation model to
+              Learning Synths (&ldquo;How sounds are made&rdquo; instead of &ldquo;Oscillators&rdquo;). A
+              one-time view-switching explainer. None of these require a redesign. They
+              require bringing the same intentionality to cognitive accessibility that Live
+              12 already demonstrated on motor and sensory.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>The Case for Growth, Not Compliance</h3>
+            <p className={styles.body}>
+              Nobody emails support to say &ldquo;Your mixer interface overloaded my working
+              memory.&rdquo; They just close the laptop. The improvements show up as better
+              retention, not accessibility wins. But the math is straightforward: ADHD
+              affects 6% of adults worldwide. Dyslexia affects up to 20%. One in five
+              adults worldwide (OECD PIAAC 2023) can only understand simple texts or solve
+              basic arithmetic. The audience for cognitively accessible design is not a
+              niche. It is the majority of people who might try Ableton and leave before
+              they make anything.
+            </p>
+          </div>
+        </section>
+
         {/* Skills */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Skills Demonstrated</h2>
@@ -507,6 +610,8 @@ export default function AbletonEvaluationSuite() {
               "Ecosystem design analysis",
               "Music production domain expertise",
               "Cross-method synthesis",
+              "Cognitive accessibility evaluation (W3C COGA)",
+              "Accessibility severity rating",
               "Redesign recommendation writing",
             ].map((skill) => (
               <span key={skill} className={styles.skill}>{skill}</span>
