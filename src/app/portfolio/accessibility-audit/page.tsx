@@ -129,6 +129,33 @@ export default function AccessibilityAudit() {
               alone doesn&apos;t.
             </p>
           </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Beyond WCAG: Cognitive Accessibility</h3>
+            <p className={styles.body}>
+              WCAG organizes accessibility around four principles: perceivable, operable, understandable, and
+              robust. That framework catches a lot. But it doesn&apos;t fully address cognitive load, focus support,
+              or plain language as first-class concerns. To fill that gap, I built an evaluation methodology
+              grounded in the W3C&apos;s COGA (Cognitive and Learning Disabilities Accessibility) task force work
+              and their &quot;Making Content Usable for People with Cognitive and Learning Disabilities&quot; guidance.
+              The goal was to extend the audit to cover the experience of users with ADHD, dyslexia, autism,
+              memory impairments, and mental health conditions like communication anxiety.
+            </p>
+            <p className={styles.body}>
+              I developed eight evaluation criteria that sit alongside traditional WCAG checks: plain language,
+              clear iconography, consistent navigation, focus support, memory independence, error prevention,
+              content scannability, and progressive disclosure. I also ran Flesch-Kincaid readability analysis
+              and applied mobile care heuristics for cognitive accessibility. These criteria surface a class
+              of failures that automated tools and contrast checkers will never flag, things like unclear
+              error messages, inconsistent interaction patterns, dark patterns that exploit decision fatigue,
+              and content that demands too much working memory to parse.
+            </p>
+            <p className={styles.body}>
+              This is the part of accessibility work that most teams skip entirely. WCAG compliance is necessary
+              but not sufficient. If your content is technically perceivable and operable but still confusing,
+              you haven&apos;t solved the problem.
+            </p>
+          </div>
         </section>
 
         {/* The Insight */}
