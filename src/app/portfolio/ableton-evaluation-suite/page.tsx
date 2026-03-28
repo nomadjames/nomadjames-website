@@ -538,6 +538,11 @@ export default function AbletonEvaluationSuite() {
                 Heuristic Evaluation: Ableton Learning Music (UX 60504 / UX 60541)
               </a>
             </li>
+            <li>
+              <a href="/pdfs/ableton-cognitive-accessibility-evaluation.pdf" target="_blank" rel="noopener noreferrer">
+                Cognitive Accessibility Evaluation: Web and Mobile Design (UX 60504)
+              </a>
+            </li>
           </ul>
         </section>
 
