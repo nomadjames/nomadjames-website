@@ -78,7 +78,7 @@ export default function Resume() {
             <div className={styles.roleHeader}>
               <div>
                 <h3 className={styles.roleTitle}>Smart Meter Technician</h3>
-                <p className={styles.roleOrg}>Wellington Energy <span className={styles.dot}>·</span> Client: FirstEnergy</p>
+                <p className={styles.roleOrg}>Wellington Energy (First Energy subcontractor)</p>
               </div>
               <span className={styles.roleDates}>April 2025–Present</span>
             </div>
@@ -141,9 +141,9 @@ export default function Resume() {
           <h2 className={styles.sectionTitle}>Education</h2>
           <div className={styles.eduGrid}>
             <div className={styles.edu}>
-              <div className={styles.eduDegree}>MS, User Experience</div>
+              <div className={styles.eduDegree}>MS, User Experience <span className={styles.dot}>·</span> 3.95 GPA</div>
               <div className={styles.eduOrg}>Kent State University</div>
-              <div className={styles.eduDates}>Expected 2026</div>
+              <div className={styles.eduDates}>Expected December 2026</div>
             </div>
             <div className={styles.edu}>
               <div className={styles.eduDegree}>BA, English</div>
