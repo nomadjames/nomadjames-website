@@ -3,7 +3,7 @@ import Tldr from "@/components/Tldr";
 
 export const metadata = {
   title: "Health Translator | James Dishman",
-  description: "AI-powered plain-language translation for healthcare portals. A team capstone exploring trust, health literacy, and the ethics of AI in high-stakes contexts.",
+  description: "AI-powered plain-language translation for healthcare portals. A team project exploring trust, health literacy, and the ethics of AI in high-stakes contexts.",
 };
 
 export default function HealthTranslator() {
@@ -21,7 +21,7 @@ export default function HealthTranslator() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2025</span>
             <span className={styles.metaDot} aria-hidden="true">·</span>
-            <span className={styles.course}>UX 60521 - AI in UX/HCI Design · Kent State MS UX · Team Capstone</span>
+            <span className={styles.course}>UX 60521 - AI in UX/HCI Design · Kent State MS UX · Team Project</span>
           </div>
           <h1 className={styles.title}>Health Translator:<br />AI That Earns Its Place</h1>
           <div className={styles.methods}>
@@ -32,7 +32,7 @@ export default function HealthTranslator() {
         </header>
 
         <Tldr>
-          A team capstone designing an AI-powered plain-language translation layer for healthcare portals. The research showed that patient skepticism about AI in healthcare is not irrational; it is well-calibrated to the stakes. That reframe made trust the central design constraint, not a feature to bolt on afterward.
+          A team project designing an AI-powered plain-language translation layer for healthcare portals. The research showed that patient skepticism about AI in healthcare is not irrational; it is well-calibrated to the stakes. That reframe made trust the central design constraint, not a feature to bolt on afterward.
         </Tldr>
 
         {/* The Problem */}
@@ -213,7 +213,7 @@ export default function HealthTranslator() {
               Working collaboratively on this project meant that assumptions I didn&apos;t know I was making
               got surfaced early. Another team member pushing back on a design decision about when to show
               the escalation option - and being right - was a better education in the value of diverse
-              perspectives in design than any reading could have been. Capstone work done solo is faster.
+              perspectives in design than any reading could have been. Team project work done solo is faster.
               It&apos;s not better.
             </p>
           </div>
@@ -255,7 +255,7 @@ export default function HealthTranslator() {
               "Multimodal interaction design (text + audio)",
               "Human escalation path design",
               "Ethics of AI in healthcare",
-              "Collaborative design and capstone research",
+              "Collaborative design and team research",
             ].map((skill) => (
               <span key={skill} className={styles.skill}>{skill}</span>
             ))}

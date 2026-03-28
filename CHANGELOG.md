@@ -118,9 +118,9 @@ Sequential record of all changes to the portfolio site. Includes both Clarence-e
 - **Who:** Clarence
 - Removed internal port number from public architecture diagram
 
-### 0dab0ff — Remove cc-forge references
+### 0dab0ff — Remove internal proxy references
 - **Who:** Clarence
-- Replaced cc-forge with generic "model bridge" on public site
+- Replaced internal proxy name with generic "model bridge" on public site
 
 ### 80b72df — WCAG 2.1 AA accessibility fix
 - **Who:** Clarence
