@@ -1,0 +1,1212 @@
+[
+  {
+    "id": 1,
+    "hexagram": {
+      "number": 1,
+      "name": "Ch'ien / The Creative",
+      "trigrams": ["Heaven", "Heaven"],
+      "image": "The movement of heaven is full of power."
+    },
+    "strategy": "Honor thy error as a hidden intention",
+    "synthesis": "The sky does not apologize for storms. What you call a mistake may be the first honest thing you've done in weeks. The Creative moves through everything, including your failures. Let the error stand. It knows something you don't yet."
+  },
+  {
+    "id": 2,
+    "hexagram": {
+      "number": 2,
+      "name": "K'un / The Receptive",
+      "trigrams": ["Earth", "Earth"],
+      "image": "The earth's condition is receptive devotion."
+    },
+    "strategy": "Use an old idea",
+    "synthesis": "The ground beneath you has held up civilizations. Not every foundation needs to be poured fresh. There is an old idea waiting in you, something you dismissed as too simple. The Receptive says: simple is not the same as easy. Return to it."
+  },
+  {
+    "id": 3,
+    "hexagram": {
+      "number": 3,
+      "name": "Chun / Difficulty at the Beginning",
+      "trigrams": ["Water", "Thunder"],
+      "image": "Clouds and thunder: the image of Difficulty at the Beginning."
+    },
+    "strategy": "What would your closest friend do?",
+    "synthesis": "Every good thing starts ugly. The thunder is just the sky clearing its throat. You are overthinking this because you are too close to it. Step back far enough to see it the way someone who loves you would. They would say: just begin."
+  },
+  {
+    "id": 4,
+    "hexagram": {
+      "number": 4,
+      "name": "Meng / Youthful Folly",
+      "trigrams": ["Mountain", "Water"],
+      "image": "A spring wells up at the foot of the mountain."
+    },
+    "strategy": "Ask people to work against their better judgment",
+    "synthesis": "The student who already knows the answer is no student at all. The spring doesn't ask the mountain for permission. Push past what feels reasonable right now. Your better judgment has been keeping you safe, but safety is not what this moment requires."
+  },
+  {
+    "id": 5,
+    "hexagram": {
+      "number": 5,
+      "name": "Hsu / Waiting",
+      "trigrams": ["Water", "Heaven"],
+      "image": "Clouds rise up to heaven: the image of Waiting."
+    },
+    "strategy": "Do nothing for as long as possible",
+    "synthesis": "Rain does not rush. It gathers. You have confused patience with passivity, and they are not the same animal. The clouds are doing real work up there, even when the ground is dry. Wait. Not because you are stuck, but because the timing is not yours to decide."
+  },
+  {
+    "id": 6,
+    "hexagram": {
+      "number": 6,
+      "name": "Sung / Conflict",
+      "trigrams": ["Heaven", "Water"],
+      "image": "Heaven and water go their opposite ways: the image of Conflict."
+    },
+    "strategy": "Remove specifics and convert to ambiguities",
+    "synthesis": "You have drawn a line so sharp it has become a wall. The conflict lives in the precision of your position. Blur the edges. Let the argument become a question. When heaven and water disagree, neither wins -- they become weather."
+  },
+  {
+    "id": 7,
+    "hexagram": {
+      "number": 7,
+      "name": "Shih / The Army",
+      "trigrams": ["Earth", "Water"],
+      "image": "In the middle of the earth is water: the image of the Army."
+    },
+    "strategy": "Disciplined self-indulgence",
+    "synthesis": "There is a reservoir inside you, deep and organized. Discipline does not mean deprivation. The army that never rests will break before the enemy arrives. Allow yourself the thing you want, but give it structure. A contained indulgence becomes fuel."
+  },
+  {
+    "id": 8,
+    "hexagram": {
+      "number": 8,
+      "name": "Pi / Holding Together",
+      "trigrams": ["Water", "Earth"],
+      "image": "On the earth is water: the image of Holding Together."
+    },
+    "strategy": "Emphasize the flaws",
+    "synthesis": "Water does not hold itself together by being perfect. It fills every crack, every low place. The flaws are where the joining happens. Show the rough edges of this work. Let people see where you struggled. That is where they will recognize themselves."
+  },
+  {
+    "id": 9,
+    "hexagram": {
+      "number": 9,
+      "name": "Hsiao Ch'u / The Taming Power of the Small",
+      "trigrams": ["Wind", "Heaven"],
+      "image": "The wind drives across heaven: the image of the Taming Power of the Small."
+    },
+    "strategy": "Make a blank valuable by putting it in an exquisite frame",
+    "synthesis": "The wind cannot stop heaven, but it shapes what moves through it. You don't need more content. You need better context. The emptiness you are afraid of is actually the point. Frame it deliberately and it becomes a room people want to enter."
+  },
+  {
+    "id": 10,
+    "hexagram": {
+      "number": 10,
+      "name": "Lu / Treading",
+      "trigrams": ["Heaven", "Lake"],
+      "image": "Heaven above, the lake below: the image of Treading."
+    },
+    "strategy": "What mistakes did you make last time?",
+    "synthesis": "You are walking on the tail of the tiger again. You know this path. You have been bitten before. The question is not whether you are brave enough -- you clearly are. The question is whether you learned to step differently. Review the scars. They are a map."
+  },
+  {
+    "id": 11,
+    "hexagram": {
+      "number": 11,
+      "name": "T'ai / Peace",
+      "trigrams": ["Earth", "Heaven"],
+      "image": "Heaven and earth unite: the image of Peace."
+    },
+    "strategy": "Breathe more deeply",
+    "synthesis": "When heaven descends and earth rises, they meet in the middle. That meeting place is your body. You have been thinking your way through this, and thinking is not wrong, but it is incomplete. Breathe. The answer is closer than your next thought. It is in your next breath."
+  },
+  {
+    "id": 12,
+    "hexagram": {
+      "number": 12,
+      "name": "P'i / Standstill",
+      "trigrams": ["Heaven", "Earth"],
+      "image": "Heaven and earth do not unite: the image of Standstill."
+    },
+    "strategy": "Is it finished?",
+    "synthesis": "The stagnation you feel is not failure. It is a question the universe is asking you, and the question is exactly this: is it finished? Not everything that stops has died. Some things stop because they are complete and you haven't noticed yet. Look again."
+  },
+  {
+    "id": 13,
+    "hexagram": {
+      "number": 13,
+      "name": "T'ung Jen / Fellowship with Men",
+      "trigrams": ["Heaven", "Fire"],
+      "image": "Heaven together with fire: the image of Fellowship."
+    },
+    "strategy": "Abandon normal instruments",
+    "synthesis": "Community is not built with the usual tools. The fire that reaches heaven is the one that burns differently. Put down the instrument everyone expects you to play. The fellowship you seek will form around the strange sound, not the familiar one."
+  },
+  {
+    "id": 14,
+    "hexagram": {
+      "number": 14,
+      "name": "Ta Yu / Possession in Great Measure",
+      "trigrams": ["Fire", "Heaven"],
+      "image": "Fire in heaven above: the image of Possession in Great Measure."
+    },
+    "strategy": "Don't be afraid of things because they're easy to do",
+    "synthesis": "You have more than you think. The fire above heaven illuminates everything, and what it shows you is abundance. The easy path is not always the lazy one. Sometimes the work has already been done, and all that remains is the simple act of claiming it."
+  },
+  {
+    "id": 15,
+    "hexagram": {
+      "number": 15,
+      "name": "Ch'ien / Modesty",
+      "trigrams": ["Earth", "Mountain"],
+      "image": "Within the earth, a mountain: the image of Modesty."
+    },
+    "strategy": "Take away the elements in order of apparent non-importance",
+    "synthesis": "The tallest mountain in this hexagram is hidden underground. Strip away what looks essential. The decorations go first, then the explanations, then the justifications. What remains when you have removed everything you thought you needed? That is the mountain."
+  },
+  {
+    "id": 16,
+    "hexagram": {
+      "number": 16,
+      "name": "Yu / Enthusiasm",
+      "trigrams": ["Thunder", "Earth"],
+      "image": "Thunder comes resounding out of the earth: the image of Enthusiasm."
+    },
+    "strategy": "Use fewer notes",
+    "synthesis": "The thunder doesn't explain itself. It arrives and the earth responds. You have been adding when you should be subtracting. The enthusiasm you need is not louder -- it is simpler. One note struck with conviction moves more than a symphony of hedging."
+  },
+  {
+    "id": 17,
+    "hexagram": {
+      "number": 17,
+      "name": "Sui / Following",
+      "trigrams": ["Lake", "Thunder"],
+      "image": "Thunder in the middle of the lake: the image of Following."
+    },
+    "strategy": "What is the reality of the situation?",
+    "synthesis": "The lake follows the shape of the land without complaint. You have been following an idea of the situation instead of the situation itself. Stop. Look at what is actually in front of you, not what you planned to see. The real thing is more interesting than the plan."
+  },
+  {
+    "id": 18,
+    "hexagram": {
+      "number": 18,
+      "name": "Ku / Work on What Has Been Spoiled",
+      "trigrams": ["Mountain", "Wind"],
+      "image": "The wind blows low on the mountain: the image of Decay."
+    },
+    "strategy": "Repetition is a form of change",
+    "synthesis": "Something has gone to rot and you know exactly what it is. The wind at the base of the mountain is slow and persistent. Go back. Do the thing again. Not because you failed the first time, but because doing it again will make it into something it could not have been before."
+  },
+  {
+    "id": 19,
+    "hexagram": {
+      "number": 19,
+      "name": "Lin / Approach",
+      "trigrams": ["Earth", "Lake"],
+      "image": "The earth above the lake: the image of Approach."
+    },
+    "strategy": "Go slowly all the way round the outside",
+    "synthesis": "Something is coming toward you. Do not rush to meet it. Walk the perimeter first. See it from every angle before you let it arrive. The earth watches the lake fill from above, patient, taking in the full shape of what rises. Approach is not the same as arrival."
+  },
+  {
+    "id": 20,
+    "hexagram": {
+      "number": 20,
+      "name": "Kuan / Contemplation",
+      "trigrams": ["Wind", "Earth"],
+      "image": "The wind blows over the earth: the image of Contemplation."
+    },
+    "strategy": "Look at the order in which you do things",
+    "synthesis": "The wind touches everything but grasps nothing. You have been doing the right things in the wrong sequence. Contemplation is not inaction -- it is the act of seeing the pattern in your own behavior. Rearrange the steps. The dance changes when the order changes."
+  },
+  {
+    "id": 21,
+    "hexagram": {
+      "number": 21,
+      "name": "Shih Ho / Biting Through",
+      "trigrams": ["Fire", "Thunder"],
+      "image": "Thunder and lightning: the image of Biting Through."
+    },
+    "strategy": "Destroy the most important thing",
+    "synthesis": "There is an obstruction. You can feel it in your teeth. Lightning and thunder do not negotiate with what stands in their way. The thing you are protecting most fiercely is probably the thing that needs to go. Bite through it. The relief on the other side is real."
+  },
+  {
+    "id": 22,
+    "hexagram": {
+      "number": 22,
+      "name": "Pi / Grace",
+      "trigrams": ["Mountain", "Fire"],
+      "image": "Fire at the foot of the mountain: the image of Grace."
+    },
+    "strategy": "Decorate, decorate",
+    "synthesis": "A fire at the base of a mountain does not pretend to be the mountain. It simply makes the mountain visible. Adornment is not vanity when it serves clarity. Add beauty where you can. Not to hide the structure, but to let people see it in good light."
+  },
+  {
+    "id": 23,
+    "hexagram": {
+      "number": 23,
+      "name": "Po / Splitting Apart",
+      "trigrams": ["Mountain", "Earth"],
+      "image": "The mountain rests on the earth: the image of Splitting Apart."
+    },
+    "strategy": "Define an area as 'safe' and use it as an anchor",
+    "synthesis": "Things are falling away and you cannot stop them. The mountain is eroding. This is not the time to rebuild -- it is the time to find the one square foot of ground that will hold you. Stand there. Let everything else split apart. You will build again from what remains."
+  },
+  {
+    "id": 24,
+    "hexagram": {
+      "number": 24,
+      "name": "Fu / Return",
+      "trigrams": ["Earth", "Thunder"],
+      "image": "Thunder within the earth: the image of the Turning Point."
+    },
+    "strategy": "Simply a matter of work",
+    "synthesis": "The thunder is underground, gathering. This is the turning point, and it asks nothing mystical of you. It asks you to work. Return to the thing you left. Not with revelation, not with a new philosophy. Just with your hands and your hours. The return is in the labor."
+  },
+  {
+    "id": 25,
+    "hexagram": {
+      "number": 25,
+      "name": "Wu Wang / Innocence",
+      "trigrams": ["Heaven", "Thunder"],
+      "image": "Under heaven, thunder rolls: all things attain the natural state of innocence."
+    },
+    "strategy": "Don't be frightened of cliches",
+    "synthesis": "Innocence is not ignorance. It is the state before you talked yourself out of the obvious. The cliche you are avoiding contains a truth you need. Thunder under heaven is not subtle, and it does not need to be. Say the plain thing. Mean it."
+  },
+  {
+    "id": 26,
+    "hexagram": {
+      "number": 26,
+      "name": "Ta Ch'u / The Taming Power of the Great",
+      "trigrams": ["Mountain", "Heaven"],
+      "image": "Heaven within the mountain: the image of the Taming Power of the Great."
+    },
+    "strategy": "Faced with a choice, do both",
+    "synthesis": "The mountain contains the entire sky. You think you must choose, and the hexagram says you are wrong. Hold both. The great power here is not in selection but in containment. You are larger than the decision. Let both paths exist inside you and walk them at once."
+  },
+  {
+    "id": 27,
+    "hexagram": {
+      "number": 27,
+      "name": "I / The Corners of the Mouth",
+      "trigrams": ["Mountain", "Thunder"],
+      "image": "At the foot of the mountain, thunder: the image of Providing Nourishment."
+    },
+    "strategy": "What would you do if given complete creative freedom?",
+    "synthesis": "Pay attention to what you are feeding yourself -- ideas, fears, distractions. The mouth takes in and the mouth speaks out. If you had no constraints at all, what would you make? That answer is your real hunger. The nourishment you need is permission, and you can give it to yourself."
+  },
+  {
+    "id": 28,
+    "hexagram": {
+      "number": 28,
+      "name": "Ta Kuo / Preponderance of the Great",
+      "trigrams": ["Lake", "Wind"],
+      "image": "The lake rises above the trees: the image of Preponderance of the Great."
+    },
+    "strategy": "Once the search is in progress, something will be found",
+    "synthesis": "The ridgepole is bending. The weight is extraordinary. But you are already in motion, and that is what matters. The lake has risen past what anyone thought possible, and still it holds. Do not stop to assess whether you will find what you are looking for. You are looking. That is enough."
+  },
+  {
+    "id": 29,
+    "hexagram": {
+      "number": 29,
+      "name": "K'an / The Abysmal",
+      "trigrams": ["Water", "Water"],
+      "image": "Water flows on and reaches the goal: the image of the Abysmal repeated."
+    },
+    "strategy": "Only one element of each kind",
+    "synthesis": "You are in deep water, and the water goes deeper still. Simplify. When you are in danger of drowning, you do not carry everything -- you carry one thing. One idea, one commitment, one element that matters. Water reaches its goal not by spreading but by flowing in a single direction."
+  },
+  {
+    "id": 30,
+    "hexagram": {
+      "number": 30,
+      "name": "Li / The Clinging",
+      "trigrams": ["Fire", "Fire"],
+      "image": "That which is bright rises twice: the image of Fire."
+    },
+    "strategy": "State the problem in words as clearly as possible",
+    "synthesis": "Fire clings to what feeds it. Your problem clings to vagueness the same way. Name it. Say it plainly, in words that a child would understand. The double fire of this hexagram is clarity upon clarity. When you see the problem clearly, it has already begun to transform."
+  },
+  {
+    "id": 31,
+    "hexagram": {
+      "number": 31,
+      "name": "Hsien / Influence",
+      "trigrams": ["Lake", "Mountain"],
+      "image": "A lake on the mountain: the image of Influence."
+    },
+    "strategy": "Discover the recipes you are using and abandon them",
+    "synthesis": "The lake sits atop the mountain by some quiet miracle. Influence works the same way -- not by force but by being in an unexpected place. You have been following a recipe, and the recipe has stopped producing results. Throw it out. The thing that makes you influential is the thing no recipe can teach."
+  },
+  {
+    "id": 32,
+    "hexagram": {
+      "number": 32,
+      "name": "Heng / Duration",
+      "trigrams": ["Thunder", "Wind"],
+      "image": "Thunder and wind: the image of Duration."
+    },
+    "strategy": "Do the washing up",
+    "synthesis": "Duration is not dramatic. It is dishes. It is the thunder that keeps rolling, the wind that keeps blowing, not because they are heroic but because that is what they do. Go do the small, boring, necessary thing. The endurance you need is built in the mundane, not the extraordinary."
+  },
+  {
+    "id": 33,
+    "hexagram": {
+      "number": 33,
+      "name": "Tun / Retreat",
+      "trigrams": ["Heaven", "Mountain"],
+      "image": "Mountain under heaven: the image of Retreat."
+    },
+    "strategy": "Give way to your worst impulse",
+    "synthesis": "Retreat is not defeat. The mountain does not chase heaven. Sometimes the worst impulse -- the one that says stop, pull back, disengage -- is the wisest voice in the room. Give way to it. Not forever. Just long enough to remember what you are actually fighting for."
+  },
+  {
+    "id": 34,
+    "hexagram": {
+      "number": 34,
+      "name": "Ta Chuang / The Power of the Great",
+      "trigrams": ["Thunder", "Heaven"],
+      "image": "Thunder in heaven above: the image of the Power of the Great."
+    },
+    "strategy": "Don't break the silence",
+    "synthesis": "You have great power right now. Thunder above heaven is as loud as the world gets. And the instruction is: be quiet. Power that announces itself is already diminishing. The most forceful thing you can do in this moment is hold still and let the silence do the speaking."
+  },
+  {
+    "id": 35,
+    "hexagram": {
+      "number": 35,
+      "name": "Chin / Progress",
+      "trigrams": ["Fire", "Earth"],
+      "image": "The sun rises over the earth: the image of Progress."
+    },
+    "strategy": "Work at a different speed",
+    "synthesis": "The sun does not rush its rising. It also does not hesitate. You have been working at a speed that belongs to someone else -- either too fast because you are anxious or too slow because you are afraid. Find your actual tempo. Progress is not acceleration. It is the right pace, sustained."
+  },
+  {
+    "id": 36,
+    "hexagram": {
+      "number": 36,
+      "name": "Ming I / Darkening of the Light",
+      "trigrams": ["Earth", "Fire"],
+      "image": "The light has sunk into the earth: the image of Darkening of the Light."
+    },
+    "strategy": "Be extravagant",
+    "synthesis": "The light has gone underground, and the world above is dim. This is precisely when extravagance matters most. Not waste -- extravagance. Pour yourself into the work with unreasonable generosity. In dark times, the light you carry inside must burn brighter to compensate."
+  },
+  {
+    "id": 37,
+    "hexagram": {
+      "number": 37,
+      "name": "Chia Jen / The Family",
+      "trigrams": ["Wind", "Fire"],
+      "image": "Wind comes forth from fire: the image of the Family."
+    },
+    "strategy": "Think of the radio",
+    "synthesis": "The warmth of fire creates the wind that carries it further. Every family -- biological or chosen -- is a broadcast. You are transmitting whether you know it or not. Consider what signal you are putting out. Not for the world. For the people in the next room."
+  },
+  {
+    "id": 38,
+    "hexagram": {
+      "number": 38,
+      "name": "K'uei / Opposition",
+      "trigrams": ["Fire", "Lake"],
+      "image": "Above, fire; below, the lake: the image of Opposition."
+    },
+    "strategy": "Turn it upside down",
+    "synthesis": "Fire rises, water sinks. They will never meet by continuing as they are. So invert your assumptions. The opposition you face is structural, not personal. Flip the frame. Look at it from the other side. The problem upside down is often the solution right-side up."
+  },
+  {
+    "id": 39,
+    "hexagram": {
+      "number": 39,
+      "name": "Chien / Obstruction",
+      "trigrams": ["Water", "Mountain"],
+      "image": "Water on the mountain: the image of Obstruction."
+    },
+    "strategy": "The inconsistency principle",
+    "synthesis": "The water pools on the mountain because the mountain will not move. You have been consistent, and consistency has brought you here, to this wall. Be inconsistent. Do the thing that doesn't fit your pattern. The obstruction expects you to behave the way you always have. Surprise it."
+  },
+  {
+    "id": 40,
+    "hexagram": {
+      "number": 40,
+      "name": "Hsieh / Deliverance",
+      "trigrams": ["Thunder", "Water"],
+      "image": "Thunder and rain set in: the image of Deliverance."
+    },
+    "strategy": "Gardening, not architecture",
+    "synthesis": "The storm breaks and the pressure lifts. Deliverance. But do not now rush to build a monument to your relief. This is gardening weather. Plant small things. Tend what grows. The architecture can wait. Right now the soil is soft and ready, and that window will not stay open forever."
+  },
+  {
+    "id": 41,
+    "hexagram": {
+      "number": 41,
+      "name": "Sun / Decrease",
+      "trigrams": ["Mountain", "Lake"],
+      "image": "At the foot of the mountain, the lake: the image of Decrease."
+    },
+    "strategy": "What are you really thinking about just now?",
+    "synthesis": "The lake at the foot of the mountain is lower than it was. Things are being taken from you, or you are letting them go. But underneath the loss, there is a thought you have been avoiding. Not about what is decreasing -- about what you actually want. Name it. The decrease is making room for it."
+  },
+  {
+    "id": 42,
+    "hexagram": {
+      "number": 42,
+      "name": "I / Increase",
+      "trigrams": ["Wind", "Thunder"],
+      "image": "Wind and thunder: the image of Increase."
+    },
+    "strategy": "Do something boring",
+    "synthesis": "Wind and thunder amplify each other. Increase is in the air. And the oracle says: do something boring. The exciting opportunity will wait. The boring task you have been avoiding is the foundation that makes the increase real. Without it, the wind and thunder are just noise."
+  },
+  {
+    "id": 43,
+    "hexagram": {
+      "number": 43,
+      "name": "Kuai / Breakthrough",
+      "trigrams": ["Lake", "Heaven"],
+      "image": "The lake has risen up to heaven: the image of Breakthrough."
+    },
+    "strategy": "Make an exhaustive list of everything you might do and do the last thing on the list",
+    "synthesis": "The water has reached the sky. This is the moment of breakthrough, and it comes not from the obvious action but from the last one you would think of. Write it all down. Every option, every idea, every impulse. Then go to the bottom of the list. That is where the breakthrough lives, in the thing you almost didn't consider."
+  },
+  {
+    "id": 44,
+    "hexagram": {
+      "number": 44,
+      "name": "Kou / Coming to Meet",
+      "trigrams": ["Heaven", "Wind"],
+      "image": "Under heaven, wind: the image of Coming to Meet."
+    },
+    "strategy": "Allow an easement (an easement is the abandonment of a strictness)",
+    "synthesis": "Something is coming toward you that you did not invite. The wind enters everywhere. You cannot control what arrives, but you can control how tightly you grip your rules. Loosen one. Just one. The strictness you abandon becomes the door through which the unexpected enters, and the unexpected is what you need."
+  },
+  {
+    "id": 45,
+    "hexagram": {
+      "number": 45,
+      "name": "Ts'ui / Gathering Together",
+      "trigrams": ["Lake", "Earth"],
+      "image": "Over the earth, the lake: the image of Gathering Together."
+    },
+    "strategy": "Change instrument roles",
+    "synthesis": "The lake gathers from a thousand small streams. Your gathering -- of people, of ideas, of materials -- needs a rearrangement. Let the lead become the rhythm. Let the background become the foreground. The gathering has all the right elements. They are just playing the wrong parts."
+  },
+  {
+    "id": 46,
+    "hexagram": {
+      "number": 46,
+      "name": "Sheng / Pushing Upward",
+      "trigrams": ["Earth", "Wind"],
+      "image": "Within the earth, wood grows: the image of Pushing Upward."
+    },
+    "strategy": "Trust in the you of now",
+    "synthesis": "A tree does not grow by remembering how it grew last year. It grows from where it is, right now, with whatever light is available. You are not the person who started this, and that is good. Trust the version of you that exists in this moment. That person knows things the old you did not."
+  },
+  {
+    "id": 47,
+    "hexagram": {
+      "number": 47,
+      "name": "K'un / Oppression",
+      "trigrams": ["Lake", "Water"],
+      "image": "There is no water in the lake: the image of Exhaustion."
+    },
+    "strategy": "Courage!",
+    "synthesis": "The lake is empty. You are exhausted. And the only instruction that matters is: courage. Not optimism, not strategy, not a plan. Just the raw, plain decision to continue when every reasonable signal says stop. The water will return. Your only job right now is to still be here when it does."
+  },
+  {
+    "id": 48,
+    "hexagram": {
+      "number": 48,
+      "name": "Ching / The Well",
+      "trigrams": ["Water", "Wind"],
+      "image": "Water over wood: the image of the Well."
+    },
+    "strategy": "Ask your body",
+    "synthesis": "The well does not come to you. You must go to it. And the well is not in your head -- it is in your body. The tension in your shoulders, the knot in your stomach, the restlessness in your hands. Your body has already answered the question you keep asking your mind. Listen lower."
+  },
+  {
+    "id": 49,
+    "hexagram": {
+      "number": 49,
+      "name": "Ko / Revolution",
+      "trigrams": ["Lake", "Fire"],
+      "image": "Fire in the lake: the image of Revolution."
+    },
+    "strategy": "Disconnect from desire",
+    "synthesis": "Revolution that comes from wanting is just rearrangement. The fire in the lake -- impossible, contradictory -- happens when you stop trying to make it happen. Let go of what you want this to become. The revolution you need is not in the outcome. It is in releasing your grip on the outcome."
+  },
+  {
+    "id": 50,
+    "hexagram": {
+      "number": 50,
+      "name": "Ting / The Caldron",
+      "trigrams": ["Fire", "Wind"],
+      "image": "Fire over wood: the image of the Caldron."
+    },
+    "strategy": "Fill every beat with something",
+    "synthesis": "The caldron transforms raw into cooked, base into nourishing. But it only works when the fire is fed constantly. Do not leave gaps hoping inspiration will fill them. Put something in every space. It does not have to be good. The caldron does not judge what you feed it. It transforms whatever arrives."
+  },
+  {
+    "id": 51,
+    "hexagram": {
+      "number": 51,
+      "name": "Chen / The Arousing",
+      "trigrams": ["Thunder", "Thunder"],
+      "image": "Thunder repeated: the image of Shock."
+    },
+    "strategy": "Use 'unqualified' people",
+    "synthesis": "Double thunder. The ground shakes and shakes again. In moments of shock, expertise is overrated. The qualified people will freeze because they know what should not be possible. Bring in someone who doesn't know the rules. They will move while everyone else is still calculating whether movement is permitted."
+  },
+  {
+    "id": 52,
+    "hexagram": {
+      "number": 52,
+      "name": "Ken / Keeping Still",
+      "trigrams": ["Mountain", "Mountain"],
+      "image": "Mountains standing close together: the image of Keeping Still."
+    },
+    "strategy": "Just carry on",
+    "synthesis": "Two mountains face each other in perfect stillness. There is no dramatic gesture available to you right now, and none is needed. The profound instruction of this moment is the most ordinary one: just carry on. Keep doing what you are doing. Stillness is not the absence of movement. It is movement without fuss."
+  },
+  {
+    "id": 53,
+    "hexagram": {
+      "number": 53,
+      "name": "Chien / Development",
+      "trigrams": ["Wind", "Mountain"],
+      "image": "On the mountain, a tree: the image of Development."
+    },
+    "strategy": "Slow preparation, fast execution",
+    "synthesis": "The tree on the mountain grew slowly for years before anyone noticed it. Your preparation has been longer than you wanted, and that is exactly right. When the moment comes -- and it is closer than you think -- you will move fast because the roots are deep. Do not rush the preparation to hasten the execution. They are connected."
+  },
+  {
+    "id": 54,
+    "hexagram": {
+      "number": 54,
+      "name": "Kuei Mei / The Marrying Maiden",
+      "trigrams": ["Thunder", "Lake"],
+      "image": "Thunder over the lake: the image of the Marrying Maiden."
+    },
+    "strategy": "What is the simplest solution?",
+    "synthesis": "You have committed to something that has more complexity than you bargained for. Thunder over the lake is dramatic, but the maiden's wisdom is practical. Beneath all the ceremony and complication, there is a simple version of this. Find it. Do that version. The complexity will add itself back in -- it always does."
+  },
+  {
+    "id": 55,
+    "hexagram": {
+      "number": 55,
+      "name": "Feng / Abundance",
+      "trigrams": ["Thunder", "Fire"],
+      "image": "Both thunder and lightning come: the image of Abundance."
+    },
+    "strategy": "Don't be frightened to display your talents",
+    "synthesis": "This is a moment of fullness, and you are dimming yourself out of habit. Thunder and lightning do not arrive quietly and apologize for the interruption. You have been given abundance -- of skill, of vision, of capacity. Use it visibly. The world needs to see what you can do, not hear your disclaimers about it."
+  },
+  {
+    "id": 56,
+    "hexagram": {
+      "number": 56,
+      "name": "Lu / The Wanderer",
+      "trigrams": ["Fire", "Mountain"],
+      "image": "Fire on the mountain: the image of the Wanderer."
+    },
+    "strategy": "Remember those quiet evenings",
+    "synthesis": "Fire on the mountain moves and does not settle. You are between places, between states, between versions of yourself. And the oracle says: remember stillness. Not as something to return to, but as something you carry. The wanderer who remembers quiet evenings walks differently than the one who has forgotten them."
+  },
+  {
+    "id": 57,
+    "hexagram": {
+      "number": 57,
+      "name": "Sun / The Gentle",
+      "trigrams": ["Wind", "Wind"],
+      "image": "Winds following one upon the other: the image of the Gently Penetrating."
+    },
+    "strategy": "Not building a wall but making a brick",
+    "synthesis": "Wind upon wind. Gentle, persistent, eventually reshaping stone. You are looking at the wall and feeling overwhelmed. Stop looking at the wall. There is only this one brick, this one small act of shaping. The gentle force of this hexagram works through accumulation, not ambition. Make the brick."
+  },
+  {
+    "id": 58,
+    "hexagram": {
+      "number": 58,
+      "name": "Tui / The Joyous",
+      "trigrams": ["Lake", "Lake"],
+      "image": "Lakes resting one on the other: the image of the Joyous."
+    },
+    "strategy": "Towards the insignificant",
+    "synthesis": "Double lake, double joy. And the direction is not toward something grand but toward something small and seemingly unimportant. Joy lives in the insignificant. The conversation that goes nowhere, the detail no one will notice, the gesture that serves no purpose. Go there. That is where the real work is hiding."
+  },
+  {
+    "id": 59,
+    "hexagram": {
+      "number": 59,
+      "name": "Huan / Dispersion",
+      "trigrams": ["Wind", "Water"],
+      "image": "The wind drives over the water: the image of Dispersion."
+    },
+    "strategy": "Distorting time",
+    "synthesis": "The wind scatters what the water held together. Things are dispersing, and you cannot gather them back by working at normal speed. Stretch the moment. Or compress it. Time is not fixed when you are in the middle of dissolution. Move through this passage at whatever tempo lets you see clearly, not at the tempo the clock suggests."
+  },
+  {
+    "id": 60,
+    "hexagram": {
+      "number": 60,
+      "name": "Chieh / Limitation",
+      "trigrams": ["Water", "Lake"],
+      "image": "Water over lake: the image of Limitation."
+    },
+    "strategy": "Make a sudden, destructive, unpredictable action; incorporate",
+    "synthesis": "The lake has banks for a reason. Limitation gives form. But within those limits, there is room for one wild, unreasonable act. Break something. Not everything -- something. The limitation will hold the chaos, and the chaos will give the limitation its first real purpose."
+  },
+  {
+    "id": 61,
+    "hexagram": {
+      "number": 61,
+      "name": "Chung Fu / Inner Truth",
+      "trigrams": ["Wind", "Lake"],
+      "image": "Wind over lake: the image of Inner Truth."
+    },
+    "strategy": "Remove ambiguities and convert to specifics",
+    "synthesis": "The wind reads the surface of the lake and knows what lies beneath. You have been living in ambiguity, and it has served you, but that season is over. Name the specific thing. The specific fear, the specific want, the specific next step. Inner truth is not abstract. It is painfully, usefully precise."
+  },
+  {
+    "id": 62,
+    "hexagram": {
+      "number": 62,
+      "name": "Hsiao Kuo / Preponderance of the Small",
+      "trigrams": ["Thunder", "Mountain"],
+      "image": "Thunder on the mountain: the image of Preponderance of the Small."
+    },
+    "strategy": "Abandon desire",
+    "synthesis": "The thunder is loud but the mountain does not move. Grand ambitions are not what this moment is for. Let go of the big vision, just for now. The small things -- the overlooked details, the minor adjustments, the humble tasks -- these are where the real power sits. Desire distorts your vision. Release it and see what is actually in front of you."
+  },
+  {
+    "id": 63,
+    "hexagram": {
+      "number": 63,
+      "name": "Chi Chi / After Completion",
+      "trigrams": ["Water", "Fire"],
+      "image": "Water over fire: the image of the condition in After Completion."
+    },
+    "strategy": "Humanize something free of error",
+    "synthesis": "Everything is in its right place. Water above, fire below, perfect balance. And that perfection is the danger. The completed thing has no breath in it until you add an imperfection. A thumbprint in the glaze. A hesitation in the melody. Completion without humanity is just a machine. Give it a flaw. Give it life."
+  },
+  {
+    "id": 64,
+    "hexagram": {
+      "number": 64,
+      "name": "Wei Chi / Before Completion",
+      "trigrams": ["Fire", "Water"],
+      "image": "Fire over water: the image of the condition Before Completion."
+    },
+    "strategy": "The tape is now the music",
+    "synthesis": "Nothing is finished. Fire and water have not yet found their proper places. And the oracle says: the process is the product. The rough cut, the draft, the attempt -- that is the thing. Stop waiting for completion to declare this real. It is already real. It has been real since you started."
+  },
+  {
+    "id": 65,
+    "hexagram": {
+      "number": 1,
+      "name": "Ch'ien / The Creative",
+      "trigrams": ["Heaven", "Heaven"],
+      "image": "The movement of heaven is full of power."
+    },
+    "strategy": "Overtly resist change",
+    "synthesis": "The Creative moves ceaselessly, and yet here you are being told to resist. Not every change deserves your compliance. The sky does not rearrange itself for every passing cloud. Some of what is pressing on you to change is just noise. Stand in your power. Resist. See what still demands transformation after your refusal."
+  },
+  {
+    "id": 66,
+    "hexagram": {
+      "number": 11,
+      "name": "T'ai / Peace",
+      "trigrams": ["Earth", "Heaven"],
+      "image": "Heaven and earth unite: the image of Peace."
+    },
+    "strategy": "Use cliches",
+    "synthesis": "Peace comes when heaven and earth agree, and sometimes the most honest agreement is the most familiar one. The cliche is a truth that got tired of being original. In a time of peace, you do not need novelty. You need reliability. Say the thing everyone already knows. It is still true."
+  },
+  {
+    "id": 67,
+    "hexagram": {
+      "number": 29,
+      "name": "K'an / The Abysmal",
+      "trigrams": ["Water", "Water"],
+      "image": "Water flows on and reaches the goal: the image of the Abysmal repeated."
+    },
+    "strategy": "In total darkness, or in a very large room, very quietly",
+    "synthesis": "The abyss is dark and deep and doubled. You are not going to think your way out. Go into the darkness deliberately. Quiet yourself until you can hear the water moving. In the deepest trouble, the smallest sound carries the most information. Listen with your whole body. The current knows the way even when you do not."
+  },
+  {
+    "id": 68,
+    "hexagram": {
+      "number": 48,
+      "name": "Ching / The Well",
+      "trigrams": ["Water", "Wind"],
+      "image": "Water over wood: the image of the Well."
+    },
+    "strategy": "Intentions - Loss of credibility",
+    "synthesis": "The well is deep but the rope is fraying. Your intentions were good when you started, and they may still be good, but something has eroded your credibility -- perhaps with others, perhaps with yourself. Go back to the well. Not to prove anything, but to test whether the water is still clean. If it is, draw again."
+  },
+  {
+    "id": 69,
+    "hexagram": {
+      "number": 21,
+      "name": "Shih Ho / Biting Through",
+      "trigrams": ["Fire", "Thunder"],
+      "image": "Thunder and lightning: the image of Biting Through."
+    },
+    "strategy": "Retrace your steps",
+    "synthesis": "Before you bite through, look back. The obstruction in your path may have been placed there by your own earlier self. Thunder and lightning illuminate instantly, and what they show you is the trail you already walked. Go back along it. The obstacle makes sense when you see where you diverged from your original direction."
+  },
+  {
+    "id": 70,
+    "hexagram": {
+      "number": 35,
+      "name": "Chin / Progress",
+      "trigrams": ["Fire", "Earth"],
+      "image": "The sun rises over the earth: the image of Progress."
+    },
+    "strategy": "Look at a very small object, look at a very large object",
+    "synthesis": "The sun rising is the largest thing you can see, and yet it illuminates the smallest grain of sand equally. Your progress right now depends on your ability to shift scale. Zoom in until the detail becomes a world. Zoom out until the world becomes a detail. Somewhere between those two views is the move you have been missing."
+  },
+  {
+    "id": 71,
+    "hexagram": {
+      "number": 42,
+      "name": "I / Increase",
+      "trigrams": ["Wind", "Thunder"],
+      "image": "Wind and thunder: the image of Increase."
+    },
+    "strategy": "Emphasize differences",
+    "synthesis": "When everything increases, sameness becomes the enemy. Wind and thunder are not the same force, and that difference is what creates their combined power. Look at the elements of your work and stop trying to make them harmonious. Let them clash. The increase comes from the friction, not the agreement."
+  },
+  {
+    "id": 72,
+    "hexagram": {
+      "number": 4,
+      "name": "Meng / Youthful Folly",
+      "trigrams": ["Mountain", "Water"],
+      "image": "A spring wells up at the foot of the mountain."
+    },
+    "strategy": "Infinitesimal gradations",
+    "synthesis": "The spring does not burst from the mountain in a flood. It seeps. The smallest possible change, repeated. You are trying to learn something too fast, and the mountain will not be rushed. Reduce your increment until it feels almost meaningless. That is the right size. The spring fills the valley one drop at a time."
+  },
+  {
+    "id": 73,
+    "hexagram": {
+      "number": 50,
+      "name": "Ting / The Caldron",
+      "trigrams": ["Fire", "Wind"],
+      "image": "Fire over wood: the image of the Caldron."
+    },
+    "strategy": "Consider different fading systems",
+    "synthesis": "The caldron transforms over time, and the question is: how does the transformation end? Not everything needs a hard stop. Some things should fade -- slowly, like embers, or quickly, like a breath. The way something ends is as much a creative decision as how it begins. Choose your fade deliberately."
+  },
+  {
+    "id": 74,
+    "hexagram": {
+      "number": 15,
+      "name": "Ch'ien / Modesty",
+      "trigrams": ["Earth", "Mountain"],
+      "image": "Within the earth, a mountain: the image of Modesty."
+    },
+    "strategy": "Is there something missing?",
+    "synthesis": "The hidden mountain does not advertise its height. But something is absent, and the mountain knows it. Modesty is not the same as completeness. Look at what you have made with honest eyes. The thing that is missing is probably the thing you thought was too obvious to include, or too personal, or too revealing. It is the mountain you buried."
+  },
+  {
+    "id": 75,
+    "hexagram": {
+      "number": 57,
+      "name": "Sun / The Gentle",
+      "trigrams": ["Wind", "Wind"],
+      "image": "Winds following one upon the other: the image of the Gently Penetrating."
+    },
+    "strategy": "A line has two sides",
+    "synthesis": "The double wind penetrates everything gently, from both directions. Every boundary you have drawn has another side you have not considered. The line you drew to define your territory also defined someone else's. Step across it, just in your imagination. See what the view looks like from over there. The wind does not recognize borders."
+  },
+  {
+    "id": 76,
+    "hexagram": {
+      "number": 36,
+      "name": "Ming I / Darkening of the Light",
+      "trigrams": ["Earth", "Fire"],
+      "image": "The light has sunk into the earth: the image of Darkening of the Light."
+    },
+    "strategy": "You can only make one dot at a time",
+    "synthesis": "The light is underground and the darkness above feels permanent. It is not. But you cannot illuminate everything at once. One dot. One small point of light. One email, one sketch, one honest sentence. In the darkening, grandiosity is the enemy. Smallness is the strategy. One dot at a time, until the picture emerges."
+  },
+  {
+    "id": 77,
+    "hexagram": {
+      "number": 8,
+      "name": "Pi / Holding Together",
+      "trigrams": ["Water", "Earth"],
+      "image": "On the earth is water: the image of Holding Together."
+    },
+    "strategy": "Are there sections? Consider transitions",
+    "synthesis": "Water on earth gathers in pools connected by thin streams. Your work has sections -- you may not have noticed them yet, but they are there. The quality of the whole depends on the transitions between them. How does one part flow into the next? The joints are where the strength or the weakness lives."
+  },
+  {
+    "id": 78,
+    "hexagram": {
+      "number": 17,
+      "name": "Sui / Following",
+      "trigrams": ["Lake", "Thunder"],
+      "image": "Thunder in the middle of the lake: the image of Following."
+    },
+    "strategy": "Shut the door and listen from outside",
+    "synthesis": "You have been inside this too long. The thunder in the lake can only be heard from the shore. Close the door on your project, your problem, your obsession. Walk away. Listen from the outside. What you hear will be different from what you heard inside, and the difference is the information you need."
+  },
+  {
+    "id": 79,
+    "hexagram": {
+      "number": 24,
+      "name": "Fu / Return",
+      "trigrams": ["Earth", "Thunder"],
+      "image": "Thunder within the earth: the image of the Turning Point."
+    },
+    "strategy": "Idiot glee",
+    "synthesis": "The turning point is underground, and it does not arrive with wisdom. It arrives with unreasonable, foolish, unjustified delight. Something is coming back to life and the proper response is not solemn acknowledgment. It is glee. Stupid, unearned, full-body joy. The thunder in the earth is laughing. Join it."
+  },
+  {
+    "id": 80,
+    "hexagram": {
+      "number": 30,
+      "name": "Li / The Clinging",
+      "trigrams": ["Fire", "Fire"],
+      "image": "That which is bright rises twice: the image of Fire."
+    },
+    "strategy": "Imagine the piece as a set of disconnected events",
+    "synthesis": "Double fire clings to everything it touches, and that clinging creates a continuous narrative. But what if the narrative is wrong? Disconnect the events. Let each moment be its own island. The brightness of this hexagram is in seeing each thing clearly on its own terms, without the story you have draped over them."
+  },
+  {
+    "id": 81,
+    "hexagram": {
+      "number": 3,
+      "name": "Chun / Difficulty at the Beginning",
+      "trigrams": ["Water", "Thunder"],
+      "image": "Clouds and thunder: the image of Difficulty at the Beginning."
+    },
+    "strategy": "Accept advice",
+    "synthesis": "The beginning is hard and you are trying to do it alone. The clouds are thick and the thunder is disorienting. Someone has already offered you guidance that you deflected because you wanted to figure this out yourself. Go back to that person. Accept what they said. Difficulty at the beginning is not a test of independence. It is a test of humility."
+  },
+  {
+    "id": 82,
+    "hexagram": {
+      "number": 46,
+      "name": "Sheng / Pushing Upward",
+      "trigrams": ["Earth", "Wind"],
+      "image": "Within the earth, wood grows: the image of Pushing Upward."
+    },
+    "strategy": "Reverse",
+    "synthesis": "The tree pushes upward, always upward, and the instruction is: reverse. Growth does not always mean ascent. Push your roots deeper before you reach higher. Go back to the material you think you have already mastered. There is something in the foundation that is not as solid as you assumed, and the tree that grows tallest is the one rooted deepest."
+  },
+  {
+    "id": 83,
+    "hexagram": {
+      "number": 55,
+      "name": "Feng / Abundance",
+      "trigrams": ["Thunder", "Fire"],
+      "image": "Both thunder and lightning come: the image of Abundance."
+    },
+    "strategy": "Children's voices - speaking - Loss of",
+    "synthesis": "Abundance is loud, but something innocent has been lost in the noise. Thunder and lightning are impressive, and they have drowned out a quieter voice. The child's perspective, the beginner's clarity, the simple question you stopped asking because you thought you had outgrown it. Go find that voice again. The abundance is incomplete without it."
+  },
+  {
+    "id": 84,
+    "hexagram": {
+      "number": 7,
+      "name": "Shih / The Army",
+      "trigrams": ["Earth", "Water"],
+      "image": "In the middle of the earth is water: the image of the Army."
+    },
+    "strategy": "Do we need holes?",
+    "synthesis": "The army draws from hidden reserves. The water within the earth is an underground river of capability. But the question stands: do you need all this? Do you need every gap filled, every hole plugged? Some holes are ventilation. Some absences are structural. Before you mobilize your forces, ask whether the empty space is a problem or a feature."
+  },
+  {
+    "id": 85,
+    "hexagram": {
+      "number": 13,
+      "name": "T'ung Jen / Fellowship with Men",
+      "trigrams": ["Heaven", "Fire"],
+      "image": "Heaven together with fire: the image of Fellowship."
+    },
+    "strategy": "Ghost echoes",
+    "synthesis": "The fire that reaches heaven carries echoes of every fire before it. Your fellowship is not just with the people in the room -- it is with everyone who has tried this before you. Listen for the ghost echoes. The half-remembered advice, the almost-forgotten lesson, the voice of someone who is not here anymore. They are still in the signal."
+  },
+  {
+    "id": 86,
+    "hexagram": {
+      "number": 10,
+      "name": "Lu / Treading",
+      "trigrams": ["Heaven", "Lake"],
+      "image": "Heaven above, the lake below: the image of Treading."
+    },
+    "strategy": "Water",
+    "synthesis": "You are treading carefully, and the lake below reminds you: be like water. Not hard, not rigid, not committed to a single form. The tiger you are stepping around responds to fluidity, not force. Flow around the obstacle. Fill the space that opens. Water does not tread carefully. It simply goes where it can go."
+  },
+  {
+    "id": 87,
+    "hexagram": {
+      "number": 22,
+      "name": "Pi / Grace",
+      "trigrams": ["Mountain", "Fire"],
+      "image": "Fire at the foot of the mountain: the image of Grace."
+    },
+    "strategy": "Make it more sensual",
+    "synthesis": "Grace is fire illuminating stone, and the instruction is to bring the body into this. The work has become too cerebral. Touch it, literally or metaphorically. How does it feel in your hands? How does it sound when you say it aloud? What does it smell like, taste like, weigh? The sensual is not decorative. It is a way of knowing."
+  },
+  {
+    "id": 88,
+    "hexagram": {
+      "number": 40,
+      "name": "Hsieh / Deliverance",
+      "trigrams": ["Thunder", "Water"],
+      "image": "Thunder and rain set in: the image of Deliverance."
+    },
+    "strategy": "Cascades",
+    "synthesis": "The storm breaks and one release triggers another. Deliverance arrives not as a single event but as a cascade -- one loosening that permits the next. Pull the first thread. The small thing you have been postponing because it feels insignificant? It is the keystone. Remove it and watch everything else shift into place, one falling domino at a time."
+  },
+  {
+    "id": 89,
+    "hexagram": {
+      "number": 52,
+      "name": "Ken / Keeping Still",
+      "trigrams": ["Mountain", "Mountain"],
+      "image": "Mountains standing close together: the image of Keeping Still."
+    },
+    "strategy": "Go outside. Shut the door.",
+    "synthesis": "Two mountains do not fidget. And neither should you, but first you need to leave the room where all the fidgeting happens. The stillness this hexagram demands cannot be found at your desk, in your inbox, in the middle of your noise. Go outside. Close the door firmly. The mountain does not stand still in a crowd. It stands still because it is alone."
+  },
+  {
+    "id": 90,
+    "hexagram": {
+      "number": 5,
+      "name": "Hsu / Waiting",
+      "trigrams": ["Water", "Heaven"],
+      "image": "Clouds rise up to heaven: the image of Waiting."
+    },
+    "strategy": "Take a break",
+    "synthesis": "The clouds are rising and they are not done rising. You cannot make them rain by wanting it harder. Take a break. Not a strategic break, not a productive break, not a break where you think about the work while pretending not to. A real break. The waiting is not wasted time. It is the only time that matters right now."
+  },
+  {
+    "id": 91,
+    "hexagram": {
+      "number": 38,
+      "name": "K'uei / Opposition",
+      "trigrams": ["Fire", "Lake"],
+      "image": "Above, fire; below, the lake: the image of Opposition."
+    },
+    "strategy": "Convert a melodic element into a rhythmic element",
+    "synthesis": "Fire and water oppose each other, and you keep trying to resolve the opposition by making one of them yield. Instead, change its function. The beautiful idea that is not working as the main theme -- make it structural. Make it rhythm. The melody that fails as melody may succeed as the beat that holds everything else together."
+  },
+  {
+    "id": 92,
+    "hexagram": {
+      "number": 14,
+      "name": "Ta Yu / Possession in Great Measure",
+      "trigrams": ["Fire", "Heaven"],
+      "image": "Fire in heaven above: the image of Possession in Great Measure."
+    },
+    "strategy": "Make a list of everything you would like to do and do them all",
+    "synthesis": "You are rich in capacity and starving from indecision. The fire of heaven illuminates every path at once and you stand paralyzed by options. Stop choosing. Do them all. You have more than you think, and the scarcity you feel is manufactured by the anxiety of selection. Abundance is not a buffet. It is a banquet. Eat everything."
+  },
+  {
+    "id": 93,
+    "hexagram": {
+      "number": 20,
+      "name": "Kuan / Contemplation",
+      "trigrams": ["Wind", "Earth"],
+      "image": "The wind blows over the earth: the image of Contemplation."
+    },
+    "strategy": "You are an engineer",
+    "synthesis": "The wind observes everything it passes over without attachment. Be that wind, but with an engineer's precision. You have been feeling your way through this, and feeling has brought you far, but now it is time to measure. Quantify the problem. Name the forces. The contemplation that serves you now is not poetic. It is technical."
+  },
+  {
+    "id": 94,
+    "hexagram": {
+      "number": 31,
+      "name": "Hsien / Influence",
+      "trigrams": ["Lake", "Mountain"],
+      "image": "A lake on the mountain: the image of Influence."
+    },
+    "strategy": "Be less critical more often",
+    "synthesis": "The lake sits on the mountain because the mountain allowed it. Your critical eye has been a gift, but right now it is blocking the thing that wants to settle. Let something be imperfect and welcome it anyway. Influence grows from acceptance, not from correction. The lake does not critique the mountain's shape. It simply rests there."
+  },
+  {
+    "id": 95,
+    "hexagram": {
+      "number": 9,
+      "name": "Hsiao Ch'u / The Taming Power of the Small",
+      "trigrams": ["Wind", "Heaven"],
+      "image": "The wind drives across heaven: the image of the Taming Power of the Small."
+    },
+    "strategy": "Look closely at the most embarrassing details and amplify them",
+    "synthesis": "The small wind cannot stop heaven, but it can change its temperature. The detail you are embarrassed by is the detail that has real energy. Amplify it. Not to humiliate yourself, but because authenticity lives in the moments you want to hide. The small, embarrassing truth tames the grandiose lie."
+  },
+  {
+    "id": 96,
+    "hexagram": {
+      "number": 44,
+      "name": "Kou / Coming to Meet",
+      "trigrams": ["Heaven", "Wind"],
+      "image": "Under heaven, wind: the image of Coming to Meet."
+    },
+    "strategy": "Put in earplugs",
+    "synthesis": "Something is coming to meet you, and the wind carries a hundred voices telling you what it means. Block them out. The encounter that approaches is between you and it, not between you and everyone's opinion about it. The wind under heaven carries too much noise. Filter it. Meet the thing on your own terms, in your own silence."
+  },
+  {
+    "id": 97,
+    "hexagram": {
+      "number": 6,
+      "name": "Sung / Conflict",
+      "trigrams": ["Heaven", "Water"],
+      "image": "Heaven and water go their opposite ways: the image of Conflict."
+    },
+    "strategy": "Discard an axiom",
+    "synthesis": "The conflict runs deep because it is rooted in a belief you have never questioned. Heaven goes up, water goes down -- it seems like natural law. But what if the axiom is wrong? What if the foundation of your argument is not a truth but a habit? Discard it, just for a moment. See if the conflict dissolves when the axiom does."
+  },
+  {
+    "id": 98,
+    "hexagram": {
+      "number": 32,
+      "name": "Heng / Duration",
+      "trigrams": ["Thunder", "Wind"],
+      "image": "Thunder and wind: the image of Duration."
+    },
+    "strategy": "Short circuit",
+    "synthesis": "Duration says: persist. The strategy says: skip ahead. The contradiction is the teaching. You have been enduring when you should have been leaping. Thunder and wind are patient forces, but even they take shortcuts -- a gust through a canyon, a bolt across the sky. Find the short circuit in your long road. Duration does not mean the longest path."
+  },
+  {
+    "id": 99,
+    "hexagram": {
+      "number": 61,
+      "name": "Chung Fu / Inner Truth",
+      "trigrams": ["Wind", "Lake"],
+      "image": "Wind over lake: the image of Inner Truth."
+    },
+    "strategy": "Do the words need changing?",
+    "synthesis": "The wind reads the lake's surface and sees what is underneath. Your inner truth has been trying to speak, but the words you have been using do not fit. The language is wrong, not the feeling. Find different words. Simpler ones, perhaps. Or stranger ones. The truth does not change, but the vessel that carries it can, and sometimes it must."
+  },
+  {
+    "id": 100,
+    "hexagram": {
+      "number": 16,
+      "name": "Yu / Enthusiasm",
+      "trigrams": ["Thunder", "Earth"],
+      "image": "Thunder comes resounding out of the earth: the image of Enthusiasm."
+    },
+    "strategy": "What wouldn't you do?",
+    "synthesis": "The thunder erupts from the ground with total commitment, holding nothing back. But you are holding something back. There is a line you have drawn, a thing you have decided is off-limits. The question is not whether to cross it. The question is whether the line is real or whether you drew it out of fear. Enthusiasm is the thunder that forgets the rules."
+  },
+  {
+    "id": 101,
+    "hexagram": {
+      "number": 2,
+      "name": "K'un / The Receptive",
+      "trigrams": ["Earth", "Earth"],
+      "image": "The earth's condition is receptive devotion."
+    },
+    "strategy": "Give the game away",
+    "synthesis": "The earth holds everything and claims nothing. You have been accumulating -- knowledge, credit, control -- and the weight is becoming a wall between you and the work. Give it away. Share the method, the insight, the thing you were saving for later. The Receptive gains by releasing. An open hand receives more than a closed fist."
+  },
+  {
+    "id": 102,
+    "hexagram": {
+      "number": 49,
+      "name": "Ko / Revolution",
+      "trigrams": ["Lake", "Fire"],
+      "image": "Fire in the lake: the image of Revolution."
+    },
+    "strategy": "How would you have done it?",
+    "synthesis": "The revolution is here, fire burning in impossible water. Before you act, ask yourself: how would you have done this if you had started from the beginning with everything you know now? The answer reveals whether you need revolution or renovation. Sometimes the fire in the lake is not about destruction. It is about finally doing the thing you should have done the first time."
+  },
+  {
+    "id": 103,
+    "hexagram": {
+      "number": 53,
+      "name": "Chien / Development",
+      "trigrams": ["Wind", "Mountain"],
+      "image": "On the mountain, a tree: the image of Development."
+    },
+    "strategy": "Tidy up",
+    "synthesis": "The tree on the mountain grows in its own time, but it does not grow in clutter. Your development is being slowed by disorder. Not creative disorder -- the productive kind. Just mess. Tidy up. Clear the desk, close the tabs, finish the half-done things. The tree needs cleared ground to spread its roots."
+  },
+  {
+    "id": 104,
+    "hexagram": {
+      "number": 19,
+      "name": "Lin / Approach",
+      "trigrams": ["Earth", "Lake"],
+      "image": "The earth above the lake: the image of Approach."
+    },
+    "strategy": "Question the heroic approach",
+    "synthesis": "Something approaches, and your instinct is to rise to meet it heroically. The earth does not rise to the lake -- it simply holds the space where the lake can gather. Question the heroism. The thing approaching may not need you to be brave. It may need you to be still, to be ready, to be a container rather than a force."
+  },
+  {
+    "id": 105,
+    "hexagram": {
+      "number": 34,
+      "name": "Ta Chuang / The Power of the Great",
+      "trigrams": ["Thunder", "Heaven"],
+      "image": "Thunder in heaven above: the image of the Power of the Great."
+    },
+    "strategy": "Listen to the quiet voice",
+    "synthesis": "All this power, all this thunder in heaven, and the oracle points you to the whisper. The loudest moment is when the quiet voice matters most. You have the strength to overpower everything in the room, and that is exactly why you must listen for the thing that is barely audible. Power that cannot hear a whisper is just noise with force behind it."
+  },
+  {
+    "id": 106,
+    "hexagram": {
+      "number": 59,
+      "name": "Huan / Dispersion",
+      "trigrams": ["Wind", "Water"],
+      "image": "The wind drives over the water: the image of Dispersion."
+    },
+    "strategy": "Cluster analysis",
+    "synthesis": "Things are flying apart and you feel the scatter. But look: even in dispersion, there are clusters. The wind does not distribute evenly. It creates patterns -- piles of leaves, drifts of snow, groups of fragments that belong together. Find the clusters in your dispersion. They are telling you what wants to stay connected, even as everything else separates."
+  },
+  {
+    "id": 107,
+    "hexagram": {
+      "number": 25,
+      "name": "Wu Wang / Innocence",
+      "trigrams": ["Heaven", "Thunder"],
+      "image": "Under heaven, thunder rolls: all things attain the natural state of innocence."
+    },
+    "strategy": "Left channel, right channel, centre channel",
+    "synthesis": "Innocence means acting from your nature without calculation. But even natural action has channels. Listen to the left: what is the emotional pull? The right: what is the logical argument? The center: what is the simple, uncalculated truth? Innocence is the center channel. The other two are useful, but they are not you."
+  },
+  {
+    "id": 108,
+    "hexagram": {
+      "number": 47,
+      "name": "K'un / Oppression",
+      "trigrams": ["Lake", "Water"],
+      "image": "There is no water in the lake: the image of Exhaustion."
+    },
+    "strategy": "The most important thing is the thing most easily forgotten",
+    "synthesis": "The lake is dry and you are running on empty. In exhaustion, you forget the essential thing -- the thing you started this for, the reason underneath all the reasons. It is still there, but it has been buried under urgency and fatigue. Stop looking for solutions. Look for the thing you forgot. It is more important than any strategy."
+  },
+  {
+    "id": 109,
+    "hexagram": {
+      "number": 56,
+      "name": "Lu / The Wanderer",
+      "trigrams": ["Fire", "Mountain"],
+      "image": "Fire on the mountain: the image of the Wanderer."
+    },
+    "strategy": "From nothing to more than nothing",
+    "synthesis": "The wanderer carries nothing and goes everywhere. You are between homes, between certainties, and you think you have nothing to work with. But nothing is a starting point that most people never reach. From zero, every direction is forward. The fire on the mountain started from a single spark that had nothing to lose. Neither do you."
+  },
+  {
+    "id": 110,
+    "hexagram": {
+      "number": 37,
+      "name": "Chia Jen / The Family",
+      "trigrams": ["Wind", "Fire"],
+      "image": "Wind comes forth from fire: the image of the Family."
+    },
+    "strategy": "Accretion",
+    "synthesis": "The family is not built in a moment. Wind from fire, warmth becoming movement, layer upon layer of small decisions. What you are building accretes -- it gathers mass through daily additions too small to notice. Do not look for the dramatic joining. Look for the quiet accumulation. The family of ideas, of habits, of commitments grows one thin layer at a time."
+  }
+]

@@ -1,0 +1,410 @@
+/* ── Oblique Oracle Demo ─────────────────────────────────
+   CRT phosphor green terminal aesthetic.
+   Contemplative, atmospheric, deliberate.
+   ──────────────────────────────────────────────────────── */
+
+.page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #00ff41;
+  font-family: var(--font-mono);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Scanline overlay ─────────────────────────────────── */
+
+.scanlines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+}
+
+/* ── Subtle CRT vignette ─────────────────────────────── */
+
+.page::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+/* ── Layout ───────────────────────────────────────────── */
+
+.container {
+  position: relative;
+  z-index: 5;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Back link ────────────────────────────────────────── */
+
+.backLink {
+  display: inline-block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin-bottom: 3rem;
+  padding-top: 6rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: var(--orange);
+  opacity: 1;
+}
+
+/* ── Oracle header ────────────────────────────────────── */
+
+.oracleHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.oracleTitle {
+  font-family: var(--font-mono);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 400;
+  color: #00ff41;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.oracleSubtitle {
+  font-size: 0.7rem;
+  color: #00ff4180;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Input area ───────────────────────────────────────── */
+
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.prompt {
+  font-size: 0.78rem;
+  color: #00ff41;
+  letter-spacing: 0.04em;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.questionInput {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #00ff4130;
+  border-radius: 0;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: #00ff41;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.3s;
+}
+
+.questionInput::placeholder {
+  color: #00ff4140;
+}
+
+.questionInput:focus {
+  outline: none;
+  border-color: #00ff4160;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.05);
+}
+
+/* ── Buttons ──────────────────────────────────────────── */
+
+.consultButton,
+.resetButton {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--orange);
+  background: transparent;
+  color: var(--orange);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.consultButton:hover:not(:disabled),
+.resetButton:hover {
+  background: var(--orange);
+  color: #0a0a0a;
+}
+
+.consultButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.resetButton {
+  margin-top: 2rem;
+}
+
+/* ── Loading state ────────────────────────────────────── */
+
+.loading {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.loadingText {
+  font-size: 0.78rem;
+  color: #00ff4180;
+  letter-spacing: 0.06em;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ── Reading display ──────────────────────────────────── */
+
+.reading {
+  margin-top: 3rem;
+}
+
+/* ── Hexagram ─────────────────────────────────────────── */
+
+.hexagramSection {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.hexagramArt {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+}
+
+.hexagramLine {
+  display: block;
+  opacity: 0;
+  animation: lineAppear 0.3s forwards;
+  color: #00ff41;
+}
+
+.hexagramLineChanging {
+  composes: hexagramLine;
+  animation: lineAppear 0.3s forwards, changingGlow 2s ease-in-out infinite 0.3s;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+}
+
+@keyframes lineAppear {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes changingGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(0, 255, 65, 0.8), 0 0 30px rgba(0, 255, 65, 0.3);
+  }
+}
+
+.hexagramInfo {
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+.hexagramName {
+  font-size: 1rem;
+  color: #00ff41;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+}
+
+.hexagramTrigrams {
+  font-size: 0.7rem;
+  color: #00ff4160;
+  letter-spacing: 0.06em;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Divider ──────────────────────────────────────────── */
+
+.divider {
+  text-align: center;
+  color: #00ff4130;
+  font-size: 0.7rem;
+  letter-spacing: 1em;
+  margin: 2rem 0;
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+}
+
+/* ── Oblique Strategy ─────────────────────────────────── */
+
+.strategySection {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: flipIn 0.6s forwards;
+}
+
+.strategyLabel {
+  font-size: 0.65rem;
+  color: #00ff4150;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+
+.strategyText {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--orange);
+  line-height: 1.6;
+  text-shadow: 0 0 12px rgba(232, 145, 58, 0.15);
+}
+
+@keyframes flipIn {
+  0% {
+    opacity: 0;
+    transform: perspective(400px) rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(400px) rotateX(0);
+  }
+}
+
+/* ── Synthesis ────────────────────────────────────────── */
+
+.synthesisSection {
+  margin-top: 2rem;
+}
+
+.synthesisLabel {
+  font-size: 0.65rem;
+  color: #00ff4150;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+}
+
+.synthesisText {
+  font-size: 0.88rem;
+  line-height: 2;
+  color: #00ff41cc;
+  white-space: pre-wrap;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  background: #00ff41;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Reset area ───────────────────────────────────────── */
+
+.resetSection {
+  text-align: center;
+  margin-top: 3rem;
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+/* ── Question echo ────────────────────────────────────── */
+
+.questionEcho {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid #00ff4115;
+  border-bottom: 1px solid #00ff4115;
+}
+
+.questionEchoLabel {
+  font-size: 0.6rem;
+  color: #00ff4140;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.questionEchoText {
+  font-size: 0.82rem;
+  color: #00ff4180;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .backLink {
+    padding-top: 5rem;
+  }
+
+  .oracleTitle {
+    letter-spacing: 0.08em;
+  }
+
+  .hexagramArt {
+    font-size: 0.95rem;
+  }
+
+  .synthesisText {
+    font-size: 0.82rem;
+  }
+}

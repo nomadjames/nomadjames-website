@@ -173,6 +173,24 @@
   color: var(--fg);
 }
 
+/* ── Demo link ─────────────────────────────────────────── */
+
+.demoLink {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--orange);
+  letter-spacing: 0.04em;
+  padding: 0.5rem 0;
+  transition: opacity 0.2s;
+}
+
+.demoLink:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ── Skills ────────────────────────────────────────────── */
 
 .skills {

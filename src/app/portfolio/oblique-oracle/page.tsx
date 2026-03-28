@@ -112,6 +112,20 @@ export default function ObliqueOracle() {
           </p>
         </section>
 
+        {/* Try the Demo */}
+        <section className={`${styles.section} ${styles.sectionHighlight}`}>
+          <h2 className={styles.sectionTitle}>Try It</h2>
+          <p className={styles.body}>
+            A live web demo of the oracle is available. CRT terminal aesthetic, coin-toss hexagram
+            generation, oblique strategy draw, and AI synthesis — all running in the browser.
+          </p>
+          <p className={styles.body}>
+            <a href="/portfolio/oblique-oracle/demo" className={styles.demoLink}>
+              Try the live demo &rarr;
+            </a>
+          </p>
+        </section>
+
         {/* What's Next */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>What&apos;s Next</h2>
