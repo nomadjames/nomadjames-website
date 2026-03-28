@@ -82,6 +82,15 @@ const work = [
     status: "published",
     link: "/portfolio/usability-testing",
   },
+  {
+    num: "10",
+    title: "PAUG.net: Community Platform",
+    category: "Web Development · Community Design",
+    year: "2026",
+    methods: ["Next.js", "GitHub Pages", "Decap CMS", "Community UX", "Dark UI", "Responsive Design"],
+    status: "published",
+    link: "/portfolio/paug",
+  },
 ];
 
 export default function Portfolio() {

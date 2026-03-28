@@ -150,6 +150,22 @@ export default function Home() {
             <li className={styles.workItem}>
               <span className={styles.workNum}>07</span>
               <div className={styles.workContent}>
+                <a href="/portfolio/paug" className={styles.workTitle}>
+                  PAUG.net
+                </a>
+                <div className={styles.workMeta}>
+                  <span>Web Development / Community Design</span>
+                  <span className={styles.metaDot} aria-hidden="true">&middot;</span>
+                  <span>Next.js &middot; Decap CMS &middot; GitHub Pages &middot; Community UX</span>
+                  <span className={styles.metaDot} aria-hidden="true">&middot;</span>
+                  <span>2026</span>
+                </div>
+              </div>
+              <span className={styles.workArrow} aria-hidden="true">&rarr;</span>
+            </li>
+            <li className={styles.workItem}>
+              <span className={styles.workNum}>08</span>
+              <div className={styles.workContent}>
                 <a href="/portfolio/oblique-oracle" className={styles.workTitle}>
                   Oblique Oracle
                 </a>
@@ -164,7 +180,7 @@ export default function Home() {
               <span className={styles.workArrow} aria-hidden="true">→</span>
             </li>
             <li className={styles.workItem}>
-              <span className={styles.workNum}>08</span>
+              <span className={styles.workNum}>09</span>
               <div className={styles.workContent}>
                 <a href="/portfolio/usability-testing" className={styles.workTitle}>
                   Usability Testing Methods
