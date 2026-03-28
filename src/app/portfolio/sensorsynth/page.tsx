@@ -4,7 +4,7 @@ import Tldr from "@/components/Tldr";
 export const metadata = {
   title: "SensorSynth FM | James Dishman",
   description:
-    "An iPad FM synthesizer that uses physical sensors (accelerometer, gyroscope, TrueDepth camera) as modulation sources. MS UX capstone, in active development.",
+    "An iPad FM synthesizer that uses every available device sensor as modulation sources — accelerometer, gyroscope, magnetometer, barometer, LiDAR, TrueDepth camera, ambient light, microphone, and GPS. MS UX capstone, in active development.",
 };
 
 export default function SensorSynthFM() {
@@ -33,7 +33,7 @@ export default function SensorSynthFM() {
         </header>
 
         <Tldr>
-          An in-progress iPad FM synthesizer that uses accelerometer, gyroscope, and TrueDepth camera data as modulation sources. The design question: what changes when your body is the instrument, not just the thing pressing buttons? This is my MS UX capstone and a research artifact exploring embodied interaction with sound.
+          An in-progress iPad FM synthesizer that treats every available device sensor as a modulation source: accelerometer, gyroscope, magnetometer, barometer, LiDAR, TrueDepth camera, ambient light, microphone, and GPS. The more environmental variables feeding the synthesis engine, the more unpredictable and unrepeatable each patch becomes. The design question: what happens when the instrument responds not just to your body, but to the full physical context you exist in? This is my MS UX capstone and a research artifact exploring embodied interaction with sound.
         </Tldr>
 
         {/* The Idea */}
@@ -46,9 +46,11 @@ export default function SensorSynthFM() {
             it, lean toward it, move through space with it, was itself the performance?
           </p>
           <p className={styles.body}>
-            SensorSynth FM is an iPad FM synthesizer that uses the device&apos;s physical sensors
-            (accelerometer, gyroscope, and TrueDepth camera) as modulation sources. The result
-            is an instrument where your body isn&apos;t operating the controls. Your body is the control.
+            SensorSynth FM is an iPad FM synthesizer that treats every available device sensor as
+            a modulation source: accelerometer, gyroscope, magnetometer, barometer, LiDAR, TrueDepth
+            camera, ambient light, microphone, and GPS. The more environmental data feeding the engine,
+            the more each performance becomes a product of where you are, how you move, and what
+            surrounds you. No two patches sound the same because no two moments are physically identical.
           </p>
           <p className={styles.body}>
             This is my MS UX capstone at Kent State, built with AudioKit and SwiftUI, and it&apos;s
@@ -98,10 +100,23 @@ export default function SensorSynthFM() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Sensor Mapping Layer</h3>
             <p className={styles.body}>
-              Four sensor sources feed the modulation system: the accelerometer (tilt, orientation),
-              gyroscope (rotational velocity), TrueDepth camera (proximity, facial expression), and
-              microphone (ambient amplitude). Each maps to FM parameters (carrier frequency, modulation index, operator ratios, amplitude) through a smoothing layer that prevents the abrupt
-              jumps that would make the instrument feel unstable rather than expressive.
+              The modulation system ingests every sensor the iPad exposes: accelerometer (tilt,
+              orientation), gyroscope (rotational velocity), magnetometer (compass heading, magnetic
+              field disturbances), barometer (altitude, atmospheric pressure), LiDAR (spatial depth
+              mapping, on Pro models), TrueDepth camera (proximity, facial expression), ambient light
+              sensor (environmental brightness), microphone (ambient amplitude, spectral content), and
+              GPS (latitude, longitude, altitude). Each feeds FM parameters (carrier frequency,
+              modulation index, operator ratios, amplitude) through a smoothing layer that prevents
+              abrupt jumps.
+            </p>
+            <p className={styles.body}>
+              The key insight: the more environmental variables you pipe into the synthesis engine,
+              the more semi-random and unrepeatable each patch becomes. Barometric pressure shifts
+              as weather changes. Magnetometer readings fluctuate near metal structures. Ambient light
+              varies with time of day. GPS drifts. These are not noise to be filtered out. They are
+              the environmental fingerprint that makes every performance unique to the moment and
+              place it happens. The instrument doesn&apos;t just respond to the performer. It responds
+              to the world the performer is in.
             </p>
             <p className={styles.body}>
               The mapping design is not about precision. It&apos;s about feel. A small tilt should produce
