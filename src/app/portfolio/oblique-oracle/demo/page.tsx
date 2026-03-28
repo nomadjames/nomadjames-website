@@ -126,7 +126,7 @@ const OBLIQUE_STRATEGIES = [
 /* ── Hexagram line types ──────────────────────────────── */
 
 interface HexagramLine {
-  value: number; // 6, 7, 8, 9
+  value: number;
   solid: boolean;
   changing: boolean;
 }
@@ -161,47 +161,48 @@ function lookupHexagram(lines: HexagramLine[]): HexagramData {
 const SOLID_LINE = "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501";
 const BROKEN_LINE = "\u2501\u2501\u2501\u0020\u0020\u0020\u2501\u2501\u2501";
 
-/* ── Atmospheric background runes (static, decorative) ── */
+/* ── Atmospheric background elements ─────────────────── */
 
-const BG_RUNE_LEFT = [
-  "\u16A0", // ᚠ Fehu (wealth)
-  "\u16A2", // ᚢ Uruz (strength)
-  "\u16A8", // ᚨ Ansuz (god)
-  "\u16B1", // ᚱ Raido (journey)
-  "\u16B7", // ᚷ Gebo (gift)
-  "\u16BE", // ᚾ Naudhiz (need)
-  "\u16C1", // ᛁ Isa (ice)
-  "\u16C7", // ᛇ Eiwaz (yew)
-  "\u16D2", // ᛒ Berkano (birch)
-  "\u16D6", // ᛖ Ehwaz (horse)
-  "\u16DA", // ᛚ Laguz (water)
-  "\u16DC", // ᛜ Ingwaz (grain)
-  "\u16DF", // ᛟ Othala (homeland)
+/* Elder Futhark runes (left column) */
+const LEFT_RUNES = [
+  "\u16A0", // ᚠ Fehu — wealth, abundance
+  "\u16A2", // ᚢ Uruz — strength, power
+  "\u16A8", // ᚨ Ansuz — god, Odin
+  "\u16B1", // ᚱ Raido — journey, ride
+  "\u16B7", // ᚷ Gebo — gift, exchange
+  "\u16C1", // ᛁ Isa — ice,停滞
+  "\u16C7", // ᛇ Eiwaz — yew, death/transformation
+  "\u16D2", // ᛒ Berkano — birch, birth
+  "\u16D6", // ᛖ Ehwaz — horse, partnership
+  "\u16DA", // ᛚ Laguz — water, flow
+  "\u16DC", // ᛜ Ingwaz — grain, fertility
+  "\u16DF", // ᛟ Othala — homeland, heritage
 ];
 
-const BG_RUNE_RIGHT = [
-  "\u3005", // 叠 Kanji modifier
-  "\u3006", // 𥝱 Classical radical
-  "\u4E00", // 一 One
-  "\u4E8C", // 二 Two
-  "\u4E09", // 三 Three
-  "\u56DB", // 四 Four
-  "\u4E94", // 五 Five
-  "\u516B", // 八 Eight
-  "\u4E5D", // 九 Nine
-  "\u5341", // 十 Ten
-  "\u5317", // 北 North
-  "\u5357", // 南 South
-  "\u4E1C", // 东 East
-  "\u897F", // 西 West
-  "\u4E2D", // 中 Center
-  "\u9633", // 阳 Yang
-  "\u9634", // 阴 Yin
-  "\u5149", // 光 Light
-  "\u6697", // 暗 Darkness
-  "\u547D", // 命 Fate
-  "\u8A00", // 言 Word
-  "\u9053", // 道 The Way
+/* Chinese / mystical characters (right column) */
+const RIGHT_CHARS = [
+  "\u4E00", // 一 — one, unity
+  "\u4E8C", // 二 — two, duality
+  "\u4E09", // 三 — three, trinity
+  "\u56DB", // 四 — four, elements
+  "\u4E94", // 五 — five, change
+  "\u516B", // 八 — eight, fortune
+  "\u4E5D", // 九 — nine, completion
+  "\u5341", // 十 — ten, full circle
+  "\u5317", // 北 — north, winter
+  "\u5357", // 南 — south, summer
+  "\u4E1C", // 东 — east, dawn
+  "\u897F", // 西 — west, dusk
+  "\u4E2D", // 中 — center, void
+  "\u9633", // 阳 — yang, light
+  "\u9634", // 阴 — yin, shadow
+  "\u5149", // 光 — light
+  "\u6697", // 暗 — darkness
+  "\u547D", // 命 — fate, destiny
+  "\u8A00", // 言 — word, utterance
+  "\u9053", // 道 — the Way
+  "\u5929", // 天 — heaven
+  "\u5730", // 地 — earth
 ];
 
 /* ── Synthesis fallback ───────────────────────────────── */
@@ -216,7 +217,9 @@ async function fetchFallbackSynthesis(
     if (res.ok) {
       const bank: Array<{ hexagram?: string; text: string }> = await res.json();
       const match = bank.find(
-        (e) => e.hexagram && hexagramName.toLowerCase().includes(e.hexagram.toLowerCase())
+        (e) =>
+          e.hexagram &&
+          hexagramName.toLowerCase().includes(e.hexagram.toLowerCase())
       );
       if (match) return match.text;
       return bank[Math.floor(Math.random() * bank.length)].text;
@@ -233,10 +236,10 @@ function generateLocalSynthesis(
 ): string {
   const syntheses = [
     `The hexagram ${hexagramName} speaks to the conditions already present in your situation. You did not arrive here by accident. The pattern was forming before you asked the question.\n\nThe strategy "${strategy}" is not advice. It is a mirror held at an angle you have been avoiding. Consider what changes if you stop trying to solve this and instead let the solution announce itself.\n\nThe oracle does not predict. It reveals what you already know but have not yet admitted.`,
-    `${hexagramName} describes a moment of transition. Not the dramatic kind — the slow, almost imperceptible kind. The ground has been shifting beneath you for some time. This reading only makes it legible.\n\n"${strategy}" — sit with this. Not as instruction, but as a lens. What does your situation look like through it? What becomes visible that was hidden before?\n\nThe coins do not lie, but they do not tell the truth either. They create a space where truth can surface on its own terms.`,
-    `There is a quality to ${hexagramName} that resists easy interpretation. That resistance is the point. The hexagram is not a fortune. It is a field of meaning that you must walk through yourself.\n\nThe oblique strategy — "${strategy}" — arrives as a companion for that walk. Not a map. Not a destination. A way of seeing.\n\nYour question matters less than your willingness to sit with uncertainty. The oracle's gift is not clarity. It is the courage to remain in the question.`,
-    `${hexagramName}. The ancient text describes this as a condition, not a verdict. Conditions change. But first they must be seen clearly, without the distortion of wanting them to be other than they are.\n\n"${strategy}" — this is the lateral move. The step sideways when forward and backward both feel impossible. Not escape, but reorientation.\n\nWhat you asked about is already in motion. The reading does not change its trajectory. It changes yours.`,
-    `The pattern of ${hexagramName} has appeared. Three thousand years of accumulated reflection stand behind these lines. Not because the ancients were wiser, but because the situations they described — uncertainty, transition, the need for right action — have not changed.\n\n"${strategy}" intersects your question at an unexpected angle. Follow that angle. The expected angles have already failed you, or you would not be here.\n\nThis is not mysticism. This is structured reflection wearing the mask of divination. The mask is the point.`,
+    `${hexagramName} describes a moment of transition. The ground has been shifting beneath you for some time. This reading only makes it legible.\n\n"${strategy}" — sit with this. Not as instruction, but as a lens. What does your situation look like through it? What becomes visible that was hidden before?\n\nThe coins do not lie. They create a space where truth can surface on its own terms.`,
+    `There is a quality to ${hexagramName} that resists easy interpretation. That resistance is the point. The hexagram is not a fortune. It is a field of meaning that you must walk through yourself.\n\nThe oblique strategy — "${strategy}" — arrives as a companion for that walk. Not a map. Not a destination. A way of seeing.\n\nYour question matters less than your willingness to remain in uncertainty. The oracle's gift is not clarity. It is the courage to stay in the question.`,
+    `${hexagramName}. Three thousand years of accumulated reflection stand behind these lines. The situations described — uncertainty, transition, the need for right action — have not changed.\n\n"${strategy}" intersects your question at an unexpected angle. Follow that angle. The expected angles have already failed you, or you would not be here.\n\nThis is not mysticism. This is structured reflection wearing the mask of divination. The mask is the point.`,
+    `${hexagramName}. The ancient text describes this as a condition, not a verdict. Conditions change. But first they must be seen clearly, without the distortion of wanting them to be other than they are.\n\n"${strategy}" — this is the lateral move. The step sideways when forward and backward both feel impossible.\n\nWhat you asked about is already in motion. The reading does not change its trajectory. It changes yours.`,
   ];
   return syntheses[Math.floor(Math.random() * syntheses.length)];
 }
@@ -258,7 +261,6 @@ export default function OracleDemo() {
   const [question, setQuestion] = useState("");
   const [reading, setReading] = useState<ReadingData | null>(null);
 
-  // Animation state
   const [visibleLines, setVisibleLines] = useState(0);
   const [showInfo, setShowInfo] = useState(false);
   const [showStrategy, setShowStrategy] = useState(false);
@@ -281,7 +283,7 @@ export default function OracleDemo() {
     setTypingDone(false);
   }, []);
 
-  // Typewriter effect for synthesis
+  // Typewriter
   useEffect(() => {
     if (!showSynthesis || !reading) return;
     const text = reading.synthesis;
@@ -289,31 +291,29 @@ export default function OracleDemo() {
       setTypingDone(true);
       return;
     }
-    typingRef.current = setTimeout(() => {
-      setTypedChars((c) => c + 1);
-    }, 30);
+    typingRef.current = setTimeout(() => setTypedChars((c) => c + 1), 28);
     return () => {
       if (typingRef.current) clearTimeout(typingRef.current);
     };
   }, [showSynthesis, typedChars, reading]);
 
-  // Hexagram line animation sequence
+  // Hexagram reveal sequence
   useEffect(() => {
     if (phase !== "reading" || !reading) return;
     const lineTimers: ReturnType<typeof setTimeout>[] = [];
     for (let i = 0; i < 6; i++) {
       lineTimers.push(
-        setTimeout(() => setVisibleLines(i + 1), 400 + i * 350)
+        setTimeout(() => setVisibleLines(i + 1), 500 + i * 400)
       );
     }
     lineTimers.push(
-      setTimeout(() => setShowInfo(true), 400 + 6 * 350 + 300)
+      setTimeout(() => setShowInfo(true), 500 + 6 * 400 + 500)
     );
     lineTimers.push(
-      setTimeout(() => setShowStrategy(true), 400 + 6 * 350 + 900)
+      setTimeout(() => setShowStrategy(true), 500 + 6 * 400 + 1200)
     );
     lineTimers.push(
-      setTimeout(() => setShowSynthesis(true), 400 + 6 * 350 + 1600)
+      setTimeout(() => setShowSynthesis(true), 500 + 6 * 400 + 2000)
     );
     return () => lineTimers.forEach(clearTimeout);
   }, [phase, reading]);
@@ -325,7 +325,9 @@ export default function OracleDemo() {
     const lines = generateHexagram();
     const hexagram = lookupHexagram(lines);
     const strategy =
-      OBLIQUE_STRATEGIES[Math.floor(Math.random() * OBLIQUE_STRATEGIES.length)];
+      OBLIQUE_STRATEGIES[
+        Math.floor(Math.random() * OBLIQUE_STRATEGIES.length)
+      ];
 
     let synthesis = "";
     if (ORACLE_API) {
@@ -353,42 +355,72 @@ export default function OracleDemo() {
     }
 
     if (!synthesis) {
-      synthesis = await fetchFallbackSynthesis(hexagram.name, strategy, question.trim());
+      synthesis = await fetchFallbackSynthesis(
+        hexagram.name,
+        strategy,
+        question.trim()
+      );
     }
 
-    await new Promise((r) => setTimeout(r, 1500));
+    await new Promise((r) => setTimeout(r, 1800));
 
-    setReading({ lines, hexagram, strategy, synthesis, question: question.trim() });
+    setReading({
+      lines,
+      hexagram,
+      strategy,
+      synthesis,
+      question: question.trim(),
+    });
     setPhase("reading");
   }, [question]);
 
   return (
     <div className={styles.page}>
-      {/* Scanlines */}
+      {/* Layered atmospheric overlays */}
       <div className={styles.scanlines} />
-
-      {/* Vignette */}
       <div className={styles.vignette} />
+      <div className={styles.noise} />
 
-      {/* Atmospheric background characters */}
+      {/* Background atmosphere — floating runes and sacred geometry */}
       <div className={styles.atmosphere} aria-hidden="true">
         <div className={styles.atmoLeft}>
-          {BG_RUNE_LEFT.map((r, i) => (
+          {LEFT_RUNES.map((r, i) => (
             <span
               key={i}
-              className={styles.atmoRune}
-              style={{ animationDelay: `${i * 0.7}s` }}
+              className={
+                i % 3 === 0
+                  ? styles.runeEmerald
+                  : i % 3 === 1
+                    ? styles.runeRuby
+                    : styles.runeGold
+              }
+              style={{ animationDelay: `${i * 0.8}s` }}
             >
               {r}
             </span>
           ))}
         </div>
+
+        {/* Sacred geometry center mark */}
+        <div className={styles.sacredCenter}>
+          <div className={styles.sacredOuter}>&#x25CB;</div>
+          <div className={styles.sacredMiddle}>&#x25C9;</div>
+          <div className={styles.sacredInner}>&#x25CE;</div>
+          <div className={styles.sacredDot} />
+        </div>
+
         <div className={styles.atmoRight}>
-          {BG_RUNE_RIGHT.map((r, i) => (
+          {RIGHT_CHARS.map((r, i) => (
             <span
               key={i}
-              className={styles.atmoRune}
-              style={{ animationDelay: `${i * 0.5}s` }}
+              className={
+                i % 3 === 0
+                  ? styles.runeEmerald
+                  : i % 3 === 1
+                    ? styles.runeRuby
+                    : styles.runeGold
+              }
+              style={{ animationDelay: `${i * 0.6}s` }}
             >
               {r}
             </span>
@@ -396,60 +428,100 @@ export default function OracleDemo() {
         </div>
       </div>
 
-      {/* Main container with gothic frame */}
-      <div className={styles.frameOuter} aria-hidden="true">
-        <div className={styles.frameCornerTL}>&#x250C;</div>
-        <div className={styles.frameCornerTR}>&#x2510;</div>
-        <div className={styles.frameCornerBL}>&#x2514;</div>
-        <div className={styles.frameCornerBR}>&#x2518;</div>
-        <div className={styles.frameTopMid}>&#x252C;</div>
-        <div className={styles.frameBotMid}>&#x2534;</div>
-        <div className={styles.frameLeftMid}>&#x251C;</div>
-        <div className={styles.frameRightMid}>&#x2524;</div>
-        <div className={styles.frameMid}>&#x253C;</div>
+      {/* Temple frame — sacred border */}
+      <div className={styles.templeFrame} aria-hidden="true">
+        {/* Top border with eye motif */}
+        <div className={styles.templeTop}>
+          <span className={styles.borderLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+          <span className={styles.templeEye}>&#x1F54D;</span>
+          <span className={styles.borderLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+        </div>
+        {/* Corner ornaments */}
+        <span className={styles.cornerTL}>&#x2610;</span>
+        <span className={styles.cornerTR}>&#x2610;</span>
+        <span className={styles.cornerBL}>&#x2610;</span>
+        <span className={styles.cornerBR}>&#x2610;</span>
+        {/* Side pillars */}
+        <span className={styles.pillarLeft}>&#x2503;</span>
+        <span className={styles.pillarRight}>&#x2503;</span>
       </div>
 
+      {/* Main content */}
       <div className={styles.container}>
         {/* Back link */}
         <a href="/portfolio/oblique-oracle" className={styles.backLink}>
-          &#x2190; Return to the Void
+          &#x2190; Return to the Outer Court
         </a>
 
-        {/* Gothic header */}
+        {/* Oracle header */}
         <header className={styles.oracleHeader}>
-          <div className={styles.headerRune} aria-hidden="true">
-            &#x2625; &#x262F; &#x2625;
+          {/* All-seeing eye above title */}
+          <div className={styles.eyeOfProvidence} aria-hidden="true">
+            <div className={styles.eyeTriangle}>&#x25B3;</div>
+            <div className={styles.eyeOrb}>&#x25CE;</div>
+            <div className={styles.eyePupil} />
+            <div className={styles.eyeRays} />
           </div>
+
+          <div className={styles.headerSep}>
+            <span className={styles.sepRune}>&#x2726;</span>
+            <span className={styles.sepLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+            <span className={styles.sepRune}>&#x2726;</span>
+            <span className={styles.sepLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+            <span className={styles.sepRune}>&#x2726;</span>
+          </div>
+
           <h1 className={styles.oracleTitle}>
-            <span className={styles.oracleTitleMain}>Oblique Oracle</span>
+            <span className={styles.titlePre}>The</span>
+            <span className={styles.titleMain}>Oblique Oracle</span>
           </h1>
-          <div className={styles.headerRule}>
-            <span className={styles.ruleLeft}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
-            <span className={styles.ruleDiamond}>&#x25C6;</span>
-            <span className={styles.ruleRight}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+
+          <div className={styles.headerSep}>
+            <span className={styles.sepRune}>&#x2726;</span>
+            <span className={styles.sepLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+            <span className={styles.sepRune}>&#x2726;</span>
+            <span className={styles.sepLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+            <span className={styles.sepRune}>&#x2726;</span>
           </div>
+
           <p className={styles.oracleSubtitle}>
-            易经 &#x2022; I Ching Divination &#x2022; Oblique Strategies
+            易经 · The I Ching · 八八六十四卦
           </p>
-          <div className={styles.headerRune} aria-hidden="true">
-            &#x2625; &#x262F; &#x2625;
+          <p className={styles.oracleSubtitleTwo}>
+            &#x2726; Oblique Strategies · Brian Eno · Creative Divination &#x2726;
+          </p>
+
+          {/* Ouroboros divider */}
+          <div className={styles.ouroboros} aria-hidden="true">
+            &#x229B; &#x2606; &#x2727; &#x2606; &#x229B; &#x2606; &#x2727; &#x2606; &#x229B;
           </div>
         </header>
 
-        {/* ── Input Phase ─────────────────────────────── */}
+        {/* ══ INPUT PHASE ══ */}
         {phase === "input" && (
           <div className={styles.inputSection}>
-            <div className={styles.gothicDivider}>
-              <span className={styles.gothicDividerRune}>&#x2726;</span>
-              <span className={styles.gothicDividerLine}>&#x2015;&#x2015;&#x2015;&#x2015;</span>
-              <span className={styles.gothicDividerRune}>&#x2726;</span>
+            <div className={styles.templeDivider}>
+              <span className={styles.divRune}>&#x2726;</span>
+              <span className={styles.divLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+              <span className={styles.divSymbol}>&#x25C6;</span>
+              <span className={styles.divLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+              <span className={styles.divRune}>&#x2726;</span>
+            </div>
+
+            <div className={styles.invocationLabel}>
+              &#x1F54D; State your question to the Oracle &#x1F54D;
             </div>
 
             <p className={styles.prompt}>
-              What question do you bring to the ancient oracle?
+              The ancient pattern awaits. Ask what you must know.
             </p>
 
-            <div className={styles.inputWrapper}>
+            {/* Input with temple border */}
+            <div className={styles.inputTemple}>
+              <div className={styles.inputCornerTL} aria-hidden="true">&#x250C;</div>
+              <div className={styles.inputCornerTR} aria-hidden="true">&#x2510;</div>
+              <div className={styles.inputCornerBL} aria-hidden="true">&#x2514;</div>
+              <div className={styles.inputCornerBR} aria-hidden="true">&#x2518;</div>
               <textarea
                 className={styles.questionInput}
                 value={question}
@@ -463,10 +535,6 @@ export default function OracleDemo() {
                   }
                 }}
               />
-              <div className={styles.inputCornerTL} aria-hidden="true">&#x250C;</div>
-              <div className={styles.inputCornerTR} aria-hidden="true">&#x2510;</div>
-              <div className={styles.inputCornerBL} aria-hidden="true">&#x2514;</div>
-              <div className={styles.inputCornerBR} aria-hidden="true">&#x2518;</div>
             </div>
 
             <button
@@ -474,47 +542,58 @@ export default function OracleDemo() {
               onClick={consult}
               disabled={!question.trim()}
             >
-              <span className={styles.buttonRune}>&#x2727;</span>
+              <span className={styles.btnSymbol}>&#x2727;</span>
               Cast the Coins
-              <span className={styles.buttonRune}>&#x2727;</span>
+              <span className={styles.btnSymbol}>&#x2727;</span>
             </button>
+
+            <div className={styles.coinHint}>
+              &#x2696; Three coins · Six casts · One truth &#x2696;
+            </div>
           </div>
         )}
 
-        {/* ── Loading Phase ───────────────────────────── */}
+        {/* ══ LOADING PHASE ══ */}
         {phase === "loading" && (
           <div className={styles.loading}>
-            <div className={styles.loadingRunes} aria-hidden="true">
-              <span>&#x4E00;</span><span>&#x4E09;</span><span>&#x4E5D;</span>
+            <div className={styles.loadingSymbols} aria-hidden="true">
+              <span className={styles.loadingYin}>&#x262F;</span>
+              <span className={styles.loadingYang}>&#x2625;</span>
+              <span className={styles.loadingYin}>&#x262F;</span>
             </div>
-            <p className={styles.loadingText}>
-              The coins are cast...
-            </p>
-            <p className={styles.loadingSubtext}>
-              The ancient patterns take shape
-            </p>
-            <div className={styles.loadingRunes} aria-hidden="true">
-              <span>&#x16A0;</span><span>&#x16A2;</span><span>&#x16C7;</span>
+            <div className={styles.loadingTitle}>The Oracle Contemplates</div>
+            <div className={styles.loadingSub}>
+              <span className={styles.loadingDots}>
+                <span>.</span><span>.</span><span>.</span>
+              </span>
+              <span className={styles.loadingSubText}>Consulting the ancient patterns</span>
+            </div>
+            <div className={styles.loadingSymbols} aria-hidden="true">
+              <span className={styles.loadingYin}>&#x262F;</span>
+              <span className={styles.loadingYang}>&#x2625;</span>
+              <span className={styles.loadingYin}>&#x262F;</span>
             </div>
           </div>
         )}
 
-        {/* ── Reading Phase ───────────────────────────── */}
+        {/* ══ READING PHASE ══ */}
         {phase === "reading" && reading && (
           <div className={styles.reading}>
-            {/* Question echo */}
+            {/* Question */}
             <div className={styles.questionEcho}>
-              <p className={styles.questionEchoLabel}>
-                <span className={styles.labelRune}>&#x2609;</span>
-                Your Question
-              </p>
+              <div className={styles.questionLabel}>
+                <span className={styles.qLabelIcon}>&#x1F54D;</span>
+                <span>The Question Put to the Oracle</span>
+                <span className={styles.qLabelIcon}>&#x1F54D;</span>
+              </div>
               <p className={styles.questionEchoText}>
                 &ldquo;{reading.question}&rdquo;
               </p>
             </div>
 
-            {/* Hexagram display */}
+            {/* Hexagram */}
             <div className={styles.hexagramSection}>
+              {/* Hexagram art — lines revealed bottom to top */}
               <div className={styles.hexagramArt}>
                 {[...reading.lines].reverse().map((line, displayIdx) => {
                   const lineIdx = 5 - displayIdx;
@@ -524,12 +603,12 @@ export default function OracleDemo() {
                       key={lineIdx}
                       className={
                         line.changing
-                          ? styles.hexagramLineChanging
+                          ? styles.hexLineChanging
                           : line.solid
-                            ? styles.hexagramLineYang
-                            : styles.hexagramLineYin
+                            ? styles.hexLineYang
+                            : styles.hexLineYin
                       }
-                      style={{ animationDelay: `${displayIdx * 0.05}s` }}
+                      style={{ animationDelay: `${displayIdx * 0.06}s` }}
                     >
                       {line.solid ? SOLID_LINE : BROKEN_LINE}
                     </span>
@@ -537,43 +616,50 @@ export default function OracleDemo() {
                 })}
               </div>
 
+              {/* Hexagram info revealed after lines */}
               {showInfo && (
                 <div className={styles.hexagramInfo}>
-                  <p className={styles.hexagramChinese}>{reading.hexagram.chinese}</p>
-                  <p className={styles.hexagramName}>{reading.hexagram.name}</p>
-                  <p className={styles.hexagramTrigrams}>
-                    <span className={styles.trigramLabel}>{reading.hexagram.upperTrigram}</span>
-                    <span className={styles.trigramOver}>over</span>
-                    <span className={styles.trigramLabel}>{reading.hexagram.lowerTrigram}</span>
-                  </p>
+                  <div className={styles.hexChinese}>{reading.hexagram.chinese}</div>
+                  <div className={styles.hexName}>{reading.hexagram.name}</div>
+                  <div className={styles.hexTrigrams}>
+                    <span className={styles.trigramUpper}>
+                      {reading.hexagram.upperTrigram}
+                    </span>
+                    <span className={styles.trigramOver}>&#x2022;</span>
+                    <span className={styles.trigramLower}>
+                      {reading.hexagram.lowerTrigram}
+                    </span>
+                  </div>
                   {reading.lines.some((l) => l.changing) && (
-                    <p className={styles.changingNote}>
-                      <span className={styles.changingRune}>&#x2726;</span>
-                      Changing lines detected
-                      <span className={styles.changingRune}>&#x2726;</span>
-                    </p>
+                    <div className={styles.changingBadge}>
+                      <span className={styles.changingIcon}>&#x2726;</span>
+                      <span>Lines in flux</span>
+                      <span className={styles.changingIcon}>&#x2726;</span>
+                    </div>
                   )}
                 </div>
               )}
             </div>
 
-            {/* Gothic divider */}
+            {/* Divider */}
             {showStrategy && (
-              <div className={styles.gothicDivider}>
-                <span className={styles.gothicDividerRune}>&#x2726;</span>
-                <span className={styles.gothicDividerLine}>&#x2015;&#x2015;&#x2015;&#x2015;</span>
-                <span className={styles.gothicDividerRune}>&#x2726;</span>
+              <div className={styles.templeDivider}>
+                <span className={styles.divRune}>&#x2726;</span>
+                <span className={styles.divLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                <span className={styles.divSymbol}>&#x25C6;</span>
+                <span className={styles.divLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                <span className={styles.divRune}>&#x2726;</span>
               </div>
             )}
 
             {/* Oblique Strategy */}
             {showStrategy && (
               <div className={styles.strategySection}>
-                <p className={styles.strategyLabel}>
-                  <span className={styles.labelRune}>&#x2728;</span>
-                  Oblique Strategy
-                  <span className={styles.labelRune}>&#x2728;</span>
-                </p>
+                <div className={styles.strategyLabel}>
+                  <span className={styles.stratIcon}>&#x2728;</span>
+                  <span>Oblique Strategy Drawn</span>
+                  <span className={styles.stratIcon}>&#x2728;</span>
+                </div>
                 <p className={styles.strategyText}>
                   &ldquo;{reading.strategy}&rdquo;
                 </p>
@@ -583,22 +669,31 @@ export default function OracleDemo() {
             {/* Synthesis */}
             {showSynthesis && (
               <div className={styles.synthesisSection}>
-                <div className={styles.gothicDivider}>
-                  <span className={styles.gothicDividerRune}>&#x2605;</span>
-                  <span className={styles.gothicDividerLine}>&#x2015;&#x2015;&#x2015;&#x2015;</span>
-                  <span className={styles.gothicDividerRune}>&#x2605;</span>
+                <div className={styles.templeDivider}>
+                  <span className={styles.divRune}>&#x2605;</span>
+                  <span className={styles.divLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                  <span className={styles.divSymbol}>&#x25C7;</span>
+                  <span className={styles.divLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                  <span className={styles.divRune}>&#x2605;</span>
                 </div>
 
-                <p className={styles.synthesisLabel}>
-                  <span className={styles.labelRune}>&#x2728;</span>
-                  Oracle Synthesis
-                  <span className={styles.labelRune}>&#x2728;</span>
-                </p>
+                <div className={styles.synthesisLabel}>
+                  <span className={styles.synthIcon}>&#x2728;</span>
+                  <span>The Oracle Speaks</span>
+                  <span className={styles.synthIcon}>&#x2728;</span>
+                </div>
 
-                <div className={styles.synthesisWrapper}>
-                  <div className={styles.synthesisCornerTL} aria-hidden="true">&#x250C;</div>
-                  <div className={styles.synthesisCornerTR} aria-hidden="true">&#x2510;</div>
-                  <div className={styles.synthesisText}>
+                {/* Synthesis text with ornate border */}
+                <div className={styles.synthesisTemple}>
+                  <div className={styles.synthCornerTL} aria-hidden="true">&#x250C;</div>
+                  <div className={styles.synthCornerTR} aria-hidden="true">&#x2510;</div>
+                  <div className={styles.synthCornerBL} aria-hidden="true">&#x2514;</div>
+                  <div className={styles.synthCornerBR} aria-hidden="true">&#x2518;</div>
+                  <div className={styles.synthMidTL} aria-hidden="true">&#x252C;</div>
+                  <div className={styles.synthMidTR} aria-hidden="true">&#x2524;</div>
+                  <div className={styles.synthMidBL} aria-hidden="true">&#x2534;</div>
+                  <div className={styles.synthMidBR} aria-hidden="true">&#x251C;</div>
+                  <div className={styles.synthText}>
                     {reading.synthesis.slice(0, typedChars)}
                     {!typingDone && <span className={styles.cursor} />}
                   </div>
@@ -606,28 +701,33 @@ export default function OracleDemo() {
               </div>
             )}
 
-            {/* Reset */}
+            {/* Footer / reset */}
             {typingDone && (
               <div className={styles.resetSection}>
-                <div className={styles.gothicDivider}>
-                  <span className={styles.gothicDividerRune}>&#x2726;</span>
-                  <span className={styles.gothicDividerLine}>&#x2015;&#x2015;&#x2015;&#x2015;</span>
-                  <span className={styles.gothicDividerRune}>&#x2726;</span>
+                <div className={styles.templeDivider}>
+                  <span className={styles.divRune}>&#x2726;</span>
+                  <span className={styles.divLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                  <span className={styles.divSymbol}>&#x25C6;</span>
+                  <span className={styles.divLine}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                  <span className={styles.divRune}>&#x2726;</span>
                 </div>
                 <button className={styles.resetButton} onClick={resetAll}>
-                  <span className={styles.buttonRune}>&#x2727;</span>
+                  <span className={styles.btnSymbol}>&#x2727;</span>
                   Cast Again
-                  <span className={styles.buttonRune}>&#x2727;</span>
+                  <span className={styles.btnSymbol}>&#x2727;</span>
                 </button>
               </div>
             )}
           </div>
         )}
 
-        {/* Footer */}
+        {/* Footer sigil */}
         <footer className={styles.footer}>
+          <div className={styles.footerSigil} aria-hidden="true">
+            &#x262F; &#x2726; &#x2625; &#x2726; &#x262F;
+          </div>
           <p className={styles.footerText}>
-            &#x4E2D;&#x6587; &#x4E5F;&#x9053; &#x66F0; &#x3002;&#x3002;.&nbsp;&nbsp;
+            &#x4E2D;&#x6587;&#x4E5F;&#x9053; &#x66F0; &#x3002;.&nbsp;&nbsp;
             &#x2605; &#x2726; &#x2605;
           </p>
         </footer>

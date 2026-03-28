@@ -1,70 +1,240 @@
-/* ═══════════════════════════════════════════════════════
-   Oblique Oracle Demo — Gothic Chinese Runic Aesthetic
-   Emerald (#00ff41) + Ruby Red (#9b0026) on Void Black
-   CRT phosphor glow · Runic atmosphere · Mystical structure
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   Oblique Oracle Demo — Ancient Temple Oracle Aesthetic
+   Emerald + Ruby + Gold on Void · Sacred Geometry · Eye of Providence
+   Mystical, ceremonial, deliberate · Full immersion
+   ═══════════════════════════════════════════════════════════ */
 
-/* ── Page base ──────────────────────────────────────── */
+/* ── Google Font import for mystical typography ────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────────── */
+:root {
+  --emerald: #00ff41;
+  --emerald-dim: rgba(0, 255, 65, 0.6);
+  --emerald-faint: rgba(0, 255, 65, 0.15);
+  --ruby: #9b0026;
+  --ruby-bright: #c41230;
+  --ruby-dim: rgba(196, 18, 48, 0.6);
+  --ruby-faint: rgba(196, 18, 48, 0.15);
+  --gold: #ffd700;
+  --gold-dim: rgba(255, 215, 0, 0.6);
+  --void: #030306;
+  --void-mid: #060610;
+}
+
+/* ── Page base ─────────────────────────────────────────── */
 
 .page {
   min-height: 100vh;
-  background: #030306;
-  color: #00ff41;
+  background: var(--void);
+  color: var(--emerald);
   font-family: var(--font-mono);
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-/* ── Scanlines overlay ──────────────────────────────── */
+/* Background gradient — deep void with subtle purple shift */
+.page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(155, 0, 38, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(0, 255, 65, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.02) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── CRT Overlays ──────────────────────────────────────── */
 
 .scanlines {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 200;
   background: repeating-linear-gradient(
     to bottom,
     transparent 0px,
     transparent 2px,
-    rgba(0, 0, 0, 0.18) 2px,
-    rgba(0, 0, 0, 0.18) 4px
+    rgba(0, 0, 0, 0.2) 2px,
+    rgba(0, 0, 0, 0.2) 4px
   );
 }
-
-/* ── CRT vignette ─────────────────────────────────── */
 
 .vignette {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: 99;
+  z-index: 199;
   background: radial-gradient(
     ellipse at center,
-    transparent 45%,
-    rgba(0, 0, 0, 0.55) 75%,
-    rgba(0, 0, 0, 0.85) 100%
+    transparent 40%,
+    rgba(0, 0, 0, 0.5) 70%,
+    rgba(0, 0, 0, 0.88) 100%
   );
 }
 
-/* ── Atmospheric background runes ────────────────────── */
+.noise {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 198;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  animation: noiseShift 0.5s steps(2) infinite;
+}
+
+@keyframes noiseShift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-2%, -2%); }
+  100% { transform: translate(2%, 1%); }
+}
+
+/* ── Temple Frame ─────────────────────────────────────── */
+
+.templeFrame {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+}
+
+.templeTop {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+.borderLine {
+  font-size: 0.6rem;
+  color: var(--ruby-dim);
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+.templeEye {
+  font-size: 1rem;
+  animation: eyePulse 4s ease-in-out infinite;
+}
+
+@keyframes eyePulse {
+  0%, 100% { opacity: 0.4; text-shadow: 0 0 6px rgba(255, 215, 0, 0.3); }
+  50% { opacity: 0.9; text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+.cornerTL,
+.cornerTR,
+.cornerBL,
+.cornerBR {
+  position: absolute;
+  font-size: 0.7rem;
+  color: var(--ruby-bright);
+  opacity: 0.35;
+}
+
+.cornerTL { top: 1.5rem; left: 1.5rem; }
+.cornerTR { top: 1.5rem; right: 1.5rem; }
+.cornerBL { bottom: 1.5rem; left: 1.5rem; }
+.cornerBR { bottom: 1.5rem; right: 1.5rem; }
+
+.pillarLeft {
+  position: absolute;
+  top: 50%;
+  left: 1.2rem;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: var(--ruby-dim);
+  opacity: 0.25;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.4em;
+}
+
+.pillarRight {
+  position: absolute;
+  top: 50%;
+  right: 1.2rem;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: var(--ruby-dim);
+  opacity: 0.25;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.4em;
+}
+
+/* ── Sacred Geometry Center ────────────────────────────── */
+
+.sacredCenter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.sacredOuter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(200px, 40vw, 400px);
+  color: var(--gold);
+  animation: sacredRotate 60s linear infinite;
+}
+
+.sacredMiddle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(150px, 30vw, 300px);
+  color: var(--emerald);
+  animation: sacredRotate 45s linear infinite reverse;
+}
+
+.sacredInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(100px, 20vw, 200px);
+  color: var(--ruby-bright);
+  animation: sacredRotate 30s linear infinite;
+}
+
+@keyframes sacredRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ── Atmospheric Runes ─────────────────────────────────── */
 
 .atmosphere {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
-  padding: 2rem 1rem;
-  overflow: hidden;
+  align-items: center;
+  padding: 2rem 1.5rem;
 }
 
 .atmoLeft,
 .atmoRight {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  opacity: 0.18;
+  gap: 1.4rem;
+  opacity: 0.22;
 }
 
 .atmoLeft {
@@ -75,226 +245,248 @@
   align-items: flex-end;
 }
 
-.atmoRune {
-  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+.atmoLeft span,
+.atmoRight span {
+  display: block;
+  font-size: clamp(0.8rem, 1.6vw, 1.2rem);
   line-height: 1;
-  animation: runeFloat 6s ease-in-out infinite;
+  animation: runeFloat 7s ease-in-out infinite;
   white-space: nowrap;
 }
 
-/* Alternate emerald and ruby */
-.atmoLeft .atmoRune:nth-child(odd) {
-  color: #00ff41;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+.runeEmerald {
+  color: var(--emerald) !important;
+  text-shadow: 0 0 12px rgba(0, 255, 65, 0.7);
 }
 
-.atmoLeft .atmoRune:nth-child(even) {
-  color: #c41230;
-  text-shadow: 0 0 8px rgba(196, 18, 48, 0.5);
+.runeRuby {
+  color: var(--ruby-bright) !important;
+  text-shadow: 0 0 12px rgba(196, 18, 48, 0.7);
 }
 
-.atmoRight .atmoRune:nth-child(odd) {
-  color: #c41230;
-  text-shadow: 0 0 8px rgba(196, 18, 48, 0.5);
-}
-
-.atmoRight .atmoRune:nth-child(even) {
-  color: #00ff41;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+.runeGold {
+  color: var(--gold) !important;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
 }
 
 @keyframes runeFloat {
-  0%, 100% { transform: translateY(0px); opacity: 0.7; }
-  50% { transform: translateY(-6px); opacity: 1; }
+  0%, 100% { transform: translateY(0px); opacity: 0.6; }
+  50% { transform: translateY(-10px); opacity: 1; }
 }
 
-/* ── Gothic frame corners (decorative) ────────────── */
-
-.frameOuter {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-}
-
-.frameCornerTL,
-.frameCornerTR,
-.frameCornerBL,
-.frameCornerBR {
-  position: absolute;
-  font-size: 1.2rem;
-  color: #c41230;
-  text-shadow: 0 0 10px rgba(196, 18, 48, 0.4);
-  line-height: 1;
-}
-
-.frameCornerTL { top: 1.5rem; left: 1.5rem; }
-.frameCornerTR { top: 1.5rem; right: 1.5rem; }
-.frameCornerBL { bottom: 1.5rem; left: 1.5rem; }
-.frameCornerBR { bottom: 1.5rem; right: 1.5rem; }
-
-.frameTopMid,
-.frameBotMid {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1rem;
-  color: #c4123080;
-  letter-spacing: 0.3em;
-}
-
-.frameTopMid { top: 1.5rem; }
-.frameBotMid { bottom: 1.5rem; }
-
-.frameLeftMid,
-.frameRightMid {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1rem;
-  color: #c4123080;
-  letter-spacing: 0.3em;
-}
-
-.frameLeftMid { left: 1.5rem; writing-mode: vertical-rl; }
-.frameRightMid { right: 1.5rem; writing-mode: vertical-rl; }
-
-.frameMid {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 0.9rem;
-  color: #c4123040;
-}
-
-/* ── Layout container ──────────────────────────────── */
+/* ── Layout container ──────────────────────────────────── */
 
 .container {
   position: relative;
   z-index: 10;
-  max-width: 660px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 3rem 1.5rem 5rem;
 }
 
-/* ── Back link ─────────────────────────────────────── */
+/* ── Back link ────────────────────────────────────────── */
 
 .backLink {
   display: inline-block;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #c4123080;
-  margin-bottom: 2.5rem;
+  letter-spacing: 0.14em;
+  color: var(--ruby-dim);
+  margin-bottom: 2rem;
   padding-top: 3rem;
   transition: color 0.3s, text-shadow 0.3s;
 }
 
 .backLink:hover {
-  color: #c41230;
-  text-shadow: 0 0 10px rgba(196, 18, 48, 0.5);
+  color: var(--ruby-bright);
+  text-shadow: 0 0 12px rgba(196, 18, 48, 0.5);
   opacity: 1;
 }
 
-/* ── Oracle header ────────────────────────────────── */
+/* ── Oracle Header ─────────────────────────────────────── */
 
 .oracleHeader {
   text-align: center;
-  margin-bottom: 3.5rem;
-  animation: fadeIn 1s ease-out;
+  margin-bottom: 3rem;
+  animation: fadeIn 1.2s ease-out;
 }
 
-.headerRune {
-  font-size: 0.85rem;
-  color: #c41230;
-  letter-spacing: 0.5em;
-  text-shadow: 0 0 12px rgba(196, 18, 48, 0.4);
-  margin-bottom: 0.6rem;
-  animation: runePulse 4s ease-in-out infinite;
+/* Eye of Providence */
+.eyeOfProvidence {
+  position: relative;
+  width: 80px;
+  height: 50px;
+  margin: 0 auto 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-@keyframes runePulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
+.eyeTriangle {
+  font-size: 1.6rem;
+  color: var(--gold);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  animation: eyeGlow 3s ease-in-out infinite;
+  line-height: 1;
 }
 
-.oracleTitle {
-  margin-bottom: 0.5rem;
+@keyframes eyeGlow {
+  0%, 100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+  50% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 215, 0, 0.3); }
 }
 
-.oracleTitleMain {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #00ff41;
-  text-shadow:
-    0 0 6px rgba(0, 255, 65, 0.5),
-    0 0 20px rgba(0, 255, 65, 0.2),
-    0 0 40px rgba(0, 255, 65, 0.1);
+.eyeOrb {
+  font-size: 1.1rem;
+  color: var(--emerald);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
+  line-height: 1;
+  margin-top: -2px;
 }
 
-.headerRule {
+.eyePupil {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+  animation: pupilWatch 5s ease-in-out infinite;
+  margin-top: 1px;
+}
+
+@keyframes pupilWatch {
+  0%, 100% { transform: translateX(0); }
+  30% { transform: translateX(3px); }
+  70% { transform: translateX(-3px); }
+}
+
+.eyeRays {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  animation: raysPulse 3s ease-in-out infinite;
+}
+
+@keyframes raysPulse {
+  0%, 100% { opacity: 0.3; width: 30px; }
+  50% { opacity: 0.7; width: 50px; }
+}
+
+/* Header separator */
+.headerSep {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.6rem;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
 }
 
-.ruleLeft,
-.ruleRight {
-  font-size: 0.7rem;
-  color: #c4123060;
+.sepRune {
+  font-size: 0.55rem;
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  animation: runeFloat 4s ease-in-out infinite;
+}
+
+.sepLine {
+  font-size: 0.55rem;
+  color: var(--ruby-dim);
+  opacity: 0.4;
   letter-spacing: 0.05em;
 }
 
-.ruleDiamond {
-  font-size: 0.55rem;
-  color: #c41230;
-  text-shadow: 0 0 8px rgba(196, 18, 48, 0.6);
-  animation: runePulse 3s ease-in-out infinite;
+/* Title */
+.oracleTitle {
+  margin: 0.6rem 0;
+}
+
+.titlePre {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  color: var(--ruby-bright);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.titleMain {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--emerald);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 8px rgba(0, 255, 65, 0.5),
+    0 0 25px rgba(0, 255, 65, 0.25),
+    0 0 50px rgba(0, 255, 65, 0.1);
+  line-height: 1.1;
 }
 
 .oracleSubtitle {
-  font-size: 0.62rem;
-  color: #00ff4180;
+  font-size: 0.65rem;
+  color: var(--emerald-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.oracleSubtitleTwo {
+  font-size: 0.6rem;
+  color: var(--gold-dim);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Ouroboros */
+.ouroboros {
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.5em;
+  margin-top: 1rem;
+  opacity: 0.4;
+  animation: runeFloat 6s ease-in-out infinite;
 }
 
-/* ── Gothic dividers ──────────────────────────────── */
+/* ── Temple dividers ──────────────────────────────────── */
 
-.gothicDivider {
+.templeDivider {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
-  margin: 2rem 0;
+  gap: 0.6rem;
+  margin: 2.5rem 0 2rem;
 }
 
-.gothicDividerRune {
-  font-size: 0.65rem;
-  color: #c41230;
-  text-shadow: 0 0 8px rgba(196, 18, 48, 0.6);
-  animation: runePulse 3s ease-in-out infinite;
-}
-
-.gothicDividerLine {
+.divRune {
   font-size: 0.6rem;
-  color: #c4123040;
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  animation: runeFloat 3s ease-in-out infinite;
+}
+
+.divLine {
+  font-size: 0.55rem;
+  color: var(--ruby-dim);
+  opacity: 0.35;
   letter-spacing: 0.15em;
 }
 
-/* ── Input section ────────────────────────────────── */
+.divSymbol {
+  font-size: 0.55rem;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+/* ── Input section ────────────────────────────────────── */
 
 .inputSection {
   display: flex;
@@ -304,16 +496,29 @@
   animation: fadeIn 0.8s ease-out;
 }
 
-.prompt {
-  font-size: 0.78rem;
-  color: #00ff41;
-  letter-spacing: 0.04em;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  opacity: 0.85;
+.invocationLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-out 0.3s both;
 }
 
-.inputWrapper {
+.prompt {
+  font-size: 0.78rem;
+  color: var(--emerald-dim);
+  letter-spacing: 0.03em;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Temple-style input border */
+.inputTemple {
   width: 100%;
   position: relative;
   margin-bottom: 1.5rem;
@@ -324,27 +529,27 @@
 .inputCornerBL,
 .inputCornerBR {
   position: absolute;
-  font-size: 0.8rem;
-  color: #c41230;
-  text-shadow: 0 0 6px rgba(196, 18, 48, 0.4);
-  z-index: 2;
+  font-size: 0.85rem;
+  color: var(--ruby-bright);
+  text-shadow: 0 0 8px rgba(196, 18, 48, 0.4);
+  z-index: 3;
 }
 
-.inputCornerTL { top: -3px; left: -3px; }
-.inputCornerTR { top: -3px; right: -3px; }
-.inputCornerBL { bottom: -3px; left: -3px; }
-.inputCornerBR { bottom: -3px; right: -3px; }
+.inputCornerTL { top: -4px; left: -4px; }
+.inputCornerTR { top: -4px; right: -4px; }
+.inputCornerBL { bottom: -4px; left: -4px; }
+.inputCornerBR { bottom: -4px; right: -4px; }
 
 .questionInput {
   width: 100%;
-  background: rgba(0, 255, 65, 0.03);
-  border: 1px solid rgba(196, 18, 48, 0.25);
+  background: rgba(0, 255, 65, 0.025);
+  border: 1px solid rgba(155, 0, 38, 0.3);
   border-radius: 0;
   padding: 1.25rem 1.5rem;
   font-family: var(--font-mono);
   font-size: 0.88rem;
-  color: #00ff41;
-  line-height: 1.7;
+  color: var(--emerald);
+  line-height: 1.75;
   resize: vertical;
   min-height: 90px;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -353,148 +558,210 @@
 }
 
 .questionInput::placeholder {
-  color: rgba(0, 255, 65, 0.25);
+  color: rgba(0, 255, 65, 0.2);
   font-style: italic;
 }
 
 .questionInput:focus {
   outline: none;
-  border-color: rgba(196, 18, 48, 0.5);
+  border-color: rgba(155, 0, 38, 0.6);
   box-shadow:
-    0 0 20px rgba(0, 255, 65, 0.04),
-    inset 0 0 30px rgba(0, 255, 65, 0.02);
+    0 0 25px rgba(0, 255, 65, 0.03),
+    inset 0 0 40px rgba(0, 255, 65, 0.015);
 }
 
-/* ── Buttons ──────────────────────────────────────── */
+/* ── Buttons ─────────────────────────────────────────── */
 
 .consultButton,
 .resetButton {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 0.8rem 2.5rem;
-  border: 1px solid #c41230;
+  padding: 0.85rem 2.8rem;
+  border: 1px solid var(--ruby-bright);
   background: transparent;
-  color: #c41230;
+  color: var(--ruby-bright);
   cursor: pointer;
-  transition: all 0.35s;
-  position: relative;
+  transition: all 0.4s;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.8rem;
 }
 
 .consultButton:hover:not(:disabled),
 .resetButton:hover {
-  background: #c41230;
-  color: #030306;
+  background: var(--ruby-bright);
+  color: var(--void);
   box-shadow:
-    0 0 20px rgba(196, 18, 48, 0.4),
-    0 0 40px rgba(196, 18, 48, 0.2);
+    0 0 25px rgba(196, 18, 48, 0.5),
+    0 0 50px rgba(196, 18, 48, 0.25),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .consultButton:disabled {
-  opacity: 0.25;
+  opacity: 0.2;
   cursor: not-allowed;
 }
 
 .resetButton {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
-.buttonRune {
+.btnSymbol {
   font-size: 0.6rem;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-/* ── Loading ──────────────────────────────────────── */
+.coinHint {
+  margin-top: 1.2rem;
+  font-size: 0.6rem;
+  color: var(--emerald-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Loading ────────────────────────────────────────────── */
 
 .loading {
   text-align: center;
-  padding: 4rem 0;
+  padding: 5rem 0;
   animation: fadeIn 0.6s;
 }
 
-.loadingRunes {
-  font-size: 1.4rem;
-  letter-spacing: 0.6em;
-  margin-bottom: 1.5rem;
-  animation: runePulse 2s ease-in-out infinite;
-  color: #c41230;
-  text-shadow: 0 0 12px rgba(196, 18, 48, 0.5);
+.loadingSymbols {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
 }
 
-.loadingRunes span {
-  display: inline-block;
+.loadingYin {
+  color: var(--emerald);
+  text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+  animation: yinRotate 4s ease-in-out infinite;
 }
 
-.loadingText {
-  font-size: 0.82rem;
-  color: #00ff41;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
-  animation: pulse 2s ease-in-out infinite;
+.loadingYang {
+  color: var(--ruby-bright);
+  text-shadow: 0 0 15px rgba(196, 18, 48, 0.5);
+  animation: yangRotate 4s ease-in-out infinite 0.5s;
 }
 
-.loadingSubtext {
-  font-size: 0.65rem;
-  color: #00ff4160;
-  letter-spacing: 0.06em;
-  font-style: italic;
+@keyframes yinRotate {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.5; }
+  50% { transform: rotate(180deg) scale(1.1); opacity: 1; }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 0.4; }
+@keyframes yangRotate {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.5; }
+  50% { transform: rotate(180deg) scale(1.1); opacity: 1; }
+}
+
+.loadingTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  margin-bottom: 0.8rem;
+  animation: runeFloat 3s ease-in-out infinite;
+}
+
+.loadingSub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.loadingDots {
+  display: flex;
+  gap: 0.3rem;
+  font-size: 1.2rem;
+  color: var(--emerald-dim);
+}
+
+.loadingDots span {
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.loadingDots span:nth-child(2) { animation-delay: 0.2s; }
+.loadingDots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.2; }
   50% { opacity: 1; }
 }
 
-/* ── Reading ──────────────────────────────────────── */
+.loadingSubText {
+  font-size: 0.65rem;
+  color: var(--emerald-dim);
+  letter-spacing: 0.08em;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+/* ── Reading ───────────────────────────────────────────── */
 
 .reading {
   margin-top: 2rem;
   animation: fadeIn 0.6s;
 }
 
-/* ── Question echo ────────────────────────────────── */
+/* ── Question echo ────────────────────────────────────── */
 
 .questionEcho {
   text-align: center;
   margin-bottom: 2.5rem;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(196, 18, 48, 0.2);
-  border-bottom: 1px solid rgba(196, 18, 48, 0.2);
+  padding: 1.2rem 0;
+  border-top: 1px solid rgba(155, 0, 38, 0.25);
+  border-bottom: 1px solid rgba(155, 0, 38, 0.25);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(155, 0, 38, 0.03),
+    transparent
+  );
 }
 
-.questionEchoLabel {
-  font-size: 0.6rem;
-  color: #c4123080;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5rem;
+.questionLabel {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  color: var(--ruby-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.7rem;
 }
 
-.labelRune {
+.qLabelIcon {
   font-size: 0.7rem;
-  color: #c41230;
-  text-shadow: 0 0 6px rgba(196, 18, 48, 0.5);
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  animation: runeFloat 4s ease-in-out infinite;
 }
 
 .questionEchoText {
-  font-size: 0.82rem;
-  color: #00ff4180;
+  font-size: 0.85rem;
+  color: var(--emerald-dim);
   font-style: italic;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* ── Hexagram section ─────────────────────────────── */
+/* ── Hexagram section ──────────────────────────────────── */
 
 .hexagramSection {
   text-align: center;
@@ -502,217 +769,247 @@
 }
 
 .hexagramArt {
-  font-size: 1.15rem;
-  line-height: 1.85;
-  letter-spacing: 0.25em;
+  font-size: 1.2rem;
+  line-height: 1.9;
+  letter-spacing: 0.3em;
   margin-bottom: 1.5rem;
 }
 
-.hexagramLineYang {
+.hexLineYang {
   display: block;
   opacity: 0;
-  animation: lineAppear 0.4s forwards;
-  color: #00ff41;
+  animation: lineAppear 0.5s forwards;
+  color: var(--emerald);
   text-shadow:
-    0 0 8px rgba(0, 255, 65, 0.6),
-    0 0 20px rgba(0, 255, 65, 0.3);
+    0 0 10px rgba(0, 255, 65, 0.7),
+    0 0 25px rgba(0, 255, 65, 0.4),
+    0 0 50px rgba(0, 255, 65, 0.2);
 }
 
-.hexagramLineYin {
+.hexLineYin {
   display: block;
   opacity: 0;
-  animation: lineAppear 0.4s forwards;
-  color: #c41230;
+  animation: lineAppear 0.5s forwards;
+  color: var(--ruby-bright);
   text-shadow:
-    0 0 8px rgba(196, 18, 48, 0.6),
-    0 0 20px rgba(196, 18, 48, 0.3);
+    0 0 10px rgba(196, 18, 48, 0.7),
+    0 0 25px rgba(196, 18, 48, 0.4),
+    0 0 50px rgba(196, 18, 48, 0.2);
 }
 
-.hexagramLineChanging {
+.hexLineChanging {
   display: block;
   opacity: 0;
-  animation: lineAppear 0.4s forwards, changingGlow 2.5s ease-in-out infinite 0.4s;
-  color: #ffd700;
+  animation: lineAppear 0.5s forwards, changingGlow 2.5s ease-in-out infinite 0.5s;
+  color: var(--gold);
   text-shadow:
-    0 0 10px rgba(255, 215, 0, 0.8),
-    0 0 25px rgba(255, 215, 0, 0.4);
+    0 0 12px rgba(255, 215, 0, 0.9),
+    0 0 30px rgba(255, 215, 0, 0.5),
+    0 0 60px rgba(255, 215, 0, 0.25);
 }
 
 @keyframes lineAppear {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(6px) scaleY(0.5); }
+  to { opacity: 1; transform: translateY(0) scaleY(1); }
 }
 
 @keyframes changingGlow {
-  0%, 100% {
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 25px rgba(255, 215, 0, 0.3);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 40px rgba(255, 215, 0, 0.5);
-  }
+  0%, 100% { text-shadow: 0 0 12px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.4); }
+  50% { text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 45px rgba(255, 215, 0, 0.6); }
 }
 
 .hexagramInfo {
   opacity: 0;
-  animation: fadeIn 0.7s forwards;
+  animation: fadeIn 0.8s forwards;
 }
 
-.hexagramChinese {
-  font-size: 2.8rem;
-  color: #c41230;
+.hexChinese {
+  font-size: 3.5rem;
+  color: var(--ruby-bright);
   text-shadow:
-    0 0 15px rgba(196, 18, 48, 0.7),
-    0 0 35px rgba(196, 18, 48, 0.3);
+    0 0 20px rgba(196, 18, 48, 0.8),
+    0 0 45px rgba(196, 18, 48, 0.4),
+    0 0 80px rgba(196, 18, 48, 0.2);
   margin-bottom: 0.3rem;
   animation: runePulse 4s ease-in-out infinite;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
 }
 
-.hexagramName {
+@keyframes runePulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.hexName {
+  font-family: 'Cinzel', serif;
   font-size: 1rem;
-  color: #00ff41;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.4rem;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.3);
+  color: var(--emerald);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
-.hexagramTrigrams {
-  font-size: 0.68rem;
-  color: #00ff4160;
+.hexTrigrams {
+  font-size: 0.7rem;
+  color: var(--emerald-dim);
   letter-spacing: 0.08em;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-}
-
-.trigramLabel {
   font-style: italic;
 }
 
 .trigramOver {
-  color: #c4123040;
-  font-size: 0.6rem;
-  text-transform: uppercase;
+  font-size: 0.55rem;
+  color: var(--ruby-dim);
+  opacity: 0.5;
+  font-style: normal;
 }
 
-.changingNote {
-  font-size: 0.6rem;
-  color: #ffd70080;
-  letter-spacing: 0.1em;
+.changingBadge {
+  margin-top: 0.8rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  color: var(--gold);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin-top: 0.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  animation: runePulse 2s ease-in-out infinite;
+  animation: runeFloat 3s ease-in-out infinite;
 }
 
-.changingRune {
-  color: #ffd700;
+.changingIcon {
   text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
-/* ── Strategy section ─────────────────────────────── */
+/* ── Strategy section ──────────────────────────────────── */
 
 .strategySection {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   opacity: 0;
-  animation: flipIn 0.6s 0.1s forwards;
+  animation: flipIn 0.7s 0.15s forwards;
 }
 
 .strategyLabel {
-  font-size: 0.6rem;
-  color: #c4123090;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+}
+
+.stratIcon {
+  font-size: 0.65rem;
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  animation: runeFloat 3s ease-in-out infinite;
 }
 
 .strategyText {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-style: italic;
-  color: #ffd700;
+  color: var(--gold);
   line-height: 1.7;
-  text-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
+  font-family: 'Cinzel', serif;
 }
 
 @keyframes flipIn {
-  0% {
-    opacity: 0;
-    transform: perspective(500px) rotateX(90deg);
-  }
-  100% {
-    opacity: 1;
-    transform: perspective(500px) rotateX(0deg);
-  }
+  0% { opacity: 0; transform: perspective(600px) rotateX(90deg); }
+  100% { opacity: 1; transform: perspective(600px) rotateX(0deg); }
 }
 
-/* ── Synthesis section ────────────────────────────── */
+/* ── Synthesis section ────────────────────────────────── */
 
 .synthesisSection {
   margin-top: 1.5rem;
 }
 
 .synthesisLabel {
-  font-size: 0.6rem;
-  color: #00ff4180;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  color: var(--emerald-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.2rem;
 }
 
-.synthesisWrapper {
+.synthIcon {
+  font-size: 0.65rem;
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  animation: runeFloat 3s ease-in-out infinite;
+}
+
+.synthesisTemple {
   position: relative;
-}
-
-.synthesisCornerTL,
-.synthesisCornerTR,
-.synthesisCornerBL,
-.synthesisCornerBR {
-  position: absolute;
-  font-size: 0.8rem;
-  color: #00ff4150;
-  z-index: 2;
-}
-
-.synthesisCornerTL { top: -3px; left: -3px; }
-.synthesisCornerTR { top: -3px; right: -3px; }
-.synthesisCornerBL { bottom: -3px; left: -3px; }
-.synthesisCornerBR { bottom: -3px; right: -3px; }
-
-.synthesisText {
-  font-size: 0.87rem;
-  line-height: 2.1;
-  color: #00ff41cc;
-  white-space: pre-wrap;
   padding: 1.5rem;
-  border: 1px solid rgba(0, 255, 65, 0.1);
-  background: rgba(0, 255, 65, 0.02);
+  border: 1px solid rgba(155, 0, 38, 0.2);
+  background: rgba(0, 255, 65, 0.015);
+}
+
+.synthCornerTL,
+.synthCornerTR,
+.synthCornerBL,
+.synthCornerBR {
+  position: absolute;
+  font-size: 0.85rem;
+  color: var(--ruby-bright);
+  text-shadow: 0 0 6px rgba(196, 18, 48, 0.4);
+  z-index: 3;
+}
+
+.synthCornerTL { top: -3px; left: -3px; }
+.synthCornerTR { top: -3px; right: -3px; }
+.synthCornerBL { bottom: -3px; left: -3px; }
+.synthCornerBR { bottom: -3px; right: -3px; }
+
+.synthMidTL {
+  top: -2px; left: 50%; transform: translateX(-50%);
+  position: absolute; font-size: 0.65rem; color: var(--ruby-bright); opacity: 0.3; z-index: 3;
+}
+.synthMidTR {
+  top: -2px; left: 50%; transform: translateX(-50%);
+}
+.synthMidBL {
+  bottom: -2px; left: 50%; transform: translateX(-50%);
+}
+.synthMidBR {
+  bottom: -2px; left: 50%; transform: translateX(-50%);
+}
+
+.synthText {
+  font-size: 0.88rem;
+  line-height: 2.15;
+  color: var(--emerald);
+  white-space: pre-wrap;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 6px rgba(0, 255, 65, 0.15);
 }
 
 .cursor {
   display: inline-block;
-  width: 0.55em;
-  height: 1.15em;
-  background: #00ff41;
+  width: 0.5em;
+  height: 1.2em;
+  background: var(--emerald);
   margin-left: 1px;
   vertical-align: text-bottom;
   animation: blink 0.7s step-end infinite;
-  box-shadow: 0 0 6px rgba(0, 255, 65, 0.6);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
 }
 
 @keyframes blink {
@@ -720,7 +1017,7 @@
   50% { opacity: 0; }
 }
 
-/* ── Reset section ────────────────────────────────── */
+/* ── Reset section ────────────────────────────────────── */
 
 .resetSection {
   text-align: center;
@@ -729,35 +1026,36 @@
   animation: fadeIn 0.6s forwards;
 }
 
-/* ── Footer ───────────────────────────────────────── */
+/* ── Footer ────────────────────────────────────────────── */
 
 .footer {
   text-align: center;
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(196, 18, 48, 0.15);
+  border-top: 1px solid rgba(155, 0, 38, 0.12);
+}
+
+.footerSigil {
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 0.5em;
+  opacity: 0.3;
+  margin-bottom: 0.8rem;
+  animation: runeFloat 5s ease-in-out infinite;
 }
 
 .footerText {
-  font-size: 0.6rem;
-  color: #c4123040;
-  letter-spacing: 0.08em;
+  font-size: 0.58rem;
+  color: var(--ruby-dim);
+  letter-spacing: 0.06em;
+  opacity: 0.4;
 }
 
-/* ── Responsive ───────────────────────────────────── */
+/* ── Responsive ────────────────────────────────────────── */
 
 @media (max-width: 640px) {
   .container {
-    padding: 2rem 1rem 4rem;
-  }
-
-  .backLink {
-    padding-top: 4rem;
-    font-size: 0.62rem;
-  }
-
-  .oracleTitleMain {
-    letter-spacing: 0.1em;
+    padding: 2.5rem 1rem 4rem;
   }
 
   .atmoLeft,
@@ -766,32 +1064,36 @@
     gap: 0.8rem;
   }
 
-  .atmoRune {
-    font-size: 0.8rem;
+  .pillarLeft,
+  .pillarRight {
+    display: none;
+  }
+
+  .cornerTL,
+  .cornerTR,
+  .cornerBL,
+  .cornerBR {
+    display: none;
+  }
+
+  .templeTop {
+    display: none;
   }
 
   .hexagramArt {
     font-size: 1rem;
   }
 
-  .hexagramChinese {
-    font-size: 2.2rem;
+  .hexChinese {
+    font-size: 2.8rem;
   }
 
-  .strategyText {
-    font-size: 0.95rem;
+  .titleMain {
+    letter-spacing: 0.04em;
   }
 
-  .synthesisText {
+  .synthText {
     font-size: 0.82rem;
-    line-height: 1.9;
-    padding: 1.2rem;
-  }
-
-  .frameCornerTL,
-  .frameCornerTR,
-  .frameCornerBL,
-  .frameCornerBR {
-    display: none;
+    line-height: 2;
   }
 }
