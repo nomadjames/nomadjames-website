@@ -52,20 +52,20 @@ export default function Resume() {
             <div className={styles.skillGroup}>
               <h3 className={styles.skillGroupTitle}>Accessibility</h3>
               <p className={styles.skillList}>
-                WCAG 2.1 AA/AAA · VoiceOver testing · Contrast analysis (WebAIM) ·
-                PDF remediation · Universal design
+                WCAG 2.1 AA/AAA · COGA cognitive accessibility · VoiceOver testing · Contrast analysis (WebAIM) ·
+                Readability analysis (Flesch-Kincaid) · PDF remediation · Universal design
               </p>
             </div>
             <div className={styles.skillGroup}>
               <h3 className={styles.skillGroupTitle}>Design & Tools</h3>
               <p className={styles.skillList}>
-                Figma · Photoshop · Miro · Adobe Acrobat · Google Forms · Loop11 · Lyssna
+                Figma · Photoshop · Miro · Obsidian · Adobe Acrobat · Google Forms · Loop11 · Lyssna
               </p>
             </div>
             <div className={styles.skillGroup}>
               <h3 className={styles.skillGroupTitle}>Technical</h3>
               <p className={styles.skillList}>
-                HTML/CSS · Next.js · TypeScript · React Native / Expo · Python · Rust · p5.js · SQLite · AI prompt design · Multi-agent system design
+                HTML/CSS · Next.js · TypeScript · React Native / Expo · Python · Rust · p5.js · SQLite · RAG / vector search · GitHub Actions CI/CD · API integration · AI prompt design · Multi-agent system design
               </p>
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function Resume() {
                 <span className={styles.projectYear}>2025</span>
               </div>
               <p className={styles.projectDesc}>
-                AI-powered plain-language translation layer for healthcare portals. Team capstone for
+                AI-powered plain-language translation layer for healthcare portals. Team project for
                 AI in UX/HCI. Designed around trust as the primary constraint: always-available human
                 escalation, reading level indicator, multimodal text + audio delivery.
               </p>
@@ -205,6 +205,19 @@ export default function Resume() {
                 Sixteen-agent autonomous system with persistent memory, conversation distillation,
                 and trust calibration. Designed and built as a working research platform for
                 human-AI collaboration patterns.
+              </p>
+            </div>
+            <div className={styles.project}>
+              <div className={styles.projectHeader}>
+                <a href="/portfolio/paug" className={styles.projectTitle}>
+                  PAUG.net: Community Platform →
+                </a>
+                <span className={styles.projectYear}>2025–2026</span>
+              </div>
+              <p className={styles.projectDesc}>
+                Designed and built the web presence for Pittsburgh Ableton User Group. Next.js static
+                site with community-first information architecture, deployed on GitHub Pages with
+                custom domain and automated CI/CD.
               </p>
             </div>
             <div className={styles.project}>
