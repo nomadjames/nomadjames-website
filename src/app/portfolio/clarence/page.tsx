@@ -5,7 +5,7 @@ import Tldr from "@/components/Tldr";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with 25 scheduled cron jobs, 16 named agents, a SQLite knowledge database with 1,533 memories and semantic RAG layer, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with 26 scheduled cron jobs, 16 named agents, a SQLite knowledge database with 1,533 memories and semantic RAG layer, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
 };
 
 export default function ClarencePage() {
@@ -48,13 +48,13 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built a 16-agent autonomous AI system that runs 25 nightly cron jobs, manages a 1,533-memory knowledge database, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
+          I built a 16-agent autonomous AI system that runs 26 nightly cron jobs, manages a 1,533-memory knowledge database, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>25</span>
+            <span className={cs.statNum}>26</span>
             <span className={cs.statLabel}>Cron jobs running nightly</span>
           </div>
           <div className={cs.stat}>
@@ -86,7 +86,7 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system built on top of OpenClaw (an agent orchestration platform) that runs 25 scheduled cron jobs
+            system built on top of OpenClaw (an agent orchestration platform) that runs 26 scheduled cron jobs
             between 11pm and 4:45am ET, manages a named crew of specialized agents, routes tasks across multiple
             models based on cost and capability, distills every conversation into durable memory, and writes
             nightly self-improvement reports that feed into what it does while I sleep.
@@ -131,12 +131,12 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>OpenClaw</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>25 Cron Jobs (11pm-4:45am ET)</span>
+                <span className={cs.archDiagramNode}>26 Cron Jobs (11pm-4:45am ET)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Agent Crew</span>
               </div>
               <p className={cs.archDiagramNote}>
-                OpenClaw schedules and dispatches agent sessions. All 25 cron jobs run in a tight overnight
+                OpenClaw schedules and dispatches agent sessions. All 26 cron jobs run in a tight overnight
                 window, each isolated with its own model, context scope, and Telegram delivery target.
                 Bootstrap trimmed from 11 files to 7 (~18KB total), with IDENTITY.md merged into SOUL.md
                 to reduce context load. Five sub-agent workspaces symlinked to the parent workspace so every
@@ -564,7 +564,7 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>25 scheduled cron jobs running in a tight overnight window (11pm-4:45am ET), all on free-tier models, delivering Telegram notifications across all devices</li>
+            <li>26 scheduled cron jobs running in a tight overnight window (11pm-4:45am ET), all on free-tier models, delivering Telegram notifications across all devices</li>
             <li>1,533 memories in clarence.db, up from ~170, with conversation distillation pipeline writing new memories nightly from Telegram conversations</li>
             <li>RAG layer live: 807 vec_memories + 61 vec_facts with sentence-transformer embeddings, fully local, no external vector DB</li>
             <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction), self-audit prompt from 7,582 to 1,276 chars</li>
