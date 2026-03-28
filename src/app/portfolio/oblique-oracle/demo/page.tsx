@@ -22,8 +22,8 @@ const HEXAGRAMS: Record<string, HexagramData> = {
   "100010": { name: "Difficulty at the Beginning", chinese: "屯", upperTrigram: "Water", lowerTrigram: "Thunder" },
   "010001": { name: "Youthful Folly", chinese: "蒙", upperTrigram: "Mountain", lowerTrigram: "Water" },
   "111010": { name: "Waiting", chinese: "需", upperTrigram: "Water", lowerTrigram: "Heaven" },
-  "010111": { name: "Conflict", chinese: "訟", upperTrigram: "Heaven", lowerTrigram: "Water" },
-  "010000": { name: "The Army", chinese: "師", upperTrigram: "Earth", lowerTrigram: "Water" },
+  "010111": { name: "Conflict", chinese: "讼", upperTrigram: "Heaven", lowerTrigram: "Water" },
+  "010000": { name: "The Army", chinese: "师", upperTrigram: "Earth", lowerTrigram: "Water" },
   "000010": { name: "Holding Together", chinese: "比", upperTrigram: "Water", lowerTrigram: "Earth" },
   "111011": { name: "Small Taming", chinese: "小畜", upperTrigram: "Wind", lowerTrigram: "Heaven" },
   "110111": { name: "Treading", chinese: "履", upperTrigram: "Heaven", lowerTrigram: "Lake" },
@@ -31,33 +31,33 @@ const HEXAGRAMS: Record<string, HexagramData> = {
   "000111": { name: "Standstill", chinese: "否", upperTrigram: "Heaven", lowerTrigram: "Earth" },
   "101111": { name: "Fellowship", chinese: "同人", upperTrigram: "Heaven", lowerTrigram: "Fire" },
   "111101": { name: "Great Possession", chinese: "大有", upperTrigram: "Fire", lowerTrigram: "Heaven" },
-  "001000": { name: "Modesty", chinese: "謙", upperTrigram: "Earth", lowerTrigram: "Mountain" },
+  "001000": { name: "Modesty", chinese: "谦", upperTrigram: "Earth", lowerTrigram: "Mountain" },
   "000100": { name: "Enthusiasm", chinese: "豫", upperTrigram: "Thunder", lowerTrigram: "Earth" },
-  "100110": { name: "Following", chinese: "隨", upperTrigram: "Lake", lowerTrigram: "Thunder" },
-  "011001": { name: "Work on the Decayed", chinese: "蠱", upperTrigram: "Mountain", lowerTrigram: "Wind" },
-  "110000": { name: "Approach", chinese: "臨", upperTrigram: "Earth", lowerTrigram: "Lake" },
-  "000011": { name: "Contemplation", chinese: "觀", upperTrigram: "Wind", lowerTrigram: "Earth" },
+  "100110": { name: "Following", chinese: "随", upperTrigram: "Lake", lowerTrigram: "Thunder" },
+  "011001": { name: "Work on the Decayed", chinese: "蛊", upperTrigram: "Mountain", lowerTrigram: "Wind" },
+  "110000": { name: "Approach", chinese: "临", upperTrigram: "Earth", lowerTrigram: "Lake" },
+  "000011": { name: "Contemplation", chinese: "观", upperTrigram: "Wind", lowerTrigram: "Earth" },
   "100101": { name: "Biting Through", chinese: "噬嗑", upperTrigram: "Fire", lowerTrigram: "Thunder" },
-  "101001": { name: "Grace", chinese: "賁", upperTrigram: "Mountain", lowerTrigram: "Fire" },
-  "000001": { name: "Splitting Apart", chinese: "剝", upperTrigram: "Mountain", lowerTrigram: "Earth" },
-  "100000": { name: "Return", chinese: "復", upperTrigram: "Earth", lowerTrigram: "Thunder" },
-  "100111": { name: "Innocence", chinese: "無妄", upperTrigram: "Heaven", lowerTrigram: "Thunder" },
+  "101001": { name: "Grace", chinese: "贲", upperTrigram: "Mountain", lowerTrigram: "Fire" },
+  "000001": { name: "Splitting Apart", chinese: "剥", upperTrigram: "Mountain", lowerTrigram: "Earth" },
+  "100000": { name: "Return", chinese: "复", upperTrigram: "Earth", lowerTrigram: "Thunder" },
+  "100111": { name: "Innocence", chinese: "无妄", upperTrigram: "Heaven", lowerTrigram: "Thunder" },
   "111001": { name: "Great Taming", chinese: "大畜", upperTrigram: "Mountain", lowerTrigram: "Heaven" },
-  "100001": { name: "Nourishment", chinese: "頤", upperTrigram: "Mountain", lowerTrigram: "Thunder" },
-  "011110": { name: "Great Preponderance", chinese: "大過", upperTrigram: "Lake", lowerTrigram: "Wind" },
+  "100001": { name: "Nourishment", chinese: "颐", upperTrigram: "Mountain", lowerTrigram: "Thunder" },
+  "011110": { name: "Great Preponderance", chinese: "大过", upperTrigram: "Lake", lowerTrigram: "Wind" },
   "010010": { name: "The Abysmal", chinese: "坎", upperTrigram: "Water", lowerTrigram: "Water" },
-  "101101": { name: "The Clinging", chinese: "離", upperTrigram: "Fire", lowerTrigram: "Fire" },
+  "101101": { name: "The Clinging", chinese: "离", upperTrigram: "Fire", lowerTrigram: "Fire" },
   "001110": { name: "Influence", chinese: "咸", upperTrigram: "Lake", lowerTrigram: "Mountain" },
-  "011100": { name: "Duration", chinese: "恆", upperTrigram: "Thunder", lowerTrigram: "Wind" },
-  "001111": { name: "Retreat", chinese: "遯", upperTrigram: "Heaven", lowerTrigram: "Mountain" },
-  "111100": { name: "Great Power", chinese: "大壯", upperTrigram: "Thunder", lowerTrigram: "Heaven" },
-  "000101": { name: "Progress", chinese: "晉", upperTrigram: "Fire", lowerTrigram: "Earth" },
+  "011100": { name: "Duration", chinese: "恒", upperTrigram: "Thunder", lowerTrigram: "Wind" },
+  "001111": { name: "Retreat", chinese: "遁", upperTrigram: "Heaven", lowerTrigram: "Mountain" },
+  "111100": { name: "Great Power", chinese: "大壮", upperTrigram: "Thunder", lowerTrigram: "Heaven" },
+  "000101": { name: "Progress", chinese: "晋", upperTrigram: "Fire", lowerTrigram: "Earth" },
   "101000": { name: "Darkening of the Light", chinese: "明夷", upperTrigram: "Earth", lowerTrigram: "Fire" },
   "101011": { name: "The Family", chinese: "家人", upperTrigram: "Wind", lowerTrigram: "Fire" },
   "110101": { name: "Opposition", chinese: "睽", upperTrigram: "Fire", lowerTrigram: "Lake" },
   "001010": { name: "Obstruction", chinese: "蹇", upperTrigram: "Water", lowerTrigram: "Mountain" },
   "010100": { name: "Deliverance", chinese: "解", upperTrigram: "Thunder", lowerTrigram: "Water" },
-  "110001": { name: "Decrease", chinese: "損", upperTrigram: "Mountain", lowerTrigram: "Lake" },
+  "110001": { name: "Decrease", chinese: "损", upperTrigram: "Mountain", lowerTrigram: "Lake" },
   "100011": { name: "Increase", chinese: "益", upperTrigram: "Wind", lowerTrigram: "Thunder" },
   "111110": { name: "Breakthrough", chinese: "夬", upperTrigram: "Lake", lowerTrigram: "Heaven" },
   "011111": { name: "Coming to Meet", chinese: "姤", upperTrigram: "Heaven", lowerTrigram: "Wind" },
@@ -69,18 +69,18 @@ const HEXAGRAMS: Record<string, HexagramData> = {
   "011101": { name: "The Cauldron", chinese: "鼎", upperTrigram: "Fire", lowerTrigram: "Wind" },
   "100100": { name: "The Arousing", chinese: "震", upperTrigram: "Thunder", lowerTrigram: "Thunder" },
   "001001": { name: "Keeping Still", chinese: "艮", upperTrigram: "Mountain", lowerTrigram: "Mountain" },
-  "001011": { name: "Development", chinese: "漸", upperTrigram: "Wind", lowerTrigram: "Mountain" },
-  "110100": { name: "The Marrying Maiden", chinese: "歸妹", upperTrigram: "Thunder", lowerTrigram: "Lake" },
-  "101100": { name: "Abundance", chinese: "豐", upperTrigram: "Thunder", lowerTrigram: "Fire" },
+  "001011": { name: "Development", chinese: "渐", upperTrigram: "Wind", lowerTrigram: "Mountain" },
+  "110100": { name: "The Marrying Maiden", chinese: "归妹", upperTrigram: "Thunder", lowerTrigram: "Lake" },
+  "101100": { name: "Abundance", chinese: "丰", upperTrigram: "Thunder", lowerTrigram: "Fire" },
   "001101": { name: "The Wanderer", chinese: "旅", upperTrigram: "Fire", lowerTrigram: "Mountain" },
   "011011": { name: "The Gentle", chinese: "巽", upperTrigram: "Wind", lowerTrigram: "Wind" },
-  "110110": { name: "The Joyous", chinese: "兌", upperTrigram: "Lake", lowerTrigram: "Lake" },
-  "010011": { name: "Dispersion", chinese: "渙", upperTrigram: "Wind", lowerTrigram: "Water" },
-  "110010": { name: "Limitation", chinese: "節", upperTrigram: "Water", lowerTrigram: "Lake" },
+  "110110": { name: "The Joyous", chinese: "兑", upperTrigram: "Lake", lowerTrigram: "Lake" },
+  "010011": { name: "Dispersion", chinese: "涣", upperTrigram: "Wind", lowerTrigram: "Water" },
+  "110010": { name: "Limitation", chinese: "节", upperTrigram: "Water", lowerTrigram: "Lake" },
   "110011": { name: "Inner Truth", chinese: "中孚", upperTrigram: "Wind", lowerTrigram: "Lake" },
-  "001100": { name: "Small Preponderance", chinese: "小過", upperTrigram: "Thunder", lowerTrigram: "Mountain" },
-  "101010": { name: "After Completion", chinese: "既濟", upperTrigram: "Water", lowerTrigram: "Fire" },
-  "010101": { name: "Before Completion", chinese: "未濟", upperTrigram: "Fire", lowerTrigram: "Water" },
+  "001100": { name: "Small Preponderance", chinese: "小过", upperTrigram: "Thunder", lowerTrigram: "Mountain" },
+  "101010": { name: "After Completion", chinese: "既济", upperTrigram: "Water", lowerTrigram: "Fire" },
+  "010101": { name: "Before Completion", chinese: "未济", upperTrigram: "Fire", lowerTrigram: "Water" },
 };
 
 /* ── Oblique Strategies ───────────────────────────────── */
@@ -132,13 +132,10 @@ interface HexagramLine {
 }
 
 function tossCoinLine(): HexagramLine {
-  // 3 coins: heads=3, tails=2
   let sum = 0;
   for (let i = 0; i < 3; i++) {
     sum += Math.random() < 0.5 ? 3 : 2;
   }
-  // sum: 6=old yin (broken, changing), 7=young yang (solid),
-  //       8=young yin (broken), 9=old yang (solid, changing)
   return {
     value: sum,
     solid: sum === 7 || sum === 9,
@@ -164,7 +161,50 @@ function lookupHexagram(lines: HexagramLine[]): HexagramData {
 const SOLID_LINE = "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501";
 const BROKEN_LINE = "\u2501\u2501\u2501\u0020\u0020\u0020\u2501\u2501\u2501";
 
-/* ── Fallback synthesis ───────────────────────────────── */
+/* ── Atmospheric background runes (static, decorative) ── */
+
+const BG_RUNE_LEFT = [
+  "\u16A0", // ᚠ Fehu (wealth)
+  "\u16A2", // ᚢ Uruz (strength)
+  "\u16A8", // ᚨ Ansuz (god)
+  "\u16B1", // ᚱ Raido (journey)
+  "\u16B7", // ᚷ Gebo (gift)
+  "\u16BE", // ᚾ Naudhiz (need)
+  "\u16C1", // ᛁ Isa (ice)
+  "\u16C7", // ᛇ Eiwaz (yew)
+  "\u16D2", // ᛒ Berkano (birch)
+  "\u16D6", // ᛖ Ehwaz (horse)
+  "\u16DA", // ᛚ Laguz (water)
+  "\u16DC", // ᛜ Ingwaz (grain)
+  "\u16DF", // ᛟ Othala (homeland)
+];
+
+const BG_RUNE_RIGHT = [
+  "\u3005", // 叠 Kanji modifier
+  "\u3006", // 𥝱 Classical radical
+  "\u4E00", // 一 One
+  "\u4E8C", // 二 Two
+  "\u4E09", // 三 Three
+  "\u56DB", // 四 Four
+  "\u4E94", // 五 Five
+  "\u516B", // 八 Eight
+  "\u4E5D", // 九 Nine
+  "\u5341", // 十 Ten
+  "\u5317", // 北 North
+  "\u5357", // 南 South
+  "\u4E1C", // 东 East
+  "\u897F", // 西 West
+  "\u4E2D", // 中 Center
+  "\u9633", // 阳 Yang
+  "\u9634", // 阴 Yin
+  "\u5149", // 光 Light
+  "\u6697", // 暗 Darkness
+  "\u547D", // 命 Fate
+  "\u8A00", // 言 Word
+  "\u9053", // 道 The Way
+];
+
+/* ── Synthesis fallback ───────────────────────────────── */
 
 async function fetchFallbackSynthesis(
   hexagramName: string,
@@ -175,19 +215,14 @@ async function fetchFallbackSynthesis(
     const res = await fetch("/data/oracle-bank.json");
     if (res.ok) {
       const bank: Array<{ hexagram?: string; text: string }> = await res.json();
-      // Try to find a matching hexagram entry
       const match = bank.find(
         (e) => e.hexagram && hexagramName.toLowerCase().includes(e.hexagram.toLowerCase())
       );
       if (match) return match.text;
-      // Otherwise pick random
       return bank[Math.floor(Math.random() * bank.length)].text;
     }
-  } catch {
-    // Silently fall through
-  }
+  } catch { /* silent */ }
 
-  // Hardcoded final fallback
   return generateLocalSynthesis(hexagramName, strategy, question);
 }
 
@@ -265,36 +300,26 @@ export default function OracleDemo() {
   // Hexagram line animation sequence
   useEffect(() => {
     if (phase !== "reading" || !reading) return;
-
-    // Animate lines appearing one by one (bottom to top display, but array is bottom=0)
     const lineTimers: ReturnType<typeof setTimeout>[] = [];
     for (let i = 0; i < 6; i++) {
       lineTimers.push(
         setTimeout(() => setVisibleLines(i + 1), 400 + i * 350)
       );
     }
-
-    // Show hexagram info after all lines
     lineTimers.push(
       setTimeout(() => setShowInfo(true), 400 + 6 * 350 + 300)
     );
-
-    // Show strategy
     lineTimers.push(
       setTimeout(() => setShowStrategy(true), 400 + 6 * 350 + 900)
     );
-
-    // Show synthesis
     lineTimers.push(
       setTimeout(() => setShowSynthesis(true), 400 + 6 * 350 + 1600)
     );
-
     return () => lineTimers.forEach(clearTimeout);
   }, [phase, reading]);
 
   const consult = useCallback(async () => {
     if (!question.trim()) return;
-
     setPhase("loading");
 
     const lines = generateHexagram();
@@ -303,8 +328,6 @@ export default function OracleDemo() {
       OBLIQUE_STRATEGIES[Math.floor(Math.random() * OBLIQUE_STRATEGIES.length)];
 
     let synthesis = "";
-
-    // Try API if configured
     if (ORACLE_API) {
       try {
         const res = await fetch(ORACLE_API, {
@@ -324,24 +347,15 @@ export default function OracleDemo() {
         });
         if (res.ok) {
           const data = await res.json();
-          if (!data.fallback && data.text) {
-            synthesis = data.text;
-          }
+          if (!data.fallback && data.text) synthesis = data.text;
         }
-      } catch {
-        // Fall through to fallback
-      }
+      } catch { /* fall through */ }
     }
 
     if (!synthesis) {
-      synthesis = await fetchFallbackSynthesis(
-        hexagram.name,
-        strategy,
-        question.trim()
-      );
+      synthesis = await fetchFallbackSynthesis(hexagram.name, strategy, question.trim());
     }
 
-    // Deliberate pause — the oracle contemplates
     await new Promise((r) => setTimeout(r, 1500));
 
     setReading({ lines, hexagram, strategy, synthesis, question: question.trim() });
@@ -350,47 +364,119 @@ export default function OracleDemo() {
 
   return (
     <div className={styles.page}>
+      {/* Scanlines */}
       <div className={styles.scanlines} />
+
+      {/* Vignette */}
+      <div className={styles.vignette} />
+
+      {/* Atmospheric background characters */}
+      <div className={styles.atmosphere} aria-hidden="true">
+        <div className={styles.atmoLeft}>
+          {BG_RUNE_LEFT.map((r, i) => (
+            <span
+              key={i}
+              className={styles.atmoRune}
+              style={{ animationDelay: `${i * 0.7}s` }}
+            >
+              {r}
+            </span>
+          ))}
+        </div>
+        <div className={styles.atmoRight}>
+          {BG_RUNE_RIGHT.map((r, i) => (
+            <span
+              key={i}
+              className={styles.atmoRune}
+              style={{ animationDelay: `${i * 0.5}s` }}
+            >
+              {r}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Main container with gothic frame */}
+      <div className={styles.frameOuter} aria-hidden="true">
+        <div className={styles.frameCornerTL}>&#x250C;</div>
+        <div className={styles.frameCornerTR}>&#x2510;</div>
+        <div className={styles.frameCornerBL}>&#x2514;</div>
+        <div className={styles.frameCornerBR}>&#x2518;</div>
+        <div className={styles.frameTopMid}>&#x252C;</div>
+        <div className={styles.frameBotMid}>&#x2534;</div>
+        <div className={styles.frameLeftMid}>&#x251C;</div>
+        <div className={styles.frameRightMid}>&#x2524;</div>
+        <div className={styles.frameMid}>&#x253C;</div>
+      </div>
 
       <div className={styles.container}>
         {/* Back link */}
         <a href="/portfolio/oblique-oracle" className={styles.backLink}>
-          &larr; Back to case study
+          &#x2190; Return to the Void
         </a>
 
-        {/* Header */}
+        {/* Gothic header */}
         <header className={styles.oracleHeader}>
-          <h1 className={styles.oracleTitle}>Oblique Oracle</h1>
+          <div className={styles.headerRune} aria-hidden="true">
+            &#x2625; &#x262F; &#x2625;
+          </div>
+          <h1 className={styles.oracleTitle}>
+            <span className={styles.oracleTitleMain}>Oblique Oracle</span>
+          </h1>
+          <div className={styles.headerRule}>
+            <span className={styles.ruleLeft}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+            <span className={styles.ruleDiamond}>&#x25C6;</span>
+            <span className={styles.ruleRight}>&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;&#x2015;</span>
+          </div>
           <p className={styles.oracleSubtitle}>
-            I Ching &middot; Oblique Strategies &middot; AI Synthesis
+            易经 &#x2022; I Ching Divination &#x2022; Oblique Strategies
           </p>
+          <div className={styles.headerRune} aria-hidden="true">
+            &#x2625; &#x262F; &#x2625;
+          </div>
         </header>
 
         {/* ── Input Phase ─────────────────────────────── */}
         {phase === "input" && (
           <div className={styles.inputSection}>
+            <div className={styles.gothicDivider}>
+              <span className={styles.gothicDividerRune}>&#x2726;</span>
+              <span className={styles.gothicDividerLine}>&#x2015;&#x2015;&#x2015;&#x2015;</span>
+              <span className={styles.gothicDividerRune}>&#x2726;</span>
+            </div>
+
             <p className={styles.prompt}>
-              What question do you bring to the oracle?
+              What question do you bring to the ancient oracle?
             </p>
-            <textarea
-              className={styles.questionInput}
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Type your question here..."
-              rows={3}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault();
-                  consult();
-                }
-              }}
-            />
+
+            <div className={styles.inputWrapper}>
+              <textarea
+                className={styles.questionInput}
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                placeholder="Speak your question into the void..."
+                rows={3}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    consult();
+                  }
+                }}
+              />
+              <div className={styles.inputCornerTL} aria-hidden="true">&#x250C;</div>
+              <div className={styles.inputCornerTR} aria-hidden="true">&#x2510;</div>
+              <div className={styles.inputCornerBL} aria-hidden="true">&#x2514;</div>
+              <div className={styles.inputCornerBR} aria-hidden="true">&#x2518;</div>
+            </div>
+
             <button
               className={styles.consultButton}
               onClick={consult}
               disabled={!question.trim()}
             >
-              Consult the Oracle
+              <span className={styles.buttonRune}>&#x2727;</span>
+              Cast the Coins
+              <span className={styles.buttonRune}>&#x2727;</span>
             </button>
           </div>
         )}
@@ -398,9 +484,18 @@ export default function OracleDemo() {
         {/* ── Loading Phase ───────────────────────────── */}
         {phase === "loading" && (
           <div className={styles.loading}>
+            <div className={styles.loadingRunes} aria-hidden="true">
+              <span>&#x4E00;</span><span>&#x4E09;</span><span>&#x4E5D;</span>
+            </div>
             <p className={styles.loadingText}>
-              . . . casting the coins . . .
+              The coins are cast...
             </p>
+            <p className={styles.loadingSubtext}>
+              The ancient patterns take shape
+            </p>
+            <div className={styles.loadingRunes} aria-hidden="true">
+              <span>&#x16A0;</span><span>&#x16A2;</span><span>&#x16C7;</span>
+            </div>
           </div>
         )}
 
@@ -409,18 +504,20 @@ export default function OracleDemo() {
           <div className={styles.reading}>
             {/* Question echo */}
             <div className={styles.questionEcho}>
-              <p className={styles.questionEchoLabel}>Your question</p>
+              <p className={styles.questionEchoLabel}>
+                <span className={styles.labelRune}>&#x2609;</span>
+                Your Question
+              </p>
               <p className={styles.questionEchoText}>
                 &ldquo;{reading.question}&rdquo;
               </p>
             </div>
 
-            {/* Hexagram */}
+            {/* Hexagram display */}
             <div className={styles.hexagramSection}>
               <div className={styles.hexagramArt}>
-                {/* Display top to bottom: line 6 (index 5) to line 1 (index 0) */}
                 {[...reading.lines].reverse().map((line, displayIdx) => {
-                  const lineIdx = 5 - displayIdx; // actual line number (0-based from bottom)
+                  const lineIdx = 5 - displayIdx;
                   if (displayIdx >= visibleLines) return null;
                   return (
                     <span
@@ -428,7 +525,9 @@ export default function OracleDemo() {
                       className={
                         line.changing
                           ? styles.hexagramLineChanging
-                          : styles.hexagramLine
+                          : line.solid
+                            ? styles.hexagramLineYang
+                            : styles.hexagramLineYin
                       }
                       style={{ animationDelay: `${displayIdx * 0.05}s` }}
                     >
@@ -440,26 +539,41 @@ export default function OracleDemo() {
 
               {showInfo && (
                 <div className={styles.hexagramInfo}>
-                  <p className={styles.hexagramName}>
-                    {reading.hexagram.chinese} {reading.hexagram.name}
-                  </p>
+                  <p className={styles.hexagramChinese}>{reading.hexagram.chinese}</p>
+                  <p className={styles.hexagramName}>{reading.hexagram.name}</p>
                   <p className={styles.hexagramTrigrams}>
-                    {reading.hexagram.upperTrigram} over{" "}
-                    {reading.hexagram.lowerTrigram}
+                    <span className={styles.trigramLabel}>{reading.hexagram.upperTrigram}</span>
+                    <span className={styles.trigramOver}>over</span>
+                    <span className={styles.trigramLabel}>{reading.hexagram.lowerTrigram}</span>
                   </p>
+                  {reading.lines.some((l) => l.changing) && (
+                    <p className={styles.changingNote}>
+                      <span className={styles.changingRune}>&#x2726;</span>
+                      Changing lines detected
+                      <span className={styles.changingRune}>&#x2726;</span>
+                    </p>
+                  )}
                 </div>
               )}
             </div>
 
-            {/* Divider */}
+            {/* Gothic divider */}
             {showStrategy && (
-              <div className={styles.divider}>---</div>
+              <div className={styles.gothicDivider}>
+                <span className={styles.gothicDividerRune}>&#x2726;</span>
+                <span className={styles.gothicDividerLine}>&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                <span className={styles.gothicDividerRune}>&#x2726;</span>
+              </div>
             )}
 
             {/* Oblique Strategy */}
             {showStrategy && (
               <div className={styles.strategySection}>
-                <p className={styles.strategyLabel}>Oblique Strategy</p>
+                <p className={styles.strategyLabel}>
+                  <span className={styles.labelRune}>&#x2728;</span>
+                  Oblique Strategy
+                  <span className={styles.labelRune}>&#x2728;</span>
+                </p>
                 <p className={styles.strategyText}>
                   &ldquo;{reading.strategy}&rdquo;
                 </p>
@@ -469,24 +583,54 @@ export default function OracleDemo() {
             {/* Synthesis */}
             {showSynthesis && (
               <div className={styles.synthesisSection}>
-                <p className={styles.synthesisLabel}>Oracle Synthesis</p>
-                <div className={styles.synthesisText}>
-                  {reading.synthesis.slice(0, typedChars)}
-                  {!typingDone && <span className={styles.cursor} />}
+                <div className={styles.gothicDivider}>
+                  <span className={styles.gothicDividerRune}>&#x2605;</span>
+                  <span className={styles.gothicDividerLine}>&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                  <span className={styles.gothicDividerRune}>&#x2605;</span>
+                </div>
+
+                <p className={styles.synthesisLabel}>
+                  <span className={styles.labelRune}>&#x2728;</span>
+                  Oracle Synthesis
+                  <span className={styles.labelRune}>&#x2728;</span>
+                </p>
+
+                <div className={styles.synthesisWrapper}>
+                  <div className={styles.synthesisCornerTL} aria-hidden="true">&#x250C;</div>
+                  <div className={styles.synthesisCornerTR} aria-hidden="true">&#x2510;</div>
+                  <div className={styles.synthesisText}>
+                    {reading.synthesis.slice(0, typedChars)}
+                    {!typingDone && <span className={styles.cursor} />}
+                  </div>
                 </div>
               </div>
             )}
 
-            {/* Reset button */}
+            {/* Reset */}
             {typingDone && (
               <div className={styles.resetSection}>
+                <div className={styles.gothicDivider}>
+                  <span className={styles.gothicDividerRune}>&#x2726;</span>
+                  <span className={styles.gothicDividerLine}>&#x2015;&#x2015;&#x2015;&#x2015;</span>
+                  <span className={styles.gothicDividerRune}>&#x2726;</span>
+                </div>
                 <button className={styles.resetButton} onClick={resetAll}>
-                  Consult Again
+                  <span className={styles.buttonRune}>&#x2727;</span>
+                  Cast Again
+                  <span className={styles.buttonRune}>&#x2727;</span>
                 </button>
               </div>
             )}
           </div>
         )}
+
+        {/* Footer */}
+        <footer className={styles.footer}>
+          <p className={styles.footerText}>
+            &#x4E2D;&#x6587; &#x4E5F;&#x9053; &#x66F0; &#x3002;&#x3002;.&nbsp;&nbsp;
+            &#x2605; &#x2726; &#x2605;
+          </p>
+        </footer>
       </div>
     </div>
   );
