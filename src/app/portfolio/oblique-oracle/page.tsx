@@ -26,14 +26,14 @@ export default function ObliqueOracle() {
           </div>
           <h1 className={styles.title}>Oblique Oracle:<br />Algorithmic Divination as Design Research</h1>
           <div className={styles.methods}>
-            {["I Ching Hexagram Generation", "Oblique Strategies", "AI Synthesis", "Embodied Interaction", "React Native / Expo", "Claude API Integration"].map((m) => (
+            {["I Ching Hexagram Generation", "Oblique Strategies", "AI Synthesis", "Embodied Interaction", "Next.js", "Groq API"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
             ))}
           </div>
         </header>
 
         <Tldr>
-          A divination app that combines I Ching hexagram generation, Brian Eno&apos;s Oblique Strategies, and Claude API synthesis into a single reading. The point is not prediction. It is studying what happens to human reflection and judgment when algorithmic output is framed as wisdom instead of information.
+          A divination app that combines I Ching hexagram generation, Brian Eno&apos;s Oblique Strategies, and AI synthesis into a single reading. The point is not prediction. It is studying what happens to human reflection and judgment when algorithmic output is framed as wisdom instead of information.
         </Tldr>
 
         {/* The Idea */}
@@ -63,7 +63,7 @@ export default function ObliqueOracle() {
             <p className={styles.body}>
               Simulates the traditional coin-toss method (three coins, six throws) using yarrow stalk
               probabilities. Generates a primary hexagram with changing lines and a relating hexagram.
-              All 64 hexagrams use James Legge&apos;s 1899 public domain translation.
+              All 64 hexagrams use James Legge&apos;s 1882 public domain translation.
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export default function ObliqueOracle() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>AI Synthesis</h3>
             <p className={styles.body}>
-              Claude receives the user&apos;s question, the hexagram interpretation, and the oblique
+              The AI receives the user&apos;s question, the hexagram interpretation, and the oblique
               strategy, then streams a unified oracle response that weaves all three into a coherent reading.
             </p>
           </div>
@@ -105,10 +105,10 @@ export default function ObliqueOracle() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Technical Architecture</h2>
           <p className={styles.body}>
-            React Native + Expo (cross-platform iOS/Android/web), TypeScript, local proxy server that
-            routes through Claude CLI authentication (no API key management needed). CRT phosphor green
-            aesthetic with ASCII art hexagrams, haptic feedback on coin throws, and streaming text display.
-            Currently tested on web; mobile deployment pending.
+            Next.js with TypeScript, deployed as a static site on GitHub Pages with Cloudflare. A pre-loaded
+            bank of 110 oracle readings provides instant responses; live AI synthesis routes through Groq API
+            via a Cloudflare Worker proxy. Gothic temple aesthetic with CRT scanlines, Eye of Providence,
+            Elder Futhark and Chinese sacred characters, emerald/ruby/gold color system on void black.
           </p>
         </section>
 
@@ -143,9 +143,9 @@ export default function ObliqueOracle() {
             {[
               "I Ching scholarship",
               "Prompt engineering",
-              "React Native / Expo",
+              "Next.js",
               "TypeScript",
-              "AI API integration",
+              "Groq API integration",
               "Interaction design for indeterminate systems",
               "Creative coding",
             ].map((skill) => (

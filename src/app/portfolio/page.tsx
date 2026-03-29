@@ -69,7 +69,7 @@ const work = [
     title: "Oblique Oracle: Algorithmic Divination as Design Research",
     category: "Product Design · AI Integration",
     year: "2026",
-    methods: ["I Ching", "Oblique Strategies", "AI Synthesis", "React Native / Expo", "Claude API"],
+    methods: ["I Ching", "Oblique Strategies", "AI Synthesis", "Next.js", "Groq API"],
     status: "published",
     link: "/portfolio/oblique-oracle",
   },

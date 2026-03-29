@@ -27,7 +27,7 @@ export default function AboutPage() {
         </header>
 
         <Tldr>
-          MS UX candidate at Kent State, electronic music producer, founder of the Pittsburgh
+          MS UX candidate at Kent State, electronic music producer, co-founder of the Pittsburgh
           Ableton User Group, currently building AI agent systems as both creative tools and research
           platforms. Every piece of work in this portfolio exists because I cared about the subject
           before I cared about the credential.
@@ -44,8 +44,8 @@ export default function AboutPage() {
             actually use things.
           </p>
           <p className={styles.body}>
-            I produce electronic music. I founded the Pittsburgh Ableton User Group with Paul
-            Miller. I serve as the direct liaison to Ableton&apos;s international community team.
+            I produce electronic music. I co-founded the Pittsburgh Ableton User Group with Paul
+            Miller and Steve Knots. I serve as the direct liaison to Ableton&apos;s international community team.
           </p>
         </section>
 
@@ -81,8 +81,8 @@ export default function AboutPage() {
             I do my best work when I know the subject deeply. The Ableton evaluations in my
             portfolio are credible because I have lived inside that ecosystem for years. The Oblique
             Oracle exists because I cherish the I Ching, not because I saw a market opportunity.
-            Clarence is not a demo project. It is a system I use every day, one that runs 25 cron
-            jobs while I sleep and has over 1,500 memories in its knowledge database.
+            Clarence is not a demo project. It is a system I use every day, one that runs 26 cron
+            jobs while I sleep and has over 2,600 memories in its knowledge database.
           </p>
           <p className={styles.body}>
             That depth is what I bring to a team. I learn the domain, I learn the users, and I
@@ -136,7 +136,7 @@ export default function AboutPage() {
             dropped noticeably and we did not figure out why until that evening.
           </p>
           <p className={styles.body}>
-            The part that matters most: Clarence has a knowledge database with over 1,500 memories
+            The part that matters most: Clarence has a knowledge database with over 2,600 memories
             built from our conversations, my coursework, and every correction I have ever given it.
             It distills what I care about, how I think, and what I will not tolerate. The portfolio
             content was not generated from a generic prompt. It was extracted from a system that

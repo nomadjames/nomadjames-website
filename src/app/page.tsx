@@ -208,7 +208,7 @@ export default function Home() {
             <div className={styles.buildingItem}>
               <span className={styles.buildingName}>Clarence</span>
               <p className={styles.buildingDesc}>
-                An autonomous AI agent ecosystem: 27 scheduled jobs, 16 named agents, a custom Rust API bridge,
+                An autonomous AI agent ecosystem: 26 scheduled jobs, 16 named agents, a custom Rust API bridge,
                 multi-model routing, and a nightly R&amp;D Council that debates open questions while I sleep.
                 The design question is what it means to build a genuine collaborator rather than a responsive tool.
               </p>

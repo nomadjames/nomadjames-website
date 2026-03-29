@@ -7,7 +7,7 @@ const sketches = [
     course: "EMAT-60310",
     year: "2025",
     description:
-      "Inspired by Josef Albers: rotating nested squares over a field of random geometry. The background shifts color every frame, the shapes accumulate on top of it.",
+      "Inspired by Sol LeWitt's instruction-based wall drawings: rotating nested squares over a field of random geometry. The background shifts color every frame, the shapes accumulate on top of it.",
     interaction: "click to pause/resume · mouse Y = speed",
   },
   {
