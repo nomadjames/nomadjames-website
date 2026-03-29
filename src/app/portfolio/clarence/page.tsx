@@ -5,7 +5,7 @@ import Tldr from "@/components/Tldr";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with 26 cron jobs organized into four dependency phases, 16 named agents, a SQLite knowledge database spanning 2,300+ memories, 1,800+ entities, and 9,000+ facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with 26 cron jobs organized into four dependency phases, 16 named agents, a SQLite knowledge database spanning 2,800+ memories, 1,800+ entities, and 9,000+ facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
 };
 
 export default function ClarencePage() {
@@ -33,7 +33,7 @@ export default function ClarencePage() {
               "OpenClaw",
               "Custom Model Bridge (Rust)",
               "Claude Opus 4.6",
-              "Gemini Flash",
+              "Claude Sonnet",
               "Session Lifecycle Hooks",
               "Conversation Distillation",
               "Telegram API",
@@ -48,7 +48,7 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built a 16-agent autonomous AI system that runs 26 cron jobs across four dependency phases nightly, manages a knowledge base spanning 2,300+ memories, 1,800+ entities, and 9,000+ facts with full vector search, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
+          I built a 16-agent autonomous AI system that runs 26 cron jobs across four dependency phases nightly, manages a knowledge base spanning 2,800+ memories, 1,800+ entities, and 9,000+ facts with full vector search, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
@@ -152,14 +152,14 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>Model Bridge</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Gemini Flash</span>
+                <span className={cs.archDiagramNode}>Claude Sonnet</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>MiniMax M2.7</span>
               </div>
               <p className={cs.archDiagramNote}>
                 A custom Rust bridge translates between the orchestrator&apos;s API format and the
-                underlying model providers. Every cron job runs on either Gemini Flash (free via model bridge)
-                or MiniMax via Ollama (free, local). Zero cron jobs run on expensive models. Opus and Gemini
+                underlying model providers. Cron jobs run on either Claude Sonnet (for reasoning tasks) or
+                MiniMax via Ollama (free, local, for mechanical tasks). Opus and higher-tier
                 Pro are reserved for interactive sessions where model quality changes the output in ways that
                 matter. Model switching is immediate via <code>openclaw models set &lt;model&gt;</code>,
                 no restart required.
@@ -180,7 +180,7 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A single consolidated SQLite database (clarence.db) holds 2,318 memories, 1,877 entities, and
+                A single consolidated SQLite database (clarence.db) holds 2,800+ memories, 1,877 entities, and
                 9,376 facts, shared by all agents through a custom MCP server. Legacy databases archived and
                 retired into this one authoritative store. A conversation distillation pipeline
                 (conversation-distill.py) processes Telegram conversations nightly, extracting decisions,
@@ -238,13 +238,13 @@ export default function ClarencePage() {
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>Felix, Chief of Staff</span>
-              <span className={cs.agentRole}>Gemini Flash · overnight</span>
+              <span className={cs.agentRole}>Sonnet · overnight</span>
               <p className={cs.agentDesc}>Morning coordination. Compiles yesterday&apos;s status, writes the daily brain log, posts a Telegram summary. Coordinates across all projects rather than executing tasks directly.</p>
             </div>
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>Rex, Scrum Master</span>
-              <span className={cs.agentRole}>Gemini Flash · overnight</span>
+              <span className={cs.agentRole}>Sonnet · overnight</span>
               <p className={cs.agentDesc}>Task checks and blocker tracking. Queries the knowledge database for active work items, tracks blockers, posts status reports. Only alerts if new blockers appeared. No noise.</p>
             </div>
 
@@ -256,13 +256,13 @@ export default function ClarencePage() {
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>Eddie, Marketing Scout</span>
-              <span className={cs.agentRole}>Gemini Flash · overnight</span>
+              <span className={cs.agentRole}>Sonnet · overnight</span>
               <p className={cs.agentDesc}>Market scans. Runs dual-source search on AI tools, UX research, music tech, and indie builder topics. Tags each finding with its source so divergent results are visible.</p>
             </div>
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>Sage, Researcher</span>
-              <span className={cs.agentRole}>Gemini Flash · overnight</span>
+              <span className={cs.agentRole}>Sonnet · overnight</span>
               <p className={cs.agentDesc}>Research briefing. Four topics, two search sources each: AI model releases, UX/HCI papers, music tech, MCP ecosystem. Synthesizes across sources and notes where they diverge.</p>
             </div>
 
@@ -280,13 +280,13 @@ export default function ClarencePage() {
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>Autonomous Employee</span>
-              <span className={cs.agentRole}>Gemini Flash · overnight</span>
+              <span className={cs.agentRole}>Sonnet · overnight</span>
               <p className={cs.agentDesc}>The overnight shift. Reads the quick-wins queue from the nightly audit, picks the top unchecked task, executes it fully, marks it done, logs output, sends James a one-sentence summary. No user present. No approval loop.</p>
             </div>
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>Clarence (Self-Audit)</span>
-              <span className={cs.agentRole}>Gemini Flash · 3:33 AM</span>
+              <span className={cs.agentRole}>Sonnet · 4:10 AM</span>
               <p className={cs.agentDesc}>The meta-agent. Reviews system performance, researches new developments, writes improvement proposals, updates WORKING.md, writes the memory bridge for Claude Code, and populates the quick-wins queue for the Autonomous Employee. Self-audit prompt trimmed from 7,582 chars to 1,276 chars without losing signal.</p>
             </div>
 
@@ -300,7 +300,7 @@ export default function ClarencePage() {
             The most consequential design element is what happens between 11pm and 5am ET. Twenty-six
             cron jobs run inside this window, organized into four dependency phases with deliberate
             sequencing so downstream jobs can build on upstream output. Zero jobs run on expensive models.
-            They split across Gemini Flash (free via model bridge) and MiniMax (free, local via Ollama).
+            They split across Claude Sonnet (for tasks requiring real reasoning and tool use) and MiniMax (for mechanical scripts and syncs).
             The lightContext flag is enabled on every job to minimize token overhead.
           </p>
 
@@ -420,10 +420,11 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             The March 25-26 changes made this concrete. Moving all cron jobs to free-tier models was
-            not just a cost decision. It was a trust decision. The system proved that Gemini Flash and
-            MiniMax could handle nightly work reliably enough that Opus budget should be reserved for
-            interactive sessions where I am present and the stakes are higher. Trust in the overnight
-            loop went up. Cost went to zero.
+            not just a cost decision. It was a trust decision. The system initially used Gemini Flash
+            for cron jobs, but tool-call hallucination failures led to a complete migration to Claude
+            Sonnet and MiniMax. The lesson: cheaper models save budget but the savings vanish when the
+            output is fiction. Trust in the overnight loop required models that actually execute tools
+            rather than hallucinating what tool calls would look like.
           </p>
           <p className={styles.body}>
             The Acknowledge First rule is another trust calibration. Every task gets immediate acknowledgment
@@ -480,7 +481,7 @@ export default function ClarencePage() {
             <h3 className={styles.findingTitle}>Bridging the Orchestrator and Model Providers</h3>
             <p className={styles.body}>
               OpenClaw speaks the OpenAI-compatible API. The underlying model providers speak their own
-              protocols. A custom Rust bridge translates between them, making Claude and Gemini available
+              protocols. A custom Rust bridge translates between them, making multiple model providers available
               to the orchestrator without separate API key configurations per agent.
             </p>
             <p className={styles.body}>
@@ -511,7 +512,7 @@ export default function ClarencePage() {
               The conversation distillation pipeline (conversation-distill.py) processes Telegram
               conversations nightly, extracting decisions, corrections, and preferences into the memory DB.
               This is what makes the memory system feel alive rather than static. James corrects something
-              once in conversation, and it persists. The knowledge base grew from ~170 to 2,318 memories
+              once in conversation, and it persists. The knowledge base grew from ~170 to 2,800+ memories
               in part because this pipeline captures context that would otherwise evaporate.
             </p>
             <p className={styles.body}>
@@ -572,9 +573,8 @@ export default function ClarencePage() {
             <p className={styles.body}>
               The entire routing policy exists because running expensive models at scale has real cost. A
               fleet of cron jobs running nightly would be expensive if all of them used Opus. The March 25-26
-              pass eliminated expensive models from cron entirely, splitting them across Gemini Flash and
-              MiniMax. But
-              this creates a different kind of debt.
+              pass moved all cron jobs to cost-effective models (Sonnet for reasoning, MiniMax for mechanical).
+              But this creates a different kind of debt.
             </p>
             <p className={styles.body}>
               The tradeoff is quality degradation at the mechanical tier. When a task gets routed to a
@@ -586,7 +586,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Memory Growth Without Garbage Collection</h3>
             <p className={styles.body}>
-              The knowledge base grew from ~170 to 2,318 memories. The conversation distillation pipeline
+              The knowledge base grew from ~170 to 2,800+ memories. The conversation distillation pipeline
               accelerated that growth. But more memories does not automatically mean better recall. As the
               database scales, the vector search returns increasingly similar results, and the signal-to-noise
               ratio in retrieved context degrades. Memory needs pruning and consolidation, not just
@@ -658,7 +658,7 @@ export default function ClarencePage() {
 
           <ul className={styles.methodList}>
             <li>26 cron jobs organized into four dependency phases (Strategy, Ingest, Autonomous Work, Knowledge/Audit) running 11pm-5am ET, all on free-tier models, delivering Telegram notifications across all devices</li>
-            <li>2,318 memories, 1,877 entities, and 9,376 facts in clarence.db, with conversation distillation pipeline writing new memories nightly from Telegram conversations</li>
+            <li>2,800+ memories, 1,877 entities, and 9,376 facts in clarence.db, with conversation distillation pipeline writing new memories nightly from Telegram conversations</li>
             <li>RAG layer live: 9,376 fact vectors + 2,372 memory vectors with sentence-transformer embeddings, fully local, no external vector DB</li>
             <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction), self-audit prompt from 7,582 to 1,276 chars</li>
             <li>Five sub-agent workspaces symlinked to parent (single source of truth), IDENTITY.md merged into SOUL.md</li>
@@ -710,6 +710,34 @@ export default function ClarencePage() {
           </p>
         </section>
 
+        {/* Open Source */}
+        <section className={`${styles.section} ${styles.sectionHighlight}`}>
+          <h2 className={styles.sectionTitle}>Open Source: The Memory Architecture</h2>
+          <p className={styles.body}>
+            The memory system that powers Clarence is open source. The framework repository contains the
+            complete architecture for giving an AI assistant persistent, searchable memory across sessions:
+            the SQLite schema, the RAG embedding pipeline, the conversation distillation scripts, and the
+            MCP server interfaces that let agents read and write knowledge.
+          </p>
+          <p className={styles.body}>
+            No personal data is included. This is the plumbing, not the person. The repository is designed
+            so anyone building a persistent AI agent can study or replicate the architecture without
+            starting from scratch.
+          </p>
+          <ul className={styles.methodList}>
+            <li>Full SQLite schema with 20+ tables: memories, entities, facts, sessions, work items, vector tables</li>
+            <li>RAG pipeline: sentence-transformer embeddings (all-MiniLM-L6-v2, 384 dims) via sqlite-vec</li>
+            <li>Conversation distillation: nightly LLM-driven extraction of durable knowledge from raw transcripts</li>
+            <li>MCP servers: full CRUD for memories, entities, sessions, and work items</li>
+            <li>Obsidian vault sync: bidirectional between markdown notes and the knowledge database</li>
+          </ul>
+          <p className={styles.body}>
+            <a href="https://github.com/nomadjames/clarence-memory-structure" target="_blank" rel="noopener noreferrer" className={styles.link}>
+              View the repository on GitHub
+            </a>
+          </p>
+        </section>
+
         {/* What Is Next */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>What Is Next</h2>
@@ -720,7 +748,7 @@ export default function ClarencePage() {
               identifies an improvement, the queue captures it, the employee executes it overnight.
             </li>
             <li>
-              <strong>Memory pruning and consolidation:</strong> 2,318 memories need active garbage collection.
+              <strong>Memory pruning and consolidation:</strong> 2,800+ memories need active garbage collection.
               Duplicate facts, superseded preferences, and stale context degrade retrieval quality as the
               database scales. The next iteration needs to prune as aggressively as it accumulates.
             </li>
