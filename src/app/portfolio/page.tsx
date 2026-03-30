@@ -24,7 +24,7 @@ const work = [
     title: "Food Insecurity Discovery Research",
     category: "UX Research",
     year: "2025",
-    methods: ["Contextual Inquiry", "Semi-Structured Interviews", "Affinity Mapping", "Journey Mapping"],
+    methods: ["Screener Design", "Semi-Structured Interviews", "Affinity Mapping", "JTBD Analysis", "Mixed Methods"],
     status: "published",
     link: "/portfolio/food-insecurity",
   },

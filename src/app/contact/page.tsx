@@ -42,7 +42,7 @@ export default function Contact() {
           </div>
           <h1 className={styles.title}>Contact</h1>
           <p className={styles.subtitle}>
-            I&apos;m available for UX research and design work, grad school conversations,
+            I am available for UX research and design work, grad school conversations,
             and Ableton/music tech collaborations.
           </p>
         </header>

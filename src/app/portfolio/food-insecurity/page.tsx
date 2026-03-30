@@ -47,7 +47,7 @@ export default function FoodInsecurityResearch() {
           </p>
           <p className={styles.body}>
             That number is a policy statistic. It tells you very little about what food insecurity actually
-            feels like to navigate: the decisions people make, the systems they rely on, the workarounds they&apos;ve
+            feels like to navigate: the decisions people make, the systems they rely on, the workarounds they have
             developed, the dignity costs embedded in the experience. Discovery research exists precisely for
             situations like this, when you need to understand a problem before you can responsibly design
             anything to address it.
@@ -65,7 +65,7 @@ export default function FoodInsecurityResearch() {
             for the 90,000 residents (1 in 6 people) in the Mahoning Valley who struggle with food insecurity?&rdquo;
           </blockquote>
           <p className={styles.body}>
-            A discovery question isn&apos;t a problem statement. It&apos;s an orientation, a way of bounding the
+            A discovery question is not a problem statement. It is an orientation, a way of bounding the
             inquiry without foreclosing the answers. Keeping it open at this stage was intentional. The goal
             was to learn what the problem actually is before deciding what to build.
           </p>
@@ -86,7 +86,7 @@ export default function FoodInsecurityResearch() {
             <h3 className={styles.findingTitle}>Inclusion Criteria</h3>
             <p className={styles.body}>
               Three gates determined eligibility. First, age: participants had to be 18 or older, keeping
-              the study clear of the ethical and methodological complexity of researching children. Second,
+              the study clear of the ethical and methodological complexity of conducting research with minors. Second,
               geography: participants had to live within Mahoning Valley zip codes, since this was a
               regional study and location shaped the food access landscape. Third, active food acquisition:
               participants needed to be people who actually shopped for or otherwise obtained food, not
@@ -139,7 +139,7 @@ export default function FoodInsecurityResearch() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Methods</h2>
           <p className={styles.body}>
-            This was a full mixed-methods research cycle. The qualitative and quantitative work weren&apos;t
+            This was a full mixed-methods research cycle. The qualitative and quantitative work were not
             parallel tracks. The qualitative phase informed the survey instrument, which then tested whether
             patterns from the interviews held at broader scale.
           </p>
@@ -150,7 +150,7 @@ export default function FoodInsecurityResearch() {
               The discussion guide was structured around semi-structured, open-ended prompts designed to
               surface behavior, not opinion. Asking someone what they think about food insecurity gives you
               responses shaped by what they believe they should say. Asking them to walk you through a specific
-              week, a specific decision, a specific moment at a food bank or grocery store: that&apos;s where
+              week, a specific decision, a specific moment at a food bank or grocery store: that is where
               the usable data lives.
             </p>
             <p className={styles.body}>
@@ -162,7 +162,7 @@ export default function FoodInsecurityResearch() {
             </p>
             <p className={styles.body}>
               One early interview revealed something instructive about discovery work. The participant, an
-              administrator at a family services agency (not ODJFS, but a family-based organization),
+              administrator at a family services agency (not the Ohio Department of Job and Family Services, but a family-based organization),
               disclosed that her agency provided food vouchers to clients in acute need. But she had
               limited knowledge of the broader food assistance landscape in the region. This gap between
               institutional access and resource awareness reinforced a pattern that would surface again
@@ -192,8 +192,8 @@ export default function FoodInsecurityResearch() {
             <p className={styles.body}>
               The survey instrument was developed after the qualitative phase, not before it. Constructs
               pulled from interview synthesis were operationalized into survey items, a sequencing choice
-              that matters. Starting with a questionnaire locks you into assumptions about what&apos;s worth
-              measuring. Building it from interview data means you&apos;re measuring things that participants
+              that matters. Starting with a questionnaire locks you into assumptions about what is worth
+              measuring. Building it from interview data means you are measuring things that participants
               themselves identified as significant.
             </p>
             <p className={styles.body}>
@@ -270,7 +270,7 @@ export default function FoodInsecurityResearch() {
               Several participants had developed elaborate, effective workarounds: strategies that
               demonstrated real ingenuity about how to stretch food budgets, coordinate with neighbors,
               or time purchases around sales cycles. It would be easy to read this as evidence of
-              resilience. It&apos;s also evidence of how much cognitive capacity chronic scarcity consumes.
+              resilience. It is also evidence of how much cognitive capacity chronic scarcity consumes.
               The workarounds are impressive. The fact that they&apos;re necessary is the finding.
             </p>
           </div>
@@ -327,20 +327,20 @@ export default function FoodInsecurityResearch() {
             JTBD is a framework built around the idea that people &ldquo;hire&rdquo; products and services
             to accomplish specific functional goals. The vocabulary maps well onto consumer product
             contexts. The canonical example of someone hiring a milkshake for a morning commute is
-            instructive precisely because it&apos;s so banal.
+            instructive precisely because it is so banal.
           </p>
           <p className={styles.body}>
             Food insecurity is not banal. The &ldquo;job&rdquo; framing risks reducing a complex, constrained,
             dignity-laden experience to a functional transaction. If you applied JTBD to someone navigating
-            chronic food scarcity, you&apos;d risk producing a clean-looking analysis that misses everything
+            chronic food scarcity, you would risk producing a clean-looking analysis that misses everything
             socially and emotionally significant about what that person is actually going through.
           </p>
           <p className={styles.body}>
             That said: the functional job layer (what people are concretely trying to accomplish when they
             engage with food assistance systems) does yield real signal. What participants wanted was
-            reliable access, reduced planning burden, and options that didn&apos;t require them to sacrifice
-            quality or dignity. Those are designable. The critique isn&apos;t that JTBD produces no insight
-            in this domain. It&apos;s that taken alone, without the emotional and social job dimensions,
+            reliable access, reduced planning burden, and options that did not require them to sacrifice
+            quality or dignity. Those are designable. The critique is not that JTBD produces no insight
+            in this domain. It is that taken alone, without the emotional and social job dimensions,
             it produces incomplete and potentially misleading insight.
           </p>
           <p className={styles.body}>
@@ -371,7 +371,7 @@ export default function FoodInsecurityResearch() {
               systemic constraints that participants experience downstream
             </li>
             <li>
-              <strong>Longitudinal observation</strong> . Food insecurity isn&apos;t a static state. A single
+              <strong>Longitudinal observation</strong> . Food insecurity is not a static state. A single
               interview captures a moment. Understanding how people&apos;s situations and strategies shift across
               a month, a season, a benefit cycle requires return visits or diary studies
             </li>

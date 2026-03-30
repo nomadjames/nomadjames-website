@@ -43,7 +43,7 @@ export default function SensorSynthFM() {
             Most instruments have a closed loop: you touch a surface, it responds with sound.
             The interface is a boundary. SensorSynth FM starts from a different premise: what if
             the instrument was open to the environment? What if the way you hold the device, tilt
-            it, lean toward it, move through space with it, was itself the performance?
+            it, lean toward it, move through space with it, were itself the performance?
           </p>
           <p className={styles.body}>
             SensorSynth FM is an iPad FM synthesizer that treats every available device sensor as

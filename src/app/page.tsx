@@ -21,7 +21,7 @@ export default function Home() {
             <p>I design the part where that actually happens.</p>
           </div>
           <p className={styles.bio}>
-            Electronic music production and a decade leading Pittsburgh&apos;s Ableton User Group gave me a
+            Electronic music production and a decade leading Pittsburgh&apos;s Ableton User Group have given me a
             framework for thinking about tools: what they enable, what they foreclose, and who they leave out.
             I&apos;m in graduate school now building that instinct into a research practice, with a thesis taking
             shape around AI, creativity, and what it means to design systems that shape how people think.

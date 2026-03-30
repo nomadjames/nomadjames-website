@@ -131,8 +131,8 @@ export default function AbletonEvaluationSuite() {
               advertising. They are free, platform-agnostic resources that exist because the
               company believes in expanding who makes music. The choice to prioritize Live
               ecosystem consistency over platform-native conventions in Note is not an
-              oversight. It is a bet on the loyalty of an installed base that measures in the
-              thousands of hours per user. These are design decisions you can only evaluate
+              oversight. It is a bet on the loyalty of an installed base whose per-user investment
+              measures in thousands of hours. These are design decisions you can only evaluate
               correctly if you know who made them and why.
             </p>
           </div>
@@ -145,8 +145,8 @@ export default function AbletonEvaluationSuite() {
             <strong>Course:</strong> UX 60503, Fundamentals of Interaction Design (2025)
           </p>
           <p className={styles.body}>
-            Ableton Note is a mobile musical sketchpad for iOS. Not a companion app, not a
-            simplified version of Live, but a purpose-built tool for capturing musical ideas
+            Ableton Note is a mobile musical sketchpad for iOS. It is not a companion app or a
+            simplified version of Live. It is a purpose-built tool for capturing musical ideas
             wherever they happen. The design brief is inherently tense: a professional-grade
             iOS instrument that needs to be fast enough to capture a fleeting idea, deep
             enough to be worth using seriously, and connected enough to integrate with one

@@ -102,7 +102,7 @@ export default function Resume() {
               <li>Developed instructional materials for graduate-level UX courses, improving course structure and student outcomes</li>
               <li>Assisted in authoring a graduate-level UX textbook through systematic analysis of academic publications and content development</li>
               <li>Conducted full site-map analysis and copy review across MS UX program web materials</li>
-              <li>Performed qualitative research data verification for faculty research projects</li>
+              <li>Verified qualitative research data for faculty projects</li>
             </ul>
           </div>
 
@@ -115,7 +115,7 @@ export default function Resume() {
               <span className={styles.roleDates}>2015–Present</span>
             </div>
             <ul className={styles.bullets}>
-              <li>Co-founded (with Paul Miller and Steve Knots) and led community meetings for Ableton users across the Pittsburgh region, growing an active practitioner network</li>
+              <li>Co-founded and led community meetings for Ableton users across the Pittsburgh region, growing an active practitioner network (with Paul Miller and Steve Knots)</li>
               <li>Served as direct liaison between user community and Ableton&apos;s international corporate team, channeling field feedback into product development cycles</li>
               <li>Collaborated with university faculty and educators to expand music technology education access and inclusivity</li>
             </ul>
@@ -131,7 +131,7 @@ export default function Resume() {
             </div>
             <ul className={styles.bullets}>
               <li>Conducted certified title analysis across multiple states and counties; managed complex multi-party research workflows</li>
-              <li>Led teams to resolve title defects through research, analysis, and curative process management</li>
+              <li>Led teams to resolve title defects through research, analysis, and resolution workflows</li>
               <li>Partnered with attorneys on title opinions, delivering resolution on complex legal and property issues</li>
             </ul>
           </div>
@@ -146,8 +146,8 @@ export default function Resume() {
               <div className={styles.eduDates}>Expected December 2026</div>
             </div>
             <div className={styles.edu}>
-              <div className={styles.eduDegree}>BA, English</div>
-              <div className={styles.eduOrg}>University of Pittsburgh <span className={styles.dot}>·</span> Philosophy, Political Science</div>
+              <div className={styles.eduDegree}>BA, English · Philosophy · Political Science</div>
+              <div className={styles.eduOrg}>University of Pittsburgh</div>
             </div>
           </div>
         </section>
@@ -223,7 +223,7 @@ export default function Resume() {
             <div className={styles.project}>
               <div className={styles.projectHeader}>
                 <span className={styles.projectTitle}>SensorSynth FM</span>
-                <span className={styles.projectYear}>2026 - in progress</span>
+                <span className={styles.projectYear}>2026</span>
               </div>
               <p className={styles.projectDesc}>
                 MS UX Capstone. iPad FM synthesizer using the device&apos;s physical sensors (accelerometer,

@@ -135,8 +135,8 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Agent Crew</span>
               </div>
               <p className={cs.archDiagramNote}>
-                OpenClaw schedules and dispatches agent sessions. Twenty-six cron jobs run in a tight overnight
-                window across four dependency phases, each isolated with its own model, context scope, and Telegram delivery target.
+                OpenClaw schedules and dispatches agent sessions. The original architecture ran twenty-six cron jobs in a tight overnight
+                window across four dependency phases (now consolidated to nine; see March 2026 update below), each isolated with its own model, context scope, and Telegram delivery target.
                 Bootstrap trimmed from 11 files to 7 (~18KB total), with IDENTITY.md merged into SOUL.md
                 to reduce context load. Five sub-agent workspaces symlinked to the parent workspace so every
                 agent reads from a single source of truth. Session lifecycle hooks auto-load database context
@@ -306,8 +306,8 @@ export default function ClarencePage() {
             into nine after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than
             executing them. The consolidation replaced scattered reports with a single nightly Sonnet-powered
             report that covers security, research, changelog monitoring, memory hygiene, and self-audit in one
-            pass. The original 26-job structure is preserved below as documentation of what the system grew
-            through. The architectural lesson: more jobs is not better jobs. Consolidation improved reliability
+            pass. The original 26-job structure is preserved below as documentation of the system&apos;s evolution.
+            The architectural lesson: more jobs is not better jobs. Consolidation improved reliability
             and reduced the surface area for silent failures.
           </p>
 
@@ -409,7 +409,7 @@ export default function ClarencePage() {
             compound work overnight rather than just report on it.
           </p>
           <p className={styles.body}>
-            In practice this loop has a write-only failure mode I have not fully solved: the audit produces
+            In practice, this loop has a write-only failure mode I have not fully solved: the audit produces
             excellent proposals, but the execution step does not always pick up the queue file correctly.
             The proposals accumulate without always turning into action. This is documented and real. The
             system knows about it. Reporting awareness is not the same as fixing the underlying reliability issue.
@@ -640,7 +640,7 @@ export default function ClarencePage() {
               consistently.
             </p>
             <p className={styles.body}>
-              Twenty-six cron jobs run overnight. Many complete successfully but report
+              Nine consolidated cron jobs run overnight (originally twenty-six). Many complete successfully but report
               &ldquo;not-delivered&rdquo; on their Telegram notifications. The Sergeant-at-Arms posts
               a digest, but only if something needs attention, which means silence is ambiguous: does
               silence mean everything worked, or that the reporting layer itself failed? When James

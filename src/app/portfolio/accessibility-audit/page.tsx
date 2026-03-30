@@ -84,7 +84,7 @@ export default function AccessibilityAudit() {
               description is wrong. Decorative emoji were scattered throughout captions with no
               aria-hidden treatment, meaning screen readers announced each one by name. Story text
               overlays failed contrast requirements. Video content had no captions. The alt text problem
-              in isolation is fixable with workflow changes. Combined with the rest, it signals that
+              in isolation is fixable with workflow changes. Combined with the rest, this signals that
               accessibility is being handled by automation rather than intention, which is its own
               category of problem.
             </p>
@@ -114,8 +114,7 @@ export default function AccessibilityAudit() {
               VoiceOver testing on GroundNews revealed navigation order issues that made the reading experience
               non-linear in confusing ways - the focus sequence didn&apos;t match the visual hierarchy. Interactive
               elements were unlabeled. Landmark regions were missing, which meant screen reader users had no
-              efficient way to jump between sections of the page. These aren&apos;t edge-case issues. They&apos;re the
-              baseline.
+              efficient way to jump between sections of the page. These are baseline issues, not edge cases.
             </p>
           </div>
 
@@ -167,7 +166,7 @@ export default function AccessibilityAudit() {
           <p className={styles.body}>
             The research question I started with was straightforward: how do AI tools intersect with cognitive
             accessibility? What I landed on was something I hadn&apos;t seen stated plainly anywhere:{" "}
-            <strong>accessibility best practices don&apos;t just help people - they help machines.</strong>
+            <strong>accessibility best practices do not just help people - they help machines.</strong>
           </p>
           <p className={styles.body}>
             Clean semantic structure, descriptive alt text, logical reading order, properly tagged PDFs - all
@@ -175,16 +174,15 @@ export default function AccessibilityAudit() {
             goals are the same goal.
           </p>
           <p className={styles.body}>
-            I&apos;ve been using AI tools to manage the cognitive load of a demanding grad school schedule. Not to
-            do the work - to organize my thinking and reflect on what concepts mean. There&apos;s a real difference.
+            I have been using AI tools to manage the cognitive load of a demanding grad school schedule: not to
+            do the work, but to organize my thinking and reflect on what concepts mean. There is a real difference.
             But the experience made me aware of how inaccessible content creates friction not just for screen
             reader users, but for anyone or anything trying to extract meaning from a poorly structured document
             or page.
           </p>
           <p className={styles.body}>
-            Universal design isn&apos;t a compliance exercise. It&apos;s a design posture: assume the full range of
-            human variation from the start, and build accordingly. When I think about the AI tools I&apos;m building
-            and intend to build, that posture goes with me.
+            Universal design is not a compliance exercise. It is a design posture: assume the full range of
+            human variation from the start, and build accordingly. That posture guides how I intend to build AI tools.
           </p>
         </section>
 

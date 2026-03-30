@@ -39,8 +39,8 @@ export default function AboutPage() {
           <p className={styles.body}>
             I design things at the intersection of AI, creativity, and human decision-making. I am
             finishing an MS in User Experience Design at Kent State University. Before that, I got a
-            BA from the University of Pittsburgh in English, Philosophy, and Political Science,
-            which turns out to be a surprisingly good foundation for thinking about how people
+            BA from the University of Pittsburgh in English, Philosophy, and Political Science
+            (triple major), which turns out to be a surprisingly good foundation for thinking about how people
             actually use things.
           </p>
           <p className={styles.body}>
@@ -62,14 +62,14 @@ export default function AboutPage() {
             interested in building it.
           </p>
           <p className={styles.body}>
-            I see design through Don Norman&apos;s frameworks as a standing lens. Affordances,
+            I see design through Don Norman&apos;s frameworks as a default lens. Affordances,
             signifiers, mapping, feedback, conceptual models. Not because they are trendy (they are
             decades old), but because they work. They are the vocabulary for asking whether
             something actually serves the person in front of it.
           </p>
           <p className={styles.body}>
-            I am influenced by Hunter S. Thompson&apos;s radical honesty, not his substance abuse.
-            The part where you look at the thing clearly and say what you see, even when it is
+            I am influenced by Hunter S. Thompson&apos;s radical honesty, not his substance abuse:
+            the part where you look at the thing clearly and say what you see, even when it is
             uncomfortable. That matters more in design than people want to admit.
           </p>
         </section>
@@ -149,7 +149,7 @@ export default function AboutPage() {
               <span className={styles.splitLabel}>James</span>
               <ul className={styles.splitList}>
                 <li>Vision and creative direction</li>
-                <li>Taste. Knowing when something looked wrong even if it was technically correct</li>
+                <li>Taste: knowing when something looked wrong even if it was technically correct</li>
                 <li>Domain expertise in UX, music, and the subject matter of every case study</li>
                 <li>Quality control from a real device in real lighting conditions</li>
                 <li>The word &quot;no&quot; when Clarence got ahead of itself</li>
@@ -158,7 +158,7 @@ export default function AboutPage() {
             <div className={styles.splitCard}>
               <span className={styles.splitLabel}>Clarence</span>
               <ul className={styles.splitList}>
-                <li>Execution speed. Parallel agents building multiple pages simultaneously</li>
+                <li>Execution speed: parallel agents building multiple pages simultaneously</li>
                 <li>Memory systems that tracked every decision and preference across sessions</li>
                 <li>Code generation, build management, deployment pipeline</li>
                 <li>The ability to hold the full context of a growing codebase in working memory</li>
@@ -175,7 +175,7 @@ export default function AboutPage() {
             The words came first because the words are the work.
           </p>
           <p className={styles.body}>
-            The changelog tracks every commit and who made it. This is not a &quot;look how amazing
+            The <a href="https://github.com/nomadjames/nomadjames-website" target="_blank" rel="noopener noreferrer">git history</a> tracks every commit and who made it. This is not a &quot;look how amazing
             AI is&quot; story. It is a &quot;we built something real with a lot of friction and it
             works&quot; story. The friction is the interesting part. It is where the design questions
             live.

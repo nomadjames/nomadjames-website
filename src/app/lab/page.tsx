@@ -25,7 +25,7 @@ const sketches = [
     course: "EMAT-60310",
     year: "2025",
     description:
-      "A fractal grid of ellipses and nested rectangles. Came out looking like a speaker. The header text is the instruction.",
+      "A fractal grid of ellipses and nested rectangles. Came out looking like a speaker. The header text serves as the interaction instruction: click to randomize.",
     interaction: "click to randomize colors and grid size",
   },
   {
