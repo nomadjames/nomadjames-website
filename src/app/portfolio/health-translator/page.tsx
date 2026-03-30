@@ -25,7 +25,7 @@ export default function HealthTranslator() {
           </div>
           <h1 className={styles.title}>Health Translator:<br />AI That Earns Its Place</h1>
           <div className={styles.methods}>
-            {["Primary Research", "Interviews", "Surveys", "Trust-Centered Design", "Information Architecture", "Multimodal Interaction", "Plain Language"].map((m) => (
+            {["Secondary Research", "Primary Research", "Interviews", "Surveys", "Trust-Centered Design", "Information Architecture", "Multimodal Interaction", "Plain Language"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
             ))}
           </div>
@@ -56,6 +56,32 @@ export default function HealthTranslator() {
             Our team set out to design an AI-powered plain-language translation layer for healthcare portals:
             something that converts clinical language to accessible language on demand, meets patients where
             their actual literacy level is, and doesn&apos;t require them to do anything except ask.
+          </p>
+        </section>
+
+        {/* Secondary Research: Market & Regulatory Context */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>The Landscape</h2>
+          <p className={styles.body}>
+            The US patient portal market is projected to grow from $3.5 billion to over $19 billion by
+            2033, with 90% of hospitals already offering portals. Despite that scale, adoption barriers
+            persist. Our secondary research identified three critical UX gaps: low health literacy drives
+            avoidance due to medical jargon and complex interfaces; the 50+ age group faces low adoption
+            from technical challenges and poor internet access; and chronic illness patients cite physician
+            unresponsiveness and interface complexity as primary barriers.
+          </p>
+          <p className={styles.body}>
+            The regulatory environment is tightening in ways that make this work urgent. The HTI-Final
+            rule is driving AI integration requirements across healthcare IT, and HIPAA constraints demand
+            that any AI layer maintain strict privacy compliance. Industry leaders like Epic Systems are
+            already moving toward proactive AI-driven workflow automation. Meanwhile, consumer expectations
+            shaped by Apple and Netflix mean patients expect personalized, seamless experiences from their
+            healthcare tools too.
+          </p>
+          <p className={styles.body}>
+            The paradox at the center of all this: 95% of patients prefer immediate test result access
+            through portals, yet the barriers to actually using them remain high. That gap between desire
+            and usability is where this project lives.
           </p>
         </section>
 
@@ -149,6 +175,13 @@ export default function HealthTranslator() {
             and trigger a plain-language translation on demand - it doesn&apos;t auto-replace, because some
             patients want the original and some providers care about patients seeing the actual record.
             The choice is the patient&apos;s.
+          </p>
+          <p className={styles.body}>
+            Our six-domain UX strategy guided every design decision: transparency through plain-language
+            explanations of AI reasoning; user control with override capabilities; smart error handling
+            with clear recovery paths; balanced personalization that avoids overwhelming; universal
+            accessibility through WCAG compliance and mobile-first design; and trust and privacy through
+            HIPAA compliance with AI positioned as a helpful assistant, not a replacement.
           </p>
           <ul className={styles.methodList}>
             <li>

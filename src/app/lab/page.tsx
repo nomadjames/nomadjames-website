@@ -39,6 +39,22 @@ const sketches = [
   },
 ];
 
+const externalSketches = [
+  {
+    title: "Algorithmic Storytelling",
+    course: "EMAT-60310",
+    year: "2025",
+    description:
+      "A political satire game about navigating a surveillance state. Sprite-based characters move through procedurally generated environments with sound. Three iterations: from prototype to full narrative arc.",
+    interaction: "arrow keys to move · spacebar to interact",
+    versions: [
+      { label: "V3 (Final)", url: "https://editor.p5js.org/James_D/full/UhFInri7S" },
+      { label: "V2", url: "https://editor.p5js.org/James_D/full/qbCeiR-Cd" },
+      { label: "V1", url: "https://editor.p5js.org/James_D/full/NZwuhafTs" },
+    ],
+  },
+];
+
 export default function LabPage() {
   return (
     <div className={styles.page}>
@@ -87,6 +103,43 @@ export default function LabPage() {
             </article>
           ))}
         </section>
+
+        {externalSketches.length > 0 && (
+          <section className={styles.grid} style={{ marginTop: "2rem" }}>
+            {externalSketches.map((sketch) => (
+              <article key={sketch.title} className={styles.card}>
+                <div className={styles.cardBody}>
+                  <h2 className={styles.cardTitle}>{sketch.title}</h2>
+                  <p className={styles.cardDesc}>{sketch.description}</p>
+                  <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem", flexWrap: "wrap" }}>
+                    {sketch.versions.map((v) => (
+                      <a
+                        key={v.label}
+                        href={v.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          fontFamily: "var(--font-mono)",
+                          fontSize: "0.75rem",
+                          color: "var(--orange)",
+                          letterSpacing: "0.04em",
+                        }}
+                      >
+                        {v.label} ↗
+                      </a>
+                    ))}
+                  </div>
+                  <div className={styles.cardMeta}>
+                    <span className={styles.courseTag}>
+                      {sketch.course} &middot; {sketch.year}
+                    </span>
+                    <span className={styles.hint}>{sketch.interaction}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </section>
+        )}
       </main>
     </div>
   );

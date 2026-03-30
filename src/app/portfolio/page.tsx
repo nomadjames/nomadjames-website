@@ -143,6 +143,23 @@ export default function Portfolio() {
 
         <section className={styles.musicSection}>
           <div className={styles.musicHeader}>
+            <span className={styles.sectionLabel}>More Work</span>
+            <div className={styles.sectionLine} />
+          </div>
+          <div className={styles.musicContent}>
+            <p className={styles.musicDesc}>
+              Additional coursework and research not featured as full case studies.
+            </p>
+            <div className={styles.musicLinks}>
+              <a href="/pdfs/mobile-design-patterns.pdf" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
+                Mobile Design Patterns (PDF) ↗
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.musicSection}>
+          <div className={styles.musicHeader}>
             <span className={styles.sectionLabel}>Music & Sound</span>
             <div className={styles.sectionLine} />
           </div>
