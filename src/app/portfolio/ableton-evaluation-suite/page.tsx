@@ -254,9 +254,9 @@ export default function AbletonEvaluationSuite() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Error Recovery and Help: Designed Out or Absent</h3>
             <p className={styles.body}>
-              Error recovery is near non-issue by design: perpetual save, perpetual undo, and
+              Error recovery is a near non-issue by design: perpetual save, perpetual undo, and
               constraint-based workflows mean recoverable errors are rarely severe. Help and
-              documentation is entirely external. A 56-page manual, onboarding videos on
+              documentation are entirely external. A 56-page manual, onboarding videos on
               YouTube, and the Ableton community. No in-app help, no contextual tooltips, no
               onboarding flow. For experienced Live users, not a problem. For anyone arriving
               cold, a real barrier.
@@ -583,7 +583,7 @@ export default function AbletonEvaluationSuite() {
               Nobody emails support to say &ldquo;Your mixer interface overloaded my working
               memory.&rdquo; They just close the laptop. The improvements show up as better
               retention, not accessibility wins. But the math is straightforward: ADHD
-              affects an estimated 2.5 to 4% of adults worldwide. Dyslexia affects up to 20%. One in five
+              affects an estimated 2.5% to 4% of adults worldwide. Dyslexia affects up to 20%. One in five
               adults worldwide (OECD PIAAC 2023) can only understand simple texts or solve
               basic arithmetic. The audience for cognitively accessible design is not a
               niche. It is the majority of people who might try Ableton and leave before

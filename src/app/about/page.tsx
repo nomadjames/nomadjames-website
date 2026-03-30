@@ -113,7 +113,7 @@ export default function AboutPage() {
             templates. No themes. Built from scratch.
           </p>
           <p className={styles.body}>
-            It was a collaboration between me and Clarence, my AI agent system running on Claude.
+            It was a collaboration between Clarence and me, my AI agent system running on Claude.
             I directed every decision. Clarence executed. That distinction matters. I chose the
             typography, the layout, the voice, the color palette, the information architecture.
             Clarence wrote the code, ran the builds, managed the deployments, and kept track of

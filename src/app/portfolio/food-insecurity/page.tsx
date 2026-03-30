@@ -361,7 +361,7 @@ export default function FoodInsecurityResearch() {
           </p>
           <ul className={styles.reflectionList}>
             <li>
-              <strong>Participatory design from the outset</strong> . Community members with lived experience
+              <strong>Participatory design from the outset.</strong> Community members with lived experience
               of food insecurity should be involved in shaping the research questions, not only answering them.
               That changes both what gets studied and how findings get interpreted
             </li>
