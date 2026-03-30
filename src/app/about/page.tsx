@@ -81,8 +81,7 @@ export default function AboutPage() {
             I do my best work when I know the subject deeply. The Ableton evaluations in my
             portfolio are credible because I have lived inside that ecosystem for years. The Oblique
             Oracle exists because I cherish the I Ching, not because I saw a market opportunity.
-            Clarence is not a demo project. It is a system I use every day, one that runs 26 cron
-            jobs while I sleep and has over 2,600 memories in its knowledge database.
+            Clarence is not a demo project. It is a system I use every day, one that runs 9 consolidated cron jobs (evolved from 26) while I sleep and has over 2,800 memories in its knowledge database.
           </p>
           <p className={styles.body}>
             That depth is what I bring to a team. I learn the domain, I learn the users, and I
@@ -136,7 +135,7 @@ export default function AboutPage() {
             dropped noticeably and we did not figure out why until that evening.
           </p>
           <p className={styles.body}>
-            The part that matters most: Clarence has a knowledge database with over 2,600 memories
+            The part that matters most: Clarence has a knowledge database with over 2,800 memories
             built from our conversations, my coursework, and every correction I have ever given it.
             It distills what I care about, how I think, and what I will not tolerate. The portfolio
             content was not generated from a generic prompt. It was extracted from a system that

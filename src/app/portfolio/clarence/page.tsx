@@ -5,7 +5,7 @@ import Tldr from "@/components/Tldr";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with 26 cron jobs organized into four dependency phases, 16 named agents, a SQLite knowledge database spanning 2,800+ memories, 1,800+ entities, and 9,000+ facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with a cron fleet that evolved from 26 individual jobs to 9 consolidated jobs, 16 named agents, a SQLite knowledge database spanning 2,800+ memories, 1,800+ entities, and 9,000+ facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
 };
 
 export default function ClarencePage() {
@@ -32,7 +32,7 @@ export default function ClarencePage() {
               "Multi-Model Routing",
               "OpenClaw",
               "Custom Model Bridge (Rust)",
-              "Claude Opus 4.6",
+              "Claude Opus 4.8",
               "Claude Sonnet",
               "Session Lifecycle Hooks",
               "Conversation Distillation",
@@ -48,17 +48,17 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built a 16-agent autonomous AI system that runs 26 cron jobs across four dependency phases nightly, manages a knowledge base spanning 2,800+ memories, 1,800+ entities, and 9,000+ facts with full vector search, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
+          I built a 16-agent autonomous AI system that runs a consolidated cron fleet (evolved from 26 individual jobs to 9) nightly, manages a knowledge base spanning 2,800+ memories, 1,800+ entities, and 9,000+ facts with full vector search, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>26</span>
-            <span className={cs.statLabel}>Cron jobs in 4 phases nightly</span>
+            <span className={cs.statNum}>9</span>
+            <span className={cs.statLabel}>Active cron jobs (consolidated from 26)</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>2,318</span>
+            <span className={cs.statNum}>2,872</span>
             <span className={cs.statLabel}>Memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
@@ -86,8 +86,7 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system built on top of OpenClaw (an agent orchestration platform) that runs 26 cron jobs across four
-            dependency phases between 11pm and 5am ET, manages a named crew of specialized agents, routes tasks across multiple
+            system built on top of OpenClaw (an agent orchestration platform) that runs a consolidated cron fleet (evolved from 26 individual jobs to 9) between 11pm and 5am ET, manages a named crew of specialized agents, routes tasks across multiple
             models based on cost and capability, distills every conversation into durable memory, and writes
             nightly self-improvement reports that feed into what it does while I sleep.
           </p>
@@ -159,8 +158,7 @@ export default function ClarencePage() {
               <p className={cs.archDiagramNote}>
                 A custom Rust bridge translates between the orchestrator&apos;s API format and the
                 underlying model providers. Cron jobs run on either Claude Sonnet (for reasoning tasks) or
-                MiniMax via Ollama (free, local, for mechanical tasks). Opus and higher-tier
-                Pro are reserved for interactive sessions where model quality changes the output in ways that
+                MiniMax via Ollama (free, local, for mechanical tasks). Opus is reserved for interactive sessions where model quality changes the output in ways that
                 matter. Model switching is immediate via <code>openclaw models set &lt;model&gt;</code>,
                 no restart required.
               </p>
@@ -274,7 +272,7 @@ export default function ClarencePage() {
 
             <div className={cs.agentCard}>
               <span className={cs.agentName}>R&D Council: Atlas, Iris, Newton, Vesper, Raven</span>
-              <span className={cs.agentRole}>Mixed models · Opus synthesis · 11:00 PM</span>
+              <span className={cs.agentRole}>Mixed models · Opus synthesis · 11:00 PM · <em>now consolidated</em></span>
               <p className={cs.agentDesc}>Five-agent nightly debate. Each member holds a fixed lens: market analysis, UX research, technical architecture, product strategy, devil&apos;s advocate. Two debate rounds, then Opus synthesizes into an executive memo. Designed to surface disagreement, not consensus.</p>
             </div>
 
@@ -302,6 +300,15 @@ export default function ClarencePage() {
             sequencing so downstream jobs can build on upstream output. Zero jobs run on expensive models.
             They split across Claude Sonnet (for tasks requiring real reasoning and tool use) and MiniMax (for mechanical scripts and syncs).
             The lightContext flag is enabled on every job to minimize token overhead.
+          </p>
+          <p className={styles.body}>
+            <strong>March 2026 update:</strong> the system evolved. Twenty-six individual jobs were consolidated
+            into nine after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than
+            executing them. The consolidation replaced scattered reports with a single nightly Sonnet-powered
+            report that covers security, research, changelog monitoring, memory hygiene, and self-audit in one
+            pass. The original 26-job structure is preserved below as documentation of what the system grew
+            through. The architectural lesson: more jobs is not better jobs. Consolidation improved reliability
+            and reduced the surface area for silent failures.
           </p>
 
           <div className={cs.workList}>
@@ -386,7 +393,7 @@ export default function ClarencePage() {
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:45 AM</span>
-              <p className={cs.workDesc}><strong>Changelog Monitor:</strong> checks Anthropic, Gemini, and MiniMax changelogs for new releases. Only alerts James if something changed.</p>
+              <p className={cs.workDesc}><strong>Changelog Monitor:</strong> checks Anthropic and MiniMax changelogs for new releases. Only alerts James if something changed.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:55 AM</span>
@@ -494,7 +501,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 2,318
+              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 2,872
               memories, 1,877 entities, and 9,376 facts, shared by all agents through a custom MCP server. The schema separates
               concerns: a <em>profiles</em> table holds identity facts (agent names, user preferences,
               project constants) with deterministic key lookup. No fuzzy search for things that must be exact.
@@ -657,8 +664,8 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>26 cron jobs organized into four dependency phases (Strategy, Ingest, Autonomous Work, Knowledge/Audit) running 11pm-5am ET, all on free-tier models, delivering Telegram notifications across all devices</li>
-            <li>2,800+ memories, 1,877 entities, and 9,376 facts in clarence.db, with conversation distillation pipeline writing new memories nightly from Telegram conversations</li>
+            <li>A cron fleet evolved from 26 individual jobs to 9 consolidated jobs across four dependency phases (Strategy, Ingest, Autonomous Work, Knowledge/Audit) running 11pm-5am ET, all on free-tier models, delivering Telegram notifications across all devices</li>
+            <li>2,872 memories, 1,877 entities, and 9,376 facts in clarence.db, with conversation distillation pipeline writing new memories nightly from Telegram conversations</li>
             <li>RAG layer live: 9,376 fact vectors + 2,372 memory vectors with sentence-transformer embeddings, fully local, no external vector DB</li>
             <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction), self-audit prompt from 7,582 to 1,276 chars</li>
             <li>Five sub-agent workspaces symlinked to parent (single source of truth), IDENTITY.md merged into SOUL.md</li>
