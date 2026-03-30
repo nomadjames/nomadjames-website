@@ -161,8 +161,9 @@ export default function Resume() {
               <div className={styles.eduDates}>Expected December 2026</div>
             </div>
             <div className={styles.edu}>
-              <div className={styles.eduDegree}>BA, English · Philosophy · Political Science</div>
+              <div className={styles.eduDegree}>BA, English Writing</div>
               <div className={styles.eduOrg}>University of Pittsburgh</div>
+              <div className={styles.eduDates}>Related Studies: Philosophy, Political Science · Certificate in Latin American Studies</div>
             </div>
           </div>
         </section>

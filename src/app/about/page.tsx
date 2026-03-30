@@ -39,9 +39,10 @@ export default function AboutPage() {
           <p className={styles.body}>
             I design things at the intersection of AI, creativity, and human decision-making. I am
             finishing an MS in User Experience Design at Kent State University. Before that, I got a
-            BA from the University of Pittsburgh in English, Philosophy, and Political Science
-            (triple major), which turns out to be a surprisingly good foundation for thinking about how people
-            actually use things.
+            BA in English Writing from the University of Pittsburgh, with related studies in
+            Philosophy and Political Science and a certificate in Latin American Studies — which
+            turns out to be a surprisingly good foundation for thinking about how people actually
+            use things.
           </p>
           <p className={styles.body}>
             I produce electronic music. I co-founded the Pittsburgh Ableton User Group with Paul
