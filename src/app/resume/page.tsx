@@ -124,6 +124,21 @@ export default function Resume() {
           <div className={styles.role}>
             <div className={styles.roleHeader}>
               <div>
+                <h3 className={styles.roleTitle}>Material Handler</h3>
+                <p className={styles.roleOrg}>Osmose Utility Services</p>
+              </div>
+              <span className={styles.roleDates}>2021–2023</span>
+            </div>
+            <ul className={styles.bullets}>
+              <li>Managed field logistics for steel and fiberglass pole repair crews across a Western Pennsylvania territory, coordinating material delivery to active utility job sites</li>
+              <li>Operated warehouse inventory and loaded trucks for distribution infrastructure restoration projects serving regional electric utilities</li>
+              <li>Gained direct exposure to electrical distribution system components, pole condition assessment workflows, and utility field operations</li>
+            </ul>
+          </div>
+
+          <div className={styles.role}>
+            <div className={styles.roleHeader}>
+              <div>
                 <h3 className={styles.roleTitle}>Self-employed Title Abstractor</h3>
                 <p className={styles.roleOrg}>Various Clients and Brokers</p>
               </div>
