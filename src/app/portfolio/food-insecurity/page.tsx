@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Food Insecurity Discovery Research | James Dishman",
@@ -23,7 +24,7 @@ export default function FoodInsecurityResearch() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>UX 60531 - Discovery Research · Kent State MS UX</span>
           </div>
-          <h1 className={styles.title}>Food Insecurity<br />Discovery Research</h1>
+          <PretextTitle text={"Food Insecurity\nDiscovery Research"} className={styles.title} />
           <div className={styles.methods}>
             {["Screener Design", "Semi-Structured Interviews", "Affinity Mapping", "Questionnaire Design", "JTBD Analysis", "Persona Development", "Mixed Methods"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>

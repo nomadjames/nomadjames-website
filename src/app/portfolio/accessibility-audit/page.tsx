@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Accessibility Audit Suite | James Dishman",
@@ -24,7 +25,7 @@ export default function AccessibilityAudit() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>UX 60504 - Accessibility and Universal Design · Kent State MS UX</span>
           </div>
-          <h1 className={styles.title}>Accessibility Audit Suite:<br />Music Tech Meets WCAG</h1>
+          <PretextTitle text={"Accessibility Audit Suite:\nMusic Tech Meets WCAG"} className={styles.title} />
           <div className={styles.methods}>
             {["WCAG 2.1 AA/AAA", "Contrast Analysis", "VoiceOver", "PDF Remediation", "Social Media Audit", "Cognitive Accessibility"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>

@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "PAUG.net: Community Platform for the Pittsburgh Ableton User Group | James Dishman",
@@ -24,7 +25,7 @@ export default function PaugPage() {
             <span className={styles.metaDot} aria-hidden="true">&middot;</span>
             <span className={styles.context}>Co-founder &middot; Pittsburgh Ableton User Group</span>
           </div>
-          <h1 className={styles.title}>PAUG.net:<br />Community Platform</h1>
+          <PretextTitle text={"PAUG.net:\nCommunity Platform"} className={styles.title} />
           <div className={styles.methods}>
             {[
               "Next.js",

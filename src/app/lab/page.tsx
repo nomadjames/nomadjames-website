@@ -1,5 +1,11 @@
 import styles from "./page.module.css";
 
+export const metadata = {
+  title: "Lab | James Dishman",
+  description:
+    "Creative coding experiments from EMAT-60310 at Kent State: generative art, algorithmic storytelling, and computational design sketches built with p5.js.",
+};
+
 const sketches = [
   {
     slug: "sol-lewitt",

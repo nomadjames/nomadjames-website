@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Usability Testing Methods | James Dishman",
@@ -24,7 +25,7 @@ export default function UsabilityTesting() {
             <span className={styles.metaDot} aria-hidden="true">&middot;</span>
             <span className={styles.course}>Kent State MS UX (UX 60502, UX 60503, UX 60541)</span>
           </div>
-          <h1 className={styles.title}>Usability Testing<br />Methods</h1>
+          <PretextTitle text={"Usability Testing\nMethods"} className={styles.title} />
           <div className={styles.methods}>
             {[
               "Moderated Usability Testing",

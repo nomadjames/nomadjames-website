@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Health Translator | James Dishman",
@@ -23,7 +24,7 @@ export default function HealthTranslator() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>UX 60521 - AI in UX/HCI Design · Kent State MS UX · Team Project</span>
           </div>
-          <h1 className={styles.title}>Health Translator:<br />AI That Earns Its Place</h1>
+          <PretextTitle text={"Health Translator:\nAI That Earns Its Place"} className={styles.title} />
           <div className={styles.methods}>
             {["Secondary Research", "Primary Research", "Interviews", "Surveys", "Trust-Centered Design", "Information Architecture", "Multimodal Interaction", "Plain Language"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>

@@ -1,0 +1,88 @@
+.page {
+  padding-top: 7rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 3rem 0 3.5rem;
+  max-width: 860px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--fg);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--fg-muted);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border-top: 1px solid var(--border);
+}
+
+.card {
+  display: block;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.card:hover {
+  background: var(--surface);
+}
+
+.cardDate {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

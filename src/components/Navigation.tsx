@@ -51,6 +51,14 @@ export default function Navigation() {
             Résumé
           </Link>
           <Link
+            href="/writing"
+            className={`${styles.link} ${pathname.startsWith("/writing") ? styles.active : ""}`}
+            aria-current={pathname.startsWith("/writing") ? "page" : undefined}
+            onClick={closeMenu}
+          >
+            Writing
+          </Link>
+          <Link
             href="/contact"
             className={`${styles.link} ${pathname.startsWith("/contact") ? styles.active : ""}`}
             aria-current={pathname.startsWith("/contact") ? "page" : undefined}

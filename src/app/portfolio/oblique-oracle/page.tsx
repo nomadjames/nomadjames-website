@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Oblique Oracle | James Dishman",
@@ -24,7 +25,7 @@ export default function ObliqueOracle() {
             <span className={styles.metaDot} aria-hidden="true">&middot;</span>
             <span className={styles.course}>Independent Project &middot; In Progress</span>
           </div>
-          <h1 className={styles.title}>Oblique Oracle:<br />Algorithmic Divination as Design Research</h1>
+          <PretextTitle text={"Oblique Oracle:\nAlgorithmic Divination as Design Research"} className={styles.title} />
           <div className={styles.methods}>
             {["I Ching Hexagram Generation", "Oblique Strategies", "AI Synthesis", "Embodied Interaction", "Next.js", "Groq API"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>

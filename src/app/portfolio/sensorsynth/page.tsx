@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "SensorSynth FM | James Dishman",
@@ -24,7 +25,7 @@ export default function SensorSynthFM() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>MS UX Capstone · Kent State · In Progress</span>
           </div>
-          <h1 className={styles.title}>SensorSynth FM:<br />Your Body as the Interface</h1>
+          <PretextTitle text={"SensorSynth FM:\nYour Body as the Interface"} className={styles.title} />
           <div className={styles.methods}>
             {["Embodied Interaction Design", "FM Synthesis", "Full Sensor Array", "ARKit Face/Body Tracking", "AudioKit / SwiftUI", "Human-AI Collaboration", "NIME Research"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>

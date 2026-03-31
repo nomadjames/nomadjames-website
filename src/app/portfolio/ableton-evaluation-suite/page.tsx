@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Ableton UX Evaluation Suite | James Dishman",
@@ -24,7 +25,7 @@ export default function AbletonEvaluationSuite() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>Kent State MS UX (UX 60501, UX 60503, UX 60504, UX 60541)</span>
           </div>
-          <h1 className={styles.title}>Ableton UX<br />Evaluation Suite</h1>
+          <PretextTitle text={"Ableton UX\nEvaluation Suite"} className={styles.title} />
           <div className={styles.methods}>
             {[
               "Stakeholder Analysis",

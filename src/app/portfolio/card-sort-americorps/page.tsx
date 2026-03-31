@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Card Sort Analysis: AmeriCorps | James Dishman",
@@ -24,7 +25,7 @@ export default function CardSortAmericorps() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.course}>UX 60501 - Foundations of UX · Kent State MS UX</span>
           </div>
-          <h1 className={styles.title}>Card Sort Analysis:<br />Methodology in Non-IA Contexts</h1>
+          <PretextTitle text={"Card Sort Analysis:\nMethodology in Non-IA Contexts"} className={styles.title} />
           <div className={styles.methods}>
             {["Card Sorting", "Information Architecture", "Navigation Taxonomy", "Lyssna", "Similarity Matrix", "UX Audit"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>

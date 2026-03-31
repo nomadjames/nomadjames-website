@@ -1,11 +1,12 @@
 import styles from "../accessibility-audit/page.module.css";
 import cs from "./page.module.css";
 import Tldr from "@/components/Tldr";
+import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with a cron fleet that evolved from 26 individual jobs to 9 consolidated jobs, 16 named agents, a SQLite knowledge database spanning 2,800+ memories, 1,800+ entities, and 9,000+ facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with 11 cron jobs, 16 named agents, a SQLite knowledge database spanning 3,400+ memories, 1,800+ entities, and 9,300+ facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
 };
 
 export default function ClarencePage() {
@@ -25,7 +26,7 @@ export default function ClarencePage() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={cs.context}>Independent Research · Ongoing</span>
           </div>
-          <h1 className={styles.title}>Clarence:<br />Designing an Autonomous AI Collaborator</h1>
+          <PretextTitle text={"Clarence:\nDesigning an Autonomous AI Collaborator"} className={styles.title} />
           <div className={styles.methods}>
             {[
               "Agent Orchestration",
@@ -48,17 +49,17 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built a 16-agent autonomous AI system that runs a consolidated cron fleet (evolved from 26 individual jobs to 9) nightly, manages a knowledge base spanning 2,800+ memories, 1,800+ entities, and 9,000+ facts with full vector search, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
+          I built a 16-agent autonomous AI system that runs 11 cron jobs nightly, manages a knowledge base spanning 3,400+ memories, 1,800+ entities, and 9,300+ facts with full vector search, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>9</span>
-            <span className={cs.statLabel}>Active cron jobs (consolidated from 26)</span>
+            <span className={cs.statNum}>11</span>
+            <span className={cs.statLabel}>Active cron jobs</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>2,872</span>
+            <span className={cs.statNum}>3,497</span>
             <span className={cs.statLabel}>Memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
@@ -86,7 +87,7 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system built on top of OpenClaw (an agent orchestration platform) that runs a consolidated cron fleet (evolved from 26 individual jobs to 9) between 11pm and 5am ET, manages a named crew of specialized agents, routes tasks across multiple
+            system built on top of OpenClaw (an agent orchestration platform) that runs 11 cron jobs between 11pm and 5am ET, manages a named crew of specialized agents, routes tasks across multiple
             models based on cost and capability, distills every conversation into durable memory, and writes
             nightly self-improvement reports that feed into what it does while I sleep.
           </p>
@@ -136,7 +137,7 @@ export default function ClarencePage() {
               </div>
               <p className={cs.archDiagramNote}>
                 OpenClaw schedules and dispatches agent sessions. The original architecture ran twenty-six cron jobs in a tight overnight
-                window across four dependency phases (now consolidated to nine; see March 2026 update below), each isolated with its own model, context scope, and Telegram delivery target.
+                window across four dependency phases (now consolidated to eleven; see March 2026 update below), each isolated with its own model, context scope, and Telegram delivery target.
                 Bootstrap trimmed from 11 files to 7 (~18KB total), with IDENTITY.md merged into SOUL.md
                 to reduce context load. Five sub-agent workspaces symlinked to the parent workspace so every
                 agent reads from a single source of truth. Session lifecycle hooks auto-load database context
@@ -173,17 +174,17 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>MCP Server (13 tools)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>RAG: 2,372 memory + 9,376 fact vectors</span>
+                <span className={cs.archDiagramNode}>RAG: 3,497 memory + 9,388 fact vectors</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A single consolidated SQLite database (clarence.db) holds 2,800+ memories, 1,877 entities, and
-                9,376 facts, shared by all agents through a custom MCP server. Legacy databases archived and
+                A single consolidated SQLite database (clarence.db) holds 3,400+ memories, 1,879 entities, and
+                9,388 facts, shared by all agents through a custom MCP server. Legacy databases archived and
                 retired into this one authoritative store. A conversation distillation pipeline
                 (conversation-distill.py) processes Telegram conversations nightly, extracting decisions,
                 corrections, and preferences into the memory DB automatically. A vector search layer
-                (sqlite-vec + all-MiniLM-L6-v2) runs fully locally with 9,376 fact vectors and 2,372 memory
+                (sqlite-vec + all-MiniLM-L6-v2) runs fully locally with 9,388 fact vectors and 3,497 memory
                 vectors. Agents query by meaning, not just key. Syncs bidirectionally with an Obsidian vault:
                 what James writes, agents can read.
               </p>
@@ -303,7 +304,7 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             <strong>March 2026 update:</strong> the system evolved. Twenty-six individual jobs were consolidated
-            into nine after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than
+            into eleven after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than
             executing them. The consolidation replaced scattered reports with a single nightly Sonnet-powered
             report that covers security, research, changelog monitoring, memory hygiene, and self-audit in one
             pass. The original 26-job structure is preserved below as documentation of the system&apos;s evolution.
@@ -501,15 +502,15 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 2,872
-              memories, 1,877 entities, and 9,376 facts, shared by all agents through a custom MCP server. The schema separates
+              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 3,497
+              memories, 1,879 entities, and 9,388 facts, shared by all agents through a custom MCP server. The schema separates
               concerns: a <em>profiles</em> table holds identity facts (agent names, user preferences,
               project constants) with deterministic key lookup. No fuzzy search for things that must be exact.
               A <em>memories</em> table stores durable knowledge with soft invalidation: when a fact changes,
               the old record is marked invalid and a new one is written, preserving the audit trail.
             </p>
             <p className={styles.body}>
-              The RAG layer is live: 2,372 memory vectors and 9,376 fact vectors with sentence-transformer
+              The RAG layer is live: 3,497 memory vectors and 9,388 fact vectors with sentence-transformer
               embeddings (all-MiniLM-L6-v2), running fully locally via sqlite-vec. No separate vector
               database, no network hop. Agents query the knowledge base by meaning: &ldquo;what does
               James think about AI agent UX?&rdquo; returns the five most relevant records across all tables,
@@ -519,7 +520,7 @@ export default function ClarencePage() {
               The conversation distillation pipeline (conversation-distill.py) processes Telegram
               conversations nightly, extracting decisions, corrections, and preferences into the memory DB.
               This is what makes the memory system feel alive rather than static. James corrects something
-              once in conversation, and it persists. The knowledge base grew from ~170 to 2,800+ memories
+              once in conversation, and it persists. The knowledge base grew from ~170 to 3,400+ memories
               in part because this pipeline captures context that would otherwise evaporate.
             </p>
             <p className={styles.body}>
@@ -593,7 +594,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Memory Growth Without Garbage Collection</h3>
             <p className={styles.body}>
-              The knowledge base grew from ~170 to 2,800+ memories. The conversation distillation pipeline
+              The knowledge base grew from ~170 to 3,400+ memories. The conversation distillation pipeline
               accelerated that growth. But more memories does not automatically mean better recall. As the
               database scales, the vector search returns increasingly similar results, and the signal-to-noise
               ratio in retrieved context degrades. Memory needs pruning and consolidation, not just
@@ -640,7 +641,7 @@ export default function ClarencePage() {
               consistently.
             </p>
             <p className={styles.body}>
-              Nine consolidated cron jobs run overnight (originally twenty-six). Many complete successfully but report
+              Eleven cron jobs run overnight. Many complete successfully but report
               &ldquo;not-delivered&rdquo; on their Telegram notifications. The Sergeant-at-Arms posts
               a digest, but only if something needs attention, which means silence is ambiguous: does
               silence mean everything worked, or that the reporting layer itself failed? When James
@@ -664,9 +665,9 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>A cron fleet evolved from 26 individual jobs to 9 consolidated jobs across four dependency phases (Strategy, Ingest, Autonomous Work, Knowledge/Audit) running 11pm-5am ET, all on free-tier models, delivering Telegram notifications across all devices</li>
-            <li>2,872 memories, 1,877 entities, and 9,376 facts in clarence.db, with conversation distillation pipeline writing new memories nightly from Telegram conversations</li>
-            <li>RAG layer live: 9,376 fact vectors + 2,372 memory vectors with sentence-transformer embeddings, fully local, no external vector DB</li>
+            <li>11 cron jobs across four dependency phases (Strategy, Ingest, Autonomous Work, Knowledge/Audit) running 11pm-5am ET, all on free-tier models, delivering Telegram notifications across all devices</li>
+            <li>3,497 memories, 1,879 entities, and 9,388 facts in clarence.db, with conversation distillation pipeline writing new memories nightly from Telegram conversations</li>
+            <li>RAG layer live: 9,388 fact vectors + 3,497 memory vectors with sentence-transformer embeddings, fully local, no external vector DB</li>
             <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction), self-audit prompt from 7,582 to 1,276 chars</li>
             <li>Five sub-agent workspaces symlinked to parent (single source of truth), IDENTITY.md merged into SOUL.md</li>
             <li>Session lifecycle hooks: SessionStart auto-loads context; Stop hook writes handoff notes. Nightly JSONL rotation archives files older than 24 hours</li>
@@ -755,7 +756,7 @@ export default function ClarencePage() {
               identifies an improvement, the queue captures it, the employee executes it overnight.
             </li>
             <li>
-              <strong>Memory pruning and consolidation:</strong> 2,800+ memories need active garbage collection.
+              <strong>Memory pruning and consolidation:</strong> 3,400+ memories need active garbage collection.
               Duplicate facts, superseded preferences, and stale context degrade retrieval quality as the
               database scales. The next iteration needs to prune as aggressively as it accumulates.
             </li>
