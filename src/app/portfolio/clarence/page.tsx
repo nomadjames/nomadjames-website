@@ -97,6 +97,83 @@ export default function ClarencePage() {
           </p>
         </section>
 
+        {/* Agentic UX: Mapping to Industry Patterns */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Agentic UX: Where This Fits in the Industry</h2>
+          <p className={styles.body}>
+            In 2025 and 2026, a new design discipline is forming around multi-agent AI systems. Job titles
+            like &ldquo;Agentic UX Designer&rdquo; and &ldquo;Agent Experience Designer&rdquo; are appearing
+            at companies like Deloitte, Anthropic, and Microsoft. Research teams at Microsoft (Magentic-UI),
+            Salesforce (SLDS 2), and Google (A2UI) are defining the design patterns for human-agent
+            collaboration. I built Clarence before these patterns had names. Mapping what I built to
+            the emerging vocabulary is useful because it shows the reasoning was design-driven, not
+            borrowed from a framework.
+          </p>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Orchestrator-Specialist Pattern</h3>
+            <p className={styles.body}>
+              The dominant architecture in multi-agent systems: a supervisor agent delegates to
+              specialized agents. In Clarence, the orchestrator routes to Felix (coordination), Rex (task
+              tracking), Bruno (security), Sage (research), and others. Each agent has a fixed role, a
+              designated model tier, and a constrained scope. The pattern is identical to what Microsoft
+              Research describes in Magentic-UI and what CrewAI and AutoGen implement in their frameworks.
+              The difference is that Clarence was built from operational need, not from a reference
+              architecture.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Transparent Planning</h3>
+            <p className={styles.body}>
+              Microsoft&apos;s design guidance for agents emphasizes that users need to see what the agent
+              is planning before it acts. Clarence implements this through WORKING.md (a live state file
+              that any agent can read), the brain/ directory (structured knowledge visible from any device
+              via Brain Reader), and the Acknowledge First rule (every task gets a plan and time estimate
+              before execution begins). These are not dashboards. They are working documents that serve
+              both the human and the agents.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Memory Management as UX</h3>
+            <p className={styles.body}>
+              The AgentOps and AutoGen ecosystems are building toward &ldquo;memory cards&rdquo; and
+              preference editors for agent systems. Clarence&apos;s memory architecture predates these:
+              the conversation distillation pipeline, the entity-fact-memory schema, the Obsidian vault
+              sync, and the RAG retrieval layer are all implementations of the same principle. The user&apos;s
+              corrections and preferences should persist across sessions without the user having to
+              re-state them. The design question is not whether to give agents memory. It is how to make
+              that memory visible, editable, and trustworthy.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Adaptive Model Routing</h3>
+            <p className={styles.body}>
+              Industry patterns describe routing between fast/cheap agents and powerful/expensive agents
+              based on task complexity. Clarence implements this as a tiered model policy: MiniMax for
+              mechanical tasks, Sonnet for reasoning, Opus for synthesis and interactive sessions. The
+              routing is explicit and documented. The lesson from operating this for months: adaptive
+              routing requires continuous calibration. A task that seems mechanical can require reasoning
+              depth that only becomes apparent after the cheaper model fails.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Debate-Consensus (R&D Council)</h3>
+            <p className={styles.body}>
+              Multi-agent debate is an emerging pattern where multiple agents with different perspectives
+              evaluate the same question. The R&D Council implements this with five fixed lenses: market
+              analysis (Atlas), UX research (Iris), technical architecture (Newton), product strategy
+              (Vesper), and devil&apos;s advocate (Raven). Two rounds of debate, then Opus synthesizes.
+              The design intent is to surface disagreement, not consensus. When all five agents agree,
+              the insight is usually obvious. When they disagree, the synthesis reveals something worth
+              examining.
+            </p>
+          </div>
+        </section>
+
         {/* Architecture Overview */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>System Architecture</h2>

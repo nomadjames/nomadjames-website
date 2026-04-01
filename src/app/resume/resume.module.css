@@ -41,6 +41,12 @@
   color: var(--fg-dim);
 }
 
+.btnGroup {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .downloadBtn {
   display: inline-block;
   padding: 0.5rem 1.25rem;
@@ -50,6 +56,9 @@
   font-size: 0.8rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -264,6 +273,7 @@ a.projectTitle:hover {
     padding: 0;
   }
 
+  .btnGroup,
   .downloadBtn {
     display: none;
   }

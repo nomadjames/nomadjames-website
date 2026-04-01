@@ -8,14 +8,47 @@
 .content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.available {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--orange);
 }
 
 .copyright {
     color: var(--foreground-muted);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+}
+
+.nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--foreground-muted);
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: var(--primary);
+    opacity: 1;
 }
 
 .socials {
@@ -25,9 +58,21 @@
 
 .socials a {
     color: var(--foreground-muted);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .socials a:hover {
     color: var(--primary);
+}
+
+@media (max-width: 640px) {
+    .content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
 }

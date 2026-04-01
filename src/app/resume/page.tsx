@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import styles from "./resume.module.css";
 import PrintButton from "./PrintButton";
+import DownloadPdfButton from "./DownloadPdfButton";
 
 export const metadata: Metadata = {
   title: "Résumé | James Dishman",
@@ -24,7 +25,10 @@ export default function Resume() {
               LinkedIn ↗
             </a>
           </div>
-          <PrintButton className={styles.downloadBtn} />
+          <div className={styles.btnGroup}>
+            <DownloadPdfButton className={styles.downloadBtn} />
+            <PrintButton className={styles.downloadBtn} />
+          </div>
         </header>
 
         <section className={styles.section}>

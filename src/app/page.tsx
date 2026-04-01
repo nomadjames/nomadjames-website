@@ -38,7 +38,10 @@ export default function Home() {
             <a href="https://medium.com/@nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
               Medium ↗
             </a>
-<a href="/contact" className={styles.heroLink}>
+<a href="/services" className={styles.heroLink}>
+              Services ↗
+            </a>
+            <a href="/contact" className={styles.heroLink}>
               Contact ↗
             </a>
           </div>
