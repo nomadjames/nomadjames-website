@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import MiniOracle from "@/components/MiniOracle";
 
 export default function Home() {
   return (
@@ -227,6 +228,15 @@ export default function Home() {
               <a href="/portfolio/sensorsynth" className={styles.buildingLink}>Read the case study →</a>
             </div>
           </div>
+        </section>
+
+        {/* Try the Oracle */}
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>Try Something</span>
+            <div className={styles.sectionLine} />
+          </div>
+          <MiniOracle />
         </section>
 
         {/* Music */}
