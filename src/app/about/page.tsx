@@ -4,7 +4,7 @@ import Tldr from "@/components/Tldr";
 export const metadata = {
   title: "About | James Dishman",
   description:
-    "Grad student, electronic music producer, AI builder. This is who I actually am.",
+    "UX designer, electronic music producer, AI systems builder. This is who I actually am.",
 };
 
 export default function AboutPage() {
@@ -27,26 +27,27 @@ export default function AboutPage() {
         </header>
 
         <Tldr>
-          MS UX candidate at Kent State, electronic music producer, co-founder of the Pittsburgh
-          Ableton User Group, currently building AI agent systems as both creative tools and research
-          platforms. Every piece of work in this portfolio exists because I cared about the subject
-          before I cared about the credential.
+          UX designer and electronic music producer with a decade leading Pittsburgh&apos;s Ableton
+          User Group, currently building AI agent systems as both creative tools and research
+          platforms. Finishing an MS in User Experience Design at Kent State. Every piece of work
+          in this portfolio exists because I cared about the subject before I cared about the credential.
         </Tldr>
 
         {/* The Short Version */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>The Short Version</h2>
           <p className={styles.body}>
-            I design things at the intersection of AI, creativity, and human decision-making. I am
-            finishing an MS in User Experience Design at Kent State University. Before that, I got a
-            BA in English Writing from the University of Pittsburgh, with related studies in
-            Philosophy and Political Science and a certificate in Latin American Studies — which
-            turns out to be a surprisingly good foundation for thinking about how people actually
-            use things.
+            I design things at the intersection of AI, creativity, and human decision-making.
+            My background is unusual: a BA in English Writing from the University of Pittsburgh,
+            with related studies in Philosophy, Political Science, and a certificate in Latin
+            American Studies, which turns out to be a surprisingly good foundation for thinking
+            about how people actually use things.
           </p>
           <p className={styles.body}>
             I produce electronic music. I co-founded the Pittsburgh Ableton User Group with Paul
-            Miller and Steve Knots. I serve as the direct liaison to Ableton&apos;s international community team.
+            Miller and Steve Knots and serve as the direct liaison to Ableton&apos;s international
+            community team. I am completing an MS in User Experience Design at Kent State, where
+            the formal training meets the instinct I have been building for years.
           </p>
         </section>
 
@@ -82,7 +83,7 @@ export default function AboutPage() {
             I do my best work when I know the subject deeply. The Ableton evaluations in my
             portfolio are credible because I have lived inside that ecosystem for years. The Oblique
             Oracle exists because I cherish the I Ching, not because I saw a market opportunity.
-            Clarence is not a demo project. It is a system I use every day, one that runs 11 cron jobs while I sleep and has over 3,400 memories in its knowledge database.
+            Clarence is not a demo project. It is a system I use every day, one that runs 14 cron jobs while I sleep and has 3,978 memories in its knowledge database.
           </p>
           <p className={styles.body}>
             That depth is what I bring to a team. I learn the domain, I learn the users, and I
@@ -94,10 +95,10 @@ export default function AboutPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>What is Next</h2>
           <p className={styles.body}>
-            I am in the capstone phase of my MS at Kent State. After that, I am applying to PhD
-            programs in Human-Computer Interaction. The research questions I care about sit at the
-            boundary of AI and creativity: what happens when the tool starts having opinions, and how
-            do you design for that without pretending it is simple?
+            I am in the capstone phase of my MS at Kent State. Long-term, I am interested in
+            doctoral research in Human-Computer Interaction. The research questions I care about sit
+            at the boundary of AI and creativity: what happens when the tool starts having opinions,
+            and how do you design for that without pretending it is simple?
           </p>
           <p className={styles.body}>
             If you are working on research problems or building tools that need someone who
@@ -136,7 +137,7 @@ export default function AboutPage() {
             dropped noticeably and we did not figure out why until that evening.
           </p>
           <p className={styles.body}>
-            The part that matters most: Clarence has a knowledge database with over 3,400 memories
+            The part that matters most: Clarence has a knowledge database with 3,978 memories
             built from our conversations, my coursework, and every correction I have ever given it.
             It distills what I care about, how I think, and what I will not tolerate. The portfolio
             content was not generated from a generic prompt. It was extracted from a system that

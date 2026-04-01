@@ -9,9 +9,9 @@ export default function Home() {
         {/* Hero */}
         <section className={styles.hero}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowLabel}>UX Designer & AI Researcher</span>
+            <span className={styles.eyebrowLabel}>UX Designer & AI Systems Builder</span>
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>Kent State University MS UX</span>
+            <span className={styles.eyebrowLabel}>MS User Experience Design</span>
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
             <span className={styles.eyebrowLabel}>Youngstown, OH</span>
           </div>
@@ -24,8 +24,8 @@ export default function Home() {
           <p className={styles.bio}>
             Electronic music production and a decade leading Pittsburgh&apos;s Ableton User Group have given me a
             framework for thinking about tools: what they enable, what they foreclose, and who they leave out.
-            I&apos;m in graduate school now building that instinct into a research practice, with a thesis taking
-            shape around AI, creativity, and what it means to design systems that shape how people think.
+            That instinct is now a research practice, with an MS thesis taking shape around AI, creativity,
+            and what it means to design systems that shape how people think.
           </p>
           <div className={styles.heroLinks}>
             <a href="https://www.linkedin.com/in/james-dishman-3a512163/" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
