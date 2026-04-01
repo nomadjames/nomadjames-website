@@ -252,10 +252,10 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A single consolidated SQLite database (~50MB) holds 3,978 memories, 1,880 entities, and
-                9,403 facts, shared by all agents through a custom MCP server exposing 16 tools. A conversation distillation pipeline processes conversations nightly, extracting decisions,
+                A single consolidated SQLite database (~50MB) holds 3,901 active memories, 1,880 entities, and
+                7,106 active facts, shared by all agents through a custom MCP server exposing 16 tools. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. A conversation distillation pipeline processes conversations nightly, extracting decisions,
                 corrections, and preferences into the memory DB automatically. A vector search layer
-                (sqlite-vec + BGE-base-en-v1.5) runs fully locally. Agents query by meaning, not just key. Syncs bidirectionally with an Obsidian vault. Knowledge pushes to Google Drive every 6 hours. Claude Code sessions have their own parallel memory layer (auto-memory files) that persists across conversations.
+                (sqlite-vec + all-MiniLM-L6-v2, 384-dim) runs fully locally. Agents query by meaning, not just key. Syncs bidirectionally with an Obsidian vault. Knowledge pushes to Google Drive every 6 hours. Claude Code sessions have their own parallel memory layer (auto-memory files) that persists across conversations.
               </p>
             </div>
 
@@ -532,8 +532,8 @@ export default function ClarencePage() {
               the old record is marked invalid and a new one is written, preserving the audit trail.
             </p>
             <p className={styles.body}>
-              The RAG layer is live: 3,978 memory vectors and 9,403 fact vectors with BGE-base-en-v1.5
-              embeddings, running fully locally via sqlite-vec. No separate vector
+              The RAG layer is live: 3,901 memory vectors and 7,106 fact vectors with all-MiniLM-L6-v2
+              embeddings (384-dim), running fully locally via sqlite-vec. Automated garbage collection prunes low-value catalog data while preserving all behavioral corrections and user knowledge. No separate vector
               database, no network hop. Agents query the knowledge base by meaning: &ldquo;what does
               James think about AI agent UX?&rdquo; returns the five most relevant records across all tables,
               regardless of how they were originally tagged.
@@ -543,7 +543,7 @@ export default function ClarencePage() {
               conversations nightly, extracting decisions, corrections, and preferences into the memory DB.
               This is what makes the memory system feel alive rather than static. James corrects something
               once in conversation, and it persists. The knowledge base grew from ~170 to 3,978 memories
-              in part because this pipeline captures context that would otherwise evaporate.
+              in part because this pipeline captures context that would otherwise evaporate. A retrieval feedback loop lets sessions flag results as useful or noise, creating a learning signal for future garbage collection.
             </p>
             <p className={styles.body}>
               An Obsidian vault syncs bidirectionally with the database. New vault notes are picked up by the
@@ -657,8 +657,8 @@ export default function ClarencePage() {
 
           <ul className={styles.methodList}>
             <li>14 cron jobs running midnight-5am ET, all on cost-effective models, delivering to Discord and Telegram</li>
-            <li>3,978 memories, 1,880 entities, and 9,403 facts in clarence.db with conversation distillation writing new memories nightly</li>
-            <li>RAG layer: 9,403 fact vectors + 3,978 memory vectors with BGE-base-en-v1.5 embeddings, fully local</li>
+            <li>3,901 active memories, 1,880 entities, and 7,106 active facts in clarence.db with conversation distillation, automated GC, and retrieval feedback loop</li>
+            <li>RAG layer: 7,106 fact vectors + 3,901 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim), fully local</li>
             <li>9 Discord channels with 8 named agent identities posting with unique usernames and colors</li>
             <li>Morning briefing posted to Discord before 5 AM daily, session handoff notes for zero cold starts</li>
             <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction)</li>
@@ -723,7 +723,7 @@ export default function ClarencePage() {
           </p>
           <ul className={styles.methodList}>
             <li>Full SQLite schema with 20+ tables: memories, entities, facts, sessions, work items, vector tables</li>
-            <li>RAG pipeline: BGE-base-en-v1.5 embeddings via sqlite-vec, fully local</li>
+            <li>RAG pipeline: all-MiniLM-L6-v2 embeddings (384-dim) via sqlite-vec, fully local, with automated GC</li>
             <li>Conversation distillation: nightly LLM-driven extraction of durable knowledge from raw transcripts</li>
             <li>MCP servers: full CRUD for memories, entities, sessions, and work items</li>
             <li>Obsidian vault sync: bidirectional between markdown notes and the knowledge database</li>
