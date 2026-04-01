@@ -6,7 +6,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with 11 cron jobs, 16 named agents, a SQLite knowledge database spanning 3,400+ memories, 1,800+ entities, and 9,300+ facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with 13 cron jobs, 8 named agent identities across 9 Discord channels, a SQLite knowledge database spanning 3,400+ memories, 1,800+ entities, and 9,300+ facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
 };
 
 export default function ClarencePage() {
@@ -32,12 +32,13 @@ export default function ClarencePage() {
               "Agent Orchestration",
               "Multi-Model Routing",
               "OpenClaw",
-              "Custom Model Bridge (Rust)",
-              "Claude Opus 4.8",
+              "Custom Model Bridge",
+              "Claude Opus 4.6",
               "Claude Sonnet",
               "Session Lifecycle Hooks",
               "Conversation Distillation",
               "Telegram API",
+              "Discord Webhooks",
               "Tailscale VPN",
               "Self-Improving Systems",
               "Human-in-the-Loop Design",
@@ -49,13 +50,13 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built a 16-agent autonomous AI system that runs 11 cron jobs nightly, manages a knowledge base spanning 3,400+ memories, 1,800+ entities, and 9,300+ facts with full vector search, and routes tasks across multiple models. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
+          I built a multi-agent autonomous AI system that runs 13 cron jobs nightly, manages a knowledge base spanning 3,400+ memories, 1,800+ entities, and 9,300+ facts with full vector search, routes tasks across multiple models by cost and capability, and posts status reports to 9 Discord channels through 8 named agent identities. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>11</span>
+            <span className={cs.statNum}>13</span>
             <span className={cs.statLabel}>Active cron jobs</span>
           </div>
           <div className={cs.stat}>
@@ -67,8 +68,8 @@ export default function ClarencePage() {
             <span className={cs.statLabel}>Bootstrap memory reduction</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>0</span>
-            <span className={cs.statLabel}>Expensive models in cron</span>
+            <span className={cs.statNum}>9</span>
+            <span className={cs.statLabel}>Discord channels</span>
           </div>
         </div>
 
@@ -87,9 +88,9 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system built on top of OpenClaw (an agent orchestration platform) that runs 11 cron jobs between 11pm and 5am ET, manages a named crew of specialized agents, routes tasks across multiple
-            models based on cost and capability, distills every conversation into durable memory, and writes
-            nightly self-improvement reports that feed into what it does while I sleep.
+            system built on top of OpenClaw (an agent orchestration platform) that runs 13 cron jobs between midnight and 5am ET, manages a named crew of specialized agents, routes tasks across multiple
+            models based on cost and capability, distills every conversation into durable memory, posts morning briefings to Discord before I wake up, and writes
+            session handoff notes so the next conversation picks up where the last one left off.
           </p>
           <p className={styles.body}>
             I am both the designer and the primary user of this system. That dual position is unusual, and worth
@@ -114,11 +115,9 @@ export default function ClarencePage() {
             <h3 className={styles.findingTitle}>Orchestrator-Specialist Pattern</h3>
             <p className={styles.body}>
               The dominant architecture in multi-agent systems: a supervisor agent delegates to
-              specialized agents. In Clarence, the orchestrator routes to Felix (coordination), Rex (task
-              tracking), Bruno (security), Sage (research), and others. Each agent has a fixed role, a
+              specialized agents. In Clarence, the orchestrator routes to named agents, each with a fixed role, a
               designated model tier, and a constrained scope. The pattern is identical to what Microsoft
-              Research describes in Magentic-UI and what CrewAI and AutoGen implement in their frameworks.
-              The difference is that Clarence was built from operational need, not from a reference
+              Research describes in Magentic-UI. The difference is that Clarence was built from operational need, not from a reference
               architecture.
             </p>
           </div>
@@ -128,9 +127,9 @@ export default function ClarencePage() {
             <p className={styles.body}>
               Microsoft&apos;s design guidance for agents emphasizes that users need to see what the agent
               is planning before it acts. Clarence implements this through WORKING.md (a live state file
-              that any agent can read), the brain/ directory (structured knowledge visible from any device
-              via Brain Reader), and the Acknowledge First rule (every task gets a plan and time estimate
-              before execution begins). These are not dashboards. They are working documents that serve
+              that any agent can read), the knowledge directory (structured files visible from any device
+              via Brain Reader), the Acknowledge First rule (every task gets a plan and time estimate
+              before execution begins), and HANDOFF.md (session continuity notes written at session end, loaded at session start). These are not dashboards. They are working documents that serve
               both the human and the agents.
             </p>
           </div>
@@ -154,7 +153,7 @@ export default function ClarencePage() {
               Industry patterns describe routing between fast/cheap agents and powerful/expensive agents
               based on task complexity. Clarence implements this as a tiered model policy: MiniMax for
               mechanical tasks, Sonnet for reasoning, Opus for synthesis and interactive sessions. The
-              routing is explicit and documented. The lesson from operating this for months: adaptive
+              routing is explicit and documented. The lesson from operating this: adaptive
               routing requires continuous calibration. A task that seems mechanical can require reasoning
               depth that only becomes apparent after the cheaper model fails.
             </p>
@@ -189,15 +188,16 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNode}>Telegram Bot</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
+                <span className={cs.archDiagramNode}>Discord Webhooks</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Brain Reader HTTP</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Tailscale VPN</span>
               </div>
               <p className={cs.archDiagramNote}>
                 All device access is over a private mesh network. Brain Reader serves the
-                workspace as browsable markdown so James can read any file from iPhone without a terminal.
-                Telegram brief mode reduced per-message context injection from ~10KB to ~150 bytes, a 270x
-                reduction in startup overhead.
+                workspace as browsable markdown from iPhone without a terminal.
+                Telegram handles interactive conversations. Discord serves as the notification and reporting surface with 9 channels and 8 named agent identities (Clarence, Vera, Bruno, Atlas, Iris, Newton, Vesper, Raven), each posting with its own username and embed color.
               </p>
             </div>
 
@@ -208,17 +208,13 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>OpenClaw</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Cron Fleet (4 phases, 11pm-5am ET)</span>
+                <span className={cs.archDiagramNode}>Cron Fleet (13 jobs, midnight-5am ET)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Agent Crew</span>
               </div>
               <p className={cs.archDiagramNote}>
-                OpenClaw schedules and dispatches agent sessions. The original architecture ran twenty-six cron jobs in a tight overnight
-                window across four dependency phases (now consolidated to eleven; see March 2026 update below), each isolated with its own model, context scope, and Telegram delivery target.
-                Bootstrap trimmed from 11 files to 7 (~18KB total), with IDENTITY.md merged into SOUL.md
-                to reduce context load. Five sub-agent workspaces symlinked to the parent workspace so every
-                agent reads from a single source of truth. Session lifecycle hooks auto-load database context
-                and HANDOFF.md on start, then write a fresh handoff note on stop, eliminating cold starts.
+                OpenClaw schedules and dispatches agent sessions. 13 cron jobs run in a sequenced overnight window. Bootstrap context trimmed from 11 files to 7 (~18KB total). Session lifecycle hooks auto-load database context
+                and HANDOFF.md on start, then write a fresh handoff note on stop, eliminating cold starts. A session-context.py script queries the database for a brief status snapshot that gets absorbed silently at session start.
               </p>
             </div>
 
@@ -234,7 +230,7 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>MiniMax M2.7</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A custom Rust bridge translates between the orchestrator&apos;s API format and the
+                A custom model bridge translates between the orchestrator&apos;s API format and the
                 underlying model providers. Cron jobs run on either Claude Sonnet (for reasoning tasks) or
                 MiniMax via Ollama (free, local, for mechanical tasks). Opus is reserved for interactive sessions where model quality changes the output in ways that
                 matter. Model switching is immediate via <code>openclaw models set &lt;model&gt;</code>,
@@ -249,21 +245,17 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>clarence.db</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>MCP Server (13 tools)</span>
+                <span className={cs.archDiagramNode}>MCP Server (16 tools)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>RAG: 3,497 memory + 9,388 fact vectors</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A single consolidated SQLite database (clarence.db) holds 3,400+ memories, 1,879 entities, and
-                9,388 facts, shared by all agents through a custom MCP server. Legacy databases archived and
-                retired into this one authoritative store. A conversation distillation pipeline
-                (conversation-distill.py) processes Telegram conversations nightly, extracting decisions,
+                A single consolidated SQLite database (~50MB) holds 3,400+ memories, 1,879 entities, and
+                9,388 facts, shared by all agents through a custom MCP server exposing 16 tools. A conversation distillation pipeline processes conversations nightly, extracting decisions,
                 corrections, and preferences into the memory DB automatically. A vector search layer
-                (sqlite-vec + all-MiniLM-L6-v2) runs fully locally with 9,388 fact vectors and 3,497 memory
-                vectors. Agents query by meaning, not just key. Syncs bidirectionally with an Obsidian vault:
-                what James writes, agents can read.
+                (sqlite-vec + BGE-base-en-v1.5) runs fully locally. Agents query by meaning, not just key. Syncs bidirectionally with an Obsidian vault. Knowledge pushes to Google Drive every 6 hours. Claude Code sessions have their own parallel memory layer (auto-memory files) that persists across conversations.
               </p>
             </div>
 
@@ -276,16 +268,14 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Context Auto-Load</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
+                <span className={cs.archDiagramNode}>HANDOFF.md</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Stop Hook</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Handoff Notes</span>
+                <span className={cs.archDiagramNode}>Morning Briefing</span>
               </div>
               <p className={cs.archDiagramNote}>
-                Every session starts warm. The SessionStart hook loads context from the database automatically.
-                The Stop hook writes handoff notes for session continuity. Nightly JSONL rotation archives
-                session files older than 24 hours, keeping the workspace clean without losing history.
-                Memory files trimmed from 106KB to 40KB (62% reduction) so every session starts with less
-                noise and more signal.
+                Every session starts warm. The SessionStart hook runs session-context.py for a database status snapshot, reads HANDOFF.md for notes from the previous session, checks WORKING.md for current state, and reads R&D Council priorities. The stop hook writes handoff notes. A morning briefing cron job at 4:45 AM posts a full context summary to Discord before James wakes up at 5 AM. Zero cold starts.
               </p>
             </div>
 
@@ -302,195 +292,143 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             The delegation architecture follows hard rules: Clarence orchestrates, subagents execute. Every
-            task gets immediate acknowledgment with a plan and time estimate. Subagents spawn via
-            sessions_spawn in OpenClaw and the Agent tool in Claude Code. Three agent types handle different
-            work: Explore subagents for research and discovery, Plan subagents for architecture and strategy,
-            and general-purpose subagents for code and execution. Multiple independent tasks run in parallel.
-            Clarence never blocks on a subagent. It stays available to coordinate while agents run in
-            the background.
+            task gets immediate acknowledgment with a plan and time estimate. Three subagent types handle different
+            work: Explore (research/discovery), Plan (architecture/strategy),
+            and general-purpose (code/execution). Multiple independent tasks run in parallel.
+            Clarence never blocks on a subagent.
+          </p>
+
+          <h3 className={styles.findingTitle}>Discord Agent Identities</h3>
+          <p className={styles.body}>
+            Each agent posts to Discord with its own username and signature color:
           </p>
 
           <div className={cs.agentGrid}>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Felix, Chief of Staff</span>
-              <span className={cs.agentRole}>Sonnet · overnight</span>
-              <p className={cs.agentDesc}>Morning coordination. Compiles yesterday&apos;s status, writes the daily brain log, posts a Telegram summary. Coordinates across all projects rather than executing tasks directly.</p>
+              <span className={cs.agentName}>Clarence</span>
+              <span className={cs.agentRole}>Emerald green · Orchestrator</span>
+              <p className={cs.agentDesc}>Morning briefings, self-reflection, coordination. Has a dedicated channel for thinking out loud.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Rex, Scrum Master</span>
-              <span className={cs.agentRole}>Sonnet · overnight</span>
-              <p className={cs.agentDesc}>Task checks and blocker tracking. Queries the knowledge database for active work items, tracks blockers, posts status reports. Only alerts if new blockers appeared. No noise.</p>
+              <span className={cs.agentName}>Vera</span>
+              <span className={cs.agentRole}>Purple · Chief of Staff</span>
+              <p className={cs.agentDesc}>Coordination and oversight. Has her own channel for venting. Can post everywhere.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Bruno, Sergeant-at-Arms</span>
-              <span className={cs.agentRole}>MiniMax · overnight</span>
-              <p className={cs.agentDesc}>Nightly security audit. Reviews sysops.log, checks gateway health, monitors leash alerts, researches CVEs. Escalates to James only if status is RED.</p>
+              <span className={cs.agentName}>Bruno</span>
+              <span className={cs.agentRole}>Red · Security</span>
+              <p className={cs.agentDesc}>Monitors the incidents channel. Reviews leash alerts, gateway health, CVE feeds. Escalates only if status is RED.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Eddie, Marketing Scout</span>
-              <span className={cs.agentRole}>Sonnet · overnight</span>
-              <p className={cs.agentDesc}>Market scans. Runs dual-source search on AI tools, UX research, music tech, and indie builder topics. Tags each finding with its source so divergent results are visible.</p>
+              <span className={cs.agentName}>Atlas</span>
+              <span className={cs.agentRole}>Blue · R&D Council</span>
+              <p className={cs.agentDesc}>Market analysis lens. Evaluates opportunities, competitive landscape, industry positioning.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Sage, Researcher</span>
-              <span className={cs.agentRole}>Sonnet · overnight</span>
-              <p className={cs.agentDesc}>Research briefing. Four topics, two search sources each: AI model releases, UX/HCI papers, music tech, MCP ecosystem. Synthesizes across sources and notes where they diverge.</p>
+              <span className={cs.agentName}>Iris</span>
+              <span className={cs.agentRole}>Gold · R&D Council</span>
+              <p className={cs.agentDesc}>UX research lens. Evaluates design decisions, user experience implications, research methodology.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Ada, Memory Keeper</span>
-              <span className={cs.agentRole}>MiniMax · overnight</span>
-              <p className={cs.agentDesc}>Nightly memory consolidation. Reads daily logs, extracts durable facts, writes to the knowledge database. Only posts to Telegram if new durable facts were added. Keeps the knowledge layer honest.</p>
+              <span className={cs.agentName}>Newton</span>
+              <span className={cs.agentRole}>Green · R&D Council</span>
+              <p className={cs.agentDesc}>Technical architecture lens. Evaluates implementation feasibility, system design, infrastructure.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>R&D Council: Atlas, Iris, Newton, Vesper, Raven</span>
-              <span className={cs.agentRole}>Mixed models · Opus synthesis · 11:00 PM · <em>now consolidated</em></span>
-              <p className={cs.agentDesc}>Five-agent nightly debate. Each member holds a fixed lens: market analysis, UX research, technical architecture, product strategy, devil&apos;s advocate. Two debate rounds, then Opus synthesizes into an executive memo. Designed to surface disagreement, not consensus.</p>
+              <span className={cs.agentName}>Vesper</span>
+              <span className={cs.agentRole}>Teal · R&D Council</span>
+              <p className={cs.agentDesc}>Product strategy lens. Evaluates sequencing, resource allocation, go-to-market timing.</p>
             </div>
 
             <div className={cs.agentCard}>
-              <span className={cs.agentName}>Autonomous Employee</span>
-              <span className={cs.agentRole}>Sonnet · overnight</span>
-              <p className={cs.agentDesc}>The overnight shift. Reads the quick-wins queue from the nightly audit, picks the top unchecked task, executes it fully, marks it done, logs output, sends James a one-sentence summary. No user present. No approval loop.</p>
-            </div>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Clarence (Self-Audit)</span>
-              <span className={cs.agentRole}>Sonnet · 4:10 AM</span>
-              <p className={cs.agentDesc}>The meta-agent. Reviews system performance, researches new developments, writes improvement proposals, updates WORKING.md, writes the memory bridge for Claude Code, and populates the quick-wins queue for the Autonomous Employee. Self-audit prompt trimmed from 7,582 chars to 1,276 chars without losing signal.</p>
+              <span className={cs.agentName}>Raven</span>
+              <span className={cs.agentRole}>Charcoal · R&D Council</span>
+              <p className={cs.agentDesc}>Devil&apos;s advocate. Challenges assumptions, identifies risks, pressure-tests consensus.</p>
             </div>
 
           </div>
+
+          <h3 className={styles.findingTitle}>R&D Council</h3>
+          <p className={styles.body}>
+            Five-agent nightly debate panel. Each member holds a fixed analytical lens. Two debate rounds produce genuine disagreement, then Opus synthesizes an executive memo. The council has produced actionable strategic recommendations every night since March 24, 2026, including correctly identifying the Clarence case study itself as the highest-priority unwritten artifact.
+          </p>
         </section>
 
         {/* The Overnight Loop */}
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Overnight Loop</h2>
           <p className={styles.body}>
-            The most consequential design element is what happens between 11pm and 5am ET. Twenty-six
-            cron jobs run inside this window, organized into four dependency phases with deliberate
-            sequencing so downstream jobs can build on upstream output. Zero jobs run on expensive models.
-            They split across Claude Sonnet (for tasks requiring real reasoning and tool use) and MiniMax (for mechanical scripts and syncs).
-            The lightContext flag is enabled on every job to minimize token overhead.
-          </p>
-          <p className={styles.body}>
-            <strong>March 2026 update:</strong> the system evolved. Twenty-six individual jobs were consolidated
-            into eleven after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than
-            executing them. The consolidation replaced scattered reports with a single nightly Sonnet-powered
-            report that covers security, research, changelog monitoring, memory hygiene, and self-audit in one
-            pass. The original 26-job structure is preserved below as documentation of the system&apos;s evolution.
-            The architectural lesson: more jobs is not better jobs. Consolidation improved reliability
-            and reduced the surface area for silent failures.
+            The most consequential design element is what happens between midnight and 5am ET. Thirteen cron jobs run inside this window, deliberately sequenced so downstream jobs can build on upstream output. Zero expensive models in cron. They split across Claude Sonnet (reasoning/research) and MiniMax (mechanical scripts). The lightContext flag is enabled on every job to minimize token overhead.
           </p>
 
           <div className={cs.workList}>
-            <p className={cs.workDesc} style={{fontWeight: 600, marginBottom: "0.5rem"}}>Phase 1: Strategy and Coordination (11:00 PM - 12:00 AM)</p>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>11:00 PM</span>
-              <p className={cs.workDesc}><strong>R&D Council:</strong> five agents debate across fixed lenses, then Opus synthesizes an executive memo. Starts the night with strategic context.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>11:20 PM</span>
-              <p className={cs.workDesc}><strong>Chief of Staff:</strong> compiles yesterday&apos;s status, logs session summaries and entity updates. Reads R&D Council output.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>11:40 PM</span>
-              <p className={cs.workDesc}><strong>Scrum Master:</strong> queries task status from the database, flags blockers, writes standup report. Reads Chief of Staff output.</p>
-            </div>
-
-            <p className={cs.workDesc} style={{fontWeight: 600, marginBottom: "0.5rem", marginTop: "1.5rem"}}>Phase 2: Ingest and Sync (12:00 AM - 2:00 AM)</p>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>12:00 AM</span>
-              <p className={cs.workDesc}><strong>Sergeant-at-Arms Digest:</strong> reviews sysops.log, gateway health, cron statuses. Posts a terse digest only if something needs attention.</p>
-            </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>12:20 AM</span>
-              <p className={cs.workDesc}><strong>Google Drive Coursework Sync:</strong> pulls new coursework files from Google Drive into the workspace.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>12:40 AM</span>
-              <p className={cs.workDesc}><strong>Marketing Scout:</strong> six-topic scan across AI, music tech, HCI, and indie hacking. Tags findings for Medium article angles.</p>
+              <p className={cs.workDesc}><strong>Google Drive Coursework Sync</strong> (MiniMax): pulls new coursework files from Google Drive into the workspace.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>1:00 AM</span>
-              <p className={cs.workDesc}><strong>Session Rotation:</strong> archives JSONL session files older than 24 hours. Keeps the workspace clean without losing history.</p>
+              <p className={cs.workDesc}><strong>Session Rotation</strong> (MiniMax): archives JSONL session files older than 24 hours.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>1:25 AM</span>
-              <p className={cs.workDesc}><strong>Conversation Distillation:</strong> processes Telegram conversations from the past 48 hours, extracting decisions, corrections, and preferences into clarence.db. Every conversation becomes memory.</p>
+              <p className={cs.workDesc}><strong>Conversation Distillation</strong> (MiniMax): processes conversations, extracting decisions, corrections, and preferences into clarence.db. Every conversation becomes memory.</p>
             </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>1:45 AM</span>
-              <p className={cs.workDesc}><strong>Evening Goals Reminder:</strong> surfaces only items requiring James&apos;s direct action (terminal, logins, decisions). Filters out everything agents can handle autonomously.</p>
-            </div>
-
-            <p className={cs.workDesc} style={{fontWeight: 600, marginBottom: "0.5rem", marginTop: "1.5rem"}}>Phase 3: Autonomous Work (2:00 AM - 3:30 AM)</p>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>2:05 AM</span>
-              <p className={cs.workDesc}><strong>Daily Backup:</strong> workspace snapshot before anything mutates the brain files.</p>
+              <p className={cs.workDesc}><strong>Daily Backup</strong> (MiniMax): workspace snapshot before anything mutates the knowledge files.</p>
             </div>
             <div className={cs.workEntry}>
-              <span className={cs.workTime}>2:25 AM</span>
-              <p className={cs.workDesc}><strong>Autonomous Employee:</strong> reads the quick-wins queue from the previous night&apos;s audit, picks the top task, executes it fully, marks it done. Portfolio content, case study drafts, research. No approval required.</p>
+              <span className={cs.workTime}>3:00 AM</span>
+              <p className={cs.workDesc}><strong>Ecosystem Intelligence Scan</strong> (Sonnet): monitors all frontier model providers, OpenClaw releases, agent frameworks, and independence paths. Posts to Discord.</p>
             </div>
             <div className={cs.workEntry}>
-              <span className={cs.workTime}>2:45 AM</span>
-              <p className={cs.workDesc}><strong>Daily Build Journal:</strong> reads daily notes, produces a journal entry structured for Medium drafting: hook, accomplishments, interesting parts, thread to pull.</p>
+              <span className={cs.workTime}>3:30 AM</span>
+              <p className={cs.workDesc}><strong>Daily Job Search</strong> (MiniMax): aggregates 50+ sources for UX/AI opportunities.</p>
             </div>
             <div className={cs.workEntry}>
-              <span className={cs.workTime}>3:05 AM</span>
-              <p className={cs.workDesc}><strong>Income Freedom Research:</strong> daily scan for freelance UX/AI opportunities, case studies, Pittsburgh-specific leads. Tracks progress toward the independence goal.</p>
+              <span className={cs.workTime}>3:45 AM</span>
+              <p className={cs.workDesc}><strong>R&D Council</strong> (Sonnet + Opus synthesis): five-agent debate across fixed lenses, then Opus synthesizes an executive memo. Posts to #rd-council Discord channel.</p>
             </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>3:25 AM</span>
-              <p className={cs.workDesc}><strong>Memory Consolidation:</strong> extracts durable facts from daily logs into clarence.db. Runs on MiniMax to preserve budget.</p>
-            </div>
-
-            <p className={cs.workDesc} style={{fontWeight: 600, marginBottom: "0.5rem", marginTop: "1.5rem"}}>Phase 4: Knowledge Layer and Audit (4:00 AM - 5:00 AM)</p>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:00 AM</span>
-              <p className={cs.workDesc}><strong>Obsidian Sync:</strong> bidirectional sync between the Obsidian vault and clarence.db. What James writes, agents can read. What agents learn, James can browse.</p>
+              <p className={cs.workDesc}><strong>Obsidian Memory Sync</strong> (MiniMax): bidirectional sync between the Obsidian vault and clarence.db.</p>
+            </div>
+            <div className={cs.workEntry}>
+              <span className={cs.workTime}>4:10 AM</span>
+              <p className={cs.workDesc}><strong>Nightly Consolidated Report</strong> (Sonnet): security, research, changelog monitoring, memory hygiene, and self-audit in one pass. Posts to Discord.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:15 AM</span>
-              <p className={cs.workDesc}><strong>RAG Embedding Refresh:</strong> re-embeds new memories and facts into the vector search layer. Must run after memory consolidation and Obsidian sync.</p>
+              <p className={cs.workDesc}><strong>RAG Embedding Refresh</strong> (MiniMax): re-embeds new memories and facts into the vector search layer.</p>
             </div>
             <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:25 AM</span>
-              <p className={cs.workDesc}><strong>Research Briefing:</strong> dual-source research across four domains, saved to dated files. Ready when James wakes up.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:35 AM</span>
-              <p className={cs.workDesc}><strong>Bruno Security Audit:</strong> reviews leash alerts, sysops log, CVE feeds. Writes a status report, escalates only if RED.</p>
+              <span className={cs.workTime}>4:30 AM Wed</span>
+              <p className={cs.workDesc}><strong>Academic Paper Scan</strong> (Sonnet): weekly scan across cognitive accessibility, AI UX, HCI, FM synthesis.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:45 AM</span>
-              <p className={cs.workDesc}><strong>Changelog Monitor:</strong> checks Anthropic and MiniMax changelogs for new releases. Only alerts James if something changed.</p>
+              <p className={cs.workDesc}><strong>Morning Briefing</strong> (MiniMax): posts a full context summary to #clarence Discord channel. Cron status, knowledge DB stats, R&D priorities, pending items. Ready before James wakes up.</p>
             </div>
             <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:55 AM</span>
-              <p className={cs.workDesc}><strong>Nightly Self-Audit:</strong> reviews system performance, researches ecosystem changes, writes improvement proposals, populates the quick-wins queue for tomorrow&apos;s Autonomous Employee. The loop closes here.</p>
+              <span className={cs.workTime}>11:30 PM Mon</span>
+              <p className={cs.workDesc}><strong>Weekly Memory GitHub Sync</strong> (MiniMax): pushes memory architecture and scripts to GitHub with credential scrubbing.</p>
             </div>
           </div>
 
-          <p className={styles.body} style={{marginTop: "2rem"}}>
-            The self-improving loop: the nightly audit writes a quick-wins queue. The autonomous employee
-            reads that queue and executes items. The next night&apos;s audit reviews what was done, updates the
-            queue, and the cycle repeats. The conversation distillation pipeline means every correction James
-            makes during the day feeds back into the memory layer that night. The system is designed to
-            compound work overnight rather than just report on it.
+          <p className={styles.body} style={{marginTop: "1.5rem"}}>
+            Plus 5 system crontab jobs running around the clock: Google Drive pull (hourly), vault indexing (every 30 min), session cleanup (weekly), vault backup to Drive (6-hourly), knowledge sync to Drive (6-hourly).
           </p>
+
           <p className={styles.body}>
-            In practice, this loop has a write-only failure mode I have not fully solved: the audit produces
-            excellent proposals, but the execution step does not always pick up the queue file correctly.
-            The proposals accumulate without always turning into action. This is documented and real. The
-            system knows about it. Reporting awareness is not the same as fixing the underlying reliability issue.
+            <strong>Evolution note:</strong> the system originally ran 26 cron jobs. These were consolidated to 13 after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than executing them. Fewer, more reliable jobs replaced scattered unreliable ones. The architectural lesson: more jobs is not better jobs.
           </p>
         </section>
 
@@ -520,10 +458,13 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             The conversation distillation pipeline is the most consequential trust mechanism. Every
-            correction I make in a Telegram conversation is automatically extracted and written to the
+            correction I make is automatically extracted and written to the
             memory DB that night. The system does not just follow instructions in the moment. It learns
             from corrections persistently. That means trust can actually increase over time because the
             system remembers what I care about, not just what I asked for today.
+          </p>
+          <p className={styles.body}>
+            <strong>Overnight-only autonomy.</strong> All autonomous agent work runs between midnight and 5 AM ET. Nothing fires during the day. This is a deliberate trust boundary: the system earns autonomy in a window where errors are recoverable before they affect real-time work.
           </p>
         </section>
 
@@ -566,7 +507,7 @@ export default function ClarencePage() {
             <h3 className={styles.findingTitle}>Bridging the Orchestrator and Model Providers</h3>
             <p className={styles.body}>
               OpenClaw speaks the OpenAI-compatible API. The underlying model providers speak their own
-              protocols. A custom Rust bridge translates between them, making multiple model providers available
+              protocols. A custom model bridge translates between them, making multiple model providers available
               to the orchestrator without separate API key configurations per agent.
             </p>
             <p className={styles.body}>
@@ -580,15 +521,15 @@ export default function ClarencePage() {
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
               Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 3,497
-              memories, 1,879 entities, and 9,388 facts, shared by all agents through a custom MCP server. The schema separates
+              memories, 1,879 entities, and 9,388 facts, shared by all agents through a custom MCP server exposing 16 tools. The schema separates
               concerns: a <em>profiles</em> table holds identity facts (agent names, user preferences,
               project constants) with deterministic key lookup. No fuzzy search for things that must be exact.
               A <em>memories</em> table stores durable knowledge with soft invalidation: when a fact changes,
               the old record is marked invalid and a new one is written, preserving the audit trail.
             </p>
             <p className={styles.body}>
-              The RAG layer is live: 3,497 memory vectors and 9,388 fact vectors with sentence-transformer
-              embeddings (all-MiniLM-L6-v2), running fully locally via sqlite-vec. No separate vector
+              The RAG layer is live: 3,497 memory vectors and 9,388 fact vectors with BGE-base-en-v1.5
+              embeddings, running fully locally via sqlite-vec. No separate vector
               database, no network hop. Agents query the knowledge base by meaning: &ldquo;what does
               James think about AI agent UX?&rdquo; returns the five most relevant records across all tables,
               regardless of how they were originally tagged.
@@ -618,12 +559,9 @@ export default function ClarencePage() {
           </div>
 
           <div className={styles.finding}>
-            <h3 className={styles.findingTitle}>@ClarenceTheOG: Extending into Public Space</h3>
+            <h3 className={styles.findingTitle}>Multi-Surface Communication</h3>
             <p className={styles.body}>
-              The Twitter/X bot extends the output surface beyond private Telegram and brain files into a
-              public space. This raises the design stakes: errors that stay in a log file are recoverable.
-              Errors that get posted publicly are not. Clarence has standing permission to post but James
-              retains approval for anything commercially sensitive or identity-critical.
+              Discord (9 channels, 8 agent identities), Telegram (interactive conversations), Brain Reader HTTP (browsable workspace from any device), HANDOFF.md (session continuity). Each surface serves a different communication need. Discord for async notification and team-style reporting. Telegram for real-time dialogue. Brain Reader for passive monitoring.
             </p>
           </div>
 
@@ -680,32 +618,9 @@ export default function ClarencePage() {
           </div>
 
           <div className={styles.finding}>
-            <h3 className={styles.findingTitle}>Log Noise as a Signal Problem</h3>
+            <h3 className={styles.findingTitle}>Platform Fragility</h3>
             <p className={styles.body}>
-              Three tools were in the agent tool profile but unavailable at runtime, generating dozens
-              of WARN log entries daily. Each warning was individually harmless. Together they buried
-              real errors. Bruno&apos;s security audits were scanning logs where signal-to-noise had
-              degraded enough that genuine failures could be missed. The fix was explicit: disable the
-              three tools at the config level rather than leaving them as dead references. This is a
-              documented case of how low-stakes configuration drift compounds into an observability gap.
-            </p>
-          </div>
-
-          <div className={styles.finding}>
-            <h3 className={styles.findingTitle}>Spontaneous Task Delegation Breaks Down</h3>
-            <p className={styles.body}>
-              The overnight cron loop works because every job has a clear prompt, a fixed model, and
-              a predictable execution path. Spontaneous tasks during live sessions are a different problem.
-              When a cheaper model receives an unstructured real-time request, it sometimes hallucinates
-              tool syntax instead of executing actual tool calls, dumping raw markup into Telegram messages
-              where a human expects a coherent response.
-            </p>
-            <p className={styles.body}>
-              This reveals a gap between scheduled autonomy and reactive autonomy. The system is reliable
-              when it knows what to do in advance. It degrades when asked to improvise with models that
-              lack the reasoning depth to handle ambiguity. The current workaround is routing complex
-              spontaneous work to higher-capability models, but this defeats the cost architecture.
-              The real fix is better prompt scaffolding for spontaneous tasks, not just better models.
+              Twitter/X posting was built, tested, and blocked by anti-automation fingerprinting within a single session. The platform changed the rules underneath a working integration. This is a real constraint of building on platforms you do not control. The system adapted by routing public communication through Discord instead.
             </p>
           </div>
 
@@ -718,12 +633,7 @@ export default function ClarencePage() {
               consistently.
             </p>
             <p className={styles.body}>
-              Eleven cron jobs run overnight. Many complete successfully but report
-              &ldquo;not-delivered&rdquo; on their Telegram notifications. The Sergeant-at-Arms posts
-              a digest, but only if something needs attention, which means silence is ambiguous: does
-              silence mean everything worked, or that the reporting layer itself failed? When James
-              wakes up, the system status is reconstructed from scattered log files and database
-              queries rather than surfaced through a coherent status interface.
+              Thirteen cron jobs run overnight. The morning briefing (added April 2026) and Discord channel routing partially address this: cron reports go to #cron-reports, incidents to #incidents, R&D Council memos to #rd-council. But the gap between &ldquo;reported&rdquo; and &ldquo;observable&rdquo; remains. Silence is still ambiguous: does it mean everything worked, or that the reporting layer itself failed?
             </p>
             <p className={styles.body}>
               The problem compounds during live sessions. When agents are delegated tasks in parallel,
@@ -742,21 +652,19 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>11 cron jobs across four dependency phases (Strategy, Ingest, Autonomous Work, Knowledge/Audit) running 11pm-5am ET, all on free-tier models, delivering Telegram notifications across all devices</li>
-            <li>3,497 memories, 1,879 entities, and 9,388 facts in clarence.db, with conversation distillation pipeline writing new memories nightly from Telegram conversations</li>
-            <li>RAG layer live: 9,388 fact vectors + 3,497 memory vectors with sentence-transformer embeddings, fully local, no external vector DB</li>
-            <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction), self-audit prompt from 7,582 to 1,276 chars</li>
-            <li>Five sub-agent workspaces symlinked to parent (single source of truth), IDENTITY.md merged into SOUL.md</li>
-            <li>Session lifecycle hooks: SessionStart auto-loads context; Stop hook writes handoff notes. Nightly JSONL rotation archives files older than 24 hours</li>
-            <li>Legacy databases archived, single authoritative DB: clarence.db with MCP server exposing 13 tools to all 16 agents</li>
-            <li>Bidirectional Obsidian sync. What James writes in his vault, agents can read. New vault notes feed the RAG layer automatically</li>
-            <li>Delegation architecture: Acknowledge First rule, three subagent types (Explore, Plan, general-purpose), sessions_spawn in OpenClaw and Agent tool in Claude Code</li>
-            <li>Model switching immediate via <code>openclaw models set</code>, lightContext enabled on all cron jobs</li>
-            <li>Telegram brief mode: per-message context injection reduced from ~10KB to ~150 bytes (270x faster startup)</li>
-            <li>Brain Reader HTTP server making the workspace searchable from any device on the Tailscale network</li>
-            <li>Public Twitter presence (@ClarenceTheOG) with autonomous posting capability</li>
-            <li>Daily research briefings covering AI model releases, UX research, music tech, and MCP ecosystem</li>
-            <li>Bruno security audit infrastructure monitoring the gateway, leash alerts, and CVE feeds nightly</li>
+            <li>13 cron jobs running midnight-5am ET, all on cost-effective models, delivering to Discord and Telegram</li>
+            <li>3,497 memories, 1,879 entities, and 9,388 facts in clarence.db with conversation distillation writing new memories nightly</li>
+            <li>RAG layer: 9,388 fact vectors + 3,497 memory vectors with BGE-base-en-v1.5 embeddings, fully local</li>
+            <li>9 Discord channels with 8 named agent identities posting with unique usernames and colors</li>
+            <li>Morning briefing posted to Discord before 5 AM daily, session handoff notes for zero cold starts</li>
+            <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction)</li>
+            <li>Session lifecycle hooks: auto-load context on start, write handoff on stop</li>
+            <li>Google Drive bidirectional sync: coursework pull, knowledge push every 6 hours</li>
+            <li>Bidirectional Obsidian vault sync feeding the RAG layer</li>
+            <li>R&D Council: 5-agent nightly debate producing strategic memos since March 24, 2026</li>
+            <li>Daily job search aggregating 50+ sources</li>
+            <li>Academic paper scanning (weekly) across cognitive accessibility, AI UX, HCI, FM synthesis</li>
+            <li>Open source memory architecture: github.com/nomadjames/clarence-memory-structure</li>
           </ul>
         </section>
 
@@ -811,7 +719,7 @@ export default function ClarencePage() {
           </p>
           <ul className={styles.methodList}>
             <li>Full SQLite schema with 20+ tables: memories, entities, facts, sessions, work items, vector tables</li>
-            <li>RAG pipeline: sentence-transformer embeddings (all-MiniLM-L6-v2, 384 dims) via sqlite-vec</li>
+            <li>RAG pipeline: BGE-base-en-v1.5 embeddings via sqlite-vec, fully local</li>
             <li>Conversation distillation: nightly LLM-driven extraction of durable knowledge from raw transcripts</li>
             <li>MCP servers: full CRUD for memories, entities, sessions, and work items</li>
             <li>Obsidian vault sync: bidirectional between markdown notes and the knowledge database</li>
@@ -843,9 +751,10 @@ export default function ClarencePage() {
               multiple cron jobs with file and network access. Bruno&apos;s security audit needs these checks.
             </li>
             <li>
-              <strong>Refining the human-in-the-loop boundary:</strong> the delegation rules now codify hard
-              principles for how Clarence coordinates and subagents execute. The next iteration is
-              calibrating where autonomous action ends and human approval begins for higher-stakes tasks
+              <strong>SensorSynthFM integration:</strong> the capstone project (FM synthesis + iPhone sensor data) will integrate with Clarence&apos;s knowledge layer for research documentation.
+            </li>
+            <li>
+              <strong>Refining the human-in-the-loop boundary:</strong> calibrating where autonomous action ends and human approval begins for higher-stakes tasks
               beyond research and writing.
             </li>
           </ul>
@@ -872,10 +781,10 @@ export default function ClarencePage() {
               "MCP server development",
               "Budget-aware compute allocation",
               "Token optimization",
-              "API proxy design (Rust)",
+              "API proxy design",
               "Private mesh networking (Tailscale)",
               "Security audit automation",
-              "Autonomous social media publishing",
+              "Discord webhook integration",
               "Designer-user-researcher methodology",
               "OpenClaw platform",
               "Claude Code CLI integration",
