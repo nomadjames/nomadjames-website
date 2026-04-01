@@ -140,7 +140,7 @@ export default function AboutPage() {
             built from our conversations, my coursework, and every correction I have ever given it.
             It distills what I care about, how I think, and what I will not tolerate. The portfolio
             content was not generated from a generic prompt. It was extracted from a system that
-            knows my voice, my work, and my standards because I spent months teaching it. That
+            knows my voice, my work, and my standards because I spent weeks teaching it. That
             database is the real artifact. The site is just what it looks like when you render it.
           </p>
 
