@@ -6,7 +6,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with 14 cron jobs, 8 named agent identities across 9 Discord channels, a SQLite knowledge database spanning 3,978 memories, 1,880 entities, and 9,403 facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with 14 cron jobs, 8 named agent identities across 9 Discord channels, a SQLite knowledge database spanning 4,044 memories, 1,880 entities, and 7,095 facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
 };
 
 export default function ClarencePage() {
@@ -55,7 +55,7 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built a multi-agent autonomous AI system that runs 14 cron jobs nightly, manages a knowledge base spanning 3,978 memories, 1,880 entities, and 9,403 facts with full vector search, routes tasks across multiple models by cost and capability, and posts status reports to 9 Discord channels through 8 named agent identities. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
+          I built a multi-agent autonomous AI system that runs 14 cron jobs nightly, manages a knowledge base spanning 4,044 memories, 1,880 entities, and 7,095 facts with full vector search, routes tasks across multiple models by cost and capability, and posts status reports to 9 Discord channels through 8 named agent identities. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
@@ -65,7 +65,7 @@ export default function ClarencePage() {
             <span className={cs.statLabel}>Active cron jobs</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>3,978</span>
+            <span className={cs.statNum}>4,044</span>
             <span className={cs.statLabel}>Memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
@@ -252,13 +252,13 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>MCP Server (16 tools)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>RAG: 3,978 memory + 9,403 fact vectors</span>
+                <span className={cs.archDiagramNode}>RAG: 4,044 memory + 7,095 fact vectors</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A single consolidated SQLite database (~50MB) holds 3,901 active memories, 1,880 entities, and
-                7,106 active facts, shared by all agents through a custom MCP server exposing 16 tools. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. A conversation distillation pipeline processes conversations nightly, extracting decisions,
+                A single consolidated SQLite database (~50MB) holds 4,044 active memories, 1,880 entities, and
+                7,095 active facts, shared by all agents through a custom MCP server exposing 16 tools. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. A conversation distillation pipeline processes conversations nightly, extracting decisions,
                 corrections, and preferences into the memory DB automatically. A vector search layer
                 (sqlite-vec + all-MiniLM-L6-v2, 384-dim) runs fully locally. Agents query by meaning, not just key. Syncs bidirectionally with an Obsidian vault. Knowledge pushes to Google Drive every 6 hours. Claude Code sessions have their own parallel memory layer (auto-memory files) that persists across conversations.
               </p>
@@ -529,15 +529,15 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 3,978
-              memories, 1,880 entities, and 9,403 facts, shared by all agents through a custom MCP server exposing 16 tools. The schema separates
+              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 4,044
+              memories, 1,880 entities, and 7,095 facts, shared by all agents through a custom MCP server exposing 16 tools. The schema separates
               concerns: a <em>profiles</em> table holds identity facts (agent names, user preferences,
               project constants) with deterministic key lookup. No fuzzy search for things that must be exact.
               A <em>memories</em> table stores durable knowledge with soft invalidation: when a fact changes,
               the old record is marked invalid and a new one is written, preserving the audit trail.
             </p>
             <p className={styles.body}>
-              The RAG layer is live: 3,901 memory vectors and 7,106 fact vectors with all-MiniLM-L6-v2
+              The RAG layer is live: 4,044 memory vectors and 7,095 fact vectors with all-MiniLM-L6-v2
               embeddings (384-dim), running fully locally via sqlite-vec. Automated garbage collection prunes low-value catalog data while preserving all behavioral corrections and user knowledge. No separate vector
               database, no network hop. Agents query the knowledge base by meaning: &ldquo;what does
               James think about AI agent UX?&rdquo; returns the five most relevant records across all tables,
@@ -547,7 +547,7 @@ export default function ClarencePage() {
               The conversation distillation pipeline (conversation-distill.py) processes Telegram
               conversations nightly, extracting decisions, corrections, and preferences into the memory DB.
               This is what makes the memory system feel alive rather than static. James corrects something
-              once in conversation, and it persists. The knowledge base grew from ~170 to 3,978 memories
+              once in conversation, and it persists. The knowledge base grew from ~170 to 4,044 memories
               in part because this pipeline captures context that would otherwise evaporate. A retrieval feedback loop lets sessions flag results as useful or noise, creating a learning signal for future garbage collection.
             </p>
             <p className={styles.body}>
@@ -618,7 +618,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Memory Growth Without Garbage Collection</h3>
             <p className={styles.body}>
-              The knowledge base grew from ~170 to 3,978 memories. The conversation distillation pipeline
+              The knowledge base grew from ~170 to 4,044 memories. The conversation distillation pipeline
               accelerated that growth. But more memories does not automatically mean better recall. As the
               database scales, the vector search returns increasingly similar results, and the signal-to-noise
               ratio in retrieved context degrades. Memory needs pruning and consolidation, not just
@@ -662,8 +662,8 @@ export default function ClarencePage() {
 
           <ul className={styles.methodList}>
             <li>14 cron jobs running midnight-5am ET, all on cost-effective models, delivering to Discord and Telegram</li>
-            <li>3,901 active memories, 1,880 entities, and 7,106 active facts in clarence.db with conversation distillation, automated GC, and retrieval feedback loop</li>
-            <li>RAG layer: 7,106 fact vectors + 3,901 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim), fully local</li>
+            <li>4,044 active memories, 1,880 entities, and 7,095 active facts in clarence.db with conversation distillation, automated GC, and retrieval feedback loop</li>
+            <li>RAG layer: 7,095 fact vectors + 4,044 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim), fully local</li>
             <li>9 Discord channels with 8 named agent identities posting with unique usernames and colors</li>
             <li>Morning briefing posted to Discord before 5 AM daily, session handoff notes for zero cold starts</li>
             <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction)</li>
@@ -686,7 +686,7 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             On April 4, 2026, I received an email from Anthropic. Starting that afternoon, third-party
-            harnesses — including OpenClaw, the orchestration platform Clarence ran on — would no longer
+            harnesses, including OpenClaw, the orchestration platform Clarence ran on, would no longer
             be covered by the Max subscription. Those tools would require &ldquo;extra usage,&rdquo; a
             separate pay-as-you-go billing layer. The subscription still covered Claude Code and Claude&apos;s
             own products, but anything running through a third-party harness was now out of bounds.
@@ -714,15 +714,15 @@ export default function ClarencePage() {
             <h3 className={styles.findingTitle}>The Migration: OpenClaw to Hermes</h3>
             <p className={styles.body}>
               The response was not to abandon the architecture. It was to migrate it to a platform that
-              Anthropic still supported. Hermes is an agent gateway that connects to Claude via OAuth — the
+              Anthropic still supported. Hermes is an agent gateway that connects to Claude via OAuth, the
               same authentication path Claude Code uses. It runs its own Telegram bot, its own session
               management, its own memory layer. The migration happened on April 2, before the email arrived.
               I had already felt the pressure and started moving.
             </p>
             <p className={styles.body}>
               The new Telegram bot was named Franklin. Clarence stayed as the original identity on OpenClaw.
-              Franklin became the Hermes-side agent — same persona, different infrastructure. The memory
-              database, the cron jobs, the Discord webhooks, the overnight loop — all of it migrated. Not
+              Franklin became the Hermes-side agent, same persona, different infrastructure. The memory
+              database, the cron jobs, the Discord webhooks, the overnight loop: all of it migrated. Not
               seamlessly. There were broken configs, zombie processes, token lock race conditions. But by
               the end of Wednesday night, Franklin was live on Telegram and Hermes was running.
             </p>
@@ -737,13 +737,13 @@ export default function ClarencePage() {
               credits. Running everything through MiniMax would sacrifice quality.
             </p>
             <p className={styles.body}>
-              The solution was an MCP bridge — a custom Python server that sits between Claude Code and the
+              The solution was an MCP bridge, a custom Python server that sits between Claude Code and the
               rest of the system. It exposes three tools:
             </p>
             <ul className={styles.methodList}>
               <li><strong>read_memory:</strong> reads the persistent memory files directly from disk. Free. No API calls.</li>
               <li><strong>delegate_task:</strong> routes to the Hermes gateway on port 8642, which runs Clarence on Opus. Uses Anthropic credits. For complex reasoning, memory-aware tasks, anything that needs the full context.</li>
-              <li><strong>delegate_minimax:</strong> routes directly to Ollama on port 11434, hitting MiniMax 2.7. Free. For summarization, drafting, formatting, code generation — any grunt work that does not need Opus-level reasoning.</li>
+              <li><strong>delegate_minimax:</strong> routes directly to Ollama on port 11434, hitting MiniMax 2.7. Free. For summarization, drafting, formatting, code generation, any grunt work that does not need Opus-level reasoning.</li>
             </ul>
             <p className={styles.body}>
               The architecture is now a three-brained system. Claude Code is the primary interface and
@@ -842,7 +842,7 @@ export default function ClarencePage() {
           <ul className={styles.reflectionList}>
             <li>
               <strong>Stabilizing the split architecture:</strong> the Claude Code + Hermes + MiniMax bridge
-              is working but new. The delegation patterns need calibration — when does a task justify Opus
+              is working but new. The delegation patterns need calibration: when does a task justify Opus
               credits versus free MiniMax? The routing heuristics are currently manual. Making them
               semi-automatic based on task complexity is the next step.
             </li>
@@ -860,7 +860,7 @@ export default function ClarencePage() {
             <li>
               <strong>Cost monitoring and alerting:</strong> the Anthropic email made compute costs a
               first-class design concern. The system needs visibility into credit consumption per session,
-              per delegation, per cron job — not as an afterthought, but as a core feedback surface.
+              per delegation, per cron job. Not as an afterthought, but as a core feedback surface.
             </li>
             <li>
               <strong>SensorSynthFM integration:</strong> the capstone project (FM synthesis + iPhone sensor
