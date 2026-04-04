@@ -34,7 +34,6 @@ export default function ClarencePage() {
               "OpenClaw",
               "Hermes Gateway",
               "MCP Bridge Architecture",
-              "Custom Model Bridge",
               "Claude Opus 4.6",
               "Claude Sonnet",
               "Claude Code CLI",
@@ -93,7 +92,8 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system built on top of OpenClaw (an agent orchestration platform) that runs 14 cron jobs between midnight and 5am ET, manages a named crew of specialized agents, routes tasks across multiple
+            system, originally built on OpenClaw and now running on the Hermes agent gateway with Claude Code
+            as the primary interface. It manages a named crew of specialized agents, routes tasks across multiple
             models based on cost and capability, distills every conversation into durable memory, posts morning briefings to Discord before I wake up, and writes
             session handoff notes so the next conversation picks up where the last one left off.
           </p>
@@ -191,18 +191,18 @@ export default function ClarencePage() {
             <div className={cs.archDiagramRow}>
               <div className={cs.archDiagramLabel}>Interface</div>
               <div className={cs.archDiagramNodes}>
-                <span className={cs.archDiagramNode}>Telegram Bot</span>
+                <span className={cs.archDiagramNodeAccent}>Claude Code CLI</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
+                <span className={cs.archDiagramNode}>Telegram (Franklin + Clarence)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Discord Webhooks</span>
-                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Brain Reader HTTP</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Tailscale VPN</span>
               </div>
               <p className={cs.archDiagramNote}>
-                All device access is over a private mesh network. Brain Reader serves the
-                workspace as browsable markdown from iPhone without a terminal.
-                Telegram handles interactive conversations. Discord serves as the notification and reporting surface with 9 channels and 8 named agent identities (Clarence, Vera, Bruno, Atlas, Iris, Newton, Vesper, Raven), each posting with its own username and embed color.
+                Claude Code CLI is the primary interface, running on the Anthropic Max subscription.
+                Telegram provides mobile access through two bots: Franklin (@FranklintheOGBot on Hermes) and
+                the original Clarence (@ElJefeClarenceBot on OpenClaw, now legacy). Discord serves as the notification and reporting surface with 9 channels and 8 named agent identities, each posting with its own username and embed color. All device access runs over a Tailscale private mesh network.
               </p>
             </div>
 
@@ -211,15 +211,19 @@ export default function ClarencePage() {
             <div className={cs.archDiagramRow}>
               <div className={cs.archDiagramLabel}>Orchestration</div>
               <div className={cs.archDiagramNodes}>
-                <span className={cs.archDiagramNodeAccent}>OpenClaw</span>
+                <span className={cs.archDiagramNodeAccent}>Hermes Gateway</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Cron Fleet (14 jobs, midnight-5am ET)</span>
+                <span className={cs.archDiagramNode}>MCP Bridge (3 tools)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Agent Crew</span>
               </div>
               <p className={cs.archDiagramNote}>
-                OpenClaw schedules and dispatches agent sessions. 14 cron jobs run in a sequenced overnight window. Bootstrap context trimmed from 11 files to 7 (~18KB total). Session lifecycle hooks auto-load database context
-                and HANDOFF.md on start, then write a fresh handoff note on stop, eliminating cold starts. A session-context.py script queries the database for a brief status snapshot that gets absorbed silently at session start.
+                The Hermes gateway (port 8642) handles session management, Telegram, and agent dispatching,
+                replacing OpenClaw as the orchestration layer. A custom MCP bridge server connects Claude Code
+                to Hermes and to MiniMax via three tools: read_memory (loads persistent context), delegate_task
+                (routes to Clarence on Opus through Hermes), and delegate_minimax (routes to MiniMax 2.7 via
+                Ollama, free). Claude Code&apos;s SessionStart hook runs session-context.py for a database status
+                snapshot and reads HANDOFF.md. The stop hook writes handoff notes. Zero cold starts.
               </p>
             </div>
 
@@ -228,18 +232,18 @@ export default function ClarencePage() {
             <div className={cs.archDiagramRow}>
               <div className={cs.archDiagramLabel}>Model Routing</div>
               <div className={cs.archDiagramNodes}>
-                <span className={cs.archDiagramNodeAccent}>Model Bridge</span>
+                <span className={cs.archDiagramNodeAccent}>MCP Bridge</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Claude Sonnet</span>
+                <span className={cs.archDiagramNode}>Claude Opus (Hermes, port 8642)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>MiniMax M2.7</span>
+                <span className={cs.archDiagramNode}>MiniMax M2.7 (Ollama, port 11434)</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A custom model bridge translates between the orchestrator&apos;s API format and the
-                underlying model providers. Cron jobs run on either Claude Sonnet (for reasoning tasks) or
-                MiniMax via Ollama (free, local, for mechanical tasks). Opus is reserved for interactive sessions where model quality changes the output in ways that
-                matter. Model switching is immediate via <code>openclaw models set &lt;model&gt;</code>,
-                no restart required.
+                The MCP bridge server routes work to two backends based on cost and capability.
+                delegate_task sends complex reasoning to Clarence on Opus through the Hermes gateway (uses
+                Anthropic credits). delegate_minimax sends grunt work directly to MiniMax 2.7 via Ollama
+                (free, local). Claude Code itself runs Opus on the Max subscription for direct interaction.
+                The human or Claude Code chooses which path based on what the task actually requires.
               </p>
             </div>
 
@@ -248,19 +252,16 @@ export default function ClarencePage() {
             <div className={cs.archDiagramRow}>
               <div className={cs.archDiagramLabel}>Memory</div>
               <div className={cs.archDiagramNodes}>
-                <span className={cs.archDiagramNodeAccent}>clarence.db</span>
+                <span className={cs.archDiagramNodeAccent}>clarence.db + Hermes Memory</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>MCP Server (16 tools)</span>
+                <span className={cs.archDiagramNode}>MCP Bridge (read_memory)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>RAG: 4,044 memory + 7,095 fact vectors</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                A single consolidated SQLite database (~50MB) holds 4,044 active memories, 1,880 entities, and
-                7,095 active facts, shared by all agents through a custom MCP server exposing 16 tools. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. A conversation distillation pipeline processes conversations nightly, extracting decisions,
-                corrections, and preferences into the memory DB automatically. A vector search layer
-                (sqlite-vec + all-MiniLM-L6-v2, 384-dim) runs fully locally. Agents query by meaning, not just key. Syncs bidirectionally with an Obsidian vault. Knowledge pushes to Google Drive every 6 hours. Claude Code sessions have their own parallel memory layer (auto-memory files) that persists across conversations.
+                Memory now spans two systems. The original clarence.db (~50MB SQLite, 4,044 active memories, 1,880 entities, 7,095 active facts) serves as the archive knowledge base with full vector search (sqlite-vec, all-MiniLM-L6-v2, 384-dim, fully local). The Hermes flat-file memory layer (MEMORY.md and USER.md) holds compact operational context that the MCP bridge&apos;s read_memory tool loads into Claude Code at session start. Claude Code also maintains its own auto-memory files that persist across conversations. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. The conversation distillation pipeline processes conversations nightly, extracting durable knowledge into the DB. Syncs bidirectionally with an Obsidian vault. Knowledge pushes to Google Drive every 6 hours.
               </p>
             </div>
 
@@ -280,7 +281,7 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Morning Briefing</span>
               </div>
               <p className={cs.archDiagramNote}>
-                Every session starts warm. The SessionStart hook runs session-context.py for a database status snapshot, reads HANDOFF.md for notes from the previous session, checks WORKING.md for current state, and reads R&D Council priorities. The stop hook writes handoff notes. A morning briefing cron job at 4:45 AM posts a full context summary to Discord before James wakes up at 5 AM. Zero cold starts.
+                Every Claude Code session starts warm. The SessionStart hook runs session-context.py for a database status snapshot, reads HANDOFF.md for notes from the previous session, checks WORKING.md for current state, and reads R&D Council priorities. The stop hook writes handoff notes. On the Hermes side, the gateway injects MEMORY.md and USER.md into every turn automatically. A morning briefing cron job at 4:45 AM posts a full context summary to Discord before James wakes up at 5 AM. Zero cold starts on either platform.
               </p>
             </div>
 
@@ -370,7 +371,7 @@ export default function ClarencePage() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Overnight Loop</h2>
           <p className={styles.body}>
-            The most consequential design element is what happens between midnight and 5am ET. Fourteen cron jobs run inside this window, deliberately sequenced so downstream jobs can build on upstream output. Zero expensive models in cron. They split across Claude Sonnet (reasoning/research) and MiniMax (mechanical scripts). The lightContext flag is enabled on every job to minimize token overhead.
+            The most consequential design element is what happens between midnight and 5am ET. Fourteen cron jobs were built to run inside this window, deliberately sequenced so downstream jobs can build on upstream output. Zero expensive models in cron. They split across Claude Sonnet (reasoning/research) and MiniMax (mechanical scripts). These jobs were designed for OpenClaw and are currently being migrated to the Hermes scheduler as part of the platform transition.
           </p>
 
           <div className={cs.workList}>
@@ -392,7 +393,7 @@ export default function ClarencePage() {
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>3:00 AM</span>
-              <p className={cs.workDesc}><strong>Ecosystem Intelligence Scan</strong> (Sonnet): monitors all frontier model providers, OpenClaw releases, agent frameworks, and independence paths. Posts to Discord.</p>
+              <p className={cs.workDesc}><strong>Ecosystem Intelligence Scan</strong> (Sonnet): monitors all frontier model providers, Hermes and Claude Code updates, agent frameworks, and independence paths. Posts to Discord.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>3:30 AM</span>
@@ -491,9 +492,10 @@ export default function ClarencePage() {
               signal, and the overnight loop runs at zero model cost.
             </p>
             <p className={styles.body}>
-              Model switching is now immediate. <code>openclaw models set &lt;model&gt;</code> changes
-              the active model with no restart. This means routing decisions can be made at the task level
-              rather than the configuration level. The system can adapt to what each job actually needs.
+              Model routing is now per-call rather than per-session. The MCP bridge lets Claude Code
+              choose delegate_task (Opus) or delegate_minimax (free) on every individual request.
+              This means routing decisions happen at the task level, not the configuration level. The
+              system adapts to what each piece of work actually needs.
             </p>
           </div>
 
@@ -515,14 +517,17 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Bridging the Orchestrator and Model Providers</h3>
             <p className={styles.body}>
-              OpenClaw speaks the OpenAI-compatible API. The underlying model providers speak their own
-              protocols. A custom model bridge translates between them, making multiple model providers available
-              to the orchestrator without separate API key configurations per agent.
+              The original system used a custom Rust model bridge (cc-forge) to translate between OpenClaw
+              and the underlying model providers. That bridge still exists at port 8321 but is legacy
+              infrastructure. The current bridge is a Python MCP server (~/hermes-mcp/server.py) that
+              connects Claude Code to Hermes (port 8642) and Ollama (port 11434) via the Model Context
+              Protocol. Claude Code spawns it as a subprocess on startup. No separate configuration per
+              agent, no API key management.
             </p>
             <p className={styles.body}>
-              This adds a dependency layer that can fail independently of either system. The tradeoff was
-              worth it: deeper integration with the model toolchain, including tool access and session context
-              that direct API calls would not provide in the same form.
+              This still adds a dependency layer that can fail independently of either system. But the
+              MCP approach is simpler than the original bridge: three Python functions, one subprocess,
+              standard protocol. The failure modes are more visible and the recovery path is a restart.
             </p>
           </div>
 
@@ -650,7 +655,7 @@ export default function ClarencePage() {
               it&rdquo; from &ldquo;silently failed.&rdquo; The user is left interpreting silence, which
               is the opposite of visibility. This is not a logging problem. It is a feedback design
               problem, and solving it requires treating system status as a first-class UX surface rather
-              than a side effect of Telegram messages.
+              than a side effect of Telegram messages or Claude Code tool calls.
             </p>
           </div>
 
@@ -722,7 +727,8 @@ export default function ClarencePage() {
             <p className={styles.body}>
               The new Telegram bot was named Franklin. Clarence stayed as the original identity on OpenClaw.
               Franklin became the Hermes-side agent, same persona, different infrastructure. The memory
-              database, the cron jobs, the Discord webhooks, the overnight loop: all of it migrated. Not
+              database, the Discord webhooks, the session management: all of it migrated. The cron jobs
+              are still in transition to the Hermes scheduler. Not
               seamlessly. There were broken configs, zombie processes, token lock race conditions. But by
               the end of Wednesday night, Franklin was live on Telegram and Hermes was running.
             </p>
