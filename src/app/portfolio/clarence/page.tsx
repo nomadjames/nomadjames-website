@@ -32,9 +32,13 @@ export default function ClarencePage() {
               "Agent Orchestration",
               "Multi-Model Routing",
               "OpenClaw",
+              "Hermes Gateway",
+              "MCP Bridge Architecture",
               "Custom Model Bridge",
               "Claude Opus 4.6",
               "Claude Sonnet",
+              "Claude Code CLI",
+              "MiniMax M2.7 (Ollama)",
               "Session Lifecycle Hooks",
               "Conversation Distillation",
               "Telegram API",
@@ -43,6 +47,7 @@ export default function ClarencePage() {
               "Self-Improving Systems",
               "Human-in-the-Loop Design",
               "Semantic Vector Search (RAG)",
+              "Platform Migration Under Constraint",
             ].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
             ))}
@@ -672,6 +677,102 @@ export default function ClarencePage() {
           </ul>
         </section>
 
+        {/* Week Two: The Compute Reckoning */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Week Two: The Compute Reckoning</h2>
+          <p className={styles.body}>
+            The first week of Clarence was about building. The second week was about what happens when the
+            platform you built on changes the rules underneath you.
+          </p>
+          <p className={styles.body}>
+            On April 4, 2026, I received an email from Anthropic. Starting that afternoon, third-party
+            harnesses — including OpenClaw, the orchestration platform Clarence ran on — would no longer
+            be covered by the Max subscription. Those tools would require &ldquo;extra usage,&rdquo; a
+            separate pay-as-you-go billing layer. The subscription still covered Claude Code and Claude&apos;s
+            own products, but anything running through a third-party harness was now out of bounds.
+          </p>
+          <p className={styles.body}>
+            The reason Anthropic gave: &ldquo;these tools put an outsized strain on our systems&rdquo; and
+            they needed to &ldquo;prioritize customers using core products.&rdquo; They offered a one-time
+            credit equal to the monthly subscription and discounts on pre-purchased usage bundles. A follow-up
+            email would offer the option to cancel entirely.
+          </p>
+          <p className={styles.body}>
+            This was not unexpected. The signs had been building. The week before, Anthropic had tightened
+            usage limits during peak hours. By Thursday, April 3, I had burned through my weekly compute
+            allocation entirely. I could not use Opus. Telegram stopped responding. The approval system
+            broke. A hallucination went undetected until I manually checked. The system I had built over
+            two weeks was suddenly fragile in ways I had not anticipated.
+          </p>
+          <p className={styles.body}>
+            Thursday was the hardest day. I wrote in Telegram: &ldquo;just doesn&apos;t seem like things
+            are working well. i have wasted a bunch of time and what little compute I have left for the
+            week.&rdquo; That frustration was real. But frustration is also data.
+          </p>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>The Migration: OpenClaw to Hermes</h3>
+            <p className={styles.body}>
+              The response was not to abandon the architecture. It was to migrate it to a platform that
+              Anthropic still supported. Hermes is an agent gateway that connects to Claude via OAuth — the
+              same authentication path Claude Code uses. It runs its own Telegram bot, its own session
+              management, its own memory layer. The migration happened on April 2, before the email arrived.
+              I had already felt the pressure and started moving.
+            </p>
+            <p className={styles.body}>
+              The new Telegram bot was named Franklin. Clarence stayed as the original identity on OpenClaw.
+              Franklin became the Hermes-side agent — same persona, different infrastructure. The memory
+              database, the cron jobs, the Discord webhooks, the overnight loop — all of it migrated. Not
+              seamlessly. There were broken configs, zombie processes, token lock race conditions. But by
+              the end of Wednesday night, Franklin was live on Telegram and Hermes was running.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>The Split Architecture: Claude Code + Hermes + MiniMax</h3>
+            <p className={styles.body}>
+              The real design breakthrough came on Friday. The constraint was clear: Claude Code was still
+              covered by the Max subscription, but I needed the delegation capabilities, memory access, and
+              multi-agent coordination that the gateway provided. Running everything through Opus would burn
+              credits. Running everything through MiniMax would sacrifice quality.
+            </p>
+            <p className={styles.body}>
+              The solution was an MCP bridge — a custom Python server that sits between Claude Code and the
+              rest of the system. It exposes three tools:
+            </p>
+            <ul className={styles.methodList}>
+              <li><strong>read_memory:</strong> reads the persistent memory files directly from disk. Free. No API calls.</li>
+              <li><strong>delegate_task:</strong> routes to the Hermes gateway on port 8642, which runs Clarence on Opus. Uses Anthropic credits. For complex reasoning, memory-aware tasks, anything that needs the full context.</li>
+              <li><strong>delegate_minimax:</strong> routes directly to Ollama on port 11434, hitting MiniMax 2.7. Free. For summarization, drafting, formatting, code generation — any grunt work that does not need Opus-level reasoning.</li>
+            </ul>
+            <p className={styles.body}>
+              The architecture is now a three-brained system. Claude Code is the primary interface and
+              orchestrator, running on the Max subscription. Clarence on Hermes is the memory-aware reasoning
+              layer, called when the task justifies the cost. MiniMax is the free labor pool, called for
+              everything else. The human decides which brain to engage, or Claude Code decides based on the
+              tool descriptions.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>What This Revealed About Platform Dependency</h3>
+            <p className={styles.body}>
+              The Anthropic email confirmed something the Twitter/X blocking had already demonstrated:
+              building on platforms you do not control means accepting that the rules can change at any time.
+              The system I built in week one assumed OpenClaw would remain a viable harness. That assumption
+              lasted twelve days.
+            </p>
+            <p className={styles.body}>
+              The design lesson is not &ldquo;do not build on platforms.&rdquo; There is no alternative.
+              The lesson is to build with migration in mind. The memory database survived because it was
+              SQLite, not a proprietary format. The cron jobs survived because they were defined in
+              configuration, not hard-coded. The persona survived because it was documented in a SOUL.md
+              file, not implicit in the platform. The things that were portable were the things I had
+              designed to be portable. Everything else broke.
+            </p>
+          </div>
+        </section>
+
         {/* Designer-User-Researcher */}
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Designer-User-Researcher Position</h2>
@@ -740,26 +841,37 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Is Next</h2>
           <ul className={styles.reflectionList}>
             <li>
-              <strong>Closing the execution loop:</strong> the quick-wins queue and autonomous employee need
-              a more reliable handoff. The goal is a self-improving loop that actually closes: research
-              identifies an improvement, the queue captures it, the employee executes it overnight.
+              <strong>Stabilizing the split architecture:</strong> the Claude Code + Hermes + MiniMax bridge
+              is working but new. The delegation patterns need calibration — when does a task justify Opus
+              credits versus free MiniMax? The routing heuristics are currently manual. Making them
+              semi-automatic based on task complexity is the next step.
             </li>
             <li>
-              <strong>Memory pruning and consolidation:</strong> 3,978 memories need active garbage collection.
-              Duplicate facts, superseded preferences, and stale context degrade retrieval quality as the
-              database scales. The next iteration needs to prune as aggressively as it accumulates.
+              <strong>Memory unification across platforms:</strong> Clarence&apos;s memory now lives in two
+              places: the original clarence.db (4,044 memories, 7,095 facts) and Hermes&apos;s flat-file
+              memory layer (MEMORY.md, USER.md). These need to converge into a single source of truth
+              that both Claude Code and Hermes can access through the MCP bridge.
             </li>
             <li>
-              <strong>OWASP Agentic Top 10 integration:</strong> the new OWASP threat model for AI agents
-              covers Confused Deputy and Skill-Inject attacks that are directly relevant to a system running
-              multiple cron jobs with file and network access. Bruno&apos;s security audit needs these checks.
+              <strong>Cron migration to Hermes:</strong> the 14 nightly cron jobs were designed for OpenClaw.
+              They need to be rebuilt for the Hermes scheduler with cost-aware model routing that respects
+              the new billing boundaries.
             </li>
             <li>
-              <strong>SensorSynthFM integration:</strong> the capstone project (FM synthesis + iPhone sensor data) will integrate with Clarence&apos;s knowledge layer for research documentation.
+              <strong>Cost monitoring and alerting:</strong> the Anthropic email made compute costs a
+              first-class design concern. The system needs visibility into credit consumption per session,
+              per delegation, per cron job — not as an afterthought, but as a core feedback surface.
             </li>
             <li>
-              <strong>Refining the human-in-the-loop boundary:</strong> calibrating where autonomous action ends and human approval begins for higher-stakes tasks
-              beyond research and writing.
+              <strong>SensorSynthFM integration:</strong> the capstone project (FM synthesis + iPhone sensor
+              data) will integrate with the knowledge layer for research documentation. Session 3 (sensor
+              routing bridge) is pending.
+            </li>
+            <li>
+              <strong>Refining the human-in-the-loop boundary:</strong> the migration exposed how much I had
+              relied on the system working autonomously. When it broke, I had no fallback except manual
+              intervention. The boundary between autonomous action and human approval needs to be explicit
+              and testable, not implicit and hopeful.
             </li>
           </ul>
         </section>
@@ -779,6 +891,7 @@ export default function ClarencePage() {
               "Conversation distillation pipelines",
               "Memory persistence across AI sessions",
               "Delegation architecture design",
+              "MCP bridge architecture",
               "SQLite knowledge database design",
               "Semantic vector search (sqlite-vec)",
               "RAG pipeline design",
@@ -786,15 +899,18 @@ export default function ClarencePage() {
               "Budget-aware compute allocation",
               "Token optimization",
               "API proxy design",
+              "Platform migration under constraint",
               "Private mesh networking (Tailscale)",
               "Security audit automation",
               "Discord webhook integration",
               "Designer-user-researcher methodology",
               "OpenClaw platform",
+              "Hermes agent gateway",
               "Claude Code CLI integration",
               "Multi-provider model integration",
               "Telegram Bot API",
               "MCP server configuration",
+              "Cost-aware architectural design",
               "Systems thinking",
             ].map((skill) => (
               <span key={skill} className={styles.skill}>{skill}</span>
