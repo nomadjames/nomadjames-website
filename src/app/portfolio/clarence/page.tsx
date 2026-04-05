@@ -6,7 +6,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with 14 cron jobs, 8 named agent identities across 9 Discord channels, a SQLite knowledge database spanning 4,044 memories, 1,880 entities, and 7,095 facts with full vector search, multi-model routing, conversation distillation pipeline, session lifecycle hooks, and a nightly self-audit loop.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with a SQLite knowledge database spanning 4,121 memories, 2,634 entities, 16,658 facts, and 2,074 indexed vault notes with full vector search, multi-model routing across 4 MCP servers, conversation distillation pipeline, session lifecycle hooks, and a nightly autonomous pipeline. Built on OpenClaw, migrated under constraint to Hermes, and still evolving.",
 };
 
 export default function ClarencePage() {
@@ -31,7 +31,7 @@ export default function ClarencePage() {
             {[
               "Agent Orchestration",
               "Multi-Model Routing",
-              "OpenClaw",
+              "Knowledge Base Architecture",
               "Hermes Gateway",
               "MCP Bridge Architecture",
               "Claude Opus 4.6",
@@ -54,17 +54,17 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built a multi-agent autonomous AI system that runs 14 cron jobs nightly, manages a knowledge base spanning 4,044 memories, 1,880 entities, and 7,095 facts with full vector search, routes tasks across multiple models by cost and capability, and posts status reports to 9 Discord channels through 8 named agent identities. The real lesson was not about automation. It was about trust calibration: how much autonomy to grant, when to intervene, and what happens when you design a collaborator instead of a tool.
+          I built an autonomous AI system that manages a knowledge base of 4,121 memories, 2,634 entities, and 16,658 facts with full vector search across 2,074 indexed vault notes, routes tasks across multiple models by cost and capability, syncs coursework from Google Drive, and posts reports to 9 Discord channels. Then the platform I built it on changed the rules, and I had to migrate the entire system under constraint in 48 hours. The real lesson was not about automation. It was about trust calibration, platform dependency, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>14</span>
-            <span className={cs.statLabel}>Active cron jobs</span>
+            <span className={cs.statNum}>16,658</span>
+            <span className={cs.statLabel}>Facts in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>4,044</span>
+            <span className={cs.statNum}>4,121</span>
             <span className={cs.statLabel}>Memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
@@ -92,10 +92,12 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system, originally built on OpenClaw and now running on the Hermes agent gateway with Claude Code
-            as the primary interface. It manages a named crew of specialized agents, routes tasks across multiple
-            models based on cost and capability, distills every conversation into durable memory, posts morning briefings to Discord before I wake up, and writes
-            session handoff notes so the next conversation picks up where the last one left off.
+            system running on the Hermes agent gateway with Claude Code as the primary interface, after a forced
+            migration from OpenClaw when Anthropic changed the rules on third-party harnesses. It routes tasks across
+            multiple models based on cost and capability, maintains a knowledge base of over 16,000 facts and 4,000
+            memories with semantic vector search, syncs coursework and research from Google Drive into an indexed
+            Obsidian vault, posts briefings to Discord before I wake up, and writes session handoff notes so the
+            next conversation picks up where the last one left off.
           </p>
           <p className={styles.body}>
             I am both the designer and the primary user of this system. That dual position is unusual, and worth
@@ -193,7 +195,7 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>Claude Code CLI</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Telegram (Franklin + Clarence)</span>
+                <span className={cs.archDiagramNode}>Telegram (Franklin)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Discord Webhooks</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
@@ -201,8 +203,9 @@ export default function ClarencePage() {
               </div>
               <p className={cs.archDiagramNote}>
                 Claude Code CLI is the primary interface, running on the Anthropic Max subscription.
-                Telegram provides mobile access through two bots: Franklin (@FranklintheOGBot on Hermes) and
-                the original Clarence (@ElJefeClarenceBot on OpenClaw, now legacy). Discord serves as the notification and reporting surface with 9 channels and 8 named agent identities, each posting with its own username and embed color. All device access runs over a Tailscale private mesh network.
+                Telegram provides mobile access through Franklin (@FranklintheOGBot on Hermes). The original
+                OpenClaw bot has been decommissioned. Discord serves as the notification and reporting surface
+                with 9 channels. All device access runs over a Tailscale private mesh network.
               </p>
             </div>
 
@@ -213,16 +216,18 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>Hermes Gateway</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>MCP Bridge (3 tools)</span>
+                <span className={cs.archDiagramNode}>MCP Servers (4)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Agent Crew</span>
               </div>
               <p className={cs.archDiagramNote}>
-                The Hermes gateway (port 8642) handles session management, Telegram, and agent dispatching,
-                replacing OpenClaw as the orchestration layer. A custom MCP bridge server connects Claude Code
-                to Hermes and to MiniMax via three tools: read_memory (loads persistent context), delegate_task
-                (routes to Clarence on Opus through Hermes), and delegate_minimax (routes to MiniMax 2.7 via
-                Ollama, free). Claude Code&apos;s SessionStart hook runs session-context.py for a database status
+                The Hermes gateway handles session management, Telegram, and agent dispatching.
+                Four MCP servers provide tool access: a custom bridge server connects Claude Code to Hermes
+                and MiniMax, plus Tavily (web search and extraction), Perplexity (AI-powered research via Pro
+                subscription), and a web search server (DuckDuckGo and Gemini). The bridge exposes four tools:
+                read_memory (loads persistent context), delegate_task (routes to Clarence on Opus through Hermes),
+                delegate_trinity (routes to Arcee Trinity Large 400B on OpenRouter, free), and delegate_minimax
+                (routes to MiniMax 2.7 via Ollama, free). Session startup runs session-context.py for a database
                 snapshot and reads HANDOFF.md. The stop hook writes handoff notes. Zero cold starts.
               </p>
             </div>
@@ -234,16 +239,20 @@ export default function ClarencePage() {
               <div className={cs.archDiagramNodes}>
                 <span className={cs.archDiagramNodeAccent}>MCP Bridge</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Claude Opus (Hermes, port 8642)</span>
+                <span className={cs.archDiagramNode}>Claude Opus (Hermes)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>MiniMax M2.7 (Ollama, port 11434)</span>
+                <span className={cs.archDiagramNode}>Arcee Trinity 400B (OpenRouter)</span>
+                <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
+                <span className={cs.archDiagramNode}>MiniMax M2.7 (Ollama)</span>
               </div>
               <p className={cs.archDiagramNote}>
-                The MCP bridge server routes work to two backends based on cost and capability.
+                The MCP bridge routes work to three backends based on cost and capability.
                 delegate_task sends complex reasoning to Clarence on Opus through the Hermes gateway (uses
-                Anthropic credits). delegate_minimax sends grunt work directly to MiniMax 2.7 via Ollama
-                (free, local). Claude Code itself runs Opus on the Max subscription for direct interaction.
-                The human or Claude Code chooses which path based on what the task actually requires.
+                Anthropic credits). delegate_trinity routes to Arcee Trinity Large, a 400B mixture-of-experts
+                model on OpenRouter (free tier, strong for code generation). delegate_minimax sends mechanical
+                work to MiniMax 2.7 via Ollama (free, local). Claude Code itself runs Opus on the Max
+                subscription for direct interaction. The human or Claude Code chooses which path based on
+                what the task actually requires.
               </p>
             </div>
 
@@ -256,12 +265,12 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>MCP Bridge (read_memory)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>RAG: 4,044 memory + 7,095 fact vectors</span>
+                <span className={cs.archDiagramNode}>RAG: 4,044 memory + 14,351 fact vectors</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                Memory now spans two systems. The original clarence.db (~50MB SQLite, 4,044 active memories, 1,880 entities, 7,095 active facts) serves as the archive knowledge base with full vector search (sqlite-vec, all-MiniLM-L6-v2, 384-dim, fully local). The Hermes flat-file memory layer (MEMORY.md and USER.md) holds compact operational context that the MCP bridge&apos;s read_memory tool loads into Claude Code at session start. Claude Code also maintains its own auto-memory files that persist across conversations. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. The conversation distillation pipeline processes conversations nightly, extracting durable knowledge into the DB. Syncs bidirectionally with an Obsidian vault. Knowledge pushes to Google Drive every 6 hours.
+                Memory spans two tiers. The knowledge database (clarence.db, ~50MB SQLite) holds 4,121 active memories, 2,634 entities, and 16,658 facts with full vector search (sqlite-vec, all-MiniLM-L6-v2, 384-dim, fully local, 18,395 total embeddings). A daily knowledge sync pulls coursework and research from Google Drive into the Obsidian vault, then re-indexes all 2,074 vault notes into the database. The Hermes flat-file memory layer (MEMORY.md and USER.md) holds compact operational context injected into every turn. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. The conversation distillation pipeline processes conversations, extracting durable knowledge into the DB. The vault syncs bidirectionally: writing a note in Obsidian feeds the RAG layer automatically.
               </p>
             </div>
 
@@ -293,20 +302,23 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>The Agent Crew</h2>
           <p className={styles.body}>
             Naming agents was a deliberate choice. Names create identity and accountability. When a named agent
-            produces output, I read it differently than I read output from an anonymous system call. The names
-            also make role boundaries explicit across the codebase and the cron job config.
+            produces output, I read it differently than I read output from an anonymous system call. The original
+            system had 13 named agents. After the migration to Hermes, the operational crew was consolidated to
+            the agents that were actually running: Clarence as orchestrator, Vera as chief of staff (with her own
+            Telegram bot and personality file), and the five-member R&D Council. The others exist as design
+            concepts to be rebuilt as the Hermes platform matures.
           </p>
           <p className={styles.body}>
             The delegation architecture follows hard rules: Clarence orchestrates, subagents execute. Every
-            task gets immediate acknowledgment with a plan and time estimate. Three subagent types handle different
-            work: Explore (research/discovery), Plan (architecture/strategy),
-            and general-purpose (code/execution). Multiple independent tasks run in parallel.
-            Clarence never blocks on a subagent.
+            task gets immediate acknowledgment with a plan and time estimate. Up to five subagents run in
+            parallel on independent tasks. The MCP bridge enables per-task model routing: complex reasoning
+            goes to Opus, code generation to Trinity, mechanical work to MiniMax. Clarence never blocks on
+            a subagent.
           </p>
 
           <h3 className={styles.findingTitle}>Discord Agent Identities</h3>
           <p className={styles.body}>
-            Each agent posts to Discord with its own username and signature color:
+            The operational agents post to Discord with their own usernames and signature colors:
           </p>
 
           <div className={cs.agentGrid}>
@@ -371,74 +383,26 @@ export default function ClarencePage() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Overnight Loop</h2>
           <p className={styles.body}>
-            The most consequential design element is what happens between midnight and 5am ET. Fourteen cron jobs were built to run inside this window, deliberately sequenced so downstream jobs can build on upstream output. Zero expensive models in cron. They split across Claude Sonnet (reasoning/research) and MiniMax (mechanical scripts). These jobs were designed for OpenClaw and are currently being migrated to the Hermes scheduler as part of the platform transition.
+            The most consequential design element is what happens between 11 PM and 5 AM ET. The original OpenClaw system ran 14 cron jobs in this window. After the migration to Hermes, the overnight pipeline was rebuilt from scratch with a different philosophy: fewer jobs, each doing more, with results compiled before 5 AM and delivered to Discord. Nothing fires during the day. The current Hermes scheduler runs 3 active jobs, with the architecture designed to grow as capabilities are rebuilt.
           </p>
 
           <div className={cs.workList}>
             <div className={cs.workEntry}>
-              <span className={cs.workTime}>12:20 AM</span>
-              <p className={cs.workDesc}><strong>Google Drive Coursework Sync</strong> (MiniMax): pulls new coursework files from Google Drive into the workspace.</p>
+              <span className={cs.workTime}>12:00 AM</span>
+              <p className={cs.workDesc}><strong>Knowledge Sync</strong>: pulls coursework and research files from Google Drive via rclone, re-indexes all 2,074 vault notes into clarence.db, and reports results to Discord #cron-reports. This single job replaced three separate OpenClaw jobs (Drive sync, vault indexing, embedding refresh).</p>
             </div>
             <div className={cs.workEntry}>
-              <span className={cs.workTime}>1:00 AM</span>
-              <p className={cs.workDesc}><strong>Session Rotation</strong> (MiniMax): archives JSONL session files older than 24 hours.</p>
+              <span className={cs.workTime}>4:30 AM</span>
+              <p className={cs.workDesc}><strong>Morning Calendar Briefing</strong>: fetches the day&apos;s calendar via Apple iCloud CalDAV, formats the schedule, and delivers to Telegram before James wakes up.</p>
             </div>
             <div className={cs.workEntry}>
-              <span className={cs.workTime}>1:25 AM</span>
-              <p className={cs.workDesc}><strong>Conversation Distillation</strong> (MiniMax): processes conversations, extracting decisions, corrections, and preferences into clarence.db. Every conversation becomes memory.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>2:05 AM</span>
-              <p className={cs.workDesc}><strong>Daily Backup</strong> (MiniMax): workspace snapshot before anything mutates the knowledge files.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>3:00 AM</span>
-              <p className={cs.workDesc}><strong>Ecosystem Intelligence Scan</strong> (Sonnet): monitors all frontier model providers, Hermes and Claude Code updates, agent frameworks, and independence paths. Posts to Discord.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>3:30 AM</span>
-              <p className={cs.workDesc}><strong>Daily Job Search</strong> (MiniMax): aggregates 50+ sources for UX/AI opportunities.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>3:45 AM</span>
-              <p className={cs.workDesc}><strong>R&D Council</strong> (Sonnet + Opus synthesis): five-agent debate across fixed lenses, then Opus synthesizes an executive memo. Posts to #rd-council Discord channel.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:00 AM</span>
-              <p className={cs.workDesc}><strong>Obsidian Memory Sync</strong> (MiniMax): bidirectional sync between the Obsidian vault and clarence.db.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:10 AM</span>
-              <p className={cs.workDesc}><strong>Nightly Consolidated Report</strong> (Sonnet): security, research, changelog monitoring, memory hygiene, and self-audit in one pass. Posts to Discord.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:15 AM</span>
-              <p className={cs.workDesc}><strong>RAG Embedding Refresh</strong> (MiniMax): re-embeds new memories and facts into the vector search layer.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:30 AM Wed</span>
-              <p className={cs.workDesc}><strong>Academic Paper Scan</strong> (Sonnet): weekly scan across cognitive accessibility, AI UX, HCI, FM synthesis.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:45 AM</span>
-              <p className={cs.workDesc}><strong>Vault Reference Extraction</strong> (MiniMax): extracts URLs from brain/ research files into Obsidian vault entries with frontmatter, wikilinks, and DB sync.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>4:45 AM</span>
-              <p className={cs.workDesc}><strong>Morning Briefing</strong> (MiniMax): posts a full context summary to #clarence Discord channel. Cron status, knowledge DB stats, R&D priorities, pending items. Ready before James wakes up.</p>
-            </div>
-            <div className={cs.workEntry}>
-              <span className={cs.workTime}>11:30 PM Mon</span>
-              <p className={cs.workDesc}><strong>Weekly Memory GitHub Sync</strong> (MiniMax): pushes memory architecture and scripts to GitHub with credential scrubbing.</p>
+              <span className={cs.workTime}>4:30 AM</span>
+              <p className={cs.workDesc}><strong>Daily Job Search</strong>: aggregates UX/AI/HCI opportunities and delivers results to Telegram.</p>
             </div>
           </div>
 
           <p className={styles.body} style={{marginTop: "1.5rem"}}>
-            Plus 5 system crontab jobs running around the clock: Google Drive pull (hourly), vault indexing (every 30 min), session cleanup (weekly), vault backup to Drive (6-hourly), knowledge sync to Drive (6-hourly).
-          </p>
-
-          <p className={styles.body}>
-            <strong>Evolution note:</strong> the system originally ran 26 cron jobs. These were consolidated to 14 after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than executing them. Fewer, more reliable jobs replaced scattered unreliable ones. The architectural lesson: more jobs is not better jobs.
+            <strong>Evolution note:</strong> the system originally ran 26 cron jobs on OpenClaw. These were consolidated to 14 after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than executing them. After the migration to Hermes, the pipeline was rebuilt from scratch rather than ported. The current 3 jobs each do the work of multiple predecessors. The remaining capabilities from the old pipeline (conversation distillation, R&D Council, ecosystem scanning, academic paper monitoring, security audits) are being rebuilt as the Hermes platform stabilizes. The architectural lesson across both iterations: more jobs is not better jobs. Reliability and consolidation beat breadth every time.
           </p>
         </section>
 
@@ -474,7 +438,7 @@ export default function ClarencePage() {
             system remembers what I care about, not just what I asked for today.
           </p>
           <p className={styles.body}>
-            <strong>Overnight-only autonomy.</strong> All autonomous agent work runs between midnight and 5 AM ET. Nothing fires during the day. This is a deliberate trust boundary: the system earns autonomy in a window where errors are recoverable before they affect real-time work.
+            <strong>Overnight-only autonomy.</strong> All autonomous agent work runs between 11 PM and 4:45 AM ET. Nothing fires during the day. All results must be compiled before 5 AM. This is a deliberate trust boundary: the system earns autonomy in a window where errors are recoverable before they affect real-time work.
           </p>
         </section>
 
@@ -502,9 +466,9 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Single Source of Truth Architecture</h3>
             <p className={styles.body}>
-              Five sub-agent workspaces are symlinked to the parent workspace. Every agent reads from the
-              same files. IDENTITY.md was merged into SOUL.md. Legacy databases were archived and retired
-              into a single authoritative store: clarence.db. The pattern is consistent: eliminate
+              The original OpenClaw system used five symlinked sub-agent workspaces. After the Hermes migration,
+              the architecture simplified: Hermes manages its own session isolation, and clarence.db remains
+              the single authoritative knowledge store. IDENTITY.md was merged into SOUL.md. The pattern is consistent: eliminate
               duplication, reduce the surface area where state can diverge.
             </p>
             <p className={styles.body}>
@@ -517,16 +481,18 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Bridging the Orchestrator and Model Providers</h3>
             <p className={styles.body}>
-              The original system used a custom Rust model bridge (cc-forge) to translate between OpenClaw
-              and the underlying model providers. That bridge still exists at port 8321 but is legacy
-              infrastructure. The current bridge is a Python MCP server (~/hermes-mcp/server.py) that
-              connects Claude Code to Hermes (port 8642) and Ollama (port 11434) via the Model Context
-              Protocol. Claude Code spawns it as a subprocess on startup. No separate configuration per
-              agent, no API key management.
+              The original system used a custom Rust API bridge to translate between OpenClaw
+              and the underlying model providers. That bridge has been decommissioned. The current
+              bridge is a Python MCP server that connects Claude Code to Hermes, OpenRouter, and
+              Ollama via four tools: read_memory (loads persistent context), delegate_task (routes to
+              Clarence on Opus through Hermes), delegate_trinity (routes to Arcee Trinity Large 400B on
+              OpenRouter, free), and delegate_minimax (routes to MiniMax 2.7 via Ollama, free). Claude
+              Code spawns it as a subprocess on startup. No separate configuration per agent, no API
+              key management.
             </p>
             <p className={styles.body}>
               This still adds a dependency layer that can fail independently of either system. But the
-              MCP approach is simpler than the original bridge: three Python functions, one subprocess,
+              MCP approach is simpler than the original Rust bridge: four Python functions, one subprocess,
               standard protocol. The failure modes are more visible and the recovery path is a restart.
             </p>
           </div>
@@ -534,17 +500,18 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 4,044
-              memories, 1,880 entities, and 7,095 facts, shared by all agents through a custom MCP server exposing 16 tools. The schema separates
+              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 4,121
+              memories, 2,634 entities, and 16,658 facts across 26 tables. The schema separates
               concerns: a <em>profiles</em> table holds identity facts (agent names, user preferences,
               project constants) with deterministic key lookup. No fuzzy search for things that must be exact.
               A <em>memories</em> table stores durable knowledge with soft invalidation: when a fact changes,
               the old record is marked invalid and a new one is written, preserving the audit trail.
             </p>
             <p className={styles.body}>
-              The RAG layer is live: 4,044 memory vectors and 7,095 fact vectors with all-MiniLM-L6-v2
-              embeddings (384-dim), running fully locally via sqlite-vec. Automated garbage collection prunes low-value catalog data while preserving all behavioral corrections and user knowledge. No separate vector
-              database, no network hop. Agents query the knowledge base by meaning: &ldquo;what does
+              The RAG layer is live: 4,044 memory vectors and 14,351 fact vectors (18,395 total) with
+              all-MiniLM-L6-v2 embeddings (384-dim), running fully locally via sqlite-vec. Automated garbage
+              collection prunes low-value catalog data while preserving all behavioral corrections and user
+              knowledge. No separate vector database, no network hop. Agents query the knowledge base by meaning: &ldquo;what does
               James think about AI agent UX?&rdquo; returns the five most relevant records across all tables,
               regardless of how they were originally tagged.
             </p>
@@ -552,13 +519,14 @@ export default function ClarencePage() {
               The conversation distillation pipeline (conversation-distill.py) processes Telegram
               conversations nightly, extracting decisions, corrections, and preferences into the memory DB.
               This is what makes the memory system feel alive rather than static. James corrects something
-              once in conversation, and it persists. The knowledge base grew from ~170 to 4,044 memories
+              once in conversation, and it persists. The knowledge base grew from ~170 to 4,121 memories
               in part because this pipeline captures context that would otherwise evaporate. A retrieval feedback loop lets sessions flag results as useful or noise, creating a learning signal for future garbage collection.
             </p>
             <p className={styles.body}>
-              An Obsidian vault syncs bidirectionally with the database. New vault notes are picked up by the
-              nightly embedding job automatically. Writing in Obsidian feeds the RAG layer without any
-              additional wiring.
+              An Obsidian vault of 2,074 notes syncs with the database via a daily knowledge sync job.
+              The sync pulls coursework from Google Drive, re-indexes all vault notes, and reports
+              results to Discord. A dedicated vault indexer script processes the full vault in seconds.
+              Writing in Obsidian feeds the RAG layer without any additional wiring.
             </p>
           </div>
 
@@ -575,7 +543,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Multi-Surface Communication</h3>
             <p className={styles.body}>
-              Discord (9 channels, 8 agent identities), Telegram (interactive conversations), Brain Reader HTTP (browsable workspace from any device), HANDOFF.md (session continuity). Each surface serves a different communication need. Discord for async notification and team-style reporting. Telegram for real-time dialogue. Brain Reader for passive monitoring.
+              Discord (9 channels), Telegram (interactive conversations), HANDOFF.md (session continuity). Each surface serves a different communication need. Discord for async notification and overnight reporting. Telegram for real-time dialogue and morning briefings. HANDOFF.md for session-to-session continuity.
             </p>
           </div>
 
@@ -623,11 +591,12 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Memory Growth Without Garbage Collection</h3>
             <p className={styles.body}>
-              The knowledge base grew from ~170 to 4,044 memories. The conversation distillation pipeline
-              accelerated that growth. But more memories does not automatically mean better recall. As the
-              database scales, the vector search returns increasingly similar results, and the signal-to-noise
-              ratio in retrieved context degrades. Memory needs pruning and consolidation, not just
-              accumulation. This is the next hard problem.
+              The knowledge base grew from ~170 to 4,121 memories and the facts table exploded to 16,658
+              entries after vault fact extraction processed 1,927 notes. More data does not automatically
+              mean better recall. As the database scales, the vector search returns increasingly similar
+              results, and the signal-to-noise ratio in retrieved context degrades. Memory needs pruning
+              and consolidation, not just accumulation. Automated garbage collection helps, but the
+              curation problem is fundamentally unsolved.
             </p>
           </div>
 
@@ -647,7 +616,7 @@ export default function ClarencePage() {
               consistently.
             </p>
             <p className={styles.body}>
-              Fourteen cron jobs run overnight. The morning briefing (added April 2026) and Discord channel routing partially address this: cron reports go to #cron-reports, incidents to #incidents, R&D Council memos to #rd-council. But the gap between &ldquo;reported&rdquo; and &ldquo;observable&rdquo; remains. Silence is still ambiguous: does it mean everything worked, or that the reporting layer itself failed?
+              Cron jobs run overnight and deliver to Discord channels: reports to #cron-reports, incidents to #incidents, research to #research-reports. The morning briefings deliver to Telegram. But the gap between &ldquo;reported&rdquo; and &ldquo;observable&rdquo; remains. Silence is still ambiguous: does it mean everything worked, or that the reporting layer itself failed?
             </p>
             <p className={styles.body}>
               The problem compounds during live sessions. When agents are delegated tasks in parallel,
@@ -666,18 +635,18 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>14 cron jobs running midnight-5am ET, all on cost-effective models, delivering to Discord and Telegram</li>
-            <li>4,044 active memories, 1,880 entities, and 7,095 active facts in clarence.db with conversation distillation, automated GC, and retrieval feedback loop</li>
-            <li>RAG layer: 7,095 fact vectors + 4,044 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim), fully local</li>
-            <li>9 Discord channels with 8 named agent identities posting with unique usernames and colors</li>
-            <li>Morning briefing posted to Discord before 5 AM daily, session handoff notes for zero cold starts</li>
-            <li>Bootstrap trimmed from 11 files to 7 (~18KB), memory files from 106KB to 40KB (62% reduction)</li>
-            <li>Session lifecycle hooks: auto-load context on start, write handoff on stop</li>
-            <li>Google Drive bidirectional sync: coursework pull, knowledge push every 6 hours</li>
-            <li>Bidirectional Obsidian vault sync feeding the RAG layer</li>
-            <li>R&D Council: 5-agent nightly debate producing strategic memos since March 24, 2026</li>
-            <li>Daily job search aggregating 50+ sources</li>
-            <li>Academic paper scanning (weekly) across cognitive accessibility, AI UX, HCI, FM synthesis</li>
+            <li>Knowledge database: 4,121 active memories, 2,634 entities, 16,658 facts, 2,074 indexed vault notes in clarence.db (~50MB SQLite) with conversation distillation, automated GC, and retrieval feedback loop</li>
+            <li>RAG layer: 14,351 fact vectors + 4,044 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim, 18,395 total), fully local via sqlite-vec</li>
+            <li>Daily knowledge sync: Google Drive coursework pull, vault re-indexing, results to Discord</li>
+            <li>2,074 Obsidian vault notes indexed and searchable via semantic vector search</li>
+            <li>95 skills in the Hermes skill library covering research, development, deployment, and creative workflows</li>
+            <li>4 MCP servers: custom bridge, Tavily, Perplexity Pro, and web search (DuckDuckGo + Gemini)</li>
+            <li>9 Discord channels for async reporting: cron reports, incidents, research, R&D council, job search</li>
+            <li>Morning briefings (calendar + job search) delivered to Telegram before 5 AM daily</li>
+            <li>Session lifecycle hooks: auto-load context on start, write handoff on stop, zero cold starts</li>
+            <li>Full platform migration from OpenClaw to Hermes completed in 48 hours under constraint</li>
+            <li>Three-model routing architecture: Opus for reasoning, Trinity for code, MiniMax for mechanical work</li>
+            <li>10,434 lines of custom Python across 33 scripts powering the knowledge pipeline</li>
             <li>Open source memory architecture: github.com/nomadjames/clarence-memory-structure</li>
           </ul>
         </section>
@@ -725,10 +694,10 @@ export default function ClarencePage() {
               I had already felt the pressure and started moving.
             </p>
             <p className={styles.body}>
-              The new Telegram bot was named Franklin. Clarence stayed as the original identity on OpenClaw.
+              The new Telegram bot was named Franklin. The original OpenClaw bot was decommissioned.
               Franklin became the Hermes-side agent, same persona, different infrastructure. The memory
               database, the Discord webhooks, the session management: all of it migrated. The cron jobs
-              are still in transition to the Hermes scheduler. Not
+              were rebuilt for the Hermes scheduler rather than ported. Not
               seamlessly. There were broken configs, zombie processes, token lock race conditions. But by
               the end of Wednesday night, Franklin was live on Telegram and Hermes was running.
             </p>
@@ -847,21 +816,19 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Is Next</h2>
           <ul className={styles.reflectionList}>
             <li>
-              <strong>Stabilizing the split architecture:</strong> the Claude Code + Hermes + MiniMax bridge
-              is working but new. The delegation patterns need calibration: when does a task justify Opus
-              credits versus free MiniMax? The routing heuristics are currently manual. Making them
-              semi-automatic based on task complexity is the next step.
+              <strong>Rebuilding the overnight pipeline:</strong> the original OpenClaw system ran 14 cron
+              jobs including conversation distillation, R&D Council debates, ecosystem scanning, academic
+              paper monitoring, and security audits. Hermes currently runs 3. Each capability needs to be
+              rebuilt for the new scheduler, not ported. The lesson from the first iteration: design each
+              job to be self-contained and observable, not dependent on upstream output from jobs that
+              might silently fail.
             </li>
             <li>
-              <strong>Memory unification across platforms:</strong> Clarence&apos;s memory now lives in two
-              places: the original clarence.db (4,044 memories, 7,095 facts) and Hermes&apos;s flat-file
-              memory layer (MEMORY.md, USER.md). These need to converge into a single source of truth
-              that both Claude Code and Hermes can access through the MCP bridge.
-            </li>
-            <li>
-              <strong>Cron migration to Hermes:</strong> the 14 nightly cron jobs were designed for OpenClaw.
-              They need to be rebuilt for the Hermes scheduler with cost-aware model routing that respects
-              the new billing boundaries.
+              <strong>Rebuilding the agent crew:</strong> the original system had 13 named agents. The
+              Hermes migration preserved Clarence and the R&D Council. The remaining agents (Felix, Rex,
+              Milo, Eddie, Jules, Bruno) need to be rebuilt as Hermes subagents with proper delegation
+              patterns. This is not a porting exercise. The Hermes delegation model is different from
+              OpenClaw&apos;s, and the agent roles need to be redesigned for the new architecture.
             </li>
             <li>
               <strong>Cost monitoring and alerting:</strong> the Anthropic email made compute costs a
@@ -870,8 +837,7 @@ export default function ClarencePage() {
             </li>
             <li>
               <strong>SensorSynthFM integration:</strong> the capstone project (FM synthesis + iPhone sensor
-              data) will integrate with the knowledge layer for research documentation. Session 3 (sensor
-              routing bridge) is pending.
+              data) will integrate with the knowledge layer for research documentation.
             </li>
             <li>
               <strong>Refining the human-in-the-loop boundary:</strong> the migration exposed how much I had
@@ -910,7 +876,7 @@ export default function ClarencePage() {
               "Security audit automation",
               "Discord webhook integration",
               "Designer-user-researcher methodology",
-              "OpenClaw platform",
+              "Knowledge base architecture",
               "Hermes agent gateway",
               "Claude Code CLI integration",
               "Multi-provider model integration",
