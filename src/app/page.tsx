@@ -1,5 +1,100 @@
 import styles from "./page.module.css";
-import MiniOracle from "@/components/MiniOracle";
+
+const caseStudies = [
+  {
+    num: "01",
+    title: "Clarence: Autonomous Agent Ecosystem",
+    category: "AI Systems Design",
+    year: "2025–2026",
+    tldr: "I built an autonomous AI system that manages a knowledge base of 3,397 active memories, 2,474 entities, and 10,349 active facts with full vector search across 2,075 indexed vault notes, routes tasks across multiple models by cost and capability, syncs reference materials from Google Drive, and posts reports to 9 Discord channels. Then the platform I built it on changed the rules, and I had to migrate the entire system under constraint in 48 hours. The real lesson was not about automation. It was about trust calibration, platform dependency, and what happens when you design a collaborator instead of a tool.",
+    link: "/portfolio/clarence",
+  },
+  {
+    num: "02",
+    title: "Ableton UX Evaluation Suite",
+    category: "UX Research · Interaction Design",
+    year: "2024–2026",
+    tldr: "Multiple UX evaluation methods applied to three Ableton products, grounded in deep music production experience and a decade leading the Pittsburgh Ableton User Group. The suite revealed a consistent pattern: Ableton designs for insiders, and that works until someone shows up for the first time.",
+    link: "/portfolio/ableton-evaluation-suite",
+  },
+  {
+    num: "03",
+    title: "Accessibility Audit Suite: Music Tech Meets WCAG",
+    category: "UX Research",
+    year: "2025",
+    tldr: "I ran a multi-method accessibility audit across music tech, news, social media, and academic sites. The work covered WCAG compliance, hands-on VoiceOver screen reader testing on GroundNews, an Instagram accessibility audit of a university account, contrast analysis, PDF remediation, and cognitive accessibility research. The biggest finding wasn't any single violation. It was that accessibility best practices for people and machine readability for AI are the same goal, and most teams are failing at both.",
+    link: "/portfolio/accessibility-audit",
+  },
+];
+
+const building = [
+  {
+    num: "01",
+    title: "SensorSynth FM",
+    category: "Product Design · iOS",
+    year: "2026",
+    tldr: "An in-progress iPad FM synthesizer that treats every available device sensor as a modulation source: motion, environment, camera, spatial, and touch. The more environmental variables feed the synthesis engine, the more unpredictable and unrepeatable each patch becomes. The design question: what happens when the instrument responds not just to your body, but to the full physical context you exist in?",
+    link: "/portfolio/sensorsynth",
+  },
+  {
+    num: "02",
+    title: "Oblique Oracle",
+    category: "Product Design · AI",
+    year: "2026",
+    tldr: "A divination app that combines I Ching hexagram generation, Brian Eno's Oblique Strategies, and AI synthesis into a single reading. The point is not prediction. It is studying what happens to human reflection and judgment when algorithmic output is framed as wisdom instead of information.",
+    link: "/portfolio/oblique-oracle",
+  },
+  {
+    num: "03",
+    title: "PAUG.net",
+    category: "Web Development · Community Design",
+    year: "2026",
+    tldr: "The Pittsburgh Ableton User Group needed a home that wasn't rented from a social media platform. I designed and built paug.net as a standalone community hub with events, blog, founder bios, and a CMS so non-technical co-founders can publish content. The site is live, DNS is configured, and PAUG finally has a URL it owns.",
+    link: "/portfolio/paug",
+  },
+];
+
+const vision = [
+  {
+    num: "01",
+    title: "AI Music Education",
+    category: "Vision / Product Design",
+    year: "2026",
+    tldr: "Thirty years of making electronic music. An MS in UX. An AI agent system running in production. Nobody has combined all three to solve music education. This is the concept.",
+    link: "/portfolio/ai-music-education",
+  },
+];
+
+type Card = {
+  num: string;
+  title: string;
+  category: string;
+  year: string;
+  tldr: string;
+  link: string;
+};
+
+function CardList({ items }: { items: Card[] }) {
+  return (
+    <div className={styles.cardList}>
+      {items.map((item) => (
+        <article key={item.num} className={styles.card}>
+          <span className={styles.cardNum}>{item.num}</span>
+          <div className={styles.cardContent}>
+            <a href={item.link} className={styles.cardTitle}>{item.title}</a>
+            <div className={styles.cardMeta}>
+              <span className={styles.cardCategory}>{item.category}</span>
+              <span className={styles.cardDot} aria-hidden="true">·</span>
+              <span className={styles.cardYear}>{item.year}</span>
+            </div>
+            <p className={styles.cardTldr}>{item.tldr}</p>
+            <a href={item.link} className={styles.cardLink}>Read →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -34,216 +129,44 @@ export default function Home() {
             <a href="https://github.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
               GitHub ↗
             </a>
-            <a href="/about" className={styles.heroLink}>About ↗</a>
-            <a href="/lab" className={styles.heroLink}>Lab ↗</a>
-            <a href="https://medium.com/@nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
-              Medium ↗
-            </a>
-<a href="/services" className={styles.heroLink}>
-              Services ↗
-            </a>
-            <a href="/contact" className={styles.heroLink}>
-              Contact ↗
-            </a>
+            <a href="/contact" className={styles.heroLink}>Contact ↗</a>
           </div>
         </section>
 
-        {/* Selected Work */}
+        {/* Case Studies */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Selected Work</span>
+            <span className={styles.sectionLabel}>§ Case Studies</span>
             <div className={styles.sectionLine} />
           </div>
-          <ol className={styles.workList}>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>01</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/accessibility-audit" className={styles.workTitle}>
-                  Accessibility Audit Suite
-                </a>
-                <div className={styles.workMeta}>
-                  <span>UX Research</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>WCAG 2.1 · Contrast Analysis · VoiceOver · PDF Remediation</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2025</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">→</span>
-            </li>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>02</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/ableton-evaluation-suite" className={styles.workTitle}>
-                  Ableton UX Evaluation Suite
-                </a>
-                <div className={styles.workMeta}>
-                  <span>UX Research · Interaction Design</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Heuristic Evaluation · Cognitive Walkthrough · Stakeholder Analysis</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2024–2026</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">→</span>
-            </li>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>03</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/food-insecurity" className={styles.workTitle}>
-                  Food Insecurity Discovery Research
-                </a>
-                <div className={styles.workMeta}>
-                  <span>UX Research</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Semi-Structured Interviews · Affinity Mapping · JTBD Analysis</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2025</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">→</span>
-            </li>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>04</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/health-translator" className={styles.workTitle}>
-                  Health Translator
-                </a>
-                <div className={styles.workMeta}>
-                  <span>AI / UX Research</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Trust-Centered Design · Plain Language · Multimodal Interaction</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2025</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">→</span>
-            </li>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>05</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/clarence" className={styles.workTitle}>
-                  Clarence: Autonomous Agent Ecosystem
-                </a>
-                <div className={styles.workMeta}>
-                  <span>AI Systems Design</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Agent Architecture · Human-AI Collaboration · Rust · Python</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2025–2026</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">→</span>
-            </li>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>06</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/sensorsynth" className={styles.workTitle}>
-                  SensorSynth FM
-                </a>
-                <div className={styles.workMeta}>
-                  <span>Product Design · iOS</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Embodied Interaction · FM Synthesis · Sensor Mapping · AudioKit</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2026</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">→</span>
-            </li>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>07</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/paug" className={styles.workTitle}>
-                  PAUG.net
-                </a>
-                <div className={styles.workMeta}>
-                  <span>Web Development / Community Design</span>
-                  <span className={styles.metaDot} aria-hidden="true">&middot;</span>
-                  <span>Next.js &middot; Decap CMS &middot; GitHub Pages &middot; Community UX</span>
-                  <span className={styles.metaDot} aria-hidden="true">&middot;</span>
-                  <span>2026</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">&rarr;</span>
-            </li>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>08</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/oblique-oracle" className={styles.workTitle}>
-                  Oblique Oracle
-                </a>
-                <div className={styles.workMeta}>
-                  <span>Product Design · AI</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Divination · I Ching · Oblique Strategies</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2026</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">→</span>
-            </li>
-            <li className={styles.workItem}>
-              <span className={styles.workNum}>09</span>
-              <div className={styles.workContent}>
-                <a href="/portfolio/usability-testing" className={styles.workTitle}>
-                  Usability Testing Methods
-                </a>
-                <div className={styles.workMeta}>
-                  <span>UX Research</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>Moderated Testing · Unmoderated Testing · Loop11 · Test Plan Design</span>
-                  <span className={styles.metaDot} aria-hidden="true">·</span>
-                  <span>2024–2026</span>
-                </div>
-              </div>
-              <span className={styles.workArrow} aria-hidden="true">→</span>
-            </li>
-          </ol>
-        </section>
-
-        {/* Currently Building */}
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Currently Building</span>
-            <div className={styles.sectionLine} />
-          </div>
-          <div className={styles.buildingGrid}>
-            <div className={styles.buildingItem}>
-              <span className={styles.buildingName}>Clarence</span>
-              <p className={styles.buildingDesc}>
-                An autonomous AI agent ecosystem on the Hermes gateway: a knowledge base of 3,397 active
-                memories and 10,349 active facts, multi-model routing across Opus, Trinity, and MiniMax,
-                and an overnight pipeline being rebuilt from the OpenClaw original. The design question
-                is what it means to build a genuine collaborator rather than a responsive tool.
-              </p>
-              <a href="/portfolio/clarence" className={styles.buildingLink}>Read the case study →</a>
-            </div>
-            <div className={styles.buildingItem}>
-              <span className={styles.buildingName}>SensorSynth FM</span>
-              <p className={styles.buildingDesc}>
-                An iPad FM synthesizer that uses the device&apos;s physical sensors (accelerometer, gyroscope,
-                TrueDepth camera) as modulation sources. The design question is what it feels like when your
-                body is the instrument, not just the thing holding it.
-              </p>
-              <a href="/portfolio/sensorsynth" className={styles.buildingLink}>Read the case study →</a>
-            </div>
+          <CardList items={caseStudies} />
+          <div className={styles.sectionFooter}>
+            <a href="/portfolio" className={styles.allWorkLink}>See all work →</a>
           </div>
         </section>
 
-        {/* Try the Oracle */}
+        {/* Building */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Try Something</span>
+            <span className={styles.sectionLabel}>§ Building</span>
             <div className={styles.sectionLine} />
           </div>
-          <MiniOracle />
+          <CardList items={building} />
+        </section>
+
+        {/* Vision */}
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>§ Vision</span>
+            <div className={styles.sectionLine} />
+          </div>
+          <CardList items={vision} />
         </section>
 
         {/* Music */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Music</span>
+            <span className={styles.sectionLabel}>§ Music</span>
             <div className={styles.sectionLine} />
           </div>
           <p className={styles.musicStatement}>

@@ -43,28 +43,12 @@ export default function Navigation() {
             About
           </Link>
           <Link
-            href="/resume"
-            className={`${styles.link} ${pathname.startsWith("/resume") ? styles.active : ""}`}
-            aria-current={pathname.startsWith("/resume") ? "page" : undefined}
-            onClick={closeMenu}
-          >
-            Résumé
-          </Link>
-          <Link
             href="/writing"
             className={`${styles.link} ${pathname.startsWith("/writing") ? styles.active : ""}`}
             aria-current={pathname.startsWith("/writing") ? "page" : undefined}
             onClick={closeMenu}
           >
             Writing
-          </Link>
-          <Link
-            href="/services"
-            className={`${styles.link} ${pathname.startsWith("/services") ? styles.active : ""}`}
-            aria-current={pathname.startsWith("/services") ? "page" : undefined}
-            onClick={closeMenu}
-          >
-            Services
           </Link>
           <Link
             href="/contact"

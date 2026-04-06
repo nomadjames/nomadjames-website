@@ -1,43 +1,39 @@
 .footer {
-    padding: 3rem 0;
+    padding: 4rem 0 3rem;
     border-top: 1px solid var(--border);
     margin-top: auto;
     background: var(--surface);
 }
 
 .content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
     align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 2rem;
 }
 
-.left {
+.column {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
-.available {
+.columnLabel {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--orange);
+    letter-spacing: 0.14em;
+    color: var(--fg-dim);
+    margin-bottom: 0.25rem;
 }
 
-.copyright {
-    color: var(--foreground-muted);
-    font-size: 0.8rem;
-}
-
-.nav {
+.columnLinks {
     display: flex;
-    gap: 1.5rem;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
-.nav a {
+.columnLinks a {
     font-family: var(--font-mono);
     font-size: 0.78rem;
     text-transform: uppercase;
@@ -46,33 +42,50 @@
     transition: color 0.2s;
 }
 
-.nav a:hover {
-    color: var(--primary);
+.columnLinks a:hover {
+    color: var(--orange);
     opacity: 1;
 }
 
-.socials {
-    display: flex;
-    gap: 1.5rem;
+.available {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--orange);
+    margin: 0;
 }
 
-.socials a {
+.contactLink {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    transition: opacity 0.2s;
+    margin-top: 0.5rem;
+}
+
+.contactLink:hover {
+    opacity: 0.65;
+}
+
+.copyright {
     color: var(--foreground-muted);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
 }
 
-.socials a:hover {
-    color: var(--primary);
-}
-
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .content {
-        flex-direction: column;
-        gap: 1.5rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
     }
+}
 
-    .nav {
-        flex-wrap: wrap;
-        gap: 1rem;
+@media (max-width: 540px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }

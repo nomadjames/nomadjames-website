@@ -36,12 +36,14 @@
 
 .name {
   font-family: var(--font-heading);
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-size: clamp(2.5rem, 9vw, 7.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.95;
   color: var(--fg);
   margin-bottom: 2.25rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .mantra {
@@ -59,11 +61,14 @@
 
 .thesis p {
   font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  font-size: clamp(1.05rem, 2.5vw, 1.65rem);
   font-weight: 500;
   color: var(--orange);
-  line-height: 1.35;
+  line-height: 1.4;
   letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .bio {
@@ -122,125 +127,115 @@
   background: var(--border);
 }
 
-/* ── Work list ─────────────────────────────────────────── */
+/* ── Card list (Case Studies, Building, Vision) ────────── */
 
-.workList {
-  list-style: none;
+.cardList {
   display: flex;
   flex-direction: column;
 }
 
-.workItem {
+.card {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
-  padding: 1.25rem 0;
+  gap: 2rem;
+  padding: 2.25rem 0;
   border-bottom: 1px solid var(--border);
 }
 
-.workItem:first-child {
+.card:first-child {
   border-top: 1px solid var(--border);
 }
 
-.workNum {
+.cardNum {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--fg-dim);
-  padding-top: 0.25rem;
+  padding-top: 0.35rem;
   min-width: 2rem;
+  flex-shrink: 0;
 }
 
-.workContent {
+.cardContent {
   flex: 1;
   min-width: 0;
 }
 
-.workTitle {
+.cardTitle {
   display: block;
-  font-size: 1.05rem;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
   font-weight: 600;
   color: var(--fg);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
   transition: color 0.2s;
 }
 
-a.workTitle:hover {
+.cardTitle:hover {
   color: var(--orange);
   opacity: 1;
 }
 
-.workMeta {
+.cardMeta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.cardCategory {
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cardYear {
   color: var(--fg-muted);
 }
 
-.metaDot {
-  color: var(--fg-muted);  /* decorative separator — aria-hidden in JSX */
-}
-
-.workArrow {
-  font-size: 1rem;
-  color: var(--orange);
-  padding-top: 0.2rem;
-  flex-shrink: 0;
-}
-
-.workStatus {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.cardDot {
   color: var(--fg-dim);
-  border: 1px solid var(--border);
-  padding: 0.2rem 0.55rem;
-  border-radius: 2px;
-  margin-top: 0.25rem;
-  flex-shrink: 0;
 }
 
-.wip {
-  color: var(--orange);
-  border-color: rgba(232, 145, 58, 0.4);
-}
-
-/* ── Currently Building ────────────────────────────────── */
-
-.buildingGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-}
-
-.buildingName {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 0.6rem;
-}
-
-.buildingDesc {
-  font-size: 0.95rem;
+.cardTldr {
+  font-size: 0.98rem;
   line-height: 1.75;
   color: var(--fg-muted);
-  margin-bottom: 0.75rem;
+  max-width: 680px;
+  margin-bottom: 1rem;
 }
 
-.buildingLink {
+.cardLink {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--orange);
   transition: opacity 0.2s;
 }
 
-.buildingLink:hover {
+.cardLink:hover {
+  opacity: 0.65;
+}
+
+.sectionFooter {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1.5rem;
+}
+
+.allWorkLink {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+  transition: opacity 0.2s;
+}
+
+.allWorkLink:hover {
   opacity: 0.65;
 }
 
@@ -277,12 +272,25 @@ a.workTitle:hover {
     gap: 0.4rem;
   }
 
-  .workMeta {
-    display: none;
+  .card {
+    gap: 1rem;
+    padding: 1.75rem 0;
   }
 
-  .buildingGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .cardNum {
+    min-width: 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.15rem;
+  }
+
+  .cardTldr {
+    font-size: 0.9rem;
+  }
+
+  .musicLinks {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 }
