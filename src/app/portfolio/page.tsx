@@ -109,8 +109,11 @@ const work = [
     status: "published",
     link: "/portfolio/algorithmic-storytelling",
   },
+];
+
+const vision = [
   {
-    num: "13",
+    num: "V1",
     title: "AI Music Education: A Vision for Electronic Music Learning",
     category: "Vision / Product Design",
     year: "2026",
@@ -168,9 +171,46 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <section className={`${styles.musicSection} ${styles.moreWorkSection}`} id="more-work">
+        <section className={`${styles.musicSection} ${styles.moreWorkSection}`} id="vision">
           <div className={styles.moreWorkHeader}>
             <span className={styles.sectionLabel}>§ Section 02</span>
+            <h2 className={styles.moreWorkTitle}>Vision</h2>
+            <p className={styles.moreWorkDesc}>
+              Concept pieces and forward-looking work. Not shipped products. Directions I think are worth exploring, grounded in what I see from the intersection of my domains.
+            </p>
+          </div>
+          <div className={styles.workList} style={{ marginTop: "2rem", borderTop: "1px solid var(--border)" }}>
+            {vision.map((item) => (
+              <article key={item.num} className={styles.workItem}>
+                <span className={styles.workNum}>{item.num}</span>
+                <div className={styles.workContent}>
+                  {item.link ? (
+                    <a href={item.link} className={styles.workTitle}>{item.title}</a>
+                  ) : (
+                    <span className={styles.workTitle}>{item.title}</span>
+                  )}
+                  <div className={styles.workMeta}>
+                    <span className={styles.category}>{item.category}</span>
+                    <span className={styles.metaDot} aria-hidden="true">·</span>
+                    <span className={styles.year}>{item.year}</span>
+                  </div>
+                  <div className={styles.methods}>
+                    {item.methods.map((m, i) => (
+                      <span key={i} className={styles.method}>{m}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className={styles.statusBlock}>
+                  <a href={item.link!} className={styles.readLink}>Read →</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className={`${styles.musicSection} ${styles.moreWorkSection}`} id="more-work">
+          <div className={styles.moreWorkHeader}>
+            <span className={styles.sectionLabel}>§ Section 03</span>
             <h2 className={styles.moreWorkTitle}>More Work</h2>
             <p className={styles.moreWorkDesc}>
               Additional projects and research not featured as full case studies.
@@ -199,7 +239,7 @@ export default function Portfolio() {
 
         <section className={`${styles.musicSection} ${styles.moreWorkSection}`} id="music">
           <div className={styles.moreWorkHeader}>
-            <span className={styles.sectionLabel}>§ Section 03</span>
+            <span className={styles.sectionLabel}>§ Section 04</span>
             <h2 className={styles.moreWorkTitle}>Music &amp; Sound</h2>
             <p className={styles.moreWorkDesc}>
               Electronic music producer. Pittsburgh Ableton User Group organizer,

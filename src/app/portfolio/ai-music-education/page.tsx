@@ -14,7 +14,7 @@ export default function AIMusicEducation() {
       <main className="container">
 
         {/* Back link */}
-        <a href="/portfolio" className={styles.backLink}>← Work</a>
+        <a href="/portfolio#vision" className={styles.backLink}>← Vision</a>
 
         {/* Header */}
         <header className={styles.header}>
