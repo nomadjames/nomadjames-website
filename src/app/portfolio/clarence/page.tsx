@@ -77,6 +77,20 @@ export default function ClarencePage() {
           </div>
         </div>
 
+        {/* Live Knowledge Graph */}
+        <div className={cs.graphSection}>
+          <div className={cs.graphHeader}>
+            <span className={cs.graphTitle}>Live Knowledge Graph</span>
+            <span className={cs.graphCaption}>2,287 entities · 337 connections · hover and scroll to explore</span>
+          </div>
+          <iframe
+            src="/clarence-graph/"
+            title="Clarence Knowledge Graph Visualization"
+            loading="lazy"
+            className={cs.graphFrame}
+          />
+        </div>
+
         {/* Design Question */}
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Design Question</h2>

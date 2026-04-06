@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarence Knowledge Graph</title>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    /* === Reset & Base === */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #050505; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+    /* === Graph Container === */
+    #graph { width: 100%; height: 100%; }
+
+    /* === Loading Overlay === */
+    #loader {
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #050505; transition: opacity 0.6s ease;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    #loader .spinner {
+      width: 32px; height: 32px; border: 2px solid rgba(99,102,241,0.2);
+      border-top-color: #6366f1; border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    #loader .progress {
+      margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.3);
+      letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* === Stats Badge (top-right) === */
+    #stats {
+      position: fixed; top: 12px; right: 12px; z-index: 50;
+      padding: 6px 12px; border-radius: 20px;
+      background: rgba(255,255,255,0.06); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 11px; color: rgba(255,255,255,0.45);
+      letter-spacing: 0.3px; opacity: 0; transition: opacity 0.6s ease;
+    }
+    #stats.visible { opacity: 1; }
+
+    /* === Legend (bottom-left) === */
+    #legend {
+      position: fixed; bottom: 12px; left: 12px; z-index: 50;
+      padding: 10px 14px; border-radius: 8px;
+      background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column; gap: 5px;
+      opacity: 0; transition: opacity 0.6s ease;
+    }
+    #legend.visible { opacity: 1; }
+    .legend-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 10px; color: rgba(255,255,255,0.4);
+      text-transform: capitalize;
+    }
+    .legend-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+
+    /* === Node Tooltip === */
+    #tooltip {
+      position: fixed; z-index: 60; pointer-events: none;
+      padding: 8px 12px; border-radius: 6px;
+      background: rgba(15,15,15,0.92); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      opacity: 0; transition: opacity 0.15s ease; transform: translate(-50%, -100%);
+    }
+    #tooltip.visible { opacity: 1; }
+    #tooltip .tt-name { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 500; }
+    #tooltip .tt-type { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 2px; text-transform: capitalize; }
+  </style>
+</head>
+<body>
+  <!-- Loading overlay -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <div class="progress" id="progress">Loading graph…</div>
+  </div>
+
+  <!-- Stats badge -->
+  <div id="stats"></div>
+
+  <!-- Legend (populated dynamically) -->
+  <div id="legend"></div>
+
+  <!-- Node tooltip -->
+  <div id="tooltip">
+    <div class="tt-name" id="tt-name"></div>
+    <div class="tt-type" id="tt-type"></div>
+  </div>
+
+  <!-- Graph canvas -->
+  <div id="graph"></div>
+
+  <script>
+    // =========================================================================
+    // Configuration
+    // =========================================================================
+    const TYPE_STYLES = {
+      concept:       { color: '#6366f1', shape: 'dot',     label: 'Concept' },
+      tool:          { color: '#f97316', shape: 'diamond',  label: 'Tool' },
+      project:       { color: '#22c55e', shape: 'square',   label: 'Project' },
+      course:        { color: '#eab308', shape: 'triangle', label: 'Course' },
+      research:      { color: '#8b5cf6', shape: 'star',     label: 'Research' },
+      'research-topic': { color: '#8b5cf6', shape: 'star',  label: 'Research' },
+      research_topic:   { color: '#8b5cf6', shape: 'star',  label: 'Research' },
+      organization:  { color: '#14b8a6', shape: 'hexagon',  label: 'Organization' },
+      company:       { color: '#14b8a6', shape: 'hexagon',  label: 'Organization' },
+      institution:   { color: '#14b8a6', shape: 'hexagon',  label: 'Organization' },
+    };
+    const DEFAULT_STYLE = { color: '#64748b', shape: 'dot', label: 'Other' };
+
+    function getStyle(type) {
+      return TYPE_STYLES[(type || '').toLowerCase()] || DEFAULT_STYLE;
+    }
+
+    // Read URL params for optional type filter
+    const params = new URLSearchParams(window.location.search);
+    const filterType = params.get('type');
+
+    // =========================================================================
+    // Load Data & Build Graph
+    // =========================================================================
+    (async function init() {
+      const progressEl = document.getElementById('progress');
+      const loaderEl = document.getElementById('loader');
+
+      // Fetch graph data from static JSON
+      let data;
+      try {
+        const res = await fetch('./graph-data.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+      } catch (err) {
+        progressEl.textContent = 'Failed to load graph data';
+        console.error('Graph load error:', err);
+        return;
+      }
+
+      progressEl.textContent = 'Building graph…';
+
+      // --- Filter nodes by type if ?type= param is set ---
+      let nodes = data.nodes || [];
+      let edges = data.edges || [];
+      const stats = data.stats || {};
+
+      if (filterType) {
+        const ft = filterType.toLowerCase();
+        const allowedIds = new Set(nodes.filter(n => (n.type || '').toLowerCase() === ft).map(n => n.id));
+        nodes = nodes.filter(n => allowedIds.has(n.id));
+        edges = edges.filter(e => allowedIds.has(e.from) && allowedIds.has(e.to));
+      }
+
+      // --- Build vis-network DataSets ---
+      const visNodes = new vis.DataSet(nodes.map(n => {
+        const style = getStyle(n.type);
+        const conns = n.connections || 1;
+        const size = Math.min(35, Math.max(8, 8 + Math.log(conns + 1) * 6));
+        return {
+          id: n.id,
+          label: n.name || n.id,
+          shape: style.shape,
+          size: size,
+          color: {
+            background: style.color,
+            border: style.color,
+            highlight: { background: style.color, border: '#fff' },
+            hover: { background: style.color, border: '#fff' },
+          },
+          font: { color: 'rgba(255,255,255,0.75)', size: 11, face: '-apple-system, sans-serif' },
+          borderWidth: 0,
+          borderWidthSelected: 2,
+          // Store metadata for tooltip
+          _type: n.type || 'unknown',
+          _connections: conns,
+        };
+      }));
+
+      const visEdges = new vis.DataSet(edges.map(e => {
+        const implicit = e.implicit === true;
+        return {
+          from: e.from,
+          to: e.to,
+          color: {
+            color: implicit ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.15)',
+            highlight: 'rgba(255,255,255,0.4)',
+            hover: 'rgba(255,255,255,0.3)',
+          },
+          dashes: implicit ? [4, 4] : false,
+          width: implicit ? 0.5 : 0.8,
+          smooth: { type: 'continuous', roundness: 0.2 },
+        };
+      }));
+
+      // --- Network Options ---
+      const options = {
+        nodes: {
+          scaling: {
+            label: { enabled: true, min: 14, max: 22, drawThreshold: 9 },
+          },
+        },
+        edges: {
+          selectionWidth: 1.5,
+          hoverWidth: 0.5,
+        },
+        physics: {
+          solver: 'barnesHut',
+          barnesHut: {
+            gravitationalConstant: -3000,
+            springLength: 200,
+            springConstant: 0.02,
+            damping: 0.15,
+          },
+          stabilization: {
+            enabled: true,
+            iterations: 150,
+            updateInterval: 15,
+          },
+          // Keep gently floating after stabilization
+          minVelocity: 0.3,
+          maxVelocity: 8,
+        },
+        interaction: {
+          hover: true,
+          tooltipDelay: 9999999,  // Disable built-in tooltips
+          zoomView: true,
+          dragView: true,
+          dragNodes: true,
+          navigationButtons: false,
+          keyboard: false,
+        },
+        layout: { improvedLayout: true },
+      };
+
+      // --- Create Network ---
+      const container = document.getElementById('graph');
+      const network = new vis.Network(container, { nodes: visNodes, edges: visEdges }, options);
+
+      // --- Stabilization Progress ---
+      network.on('stabilizationProgress', (p) => {
+        const pct = Math.round((p.iterations / p.total) * 100);
+        progressEl.textContent = `Stabilizing… ${pct}%`;
+      });
+
+      network.on('stabilizationIterationsDone', () => {
+        // Fade out loader
+        loaderEl.classList.add('hidden');
+        setTimeout(() => { loaderEl.style.display = 'none'; }, 700);
+
+        // Show UI elements
+        document.getElementById('stats').classList.add('visible');
+        document.getElementById('legend').classList.add('visible');
+      });
+
+      // --- Populate Stats Badge ---
+      const nodeCount = filterType ? nodes.length : (stats.total_nodes || nodes.length);
+      const edgeCount = filterType ? edges.length : (stats.total_edges || edges.length);
+      document.getElementById('stats').textContent = `${nodeCount} entities · ${edgeCount} connections`;
+
+      // --- Populate Legend (only types present in data) ---
+      const typesPresent = new Map();
+      nodes.forEach(n => {
+        const t = (n.type || '').toLowerCase();
+        if (!typesPresent.has(t)) {
+          const s = getStyle(t);
+          typesPresent.set(t, s);
+        }
+      });
+
+      const legendEl = document.getElementById('legend');
+      // Deduplicate by label (research variants merge)
+      const legendSeen = new Set();
+      typesPresent.forEach((style, type) => {
+        if (legendSeen.has(style.label)) return;
+        legendSeen.add(style.label);
+        const item = document.createElement('div');
+        item.className = 'legend-item';
+        item.innerHTML = `<span class="legend-dot" style="background:${style.color}"></span>${style.label}`;
+        legendEl.appendChild(item);
+      });
+
+      // =======================================================================
+      // Interactivity
+      // =======================================================================
+      const tooltipEl = document.getElementById('tooltip');
+      const ttName = document.getElementById('tt-name');
+      const ttType = document.getElementById('tt-type');
+      let highlightActive = false;
+
+      // --- Hover: highlight node + neighbors, dim the rest ---
+      network.on('hoverNode', (e) => {
+        highlightActive = true;
+        const nodeId = e.node;
+        const connectedNodes = network.getConnectedNodes(nodeId);
+        const connectedEdges = network.getConnectedEdges(nodeId);
+        const allNodeIds = visNodes.getIds();
+        const allEdgeIds = visEdges.getIds();
+
+        // Dim all nodes
+        const nodeUpdates = allNodeIds.map(id => {
+          const isHighlighted = id === nodeId || connectedNodes.includes(id);
+          return { id, opacity: isHighlighted ? 1.0 : 0.12 };
+        });
+        visNodes.update(nodeUpdates);
+
+        // Dim all edges
+        const connectedEdgeSet = new Set(connectedEdges);
+        const edgeUpdates = allEdgeIds.map(id => ({
+          id, hidden: !connectedEdgeSet.has(id),
+        }));
+        visEdges.update(edgeUpdates);
+      });
+
+      network.on('blurNode', () => {
+        if (!highlightActive) return;
+        highlightActive = false;
+        // Restore all nodes
+        visNodes.update(visNodes.getIds().map(id => ({ id, opacity: 1.0 })));
+        // Restore all edges
+        visEdges.update(visEdges.getIds().map(id => ({ id, hidden: false })));
+      });
+
+      // --- Click: show tooltip near node ---
+      network.on('click', (e) => {
+        if (e.nodes.length > 0) {
+          const nodeId = e.nodes[0];
+          const nodeData = visNodes.get(nodeId);
+          ttName.textContent = nodeData.label;
+          ttType.textContent = nodeData._type;
+          // Position tooltip at click location
+          tooltipEl.style.left = e.event.center.x + 'px';
+          tooltipEl.style.top = (e.event.center.y - 12) + 'px';
+          tooltipEl.classList.add('visible');
+        } else {
+          tooltipEl.classList.remove('visible');
+        }
+      });
+
+      // Hide tooltip on drag/zoom
+      network.on('dragStart', () => tooltipEl.classList.remove('visible'));
+      network.on('zoom', () => tooltipEl.classList.remove('visible'));
+
+      // --- Double-click: zoom to neighborhood ---
+      network.on('doubleClick', (e) => {
+        if (e.nodes.length > 0) {
+          const nodeId = e.nodes[0];
+          const neighbors = network.getConnectedNodes(nodeId);
+          const fitNodes = [nodeId, ...neighbors];
+          network.fit({ nodes: fitNodes, animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+        }
+      });
+
+      // Disable right-click context menu
+      container.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    })();
+  </script>
+</body>
+</html>
