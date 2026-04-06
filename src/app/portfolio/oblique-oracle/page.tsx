@@ -110,12 +110,14 @@ export default function ObliqueOracle() {
             authority when the frame is explicitly non-rational.
           </p>
           <p className={styles.body}>
-            The specific gap this project occupies: no peer-reviewed study combines a classical
-            divination system with an LLM to generate contextual, synthesized interpretations. ML-generated
-            tarot decks exist. Web-based Oblique Strategies randomizers exist. AI prophecy devices exist.
-            But the three-system synthesis (hexagram structure + lateral provocation + interpretive AI)
-            has no direct precedent in the CHI, DIS, or C&amp;C literature. That gap is what makes
-            this a research question rather than just an app.
+            The specific gap this project occupies, as far as I have been able to find: I have not
+            located a peer-reviewed study that combines a classical divination system with an LLM
+            to generate contextual, synthesized interpretations. ML-generated tarot decks exist.
+            Web-based Oblique Strategies randomizers exist. AI prophecy devices exist. The three-system
+            synthesis (hexagram structure + lateral provocation + interpretive AI) is something I
+            have not found a direct precedent for in the CHI, DIS, or C&amp;C literature I have
+            searched. If that gap holds up under a more thorough literature review, it is what
+            makes this a research question rather than just an app.
           </p>
         </section>
 
@@ -211,9 +213,10 @@ export default function ObliqueOracle() {
           <p className={styles.body}>
             The core research question is a comparative study: does the Oracle change how people
             reflect compared to a raw I Ching reading, a standalone Oblique Strategy, or a
-            freeform ChatGPT prompt? An existing preprint found that Oblique Strategies were
-            perceived as more challenging but more rewarding and engaging than ChatGPT for creative
-            ideation. The Oracle sits between these conditions: structured enough to provoke,
+            freeform ChatGPT prompt? Recent work on creativity-support tools has found that
+            constraint-based prompts like Oblique Strategies can be perceived as more challenging
+            but also more rewarding and engaging than open-ended LLM prompting for creative
+            ideation, and the Oracle sits between those conditions: structured enough to provoke,
             synthesized enough to be accessible. The evaluation battery would include ideation
             metrics (fluency, novelty, variety), the Creativity Support Index (a validated
             psychometric), homogenization analysis (does the tool make everyone&apos;s output
@@ -221,11 +224,11 @@ export default function ObliqueOracle() {
             ambiguous prompts.
           </p>
           <p className={styles.body}>
-            This is a publishable research direction. The natural venues are CHI alt.chi, DIS
-            (as a pictorial, given the visual design emphasis), or Creativity &amp; Cognition.
-            No peer-reviewed study has evaluated an LLM-augmented divination system against
-            classical divination alone. The gap exists and the tool exists. What remains is the
-            study.
+            This feels like a publishable research direction. The natural venues are CHI alt.chi,
+            DIS (as a pictorial, given the visual design emphasis), or Creativity &amp; Cognition.
+            The next step is the literature review I have not yet done at the rigor a submission
+            would require, then the comparative study itself. The tool exists. What remains is
+            the work.
           </p>
         </section>
 

@@ -212,9 +212,10 @@ export default function Home() {
             <div className={styles.buildingItem}>
               <span className={styles.buildingName}>Clarence</span>
               <p className={styles.buildingDesc}>
-                An autonomous AI agent ecosystem: 11 cron jobs, 16 named agents, a custom Rust API bridge,
-                multi-model routing, and a nightly R&amp;D Council that debates open questions while I sleep.
-                The design question is what it means to build a genuine collaborator rather than a responsive tool.
+                An autonomous AI agent ecosystem on the Hermes gateway: a knowledge base of 3,397 active
+                memories and 10,349 active facts, multi-model routing across Opus, Trinity, and MiniMax,
+                and an overnight pipeline being rebuilt from the OpenClaw original. The design question
+                is what it means to build a genuine collaborator rather than a responsive tool.
               </p>
               <a href="/portfolio/clarence" className={styles.buildingLink}>Read the case study →</a>
             </div>
