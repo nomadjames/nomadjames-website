@@ -168,15 +168,15 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <section className={styles.musicSection}>
-          <div className={styles.musicHeader}>
-            <span className={styles.sectionLabel}>More Work</span>
-            <div className={styles.sectionLine} />
-          </div>
-          <div className={styles.musicContent}>
-            <p className={styles.musicDesc}>
+        <section className={`${styles.musicSection} ${styles.moreWorkSection}`} id="more-work">
+          <div className={styles.moreWorkHeader}>
+            <span className={styles.sectionLabel}>§ Section 02</span>
+            <h2 className={styles.moreWorkTitle}>More Work</h2>
+            <p className={styles.moreWorkDesc}>
               Additional projects and research not featured as full case studies.
             </p>
+          </div>
+          <div className={styles.musicContent}>
             <div className={styles.musicLinks}>
               <a href="/pdfs/usability-test-plan-adobe-express.pdf" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
                 Adobe Express Redesign: Paper Prototyping (PDF) ↗
@@ -197,17 +197,17 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <section className={styles.musicSection}>
-          <div className={styles.musicHeader}>
-            <span className={styles.sectionLabel}>Music & Sound</span>
-            <div className={styles.sectionLine} />
-          </div>
-          <div className={styles.musicContent}>
-            <p className={styles.musicDesc}>
+        <section className={`${styles.musicSection} ${styles.moreWorkSection}`} id="music">
+          <div className={styles.moreWorkHeader}>
+            <span className={styles.sectionLabel}>§ Section 03</span>
+            <h2 className={styles.moreWorkTitle}>Music &amp; Sound</h2>
+            <p className={styles.moreWorkDesc}>
               Electronic music producer. Pittsburgh Ableton User Group organizer,
               in direct partnership with Ableton&apos;s international team. Available for DJ sets, production, and
               consultation.
             </p>
+          </div>
+          <div className={styles.musicContent}>
             <div className={styles.musicLinks}>
               <a href="https://soundcloud.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
                 SoundCloud ↗
