@@ -26,6 +26,11 @@ export default function PaugPage() {
             <span className={styles.context}>Co-founder &middot; Pittsburgh Ableton User Group</span>
           </div>
           <PretextTitle text={"PAUG.net:\nCommunity Platform"} className={styles.title} />
+          <p className={styles.liveLink}>
+            <a href="https://paug.net" target="_blank" rel="noopener noreferrer">
+              Visit paug.net &rarr;
+            </a>
+          </p>
           <div className={styles.methods}>
             {[
               "Next.js",

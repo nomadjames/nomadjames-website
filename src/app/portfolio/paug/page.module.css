@@ -67,7 +67,26 @@
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+
+.liveLink {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   margin-bottom: 2rem;
+}
+
+.liveLink a {
+  color: var(--orange);
+  border-bottom: 1px solid var(--orange);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.liveLink a:hover {
+  opacity: 0.75;
 }
 
 .methods {
