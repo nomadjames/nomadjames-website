@@ -27,14 +27,14 @@ export default function AccessibilityAudit() {
           </div>
           <PretextTitle text={"Accessibility Audit Suite:\nMusic Tech Meets WCAG"} className={styles.title} />
           <div className={styles.methods}>
-            {["WCAG 2.1 AA/AAA", "Contrast Analysis", "VoiceOver", "PDF Remediation", "Social Media Audit", "Cognitive Accessibility"].map((m) => (
+            {["WCAG 2.1 AA/AAA", "Contrast Analysis", "VoiceOver Testing", "PDF Remediation", "Social Media Audit", "Cognitive Accessibility"].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
             ))}
           </div>
         </header>
 
         <Tldr>
-          I ran a multi-method accessibility audit across music tech, news, social media, and academic sites - covering WCAG compliance, VoiceOver testing, contrast analysis, PDF remediation, and cognitive accessibility. The biggest finding wasn&apos;t any single violation. It was that accessibility best practices for people and machine readability for AI are the same goal, and most teams are failing at both.
+          I ran a multi-method accessibility audit across music tech, news, social media, and academic sites. The work covered WCAG compliance, hands-on VoiceOver screen reader testing on GroundNews, an Instagram accessibility audit of a university account, contrast analysis, PDF remediation, and cognitive accessibility research. The biggest finding wasn&apos;t any single violation. It was that accessibility best practices for people and machine readability for AI are the same goal, and most teams are failing at both.
         </Tldr>
 
         {/* The Problem */}
@@ -218,6 +218,106 @@ export default function AccessibilityAudit() {
               change. A one-time audit is a starting point, not a solution
             </li>
           </ul>
+        </section>
+
+        {/* VoiceOver / Screen Reader Testing */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>VoiceOver / Screen Reader Testing</h2>
+          <p className={styles.body}>
+            For Module 3 of UX-60504, I conducted hands-on testing with the VoiceOver screen reader
+            on the GroundNews news aggregation website. This was first-person assistive technology
+            testing, not automated scanning or heuristic review. I navigated the site the way a
+            screen reader user would, and the experience surfaced issues that no visual audit could catch.
+          </p>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Navigation Patterns Differ From Sighted Browsing</h3>
+            <p className={styles.body}>
+              VoiceOver navigation follows a fundamentally different path than sighted browsing. Focus
+              order, heading hierarchy, and landmark regions become the primary navigation mechanisms.
+              On GroundNews, the focus sequence did not match the visual hierarchy, creating a
+              disorienting experience where content was announced in an order that made the page
+              structure unclear. Landmark regions were missing entirely, which meant there was no
+              efficient way to jump between sections. For a news site, where scanning and quick
+              navigation are core to the experience, this is a critical failure.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Dynamic Content Creates Unique Challenges</h3>
+            <p className={styles.body}>
+              News content sites present challenges that static pages do not. Dynamic content updates,
+              embedded advertisements, and multimedia elements all compete for screen reader attention.
+              On GroundNews, ads interrupted the reading flow without clear separation from editorial
+              content. Interactive elements lacked accessible labels. Multimedia content had no
+              alternative text or captions. These are not edge cases. They are the baseline experience
+              for any screen reader user visiting a modern news site.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>First-Person Testing Reveals What Automated Tools Cannot</h3>
+            <p className={styles.body}>
+              The key finding from this module was straightforward: first-person screen reader testing
+              reveals issues that are invisible in a visual audit. An automated accessibility checker
+              can flag missing alt text or low contrast ratios. It cannot tell you that the reading
+              order makes a page incomprehensible, or that interactive elements are technically present
+              but functionally unusable. The gap between &quot;passes automated checks&quot; and &quot;works for a
+              screen reader user&quot; is where most accessibility failures live.
+            </p>
+          </div>
+        </section>
+
+        {/* Instagram Accessibility Audit */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Instagram Accessibility Audit</h2>
+          <p className={styles.body}>
+            For Module 1 of UX-60504, I conducted an accessibility audit of Kent State University&apos;s
+            College of Aeronautics and Engineering Instagram account. Social media is where many
+            organizations make their first impression, and it is often the last place accessibility
+            gets attention. This audit examined specific posts for screen reader compatibility, color
+            contrast compliance, and readability.
+          </p>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>FIRST Robotics Post: Emoji and Alt Text Failures</h3>
+            <p className={styles.body}>
+              The first post examined was a FIRST Robotics team feature. Multiple emojis were used
+              throughout the caption, and none of them translate cleanly to screen readers. Each emoji
+              gets announced by its Unicode name, turning a visual shorthand into an interruption.
+              The image alt text was autogenerated by Instagram&apos;s built-in system. The result was
+              nonsensical: it read text from a shirt in the image without any context about what the
+              image actually depicted or why it mattered. A screen reader user would hear a string of
+              disconnected descriptors instead of understanding that this was a team celebration photo.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Decorative Text Post: Contrast and Readability Failures</h3>
+            <p className={styles.body}>
+              The second post used decorative overlay text on an image. The contrast ratio measured at
+              2:1, which fails the WCAG 4.5:1 minimum for normal text under SC 1.4.3. The text was
+              also set in a cursive font, which creates additional barriers for users with dyslexia or
+              low vision. Decorative typography that sacrifices legibility for aesthetics is a common
+              pattern on social media. It is also a direct accessibility violation when it carries
+              meaningful content.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Core Finding: Automated Alt Text Fails Contextual Nuance</h3>
+            <p className={styles.body}>
+              The central finding from this audit was that automated alt text generation fails at
+              contextual nuance. Instagram&apos;s system can identify what is in an image, but it cannot
+              identify what the image means in context. It can detect a person, a shirt, a room. It
+              cannot convey that this is a celebration, a team milestone, or a recruiting moment. That
+              gap between identification and meaning is where accessibility breaks down for social
+              media content. The fix is not complicated: remove decorative emojis from captions, write
+              descriptive alt text that communicates purpose rather than inventory, and ensure text
+              overlays meet contrast minimums. None of these require technical sophistication. They
+              require intentional process.
+            </p>
+          </div>
         </section>
 
         {/* Skills */}

@@ -91,6 +91,33 @@ const work = [
     status: "published",
     link: "/portfolio/paug",
   },
+  {
+    num: "11",
+    title: "Graduate Assistantship: UX Textbook Authoring",
+    category: "Academic Research",
+    year: "2025–2026",
+    methods: ["Textbook Authoring", "Qualitative Research", "Instructional Design", "Research Verification"],
+    status: "published",
+    link: "/portfolio/graduate-assistantship",
+  },
+  {
+    num: "12",
+    title: "Algorithmic Storytelling v3: Interactive Narrative as Political Act",
+    category: "Creative Coding",
+    year: "2025",
+    methods: ["p5.js", "Sprite Animation", "Collision Detection", "Interactive Narrative", "Political Satire"],
+    status: "published",
+    link: "/portfolio/algorithmic-storytelling",
+  },
+  {
+    num: "13",
+    title: "AI Music Education: A Vision for Electronic Music Learning",
+    category: "Vision / Product Design",
+    year: "2026",
+    methods: ["Market Analysis", "Competitive Research", "Barrier Analysis", "Curriculum Design", "AI/UX Integration"],
+    status: "published",
+    link: "/portfolio/ai-music-education",
+  },
 ];
 
 export default function Portfolio() {
@@ -151,8 +178,20 @@ export default function Portfolio() {
               Additional coursework and research not featured as full case studies.
             </p>
             <div className={styles.musicLinks}>
+              <a href="/pdfs/usability-test-plan-adobe-express.pdf" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
+                Adobe Express Redesign: Paper Prototyping (PDF) ↗
+              </a>
+              <a href="/pdfs/loop11-usability-analysis.pdf" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
+                Apple.com vs BestBuy.com: Unmoderated Usability Study (PDF) ↗
+              </a>
               <a href="/pdfs/mobile-design-patterns.pdf" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
                 Mobile Design Patterns (PDF) ↗
+              </a>
+              <a href="/pdfs/usability-brief-chipotle.pdf" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
+                Chipotle Usability Brief (PDF) ↗
+              </a>
+              <a href="/pdfs/unmoderated-usability-testing.pdf" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
+                Unmoderated Usability Testing Methods (PDF) ↗
               </a>
             </div>
           </div>

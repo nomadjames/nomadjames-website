@@ -6,7 +6,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with a SQLite knowledge database spanning 4,121 memories, 2,634 entities, 16,658 facts, and 2,074 indexed vault notes with full vector search, multi-model routing across 4 MCP servers, conversation distillation pipeline, session lifecycle hooks, and a nightly autonomous pipeline. Built on OpenClaw, migrated under constraint to Hermes, and still evolving.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with a SQLite knowledge database spanning 4,215 memories, 2,474 entities, 14,882 facts, and 2,074 indexed vault notes with full vector search, multi-model routing across 4 MCP servers, conversation distillation pipeline, session lifecycle hooks, and a nightly autonomous pipeline. Built on OpenClaw, migrated under constraint to Hermes, and still evolving.",
 };
 
 export default function ClarencePage() {
@@ -54,17 +54,17 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built an autonomous AI system that manages a knowledge base of 4,121 memories, 2,634 entities, and 16,658 facts with full vector search across 2,074 indexed vault notes, routes tasks across multiple models by cost and capability, syncs coursework from Google Drive, and posts reports to 9 Discord channels. Then the platform I built it on changed the rules, and I had to migrate the entire system under constraint in 48 hours. The real lesson was not about automation. It was about trust calibration, platform dependency, and what happens when you design a collaborator instead of a tool.
+          I built an autonomous AI system that manages a knowledge base of 4,215 memories, 2,474 entities, and 14,882 facts with full vector search across 2,074 indexed vault notes, routes tasks across multiple models by cost and capability, syncs coursework from Google Drive, and posts reports to 9 Discord channels. Then the platform I built it on changed the rules, and I had to migrate the entire system under constraint in 48 hours. The real lesson was not about automation. It was about trust calibration, platform dependency, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>16,658</span>
+            <span className={cs.statNum}>14,882</span>
             <span className={cs.statLabel}>Facts in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>4,121</span>
+            <span className={cs.statNum}>4,215</span>
             <span className={cs.statLabel}>Memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
@@ -94,7 +94,7 @@ export default function ClarencePage() {
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
             system running on the Hermes agent gateway with Claude Code as the primary interface, after a forced
             migration from OpenClaw when Anthropic changed the rules on third-party harnesses. It routes tasks across
-            multiple models based on cost and capability, maintains a knowledge base of over 16,000 facts and 4,000
+            multiple models based on cost and capability, maintains a knowledge base of over 14,000 facts and 4,000
             memories with semantic vector search, syncs coursework and research from Google Drive into an indexed
             Obsidian vault, posts briefings to Discord before I wake up, and writes session handoff notes so the
             next conversation picks up where the last one left off.
@@ -265,12 +265,12 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>MCP Bridge (read_memory)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>RAG: 4,044 memory + 14,351 fact vectors</span>
+                <span className={cs.archDiagramNode}>RAG: 3,391 memory + 10,349 fact vectors</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                Memory spans two tiers. The knowledge database (clarence.db, ~50MB SQLite) holds 4,121 active memories, 2,634 entities, and 16,658 facts with full vector search (sqlite-vec, all-MiniLM-L6-v2, 384-dim, fully local, 18,395 total embeddings). A daily knowledge sync pulls coursework and research from Google Drive into the Obsidian vault, then re-indexes all 2,074 vault notes into the database. The Hermes flat-file memory layer (MEMORY.md and USER.md) holds compact operational context injected into every turn. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. The conversation distillation pipeline processes conversations, extracting durable knowledge into the DB. The vault syncs bidirectionally: writing a note in Obsidian feeds the RAG layer automatically.
+                Memory spans two tiers. The knowledge database (clarence.db, ~50MB SQLite) holds 4,215 active memories, 2,474 entities, and 14,882 facts with full vector search (sqlite-vec, all-MiniLM-L6-v2, 384-dim, fully local, 13,740 total embeddings). A daily knowledge sync pulls coursework and research from Google Drive into the Obsidian vault, then re-indexes all 2,074 vault notes into the database. The Hermes flat-file memory layer (MEMORY.md and USER.md) holds compact operational context injected into every turn. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. The conversation distillation pipeline processes conversations, extracting durable knowledge into the DB. The vault syncs bidirectionally: writing a note in Obsidian feeds the RAG layer automatically.
               </p>
             </div>
 
@@ -500,15 +500,15 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 4,121
-              memories, 2,634 entities, and 16,658 facts across 26 tables. The schema separates
+              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 4,215
+              memories, 2,474 entities, and 14,882 facts across 15 tables. The schema separates
               concerns: a <em>profiles</em> table holds identity facts (agent names, user preferences,
               project constants) with deterministic key lookup. No fuzzy search for things that must be exact.
               A <em>memories</em> table stores durable knowledge with soft invalidation: when a fact changes,
               the old record is marked invalid and a new one is written, preserving the audit trail.
             </p>
             <p className={styles.body}>
-              The RAG layer is live: 4,044 memory vectors and 14,351 fact vectors (18,395 total) with
+              The RAG layer is live: 3,391 memory vectors and 10,349 fact vectors (13,740 total) with
               all-MiniLM-L6-v2 embeddings (384-dim), running fully locally via sqlite-vec. Automated garbage
               collection prunes low-value catalog data while preserving all behavioral corrections and user
               knowledge. No separate vector database, no network hop. Agents query the knowledge base by meaning: &ldquo;what does
@@ -519,7 +519,7 @@ export default function ClarencePage() {
               The conversation distillation pipeline (conversation-distill.py) processes Telegram
               conversations nightly, extracting decisions, corrections, and preferences into the memory DB.
               This is what makes the memory system feel alive rather than static. James corrects something
-              once in conversation, and it persists. The knowledge base grew from ~170 to 4,121 memories
+              once in conversation, and it persists. The knowledge base grew from ~170 to 4,215 memories
               in part because this pipeline captures context that would otherwise evaporate. A retrieval feedback loop lets sessions flag results as useful or noise, creating a learning signal for future garbage collection.
             </p>
             <p className={styles.body}>
@@ -591,7 +591,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Memory Growth Without Garbage Collection</h3>
             <p className={styles.body}>
-              The knowledge base grew from ~170 to 4,121 memories and the facts table exploded to 16,658
+              The knowledge base grew from ~170 to 4,215 memories and the facts table exploded to 14,882
               entries after vault fact extraction processed 1,927 notes. More data does not automatically
               mean better recall. As the database scales, the vector search returns increasingly similar
               results, and the signal-to-noise ratio in retrieved context degrades. Memory needs pruning
@@ -635,8 +635,8 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>Knowledge database: 4,121 active memories, 2,634 entities, 16,658 facts, 2,074 indexed vault notes in clarence.db (~50MB SQLite) with conversation distillation, automated GC, and retrieval feedback loop</li>
-            <li>RAG layer: 14,351 fact vectors + 4,044 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim, 18,395 total), fully local via sqlite-vec</li>
+            <li>Knowledge database: 4,215 active memories, 2,474 entities, 14,882 facts, 2,074 indexed vault notes in clarence.db (~50MB SQLite) with conversation distillation, automated GC, and retrieval feedback loop</li>
+            <li>RAG layer: 10,349 fact vectors + 3,391 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim, 13,740 total), fully local via sqlite-vec</li>
             <li>Daily knowledge sync: Google Drive coursework pull, vault re-indexing, results to Discord</li>
             <li>2,074 Obsidian vault notes indexed and searchable via semantic vector search</li>
             <li>95 skills in the Hermes skill library covering research, development, deployment, and creative workflows</li>
@@ -646,9 +646,78 @@ export default function ClarencePage() {
             <li>Session lifecycle hooks: auto-load context on start, write handoff on stop, zero cold starts</li>
             <li>Full platform migration from OpenClaw to Hermes completed in 48 hours under constraint</li>
             <li>Three-model routing architecture: Opus for reasoning, Trinity for code, MiniMax for mechanical work</li>
-            <li>10,434 lines of custom Python across 33 scripts powering the knowledge pipeline</li>
+            <li>Data Access Layer (clarence_db.py): single module for all DB operations with 75-test suite and nightly health monitoring</li>
+            <li>Portfolio evolution tracker: 94 changes logged with timestamps, categories, and semantic search</li>
+            <li>12,265 lines of custom Python across 31 scripts powering the knowledge pipeline</li>
             <li>Open source memory architecture: github.com/nomadjames/clarence-memory-structure</li>
           </ul>
+        </section>
+
+        {/* Week Three: Engineering the Foundation */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Week Three: Engineering the Foundation</h2>
+          <p className={styles.body}>
+            The first week was building. The second week was surviving a platform migration. The third week was about
+            fixing the thing that kept breaking underneath everything else: every script was writing its own SQL
+            with its own assumptions about the schema.
+          </p>
+          <p className={styles.body}>
+            That is the kind of problem that does not announce itself. It shows up as orphaned facts, stale vectors,
+            embedding gaps, and silent data corruption. 1,776 orphaned facts. 1 stale vector pointing at a deleted
+            record. Embedding coverage gaps across active records. Each one traceable to a script that had its own
+            idea about how to talk to the database.
+          </p>
+          <p className={styles.body}>
+            The fix was a Data Access Layer: a single Python module (clarence_db.py, 870 lines) that owns all
+            database operations. Every script in the system now goes through this one file for reads, writes,
+            vector search, and schema management. No more raw SQL scattered across 31 scripts. One module, one
+            set of assumptions, one place where the schema is defined.
+          </p>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Test Suite</h3>
+            <p className={styles.body}>
+              75 tests covering CRUD operations, vector search, JSON handling, edge cases, and concurrent access
+              patterns. The test suite runs against a fresh database every time, so regressions surface immediately
+              instead of hiding in production data. This was the first time the Clarence codebase had real test
+              coverage, and it caught three bugs in the first run.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Health Check Monitor</h3>
+            <p className={styles.body}>
+              A nightly automated health check (db-health-check.py) runs against clarence.db and reports to
+              Discord. It checks for orphaned records, stale vectors, embedding coverage gaps, schema integrity,
+              and table row counts. If anything is wrong, it posts to the incidents channel. If everything is
+              clean, it posts a summary to cron-reports. The system now tells me when the data is degrading
+              instead of waiting for me to notice.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Portfolio Changelog</h3>
+            <p className={styles.body}>
+              94 portfolio changes tracked with timestamps, categories, and RAG embeddings. Every meaningful
+              change to the portfolio site gets logged with what changed, why, and when. The changelog itself
+              is searchable via semantic vector search, so the system can answer questions like &ldquo;what
+              did I change about the Clarence case study last week?&rdquo; without scanning git logs.
+            </p>
+          </div>
+
+          <p className={styles.body}>
+            The cleanup results: 1,776 orphaned facts resolved, 1 stale vector removed, 100% embedding coverage
+            achieved on all active records, and the database went from 26 tables to 15 after removing legacy
+            cruft. The fact count went down (from 16,658 to 14,882) because the system was finally honest about
+            what was real data and what was garbage.
+          </p>
+          <p className={styles.body}>
+            The lesson from week three is the same lesson every production system teaches eventually: the
+            exciting work is building features, but the work that actually matters is making the foundation
+            reliable. A Data Access Layer is not glamorous. Neither is a test suite. But every time the system
+            broke before this week, the root cause was the same: fragmented assumptions about shared state.
+            Now there is one source of truth for how data moves in and out of the knowledge base.
+          </p>
         </section>
 
         {/* Week Two: The Compute Reckoning */}
@@ -798,7 +867,7 @@ export default function ClarencePage() {
             starting from scratch.
           </p>
           <ul className={styles.methodList}>
-            <li>Full SQLite schema with 20+ tables: memories, entities, facts, sessions, work items, vector tables</li>
+            <li>Full SQLite schema with 15 tables: memories, entities, facts, sessions, work items, vector tables</li>
             <li>RAG pipeline: all-MiniLM-L6-v2 embeddings (384-dim) via sqlite-vec, fully local, with automated GC</li>
             <li>Conversation distillation: nightly LLM-driven extraction of durable knowledge from raw transcripts</li>
             <li>MCP servers: full CRUD for memories, entities, sessions, and work items</li>
@@ -877,6 +946,8 @@ export default function ClarencePage() {
               "Discord webhook integration",
               "Designer-user-researcher methodology",
               "Knowledge base architecture",
+              "Data Access Layer design",
+              "Automated health monitoring",
               "Hermes agent gateway",
               "Claude Code CLI integration",
               "Multi-provider model integration",
