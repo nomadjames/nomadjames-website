@@ -3,14 +3,14 @@ import styles from "./page.module.css";
 export const metadata = {
   title: "Lab | James Dishman",
   description:
-    "Creative coding experiments from EMAT-60310 at Kent State: generative art, algorithmic storytelling, and computational design sketches built with p5.js.",
+    "Creative coding experiments: generative art, algorithmic storytelling, and computational design sketches built with p5.js.",
 };
 
 const sketches = [
   {
     slug: "sol-lewitt",
     title: "Algorithmic Sol LeWitt",
-    course: "EMAT-60310",
+    course: "p5.js",
     year: "2025",
     description:
       "Inspired by Sol LeWitt's instruction-based wall drawings: rotating nested squares over a field of random geometry. The background shifts color every frame, the shapes accumulate on top of it.",
@@ -19,7 +19,7 @@ const sketches = [
   {
     slug: "generative-art",
     title: "Morphing Kaleidoscopic Grid",
-    course: "EMAT-60310",
+    course: "p5.js",
     year: "2025",
     description:
       "Moving rectangles bounce around the canvas and every 5 seconds deposit a nested copy of themselves onto a persistent layer. An accumulation machine.",
@@ -28,7 +28,7 @@ const sketches = [
   {
     slug: "virtual-wallpaper",
     title: "Virtual Wallpaper",
-    course: "EMAT-60310",
+    course: "p5.js",
     year: "2025",
     description:
       "A fractal grid of ellipses and nested rectangles. Came out looking like a speaker. The header text serves as the interaction instruction: click to randomize.",
@@ -37,7 +37,7 @@ const sketches = [
   {
     slug: "words-in-the-desert",
     title: "Words in the Desert",
-    course: "EMAT-60310",
+    course: "p5.js",
     year: "2025",
     description:
       "A poem written from the Valley of the Sun. Words scatter across a desert-colored background and animate into readable text on click.",
@@ -48,7 +48,7 @@ const sketches = [
 const externalSketches = [
   {
     title: "Algorithmic Storytelling",
-    course: "EMAT-60310",
+    course: "p5.js",
     year: "2025",
     description:
       "A political satire game about navigating a surveillance state. Sprite-based characters move through procedurally generated environments with sound. Three iterations: from prototype to full narrative arc.",
@@ -71,7 +71,7 @@ export default function LabPage() {
 
         <header className={styles.header}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowLabel}>EMAT-60310</span>
+            <span className={styles.eyebrowLabel}>Creative Coding</span>
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
             <span className={styles.eyebrowLabel}>Generative Art</span>
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
@@ -79,8 +79,8 @@ export default function LabPage() {
           </div>
           <h1 className={styles.title}>Lab</h1>
           <p className={styles.subtitle}>
-            Creative coding experiments from EMAT-60310 (Educational Media and Technology),
-            a Kent State graduate course in generative art and computational thinking.
+            Creative coding experiments in generative art and computational thinking,
+            built with p5.js.
           </p>
         </header>
 

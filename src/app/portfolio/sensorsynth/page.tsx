@@ -5,7 +5,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "SensorSynth FM | James Dishman",
   description:
-    "An iPad FM synthesizer that uses every available device sensor as modulation sources — motion, environment, camera/spatial, and touch inputs including ARKit face and body tracking, quaternion orientation, configurable polling rates, and Apple Pencil. MS UX capstone, in active development.",
+    "An iPad FM synthesizer that wires the full iPad sensor array (motion, environment, camera/spatial, and touch) into modulation sources, including ARKit face and body tracking, quaternion orientation, configurable polling rates, and Apple Pencil. In active development.",
 };
 
 export default function SensorSynthFM() {
@@ -23,7 +23,7 @@ export default function SensorSynthFM() {
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2026</span>
             <span className={styles.metaDot} aria-hidden="true">·</span>
-            <span className={styles.course}>MS UX Capstone · Kent State · In Progress</span>
+            <span className={styles.course}>In Progress</span>
           </div>
           <PretextTitle text={"SensorSynth FM:\nYour Body as the Interface"} className={styles.title} />
           <div className={styles.methods}>
@@ -34,7 +34,7 @@ export default function SensorSynthFM() {
         </header>
 
         <Tldr>
-          An in-progress iPad FM synthesizer that treats every available device sensor as a modulation source: motion (accelerometer, gyroscope, quaternion, gravity vector), environment (magnetometer, barometer, ambient light, microphone, GPS, proximity, battery), camera/spatial (LiDAR, ARKit face tracking with 52 blend shapes, body tracking, device tracking), and touch (coordinate, radius, pressure, Apple Pencil). The more environmental variables feeding the synthesis engine, the more unpredictable and unrepeatable each patch becomes. The design question: what happens when the instrument responds not just to your body, but to the full physical context you exist in? This is my MS UX capstone and a research artifact exploring embodied interaction with sound.
+          An in-progress iPad FM synthesizer that treats every available device sensor as a modulation source: motion (accelerometer, gyroscope, quaternion, gravity vector), environment (magnetometer, barometer, ambient light, microphone, GPS, proximity, battery), camera/spatial (LiDAR, ARKit face tracking with 52 blend shapes, body tracking, device tracking), and touch (coordinate, radius, pressure, Apple Pencil). The more environmental variables feeding the synthesis engine, the more unpredictable and unrepeatable each patch becomes. The design question: what happens when the instrument responds not just to your body, but to the full physical context you exist in? This is a research artifact exploring embodied interaction with sound.
         </Tldr>
 
         {/* The Idea */}
@@ -57,9 +57,9 @@ export default function SensorSynthFM() {
             are physically identical.
           </p>
           <p className={styles.body}>
-            This is my MS UX capstone at Kent State, built with AudioKit and SwiftUI, and it&apos;s
-            also a research artifact in its own right: a comparative study of embodied versus
-            touch-grid interaction in live music performance.
+            The project is built with AudioKit and SwiftUI, and it is also a research
+            artifact in its own right: a comparative study of embodied versus touch-grid
+            interaction in live music performance.
           </p>
         </section>
 
@@ -221,7 +221,7 @@ export default function SensorSynthFM() {
               "Interaction design for live music performance",
               "NIME (New Interfaces for Musical Expression) research context",
               "Documentation-driven development",
-              "MS UX capstone research design",
+              "Independent research design",
             ].map((skill) => (
               <span key={skill} className={styles.skill}>{skill}</span>
             ))}

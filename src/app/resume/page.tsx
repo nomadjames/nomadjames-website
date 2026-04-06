@@ -246,7 +246,7 @@ export default function Resume() {
                 <span className={styles.projectYear}>2026</span>
               </div>
               <p className={styles.projectDesc}>
-                MS UX Capstone. iPad FM synthesizer using the device&apos;s physical sensors (accelerometer,
+                Independent research project. iPad FM synthesizer using the device&apos;s physical sensors (accelerometer,
                 gyroscope, TrueDepth camera) as real-time FM modulation sources. Built with AudioKit 5 and SwiftUI.
               </p>
             </div>

@@ -5,7 +5,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Usability Testing Methods | James Dishman",
   description:
-    "A multi-method usability testing collection: moderated sessions, usability brief design, unmoderated remote testing with Loop11, and usability test planning for digital prototypes. Conducted across Kent State MS UX coursework.",
+    "A multi-method usability testing collection: moderated sessions, usability brief design, unmoderated remote testing with Loop11, and usability test planning for digital prototypes.",
 };
 
 export default function UsabilityTesting() {
@@ -22,8 +22,6 @@ export default function UsabilityTesting() {
             <span className={styles.category}>UX Research</span>
             <span className={styles.metaDot} aria-hidden="true">&middot;</span>
             <span className={styles.year}>2024 / 2026</span>
-            <span className={styles.metaDot} aria-hidden="true">&middot;</span>
-            <span className={styles.course}>Kent State MS UX (UX 60502, UX 60503, UX 60541)</span>
           </div>
           <PretextTitle text={"Usability Testing\nMethods"} className={styles.title} />
           <div className={styles.methods}>
@@ -43,7 +41,7 @@ export default function UsabilityTesting() {
         </header>
 
         <Tldr>
-          Four usability testing projects across three graduate courses, each using a different method: a moderated session that revealed consistent navigation patterns by resisting the urge to correct participants, a usability brief that reframed study design around ROI, an unmoderated remote test comparing two major e-commerce sites, and a usability test plan for a digital prototype redesign.
+          Four usability testing projects, each using a different method: a moderated session that revealed consistent navigation patterns by resisting the urge to correct participants, a usability brief that reframed study design around ROI, an unmoderated remote test comparing two major e-commerce sites, and a usability test plan for a digital prototype redesign.
         </Tldr>
 
         {/* Why This Collection Exists */}
@@ -56,12 +54,11 @@ export default function UsabilityTesting() {
             exist yet is a different problem than evaluating a live product.
           </p>
           <p className={styles.body}>
-            These four projects span three courses in Kent State&apos;s MS UX program. Each
-            one applied a different usability method to a different product. Together, they
-            demonstrate range across the core skill set that usability work actually
-            requires: facilitating sessions, designing studies, choosing metrics, working
-            with remote testing platforms, and planning evaluations for prototypes still in
-            development.
+            These four projects each applied a different usability method to a different
+            product. Together, they demonstrate range across the core skill set that
+            usability work actually requires: facilitating sessions, designing studies,
+            choosing metrics, working with remote testing platforms, and planning
+            evaluations for prototypes still in development.
           </p>
         </section>
 
@@ -69,7 +66,7 @@ export default function UsabilityTesting() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>Moderated Usability Testing: Papa Johns</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60541, Evaluation Fundamentals (Spring 2026)
+            <strong>Year:</strong> 2026
           </p>
           <p className={styles.body}>
             A moderated usability test on papajohns.com with a participant named Alex.
@@ -119,7 +116,7 @@ export default function UsabilityTesting() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Usability Brief Design: Chipotle</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60541, Evaluation Fundamentals (Spring 2026)
+            <strong>Year:</strong> 2026
           </p>
           <p className={styles.body}>
             For this project, I ordered from Chipotle.com for the first time and found
@@ -165,8 +162,7 @@ export default function UsabilityTesting() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>Unmoderated Remote Testing: Loop11</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60502, Usability (Fall 2024) and UX 60541, Evaluation
-            Fundamentals (Spring 2026)
+            <strong>Year:</strong> 2024 and 2026
           </p>
           <p className={styles.body}>
             An unmoderated usability test designed and executed in Loop11, comparing
@@ -200,11 +196,10 @@ export default function UsabilityTesting() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Unmoderated Testing at Scale</h3>
             <p className={styles.body}>
-              The Module 7 deliverable in UX 60541 extended this work into a substantial
-              unmoderated testing project covering test design, task scenario creation,
-              quantitative metrics (task completion, time on task, error rates), qualitative
-              analysis of participant behavior, and synthesis of findings into
-              recommendations.
+              A follow-on project extended this work into a substantial unmoderated testing
+              study covering test design, task scenario creation, quantitative metrics (task
+              completion, time on task, error rates), qualitative analysis of participant
+              behavior, and synthesis of findings into recommendations.
             </p>
           </div>
         </section>
@@ -213,11 +208,11 @@ export default function UsabilityTesting() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Usability Test Plan: Adobe Express Prototype</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60503, Fundamentals of Interaction Design (Spring 2025)
+            <strong>Year:</strong> 2025
           </p>
           <p className={styles.body}>
-            Earlier in UX 60503, I had selected Adobe Express as a redesign target because
-            its iOS app UX was cumbersome and uninspiring despite extensive personal use. I
+            I selected Adobe Express as a redesign target because its iOS app UX was
+            cumbersome and uninspiring despite extensive personal use. I
             developed paper prototypes covering core tasks: uploading a photo and adding an
             empty layer, selecting and placing fonts, and adding arcing text. The prototype
             process led to scrapping unnecessary buttons and iterating through multiple
@@ -314,27 +309,27 @@ export default function UsabilityTesting() {
           <ul className={styles.reflectionList}>
             <li>
               <a href="/pdfs/usability-session-papajohns.pdf" target="_blank" rel="noopener noreferrer">
-                Moderated Usability Session: Papa Johns (UX 60541)
+                Moderated Usability Session: Papa Johns
               </a>
             </li>
             <li>
               <a href="/pdfs/usability-brief-chipotle.pdf" target="_blank" rel="noopener noreferrer">
-                Usability Brief: Chipotle (UX 60541)
+                Usability Brief: Chipotle
               </a>
             </li>
             <li>
               <a href="/pdfs/unmoderated-usability-testing.pdf" target="_blank" rel="noopener noreferrer">
-                Unmoderated Usability Testing (UX 60541)
+                Unmoderated Usability Testing
               </a>
             </li>
             <li>
               <a href="/pdfs/loop11-usability-analysis.pdf" target="_blank" rel="noopener noreferrer">
-                Loop11 Usability Analysis: Apple.com vs BestBuy.com (UX 60502)
+                Loop11 Usability Analysis: Apple.com vs BestBuy.com
               </a>
             </li>
             <li>
               <a href="/pdfs/usability-test-plan-adobe-express.pdf" target="_blank" rel="noopener noreferrer">
-                Usability Test Plan: Adobe Express Prototype (UX 60503)
+                Usability Test Plan: Adobe Express Prototype
               </a>
             </li>
           </ul>

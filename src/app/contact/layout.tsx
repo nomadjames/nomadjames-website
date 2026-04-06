@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Contact | James Dishman",
   description:
-    "Get in touch with James Dishman for UX research and design work, graduate school conversations, and Ableton/music tech collaborations.",
+    "Get in touch with James Dishman for UX research and design work, research collaborations, and Ableton/music tech projects.",
 };
 
 export default function ContactLayout({

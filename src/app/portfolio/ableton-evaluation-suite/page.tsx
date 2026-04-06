@@ -5,7 +5,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Ableton UX Evaluation Suite | James Dishman",
   description:
-    "A four-study UX evaluation suite across Ableton's product ecosystem: stakeholder analysis, heuristic evaluations, and cognitive walkthrough. Conducted with deep music production domain expertise and a decade as Pittsburgh Ableton User Group leader.",
+    "A multi-method UX evaluation suite across Ableton's product ecosystem: stakeholder analysis, heuristic evaluations, cognitive walkthrough, and cognitive accessibility evaluation. Grounded in deep music production domain expertise and a decade as Pittsburgh Ableton User Group leader.",
 };
 
 export default function AbletonEvaluationSuite() {
@@ -22,8 +22,6 @@ export default function AbletonEvaluationSuite() {
             <span className={styles.category}>UX Research · Interaction Design</span>
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2024 / 2026</span>
-            <span className={styles.metaDot} aria-hidden="true">·</span>
-            <span className={styles.course}>Kent State MS UX (UX 60501, UX 60503, UX 60504, UX 60541)</span>
           </div>
           <PretextTitle text={"Ableton UX\nEvaluation Suite"} className={styles.title} />
           <div className={styles.methods}>
@@ -44,7 +42,7 @@ export default function AbletonEvaluationSuite() {
         </header>
 
         <Tldr>
-          Four UX evaluation methods applied to three Ableton products over four graduate courses, grounded in deep music production experience and a decade leading the Pittsburgh Ableton User Group. The suite revealed a consistent pattern: Ableton designs for insiders, and that works until someone shows up for the first time.
+          Multiple UX evaluation methods applied to three Ableton products, grounded in deep music production experience and a decade leading the Pittsburgh Ableton User Group. The suite revealed a consistent pattern: Ableton designs for insiders, and that works until someone shows up for the first time.
         </Tldr>
 
         {/* Context */}
@@ -59,18 +57,18 @@ export default function AbletonEvaluationSuite() {
             to pursue it professionally.
           </p>
           <p className={styles.body}>
-            This is not a collection of unrelated class assignments. Over four courses in
-            Kent State&apos;s MS UX program, I deliberately chose Ableton products as evaluation
-            targets, applying a different method each time. The result is a multi-method
-            evaluation suite that covers Ableton&apos;s ecosystem from the corporate structure
-            down to individual interaction patterns on a mobile screen.
+            This is not a collection of unrelated evaluations. I deliberately chose Ableton
+            products as evaluation targets across a sequence of studies, applying a
+            different method each time. The result is a multi-method evaluation suite that
+            covers Ableton&apos;s ecosystem from the corporate structure down to individual
+            interaction patterns on a mobile screen.
           </p>
           <p className={styles.body}>
-            That domain expertise is what makes these evaluations different from generic
-            student work. I can distinguish between a design decision and a design failure
-            because I understand the ecosystem from the inside. I know who uses these
-            products, how they use them, and what Ableton is actually trying to accomplish
-            with each one.
+            That domain expertise is what makes these evaluations different from a generic
+            outside-in inspection. I can distinguish between a design decision and a design
+            failure because I understand the ecosystem from the inside. I know who uses
+            these products, how they use them, and what Ableton is actually trying to
+            accomplish with each one.
           </p>
         </section>
 
@@ -78,7 +76,7 @@ export default function AbletonEvaluationSuite() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Stakeholder Analysis: Ableton Live</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60501, Fundamentals of User Experience (Fall 2024)
+            <strong>Year:</strong> 2024
           </p>
           <p className={styles.body}>
             Before evaluating any interface, I mapped the full stakeholder landscape
@@ -89,12 +87,12 @@ export default function AbletonEvaluationSuite() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Core Stakeholders</h3>
             <p className={styles.body}>
-              Ableton AG is privately held by co-founders Gerhard Behles (42.9%) and Bernd
-              Roggendorf (33.7%), with CFO Jan Bohl holding the remainder. The company is
-              actively transitioning to employee ownership in perpetuity. This is not a
-              company optimizing for quarterly returns. That ownership structure directly
-              shapes design priorities: long-term user investment over short-term engagement
-              metrics.
+              Ableton AG is privately held, with the company majority-owned by its
+              co-founders and senior leadership rather than outside investors. The company
+              has publicly described a long-running transition toward broader employee
+              ownership. This is not a company optimizing for quarterly returns. That
+              ownership structure directly shapes design priorities: long-term user investment
+              over short-term engagement metrics.
             </p>
           </div>
 
@@ -119,8 +117,9 @@ export default function AbletonEvaluationSuite() {
               students, podcasters, game developers, and Max/MSP developers. Most are
               hobbyists. Most are male, with the majority in North America. Users tend to
               stay loyal to a single DAW for years due to the cost and learning investment.
-              Behles has publicly stated that piracy is of minimal concern and leads to
-              conversions.
+              Ableton has historically taken a relaxed public stance on piracy, treating
+              cracked installs as a pipeline to eventual paying customers rather than a
+              problem to litigate against.
             </p>
           </div>
 
@@ -143,7 +142,7 @@ export default function AbletonEvaluationSuite() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>Heuristic Evaluation: Ableton Note</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60503, Fundamentals of Interaction Design (2025)
+            <strong>Year:</strong> 2025
           </p>
           <p className={styles.body}>
             Ableton Note is a mobile musical sketchpad for iOS. It is not a companion app or a
@@ -269,7 +268,7 @@ export default function AbletonEvaluationSuite() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Cognitive Walkthrough: Ableton Learning Synths</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60541, Evaluation Fundamentals (2026)
+            <strong>Year:</strong> 2026
           </p>
           <p className={styles.body}>
             Learning Synths (<em>learningsynths.ableton.com</em>) teaches the fundamentals
@@ -343,7 +342,7 @@ export default function AbletonEvaluationSuite() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Heuristic Evaluation: Ableton Learning Music</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60504 (2025), with additional analysis in UX 60541 (2026)
+            <strong>Year:</strong> 2025, with additional analysis in 2026
           </p>
           <p className={styles.body}>
             Learning Music (<em>learningmusic.ableton.com</em>) is a free, browser-based
@@ -494,7 +493,7 @@ export default function AbletonEvaluationSuite() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Cognitive Accessibility Evaluation: Web and Live 12</h2>
           <p className={styles.body}>
-            <strong>Course:</strong> UX 60504, Accessibility and Universal Design (2026)
+            <strong>Year:</strong> 2026
           </p>
           <p className={styles.body}>
             Applied eight COGA-grounded criteria to ableton.com (including Learning Music and
@@ -521,12 +520,14 @@ export default function AbletonEvaluationSuite() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>What Fails: Icon Labeling (Both Platforms)</h3>
             <p className={styles.body}>
-              Labeled icons achieve 88% comprehension. Unlabeled icons drop to 60%. Icons
-              unique to a specific app fall to 34%. The transport bar, browser, device
-              chain, and mixer in Live 12 all rely on small, unlabeled icons. The Capture
-              button (a dotted circle) is meaningless without prior knowledge. For users
-              with visual processing differences or working memory impairments, this
-              creates a mandatory memorization burden before basic navigation is possible.
+              Icon comprehension drops sharply when icons are unlabeled, and drops further
+              when those icons are unique to a specific application rather than drawing on
+              shared conventions. The transport bar, browser, device chain, and mixer in
+              Live 12 all rely on small, unlabeled icons. The Capture button (a dotted circle)
+              is meaningless without prior knowledge. The fold/unfold triangles, the I/O
+              toggle, and the return track indicators carry no text labels. For users with
+              visual processing differences or working memory impairments, this creates a
+              mandatory memorization burden before basic navigation is possible.
               ableton.com&apos;s product pages fail similarly: terms like &ldquo;waveshaping,&rdquo;
               &ldquo;FM operators,&rdquo; and &ldquo;filter topologies&rdquo; appear without definitions.
             </p>
@@ -583,11 +584,11 @@ export default function AbletonEvaluationSuite() {
             <p className={styles.body}>
               Nobody emails support to say &ldquo;Your mixer interface overloaded my working
               memory.&rdquo; They just close the laptop. The improvements show up as better
-              retention, not accessibility wins. But the math is straightforward: ADHD
-              affects an estimated 2.5% to 4% of adults worldwide. Dyslexia affects up to 20%. One in five
-              adults worldwide (OECD PIAAC 2023) can only understand simple texts or solve
-              basic arithmetic. The audience for cognitively accessible design is not a
-              niche. It is the majority of people who might try Ableton and leave before
+              retention, not accessibility wins. But the math is straightforward. ADHD
+              affects roughly 6% of US adults. Dyslexia affects 15 to 20% of the population.
+              One in five adults worldwide (OECD PIAAC 2023) can only understand simple texts
+              or solve basic arithmetic. The audience for cognitively accessible design is not
+              a niche. It is the majority of people who might try Ableton and leave before
               they make anything.
             </p>
           </div>
@@ -626,27 +627,27 @@ export default function AbletonEvaluationSuite() {
           <ul className={styles.reflectionList}>
             <li>
               <a href="/pdfs/ableton-stakeholder-analysis.pdf" target="_blank" rel="noopener noreferrer">
-                Stakeholder Analysis of Ableton Live (UX 60501)
+                Stakeholder Analysis of Ableton Live
               </a>
             </li>
             <li>
               <a href="/pdfs/ableton-note-heuristic-eval.pdf" target="_blank" rel="noopener noreferrer">
-                Heuristic Evaluation: Ableton Note (UX 60503)
+                Heuristic Evaluation: Ableton Note
               </a>
             </li>
             <li>
               <a href="/pdfs/ableton-learning-synths-cognitive-walkthrough.pdf" target="_blank" rel="noopener noreferrer">
-                Cognitive Walkthrough: Ableton Learning Synths (UX 60541)
+                Cognitive Walkthrough: Ableton Learning Synths
               </a>
             </li>
             <li>
               <a href="/pdfs/ableton-learning-music-heuristic-eval.pdf" target="_blank" rel="noopener noreferrer">
-                Heuristic Evaluation: Ableton Learning Music (UX 60504 / UX 60541)
+                Heuristic Evaluation: Ableton Learning Music
               </a>
             </li>
             <li>
               <a href="/pdfs/ableton-cognitive-accessibility-evaluation.pdf" target="_blank" rel="noopener noreferrer">
-                Cognitive Accessibility Evaluation: Web and Mobile Design (UX 60504)
+                Cognitive Accessibility Evaluation: Web and Mobile Design
               </a>
             </li>
           </ul>

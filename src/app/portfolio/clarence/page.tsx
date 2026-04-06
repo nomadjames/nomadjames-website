@@ -6,7 +6,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with a SQLite knowledge database spanning 4,215 memories, 2,474 entities, 14,882 facts, and 2,074 indexed vault notes with full vector search, multi-model routing across 4 MCP servers, conversation distillation pipeline, session lifecycle hooks, and a nightly autonomous pipeline. Built on OpenClaw, migrated under constraint to Hermes, and still evolving.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant with a SQLite knowledge database holding 3,397 active memories, 2,474 entities, 10,349 active facts, and 2,075 indexed vault notes with full vector search, multi-model routing across 4 MCP servers, conversation distillation pipeline, session lifecycle hooks, and a nightly autonomous pipeline. Built on OpenClaw, migrated under constraint to Hermes, and still evolving.",
 };
 
 export default function ClarencePage() {
@@ -54,18 +54,18 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built an autonomous AI system that manages a knowledge base of 4,215 memories, 2,474 entities, and 14,882 facts with full vector search across 2,074 indexed vault notes, routes tasks across multiple models by cost and capability, syncs coursework from Google Drive, and posts reports to 9 Discord channels. Then the platform I built it on changed the rules, and I had to migrate the entire system under constraint in 48 hours. The real lesson was not about automation. It was about trust calibration, platform dependency, and what happens when you design a collaborator instead of a tool.
+          I built an autonomous AI system that manages a knowledge base of 3,397 active memories, 2,474 entities, and 10,349 active facts with full vector search across 2,075 indexed vault notes, routes tasks across multiple models by cost and capability, syncs reference materials from Google Drive, and posts reports to 9 Discord channels. Then the platform I built it on changed the rules, and I had to migrate the entire system under constraint in 48 hours. The real lesson was not about automation. It was about trust calibration, platform dependency, and what happens when you design a collaborator instead of a tool.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>14,882</span>
-            <span className={cs.statLabel}>Facts in knowledge DB</span>
+            <span className={cs.statNum}>10,349</span>
+            <span className={cs.statLabel}>Active facts in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>4,215</span>
-            <span className={cs.statLabel}>Memories in knowledge DB</span>
+            <span className={cs.statNum}>3,397</span>
+            <span className={cs.statLabel}>Active memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
             <span className={cs.statNum}>62%</span>
@@ -108,8 +108,8 @@ export default function ClarencePage() {
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
             system running on the Hermes agent gateway with Claude Code as the primary interface, after a forced
             migration from OpenClaw when Anthropic changed the rules on third-party harnesses. It routes tasks across
-            multiple models based on cost and capability, maintains a knowledge base of over 14,000 facts and 4,000
-            memories with semantic vector search, syncs coursework and research from Google Drive into an indexed
+            multiple models based on cost and capability, maintains a knowledge base of over 10,000 active facts and 3,000
+            active memories with semantic vector search, syncs reference materials from Google Drive into an indexed
             Obsidian vault, posts briefings to Discord before I wake up, and writes session handoff notes so the
             next conversation picks up where the last one left off.
           </p>
@@ -127,9 +127,9 @@ export default function ClarencePage() {
             like &ldquo;Agentic UX Designer&rdquo; and &ldquo;Agent Experience Designer&rdquo; are appearing
             at companies like Deloitte, Anthropic, and Microsoft. Research teams at Microsoft (Magentic-UI),
             Salesforce (SLDS 2), and Google (A2UI) are defining the design patterns for human-agent
-            collaboration. I built Clarence before these patterns had names. Mapping what I built to
-            the emerging vocabulary is useful because it shows the reasoning was design-driven, not
-            borrowed from a framework.
+            collaboration. I built Clarence by following operational need, not by reading the
+            literature. Mapping what I built to the emerging vocabulary, after the fact, is useful
+            because it shows the reasoning was design-driven rather than borrowed from a framework.
           </p>
 
           <div className={styles.finding}>
@@ -137,9 +137,8 @@ export default function ClarencePage() {
             <p className={styles.body}>
               The dominant architecture in multi-agent systems: a supervisor agent delegates to
               specialized agents. In Clarence, the orchestrator routes to named agents, each with a fixed role, a
-              designated model tier, and a constrained scope. The pattern is identical to what Microsoft
-              Research describes in Magentic-UI. The difference is that Clarence was built from operational need, not from a reference
-              architecture.
+              designated model tier, and a constrained scope. The pattern lines up with what Microsoft Research
+              describes in Magentic-UI, which I learned about after the fact rather than before.
             </p>
           </div>
 
@@ -159,9 +158,10 @@ export default function ClarencePage() {
             <h3 className={styles.findingTitle}>Memory Management as UX</h3>
             <p className={styles.body}>
               The AgentOps and AutoGen ecosystems are building toward &ldquo;memory cards&rdquo; and
-              preference editors for agent systems. Clarence&apos;s memory architecture predates these:
-              the conversation distillation pipeline, the entity-fact-memory schema, the Obsidian vault
-              sync, and the RAG retrieval layer are all implementations of the same principle. The user&apos;s
+              preference editors for agent systems. Clarence&apos;s memory architecture is an
+              implementation of the same principle, arrived at independently: the conversation
+              distillation pipeline, the entity-fact-memory schema, the Obsidian vault sync, and the
+              RAG retrieval layer all serve the same goal. The user&apos;s
               corrections and preferences should persist across sessions without the user having to
               re-state them. The design question is not whether to give agents memory. It is how to make
               that memory visible, editable, and trustworthy.
@@ -284,7 +284,7 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Obsidian Vault Sync</span>
               </div>
               <p className={cs.archDiagramNote}>
-                Memory spans two tiers. The knowledge database (clarence.db, ~50MB SQLite) holds 4,215 active memories, 2,474 entities, and 14,882 facts with full vector search (sqlite-vec, all-MiniLM-L6-v2, 384-dim, fully local, 13,740 total embeddings). A daily knowledge sync pulls coursework and research from Google Drive into the Obsidian vault, then re-indexes all 2,074 vault notes into the database. The Hermes flat-file memory layer (MEMORY.md and USER.md) holds compact operational context injected into every turn. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. The conversation distillation pipeline processes conversations, extracting durable knowledge into the DB. The vault syncs bidirectionally: writing a note in Obsidian feeds the RAG layer automatically.
+                Memory spans two tiers. The knowledge database (clarence.db, ~50MB SQLite) holds 3,397 active memories (4,221 total), 2,474 entities, and 10,349 active facts (14,882 total) with full vector search (sqlite-vec, all-MiniLM-L6-v2, 384-dim, fully local, 13,740 total embeddings). A daily knowledge sync pulls reference materials from Google Drive into the Obsidian vault, then re-indexes all 2,075 vault notes into the database. The Hermes flat-file memory layer (MEMORY.md and USER.md) holds compact operational context injected into every turn. Automated garbage collection archives low-value data while preserving behavioral corrections, user facts, and decisions. The conversation distillation pipeline processes conversations, extracting durable knowledge into the DB. The vault syncs bidirectionally: writing a note in Obsidian feeds the RAG layer automatically.
               </p>
             </div>
 
@@ -316,11 +316,16 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>The Agent Crew</h2>
           <p className={styles.body}>
             Naming agents was a deliberate choice. Names create identity and accountability. When a named agent
-            produces output, I read it differently than I read output from an anonymous system call. The original
-            system had 13 named agents. After the migration to Hermes, the operational crew was consolidated to
-            the agents that were actually running: Clarence as orchestrator, Vera as chief of staff (with her own
-            Telegram bot and personality file), and the five-member R&D Council. The others exist as design
-            concepts to be rebuilt as the Hermes platform matures.
+            produces output, I read it differently than I read output from an anonymous system call. The OpenClaw
+            system had 13 named agents, and the operational crew below is the subset that was actually running
+            on the OpenClaw scheduler, posting to Discord, and producing real artifacts before the migration.
+          </p>
+          <p className={styles.body}>
+            On Hermes today, only the orchestrator (Clarence, via Claude Code) is live. The rest of the crew
+            is queued for rebuild rather than ported, for the same reason the cron pipeline is being rewritten
+            from scratch: the Hermes delegation model is different enough that porting on momentum would just
+            move the old assumptions into a new house. The agent cards below document the design and the colors
+            and the lenses, not their current heartbeat.
           </p>
           <p className={styles.body}>
             The delegation architecture follows hard rules: Clarence orchestrates, subagents execute. Every
@@ -330,9 +335,11 @@ export default function ClarencePage() {
             a subagent.
           </p>
 
-          <h3 className={styles.findingTitle}>Discord Agent Identities</h3>
+          <h3 className={styles.findingTitle}>Discord Agent Identities (OpenClaw Era)</h3>
           <p className={styles.body}>
-            The operational agents post to Discord with their own usernames and signature colors:
+            On OpenClaw, the operational agents posted to Discord with their own usernames and signature
+            colors. The identities and channel routing are preserved in the workspace and will return as
+            each agent is rebuilt on Hermes.
           </p>
 
           <div className={cs.agentGrid}>
@@ -389,7 +396,12 @@ export default function ClarencePage() {
 
           <h3 className={styles.findingTitle}>R&D Council</h3>
           <p className={styles.body}>
-            Five-agent nightly debate panel. Each member holds a fixed analytical lens. Two debate rounds produce genuine disagreement, then Opus synthesizes an executive memo. The council has produced actionable strategic recommendations every night since March 24, 2026, including correctly identifying the Clarence case study itself as the highest-priority unwritten artifact.
+            Five-agent nightly debate panel. Each member holds a fixed analytical lens. Two debate rounds
+            produce genuine disagreement, then Opus synthesizes an executive memo. The council ran for six
+            nights on the OpenClaw scheduler (March 24, 25, 26 and April 1, 2, 3) and produced one of the
+            recommendations that pushed me to actually write this case study. It paused during the Hermes
+            migration and is on the queue to be rebuilt. The transcripts and memos still live in the
+            workspace as a useful artifact of how the council reasoned when it was running.
           </p>
         </section>
 
@@ -397,13 +409,20 @@ export default function ClarencePage() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Overnight Loop</h2>
           <p className={styles.body}>
-            The most consequential design element is what happens between 11 PM and 5 AM ET. The original OpenClaw system ran 14 cron jobs in this window. After the migration to Hermes, the overnight pipeline was rebuilt from scratch with a different philosophy: fewer jobs, each doing more, with results compiled before 5 AM and delivered to Discord. Nothing fires during the day. The current Hermes scheduler runs 3 active jobs, with the architecture designed to grow as capabilities are rebuilt.
+            The most consequential design element is what happens between 11 PM and 5 AM ET. The original
+            OpenClaw system ran 14 cron jobs in this window. After the migration, the Hermes scheduler is
+            running 3: a knowledge sync at midnight, a calendar briefing at 4:30 AM, and a job search at
+            4:30 AM. That is not the full pipeline. It is the subset I have rebuilt so far. The rest of the
+            old jobs (conversation distillation, R&D Council, ecosystem scanning, paper monitoring, security
+            audits) are queued to be rewritten for Hermes rather than ported. The constraint is the same as
+            it was on OpenClaw: nothing fires during the day, results compiled before 5 AM, delivered to
+            Discord and Telegram.
           </p>
 
           <div className={cs.workList}>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>12:00 AM</span>
-              <p className={cs.workDesc}><strong>Knowledge Sync</strong>: pulls coursework and research files from Google Drive via rclone, re-indexes all 2,074 vault notes into clarence.db, and reports results to Discord #cron-reports. This single job replaced three separate OpenClaw jobs (Drive sync, vault indexing, embedding refresh).</p>
+              <p className={cs.workDesc}><strong>Knowledge Sync</strong>: pulls reference materials from Google Drive via rclone, re-indexes all 2,074 vault notes into clarence.db, and reports results to Discord #cron-reports. This single job replaced three separate OpenClaw jobs (Drive sync, vault indexing, embedding refresh).</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:30 AM</span>
@@ -416,7 +435,13 @@ export default function ClarencePage() {
           </div>
 
           <p className={styles.body} style={{marginTop: "1.5rem"}}>
-            <strong>Evolution note:</strong> the system originally ran 26 cron jobs on OpenClaw. These were consolidated to 14 after diagnosing that Gemini Flash sub-agents were hallucinating tool calls rather than executing them. After the migration to Hermes, the pipeline was rebuilt from scratch rather than ported. The current 3 jobs each do the work of multiple predecessors. The remaining capabilities from the old pipeline (conversation distillation, R&D Council, ecosystem scanning, academic paper monitoring, security audits) are being rebuilt as the Hermes platform stabilizes. The architectural lesson across both iterations: more jobs is not better jobs. Reliability and consolidation beat breadth every time.
+            <strong>Evolution note:</strong> the system originally ran 26 cron jobs on OpenClaw. Those were
+            consolidated down to 14 after diagnosing that Gemini Flash sub-agents were hallucinating tool calls
+            rather than executing them. The lesson from that round was real: more jobs is not better jobs, and
+            cheap models that produce fiction are worse than no models at all. The Hermes pipeline starts from
+            3 deliberately, partly because the migration is fresh and partly because I want each rebuilt job
+            to earn its place rather than be ported on momentum. Whether the consolidation principle holds
+            across the second iteration is still an open question. Six nights is not enough data.
           </p>
         </section>
 
@@ -514,8 +539,8 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 4,215
-              memories, 2,474 entities, and 14,882 facts across 15 tables. The schema separates
+              Long-term memory is stored in a single consolidated SQLite database (clarence.db) with 3,397
+              active memories (4,221 total), 2,474 entities, and 10,349 active facts (14,882 total) across 15 tables. The schema separates
               concerns: a <em>profiles</em> table holds identity facts (agent names, user preferences,
               project constants) with deterministic key lookup. No fuzzy search for things that must be exact.
               A <em>memories</em> table stores durable knowledge with soft invalidation: when a fact changes,
@@ -533,12 +558,12 @@ export default function ClarencePage() {
               The conversation distillation pipeline (conversation-distill.py) processes Telegram
               conversations nightly, extracting decisions, corrections, and preferences into the memory DB.
               This is what makes the memory system feel alive rather than static. James corrects something
-              once in conversation, and it persists. The knowledge base grew from ~170 to 4,215 memories
+              once in conversation, and it persists. The knowledge base grew from ~170 memories to thousands
               in part because this pipeline captures context that would otherwise evaporate. A retrieval feedback loop lets sessions flag results as useful or noise, creating a learning signal for future garbage collection.
             </p>
             <p className={styles.body}>
-              An Obsidian vault of 2,074 notes syncs with the database via a daily knowledge sync job.
-              The sync pulls coursework from Google Drive, re-indexes all vault notes, and reports
+              An Obsidian vault of 2,075 notes syncs with the database via a daily knowledge sync job.
+              The sync pulls reference materials from Google Drive, re-indexes all vault notes, and reports
               results to Discord. A dedicated vault indexer script processes the full vault in seconds.
               Writing in Obsidian feeds the RAG layer without any additional wiring.
             </p>
@@ -649,11 +674,11 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>Knowledge database: 4,215 active memories, 2,474 entities, 14,882 facts, 2,074 indexed vault notes in clarence.db (~50MB SQLite) with conversation distillation, automated GC, and retrieval feedback loop</li>
+            <li>Knowledge database: 3,397 active memories (4,221 total), 2,474 entities, 10,349 active facts (14,882 total), 2,075 indexed vault notes in clarence.db (~50MB SQLite) with conversation distillation, automated GC, and retrieval feedback loop</li>
             <li>RAG layer: 10,349 fact vectors + 3,391 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim, 13,740 total), fully local via sqlite-vec</li>
-            <li>Daily knowledge sync: Google Drive coursework pull, vault re-indexing, results to Discord</li>
-            <li>2,074 Obsidian vault notes indexed and searchable via semantic vector search</li>
-            <li>95 skills in the Hermes skill library covering research, development, deployment, and creative workflows</li>
+            <li>Daily knowledge sync: Google Drive pull, vault re-indexing, results to Discord</li>
+            <li>2,075 Obsidian vault notes indexed and searchable via semantic vector search</li>
+            <li>100 skills in the Hermes skill library covering research, development, deployment, and creative workflows</li>
             <li>4 MCP servers: custom bridge, Tavily, Perplexity Pro, and web search (DuckDuckGo + Gemini)</li>
             <li>9 Discord channels for async reporting: cron reports, incidents, research, R&D council, job search</li>
             <li>Morning briefings (calendar + job search) delivered to Telegram before 5 AM daily</li>
@@ -661,7 +686,7 @@ export default function ClarencePage() {
             <li>Full platform migration from OpenClaw to Hermes completed in 48 hours under constraint</li>
             <li>Three-model routing architecture: Opus for reasoning, Trinity for code, MiniMax for mechanical work</li>
             <li>Data Access Layer (clarence_db.py): single module for all DB operations with 75-test suite and nightly health monitoring</li>
-            <li>Portfolio evolution tracker: 94 changes logged with timestamps, categories, and semantic search</li>
+            <li>Portfolio evolution tracker: 100 changes logged with timestamps, categories, and semantic search</li>
             <li>12,265 lines of custom Python across 31 scripts powering the knowledge pipeline</li>
             <li>Open source memory architecture: github.com/nomadjames/clarence-memory-structure</li>
           </ul>
@@ -712,7 +737,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Portfolio Changelog</h3>
             <p className={styles.body}>
-              94 portfolio changes tracked with timestamps, categories, and RAG embeddings. Every meaningful
+              100 portfolio changes tracked with timestamps, categories, and RAG embeddings. Every meaningful
               change to the portfolio site gets logged with what changed, why, and when. The changelog itself
               is searchable via semantic vector search, so the system can answer questions like &ldquo;what
               did I change about the Clarence case study last week?&rdquo; without scanning git logs.
@@ -974,6 +999,11 @@ export default function ClarencePage() {
             ))}
           </div>
         </section>
+
+        {/* Verification timestamp */}
+        <p className={cs.verifiedStamp} data-verified="2026-04-06">
+          Numbers on this page last verified against the live database on April 6, 2026.
+        </p>
 
         {/* Footer nav */}
         <nav className={cs.caseNav}>

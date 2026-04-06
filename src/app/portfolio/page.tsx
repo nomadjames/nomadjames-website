@@ -128,7 +128,7 @@ export default function Portfolio() {
           <div className={styles.headerRule} />
           <h1 className={styles.pageTitle}>Work</h1>
           <p className={styles.subtitle}>
-            Research, design, and systems thinking - graduate studies and independent projects.
+            Research, design, and systems thinking. Graduate studies and independent projects.
           </p>
         </header>
 
@@ -175,7 +175,7 @@ export default function Portfolio() {
           </div>
           <div className={styles.musicContent}>
             <p className={styles.musicDesc}>
-              Additional coursework and research not featured as full case studies.
+              Additional projects and research not featured as full case studies.
             </p>
             <div className={styles.musicLinks}>
               <a href="/pdfs/usability-test-plan-adobe-express.pdf" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>

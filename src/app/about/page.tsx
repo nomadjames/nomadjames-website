@@ -83,7 +83,9 @@ export default function AboutPage() {
             I do my best work when I know the subject deeply. The Ableton evaluations in my
             portfolio are credible because I have lived inside that ecosystem for years. The Oblique
             Oracle exists because I cherish the I Ching, not because I saw a market opportunity.
-            Clarence is not a demo project. It is a system I use every day, one that runs 14 cron jobs while I sleep and has 3,978 memories in its knowledge database.
+            Clarence is not a demo project. It is a system I use every day, with a knowledge database
+            of 3,397 active memories and 10,349 active facts that grew from two weeks of intensive
+            daily use, corrections, and overnight pipeline runs.
           </p>
           <p className={styles.body}>
             That depth is what I bring to a team. I learn the domain, I learn the users, and I
@@ -137,12 +139,13 @@ export default function AboutPage() {
             dropped noticeably and we did not figure out why until that evening.
           </p>
           <p className={styles.body}>
-            The part that matters most: Clarence has a knowledge database with 3,978 memories
-            built from our conversations, my coursework, and every correction I have ever given it.
-            It distills what I care about, how I think, and what I will not tolerate. The portfolio
-            content was not generated from a generic prompt. It was extracted from a system that
-            knows my voice, my work, and my standards because I spent weeks teaching it. That
-            database is the real artifact. The site is just what it looks like when you render it.
+            The part that matters most: Clarence has a knowledge database with 3,397 active memories
+            (4,221 total including archived) built from our conversations, my reading, and every
+            correction I have ever given it. It distills what I care about, how I think, and what I
+            will not tolerate. The portfolio content was not generated from a generic prompt. It was
+            extracted from a system that knows my voice, my work, and my standards because I spent
+            two weeks of intensive daily teaching with it. That database is the real artifact. The
+            site is just what it looks like when you render it.
           </p>
 
           <h3 className={styles.subheading}>What Each Side Brought</h3>
@@ -171,8 +174,8 @@ export default function AboutPage() {
 
           <h3 className={styles.subheading}>What is Honest About This</h3>
           <p className={styles.body}>
-            The portfolio content comes directly from my grad school coursework at Kent State.
-            Every case study is grounded in real academic work, not made up for a portfolio site.
+            The portfolio content comes directly from my graduate research at Kent State.
+            Every case study is grounded in real work, not made up for a portfolio site.
             The images are still missing. It is text-only right now. That is honest, not a failure.
             The words came first because the words are the work.
           </p>

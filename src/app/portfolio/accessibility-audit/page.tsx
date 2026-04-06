@@ -22,8 +22,6 @@ export default function AccessibilityAudit() {
             <span className={styles.category}>UX Research</span>
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2025</span>
-            <span className={styles.metaDot} aria-hidden="true">·</span>
-            <span className={styles.course}>UX 60504 - Accessibility and Universal Design · Kent State MS UX</span>
           </div>
           <PretextTitle text={"Accessibility Audit Suite:\nMusic Tech Meets WCAG"} className={styles.title} />
           <div className={styles.methods}>
@@ -42,14 +40,14 @@ export default function AccessibilityAudit() {
           <h2 className={styles.sectionTitle}>The Problem</h2>
           <p className={styles.body}>
             Music technology is a niche with a trust problem. The community is passionate, technically deep,
-            and globally distributed - but the companies building the tools are often small teams shipping fast.
+            and globally distributed, but the companies building the tools are often small teams shipping fast.
             Dedicated accessibility resources are rare. Formal a11y training is rarer still. The result is a
             category of software and web experiences that routinely fails users who rely on assistive technology,
             have low vision, or process information differently.
           </p>
           <p className={styles.body}>
-            That&apos;s the landscape I audited across five methods during this course. The goal wasn&apos;t to produce
-            a scorecard. It was to develop a professional audit practice - one I could carry into real design work.
+            That is the landscape I audited across five methods. The goal was not to produce
+            a scorecard. It was to develop a professional audit practice: one I could carry into real design work.
           </p>
         </section>
 
@@ -63,11 +61,11 @@ export default function AccessibilityAudit() {
             variety was intentional. Accessibility failures don&apos;t cluster in one place. Neither should the audit.
           </p>
           <ul className={styles.methodList}>
-            <li><strong>Social media content audit</strong> - Instagram (Kent State College of Aeronautics)</li>
-            <li><strong>Contrast ratio and color blindness analysis</strong> - Three music tech websites via WebAIM Contrast Checker</li>
-            <li><strong>Assistive technology hands-on</strong> - VoiceOver testing on GroundNews web</li>
-            <li><strong>PDF remediation</strong> - Adobe Acrobat accessibility checker on a scanned document</li>
-            <li><strong>Cognitive accessibility research</strong> - Original reflection on AI, cognitive load, and machine readability</li>
+            <li><strong>Social media content audit:</strong> a university Instagram feed</li>
+            <li><strong>Contrast ratio and color blindness analysis:</strong> three music tech websites via WebAIM Contrast Checker</li>
+            <li><strong>Assistive technology hands-on:</strong> VoiceOver testing on GroundNews web</li>
+            <li><strong>PDF remediation:</strong> Adobe Acrobat accessibility checker on a scanned document</li>
+            <li><strong>Cognitive accessibility research:</strong> original reflection on AI, cognitive load, and machine readability</li>
           </ul>
         </section>
 
@@ -78,7 +76,7 @@ export default function AccessibilityAudit() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Instagram: Accessibility as Afterthought</h3>
             <p className={styles.body}>
-              The Kent State College of Aeronautics feed had alt text on images, but all of it was
+              The university feed I audited had alt text on images, but all of it was
               auto-generated, not human-authored, not contextually accurate. Auto-generated alt text
               that misidentifies or vaguely describes an image is a different failure than missing alt
               text: it creates false confidence. A screen reader user gets a description, but the
@@ -113,7 +111,7 @@ export default function AccessibilityAudit() {
             <h3 className={styles.findingTitle}>VoiceOver: The Baseline Was Missing</h3>
             <p className={styles.body}>
               VoiceOver testing on GroundNews revealed navigation order issues that made the reading experience
-              non-linear in confusing ways - the focus sequence didn&apos;t match the visual hierarchy. Interactive
+              non-linear in confusing ways. The focus sequence didn&apos;t match the visual hierarchy. Interactive
               elements were unlabeled. Landmark regions were missing, which meant screen reader users had no
               efficient way to jump between sections of the page. These are baseline issues, not edge cases.
             </p>
@@ -166,18 +164,19 @@ export default function AccessibilityAudit() {
           </p>
           <p className={styles.body}>
             The research question I started with was straightforward: how do AI tools intersect with cognitive
-            accessibility? What I landed on was something I hadn&apos;t seen stated plainly anywhere:{" "}
-            <strong>accessibility best practices do not just help people - they help machines.</strong>
+            accessibility? What I landed on was something I had not seen connected this directly in the
+            accessibility literature I was reading:{" "}
+            <strong>accessibility best practices do not just help people. They help machines.</strong>
           </p>
           <p className={styles.body}>
-            Clean semantic structure, descriptive alt text, logical reading order, properly tagged PDFs - all
+            Clean semantic structure, descriptive alt text, logical reading order, properly tagged PDFs. All
             of it makes content more parseable by LLMs, search crawlers, and AI summarization tools. The two
             goals are the same goal.
           </p>
           <p className={styles.body}>
-            I have been using AI tools to manage the cognitive load of a demanding grad school schedule: not to
+            I have been using AI tools to manage cognitive load across a demanding workload: not to
             do the work, but to organize my thinking and reflect on what concepts mean. There is a real difference.
-            But the experience made me aware of how inaccessible content creates friction not just for screen
+            The experience made me aware of how inaccessible content creates friction not just for screen
             reader users, but for anyone or anything trying to extract meaning from a poorly structured document
             or page.
           </p>
@@ -189,32 +188,32 @@ export default function AccessibilityAudit() {
 
         {/* What I'd Do Differently */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>What a Professional Version Would Include</h2>
+          <h2 className={styles.sectionTitle}>What a Longer Engagement Would Add</h2>
           <p className={styles.body}>
-            A class assignment has a clear scope boundary. A real audit engagement doesn&apos;t. Here&apos;s what the
-            professional version of this work would add:
+            A scoped audit has a clear boundary. A real ongoing audit engagement does not. Here is what a
+            longer engagement would add:
           </p>
           <ul className={styles.reflectionList}>
             <li>
-              <strong>Stakeholder interviews before the audit</strong> - understanding the team&apos;s current workflow,
+              <strong>Stakeholder interviews before the audit:</strong> understanding the team&apos;s current workflow,
               toolchain, and capacity for remediation changes what you prioritize
             </li>
             <li>
-              <strong>User testing with assistive technology users</strong> - heuristic evaluation and automated checkers
+              <strong>User testing with assistive technology users:</strong> heuristic evaluation and automated checkers
               find a lot, but they don&apos;t find everything. Nothing replaces watching a screen reader user navigate
               in real time
             </li>
             <li>
-              <strong>Remediation tracking</strong> - a findings report with no tracking mechanism has limited
+              <strong>Remediation tracking:</strong> a findings report with no tracking mechanism has limited
               organizational impact. A prioritized issue log with severity ratings, WCAG criteria references,
               and remediation owners is the real deliverable
             </li>
             <li>
-              <strong>VPAT documentation</strong> - for enterprise software or any product sold to institutions,
+              <strong>VPAT documentation:</strong> for enterprise software or any product sold to institutions,
               a Voluntary Product Accessibility Template is often required
             </li>
             <li>
-              <strong>Longitudinal re-audit</strong> - accessibility degrades as content is added and codebases
+              <strong>Longitudinal re-audit:</strong> accessibility degrades as content is added and codebases
               change. A one-time audit is a starting point, not a solution
             </li>
           </ul>
@@ -224,9 +223,9 @@ export default function AccessibilityAudit() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>VoiceOver / Screen Reader Testing</h2>
           <p className={styles.body}>
-            For Module 3 of UX-60504, I conducted hands-on testing with the VoiceOver screen reader
-            on the GroundNews news aggregation website. This was first-person assistive technology
-            testing, not automated scanning or heuristic review. I navigated the site the way a
+            I conducted hands-on testing with the VoiceOver screen reader on the GroundNews
+            news aggregation website. This was first-person assistive technology testing,
+            not automated scanning or heuristic review. I navigated the site the way a
             screen reader user would, and the experience surfaced issues that no visual audit could catch.
           </p>
 
@@ -272,11 +271,10 @@ export default function AccessibilityAudit() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Instagram Accessibility Audit</h2>
           <p className={styles.body}>
-            For Module 1 of UX-60504, I conducted an accessibility audit of Kent State University&apos;s
-            College of Aeronautics and Engineering Instagram account. Social media is where many
-            organizations make their first impression, and it is often the last place accessibility
-            gets attention. This audit examined specific posts for screen reader compatibility, color
-            contrast compliance, and readability.
+            I conducted an accessibility audit of a large university Instagram account. Social
+            media is where many organizations make their first impression, and it is often the
+            last place accessibility gets attention. This audit examined specific posts for screen
+            reader compatibility, color contrast compliance, and readability.
           </p>
 
           <div className={styles.finding}>

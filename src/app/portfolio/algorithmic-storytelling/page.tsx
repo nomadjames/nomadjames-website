@@ -5,7 +5,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Algorithmic Storytelling v3 | James Dishman",
   description:
-    "An interactive narrative built in p5.js exploring revolutionary behavior in a surveillance state. Sprite animation, collision detection, political satire, and narrative branching. Final project for EMAT-60310 Creative Coding Fundamentals.",
+    "An interactive narrative built in p5.js exploring revolutionary behavior in a surveillance state. Sprite animation, collision detection, political satire, and narrative branching.",
 };
 
 export default function AlgorithmicStorytelling() {
@@ -22,8 +22,6 @@ export default function AlgorithmicStorytelling() {
             <span className={styles.category}>Creative Coding</span>
             <span className={styles.metaDot} aria-hidden="true">&middot;</span>
             <span className={styles.year}>2025</span>
-            <span className={styles.metaDot} aria-hidden="true">&middot;</span>
-            <span className={styles.course}>EMAT-60310 &middot; Final Project</span>
           </div>
           <PretextTitle text={"Algorithmic Storytelling v3:\nInteractive Narrative as Political Act"} className={styles.title} />
           <div className={styles.methods}>
@@ -48,9 +46,8 @@ export default function AlgorithmicStorytelling() {
             layer that turns the gameplay itself into commentary.
           </p>
           <p className={styles.body}>
-            This was the final project for EMAT-60310 Creative Coding Fundamentals (Spring 2025). The
-            assignment was open-ended: synthesize everything from the semester. I built a game that is
-            also an argument.
+            The brief was open-ended: synthesize everything I had learned across creative coding
+            so far. I built a game that is also an argument.
           </p>
         </section>
 
@@ -65,9 +62,9 @@ export default function AlgorithmicStorytelling() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Sprite Animation</h3>
             <p className={styles.body}>
-              Character sprites use p5.play, a library I picked up in Assignment 11. The sprites have
-              animation states, directional movement, and respond to player input in real time. Getting
-              sprite sheets to load and animate correctly in the p5.js web editor was its own challenge.
+              Character sprites use p5.play. The sprites have animation states, directional
+              movement, and respond to player input in real time. Getting sprite sheets to
+              load and animate correctly in the p5.js web editor was its own challenge.
             </p>
           </div>
 

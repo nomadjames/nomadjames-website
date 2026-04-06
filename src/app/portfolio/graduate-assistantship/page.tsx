@@ -103,7 +103,7 @@ export default function GraduateAssistantshipPage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Research Skills</h3>
             <p className={styles.body}>
-              The combination of textbook authoring and research verification builds exactly the skills a doctoral program wants to see: literature synthesis, methodological awareness, qualitative analysis, and the ability to work within a research team. These are not skills you pick up from coursework alone. They come from doing the work under supervision.
+              The combination of textbook authoring and research verification builds exactly the skills a doctoral program wants to see: literature synthesis, methodological awareness, qualitative analysis, and the ability to work within a research team. These skills come from doing the work under supervision, not from reading about it.
             </p>
           </div>
 

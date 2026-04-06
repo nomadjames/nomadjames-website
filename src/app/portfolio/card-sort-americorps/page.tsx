@@ -22,8 +22,6 @@ export default function CardSortAmericorps() {
             <span className={styles.category}>UX Research</span>
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2024</span>
-            <span className={styles.metaDot} aria-hidden="true">·</span>
-            <span className={styles.course}>UX 60501 - Foundations of UX · Kent State MS UX</span>
           </div>
           <PretextTitle text={"Card Sort Analysis:\nMethodology in Non-IA Contexts"} className={styles.title} />
           <div className={styles.methods}>

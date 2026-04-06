@@ -42,8 +42,8 @@ export default function Contact() {
           </div>
           <h1 className={styles.title}>Contact</h1>
           <p className={styles.subtitle}>
-            I am available for UX research and design work, grad school conversations,
-            and Ableton/music tech collaborations.
+            I am available for UX research and design work, research collaborations,
+            and Ableton/music tech projects.
           </p>
         </header>
 

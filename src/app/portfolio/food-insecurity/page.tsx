@@ -4,7 +4,7 @@ import PretextTitle from "@/components/PretextTitle";
 
 export const metadata = {
   title: "Food Insecurity Discovery Research | James Dishman",
-  description: "Full-cycle discovery research on food insecurity in the Mahoning Valley - screener design, qualitative interviews, affinity mapping, questionnaire design, and JTBD analysis.",
+  description: "Full-cycle discovery research on food insecurity in the Mahoning Valley: screener design, qualitative interviews, affinity mapping, questionnaire design, and JTBD analysis.",
 };
 
 export default function FoodInsecurityResearch() {
@@ -21,8 +21,6 @@ export default function FoodInsecurityResearch() {
             <span className={styles.category}>UX Research</span>
             <span className={styles.metaDot} aria-hidden="true">·</span>
             <span className={styles.year}>2025</span>
-            <span className={styles.metaDot} aria-hidden="true">·</span>
-            <span className={styles.course}>UX 60531 - Discovery Research · Kent State MS UX</span>
           </div>
           <PretextTitle text={"Food Insecurity\nDiscovery Research"} className={styles.title} />
           <div className={styles.methods}>
@@ -127,8 +125,8 @@ export default function FoodInsecurityResearch() {
               I considered recruiting two subpopulations: individuals experiencing food insecurity
               directly, and social workers or case managers who encounter it professionally. The logic
               was that frontline professionals could provide a systemic view that individual participants
-              might not have. This dual-population approach was ultimately scoped down for the coursework,
-              but the interview with a family services administrator did surface a valuable finding:
+              might not have. The dual-population approach was ultimately scoped down to keep the study
+              manageable, but the interview with a family services administrator did surface a valuable finding:
               people in administrative roles at relevant agencies did not always know what food resources
               were available in their own region. That gap between institutional position and actual
               knowledge became a data point in its own right.
@@ -226,8 +224,8 @@ export default function FoodInsecurityResearch() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Persona Development</h3>
             <p className={styles.body}>
-              The course also included persona creation as a synthesis method. The persona assignment
-              explored bias-aware construction techniques: using sketches instead of photographs to
+              The synthesis work also included persona creation, with a specific focus on
+              bias-aware construction techniques: using sketches instead of photographs to
               avoid triggering gender and racial assumptions, omitting demographic fields (like sex)
               when they were not relevant to the design context, and structuring &ldquo;Needs and Goals&rdquo;
               to capture pain points and desired outcomes without reducing them to a flat requirements
@@ -307,8 +305,8 @@ export default function FoodInsecurityResearch() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The JTBD Question</h2>
           <p className={styles.body}>
-            One course module used a published JTBD study as a critical analysis case. The paper
-            (Domenici et al., 2025) claimed to apply Jobs-to-Be-Done to consumer meat product innovation,
+            Alongside the primary research, I conducted a critical analysis of a published JTBD study.
+            The paper (Domenici et al., 2025) claimed to apply Jobs-to-Be-Done to consumer meat product innovation,
             using a three-phase study with interviews, semiotic analysis, and concept validation. Working
             through that paper raised questions I kept turning back toward my own data.
           </p>
@@ -356,9 +354,9 @@ export default function FoodInsecurityResearch() {
 
         {/* What a professional version would add */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>What a Professional Version Would Add</h2>
+          <h2 className={styles.sectionTitle}>What a Longer Engagement Would Add</h2>
           <p className={styles.body}>
-            Graduate coursework defines a scope boundary. A real discovery research engagement in this domain would extend in several directions:
+            Any research project has a scope boundary. A longer-running discovery engagement in this domain would extend in several directions:
           </p>
           <ul className={styles.reflectionList}>
             <li>
