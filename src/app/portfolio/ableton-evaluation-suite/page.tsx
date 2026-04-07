@@ -100,10 +100,10 @@ export default function AbletonEvaluationSuite() {
             <h3 className={styles.findingTitle}>The Ecosystem Layer</h3>
             <p className={styles.body}>
               Live sits at the center of an ecosystem that includes Push hardware (now
-              standalone with Push 3), Ableton Note for mobile capture, Ableton Cloud for
-              project transfer, Max for Live for user-created devices, Ableton Link for
-              cross-application sync, and the Learning Music and Learning Synths educational
-              sites. Partner companies (Akai, Novation, Cycling &apos;74) and a global network of
+              standalone with Push 3), Move as a portable standalone groovebox, Ableton Note
+              for mobile capture, Ableton Cloud for project transfer, Max for Live for
+              user-created devices, Ableton Link for cross-application sync, and the Learning
+              Music and Learning Synths educational sites. Partner companies (Akai, Novation, Cycling &apos;74) and a global network of
               certified trainers, user groups, and educational institutions all orbit the
               core product.
             </p>
