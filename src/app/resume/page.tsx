@@ -69,7 +69,7 @@ export default function Resume() {
             <div className={styles.skillGroup}>
               <h3 className={styles.skillGroupTitle}>Technical</h3>
               <p className={styles.skillList}>
-                HTML/CSS · Next.js · TypeScript · React Native / Expo · Python · Rust · p5.js · SQLite · RAG / vector search · GitHub Actions CI/CD · API integration · AI prompt design · Multi-agent system design
+                HTML/CSS · Next.js · TypeScript · React Native / Expo · Python · Rust · p5.js · SQLite · RAG / vector search · GitHub Actions CI/CD · API integration · Google Analytics 4 · AI prompt design · Multi-agent system design
               </p>
             </div>
           </div>

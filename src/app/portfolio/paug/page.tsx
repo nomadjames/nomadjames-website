@@ -41,6 +41,7 @@ export default function PaugPage() {
               "Dark UI",
               "Mailchimp Integration",
               "DNS / SSL",
+              "Google Analytics 4",
               "Space Mono + Inter",
             ].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
@@ -116,6 +117,9 @@ export default function PaugPage() {
             <p className={styles.body}>
               DNS is configured and pointing to GitHub Pages. SSL is provisioned automatically. The deployment pipeline is GitHub Actions triggered by pushes to main. There is no server to maintain, no hosting bill, and no database. For a community group that runs on volunteer effort, that operational simplicity matters. The less infrastructure overhead, the more likely the site stays alive.
             </p>
+            <p className={styles.body}>
+              The site is instrumented with Google Analytics 4 so we can see whether people are actually finding it, which pages they land on, and whether the events page is doing its job. Analytics is running on both paug.net and nomadjames.com, which means every production site I own is reporting real traffic data rather than running blind.
+            </p>
           </div>
         </section>
 
@@ -157,6 +161,7 @@ export default function PaugPage() {
             <li><strong>Email:</strong> Mailchimp (integration built, pending final config)</li>
             <li><strong>SSL:</strong> Auto-provisioned via GitHub Pages</li>
             <li><strong>CI/CD:</strong> GitHub Actions on push to main</li>
+            <li><strong>Analytics:</strong> Google Analytics 4 (same instrumentation as nomadjames.com)</li>
           </ul>
         </section>
 
@@ -192,7 +197,7 @@ export default function PaugPage() {
               <strong>Content velocity:</strong> The site only works as a community hub if it gets updated regularly. The CMS makes that possible technically, but the human habit of actually posting still needs to develop. That is a design problem too, just not one you solve with code
             </li>
             <li>
-              <strong>Analytics:</strong> Some lightweight, privacy-respecting analytics would help us understand whether people are actually finding and using the site. Nothing invasive, just enough to know if the thing we built is working
+              <strong>Acting on the analytics:</strong> GA4 is wired up and reporting, but the next step is actually looking at the data. Which events get the most page views? Where do people land first? How does the signup form convert once Mailchimp is live? The instrumentation is the easy part. Building a habit of reading it and feeding insights back into the design is the part that matters
             </li>
           </ul>
         </section>
@@ -214,6 +219,7 @@ export default function PaugPage() {
               "Stakeholder communication",
               "Non-technical user onboarding",
               "Mailchimp integration",
+              "Google Analytics 4 instrumentation",
               "GitHub Pages deployment",
             ].map((skill) => (
               <span key={skill} className={styles.skill}>{skill}</span>

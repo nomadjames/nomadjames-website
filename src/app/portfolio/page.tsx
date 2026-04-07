@@ -78,7 +78,7 @@ const work = [
     title: "Usability Testing Methods",
     category: "UX Research",
     year: "2024–2026",
-    methods: ["Moderated Testing", "Unmoderated Testing", "Usability Brief", "Loop11", "Test Plan Design"],
+    methods: ["Moderated Mobile Testing", "15-Participant Study", "Multi-Facilitator", "iOS / Android / Web", "Unmoderated Testing", "Loop11", "Usability Brief", "Test Plan Design"],
     status: "published",
     link: "/portfolio/usability-testing",
   },

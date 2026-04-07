@@ -106,7 +106,7 @@ export default function Home() {
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowLabel}>UX Designer & AI Systems Builder</span>
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>MS User Experience Design</span>
+            <span className={styles.eyebrowLabel}>MS User Experience</span>
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
             <span className={styles.eyebrowLabel}>Youngstown, OH</span>
           </div>

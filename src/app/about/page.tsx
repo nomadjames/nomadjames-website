@@ -29,7 +29,7 @@ export default function AboutPage() {
         <Tldr>
           UX designer and electronic music producer with a decade leading Pittsburgh&apos;s Ableton
           User Group, currently building AI agent systems as both creative tools and research
-          platforms. Finishing an MS in User Experience Design at Kent State. Every piece of work
+          platforms. Finishing an MS in User Experience at Kent State. Every piece of work
           in this portfolio exists because I cared about the subject before I cared about the credential.
         </Tldr>
 
@@ -46,7 +46,7 @@ export default function AboutPage() {
           <p className={styles.body}>
             I produce electronic music. I co-founded the Pittsburgh Ableton User Group with Paul
             Miller and Steve Knots and serve as the direct liaison to Ableton&apos;s international
-            community team. I am completing an MS in User Experience Design at Kent State, where
+            community team. I am completing an MS in User Experience at Kent State, where
             the formal training meets the instinct I have been building for years.
           </p>
         </section>

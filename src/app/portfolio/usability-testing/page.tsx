@@ -5,7 +5,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Usability Testing Methods | James Dishman",
   description:
-    "A multi-method usability testing collection: moderated sessions, usability brief design, unmoderated remote testing with Loop11, and usability test planning for digital prototypes.",
+    "A multi-method usability testing collection: a 15-participant moderated mobile study of the Philz Coffee app, a single-participant moderated session on Papa Johns, usability brief design, unmoderated remote testing with Loop11, and usability test planning for digital prototypes.",
 };
 
 export default function UsabilityTesting() {
@@ -26,7 +26,9 @@ export default function UsabilityTesting() {
           <PretextTitle text={"Usability Testing\nMethods"} className={styles.title} />
           <div className={styles.methods}>
             {[
-              "Moderated Usability Testing",
+              "Moderated Mobile Usability Testing",
+              "Multi-Facilitator Coordination",
+              "Cross-Platform Testing (iOS / Android / Web)",
               "Usability Brief Design",
               "Unmoderated Remote Testing",
               "Loop11",
@@ -41,7 +43,7 @@ export default function UsabilityTesting() {
         </header>
 
         <Tldr>
-          Four usability testing projects, each using a different method: a moderated session that revealed consistent navigation patterns by resisting the urge to correct participants, a usability brief that reframed study design around ROI, an unmoderated remote test comparing two major e-commerce sites, and a usability test plan for a digital prototype redesign.
+          Five usability testing projects, each using a different method. The newest is a 15-participant moderated mobile study of the Philz Coffee app, run across five facilitator groups on iOS, Android, and the web, that surfaced critical failures in the modifier system, the menu hierarchy, and the absence of ingredient and allergen information. Earlier work includes a single-participant moderated session on Papa Johns, a usability brief that reframed study design around ROI, an unmoderated remote test comparing two major e-commerce sites, and a usability test plan for a digital prototype redesign.
         </Tldr>
 
         {/* Why This Collection Exists */}
@@ -54,16 +56,163 @@ export default function UsabilityTesting() {
             exist yet is a different problem than evaluating a live product.
           </p>
           <p className={styles.body}>
-            These four projects each applied a different usability method to a different
+            These five projects each applied a different usability method to a different
             product. Together, they demonstrate range across the core skill set that
-            usability work actually requires: facilitating sessions, designing studies,
-            choosing metrics, working with remote testing platforms, and planning
-            evaluations for prototypes still in development.
+            usability work actually requires: facilitating sessions, coordinating with
+            other facilitators on a shared study, designing studies, choosing metrics,
+            working with remote testing platforms, and planning evaluations for prototypes
+            still in development.
           </p>
         </section>
 
-        {/* Moderated Usability Testing: Papa Johns */}
+        {/* Moderated Mobile Usability Testing: Philz Coffee */}
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
+          <h2 className={styles.sectionTitle}>Moderated Mobile Usability Testing: Philz Coffee App</h2>
+          <p className={styles.body}>
+            <strong>Year:</strong> 2026
+          </p>
+          <p className={styles.body}>
+            A 15-participant moderated usability study of the Philz Coffee mobile ordering
+            app, run across five facilitator groups (Stacy, Tarun, Liz, Paige, and me) on
+            iOS, Android, and the web. Five tasks per session: find and download the app,
+            select a store location, customize an order using the modifier system, place a
+            drink order with special instructions, and manage the cart through checkout.
+            The goal was to identify friction in the mobile ordering experience, with
+            particular attention to whether users could understand and effectively
+            interact with the app&apos;s touch-based controls.
+          </p>
+          <p className={styles.body}>
+            One participant&apos;s line during the modifier task became the title of the
+            topline report: <em>&ldquo;It makes me feel like a dummy.&rdquo;</em> That
+            sentence is the study in miniature. The app is not unusable. It is built on
+            interaction conventions that the people using it do not recognize, and the
+            consequence is that intelligent adults blame themselves for the interface.
+
+          </p>
+
+          {/* Video placeholder — interview footage to be added */}
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Session Footage</h3>
+            <p className={styles.body}>
+              Interview videos from the moderated sessions are being added to this
+              section. Once embedded, the clips will document the modifier tap failures,
+              the menu navigation breakdowns, and the moments where participants
+              verbalized their confusion in their own words.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Critical Finding: The Modifier System Fails Users</h3>
+            <p className={styles.body}>
+              The drink customization system was the single largest source of task failure
+              across all 15 sessions. Roughly 8 to 10 of 15 participants could not
+              successfully customize a drink using the app&apos;s built-in modifier
+              controls. The controls rely on an underline visual convention to signal
+              &ldquo;tappable,&rdquo; but participants did not recognize the underline as
+              an interactive element. When they did attempt the tap, the interaction
+              frequently failed to register or produced unexpected results. One participant
+              spent two and a half minutes searching before giving up.
+            </p>
+            <p className={styles.body}>
+              The affordance failed across age groups and platform familiarity, but
+              skewed harder against older participants. Their natural tap behavior
+              produced null results, which led them to assume the controls were
+              display-only rather than interactive. The interface was punishing them for
+              following standard mobile conventions.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Critical Finding: The Workaround Hits an Invisible Wall</h3>
+            <p className={styles.body}>
+              The downstream effect of the modifier failure is that participants
+              abandoned the modifier system entirely and typed their customizations into
+              the special instructions field instead. That workaround then collided with
+              an undisclosed character limit that forced them to truncate their requests
+              mid-sentence. The character count was not visible. At least 7 of 15
+              participants hit this wall. The keyboard also covered the text input area
+              on mobile, so participants could not see what they were typing while they
+              were typing it.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>High-Severity Finding: Recommendations Obscure the Menu</h3>
+            <p className={styles.body}>
+              The recommended drinks section dominates the screen on first load, and
+              multiple participants mistook it for the full menu. Users scrolled through
+              recommendations repeatedly without realizing the actual menu existed
+              elsewhere in the app. One facilitator&apos;s first participant took five
+              minutes to find the menu. Another spent two to three minutes scrolling back
+              and forth. The information architecture punishes the most instinctive
+              mobile gesture, scrolling down to see more, by trapping users in a section
+              that does not lead them to the core ordering flow.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Critical Finding: No Ingredient or Allergen Information</h3>
+            <p className={styles.body}>
+              Across multiple sessions, participants noted the absence of ingredient
+              lists and allergen information. The flavor descriptors used by Philz
+              (&ldquo;creamy,&rdquo; &ldquo;sweet&rdquo;) were called &ldquo;non-standard&rdquo;
+              and unintuitive. Ingredient emblems exist in the app, but only one
+              participant out of fifteen actually found them. At least five participants
+              explicitly flagged this absence on their own.
+            </p>
+            <p className={styles.body}>
+              For a food and beverage ordering app, this is not just a usability gap. It
+              is a potential liability exposure. Naming the business risk alongside the
+              user impact is part of what makes a usability finding actionable to a
+              stakeholder who does not care about heuristics.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>What Worked</h3>
+            <p className={styles.body}>
+              Cart and checkout was the most consistently successful task across all
+              sessions. Participants found removing items, changing quantities, and
+              completing checkout straightforward on both platforms. Location selection
+              also performed well. The drink category structure (coffee and tea
+              separation) made sense to participants once they reached it, and was
+              described positively. Younger participants tended to navigate with less
+              friction than older or less tech-familiar participants, which suggests the
+              interface depends on conventions that are not yet universally understood.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Primary Recommendation</h3>
+            <p className={styles.body}>
+              Redesign the modifier interaction to use clearer visual affordances
+              (toggles, steppers, or labeled buttons) with immediate visual feedback on
+              selection. Reduce the screen real estate given to recommendations and make
+              the menu navigation more prominent. Surface ingredient and allergen
+              information at the point of product selection, and replace ambiguous flavor
+              adjectives with concrete descriptions. Display the character count on the
+              special instructions field, raise the limit, and ensure the keyboard does
+              not obscure the input area on mobile.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>What This Project Demonstrated</h3>
+            <p className={styles.body}>
+              This was the first study where I worked inside a multi-facilitator
+              structure, which meant the data across sessions had to be comparable enough
+              that patterns could be identified across groups. The findings are stronger
+              than anything a solo five-participant study could produce, because the same
+              behaviors recurred across facilitators and platforms. Critical findings
+              that show up in 8 of 15 participants across 5 facilitators on 3 platforms
+              are not noise. They are the system. That is the kind of evidence that
+              changes a roadmap.
+            </p>
+          </div>
+        </section>
+
+        {/* Moderated Usability Testing: Papa Johns */}
+        <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Moderated Usability Testing: Papa Johns</h2>
           <p className={styles.body}>
             <strong>Year:</strong> 2026
@@ -248,6 +397,20 @@ export default function UsabilityTesting() {
           </div>
 
           <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Multi-Facilitator Studies Produce Stronger Evidence</h3>
+            <p className={styles.body}>
+              The Philz Coffee study showed what happens when the same protocol is run
+              across five facilitators and 15 participants on three platforms. Patterns
+              that would look like outliers in a five-participant solo study become
+              undeniable. When 8 of 15 participants fail the same task across different
+              facilitators and devices, the finding is no longer about a particular user
+              or a particular session. It is about the product. Coordinating a study at
+              that scale is its own discipline, and it changes the kind of recommendation
+              you can credibly make at the end.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Usability Briefs Force Strategic Thinking</h3>
             <p className={styles.body}>
               The Chipotle brief required thinking about what is worth measuring before
@@ -286,6 +449,11 @@ export default function UsabilityTesting() {
           <div className={styles.skills}>
             {[
               "Moderated usability session facilitation",
+              "Mobile usability testing (iOS / Android)",
+              "Cross-platform comparative testing",
+              "Multi-facilitator study coordination",
+              "Topline report writing",
+              "Critical finding triage and severity rating",
               "Unmoderated remote test design (Loop11)",
               "Usability brief and study design",
               "Think-aloud protocol",
@@ -307,6 +475,11 @@ export default function UsabilityTesting() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Original Submissions</h2>
           <ul className={styles.reflectionList}>
+            <li>
+              <a href="/pdfs/philz-mobile-usability-study.pdf" target="_blank" rel="noopener noreferrer">
+                Moderated Mobile Usability Study: Philz Coffee App (Topline Report)
+              </a>
+            </li>
             <li>
               <a href="/pdfs/usability-session-papajohns.pdf" target="_blank" rel="noopener noreferrer">
                 Moderated Usability Session: Papa Johns
