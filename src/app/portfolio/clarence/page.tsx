@@ -678,7 +678,7 @@ export default function ClarencePage() {
             <li>RAG layer: 10,349 fact vectors + 3,391 memory vectors with all-MiniLM-L6-v2 embeddings (384-dim, 13,740 total), fully local via sqlite-vec</li>
             <li>Daily knowledge sync: Google Drive pull, vault re-indexing, results to Discord</li>
             <li>2,075 Obsidian vault notes indexed and searchable via semantic vector search</li>
-            <li>100 skills in the Hermes skill library covering research, development, deployment, and creative workflows</li>
+            <li>115 skills in the Hermes skill library covering research, development, deployment, and creative workflows</li>
             <li>4 MCP servers: custom bridge, Tavily, Perplexity Pro, and web search (DuckDuckGo + Gemini)</li>
             <li>9 Discord channels for async reporting: cron reports, incidents, research, R&D council, job search</li>
             <li>Morning briefings (calendar + job search) delivered to Telegram before 5 AM daily</li>
@@ -686,8 +686,8 @@ export default function ClarencePage() {
             <li>Full platform migration from OpenClaw to Hermes completed in 48 hours under constraint</li>
             <li>Three-model routing architecture: Opus for reasoning, Trinity for code, MiniMax for mechanical work</li>
             <li>Data Access Layer (clarence_db.py): single module for all DB operations with 75-test suite and nightly health monitoring</li>
-            <li>Portfolio evolution tracker: 100 changes logged with timestamps, categories, and semantic search</li>
-            <li>12,265 lines of custom Python across 31 scripts powering the knowledge pipeline</li>
+            <li>Portfolio evolution tracker: 105 changes logged with timestamps, categories, and semantic search</li>
+            <li>13,307 lines of custom Python across 36 scripts powering the knowledge pipeline</li>
             <li>Open source memory architecture: github.com/nomadjames/clarence-memory-structure</li>
           </ul>
         </section>
@@ -709,7 +709,7 @@ export default function ClarencePage() {
           <p className={styles.body}>
             The fix was a Data Access Layer: a single Python module (clarence_db.py, 870 lines) that owns all
             database operations. Every script in the system now goes through this one file for reads, writes,
-            vector search, and schema management. No more raw SQL scattered across 31 scripts. One module, one
+            vector search, and schema management. No more raw SQL scattered across 36 scripts. One module, one
             set of assumptions, one place where the schema is defined.
           </p>
 
@@ -737,7 +737,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Portfolio Changelog</h3>
             <p className={styles.body}>
-              100 portfolio changes tracked with timestamps, categories, and RAG embeddings. Every meaningful
+              105 portfolio changes tracked with timestamps, categories, and RAG embeddings. Every meaningful
               change to the portfolio site gets logged with what changed, why, and when. The changelog itself
               is searchable via semantic vector search, so the system can answer questions like &ldquo;what
               did I change about the Clarence case study last week?&rdquo; without scanning git logs.
@@ -1001,8 +1001,8 @@ export default function ClarencePage() {
         </section>
 
         {/* Verification timestamp */}
-        <p className={cs.verifiedStamp} data-verified="2026-04-06">
-          Numbers on this page last verified against the live database on April 6, 2026.
+        <p className={cs.verifiedStamp} data-verified="2026-04-07">
+          Numbers on this page last verified against the live database on April 7, 2026.
         </p>
 
         {/* Footer nav */}
