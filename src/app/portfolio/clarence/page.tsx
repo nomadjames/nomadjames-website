@@ -6,7 +6,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence, a named, autonomous AI assistant with a SQLite knowledge database holding 3,397 active memories, 2,474 entities, 10,349 active facts, and 2,075 indexed vault notes with full vector search, multi-model routing across 4 MCP servers, conversation distillation pipeline, session lifecycle hooks, and a nightly autonomous pipeline. Built on OpenClaw, migrated under constraint to Hermes, and still evolving.",
+    "A systems design case study on building Clarence, a named, autonomous AI assistant now hard-pinned to GPT-5.4 via OpenAI with a SQLite knowledge database holding 3,390 active memories, 2,474 entities, 10,349 active facts, and 2,107 indexed vault notes. The system includes retrieval feedback, duplicate-control, semantic search, Obsidian sync, overnight automation, and a hardened memory architecture shaped through daily use and correction.",
 };
 
 export default function ClarencePage() {
@@ -33,19 +33,20 @@ export default function ClarencePage() {
               "Multi-Model Routing",
               "Knowledge Base Architecture",
               "Hermes Gateway",
-              "MCP Bridge Architecture",
-              "Claude Opus 4.6",
-              "Claude Sonnet",
-              "Claude Code CLI",
-              "MiniMax M2.7 (Ollama)",
-              "Session Lifecycle Hooks",
+              "GPT-5.4 via OpenAI",
+              "OpenAI Codex Runtime",
+              "Claude Code Collaboration",
+              "Knowledge Base Architecture",
+              "Memory Hardening",
+              "Retrieval Feedback Loop",
               "Conversation Distillation",
+              "Semantic Vector Search (RAG)",
+              "Obsidian Sync + Vault Indexing",
               "Telegram API",
               "Discord Webhooks",
               "Tailscale VPN",
               "Self-Improving Systems",
               "Human-in-the-Loop Design",
-              "Semantic Vector Search (RAG)",
               "Platform Migration Under Constraint",
             ].map((m) => (
               <span key={m} className={styles.method}>{m}</span>
@@ -54,7 +55,7 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          I built an autonomous AI system that manages a knowledge base of 3,397 active memories, 2,474 entities, and 10,349 active facts with full vector search across 2,075 indexed vault notes, routes tasks across multiple models by cost and capability, syncs reference materials from Google Drive, and posts reports to 9 Discord channels. Then the platform I built it on changed the rules, and I had to migrate the entire system under constraint in 48 hours. The real lesson was not about automation. It was about trust calibration, platform dependency, and what happens when you design a collaborator instead of a tool.
+          I built an autonomous AI system that now runs on GPT-5.4 via OpenAI, manages a knowledge base of 3,390 active memories, 2,474 entities, and 10,349 active facts, indexes 2,107 Obsidian vault notes, reranks retrieval using usefulness and noise feedback, and runs overnight automation across Discord, Telegram, and a local knowledge stack. The most important work happened after the migration: turning memory from a pile of stored context into a hardened system with freshness checks, duplicate control, path repair, feedback-aware ranking, and honest health reporting. The lesson was not just how to automate. It was how to make an AI collaborator trustworthy over time.
         </Tldr>
 
         {/* Stats bar */}
@@ -64,12 +65,12 @@ export default function ClarencePage() {
             <span className={cs.statLabel}>Active facts in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>3,397</span>
+            <span className={cs.statNum}>3,390</span>
             <span className={cs.statLabel}>Active memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>62%</span>
-            <span className={cs.statLabel}>Bootstrap memory reduction</span>
+            <span className={cs.statNum}>2,107</span>
+            <span className={cs.statLabel}>Indexed Obsidian vault notes</span>
           </div>
           <div className={cs.stat}>
             <span className={cs.statNum}>9</span>
@@ -106,16 +107,39 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system running on the Hermes agent gateway with Claude Code as the primary interface, after a forced
-            migration from OpenClaw when Anthropic changed the rules on third-party harnesses. It routes tasks across
-            multiple models based on cost and capability, maintains a knowledge base of over 10,000 active facts and 3,000
-            active memories with semantic vector search, syncs reference materials from Google Drive into an indexed
-            Obsidian vault, posts briefings to Discord before I wake up, and writes session handoff notes so the
-            next conversation picks up where the last one left off.
+            system running on the Hermes gateway, hard-pinned to GPT-5.4 via OpenAI, with Claude Code used as a bounded
+            specialist path rather than the main brain. After the forced migration off the old OpenClaw stack, the most
+            important work was not just restoring functionality. It was hardening memory: stale embeddings, duplicate
+            conversation memories, broken retrieval paths, dead Obsidian links, and fake-green health checks all had to be
+            dragged into the light and fixed. Clarence now maintains over 10,000 active facts and 3,000 active memories
+            with semantic search, retrieval feedback, duplicate control, Obsidian indexing, overnight briefings, and
+            session handoff notes so the next conversation actually starts from continuity instead of amnesia.
           </p>
           <p className={styles.body}>
             I am both the designer and the primary user of this system. That dual position is unusual, and worth
             examining explicitly as part of this case study.
+          </p>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>What Changed After the OpenAI Switch</h2>
+          <p className={styles.body}>
+            The switch to OpenAI was not just a provider swap. It forced a cleanup of assumptions. I stopped treating
+            Clarence as a clever prompt chain and started treating it like infrastructure. That meant defining a memory
+            contract, deciding what belonged in hot injected memory versus structured database memory versus transcript
+            recall, and then making the retrieval layer honest enough to trust.
+          </p>
+          <p className={styles.body}>
+            Since the switch, I hardened the system in ways that matter for real use: semantic retrieval now returns
+            stable IDs, feedback can mark results as useful or noise, ranking adjusts based on that feedback, duplicate
+            conversation memories can be archived conservatively instead of multiplying forever, and the health checks now
+            report freshness instead of flattering coverage numbers. Obsidian indexing was repaired too, with real YAML
+            parsing, sync failure detection, stale path repair, and Chroma cleanup for deleted files.
+          </p>
+          <p className={styles.body}>
+            That work is less glamorous than a multi-agent demo, but it is what makes Clarence feel like a collaborator
+            instead of a novelty. The value is not that it can answer a question once. The value is that it can still be
+            coherent next week, after corrections, migrations, overnight jobs, and hundreds of accumulated decisions.
           </p>
         </section>
 
@@ -172,11 +196,11 @@ export default function ClarencePage() {
             <h3 className={styles.findingTitle}>Adaptive Model Routing</h3>
             <p className={styles.body}>
               Industry patterns describe routing between fast/cheap agents and powerful/expensive agents
-              based on task complexity. Clarence implements this as a tiered model policy: MiniMax for
-              mechanical tasks, Sonnet for reasoning, Opus for synthesis and interactive sessions. The
-              routing is explicit and documented. The lesson from operating this: adaptive
-              routing requires continuous calibration. A task that seems mechanical can require reasoning
-              depth that only becomes apparent after the cheaper model fails.
+              based on task complexity. Clarence now uses a stricter split: Hermes stays hard-pinned to
+              GPT-5.4 for the main runtime, while cheaper or specialized support paths are used only when
+              the task is clearly bounded. The lesson from operating this is that routing should be boring.
+              Ambitious dynamic routing sounds elegant, but a stable primary brain with explicit support
+              paths is easier to trust, debug, and maintain.
             </p>
           </div>
 
@@ -207,7 +231,7 @@ export default function ClarencePage() {
             <div className={cs.archDiagramRow}>
               <div className={cs.archDiagramLabel}>Interface</div>
               <div className={cs.archDiagramNodes}>
-                <span className={cs.archDiagramNodeAccent}>Claude Code CLI</span>
+                <span className={cs.archDiagramNodeAccent}>Hermes CLI / API</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
                 <span className={cs.archDiagramNode}>Telegram (Franklin)</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
@@ -216,10 +240,11 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Tailscale VPN</span>
               </div>
               <p className={cs.archDiagramNote}>
-                Claude Code CLI is the primary interface, running on the Anthropic Max subscription.
-                Telegram provides mobile access through Franklin (@FranklintheOGBot on Hermes). The original
-                OpenClaw bot has been decommissioned. Discord serves as the notification and reporting surface
-                with 9 channels. All device access runs over a Tailscale private mesh network.
+                Hermes is the primary interface and runtime, with CLI and API entry points. Claude Code remains
+                a specialist path for bounded repo work, not the main system brain. Telegram provides mobile access
+                through Franklin (@FranklintheOGBot on Hermes). The original OpenClaw bot has been decommissioned.
+                Discord serves as the notification and reporting surface with 9 channels. All device access runs over
+                a Tailscale private mesh network.
               </p>
             </div>
 
