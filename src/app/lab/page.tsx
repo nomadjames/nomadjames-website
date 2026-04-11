@@ -3,7 +3,19 @@ import styles from "./page.module.css";
 export const metadata = {
   title: "Lab | James Dishman",
   description:
-    "Creative coding experiments: generative art, algorithmic storytelling, and computational design sketches built with p5.js.",
+    "Interactive experiments, creative coding, and small prototype systems. Featured: Micro-Museum of Broken Interfaces.",
+};
+
+const featuredProject = {
+  title: "Micro-Museum of Broken Interfaces",
+  category: "Interactive UX Critique",
+  year: "2026",
+  description:
+    "An interactive portfolio piece that turns UX critique into something you can actually feel. Instead of writing about bad interface patterns, it lets you use them, experience why they fail, and compare them directly to redesigns that fix the underlying problem.",
+  purpose:
+    "The museum covers 15 infamous interface failures drawn from real products, FTC complaints, and dark patterns research. Each exhibit follows the same structure: experience the broken version, read the principle-level analysis, then see a better version side by side. The point is simple: critique is cheap, redesign is not.",
+  url: "/micro-museum/",
+  cta: "Open the Micro-Museum",
 };
 
 const sketches = [
@@ -71,18 +83,54 @@ export default function LabPage() {
 
         <header className={styles.header}>
           <div className={styles.eyebrow}>
+            <span className={styles.eyebrowLabel}>Experiments</span>
+            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
             <span className={styles.eyebrowLabel}>Creative Coding</span>
             <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>Generative Art</span>
-            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>2025</span>
+            <span className={styles.eyebrowLabel}>Interactive Prototypes</span>
           </div>
           <h1 className={styles.title}>Lab</h1>
           <p className={styles.subtitle}>
-            Creative coding experiments in generative art and computational thinking,
-            built with p5.js.
+            Small builds, interactive experiments, and prototypes that help me work through ideas in public.
+            Some are playful. Some are pointed. The common thread is making the idea tangible.
           </p>
         </header>
+
+        <section className={styles.featuredSection}>
+          <article className={styles.featuredCard}>
+            <div className={styles.featuredContent}>
+              <span className={styles.featuredKicker}>Featured project</span>
+              <h2 className={styles.featuredTitle}>{featuredProject.title}</h2>
+              <div className={styles.cardMeta}>
+                <span className={styles.courseTag}>
+                  {featuredProject.category} &middot; {featuredProject.year}
+                </span>
+              </div>
+              <p className={styles.featuredBody}>{featuredProject.description}</p>
+              <p className={styles.featuredBody}>{featuredProject.purpose}</p>
+              <div className={styles.featuredActions}>
+                <a
+                  href={featuredProject.url}
+                  className={styles.featuredLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {featuredProject.cta} ↗
+                </a>
+                <span className={styles.featuredUrl}>nomadjames.com/micro-museum</span>
+              </div>
+            </div>
+            <div className={styles.featuredPreview}>
+              <iframe
+                src={featuredProject.url}
+                title={featuredProject.title}
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"
+                className={styles.iframe}
+              />
+            </div>
+          </article>
+        </section>
 
         <section className={styles.grid}>
           {sketches.map((sketch) => (
