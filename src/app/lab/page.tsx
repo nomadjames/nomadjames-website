@@ -37,6 +37,24 @@ const sketches = [
       "Moving rectangles bounce around the canvas and every 5 seconds deposit a nested copy of themselves onto a persistent layer. An accumulation machine.",
     interaction: "click to pause/resume",
   },
+  {
+    slug: "nested-grid-echoes",
+    title: "Nested Grid Echoes",
+    course: "p5.js",
+    year: "2025",
+    description:
+      "A drifting grid where each cell slowly accumulates recursive color blocks over time. Motion stays temporary. The nested geometry persists.",
+    interaction: "watch the grid evolve every 5 seconds",
+  },
+  {
+    slug: "chromatic-crossfield",
+    title: "Chromatic Crossfield",
+    course: "p5.js",
+    year: "2025",
+    description:
+      "A field of moving diagonal crosses with noise-driven stroke weights and a jittering square overlay. Loud, geometric, and unstable in a good way.",
+    interaction: "click to pause/resume",
+  },
 ];
 
 const externalSketches = [
