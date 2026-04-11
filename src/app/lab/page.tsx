@@ -37,24 +37,6 @@ const sketches = [
       "Moving rectangles bounce around the canvas and every 5 seconds deposit a nested copy of themselves onto a persistent layer. An accumulation machine.",
     interaction: "click to pause/resume",
   },
-  {
-    slug: "virtual-wallpaper",
-    title: "Virtual Wallpaper",
-    course: "p5.js",
-    year: "2025",
-    description:
-      "A fractal grid of ellipses and nested rectangles. Came out looking like a speaker. The header text serves as the interaction instruction: click to randomize.",
-    interaction: "click to randomize colors and grid size",
-  },
-  {
-    slug: "words-in-the-desert",
-    title: "Words in the Desert",
-    course: "p5.js",
-    year: "2025",
-    description:
-      "A poem written from the Valley of the Sun. Words scatter across a desert-colored background and animate into readable text on click.",
-    interaction: "click to toggle between scattered and paragraph layouts",
-  },
 ];
 
 const externalSketches = [
