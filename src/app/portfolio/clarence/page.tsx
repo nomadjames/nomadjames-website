@@ -69,7 +69,7 @@ export default function ClarencePage() {
             <span className={cs.statLabel}>Indexed Obsidian vault notes</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>139</span>
+            <span className={cs.statNum}>136</span>
             <span className={cs.statLabel}>Hermes skills available</span>
           </div>
         </div>
@@ -688,7 +688,7 @@ export default function ClarencePage() {
           <ul className={styles.methodList}>
             <li>Knowledge database verified live on April 11, 2026: 3,394 active memories (4,261 total), 2,474 entities, 10,349 active facts (14,882 total)</li>
             <li>Obsidian knowledge layer verified live: 2,128 markdown notes indexed into the working knowledge stack</li>
-            <li>Hermes skill library verified live: 139 skills spanning research, development, infrastructure, and creative workflows</li>
+            <li>Hermes skill library verified live: 136 skills spanning research, development, infrastructure, and creative workflows</li>
             <li>Overnight Hermes scheduler verified live: 15 scheduled jobs spanning knowledge sync, health checks, cost reporting, calendar, job search, and summaries</li>
             <li>Hermes remains hard-pinned to GPT-5.4 as the primary orchestrator and memory steward</li>
             <li>Claude Code is now integrated as a bounded specialist lane rather than a casual default assistant</li>
