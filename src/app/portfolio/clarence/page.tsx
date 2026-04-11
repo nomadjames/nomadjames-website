@@ -99,8 +99,7 @@ export default function ClarencePage() {
             Read it here: <a href="/writing/clarence-needed-a-system-wiki">Why Clarence Needed a System Wiki</a>.
           </p>
           <p className={styles.body}>
-            I would publish a curated public architecture layer for this project, but not the raw internal
-            wiki. Some system knowledge should be public. Some of it should absolutely stay private.
+            The public-safe architecture notes now live at <a href="https://nomadjames.github.io/clarence-architecture/" target="_blank" rel="noopener noreferrer">nomadjames.github.io/clarence-architecture</a>. The raw internal system wiki stays private, which is the correct boundary.
           </p>
         </section>
 

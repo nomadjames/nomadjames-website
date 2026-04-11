@@ -127,6 +127,9 @@ export default function ClarenceSystemWikiArticle() {
               that makes continuity real instead of theatrical.
             </p>
             <p className={styles.body}>
+              The public-safe architecture notes live at <a href="https://nomadjames.github.io/clarence-architecture/" target="_blank" rel="noopener noreferrer">nomadjames.github.io/clarence-architecture</a>.
+            </p>
+            <p className={styles.body}>
               You can read the full case study for the broader system design frame
               at <a href="/portfolio/clarence">Clarence</a>.
             </p>
