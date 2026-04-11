@@ -2,10 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #141414; display: flex; align-items: center; justify-content: center; width: 100%; height: 100vh; overflow: hidden; }
-    canvas { display: block; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #141414;
+    }
+    body {
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
   </style>
 </head>
 <body>
@@ -19,81 +34,170 @@
     let settled = false;
     let availableBgColors = ["#be824b","#926842","#010b13","#860111","#878681","#b7a652","#c7a484","#808000","#858585"];
     let bg1, bg2, bg3;
+    let fittedTextSize = 20;
+    let fittedLineHeight = 36;
+
     function preload() {
       customFont = loadFont("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.ttf");
     }
+
     function setup() {
-      createCanvas(600, 600);
+      createCanvas(getCanvasWidth(), getCanvasHeight());
       textFont(customFont);
-      textSize(20);
       textAlign(CENTER, CENTER);
-      let wordArray = textContent.split(" ");
-      for (let i = 0; i < wordArray.length; i++) {
-        words.push({
-          word: wordArray[i],
-          x: random(600), y: random(600),
-          targetX: random(600), targetY: random(600),
-          col: color(random(255), random(255), random(255))
-        });
-      }
+      initializeWords();
       randomizeBgColors();
       startTime = millis();
     }
+
     function draw() {
       noStroke();
-      fill(bg1); rect(0, 0, 600, 200);
-      fill(bg2); rect(0, 200, 600, 200);
-      fill(bg3); rect(0, 400, 600, 200);
+      fill(bg1); rect(0, 0, width, height / 3);
+      fill(bg2); rect(0, height / 3, width, height / 3);
+      fill(bg3); rect(0, (height / 3) * 2, width, height / 3);
+
       let t = constrain(millis() - startTime, 0, duration);
+      textSize(fittedTextSize);
+
       for (let i = 0; i < words.length; i++) {
         let obj = words[i];
         obj.x = easeInOutQuad(t, obj.x, obj.targetX - obj.x, duration);
         obj.y = easeInOutQuad(t, obj.y, obj.targetY - obj.y, duration);
         push();
-        stroke(0); strokeWeight(2);
+        stroke(0);
+        strokeWeight(max(1, fittedTextSize * 0.08));
         fill(obj.col);
         text(obj.word, obj.x, obj.y);
         pop();
       }
     }
+
+    function initializeWords() {
+      words = textContent.split(" ").map((word) => ({
+        word,
+        x: random(width),
+        y: random(height),
+        targetX: random(width),
+        targetY: random(height),
+        col: color(random(255), random(255), random(255))
+      }));
+      updateResponsiveLayout();
+    }
+
+    function getCanvasWidth() {
+      return max(260, window.innerWidth || document.documentElement.clientWidth || 600);
+    }
+
+    function getCanvasHeight() {
+      return max(260, window.innerHeight || document.documentElement.clientHeight || 600);
+    }
+
+    function getMargin() {
+      return constrain(width * 0.06, 16, 30);
+    }
+
+    function updateResponsiveLayout() {
+      fitParagraphToCanvas();
+      if (settled) {
+        computeLayout();
+      } else {
+        scatterWords();
+      }
+    }
+
+    function fitParagraphToCanvas() {
+      const margin = getMargin();
+      const maxWidth = width - margin * 2;
+      const maxHeight = height - margin * 2;
+      const minSize = 11;
+      const maxSize = min(20, width * 0.05);
+
+      for (let size = maxSize; size >= minSize; size -= 1) {
+        textSize(size);
+        const lineHeight = size * 1.45;
+        let x = margin;
+        let y = margin + lineHeight;
+
+        for (let i = 0; i < words.length; i++) {
+          let wordWidth = textWidth(words[i].word + " ");
+          if (x + wordWidth > margin + maxWidth) {
+            x = margin;
+            y += lineHeight;
+          }
+          x += wordWidth;
+        }
+
+        if (y <= margin + maxHeight) {
+          fittedTextSize = size;
+          fittedLineHeight = lineHeight;
+          return;
+        }
+      }
+
+      fittedTextSize = minSize;
+      fittedLineHeight = minSize * 1.45;
+    }
+
     function computeLayout() {
-      let margin = 30;
-      let lineHeight = 36;
+      const margin = getMargin();
       let x = margin;
-      let y = margin + lineHeight;
+      let y = margin + fittedLineHeight;
+      textSize(fittedTextSize);
+
       for (let i = 0; i < words.length; i++) {
         let wordStr = words[i].word;
         let wordWidth = textWidth(wordStr + " ");
-        if (x + wordWidth > 600 - margin) { x = margin; y += lineHeight; }
+        if (x + wordWidth > width - margin) {
+          x = margin;
+          y += fittedLineHeight;
+        }
         words[i].targetX = x + wordWidth / 2;
         words[i].targetY = y;
         x += wordWidth;
       }
     }
+
+    function scatterWords() {
+      const margin = getMargin();
+      for (let i = 0; i < words.length; i++) {
+        words[i].targetX = random(margin, width - margin);
+        words[i].targetY = random(margin, height - margin);
+      }
+    }
+
     function randomizeBgColors() {
       let choices = shuffle(availableBgColors.slice());
-      bg1 = choices[0]; bg2 = choices[1]; bg3 = choices[2];
+      bg1 = choices[0];
+      bg2 = choices[1];
+      bg3 = choices[2];
     }
+
     function easeInOutQuad(t, b, c, d) {
       t /= d / 2;
       if (t < 1) return c / 2 * t * t + b;
       t--;
-      return -c / 2 * (t * (t-2) - 1) + b;
+      return -c / 2 * (t * (t - 2) - 1) + b;
     }
+
     function mousePressed() {
       randomizeBgColors();
       for (let i = 0; i < words.length; i++) {
         words[i].col = color(random(255), random(255), random(255));
       }
       startTime = millis();
-      if (!settled) { computeLayout(); settled = true; }
-      else {
-        for (let i = 0; i < words.length; i++) {
-          words[i].targetX = random(50, 550);
-          words[i].targetY = random(50, 550);
-        }
+      if (!settled) {
+        computeLayout();
+        settled = true;
+      } else {
+        scatterWords();
         settled = false;
       }
+    }
+
+    function windowResized() {
+      resizeCanvas(getCanvasWidth(), getCanvasHeight());
+      updateResponsiveLayout();
+      startTime = millis();
     }
   </script>
 </body>
