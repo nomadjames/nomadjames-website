@@ -117,7 +117,7 @@ export default function AboutPage() {
             templates. No themes. Built from scratch.
           </p>
           <p className={styles.body}>
-            It was a collaboration between Clarence and me, my AI agent system running on Claude.
+            It was a collaboration between Clarence and me, my AI collaborator system. The current runtime now lives in Hermes on GPT-5.4, with the specialist coding lane kept separate from the main conversation layer.
             I directed every decision. Clarence executed. That distinction matters. I chose the
             typography, the layout, the voice, the color palette, the information architecture.
             Clarence wrote the code, ran the builds, managed the deployments, and kept track of
@@ -134,13 +134,13 @@ export default function AboutPage() {
             The process was messy. There were em dash hunts across every page because I kept finding
             them in body text. Cached pages that would not update no matter what we tried. Fights
             about delegation when Clarence tried to make decisions I had not approved. At one point,
-            Clarence ran on the wrong model (Sonnet instead of Opus) for an entire day because a
-            settings file could not be edited from the interface we were using. The output quality
-            dropped noticeably and we did not figure out why until that evening.
+            Clarence ran on the wrong runtime configuration for an entire day because a settings file
+            could not be edited from the interface we were using. The output quality dropped noticeably
+            and we did not figure out why until that evening.
           </p>
           <p className={styles.body}>
-            The part that matters most: Clarence has a knowledge database with 3,397 active memories
-            (4,221 total including archived) built from our conversations, my reading, and every
+            The part that matters most: Clarence has a knowledge database with 3,394 active memories
+            (4,261 total including archived) built from our conversations, my reading, and every
             correction I have ever given it. It distills what I care about, how I think, and what I
             will not tolerate. The portfolio content was not generated from a generic prompt. It was
             extracted from a system that knows my voice, my work, and my standards because I spent

@@ -6,7 +6,7 @@ import PretextTitle from "@/components/PretextTitle";
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence: a persistent AI collaborator with Hermes on GPT-5.4 as the primary orchestrator, Claude Code as a bounded specialist path, and a SQLite knowledge base holding 3,390 active memories, 2,474 entities, 10,349 active facts, and 2,107 indexed vault notes. The current system combines hardened memory, explicit handoffs, overnight automation, and a documented migration path from OpenClaw to the present Hermes + Claude Code tandem model.",
+    "A systems design case study on building Clarence: a persistent AI collaborator with Hermes on GPT-5.4 as the primary orchestrator, Claude Code as a bounded specialist path, and a SQLite knowledge base holding 3,394 active memories, 2,474 entities, 10,349 active facts, and 2,128 indexed vault notes. The current system combines hardened memory, explicit handoffs, overnight automation, and a documented migration path from OpenClaw to the present Hermes + specialist-lane model.",
 };
 
 export default function ClarencePage() {
@@ -51,7 +51,7 @@ export default function ClarencePage() {
         </header>
 
         <Tldr>
-          Clarence now runs as a tandem system: Hermes on GPT-5.4 handles the main conversation, planning, memory stewardship, and synthesis, while Claude Code is reserved for bounded specialist work. The knowledge layer currently holds 3,390 active memories, 2,474 entities, 10,349 active facts, and 2,107 indexed Obsidian notes. The most important design work happened after the migration, not before it: hardening memory, making routing explicit, and turning Claude usage into a deliberate leverage path instead of a default habit. The result is less flashy than a fully autonomous demo, but far more trustworthy.
+          Clarence now runs as a tandem system: Hermes on GPT-5.4 handles the main conversation, planning, memory stewardship, and synthesis, while Claude Code is reserved for bounded specialist work. The knowledge layer currently holds 3,394 active memories, 2,474 entities, 10,349 active facts, and 2,128 indexed Obsidian notes. The most important design work happened after the migration, not before it: hardening memory, making routing explicit, and turning specialist escalation into a deliberate leverage path instead of a default habit. The result is less flashy than a fully autonomous demo, but far more trustworthy.
         </Tldr>
 
         {/* Stats bar */}
@@ -61,15 +61,15 @@ export default function ClarencePage() {
             <span className={cs.statLabel}>Active facts in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>3,390</span>
+            <span className={cs.statNum}>3,394</span>
             <span className={cs.statLabel}>Active memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>2,107</span>
+            <span className={cs.statNum}>2,128</span>
             <span className={cs.statLabel}>Indexed Obsidian vault notes</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>131</span>
+            <span className={cs.statNum}>139</span>
             <span className={cs.statLabel}>Hermes skills available</span>
           </div>
         </div>
@@ -221,7 +221,7 @@ export default function ClarencePage() {
               Multi-agent debate is an emerging pattern where multiple agents with different perspectives
               evaluate the same question. The R&D Council implements this with five fixed lenses: market
               analysis (Atlas), UX research (Iris), technical architecture (Newton), product strategy
-              (Vesper), and devil&apos;s advocate (Raven). Two rounds of debate, then Opus synthesizes.
+              (Vesper), and devil&apos;s advocate (Raven). Two rounds of debate, then the lead synthesis layer produces the memo.
               The design intent is to surface disagreement, not consensus. When all five agents agree,
               the insight is usually obvious. When they disagree, the synthesis reveals something worth
               examining.
@@ -273,9 +273,9 @@ export default function ClarencePage() {
               </div>
               <p className={cs.archDiagramNote}>
                 The current handoff model is explicit. Hermes frames the task, names the scope, and decides whether
-                Claude is needed at all. Tonight&apos;s work added a three-layer launch path for bounded Claude jobs:
-                a quick dispatch wrapper for common cases, a JSON-spec launcher for structured task bundles, and a
-                packet-level parallel runner for up to three read-only investigations at once.
+                specialist escalation is needed at all. The current handoff stack includes a quick dispatch wrapper for
+                common cases, a JSON-spec launcher for structured task bundles, and a packet-level parallel runner for
+                up to three read-only investigations at once.
               </p>
             </div>
 
@@ -312,8 +312,8 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Session Handoff Notes</span>
               </div>
               <p className={cs.archDiagramNote}>
-                The knowledge database currently holds 3,390 active memories, 2,474 entities, 10,349 active facts,
-                and 14,882 total facts. The Obsidian vault contains 2,107 markdown notes. Hermes also keeps a compact
+                The knowledge database currently holds 3,394 active memories, 2,474 entities, 10,349 active facts,
+                and 14,882 total facts. The Obsidian vault contains 2,128 markdown notes. Hermes also keeps a compact
                 hot-memory layer in MEMORY.md and USER.md for turn-level continuity. The important design choice is not
                 just storage. It is ownership: Hermes remains the canonical memory steward, and Claude gets bounded,
                 task-specific access instead of ambient omniscience.
@@ -430,7 +430,7 @@ export default function ClarencePage() {
           <h3 className={styles.findingTitle}>R&D Council</h3>
           <p className={styles.body}>
             Five-agent nightly debate panel. Each member holds a fixed analytical lens. Two debate rounds
-            produce genuine disagreement, then Opus synthesizes an executive memo. The council ran for six
+            produce genuine disagreement, then the lead synthesis layer turns that into an executive memo. The council ran for six
             nights on the OpenClaw scheduler (March 24, 25, 26 and April 1, 2, 3) and produced one of the
             recommendations that pushed me to actually write this case study. It paused during the Hermes
             migration and is on the queue to be rebuilt. The transcripts and memos still live in the
@@ -454,7 +454,7 @@ export default function ClarencePage() {
           <div className={cs.workList}>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>12:10 AM</span>
-              <p className={cs.workDesc}><strong>Knowledge Sync</strong>: pulls reference material, refreshes the vault-backed knowledge layer, and reports the run overnight. The vault currently contains 2,107 markdown notes.</p>
+              <p className={cs.workDesc}><strong>Knowledge Sync</strong>: pulls reference material, refreshes the vault-backed knowledge layer, and reports the run overnight. The vault currently contains 2,128 markdown notes.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:10 AM</span>
@@ -468,7 +468,7 @@ export default function ClarencePage() {
 
           <p className={styles.body} style={{marginTop: "1.5rem"}}>
             <strong>Evolution note:</strong> the system originally ran 26 cron jobs on OpenClaw. Those were
-            consolidated down to 14 after diagnosing that Gemini Flash sub-agents were hallucinating tool calls
+            consolidated down after diagnosing that early cheap sub-agents were hallucinating tool calls
             rather than executing them. The lesson from that round was real: more jobs is not better jobs, and
             cheap models that produce fiction are worse than no models at all. The Hermes pipeline starts from
             3 deliberately, partly because the migration is fresh and partly because I want each rebuilt job
@@ -488,11 +488,7 @@ export default function ClarencePage() {
           </p>
           <p className={styles.body}>
             The March 25-26 changes made this concrete. Moving all cron jobs to free-tier models was
-            not just a cost decision. It was a trust decision. The system initially used Gemini Flash
-            for cron jobs, but tool-call hallucination failures led to a complete migration to Claude
-            Sonnet and MiniMax. The lesson: cheaper models save budget but the savings vanish when the
-            output is fiction. Trust in the overnight loop required models that actually execute tools
-            rather than hallucinating what tool calls would look like.
+            not just a cost decision. It was a trust decision. The system initially leaned too hard on cheap routing for cron jobs, but tool-call hallucination failures forced a stricter policy. The lesson: cheaper models save budget only if the output is real. Trust in the overnight loop required a stable primary runtime and bounded support paths that actually execute tools instead of hallucinating what tool calls would look like.
           </p>
           <p className={styles.body}>
             The Acknowledge First rule is another trust calibration. Every task gets immediate acknowledgment
@@ -569,14 +565,13 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is still stored in a single consolidated SQLite database (clarence.db). As of April 10,
-              2026, it holds 3,390 active memories (4,257 total), 2,474 entities, and 10,349 active facts (14,882 total).
+              Long-term memory is still stored in a single consolidated SQLite database (clarence.db). As of April 11, 2026, it holds 3,394 active memories (4,261 total), 2,474 entities, and 10,349 active facts (14,882 total).
               The schema separates deterministic profile lookup from fuzzier memory retrieval, which matters more than it
               sounds. Names, preferences, and project constants should resolve exactly. Reflection, history, and reference
               material should be searchable by meaning.
             </p>
             <p className={styles.body}>
-              The Obsidian side of the system is also still real: 2,107 markdown notes in the vault, synced into the
+              The Obsidian side of the system is also still real: 2,128 markdown notes in the vault, synced into the
               knowledge layer and available for retrieval. This is one of the reasons the system survived migration pressure.
               The durable substrate was portable even when the execution layer changed.
             </p>
@@ -601,7 +596,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Multi-Surface Communication</h3>
             <p className={styles.body}>
-              Discord (9 channels), Telegram (interactive conversations), HANDOFF.md (session continuity). Each surface serves a different communication need. Discord for async notification and overnight reporting. Telegram for real-time dialogue and morning briefings. HANDOFF.md for session-to-session continuity.
+              Discord (15 channels in the current directory), Telegram (interactive conversations), HANDOFF.md (session continuity). Each surface serves a different communication need. Discord for async notification and overnight reporting. Telegram for real-time dialogue and morning briefings. HANDOFF.md for session-to-session continuity.
             </p>
           </div>
 
@@ -647,8 +642,8 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Memory Growth Without Garbage Collection</h3>
             <p className={styles.body}>
-              The knowledge base grew from ~170 to 4,215 memories and the facts table exploded to 14,882
-              entries after vault fact extraction processed 1,927 notes. More data does not automatically
+              The knowledge base grew from ~170 to 4,261 memories and the facts table exploded to 14,882
+              entries after vault fact extraction processed thousands of notes and documents. More data does not automatically
               mean better recall. As the database scales, the vector search returns increasingly similar
               results, and the signal-to-noise ratio in retrieved context degrades. Memory needs pruning
               and consolidation, not just accumulation. Automated garbage collection helps, but the
@@ -691,9 +686,9 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>Knowledge database verified live on April 10, 2026: 3,390 active memories (4,257 total), 2,474 entities, 10,349 active facts (14,882 total)</li>
-            <li>Obsidian knowledge layer verified live: 2,107 markdown notes indexed into the working knowledge stack</li>
-            <li>Hermes skill library verified live: 131 skills spanning research, development, infrastructure, and creative workflows</li>
+            <li>Knowledge database verified live on April 11, 2026: 3,394 active memories (4,261 total), 2,474 entities, 10,349 active facts (14,882 total)</li>
+            <li>Obsidian knowledge layer verified live: 2,128 markdown notes indexed into the working knowledge stack</li>
+            <li>Hermes skill library verified live: 139 skills spanning research, development, infrastructure, and creative workflows</li>
             <li>Overnight Hermes scheduler verified live: 15 scheduled jobs spanning knowledge sync, health checks, cost reporting, calendar, job search, and summaries</li>
             <li>Hermes remains hard-pinned to GPT-5.4 as the primary orchestrator and memory steward</li>
             <li>Claude Code is now integrated as a bounded specialist lane rather than a casual default assistant</li>
