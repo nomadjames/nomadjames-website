@@ -44,7 +44,6 @@
     function setup() {
       createCanvas(getCanvasWidth(), getCanvasHeight());
       textFont(customFont);
-      textAlign(CENTER, CENTER);
       initializeWords();
       randomizeBgColors();
       startTime = millis();
@@ -64,8 +63,14 @@
         obj.x = easeInOutQuad(t, obj.x, obj.targetX - obj.x, duration);
         obj.y = easeInOutQuad(t, obj.y, obj.targetY - obj.y, duration);
         push();
-        stroke(0);
-        strokeWeight(max(1, fittedTextSize * 0.08));
+        if (settled) {
+          textAlign(LEFT, TOP);
+          noStroke();
+        } else {
+          textAlign(CENTER, CENTER);
+          stroke(0);
+          strokeWeight(max(1, fittedTextSize * 0.08));
+        }
         fill(obj.col);
         text(obj.word, obj.x, obj.y);
         pop();
@@ -93,7 +98,15 @@
     }
 
     function getMargin() {
-      return constrain(width * 0.06, 16, 30);
+      return constrain(width * 0.08, 22, 42);
+    }
+
+    function getWordRenderWidth(word) {
+      return textWidth(word + " ");
+    }
+
+    function getParagraphPadding(size) {
+      return max(8, size * 0.35);
     }
 
     function updateResponsiveLayout() {
@@ -106,20 +119,22 @@
     }
 
     function fitParagraphToCanvas() {
-      const margin = getMargin();
-      const maxWidth = width - margin * 2;
-      const maxHeight = height - margin * 2;
+      const baseMargin = getMargin();
       const minSize = 11;
       const maxSize = min(20, width * 0.05);
 
       for (let size = maxSize; size >= minSize; size -= 1) {
         textSize(size);
-        const lineHeight = size * 1.45;
+        const padding = getParagraphPadding(size);
+        const margin = baseMargin + padding;
+        const maxWidth = width - margin * 2;
+        const maxHeight = height - margin * 2;
+        const lineHeight = size * 1.5;
         let x = margin;
-        let y = margin + lineHeight;
+        let y = margin;
 
         for (let i = 0; i < words.length; i++) {
-          let wordWidth = textWidth(words[i].word + " ");
+          let wordWidth = getWordRenderWidth(words[i].word);
           if (x + wordWidth > margin + maxWidth) {
             x = margin;
             y += lineHeight;
@@ -127,7 +142,7 @@
           x += wordWidth;
         }
 
-        if (y <= margin + maxHeight) {
+        if (y + lineHeight <= margin + maxHeight) {
           fittedTextSize = size;
           fittedLineHeight = lineHeight;
           return;
@@ -135,33 +150,37 @@
       }
 
       fittedTextSize = minSize;
-      fittedLineHeight = minSize * 1.45;
+      fittedLineHeight = minSize * 1.5;
     }
 
     function computeLayout() {
-      const margin = getMargin();
-      let x = margin;
-      let y = margin + fittedLineHeight;
       textSize(fittedTextSize);
+      const margin = getMargin() + getParagraphPadding(fittedTextSize);
+      let x = margin;
+      let y = margin;
 
       for (let i = 0; i < words.length; i++) {
         let wordStr = words[i].word;
-        let wordWidth = textWidth(wordStr + " ");
+        let wordWidth = getWordRenderWidth(wordStr);
         if (x + wordWidth > width - margin) {
           x = margin;
           y += fittedLineHeight;
         }
-        words[i].targetX = x + wordWidth / 2;
+        words[i].targetX = x;
         words[i].targetY = y;
         x += wordWidth;
       }
     }
 
     function scatterWords() {
+      textSize(fittedTextSize);
       const margin = getMargin();
       for (let i = 0; i < words.length; i++) {
-        words[i].targetX = random(margin, width - margin);
-        words[i].targetY = random(margin, height - margin);
+        const wordWidth = textWidth(words[i].word);
+        const halfWidth = max(wordWidth / 2, fittedTextSize * 0.5);
+        const halfHeight = fittedTextSize * 0.6;
+        words[i].targetX = random(margin + halfWidth, width - margin - halfWidth);
+        words[i].targetY = random(margin + halfHeight, height - margin - halfHeight);
       }
     }
 
