@@ -64,6 +64,24 @@ const sketches = [
       "One hundred full-frame diagonal crosses drift horizontally and vertically while Perlin noise thickens and thins each stroke. It feels like a CRT test pattern learning how to breathe.",
     interaction: "click to pause/resume",
   },
+  {
+    slug: "virtual-wallpaper-redux",
+    title: "Virtual Wallpaper Redux",
+    course: "p5.js",
+    year: "2025",
+    description:
+      "A speaker-like wallpaper grid of ellipses and nested rectangles under a command-heavy mantra. Click or press to randomize the color and cell scale, then let the pattern start bossing you around.",
+    interaction: "click or press to recolor and rescale",
+  },
+  {
+    slug: "crimson-noise-dots",
+    title: "Crimson Noise Dots",
+    course: "p5.js",
+    year: "2025",
+    description:
+      "A simple but effective hypnotic field: translucent red-pink dots bloom across a black canvas until it feels like afterimages burned into your eyes.",
+    interaction: "click to clear the canvas",
+  },
 ];
 
 const externalSketches = [

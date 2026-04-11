@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #111;
+    }
+    body {
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      font-family: Arial, sans-serif;
+    }
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script>
+    let currentColor;
+    let gridSize = 50;
+    const header = 'Do not watch television. Do not use social media. Do not read the news. Press and hold or click the mouse to reset your brain. Cleanliness is next to godliness. A clean brain is a happy brain.';
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      frameRate(5);
+      currentColor = color(100, 250, 200);
+      textFont('Arial');
+    }
+
+    function draw() {
+      background(
+        random(100, 250),
+        random(100, 250),
+        random(100, 250),
+        random(100, 250)
+      );
+
+      textSize(clampValue(width * 0.018, 12, 20));
+      textAlign(LEFT, TOP);
+      const textMargin = clampValue(width * 0.02, 10, 18);
+      const textBoxWidth = width - 2 * textMargin;
+      fill(0);
+      noStroke();
+      text(header, textMargin, textMargin, textBoxWidth);
+
+      const headerHeight = textAscent() + textDescent() + Math.ceil(textWidth(header) / max(textBoxWidth, 1)) * (textAscent() + 6);
+      const padX = width * 0.07;
+      const padY = height * 0.07;
+      const gridTopMargin = padY + headerHeight + textMargin;
+      const regionWidth = max(width - 2 * padX, gridSize);
+      const regionHeight = max(height - gridTopMargin - padY, gridSize);
+      const cols = max(1, floor(regionWidth / gridSize));
+      const rows = max(1, floor(regionHeight / gridSize));
+      const extraX = (regionWidth - cols * gridSize) / 2;
+      const extraY = (regionHeight - rows * gridSize) / 2;
+      const startX = padX + extraX;
+      const startY = gridTopMargin + extraY;
+
+      for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+          const x = startX + i * gridSize;
+          const y = startY + j * gridSize;
+
+          fill(currentColor);
+          noStroke();
+          ellipse(
+            x + gridSize / 2,
+            y + gridSize / 2,
+            gridSize * 0.7,
+            gridSize * 0.9
+          );
+
+          let initialSize = gridSize * 0.7;
+          let count = 5;
+
+          for (let size = initialSize; size > 5; size *= 0.7) {
+            push();
+            translate(x + gridSize / 2, y + gridSize / 2);
+            if (mouseIsPressed && count % 2 === 0) {
+              rotate(random(-PI, PI));
+            }
+            fill(count % 2 === 0 ? color(255, 150) : color(0, 150));
+            stroke(0);
+            strokeWeight(1);
+            rectMode(CENTER);
+            rect(0, 0, size, size * 0.6);
+            pop();
+            count++;
+          }
+        }
+      }
+    }
+
+    function clampValue(value, minValue, maxValue) {
+      return min(max(value, minValue), maxValue);
+    }
+
+    function mousePressed() {
+      currentColor = color(random(255), random(255), random(255), random(255));
+      gridSize = random(50, 150);
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+  </script>
+</body>
+</html>
