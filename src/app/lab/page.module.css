@@ -78,9 +78,6 @@
 }
 
 .featuredCard {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-  gap: 0;
   background: #2a2a2a;
   border: 1px solid rgba(232, 145, 58, 0.32);
   border-radius: 8px;
@@ -120,6 +117,24 @@
   margin: 1rem 0 0;
 }
 
+.featuredNotes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.featuredNote {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #3a3a3a;
+  border-radius: 999px;
+}
+
 .featuredActions {
   display: flex;
   flex-wrap: wrap;
@@ -156,12 +171,6 @@
   color: var(--fg-dim);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.featuredPreview {
-  min-height: 520px;
-  background: #141414;
-  border-left: 1px solid #333;
 }
 
 /* ── Sketch grid ───────────────────────────────────────── */
@@ -252,18 +261,6 @@
 
 /* ── Responsive ────────────────────────────────────────── */
 
-@media (max-width: 980px) {
-  .featuredCard {
-    grid-template-columns: 1fr;
-  }
-
-  .featuredPreview {
-    min-height: 440px;
-    border-left: none;
-    border-top: 1px solid #333;
-  }
-}
-
 @media (max-width: 860px) {
   .grid {
     grid-template-columns: 1fr;
@@ -277,10 +274,6 @@
 
   .featuredContent {
     padding: 1.4rem;
-  }
-
-  .featuredPreview {
-    min-height: 360px;
   }
 
   .cardBody {

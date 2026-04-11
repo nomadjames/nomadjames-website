@@ -108,6 +108,11 @@ export default function LabPage() {
               </div>
               <p className={styles.featuredBody}>{featuredProject.description}</p>
               <p className={styles.featuredBody}>{featuredProject.purpose}</p>
+              <div className={styles.featuredNotes}>
+                <span className={styles.featuredNote}>15 exhibits</span>
+                <span className={styles.featuredNote}>broken pattern → analysis → fix</span>
+                <span className={styles.featuredNote}>standalone project</span>
+              </div>
               <div className={styles.featuredActions}>
                 <a
                   href={featuredProject.url}
@@ -119,15 +124,6 @@ export default function LabPage() {
                 </a>
                 <span className={styles.featuredUrl}>nomadjames.com/micro-museum</span>
               </div>
-            </div>
-            <div className={styles.featuredPreview}>
-              <iframe
-                src={featuredProject.url}
-                title={featuredProject.title}
-                loading="lazy"
-                sandbox="allow-scripts allow-same-origin"
-                className={styles.iframe}
-              />
             </div>
           </article>
         </section>
