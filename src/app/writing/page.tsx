@@ -8,6 +8,22 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "clarence-needed-a-system-wiki",
+    title: "Why Clarence Needed a System Wiki",
+    date: "April 11, 2026",
+    description:
+      "Why important system knowledge could not stay trapped in chat logs, repo docs, and a vault that could point at the wrong place.",
+    tags: ["AI Systems", "Knowledge Architecture", "Memory", "Hermes"],
+  },
+  {
+    slug: "sensorsynth-needed-a-wiki",
+    title: "Why SensorSynth FM Needed a Wiki Before It Needed More Features",
+    date: "April 11, 2026",
+    description:
+      "Why SensorSynth FM had a truth problem, not an idea problem, and how a project wiki keeps the thesis-demo work honest.",
+    tags: ["SensorSynth FM", "Documentation", "Creative Technology", "Research"],
+  },
+  {
     slug: "pretext-30-year-browser-problem",
     title: "Implementing Pretext: Solving a 30-Year Browser Problem on a Portfolio Site",
     date: "March 31, 2026",

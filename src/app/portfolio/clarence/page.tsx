@@ -88,6 +88,22 @@ export default function ClarencePage() {
           />
         </div>
 
+        <section className={`${styles.section} ${styles.sectionHighlight}`}>
+          <h2 className={styles.sectionTitle}>Documentation and System Notes</h2>
+          <p className={styles.body}>
+            Clarence now has a dedicated system wiki because too much durable system knowledge was
+            trapped in chat history, repo docs, and a fragile note surface. I wrote a companion article
+            about why that became necessary.
+          </p>
+          <p className={styles.body}>
+            Read it here: <a href="/writing/clarence-needed-a-system-wiki">Why Clarence Needed a System Wiki</a>.
+          </p>
+          <p className={styles.body}>
+            I would publish a curated public architecture layer for this project, but not the raw internal
+            wiki. Some system knowledge should be public. Some of it should absolutely stay private.
+          </p>
+        </section>
+
         {/* Design Question */}
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Design Question</h2>

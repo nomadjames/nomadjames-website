@@ -180,6 +180,22 @@ export default function SensorSynthFM() {
           </p>
         </section>
 
+        {/* Documentation */}
+        <section className={`${styles.section} ${styles.sectionHighlight}`}>
+          <h2 className={styles.sectionTitle}>Documentation and Research</h2>
+          <p className={styles.body}>
+            This project now has a dedicated documentation layer because the code, the planning docs,
+            and the research had started drifting apart. I wrote a companion article about why the wiki
+            exists and what it changed in the project framing.
+          </p>
+          <p className={styles.body}>
+            Read it here: <a href="/writing/sensorsynth-needed-a-wiki">Why SensorSynth FM Needed a Wiki Before It Needed More Features</a>.
+          </p>
+          <p className={styles.body}>
+            The code lives on <a href="https://github.com/nomadjames/SensorSynthFM" target="_blank" rel="noopener noreferrer">GitHub</a>. A public documentation surface will make sense here because open development is part of the value of the project.
+          </p>
+        </section>
+
         {/* The AI Collaboration Thread */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Building Without a Development Background</h2>
