@@ -25,8 +25,8 @@ const sketches = [
     course: "p5.js",
     year: "2025",
     description:
-      "Inspired by Sol LeWitt's instruction-based wall drawings: rotating nested squares over a field of random geometry. The background shifts color every frame, the shapes accumulate on top of it.",
-    interaction: "click to pause/resume · mouse Y = speed",
+      "Inspired by Sol LeWitt's instruction-based wall drawings: rotating nested squares over a field of random geometry. Clickable: click to pause or resume, and move the mouse vertically to change the speed.",
+    interaction: "clickable · click to pause/resume · mouse Y = speed",
   },
   {
     slug: "generative-art",
@@ -34,8 +34,8 @@ const sketches = [
     course: "p5.js",
     year: "2025",
     description:
-      "Moving rectangles bounce around the canvas and every 5 seconds deposit a nested copy of themselves onto a persistent layer. An accumulation machine.",
-    interaction: "click to pause/resume",
+      "Moving rectangles bounce around the canvas and every 5 seconds deposit a nested copy of themselves onto a persistent layer. Clickable: click to pause or resume the accumulation.",
+    interaction: "clickable · click to pause/resume",
   },
   {
     slug: "nested-grid-echoes",
@@ -43,8 +43,8 @@ const sketches = [
     course: "p5.js",
     year: "2025",
     description:
-      "A drifting grid where each cell slowly accumulates recursive color blocks over time. Motion stays temporary. The nested geometry persists.",
-    interaction: "watch the grid evolve every 5 seconds",
+      "A drifting grid where each cell slowly accumulates recursive color blocks over time. Motion stays temporary. The nested geometry persists. Not clickable: this one just evolves on its own.",
+    interaction: "not clickable · watch it evolve every 5 seconds",
   },
   {
     slug: "chromatic-crossfield",
@@ -52,8 +52,8 @@ const sketches = [
     course: "p5.js",
     year: "2025",
     description:
-      "A field of moving diagonal crosses with noise-driven stroke weights and a jittering square overlay. Loud, geometric, and unstable in a good way.",
-    interaction: "click to pause/resume",
+      "A field of moving diagonal crosses with noise-driven stroke weights and a jittering square overlay. Loud, geometric, and unstable in a good way. Clickable: click to pause or resume.",
+    interaction: "clickable · click to pause/resume",
   },
   {
     slug: "spectrum-cross-drift",
@@ -61,8 +61,8 @@ const sketches = [
     course: "p5.js",
     year: "2025",
     description:
-      "One hundred full-frame diagonal crosses drift horizontally and vertically while Perlin noise thickens and thins each stroke. It feels like a CRT test pattern learning how to breathe.",
-    interaction: "click to pause/resume",
+      "One hundred full-frame diagonal crosses drift horizontally and vertically while Perlin noise thickens and thins each stroke. It feels like a CRT test pattern learning how to breathe. Clickable: click to pause or resume.",
+    interaction: "clickable · click to pause/resume",
   },
   {
     slug: "virtual-wallpaper-redux",
@@ -70,8 +70,8 @@ const sketches = [
     course: "p5.js",
     year: "2025",
     description:
-      "A speaker-like wallpaper grid of ellipses and nested rectangles under a command-heavy mantra. Click or press to randomize the color and cell scale, then let the pattern start bossing you around.",
-    interaction: "click or press to recolor and rescale",
+      "A speaker-like wallpaper grid of ellipses and nested rectangles under a command-heavy mantra. Clickable: click to randomize the color and cell scale, and press-hold to trigger the rotating rectangle behavior.",
+    interaction: "clickable · click to recolor/rescale · press-hold to rotate inner forms",
   },
   {
     slug: "crimson-noise-dots",
@@ -79,8 +79,8 @@ const sketches = [
     course: "p5.js",
     year: "2025",
     description:
-      "A simple but effective hypnotic field: translucent red-pink dots bloom across a black canvas until it feels like afterimages burned into your eyes.",
-    interaction: "click to clear the canvas",
+      "A simple but effective hypnotic field: translucent red-pink dots bloom across a black canvas until it feels like afterimages burned into your eyes. Clickable: click to clear the canvas.",
+    interaction: "clickable · click to clear the canvas",
   },
   {
     slug: "stochastic-shape-storm",
@@ -88,8 +88,8 @@ const sketches = [
     course: "p5.js",
     year: "2025",
     description:
-      "A slow-cycling blast of ellipses, rectangles, and triangles over a constantly mutating background. Less composition, more sudden visual weather.",
-    interaction: "click to force a new frame",
+      "A slow-cycling blast of ellipses, rectangles, and triangles over a constantly mutating background. Less composition, more sudden visual weather. Clickable: click to force a fresh random frame.",
+    interaction: "clickable · click to force a new frame",
   },
 ];
 
