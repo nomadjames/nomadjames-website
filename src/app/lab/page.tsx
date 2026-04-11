@@ -55,6 +55,15 @@ const sketches = [
       "A field of moving diagonal crosses with noise-driven stroke weights and a jittering square overlay. Loud, geometric, and unstable in a good way.",
     interaction: "click to pause/resume",
   },
+  {
+    slug: "spectrum-cross-drift",
+    title: "Spectrum Cross Drift",
+    course: "p5.js",
+    year: "2025",
+    description:
+      "One hundred full-frame diagonal crosses drift horizontally and vertically while Perlin noise thickens and thins each stroke. It feels like a CRT test pattern learning how to breathe.",
+    interaction: "click to pause/resume",
+  },
 ];
 
 const externalSketches = [
