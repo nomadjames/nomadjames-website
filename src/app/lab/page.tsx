@@ -82,6 +82,15 @@ const sketches = [
       "A simple but effective hypnotic field: translucent red-pink dots bloom across a black canvas until it feels like afterimages burned into your eyes.",
     interaction: "click to clear the canvas",
   },
+  {
+    slug: "stochastic-shape-storm",
+    title: "Stochastic Shape Storm",
+    course: "p5.js",
+    year: "2025",
+    description:
+      "A slow-cycling blast of ellipses, rectangles, and triangles over a constantly mutating background. Less composition, more sudden visual weather.",
+    interaction: "click to force a new frame",
+  },
 ];
 
 const externalSketches = [
