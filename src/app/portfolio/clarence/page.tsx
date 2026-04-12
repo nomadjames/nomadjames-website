@@ -84,7 +84,7 @@ export default function ClarencePage() {
               </p>
               <span className={cs.liveCardMeta}>Open the Pulse page →</span>
             </a>
-            <a href="/clarence-graph/index.html" className={cs.liveCard}>
+            <a href="/clarence-graph" className={cs.liveCard}>
               <span className={cs.liveCardKicker}>Knowledge Graph</span>
               <h2 className={cs.liveCardTitle}>Interactive graph view of the public Clarence entity slice</h2>
               <p className={cs.liveCardBody}>
@@ -126,7 +126,7 @@ export default function ClarencePage() {
             <span className={cs.graphCaption}>Interactive public slice of the Clarence entity graph</span>
           </div>
           <iframe
-            src="/clarence-graph/index.html"
+            src="/clarence-graph"
             title="Clarence Knowledge Graph Visualization"
             loading="lazy"
             className={cs.graphFrame}
