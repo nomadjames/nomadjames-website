@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import PretextTitle from "@/components/PretextTitle";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "Implementing Pretext: Solving a 30-Year Browser Problem | James Dishman",
@@ -11,9 +12,9 @@ export default function PretextArticle() {
   return (
     <div className={styles.page}>
       <main className="container">
-        <a href="/writing" className={styles.backLink}>
+        <SmartBackLink fallbackHref="/writing" className={styles.backLink}>
           &larr; Writing
-        </a>
+        </SmartBackLink>
 
         <header className={styles.header}>
           <div className={styles.meta}>

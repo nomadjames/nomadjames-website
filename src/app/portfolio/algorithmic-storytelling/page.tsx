@@ -1,6 +1,7 @@
 import styles from "../accessibility-audit/page.module.css";
 import Tldr from "@/components/Tldr";
 import PretextTitle from "@/components/PretextTitle";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "Algorithmic Storytelling v3 | James Dishman",
@@ -14,7 +15,7 @@ export default function AlgorithmicStorytelling() {
       <main className="container">
 
         {/* Back link */}
-        <a href="/portfolio" className={styles.backLink}>&larr; Work</a>
+        <SmartBackLink fallbackHref="/portfolio" className={styles.backLink}>&larr; Work</SmartBackLink>
 
         {/* Header */}
         <header className={styles.header}>

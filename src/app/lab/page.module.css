@@ -259,6 +259,92 @@
   letter-spacing: 0.02em;
 }
 
+/* ── Live Systems section ──────────────────────────────── */
+
+.liveSection {
+  margin-bottom: 3rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+  margin-bottom: 1.25rem;
+}
+
+.liveGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.liveCard {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.06), rgba(34, 197, 94, 0.02));
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.liveCard:hover {
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 24px rgba(34, 197, 94, 0.1);
+}
+
+.liveCardBody {
+  padding: 1.5rem 2rem;
+}
+
+.liveKicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #22c55e;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.liveCardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin: 0 0 0.75rem;
+}
+
+.liveCardDesc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin: 0;
+  max-width: 640px;
+}
+
+.liveCardActions {
+  margin-top: 1.25rem;
+}
+
+.liveLink {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #22c55e;
+  transition: color 0.2s ease;
+}
+
+.liveLink:hover {
+  color: #4ade80;
+  opacity: 1;
+}
+
 /* ── Responsive ────────────────────────────────────────── */
 
 @media (max-width: 860px) {

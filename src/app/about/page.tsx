@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
-
+import PretextTitle from "@/components/PretextTitle";
+import SmartBackLink from "@/components/SmartBackLink";
 export const metadata = {
   title: "About | James Dishman",
   description:
@@ -13,7 +14,7 @@ export default function AboutPage() {
       <main className="container">
 
         {/* Back link */}
-        <a href="/" className={styles.backLink}>&larr; Home</a>
+        <SmartBackLink fallbackHref="/" className={styles.backLink}>&larr; Home</SmartBackLink>
 
         {/* Header */}
         <header className={styles.header}>

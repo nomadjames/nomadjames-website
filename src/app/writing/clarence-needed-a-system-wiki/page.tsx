@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import PretextTitle from "@/components/PretextTitle";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "Why Clarence Needed a System Wiki | James Dishman",
@@ -11,9 +12,9 @@ export default function ClarenceSystemWikiArticle() {
   return (
     <div className={styles.page}>
       <main className="container">
-        <a href="/writing" className={styles.backLink}>
+        <SmartBackLink fallbackHref="/writing" className={styles.backLink}>
           &larr; Writing
-        </a>
+        </SmartBackLink>
 
         <header className={styles.header}>
           <div className={styles.meta}>
@@ -127,7 +128,7 @@ export default function ClarenceSystemWikiArticle() {
               that makes continuity real instead of theatrical.
             </p>
             <p className={styles.body}>
-              The public-safe architecture notes live at <a href="https://nomadjames.github.io/clarence-architecture/" target="_blank" rel="noopener noreferrer">nomadjames.github.io/clarence-architecture</a>.
+              The public-safe architecture notes currently live in the public repo at <a href="https://github.com/nomadjames/clarence-architecture" target="_blank" rel="noopener noreferrer">github.com/nomadjames/clarence-architecture</a>.
             </p>
             <p className={styles.body}>
               You can read the full case study for the broader system design frame

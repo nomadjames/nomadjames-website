@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./page.module.css";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -34,7 +35,7 @@ export default function Contact() {
   return (
     <div className={styles.page}>
       <main className="container">
-        <a href="/" className={styles.backLink}>← Home</a>
+        <SmartBackLink fallbackHref="/" className={styles.backLink}>← Home</SmartBackLink>
 
         <header className={styles.header}>
           <div className={styles.eyebrow}>

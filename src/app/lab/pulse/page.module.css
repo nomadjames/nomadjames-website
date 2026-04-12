@@ -1,0 +1,487 @@
+.page {
+  padding-top: 6.5rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+}
+
+/* Back link */
+.backLink {
+  margin-bottom: 2.5rem;
+}
+
+.backLink a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-muted);
+  transition: color 0.2s;
+}
+
+.backLink a:hover {
+  color: var(--orange);
+  opacity: 1;
+}
+
+/* Header */
+.header {
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrowLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eyebrowDot {
+  color: var(--orange);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 640px;
+  margin-bottom: 1rem;
+}
+
+.generated {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  border-radius: 999px;
+}
+
+/* Heartbeat Section */
+.heartbeatSection {
+  margin-bottom: 3rem;
+}
+
+.heartbeatCard {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.02));
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 18px 48px rgba(0,0,0,0.18);
+}
+
+.heartbeatMain {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.statusIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.statusIndicator.online {
+  color: #22c55e;
+}
+
+.statusIndicator.offline {
+  color: #ef4444;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+.uptimeBadge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.lastSession {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-dim);
+}
+
+/* Section */
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--orange);
+  margin-bottom: 1.25rem;
+}
+
+/* Architecture Grid */
+.archGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.archCard {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+.archCard:hover {
+  border-color: rgba(232, 145, 58, 0.24);
+  transform: translateY(-1px);
+}
+
+.archLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+}
+
+.archValue {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: 0.02em;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.statCard {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.statCard:hover {
+  border-color: rgba(232, 145, 58, 0.4);
+  transform: translateY(-1px);
+}
+
+.statValue {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+}
+
+/* Breakdown Row */
+.breakdownRow {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.breakdownLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+}
+
+.breakdownChip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--fg-muted);
+  padding: 0.3rem 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid #3a3a3a;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+/* Activity Row */
+.activityRow {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.activityStat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.activityValue {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.activityLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+}
+
+.workTypes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.workChip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--fg-muted);
+  padding: 0.35rem 0.7rem;
+  background: rgba(232, 145, 58, 0.08);
+  border: 1px solid rgba(232, 145, 58, 0.2);
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+/* Agent Roster */
+.rosterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.agentCard {
+  background: #2a2a2a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.agentCard:hover {
+  border-color: rgba(232, 145, 58, 0.4);
+  transform: translateY(-2px);
+}
+
+.agentName {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: 0.02em;
+}
+
+.agentRole {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg);
+  letter-spacing: 0.04em;
+}
+
+.agentTagline {
+  font-size: 0.75rem;
+  color: var(--fg-dim);
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+
+/* Links Section */
+.linksSection {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.linkCard {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.linkCard:hover {
+  border-color: rgba(232, 145, 58, 0.5);
+  box-shadow: 0 0 24px rgba(232, 145, 58, 0.1);
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+.linkTitle {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: 0.02em;
+}
+
+.linkDesc {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+
+.linkArrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--fg-dim);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.linkCard:hover .linkArrow {
+  transform: translateX(4px);
+  color: var(--orange);
+}
+
+/* Footer */
+.footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.footerNote {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.02em;
+  max-width: 600px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .archGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .archGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .linksGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .archGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heartbeatMain {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .activityRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

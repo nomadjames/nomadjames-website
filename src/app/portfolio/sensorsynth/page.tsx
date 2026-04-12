@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
 import PretextTitle from "@/components/PretextTitle";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "SensorSynth FM | James Dishman",
@@ -14,7 +15,7 @@ export default function SensorSynthFM() {
       <main className="container">
 
         {/* Back link */}
-        <a href="/portfolio" className={styles.backLink}>← Work</a>
+        <SmartBackLink fallbackHref="/portfolio" className={styles.backLink}>← Work</SmartBackLink>
 
         {/* Header */}
         <header className={styles.header}>

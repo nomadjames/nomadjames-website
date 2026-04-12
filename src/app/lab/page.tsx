@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "Lab | James Dishman",
@@ -17,6 +18,19 @@ const featuredProject = {
   url: "/micro-museum/",
   cta: "Open the Micro-Museum",
 };
+
+const liveSystems = [
+  {
+    slug: "pulse",
+    title: "Clarence Pulse",
+    category: "Live System Metrics",
+    year: "2026",
+    description:
+      "Public-safe system pulse showing live knowledge metrics, system health, and architecture signals from Clarence.",
+    url: "/lab/pulse",
+    cta: "View System Pulse",
+  },
+];
 
 const sketches = [
   {
@@ -114,7 +128,7 @@ export default function LabPage() {
     <div className={styles.page}>
       <main className="container">
         <div className={styles.backLink}>
-          <a href="/portfolio">← Work</a>
+          <SmartBackLink fallbackHref="/portfolio">← Work</SmartBackLink>
         </div>
 
         <header className={styles.header}>
@@ -162,6 +176,27 @@ export default function LabPage() {
               </div>
             </div>
           </article>
+        </section>
+
+        {/* Live Systems */}
+        <section className={styles.liveSection}>
+          <h2 className={styles.sectionHeading}>Live Systems</h2>
+          <div className={styles.liveGrid}>
+            {liveSystems.map((system) => (
+              <article key={system.slug} className={styles.liveCard}>
+                <div className={styles.liveCardBody}>
+                  <span className={styles.liveKicker}>{system.category}</span>
+                  <h3 className={styles.liveCardTitle}>{system.title}</h3>
+                  <p className={styles.liveCardDesc}>{system.description}</p>
+                  <div className={styles.liveCardActions}>
+                    <a href={system.url} className={styles.liveLink}>
+                      {system.cta} →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className={styles.grid}>

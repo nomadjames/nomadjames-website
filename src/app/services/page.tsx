@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "Services | James Dishman",
@@ -11,7 +12,7 @@ export default function ServicesPage() {
     <div className={styles.page}>
       <main className="container">
 
-        <a href="/" className={styles.backLink}>&larr; Home</a>
+        <SmartBackLink fallbackHref="/" className={styles.backLink}>&larr; Home</SmartBackLink>
 
         <header className={styles.header}>
           <div className={styles.eyebrow}>

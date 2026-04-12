@@ -2,6 +2,8 @@ import styles from "../accessibility-audit/page.module.css";
 import cs from "./page.module.css";
 import Tldr from "@/components/Tldr";
 import PretextTitle from "@/components/PretextTitle";
+import pulseData from "../../../../public/data/clarence-pulse.json";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
@@ -9,13 +11,31 @@ export const metadata = {
     "A systems design case study on building Clarence: a persistent AI collaborator with Hermes on GPT-5.4 as the primary orchestrator, Claude Code as a bounded specialist path, and a SQLite knowledge base holding 3,394 active memories, 2,474 entities, 10,349 active facts, and 2,128 indexed vault notes. The current system combines hardened memory, explicit handoffs, overnight automation, and a documented migration path from OpenClaw to the present Hermes + specialist-lane model.",
 };
 
+type ClarencePulse = {
+  heartbeat: {
+    uptime_days: number;
+    recent_activity?: string;
+  };
+  knowledge_stats: {
+    active_facts: number;
+    active_memories: number;
+    indexed_vault_notes: number;
+    total_entities: number;
+  };
+  system_vitals: {
+    hermes_skills: number;
+  };
+};
+
+const livePulse = pulseData as ClarencePulse;
+
 export default function ClarencePage() {
   return (
     <div className={styles.page}>
       <main className="container">
 
         {/* Back link */}
-        <a href="/portfolio" className={styles.backLink}>← Work</a>
+        <SmartBackLink fallbackHref="/portfolio" className={styles.backLink}>← Work</SmartBackLink>
 
         {/* Header */}
         <header className={styles.header}>
@@ -50,26 +70,51 @@ export default function ClarencePage() {
           </div>
         </header>
 
+        <section className={cs.liveShowcase}>
+          <div className={cs.liveShowcaseHeader}>
+            <span className={cs.graphTitle}>Live system</span>
+            <span className={cs.graphCaption}>Interactive public-safe surfaces from the current Clarence stack</span>
+          </div>
+          <div className={cs.liveShowcaseGrid}>
+            <a href="/lab/pulse" className={cs.liveCard}>
+              <span className={cs.liveCardKicker}>System Pulse</span>
+              <h2 className={cs.liveCardTitle}>Public-safe telemetry for the live Clarence system</h2>
+              <p className={cs.liveCardBody}>
+                {livePulse.heartbeat.uptime_days} days online since March 20, 2026. {livePulse.knowledge_stats.active_facts.toLocaleString()} active facts, {livePulse.knowledge_stats.active_memories.toLocaleString()} memories, {livePulse.system_vitals.hermes_skills.toLocaleString()} Hermes skills.
+              </p>
+              <span className={cs.liveCardMeta}>Open the Pulse page →</span>
+            </a>
+            <a href="/clarence-graph/index.html" className={cs.liveCard}>
+              <span className={cs.liveCardKicker}>Knowledge Graph</span>
+              <h2 className={cs.liveCardTitle}>Interactive graph view of the public Clarence entity slice</h2>
+              <p className={cs.liveCardBody}>
+                A visual entry point into the system architecture and memory structure. It is useful, explorable, and immediately shows that this is a designed system, not a static case study.
+              </p>
+              <span className={cs.liveCardMeta}>Open the graph →</span>
+            </a>
+          </div>
+        </section>
+
         <Tldr>
-          Clarence now runs as a tandem system: Hermes on GPT-5.4 handles the main conversation, planning, memory stewardship, and synthesis, while Claude Code is reserved for bounded specialist work. The knowledge layer currently holds 3,394 active memories, 2,474 entities, 10,349 active facts, and 2,128 indexed Obsidian notes. The most important design work happened after the migration, not before it: hardening memory, making routing explicit, and turning specialist escalation into a deliberate leverage path instead of a default habit. The result is less flashy than a fully autonomous demo, but far more trustworthy.
+          Clarence now runs as a tandem system: Hermes on GPT-5.4 handles the main conversation, planning, memory stewardship, and synthesis, while Claude Code is reserved for bounded specialist work. The knowledge layer currently holds {livePulse.knowledge_stats.active_memories.toLocaleString()} active memories, {livePulse.knowledge_stats.total_entities.toLocaleString()} entities, {livePulse.knowledge_stats.active_facts.toLocaleString()} active facts, and {livePulse.knowledge_stats.indexed_vault_notes.toLocaleString()} indexed Obsidian notes. The most important design work happened after the migration, not before it: hardening memory, making routing explicit, and turning specialist escalation into a deliberate leverage path instead of a default habit. The result is less flashy than a fully autonomous demo, but far more trustworthy.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>10,349</span>
+            <span className={cs.statNum}>{livePulse.knowledge_stats.active_facts.toLocaleString()}</span>
             <span className={cs.statLabel}>Active facts in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>3,394</span>
+            <span className={cs.statNum}>{livePulse.knowledge_stats.active_memories.toLocaleString()}</span>
             <span className={cs.statLabel}>Active memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>2,128</span>
+            <span className={cs.statNum}>{livePulse.knowledge_stats.indexed_vault_notes.toLocaleString()}</span>
             <span className={cs.statLabel}>Indexed Obsidian vault notes</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>137</span>
+            <span className={cs.statNum}>{livePulse.system_vitals.hermes_skills.toLocaleString()}</span>
             <span className={cs.statLabel}>Hermes skills available</span>
           </div>
         </div>
@@ -81,7 +126,7 @@ export default function ClarencePage() {
             <span className={cs.graphCaption}>Interactive public slice of the Clarence entity graph</span>
           </div>
           <iframe
-            src="/clarence-graph/"
+            src="/clarence-graph/index.html"
             title="Clarence Knowledge Graph Visualization"
             loading="lazy"
             className={cs.graphFrame}
@@ -99,7 +144,7 @@ export default function ClarencePage() {
             Read it here: <a href="/writing/clarence-needed-a-system-wiki">Why Clarence Needed a System Wiki</a>.
           </p>
           <p className={styles.body}>
-            The public-safe architecture notes now live at <a href="https://nomadjames.github.io/clarence-architecture/" target="_blank" rel="noopener noreferrer">nomadjames.github.io/clarence-architecture</a>. The raw internal system wiki stays private, which is the correct boundary.
+            The public-safe architecture notes currently live in the public repo at <a href="https://github.com/nomadjames/clarence-architecture" target="_blank" rel="noopener noreferrer">github.com/nomadjames/clarence-architecture</a>. The raw internal system wiki stays private, which is the correct boundary.
           </p>
         </section>
 
@@ -216,15 +261,12 @@ export default function ClarencePage() {
           </div>
 
           <div className={styles.finding}>
-            <h3 className={styles.findingTitle}>Debate-Consensus (R&D Council)</h3>
+            <h3 className={styles.findingTitle}>Structured Multi-Lens Review</h3>
             <p className={styles.body}>
-              Multi-agent debate is an emerging pattern where multiple agents with different perspectives
-              evaluate the same question. The R&D Council implements this with five fixed lenses: market
-              analysis (Atlas), UX research (Iris), technical architecture (Newton), product strategy
-              (Vesper), and devil&apos;s advocate (Raven). Two rounds of debate, then the lead synthesis layer produces the memo.
-              The design intent is to surface disagreement, not consensus. When all five agents agree,
-              the insight is usually obvious. When they disagree, the synthesis reveals something worth
-              examining.
+              One useful historical pattern in the system was structured review through multiple fixed lenses:
+              market analysis, UX research, technical architecture, product strategy, and adversarial critique.
+              The value was not the theater of many personalities. The value was forcing disagreement into the open.
+              When every lens agreed, the answer was usually obvious. When they conflicted, the synthesis work got interesting.
             </p>
           </div>
         </section>
@@ -345,96 +387,17 @@ export default function ClarencePage() {
           </div>
         </section>
 
-        {/* The Crew */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>The Agent Crew</h2>
+          <h2 className={styles.sectionTitle}>What I Kept and What I Cut</h2>
           <p className={styles.body}>
-            Naming agents was a deliberate choice. Names create identity and accountability. When a named agent
-            produces output, I read it differently than I read output from an anonymous system call. The OpenClaw
-            system had 13 named agents, and the operational crew below is the subset that was actually running
-            on the OpenClaw scheduler, posting to Discord, and producing real artifacts before the migration.
+            The older system experimented more aggressively with ambient multi-agent orchestration and identity.
+            Some of that produced useful patterns. Some of it was theater. The current version is intentionally tighter:
+            Hermes owns the main conversation and memory, Claude Code is the bounded specialist lane, and parallelism is
+            used only when it earns its keep.
           </p>
           <p className={styles.body}>
-            On Hermes today, the live center of gravity is different. GPT-5.4 is the main orchestrator and memory
-            steward. Claude Code is the premium specialist lane I reach for when the task benefits from stronger
-            repo execution or code reasoning. The older named crew remains valuable as design history, but the cards
-            below now document lenses, roles, and migration lineage more than they document the literal current
-            runtime roster.
-          </p>
-          <p className={styles.body}>
-            That distinction matters. The original system leaned harder on broad multi-agent identity and ambient
-            orchestration. The current system is more explicit and more conservative: bounded handoffs, clearer task
-            framing, and selective parallelism only when it earns its keep. The path documented below is still real,
-            but the present-day operating model is a tighter Hermes + Claude Code tandem rather than the old always-on crew.
-          </p>
-
-          <h3 className={styles.findingTitle}>Discord Agent Identities (OpenClaw Era)</h3>
-          <p className={styles.body}>
-            On OpenClaw, the operational agents posted to Discord with their own usernames and signature
-            colors. The identities and channel routing are preserved in the workspace and will return as
-            each agent is rebuilt on Hermes.
-          </p>
-
-          <div className={cs.agentGrid}>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Clarence</span>
-              <span className={cs.agentRole}>Emerald green · Orchestrator</span>
-              <p className={cs.agentDesc}>Morning briefings, self-reflection, coordination. Has a dedicated channel for thinking out loud.</p>
-            </div>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Vera</span>
-              <span className={cs.agentRole}>Purple · Chief of Staff</span>
-              <p className={cs.agentDesc}>Coordination and oversight. Has her own channel for venting. Can post everywhere.</p>
-            </div>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Bruno</span>
-              <span className={cs.agentRole}>Red · Security</span>
-              <p className={cs.agentDesc}>Monitors the incidents channel. Reviews leash alerts, gateway health, CVE feeds. Escalates only if status is RED.</p>
-            </div>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Atlas</span>
-              <span className={cs.agentRole}>Blue · R&D Council</span>
-              <p className={cs.agentDesc}>Market analysis lens. Evaluates opportunities, competitive landscape, industry positioning.</p>
-            </div>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Iris</span>
-              <span className={cs.agentRole}>Gold · R&D Council</span>
-              <p className={cs.agentDesc}>UX research lens. Evaluates design decisions, user experience implications, research methodology.</p>
-            </div>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Newton</span>
-              <span className={cs.agentRole}>Green · R&D Council</span>
-              <p className={cs.agentDesc}>Technical architecture lens. Evaluates implementation feasibility, system design, infrastructure.</p>
-            </div>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Vesper</span>
-              <span className={cs.agentRole}>Teal · R&D Council</span>
-              <p className={cs.agentDesc}>Product strategy lens. Evaluates sequencing, resource allocation, go-to-market timing.</p>
-            </div>
-
-            <div className={cs.agentCard}>
-              <span className={cs.agentName}>Raven</span>
-              <span className={cs.agentRole}>Charcoal · R&D Council</span>
-              <p className={cs.agentDesc}>Devil&apos;s advocate. Challenges assumptions, identifies risks, pressure-tests consensus.</p>
-            </div>
-
-          </div>
-
-          <h3 className={styles.findingTitle}>R&D Council</h3>
-          <p className={styles.body}>
-            Five-agent nightly debate panel. Each member holds a fixed analytical lens. Two debate rounds
-            produce genuine disagreement, then the lead synthesis layer turns that into an executive memo. The council ran for six
-            nights on the OpenClaw scheduler (March 24, 25, 26 and April 1, 2, 3) and produced one of the
-            recommendations that pushed me to actually write this case study. It paused during the Hermes
-            migration and is on the queue to be rebuilt. The transcripts and memos still live in the
-            workspace as a useful artifact of how the council reasoned when it was running.
+            That is a better design. The goal is not to maximize the number of moving parts. The goal is to make the
+            system legible enough to trust, constrained enough to debug, and useful enough to survive contact with real work.
           </p>
         </section>
 
@@ -1007,7 +970,7 @@ export default function ClarencePage() {
 
         {/* Footer nav */}
         <nav className={cs.caseNav}>
-          <a href="/portfolio" className={cs.navLink}>← All Work</a>
+          <SmartBackLink fallbackHref="/portfolio" className={cs.navLink}>← All Work</SmartBackLink>
           <a href="/portfolio/accessibility-audit" className={cs.navLink}>Accessibility Audit →</a>
         </nav>
 

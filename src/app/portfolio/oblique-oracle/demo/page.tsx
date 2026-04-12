@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import styles from "./demo.module.css";
+import SmartBackLink from "@/components/SmartBackLink";
 
 /* ── Config ───────────────────────────────────────────── */
 
@@ -449,9 +450,9 @@ export default function OracleDemo() {
       {/* Main content */}
       <div className={styles.container}>
         {/* Back link */}
-        <a href="/portfolio/oblique-oracle" className={styles.backLink}>
+        <SmartBackLink fallbackHref="/portfolio/oblique-oracle" className={styles.backLink}>
           &#x2190; Return to the Outer Court
-        </a>
+        </SmartBackLink>
 
         {/* Oracle header */}
         <header className={styles.oracleHeader}>

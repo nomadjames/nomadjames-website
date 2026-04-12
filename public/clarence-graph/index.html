@@ -132,7 +132,7 @@
       // Fetch graph data from static JSON
       let data;
       try {
-        const res = await fetch('./graph-data.json');
+        const res = await fetch('/clarence-graph/graph-data.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         data = await res.json();
       } catch (err) {

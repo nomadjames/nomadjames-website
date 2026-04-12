@@ -1,6 +1,7 @@
 import styles from "../accessibility-audit/page.module.css";
 import Tldr from "@/components/Tldr";
 import PretextTitle from "@/components/PretextTitle";
+import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "AI Music Education Platform | James Dishman",
@@ -14,7 +15,7 @@ export default function AIMusicEducation() {
       <main className="container">
 
         {/* Back link */}
-        <a href="/portfolio#vision" className={styles.backLink}>← Vision</a>
+        <SmartBackLink fallbackHref="/portfolio#vision" className={styles.backLink}>← Vision</SmartBackLink>
 
         {/* Header */}
         <header className={styles.header}>
