@@ -125,6 +125,48 @@
 
     .overlay strong { color: var(--text); }
 
+    .overlayHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .overlayTitle {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      opacity: 0.9;
+    }
+
+    .overlayToggle {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 0.38rem 0.7rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .overlayToggle:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    .overlay.is-collapsed p {
+      display: none;
+    }
+
+    .overlay.is-collapsed .overlayHeader {
+      margin-bottom: 0;
+    }
+
     canvas {
       display: block;
       width: 100% !important;
@@ -160,7 +202,11 @@
     </div>
 
     <div class="canvasWrap" id="canvas-wrap">
-      <div class="overlay">
+      <div class="overlay" id="instructions-overlay">
+        <div class="overlayHeader">
+          <span class="overlayTitle">Instructions</span>
+          <button class="overlayToggle" id="overlay-toggle" type="button" aria-expanded="true">Hide</button>
+        </div>
         <p><strong>How to use it:</strong> move across the grid to change the atmosphere, hover over any panel to intensify it, click once to pull one horizon into focus, click again to return to the full six-panel field.</p>
       </div>
     </div>
@@ -299,8 +345,15 @@
     let hoveredIndex = -1;
     let panelRects = [];
     let canvas;
+    let overlayEl;
+    let overlayToggleEl;
 
     function setup() {
+      overlayEl = document.getElementById('instructions-overlay');
+      overlayToggleEl = document.getElementById('overlay-toggle');
+      if (overlayToggleEl && overlayEl) {
+        overlayToggleEl.addEventListener('click', toggleOverlay);
+      }
       const wrap = document.getElementById('canvas-wrap');
       const dims = getCanvasSize(wrap.clientWidth);
       canvas = createCanvas(dims.w, dims.h);
@@ -314,17 +367,18 @@
 
     function draw() {
       background(7, 7, 9);
-      hoveredIndex = getHoveredPanel(mouseX, mouseY);
       panelRects = computePanelRects(width, height, selectedIndex);
+      hoveredIndex = getHoveredPanel(mouseX, mouseY);
 
       for (let i = 0; i < panelState.length; i++) {
         const target = i === hoveredIndex ? 1 : 0;
-        panelState[i].energy = lerp(panelState[i].energy, target, 0.1);
-        panelState[i].glow = lerp(panelState[i].glow, i === selectedIndex ? 1 : 0, 0.08);
+        panelState[i].energy = lerp(panelState[i].energy, target, 0.16);
+        panelState[i].glow = lerp(panelState[i].glow, i === selectedIndex ? 1 : 0, 0.12);
       }
 
       for (let i = 0; i < panelRects.length; i++) {
-        drawPanel(panelRects[i], palettes[i], i);
+        const paletteIndex = panelRects[i].index;
+        drawPanel(panelRects[i], palettes[paletteIndex], paletteIndex);
       }
     }
 
@@ -378,17 +432,17 @@
       const phase = frameCount * (0.008 + energy * 0.01 + focus * 0.006);
       const mxNorm = constrain(mouseX / max(width, 1), 0, 1);
       const myNorm = constrain(mouseY / max(height, 1), 0, 1);
-      const borderAlpha = 28 + energy * 80 + focus * 100;
+      const borderAlpha = 28 + energy * 120 + focus * 120;
 
       push();
       translate(panel.x, panel.y);
 
       noStroke();
-      fill(255, 255, 255, 10 + focus * 18);
+      fill(255, 255, 255, 10 + energy * 20 + focus * 22);
       rect(0, 0, panel.w, panel.h, 14);
 
       stroke(255, 255, 255, borderAlpha);
-      strokeWeight(1.2 + focus * 1.2);
+      strokeWeight(1.2 + energy * 1.1 + focus * 1.2);
       noFill();
       rect(0, 0, panel.w, panel.h, 14);
 
@@ -423,13 +477,13 @@
     }
 
     function drawComposition(p, phase, energy, focus, mxNorm, myNorm, hovered) {
-      const moonPulse = 1 + Math.sin(phase * 2.1) * (0.02 + energy * 0.02 + focus * 0.03);
-      const asteroidOffset = Math.sin(phase * 1.35 + 0.8) * (4 + focus * 8);
-      const horizonShift = Math.sin(phase * 1.1 + mxNorm * Math.PI) * (6 + focus * 6);
-      const cloudShift = Math.sin(phase * 0.9 + myNorm * Math.PI) * (4 + energy * 6);
-      const fireFlicker = 0.75 + 0.25 * Math.sin(phase * 5.5 + mxNorm * 4.2);
-      const panelBreath = Math.sin(phase * 0.8) * (4 + focus * 4);
-      const rayAlpha = p.ray[3] + energy * 18 + focus * 22;
+      const moonPulse = 1 + Math.sin(phase * 2.1) * (0.03 + energy * 0.05 + focus * 0.04);
+      const asteroidOffset = Math.sin(phase * 1.35 + 0.8) * (4 + energy * 6 + focus * 8);
+      const horizonShift = Math.sin(phase * 1.1 + mxNorm * Math.PI) * (6 + energy * 7 + focus * 6);
+      const cloudShift = Math.sin(phase * 0.9 + myNorm * Math.PI) * (4 + energy * 10);
+      const fireFlicker = 0.7 + 0.3 * Math.sin(phase * 5.5 + mxNorm * 4.2);
+      const panelBreath = Math.sin(phase * 0.8) * (4 + energy * 5 + focus * 4);
+      const rayAlpha = p.ray[3] + energy * 42 + focus * 22;
 
       background(...p.sky);
 
@@ -487,8 +541,8 @@
       rect(240, 600, 30, 200, 3);
       rect(250, 620, 30, 200, 3);
 
-      fillColor(p.sun, hovered ? 1.04 : 1);
-      ellipse(0, 0, 400 + energy * 30 + focus * 40, 400 + energy * 30 + focus * 40);
+      fillColor(p.sun, hovered ? 1.08 : 1);
+      ellipse(0, 0, 400 + energy * 54 + focus * 40, 400 + energy * 54 + focus * 40);
 
       fillColor(p.fireA, fireFlicker);
       rect(0, 650, 2000, 30, 3);
@@ -514,6 +568,13 @@
 
     function fillColor(colorArray, alphaMultiplier) {
       fill(colorArray[0], colorArray[1], colorArray[2], colorArray[3] * alphaMultiplier);
+    }
+
+    function toggleOverlay() {
+      if (!overlayEl || !overlayToggleEl) return;
+      const collapsed = overlayEl.classList.toggle('is-collapsed');
+      overlayToggleEl.textContent = collapsed ? 'Show' : 'Hide';
+      overlayToggleEl.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
     }
 
     function mousePressed() {
