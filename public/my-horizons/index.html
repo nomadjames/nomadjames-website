@@ -371,7 +371,7 @@
       return -1;
     }
 
-    function drawPanel(rect, palette, i) {
+    function drawPanel(panel, palette, i) {
       const energy = panelState[i].energy;
       const focus = panelState[i].glow;
       const hovered = i === hoveredIndex;
@@ -381,32 +381,32 @@
       const borderAlpha = 28 + energy * 80 + focus * 100;
 
       push();
-      translate(rect.x, rect.y);
+      translate(panel.x, panel.y);
 
       noStroke();
       fill(255, 255, 255, 10 + focus * 18);
-      rect(0, 0, rect.w, rect.h, 14);
+      rect(0, 0, panel.w, panel.h, 14);
 
       stroke(255, 255, 255, borderAlpha);
       strokeWeight(1.2 + focus * 1.2);
       noFill();
-      rect(0, 0, rect.w, rect.h, 14);
+      rect(0, 0, panel.w, panel.h, 14);
 
       push();
       drawingContext.save();
-      roundedClip(0, 0, rect.w, rect.h, 14);
-      scale(rect.w / BASE_W, rect.h / BASE_H);
+      roundedClip(0, 0, panel.w, panel.h, 14);
+      scale(panel.w / BASE_W, panel.h / BASE_H);
       drawComposition(palette, phase, energy, focus, mxNorm, myNorm, hovered);
       drawingContext.restore();
       pop();
 
       noStroke();
       fill(8, 8, 10, 148);
-      rect(12, rect.h - 34, Math.min(rect.w - 24, 180), 22, 999);
+      rect(12, panel.h - 34, Math.min(panel.w - 24, 180), 22, 999);
       fill(245, 240, 230, 220);
       textSize(11);
       textAlign(LEFT, CENTER);
-      text(palette.name.toUpperCase(), 22, rect.h - 23);
+      text(palette.name.toUpperCase(), 22, panel.h - 23);
 
       pop();
     }
