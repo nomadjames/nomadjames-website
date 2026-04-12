@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>my horizons</title>
+  <meta name="description" content="A single interactive artwork: one original p5.js composition multiplied into six animated color horizons." />
+  <script>p5 = window.p5 || {}; p5.disableFriendlyErrors = true;</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/p5.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090909;
+      --panel: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.1);
+      --text: #f2ede4;
+      --muted: rgba(242,237,228,0.72);
+      --accent: #e8913a;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: radial-gradient(circle at top, #1a1713 0%, #0b0b0b 45%, #050505 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      padding: 24px;
+    }
+
+    .shell {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .backlink {
+      display: inline-flex;
+      align-items: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .backlink:hover { color: var(--accent); }
+
+    .title {
+      margin: 0.25rem 0 0.65rem;
+      font-size: clamp(2.6rem, 7vw, 5.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      font-weight: 700;
+    }
+
+    .lede {
+      max-width: 920px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pill {
+      padding: 0.48rem 0.72rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .canvasWrap {
+      position: relative;
+      width: 100%;
+      min-height: 72vh;
+      border: 1px solid rgba(232, 145, 58, 0.22);
+      background: rgba(255,255,255,0.02);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.36), 0 0 40px rgba(232,145,58,0.08);
+    }
+
+    .overlay {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 3;
+      background: rgba(10,10,10,0.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      max-width: min(520px, calc(100% - 36px));
+    }
+
+    .overlay p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.86rem;
+    }
+
+    .overlay strong { color: var(--text); }
+
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 14px; }
+      .canvasWrap { min-height: 68vh; border-radius: 14px; }
+      .overlay {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <div>
+        <a class="backlink" href="/lab/">← back to lab</a>
+        <h1 class="title">my horizons</h1>
+        <p class="lede">A preserved creative-coding composition, translated into six emotional color worlds. The original stays intact in the first panel. The others push it sideways, pop-art style, without sanding off the tension that made the first one worth keeping.</p>
+        <div class="meta">
+          <span class="pill">original + five variations</span>
+          <span class="pill">hover to wake a panel</span>
+          <span class="pill">click to isolate or return</span>
+          <span class="pill">move the mouse to bend the weather</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="canvasWrap" id="canvas-wrap">
+      <div class="overlay">
+        <p><strong>How to use it:</strong> move across the grid to change the atmosphere, hover over any panel to intensify it, click once to pull one horizon into focus, click again to return to the full six-panel field.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const BASE_W = 960;
+    const BASE_H = 720;
+    const ASPECT = BASE_W / BASE_H;
+
+    const palettes = [
+      {
+        name: 'Original',
+        sky: [20, 100, 225],
+        ground: [200, 20, 200, 100],
+        darkPane: [0, 0, 0, 200],
+        rightRect: [100, 70, 20, 100],
+        asteroid: [0, 0, 0, 255],
+        moon: [255, 255, 255, 150],
+        cloudsA: [255, 255, 255, 210],
+        cloudsB: [255, 255, 255, 245],
+        purple: [220, 200, 255, 150],
+        redA: [255, 50, 100, 100],
+        redB: [255, 60, 170, 100],
+        fireA: [245, 50, 0, 150],
+        fireB: [255, 200, 0, 150],
+        greenGlow: [0, 255, 0, 50],
+        blueGlow: [0, 0, 255, 100],
+        sun: [255, 255, 0, 200],
+        ray: [255, 255, 255, 34],
+      },
+      {
+        name: 'Heatwave',
+        sky: [185, 58, 35],
+        ground: [255, 68, 68, 100],
+        darkPane: [42, 0, 0, 205],
+        rightRect: [148, 42, 12, 120],
+        asteroid: [24, 0, 0, 255],
+        moon: [255, 220, 146, 155],
+        cloudsA: [255, 206, 160, 200],
+        cloudsB: [255, 245, 215, 235],
+        purple: [255, 130, 110, 150],
+        redA: [255, 30, 60, 120],
+        redB: [255, 80, 150, 115],
+        fireA: [255, 70, 0, 165],
+        fireB: [255, 190, 20, 170],
+        greenGlow: [255, 100, 20, 55],
+        blueGlow: [220, 40, 40, 95],
+        sun: [255, 180, 40, 205],
+        ray: [255, 220, 170, 38],
+      },
+      {
+        name: 'Night Signal',
+        sky: [22, 42, 122],
+        ground: [74, 30, 180, 110],
+        darkPane: [0, 0, 18, 220],
+        rightRect: [55, 40, 105, 120],
+        asteroid: [8, 6, 20, 255],
+        moon: [188, 225, 255, 145],
+        cloudsA: [176, 210, 255, 180],
+        cloudsB: [215, 230, 255, 210],
+        purple: [154, 130, 255, 155],
+        redA: [180, 50, 255, 105],
+        redB: [110, 70, 255, 105],
+        fireA: [110, 40, 255, 110],
+        fireB: [50, 140, 255, 120],
+        greenGlow: [0, 210, 255, 45],
+        blueGlow: [90, 130, 255, 105],
+        sun: [210, 240, 255, 140],
+        ray: [190, 220, 255, 34],
+      },
+      {
+        name: 'Acid Bloom',
+        sky: [70, 220, 160],
+        ground: [255, 0, 170, 105],
+        darkPane: [5, 10, 10, 220],
+        rightRect: [20, 80, 40, 120],
+        asteroid: [0, 35, 10, 255],
+        moon: [248, 255, 120, 150],
+        cloudsA: [230, 255, 150, 180],
+        cloudsB: [255, 255, 220, 220],
+        purple: [160, 80, 255, 160],
+        redA: [255, 30, 190, 115],
+        redB: [180, 255, 40, 115],
+        fireA: [255, 130, 0, 155],
+        fireB: [235, 255, 0, 150],
+        greenGlow: [120, 255, 0, 65],
+        blueGlow: [0, 255, 200, 100],
+        sun: [255, 255, 100, 195],
+        ray: [240, 255, 150, 34],
+      },
+      {
+        name: 'Dust Sunset',
+        sky: [168, 124, 86],
+        ground: [188, 110, 120, 105],
+        darkPane: [36, 28, 24, 205],
+        rightRect: [126, 88, 62, 125],
+        asteroid: [44, 32, 26, 255],
+        moon: [245, 214, 180, 145],
+        cloudsA: [234, 208, 184, 180],
+        cloudsB: [255, 240, 225, 205],
+        purple: [196, 165, 205, 150],
+        redA: [175, 74, 78, 110],
+        redB: [209, 122, 110, 110],
+        fireA: [192, 92, 36, 145],
+        fireB: [230, 170, 70, 145],
+        greenGlow: [132, 176, 110, 40],
+        blueGlow: [136, 138, 198, 85],
+        sun: [255, 206, 125, 180],
+        ray: [255, 225, 190, 28],
+      },
+      {
+        name: 'Electric Frost',
+        sky: [88, 170, 255],
+        ground: [150, 120, 255, 100],
+        darkPane: [12, 20, 34, 210],
+        rightRect: [120, 160, 220, 90],
+        asteroid: [16, 24, 42, 255],
+        moon: [255, 255, 255, 160],
+        cloudsA: [230, 245, 255, 195],
+        cloudsB: [200, 230, 255, 225],
+        purple: [205, 214, 255, 155],
+        redA: [185, 115, 255, 105],
+        redB: [120, 180, 255, 105],
+        fireA: [160, 170, 255, 105],
+        fireB: [220, 235, 255, 135],
+        greenGlow: [160, 255, 240, 40],
+        blueGlow: [110, 180, 255, 105],
+        sun: [255, 255, 235, 175],
+        ray: [220, 245, 255, 32],
+      },
+    ];
+
+    const panelState = palettes.map(() => ({ energy: 0, glow: 0 }));
+    let selectedIndex = -1;
+    let hoveredIndex = -1;
+    let panelRects = [];
+    let canvas;
+
+    function setup() {
+      const wrap = document.getElementById('canvas-wrap');
+      const dims = getCanvasSize(wrap.clientWidth);
+      canvas = createCanvas(dims.w, dims.h);
+      canvas.parent('canvas-wrap');
+      pixelDensity(1);
+      textFont('Inter, Arial, sans-serif');
+      rectMode(CORNER);
+      strokeCap(SQUARE);
+      noSmooth();
+    }
+
+    function draw() {
+      background(7, 7, 9);
+      hoveredIndex = getHoveredPanel(mouseX, mouseY);
+      panelRects = computePanelRects(width, height, selectedIndex);
+
+      for (let i = 0; i < panelState.length; i++) {
+        const target = i === hoveredIndex ? 1 : 0;
+        panelState[i].energy = lerp(panelState[i].energy, target, 0.1);
+        panelState[i].glow = lerp(panelState[i].glow, i === selectedIndex ? 1 : 0, 0.08);
+      }
+
+      for (let i = 0; i < panelRects.length; i++) {
+        drawPanel(panelRects[i], palettes[i], i);
+      }
+    }
+
+    function getCanvasSize(maxW) {
+      const widthCandidate = Math.max(320, maxW);
+      const gridHeight = widthCandidate < 760 ? widthCandidate * 1.5 : widthCandidate * 0.72;
+      const capped = Math.min(window.innerHeight * 0.8, gridHeight);
+      return { w: Math.floor(widthCandidate), h: Math.floor(Math.max(560, capped)) };
+    }
+
+    function computePanelRects(w, h, selected) {
+      const outer = Math.min(w, h) * 0.028;
+      if (selected >= 0) {
+        return [{ x: outer, y: outer, w: w - outer * 2, h: h - outer * 2, index: selected }];
+      }
+
+      const mobile = w < 760;
+      const cols = mobile ? 1 : 2;
+      const rows = mobile ? 6 : 3;
+      const gap = Math.min(22, Math.max(12, w * 0.012));
+      const cellW = (w - outer * 2 - gap * (cols - 1)) / cols;
+      const cellH = (h - outer * 2 - gap * (rows - 1)) / rows;
+      const rects = [];
+      for (let i = 0; i < palettes.length; i++) {
+        const col = mobile ? 0 : i % 2;
+        const row = mobile ? i : Math.floor(i / 2);
+        rects.push({
+          x: outer + col * (cellW + gap),
+          y: outer + row * (cellH + gap),
+          w: cellW,
+          h: cellH,
+          index: i,
+        });
+      }
+      return rects;
+    }
+
+    function getHoveredPanel(mx, my) {
+      for (const rect of panelRects) {
+        if (mx >= rect.x && mx <= rect.x + rect.w && my >= rect.y && my <= rect.y + rect.h) {
+          return rect.index;
+        }
+      }
+      return -1;
+    }
+
+    function drawPanel(rect, palette, i) {
+      const energy = panelState[i].energy;
+      const focus = panelState[i].glow;
+      const hovered = i === hoveredIndex;
+      const phase = frameCount * (0.008 + energy * 0.01 + focus * 0.006);
+      const mxNorm = constrain(mouseX / max(width, 1), 0, 1);
+      const myNorm = constrain(mouseY / max(height, 1), 0, 1);
+      const borderAlpha = 28 + energy * 80 + focus * 100;
+
+      push();
+      translate(rect.x, rect.y);
+
+      noStroke();
+      fill(255, 255, 255, 10 + focus * 18);
+      rect(0, 0, rect.w, rect.h, 14);
+
+      stroke(255, 255, 255, borderAlpha);
+      strokeWeight(1.2 + focus * 1.2);
+      noFill();
+      rect(0, 0, rect.w, rect.h, 14);
+
+      push();
+      drawingContext.save();
+      roundedClip(0, 0, rect.w, rect.h, 14);
+      scale(rect.w / BASE_W, rect.h / BASE_H);
+      drawComposition(palette, phase, energy, focus, mxNorm, myNorm, hovered);
+      drawingContext.restore();
+      pop();
+
+      noStroke();
+      fill(8, 8, 10, 148);
+      rect(12, rect.h - 34, Math.min(rect.w - 24, 180), 22, 999);
+      fill(245, 240, 230, 220);
+      textSize(11);
+      textAlign(LEFT, CENTER);
+      text(palette.name.toUpperCase(), 22, rect.h - 23);
+
+      pop();
+    }
+
+    function roundedClip(x, y, w, h, r) {
+      drawingContext.beginPath();
+      drawingContext.moveTo(x + r, y);
+      drawingContext.arcTo(x + w, y, x + w, y + h, r);
+      drawingContext.arcTo(x + w, y + h, x, y + h, r);
+      drawingContext.arcTo(x, y + h, x, y, r);
+      drawingContext.arcTo(x, y, x + w, y, r);
+      drawingContext.closePath();
+      drawingContext.clip();
+    }
+
+    function drawComposition(p, phase, energy, focus, mxNorm, myNorm, hovered) {
+      const moonPulse = 1 + Math.sin(phase * 2.1) * (0.02 + energy * 0.02 + focus * 0.03);
+      const asteroidOffset = Math.sin(phase * 1.35 + 0.8) * (4 + focus * 8);
+      const horizonShift = Math.sin(phase * 1.1 + mxNorm * Math.PI) * (6 + focus * 6);
+      const cloudShift = Math.sin(phase * 0.9 + myNorm * Math.PI) * (4 + energy * 6);
+      const fireFlicker = 0.75 + 0.25 * Math.sin(phase * 5.5 + mxNorm * 4.2);
+      const panelBreath = Math.sin(phase * 0.8) * (4 + focus * 4);
+      const rayAlpha = p.ray[3] + energy * 18 + focus * 22;
+
+      background(...p.sky);
+
+      fillColor(p.ground, 1);
+      rect(0, 360 + horizonShift, 960, 360);
+
+      fillColor(p.darkPane, 1);
+      rect(900, 0, 720, 720);
+
+      fillColor(p.rightRect, 1);
+      rect(490, 0, 720, 720);
+
+      stroke(p.ray[0], p.ray[1], p.ray[2], rayAlpha);
+      strokeWeight(1 + energy * 0.45 + focus * 0.4);
+      for (let x2 = 959; x2 >= 256; x2 -= 19) {
+        line(0, 0, x2 + mxNorm * 10, 719 + panelBreath);
+      }
+      noStroke();
+
+      fillColor(p.asteroid, 1);
+      ellipse(750 + asteroidOffset, 200 + Math.cos(phase * 1.35) * 4, 50, 50);
+
+      fillColor(p.moon, 1);
+      ellipse(900, 250, 300 * moonPulse, 300 * moonPulse);
+
+      drawCloud(p.cloudsA, 875 + cloudShift, 60, 60, 30);
+      drawCloud(p.cloudsB, 890 + cloudShift * 0.8, 55, 60, 30);
+      drawCloud(p.cloudsA, 860 - cloudShift * 0.65, 170, 60, 30);
+      drawCloud(p.cloudsB, 880 - cloudShift * 0.5, 150, 60, 30);
+      drawCloud(p.cloudsA, 840 + cloudShift * 0.45, 305, 60, 30);
+      drawCloud(p.cloudsB, 860 + cloudShift * 0.6, 312, 60, 30);
+      drawCloud(p.cloudsA, 880 - cloudShift * 0.4, 450, 60, 30);
+      drawCloud(p.cloudsB, 860 - cloudShift * 0.55, 465, 60, 30);
+
+      fillColor(p.purple, 1);
+      rect(90, 100, 200, 30, 3);
+      rect(100, 120, 200, 30, 3);
+      rect(180, 200, 200, 30, 3);
+      rect(190, 210, 200, 30, 3);
+      rect(375, 345 + panelBreath * 0.4, 200, 30, 3);
+      rect(397, 350 + panelBreath * 0.35, 200, 30, 3);
+      rect(450, 400 + panelBreath * 0.25, 200, 30, 3);
+      rect(469, 409 + panelBreath * 0.22, 200, 30, 3);
+      rect(540, 500 + panelBreath * 0.18, 200, 30, 3);
+      rect(591, 511 + panelBreath * 0.15, 200, 30, 3);
+
+      fillColor(p.redA, 1);
+      rect(90, 160, 30, 200, 3);
+      rect(180, 370, 30, 200, 3);
+      rect(250, 620, 30, 200, 3);
+
+      fillColor(p.redB, 1);
+      rect(107, 180, 30, 200, 3);
+      rect(195, 390, 30, 200, 3);
+      rect(240, 600, 30, 200, 3);
+      rect(250, 620, 30, 200, 3);
+
+      fillColor(p.sun, hovered ? 1.04 : 1);
+      ellipse(0, 0, 400 + energy * 30 + focus * 40, 400 + energy * 30 + focus * 40);
+
+      fillColor(p.fireA, fireFlicker);
+      rect(0, 650, 2000, 30, 3);
+      rect(75, 640, 75, 30);
+      rect(425, 640, 75, 30);
+
+      fillColor(p.fireB, fireFlicker);
+      rect(90, 630, 45, 30);
+      rect(440, 630, 45, 30);
+      rect(0, 660, 2000, 300, 3);
+
+      fillColor(p.greenGlow, 1 + energy * 0.2);
+      ellipse(700, 750, 400 + energy * 16, 400 + energy * 16);
+
+      fillColor(p.blueGlow, 1 + focus * 0.18);
+      ellipse(800, 750, 400 + focus * 16, 400 + focus * 16);
+    }
+
+    function drawCloud(colorArray, x, y, w, h) {
+      fill(colorArray[0], colorArray[1], colorArray[2], colorArray[3]);
+      rect(x, y, w, h);
+    }
+
+    function fillColor(colorArray, alphaMultiplier) {
+      fill(colorArray[0], colorArray[1], colorArray[2], colorArray[3] * alphaMultiplier);
+    }
+
+    function mousePressed() {
+      const hit = getHoveredPanel(mouseX, mouseY);
+      if (hit === -1) {
+        selectedIndex = -1;
+        return;
+      }
+      selectedIndex = selectedIndex === hit ? -1 : hit;
+    }
+
+    function windowResized() {
+      const wrap = document.getElementById('canvas-wrap');
+      const dims = getCanvasSize(wrap.clientWidth);
+      resizeCanvas(dims.w, dims.h);
+    }
+  </script>
+</body>
+</html>

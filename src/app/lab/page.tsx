@@ -4,20 +4,35 @@ import SmartBackLink from "@/components/SmartBackLink";
 export const metadata = {
   title: "Lab | James Dishman",
   description:
-    "Interactive experiments, creative coding, and small prototype systems. Featured: Micro-Museum of Broken Interfaces.",
+    "Interactive experiments, creative coding, and small prototype systems. Featured: Micro-Museum of Broken Interfaces and my horizons.",
 };
 
-const featuredProject = {
-  title: "Micro-Museum of Broken Interfaces",
-  category: "Interactive UX Critique",
-  year: "2026",
-  description:
-    "An interactive portfolio piece that turns UX critique into something you can actually feel. Instead of writing about bad interface patterns, it lets you use them, experience why they fail, and compare them directly to redesigns that fix the underlying problem.",
-  purpose:
-    "The museum covers 15 infamous interface failures drawn from real products, FTC complaints, and dark patterns research. Each exhibit follows the same structure: experience the broken version, read the principle-level analysis, then see a better version side by side. The point is simple: critique is cheap, redesign is not.",
-  url: "/micro-museum/",
-  cta: "Open the Micro-Museum",
-};
+const featuredProjects = [
+  {
+    title: "Micro-Museum of Broken Interfaces",
+    category: "Interactive UX Critique",
+    year: "2026",
+    description:
+      "An interactive portfolio piece that turns UX critique into something you can actually feel. Instead of writing about bad interface patterns, it lets you use them, experience why they fail, and compare them directly to redesigns that fix the underlying problem.",
+    purpose:
+      "The museum covers 15 infamous interface failures drawn from real products, FTC complaints, and dark patterns research. Each exhibit follows the same structure: experience the broken version, read the principle-level analysis, then see a better version side by side. The point is simple: critique is cheap, redesign is not.",
+    url: "/micro-museum/",
+    cta: "Open the Micro-Museum",
+    notes: ["15 exhibits", "broken pattern → analysis → fix", "standalone project"],
+  },
+  {
+    title: "my horizons",
+    category: "Interactive Artwork",
+    year: "2026",
+    description:
+      "A preserved creative-coding composition translated into six animated color worlds: the original plus five Warhol-style variations. It keeps the geometry and tension of the first piece, then lets color do the emotional remixing.",
+    purpose:
+      "The page behaves like one artwork instead of six disconnected sketches. Hover over any horizon to wake it up, move the mouse to bend the atmosphere, and click to pull a single variation into focus before dropping back into the full field.",
+    url: "/my-horizons/",
+    cta: "Open my horizons",
+    notes: ["original + five variations", "hover and click responsive", "standalone project"],
+  },
+];
 
 const liveSystems = [
   {
@@ -147,35 +162,41 @@ export default function LabPage() {
         </header>
 
         <section className={styles.featuredSection}>
-          <article className={styles.featuredCard}>
-            <div className={styles.featuredContent}>
-              <span className={styles.featuredKicker}>Featured project</span>
-              <h2 className={styles.featuredTitle}>{featuredProject.title}</h2>
-              <div className={styles.cardMeta}>
-                <span className={styles.courseTag}>
-                  {featuredProject.category} &middot; {featuredProject.year}
+          {featuredProjects.map((project, index) => (
+            <article key={project.url} className={styles.featuredCard}>
+              <div className={styles.featuredContent}>
+                <span className={styles.featuredKicker}>
+                  {index === 0 ? "Featured project" : "Featured artwork"}
                 </span>
+                <h2 className={styles.featuredTitle}>{project.title}</h2>
+                <div className={styles.cardMeta}>
+                  <span className={styles.courseTag}>
+                    {project.category} &middot; {project.year}
+                  </span>
+                </div>
+                <p className={styles.featuredBody}>{project.description}</p>
+                <p className={styles.featuredBody}>{project.purpose}</p>
+                <div className={styles.featuredNotes}>
+                  {project.notes.map((note) => (
+                    <span key={note} className={styles.featuredNote}>{note}</span>
+                  ))}
+                </div>
+                <div className={styles.featuredActions}>
+                  <a
+                    href={project.url}
+                    className={styles.featuredLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {project.cta} ↗
+                  </a>
+                  <span className={styles.featuredUrl}>
+                    nomadjames.com{project.url.replace(/\/$/, "")}
+                  </span>
+                </div>
               </div>
-              <p className={styles.featuredBody}>{featuredProject.description}</p>
-              <p className={styles.featuredBody}>{featuredProject.purpose}</p>
-              <div className={styles.featuredNotes}>
-                <span className={styles.featuredNote}>15 exhibits</span>
-                <span className={styles.featuredNote}>broken pattern → analysis → fix</span>
-                <span className={styles.featuredNote}>standalone project</span>
-              </div>
-              <div className={styles.featuredActions}>
-                <a
-                  href={featuredProject.url}
-                  className={styles.featuredLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {featuredProject.cta} ↗
-                </a>
-                <span className={styles.featuredUrl}>nomadjames.com/micro-museum</span>
-              </div>
-            </div>
-          </article>
+            </article>
+          ))}
         </section>
 
         {/* Live Systems */}

@@ -75,6 +75,8 @@
 
 .featuredSection {
   margin-bottom: 3rem;
+  display: grid;
+  gap: 1.25rem;
 }
 
 .featuredCard {
