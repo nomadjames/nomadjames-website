@@ -72,6 +72,12 @@
 }
 
 @media (max-width: 800px) {
+  .liveShowcaseHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
   .liveShowcaseGrid {
     grid-template-columns: 1fr;
   }
@@ -84,6 +90,10 @@
 
   .liveCard:last-child {
     border-bottom: none;
+  }
+
+  .liveCardTitle {
+    font-size: 1.1rem;
   }
 }
 
@@ -306,56 +316,6 @@
   margin: 0;
 }
 
-/* ── Agent grid ────────────────────────────────────────── */
-
-.agentGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 0;
-  border: 1px solid var(--border);
-  margin-top: 1.5rem;
-}
-
-.agentCard {
-  padding: 1.5rem;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.agentCard:nth-child(3n) {
-  border-right: none;
-}
-
-.agentCard:nth-last-child(-n+3) {
-  border-bottom: none;
-}
-
-.agentName {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 0.2rem;
-}
-
-.agentRole {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.63rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--orange);
-  margin-bottom: 0.75rem;
-}
-
-.agentDesc {
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: var(--fg-muted);
-  margin: 0;
-}
-
 /* ── Overnight work timeline ───────────────────────────── */
 
 .workList {
@@ -449,6 +409,10 @@
 /* ── Responsive ────────────────────────────────────────── */
 
 @media (max-width: 640px) {
+  .graphFrame {
+    height: 420px;
+  }
+
   .statsBar {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -489,19 +453,6 @@
   .workEntry {
     grid-template-columns: 1fr;
     gap: 0.4rem;
-  }
-
-  .agentGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .agentCard {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .agentCard:last-child {
-    border-bottom: none;
   }
 
   .caseNav {

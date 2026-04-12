@@ -320,51 +320,6 @@
   letter-spacing: 0.04em;
 }
 
-/* Agent Roster */
-.rosterGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
-}
-
-.agentCard {
-  background: #2a2a2a;
-  border: 1px solid #333;
-  border-radius: 6px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.agentCard:hover {
-  border-color: rgba(232, 145, 58, 0.4);
-  transform: translateY(-2px);
-}
-
-.agentName {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--orange);
-  letter-spacing: 0.02em;
-}
-
-.agentRole {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--fg);
-  letter-spacing: 0.04em;
-}
-
-.agentTagline {
-  font-size: 0.75rem;
-  color: var(--fg-dim);
-  line-height: 1.4;
-  margin-top: 0.25rem;
-}
-
 /* Links Section */
 .linksSection {
   margin-top: 3rem;
@@ -452,6 +407,16 @@
 }
 
 @media (max-width: 768px) {
+  .page {
+    padding-top: 5.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .header {
+    padding-bottom: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+
   .archGrid {
     grid-template-columns: 1fr 1fr;
   }
@@ -471,12 +436,22 @@
   }
 
   .statsGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .statCard,
+  .archCard,
+  .linkCard {
+    padding: 1rem;
   }
 
   .heartbeatMain {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .heartbeatCard {
+    padding: 1.1rem 1rem;
   }
 
   .activityRow {
