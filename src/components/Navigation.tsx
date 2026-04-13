@@ -10,6 +10,7 @@ export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
+  const workActive = pathname.startsWith("/portfolio") || pathname.startsWith("/building") || pathname.startsWith("/vision");
 
   return (
     <nav className={styles.nav} aria-label="Main navigation">
@@ -28,19 +29,19 @@ export default function Navigation() {
         <div className={`${styles.links} ${menuOpen ? styles.linksOpen : ""}`}>
           <Link
             href="/portfolio"
-            className={`${styles.link} ${pathname.startsWith("/portfolio") ? styles.active : ""}`}
-            aria-current={pathname.startsWith("/portfolio") ? "page" : undefined}
+            className={`${styles.link} ${workActive ? styles.active : ""}`}
+            aria-current={workActive ? "page" : undefined}
             onClick={closeMenu}
           >
             Work
           </Link>
           <Link
-            href="/about"
-            className={`${styles.link} ${pathname.startsWith("/about") ? styles.active : ""}`}
-            aria-current={pathname.startsWith("/about") ? "page" : undefined}
+            href="/lab"
+            className={`${styles.link} ${pathname.startsWith("/lab") ? styles.active : ""}`}
+            aria-current={pathname.startsWith("/lab") ? "page" : undefined}
             onClick={closeMenu}
           >
-            About
+            Lab
           </Link>
           <Link
             href="/writing"
@@ -51,12 +52,12 @@ export default function Navigation() {
             Writing
           </Link>
           <Link
-            href="/contact"
-            className={`${styles.link} ${pathname.startsWith("/contact") ? styles.active : ""}`}
-            aria-current={pathname.startsWith("/contact") ? "page" : undefined}
+            href="/about"
+            className={`${styles.link} ${pathname.startsWith("/about") || pathname.startsWith("/resume") || pathname.startsWith("/contact") || pathname.startsWith("/services") ? styles.active : ""}`}
+            aria-current={pathname.startsWith("/about") || pathname.startsWith("/resume") || pathname.startsWith("/contact") || pathname.startsWith("/services") ? "page" : undefined}
             onClick={closeMenu}
           >
-            Contact
+            About
           </Link>
         </div>
       </div>

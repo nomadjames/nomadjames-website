@@ -11,12 +11,21 @@ export default function Footer() {
             <nav className={styles.columnLinks} aria-label="Site navigation">
               <a href="/">Home</a>
               <a href="/portfolio">Work</a>
-              <a href="/about">About</a>
-              <a href="/writing">Writing</a>
-              <a href="/resume">Résumé</a>
-              <a href="/services">Services</a>
               <a href="/lab">Lab</a>
+              <a href="/writing">Writing</a>
+              <a href="/about">About</a>
+            </nav>
+          </div>
+
+          <div className={styles.column}>
+            <span className={styles.columnLabel}>Work</span>
+            <nav className={styles.columnLinks} aria-label="Work navigation">
+              <a href="/portfolio">Portfolio</a>
+              <a href="/building">Building</a>
+              <a href="/vision">Vision</a>
+              <a href="/resume">Résumé</a>
               <a href="/contact">Contact</a>
+              <a href="/services">Services</a>
             </nav>
           </div>
 
@@ -30,12 +39,6 @@ export default function Footer() {
               <a href="https://nomadjames.bandcamp.com/" target="_blank" rel="noopener noreferrer">Bandcamp</a>
               <a href="https://www.mixcloud.com/nomadjames/" target="_blank" rel="noopener noreferrer">Mixcloud</a>
             </nav>
-          </div>
-
-          <div className={styles.column}>
-            <span className={styles.columnLabel}>Get in touch</span>
-            <p className={styles.available}>Available for freelance and research work</p>
-            <a href="/contact" className={styles.contactLink}>Contact →</a>
             <p className={styles.copyright}>
               &copy; {year} James Dishman
             </p>

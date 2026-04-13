@@ -109,6 +109,19 @@ export default function AboutPage() {
           </p>
         </section>
 
+        {/* Practical Links */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Practical Links</h2>
+          <p className={styles.body}>
+            The main site hierarchy is Work, Lab, Writing, and About. The practical pages live here.
+          </p>
+          <ul className={styles.splitList}>
+            <li><a href="/resume">Résumé</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/services">Services</a></li>
+          </ul>
+        </section>
+
         {/* Building This Site */}
         <section className={`${styles.section} ${styles.sectionAccent}`}>
           <h2 className={styles.sectionTitle}>Building This Site</h2>
