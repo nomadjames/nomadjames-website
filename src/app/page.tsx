@@ -1,3 +1,4 @@
+import PracticeMap from "@/components/PracticeMap";
 import styles from "./page.module.css";
 
 type FeaturedItem = {
@@ -123,33 +124,41 @@ export default function Home() {
     <div className={styles.page}>
       <main className="container">
         <section className={styles.hero}>
-          <div className={styles.eyebrow}>
-            <span className={styles.eyebrowLabel}>UX Designer & AI Systems Builder</span>
-            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>MS User Experience</span>
-            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>Youngstown, OH</span>
-          </div>
-          <h1 className={styles.name}>James Dishman</h1>
-          <p className={styles.mantra}>Every problem has a solution.</p>
-          <div className={styles.thesis}>
-            <p>Technology should make humans better.</p>
-            <p>I design the part where that actually happens.</p>
-          </div>
-          <p className={styles.bio}>
-            Electronic music production and a decade leading Pittsburgh&apos;s Ableton User Group have given me a
-            framework for thinking about tools: what they enable, what they foreclose, and who they leave out.
-            That instinct is now a research practice, with an MS thesis taking shape around AI, creativity,
-            and what it means to design systems that shape how people think.
-          </p>
-          <div className={styles.heroLinks}>
-            <a href="https://www.linkedin.com/in/james-dishman-3a512163/" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
-              LinkedIn ↗
-            </a>
-            <a href="https://github.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
-              GitHub ↗
-            </a>
-            <a href="/contact" className={styles.heroLink}>Contact ↗</a>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroCopy}>
+              <div className={styles.eyebrow}>
+                <span className={styles.eyebrowLabel}>UX Designer & AI Systems Builder</span>
+                <span className={styles.eyebrowDot} aria-hidden="true">·</span>
+                <span className={styles.eyebrowLabel}>MS User Experience</span>
+                <span className={styles.eyebrowDot} aria-hidden="true">·</span>
+                <span className={styles.eyebrowLabel}>Youngstown, OH</span>
+              </div>
+              <h1 className={styles.name}>James Dishman</h1>
+              <p className={styles.mantra}>Every problem has a solution.</p>
+              <div className={styles.thesis}>
+                <p>Technology should make humans better.</p>
+                <p>I design the part where that actually happens.</p>
+              </div>
+              <p className={styles.bio}>
+                Electronic music production and a decade leading Pittsburgh&apos;s Ableton User Group have given me a
+                framework for thinking about tools: what they enable, what they foreclose, and who they leave out.
+                That instinct is now a research practice, with an MS thesis taking shape around AI, creativity,
+                and what it means to design systems that shape how people think.
+              </p>
+              <div className={styles.heroLinks}>
+                <a href="https://www.linkedin.com/in/james-dishman-3a512163/" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
+                  LinkedIn ↗
+                </a>
+                <a href="https://github.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
+                  GitHub ↗
+                </a>
+                <a href="/contact" className={styles.heroLink}>Contact ↗</a>
+              </div>
+            </div>
+
+            <div className={styles.heroVisual}>
+              <PracticeMap />
+            </div>
           </div>
         </section>
 
