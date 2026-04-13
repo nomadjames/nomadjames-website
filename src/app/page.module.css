@@ -239,6 +239,64 @@
   opacity: 0.65;
 }
 
+/* ── Compact link sections ─────────────────────────────── */
+
+.sectionIntro {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 620px;
+  margin-bottom: 1.5rem;
+}
+
+.compactList {
+  border-top: 1px solid var(--border);
+}
+
+.compactItem {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.compactNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-dim);
+  padding-top: 0.25rem;
+  min-width: 2rem;
+  flex-shrink: 0;
+}
+
+.compactContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.compactTitle {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 0.35rem;
+  transition: color 0.2s;
+}
+
+.compactTitle:hover {
+  color: var(--orange);
+  opacity: 1;
+}
+
+.compactBlurb {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  max-width: 680px;
+  margin-top: 0.25rem;
+}
+
 /* ── Music ─────────────────────────────────────────────── */
 
 .musicStatement {
@@ -287,6 +345,23 @@
 
   .cardTldr {
     font-size: 0.9rem;
+  }
+
+  .compactItem {
+    gap: 1rem;
+    padding: 1.25rem 0;
+  }
+
+  .compactNum {
+    min-width: 1.5rem;
+  }
+
+  .compactTitle {
+    font-size: 1rem;
+  }
+
+  .compactBlurb {
+    font-size: 0.88rem;
   }
 
   .musicLinks {

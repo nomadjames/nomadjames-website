@@ -149,6 +149,16 @@ a.workTitle:hover {
   border-color: rgba(232, 145, 58, 0.4);
 }
 
+/* ── Featured blurbs ───────────────────────────────────── */
+
+.featuredBlurb {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 700px;
+  margin: 0;
+}
+
 /* ── Music section ─────────────────────────────────────── */
 
 .musicSection {

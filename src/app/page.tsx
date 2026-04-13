@@ -1,6 +1,24 @@
 import styles from "./page.module.css";
 
-const caseStudies = [
+type FeaturedItem = {
+  num: string;
+  title: string;
+  category: string;
+  year: string;
+  tldr: string;
+  link: string;
+};
+
+type CompactItem = {
+  num: string;
+  title: string;
+  category: string;
+  year: string;
+  blurb: string;
+  link: string;
+};
+
+const featuredStudies: FeaturedItem[] = [
   {
     num: "01",
     title: "Clarence: Autonomous Agent Ecosystem",
@@ -22,18 +40,18 @@ const caseStudies = [
     title: "Accessibility Audit Suite: Music Tech Meets WCAG",
     category: "UX Research",
     year: "2025",
-    tldr: "I ran a multi-method accessibility audit across music tech, news, social media, and academic sites. The work covered WCAG compliance, hands-on VoiceOver screen reader testing on GroundNews, an Instagram accessibility audit of a university account, contrast analysis, PDF remediation, and cognitive accessibility research. The biggest finding wasn't any single violation. It was that accessibility best practices for people and machine readability for AI are the same goal, and most teams are failing at both.",
+    tldr: "I ran a multi-method accessibility audit across music tech, news, social media, and academic sites. The work covered WCAG compliance, hands-on VoiceOver screen reader testing on GroundNews, an Instagram accessibility audit of a university account, contrast analysis, PDF remediation, and cognitive accessibility research. The biggest finding was not any single violation. It was that accessibility best practices for people and machine readability for AI are the same goal, and most teams are failing at both.",
     link: "/portfolio/accessibility-audit",
   },
 ];
 
-const building = [
+const building: CompactItem[] = [
   {
     num: "01",
     title: "SensorSynth FM",
     category: "Product Design · iOS",
     year: "2026",
-    tldr: "An in-progress iPad FM synthesizer that treats every available device sensor as a modulation source: motion, environment, camera, spatial, and touch. The more environmental variables feed the synthesis engine, the more unpredictable and unrepeatable each patch becomes. The design question: what happens when the instrument responds not just to your body, but to the full physical context you exist in?",
+    blurb: "An iPad FM synthesizer that treats device sensors, motion, environment, camera, spatial, and touch as modulation sources. This is the main active build.",
     link: "/portfolio/sensorsynth",
   },
   {
@@ -41,40 +59,23 @@ const building = [
     title: "Oblique Oracle",
     category: "Product Design · AI",
     year: "2026",
-    tldr: "A divination app that combines I Ching hexagram generation, Brian Eno's Oblique Strategies, and AI synthesis into a single reading. The point is not prediction. It is studying what happens to human reflection and judgment when algorithmic output is framed as wisdom instead of information.",
+    blurb: "A divination app that combines I Ching generation, Oblique Strategies, and AI synthesis to study how people respond when algorithmic output is framed as wisdom.",
     link: "/portfolio/oblique-oracle",
-  },
-  {
-    num: "03",
-    title: "PAUG.net",
-    category: "Web Development · Community Design",
-    year: "2026",
-    tldr: "The Pittsburgh Ableton User Group needed a home that wasn't rented from a social media platform. I designed and built paug.net as a standalone community hub with events, blog, founder bios, and a CMS so non-technical co-founders can publish content. The site is live, DNS is configured, and PAUG finally has a URL it owns.",
-    link: "/portfolio/paug",
   },
 ];
 
-const vision = [
+const vision: CompactItem[] = [
   {
     num: "01",
     title: "AI Music Education",
     category: "Vision / Product Design",
     year: "2026",
-    tldr: "Thirty years of making electronic music. An MS in UX. An AI agent system running in production. Nobody has combined all three to solve music education. This is the concept.",
+    blurb: "A concept for electronic music learning built from the overlap of production experience, UX research, and AI system design.",
     link: "/portfolio/ai-music-education",
   },
 ];
 
-type Card = {
-  num: string;
-  title: string;
-  category: string;
-  year: string;
-  tldr: string;
-  link: string;
-};
-
-function CardList({ items }: { items: Card[] }) {
+function FeaturedCardList({ items }: { items: FeaturedItem[] }) {
   return (
     <div className={styles.cardList}>
       {items.map((item) => (
@@ -96,12 +97,31 @@ function CardList({ items }: { items: Card[] }) {
   );
 }
 
+function CompactLinkList({ items }: { items: CompactItem[] }) {
+  return (
+    <div className={styles.compactList}>
+      {items.map((item) => (
+        <article key={item.num} className={styles.compactItem}>
+          <span className={styles.compactNum}>{item.num}</span>
+          <div className={styles.compactContent}>
+            <a href={item.link} className={styles.compactTitle}>{item.title}</a>
+            <div className={styles.cardMeta}>
+              <span className={styles.cardCategory}>{item.category}</span>
+              <span className={styles.cardDot} aria-hidden="true">·</span>
+              <span className={styles.cardYear}>{item.year}</span>
+            </div>
+            <p className={styles.compactBlurb}>{item.blurb}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className="container">
-
-        {/* Hero */}
         <section className={styles.hero}>
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowLabel}>UX Designer & AI Systems Builder</span>
@@ -133,37 +153,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Case Studies */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>§ Case Studies</span>
+            <span className={styles.sectionLabel}>§ Portfolio</span>
             <div className={styles.sectionLine} />
           </div>
-          <CardList items={caseStudies} />
+          <FeaturedCardList items={featuredStudies} />
           <div className={styles.sectionFooter}>
-            <a href="/portfolio" className={styles.allWorkLink}>See all work →</a>
+            <a href="/portfolio" className={styles.allWorkLink}>See portfolio →</a>
           </div>
         </section>
 
-        {/* Building */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>§ Building</span>
             <div className={styles.sectionLine} />
           </div>
-          <CardList items={building} />
+          <p className={styles.sectionIntro}>
+            Active work in development. These projects are real, public, and still changing.
+          </p>
+          <CompactLinkList items={building} />
+          <div className={styles.sectionFooter}>
+            <a href="/building" className={styles.allWorkLink}>Open building →</a>
+          </div>
         </section>
 
-        {/* Vision */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>§ Vision</span>
             <div className={styles.sectionLine} />
           </div>
-          <CardList items={vision} />
+          <p className={styles.sectionIntro}>
+            Planned work and concept direction. These are ideas I think are worth pursuing next.
+          </p>
+          <CompactLinkList items={vision} />
+          <div className={styles.sectionFooter}>
+            <a href="/vision" className={styles.allWorkLink}>Open vision →</a>
+          </div>
         </section>
 
-        {/* Music */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>§ Music</span>
@@ -184,7 +212,6 @@ export default function Home() {
             </a>
           </div>
         </section>
-
       </main>
     </div>
   );
