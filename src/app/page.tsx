@@ -192,26 +192,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>§ Music</span>
-            <div className={styles.sectionLine} />
-          </div>
-          <p className={styles.musicStatement}>
-            Electronic music producer. Pittsburgh Ableton User Group. Available for DJ sets, live performances, and collaboration.
-          </p>
-          <div className={styles.musicLinks}>
-            <a href="https://soundcloud.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
-              SoundCloud ↗
-            </a>
-            <a href="https://nomadjames.bandcamp.com/" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
-              Bandcamp ↗
-            </a>
-            <a href="https://www.mixcloud.com/nomadjames/" target="_blank" rel="noopener noreferrer" className={styles.musicLink}>
-              Mixcloud ↗
-            </a>
-          </div>
-        </section>
       </main>
     </div>
   );
