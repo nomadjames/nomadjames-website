@@ -255,27 +255,6 @@ export default function CompressionPathHero() {
             They compress into one practice: understanding how tools shape thought, where people get stuck,
             and how to design the seam so the system helps instead of dominates.
           </p>
-          <div className={styles.heroLinks}>
-            <a
-              href="https://www.linkedin.com/in/james-dishman-3a512163/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.heroLink}
-            >
-              LinkedIn ↗
-            </a>
-            <a
-              href="https://github.com/nomadjames"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.heroLink}
-            >
-              GitHub ↗
-            </a>
-            <a href="/contact" className={styles.heroLink}>
-              Contact ↗
-            </a>
-          </div>
         </div>
 
         <div className={styles.visualShell}>
