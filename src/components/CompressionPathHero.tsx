@@ -279,16 +279,9 @@ export default function CompressionPathHero() {
         </div>
 
         <div className={styles.visualShell}>
-          <div className={styles.header}>
-            <h2 className={styles.headerTitle}>
-              <span className={styles.sectionMark}>§</span>The Compression Path
-            </h2>
-            <p className={styles.headerSubtitle}>Click or tab through the rings and transition nodes.</p>
-          </div>
-
-          <div className={styles.coords} aria-hidden="true">
-            41.0998° N, 80.6495° W
-          </div>
+          <p className={styles.visualLabel}>
+            <span className={styles.sectionMark}>§</span>Compression Path
+          </p>
 
           <div className={styles.visualization}>
             <div className={`${styles.axis} ${styles.axisVertical}`} aria-hidden="true" />
@@ -337,7 +330,7 @@ export default function CompressionPathHero() {
           </div>
 
           <p className={`${styles.introHint} ${activeEntry ? styles.introHintHidden : ""}`.trim()}>
-            <span>Click a ring or transition node to explore</span>
+            <span>Select a ring or transition node to explore</span>
           </p>
 
           <div
