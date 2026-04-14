@@ -1,15 +1,17 @@
 .page {
-  padding-top: 6.5rem;
   padding-bottom: 6rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* ── Hero ──────────────────────────────────────────────── */
+.main {
+  display: flex;
+  flex-direction: column;
+}
 
-.hero {
-  padding: 4.5rem 0 5rem;
+.contentShell {
+  padding-top: 2rem;
 }
 
 .eyebrow {

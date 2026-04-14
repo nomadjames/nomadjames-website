@@ -1,3 +1,4 @@
+import CompressionPathHero from "@/components/CompressionPathHero";
 import styles from "./page.module.css";
 
 type FeaturedItem = {
@@ -121,39 +122,11 @@ function CompactLinkList({ items }: { items: CompactItem[] }) {
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className="container">
-        <section className={styles.hero}>
-          <div className={styles.eyebrow}>
-            <span className={styles.eyebrowLabel}>UX Designer & AI Systems Builder</span>
-            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>MS User Experience</span>
-            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>Youngstown, OH</span>
-          </div>
-          <h1 className={styles.name}>James Dishman</h1>
-          <p className={styles.mantra}>Every problem has a solution.</p>
-          <div className={styles.thesis}>
-            <p>Technology should make humans better.</p>
-            <p>I design the part where that actually happens.</p>
-          </div>
-          <p className={styles.bio}>
-            Electronic music production and a decade leading Pittsburgh&apos;s Ableton User Group have given me a
-            framework for thinking about tools: what they enable, what they foreclose, and who they leave out.
-            That instinct is now a research practice, with an MS thesis taking shape around AI, creativity,
-            and what it means to design systems that shape how people think.
-          </p>
-          <div className={styles.heroLinks}>
-            <a href="https://www.linkedin.com/in/james-dishman-3a512163/" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
-              LinkedIn ↗
-            </a>
-            <a href="https://github.com/nomadjames" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
-              GitHub ↗
-            </a>
-            <a href="/contact" className={styles.heroLink}>Contact ↗</a>
-          </div>
-        </section>
+      <main className={styles.main}>
+        <CompressionPathHero />
 
-        <section className={styles.section}>
+        <div className={`container ${styles.contentShell}`}>
+          <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>§ Portfolio</span>
             <div className={styles.sectionLine} />
@@ -191,7 +164,7 @@ export default function Home() {
             <a href="/vision" className={styles.allWorkLink}>Open vision →</a>
           </div>
         </section>
-
+        </div>
       </main>
     </div>
   );

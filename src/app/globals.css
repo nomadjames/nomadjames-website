@@ -25,6 +25,8 @@
   --font-heading: var(--font-outfit), sans-serif;
   --font-body: var(--font-inter), sans-serif;
   --font-mono: var(--font-jb-mono), 'JetBrains Mono', 'Fira Code', monospace;
+  --font-plex-mono: var(--font-ibm-plex-mono), 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  --font-plex-serif: var(--font-ibm-plex-serif), 'IBM Plex Serif', Georgia, serif;
 }
 
 * {

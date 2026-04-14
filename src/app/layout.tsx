@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
+import { Outfit, Inter, JetBrains_Mono, IBM_Plex_Mono, IBM_Plex_Serif } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
@@ -21,6 +21,21 @@ const inter = Inter({
 const jbMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jb-mono",
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
+});
+
+const ibmPlexSerif = IBM_Plex_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-ibm-plex-serif",
   display: "swap",
 });
 
@@ -50,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} ${jbMono.variable}`}
+      className={`${outfit.variable} ${inter.variable} ${jbMono.variable} ${ibmPlexMono.variable} ${ibmPlexSerif.variable}`}
     >
       <head>
         <Script
