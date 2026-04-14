@@ -5,6 +5,7 @@ import PretextTitle from "@/components/PretextTitle";
 import pulseData from "../../../../public/data/clarence-pulse.json";
 import clarenceStats from "@/data/clarence-stats.json";
 import SmartBackLink from "@/components/SmartBackLink";
+import ClarenceGraphFrame from "@/components/ClarenceGraphFrame";
 
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
@@ -127,11 +128,9 @@ export default function ClarencePage() {
             <span className={cs.graphTitle}>Live Knowledge Graph</span>
             <span className={cs.graphCaption}>Interactive public slice of the Clarence entity graph</span>
           </div>
-          <iframe
-            src="/clarence-graph/"
-            title="Clarence Knowledge Graph Visualization"
-            loading="lazy"
+          <ClarenceGraphFrame
             className={cs.graphFrame}
+            title="Clarence Knowledge Graph Visualization"
           />
         </div>
 
