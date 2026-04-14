@@ -66,6 +66,16 @@
   max-width: 760px;
 }
 
+.wideSection {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.wideIntro {
+  max-width: 760px;
+  margin-bottom: 1.75rem;
+}
+
 .sectionAccent {
   border-top-color: var(--orange);
   border-top-width: 2px;

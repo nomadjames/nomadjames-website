@@ -9,6 +9,12 @@
     var(--bg);
 }
 
+.heroSection {
+  min-height: auto;
+  padding: 1.5rem 0 0;
+  background: transparent;
+}
+
 .inner {
   position: relative;
   z-index: 2;
@@ -18,6 +24,12 @@
   grid-template-columns: minmax(0, 1fr) minmax(420px, 0.82fr);
   align-items: start;
   gap: clamp(2rem, 4vw, 4rem);
+}
+
+.innerSection {
+  max-width: none;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
 }
 
 .noise {
@@ -98,6 +110,21 @@
   max-width: 38rem;
 }
 
+.copySection {
+  max-width: 34rem;
+  padding-top: 0.5rem;
+}
+
+.sectionHeading {
+  margin-bottom: 0.9rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--fg);
+}
+
 .eyebrow {
   display: flex;
   flex-wrap: wrap;
@@ -166,6 +193,10 @@
   padding: 1.1rem 1.1rem 0;
   border: 1px solid rgba(232, 145, 58, 0.16);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.018) 0%, rgba(26, 26, 26, 0.82) 100%);
+}
+
+.visualShellSection {
+  min-height: auto;
 }
 
 .visualLabel {

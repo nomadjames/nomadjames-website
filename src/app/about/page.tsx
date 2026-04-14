@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
 import PretextTitle from "@/components/PretextTitle";
 import SmartBackLink from "@/components/SmartBackLink";
+import CompressionPathHero from "@/components/CompressionPathHero";
 
 export const metadata = {
   title: "About | James Dishman",
@@ -51,6 +52,18 @@ export default function AboutPage() {
             community team. I am completing an MS in User Experience at Kent State, where
             the formal training meets the instinct I have been building for years.
           </p>
+        </section>
+
+        <section className={styles.wideSection}>
+          <div className={styles.wideIntro}>
+            <h2 className={styles.sectionTitle}>The Compression Path</h2>
+            <p className={styles.body}>
+              The cleanest explanation of how I got here is that each domain sharpened the next.
+              This is the path that connects the music work, the community work, the UX training,
+              and the AI systems work.
+            </p>
+          </div>
+          <CompressionPathHero variant="section" />
         </section>
 
         {/* What I Actually Believe */}

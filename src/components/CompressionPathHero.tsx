@@ -9,6 +9,10 @@ type Entry = {
   meta: string;
 };
 
+type CompressionPathHeroProps = {
+  variant?: "hero" | "section";
+};
+
 type RingKey = "music" | "community" | "ux" | "ai";
 type TransitionKey = "music-community" | "community-ux" | "ux-ai";
 type ActiveSelection =
@@ -164,9 +168,10 @@ function getEntry(selection: ActiveSelection): Entry | null {
     : content.transitions[selection.key];
 }
 
-export default function CompressionPathHero() {
+export default function CompressionPathHero({ variant = "hero" }: CompressionPathHeroProps) {
   const [activeSelection, setActiveSelection] = useState<ActiveSelection>(null);
   const panelId = useId();
+  const isSection = variant === "section";
 
   useEffect(() => {
     function syncFromHash() {
@@ -214,7 +219,10 @@ export default function CompressionPathHero() {
   }
 
   return (
-    <section className={styles.hero} aria-labelledby="compression-path-heading">
+    <section
+      className={`${styles.hero} ${isSection ? styles.heroSection : ""}`.trim()}
+      aria-labelledby="compression-path-heading"
+    >
       <div className={styles.noise} aria-hidden="true" />
       <div className={styles.ambient} aria-hidden="true" />
       <div className={styles.particles} aria-hidden="true">
@@ -231,33 +239,51 @@ export default function CompressionPathHero() {
         ))}
       </div>
 
-      <div className={styles.inner}>
-        <div className={styles.copy}>
-          <div className={styles.eyebrow}>
-            <span className={styles.eyebrowLabel}>UX Designer & AI Systems Builder</span>
-            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>MS User Experience</span>
-            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
-            <span className={styles.eyebrowLabel}>Youngstown, OH</span>
-          </div>
+      <div className={`${styles.inner} ${isSection ? styles.innerSection : ""}`.trim()}>
+        <div className={`${styles.copy} ${isSection ? styles.copySection : ""}`.trim()}>
+          {isSection ? (
+            <>
+              <h3 id="compression-path-heading" className={styles.sectionHeading}>
+                Four domains, one line of work
+              </h3>
+              <div className={styles.thesis}>
+                <p>Pattern recognition became teaching. Teaching became UX. UX became AI systems design.</p>
+              </div>
+              <p className={styles.bio}>
+                Music taught pattern recognition. Community work showed me where people get stuck.
+                UX gave me a framework for seeing that clearly. AI systems design is where those
+                threads meet.
+              </p>
+            </>
+          ) : (
+            <>
+              <div className={styles.eyebrow}>
+                <span className={styles.eyebrowLabel}>UX Designer & AI Systems Builder</span>
+                <span className={styles.eyebrowDot} aria-hidden="true">·</span>
+                <span className={styles.eyebrowLabel}>MS User Experience</span>
+                <span className={styles.eyebrowDot} aria-hidden="true">·</span>
+                <span className={styles.eyebrowLabel}>Youngstown, OH</span>
+              </div>
 
-          <h1 id="compression-path-heading" className={styles.name}>
-            James Dishman
-          </h1>
+              <h1 id="compression-path-heading" className={styles.name}>
+                James Dishman
+              </h1>
 
-          <p className={styles.kicker}>The Compression Path</p>
-          <div className={styles.thesis}>
-            <p>Each domain becomes a lens for the next.</p>
-            <p>I research and design systems where people and AI work together.</p>
-          </div>
-          <p className={styles.bio}>
-            Music, community leadership, UX research, and AI systems design are not separate chapters.
-            They compress into one practice: understanding how tools shape thought, where people get stuck,
-            and how to design the seam so the system helps instead of dominates.
-          </p>
+              <p className={styles.kicker}>The Compression Path</p>
+              <div className={styles.thesis}>
+                <p>Each domain becomes a lens for the next.</p>
+                <p>I research and design systems where people and AI work together.</p>
+              </div>
+              <p className={styles.bio}>
+                Music, community leadership, UX research, and AI systems design are not separate chapters.
+                They compress into one practice: understanding how tools shape thought, where people get stuck,
+                and how to design the seam so the system helps instead of dominates.
+              </p>
+            </>
+          )}
         </div>
 
-        <div className={styles.visualShell}>
+        <div className={`${styles.visualShell} ${isSection ? styles.visualShellSection : ""}`.trim()}>
           <p className={styles.visualLabel}>
             <span className={styles.sectionMark}>§</span>Compression Path
           </p>
