@@ -13,6 +13,20 @@
   min-height: auto;
   padding: 1.5rem 0 0;
   background: transparent;
+  overflow: visible;
+}
+
+.heroSection .noise,
+.heroSection .particles {
+  display: none;
+}
+
+.heroSection .ambient {
+  width: min(28rem, 48vw);
+  top: 42%;
+  left: 78%;
+  opacity: 0.14;
+  animation: none;
 }
 
 .inner {
@@ -197,6 +211,11 @@
 
 .visualShellSection {
   min-height: auto;
+  padding-top: 0.9rem;
+}
+
+.visualShellSection .visualLabel {
+  margin-bottom: 0.65rem;
 }
 
 .visualLabel {
@@ -581,6 +600,11 @@
 
   .copy {
     max-width: 42rem;
+  }
+
+  .copySection {
+    max-width: 42rem;
+    padding-top: 0;
   }
 
   .visualShell {

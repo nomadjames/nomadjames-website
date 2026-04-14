@@ -250,9 +250,8 @@ export default function CompressionPathHero({ variant = "hero" }: CompressionPat
                 <p>Pattern recognition became teaching. Teaching became UX. UX became AI systems design.</p>
               </div>
               <p className={styles.bio}>
-                Music taught pattern recognition. Community work showed me where people get stuck.
-                UX gave me a framework for seeing that clearly. AI systems design is where those
-                threads meet.
+                Music taught pattern recognition. Community work taught me where people get stuck.
+                UX gave me a way to see that clearly. AI systems design is where those threads meet.
               </p>
             </>
           ) : (
@@ -285,7 +284,7 @@ export default function CompressionPathHero({ variant = "hero" }: CompressionPat
 
         <div className={`${styles.visualShell} ${isSection ? styles.visualShellSection : ""}`.trim()}>
           <p className={styles.visualLabel}>
-            <span className={styles.sectionMark}>§</span>Compression Path
+            <span className={styles.sectionMark}>§</span>{isSection ? "Interactive map" : "Compression Path"}
           </p>
 
           <div className={styles.visualization}>
@@ -335,7 +334,7 @@ export default function CompressionPathHero({ variant = "hero" }: CompressionPat
           </div>
 
           <p className={`${styles.introHint} ${activeEntry ? styles.introHintHidden : ""}`.trim()}>
-            <span>Select a ring or transition node to explore</span>
+            <span>{isSection ? "Tap a ring or node to explore" : "Select a ring or transition node to explore"}</span>
           </p>
 
           <div

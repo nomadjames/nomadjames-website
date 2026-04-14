@@ -58,9 +58,8 @@ export default function AboutPage() {
           <div className={styles.wideIntro}>
             <h2 className={styles.sectionTitle}>The Compression Path</h2>
             <p className={styles.body}>
-              The cleanest explanation of how I got here is that each domain sharpened the next.
-              This is the path that connects the music work, the community work, the UX training,
-              and the AI systems work.
+              This is the clearest way to see how the pieces connect: music, community work,
+              UX, and AI systems design.
             </p>
           </div>
           <CompressionPathHero variant="section" />
