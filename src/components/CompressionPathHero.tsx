@@ -248,7 +248,7 @@ export default function CompressionPathHero() {
           <p className={styles.kicker}>The Compression Path</p>
           <div className={styles.thesis}>
             <p>Each domain becomes a lens for the next.</p>
-            <p>I design the part where technology actually makes humans better.</p>
+            <p>I research and design systems where people and AI work together.</p>
           </div>
           <p className={styles.bio}>
             Music, community leadership, UX research, and AI systems design are not separate chapters.
