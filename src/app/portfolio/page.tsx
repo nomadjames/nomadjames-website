@@ -234,7 +234,7 @@ export default function Portfolio() {
             <span className={styles.sectionLabel}>§ Section 02</span>
             <h2 className={styles.moreWorkTitle}>Archive</h2>
             <p className={styles.moreWorkDesc}>
-              Completed work beyond the top three, including stronger supporting reports and artifacts from the broader archive.
+              Completed work beyond the top three, including supporting reports and artifacts from the broader archive.
             </p>
           </div>
           <LinkList items={archive} />

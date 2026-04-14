@@ -18,9 +18,9 @@ export default function ServicesPage() {
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowLabel}>Services</span>
           </div>
-          <h1 className={styles.title}>What I Can Do For You</h1>
+          <h1 className={styles.title}>Services</h1>
           <p className={styles.subtitle}>
-            I take on freelance and consulting work in three areas where I have real depth:
+            I take on freelance and consulting work in three areas where I have real experience:
             UX research and design, AI agent systems, and electronic music education.
           </p>
         </header>
@@ -50,9 +50,9 @@ export default function ServicesPage() {
             <div className={styles.detailBlock}>
               <span className={styles.detailLabel}>Why me</span>
               <p className={styles.detailText}>
-                I bring domain expertise that generalist UX designers do not have. If your product
-                touches music technology, creative tools, or AI-powered interfaces, I already understand
-                the users because I am one. My portfolio has the receipts.
+                If your product touches music technology, creative tools, or AI-powered interfaces,
+                I come in with domain context already in place. That changes the questions I ask,
+                the edge cases I notice, and the mistakes I can help you avoid.
               </p>
             </div>
           </div>
@@ -83,10 +83,9 @@ export default function ServicesPage() {
             <div className={styles.detailBlock}>
               <span className={styles.detailLabel}>Why me</span>
               <p className={styles.detailText}>
-                Most people offering AI consulting have built demos. I have built a production system
-                that manages my schedule, monitors projects, runs nightly research panels, and remembers
-                every conversation we have had. The difference between a demo and a tool you actually
-                depend on is where all the hard design questions live.
+                I am not coming at this from slideware. Clarence is a live system I depend on for
+                planning, automation, and cross-session continuity. Building something you can trust
+                over time requires different decisions than building something that demos well once.
               </p>
             </div>
           </div>
@@ -101,7 +100,7 @@ export default function ServicesPage() {
           <p className={styles.serviceDesc}>
             Thirty years of electronic music production and a decade leading Pittsburgh&apos;s
             Ableton User Group. I teach Ableton Live, synthesis, sound design, and the creative
-            thinking behind making electronic music that matters.
+            thinking behind making electronic music.
           </p>
           <div className={styles.serviceDetails}>
             <div className={styles.detailBlock}>

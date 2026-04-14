@@ -6,7 +6,7 @@ import SmartBackLink from "@/components/SmartBackLink";
 export const metadata = {
   title: "AI Music Education Platform | James Dishman",
   description:
-    "A vision piece for AI-guided electronic music education, combining 30 years of music production, UX graduate research, and production AI systems experience to address the seven barriers unique to learning electronic music.",
+    "A concept note on AI-guided electronic music education, grounded in long-term production experience, UX research training, and seven barriers that make this domain unusually hard to teach.",
 };
 
 export default function AIMusicEducation() {
@@ -107,13 +107,13 @@ export default function AIMusicEducation() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>What Exists Today</h2>
           <p className={styles.body}>
-            The competitive landscape is thin, and the tools that do exist were built before the current wave of AI capabilities.
+            What I found is a scattered landscape, and most of the tools that do exist were built before the current wave of AI capabilities.
           </p>
 
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Educational Platforms</h3>
             <p className={styles.body}>
-              <strong>Melodics</strong> teaches finger drumming and keyboard skills through gamified drills. Good for motor skills, but it does not touch synthesis, mixing, or production workflow. <strong>Yousician</strong> covers guitar, piano, bass, ukulele, and singing. No electronic music production path exists. <strong>Hookpad</strong> is the strongest tool for producers: it teaches harmony and melody in a way that maps to how DAWs actually work. But it stops at composition. It does not address sound design, mixing, or the full production workflow.
+              <strong>Melodics</strong> teaches finger drumming and keyboard skills through gamified drills. Good for motor skills, but it does not touch synthesis, mixing, or production workflow. <strong>Yousician</strong> covers guitar, piano, bass, ukulele, and singing. I have not seen a real electronic music production path there. <strong>Hookpad</strong> is the most relevant tool I found for producers: it teaches harmony and melody in a way that maps to how DAWs actually work. But it stops at composition. It does not address sound design, mixing, or the full production workflow.
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export default function AIMusicEducation() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Gap</h2>
           <p className={styles.body}>
-            I have not found a tool, platform, or course that clearly occupies the position of <strong>&ldquo;learn electronic music production with AI.&rdquo;</strong>
+            From what I have found so far, I have not seen a tool, platform, or course that clearly occupies the position of <strong>&ldquo;learn electronic music production with AI.&rdquo;</strong>
           </p>
           <p className={styles.body}>
             The gap sits at the intersection of three capabilities that do not yet exist together: a structured curriculum designed specifically for electronic music production (not adapted from piano or guitar pedagogy), production ear training that develops the ability to hear what a mix needs, and AI guidance that can operate in the context of what a learner is actually building.
@@ -145,7 +145,7 @@ export default function AIMusicEducation() {
             Each piece exists in isolation. Hookpad has curriculum. iZotope has AI analysis. ChatGPT has explanation. I have not found a coherent learning system that combines them in a way that takes someone from zero to a finished track with real understanding of what they built and why it works.
           </p>
           <p className={styles.body}>
-            I also believe there is an adjacent opportunity in audio analysis. An electronic music analysis tool that takes an MP3 as input and returns structured analysis of arrangement, frequency balance, dynamics, and production techniques. I have not found anything similar that exists today. That tool alone would address the &ldquo;no playing along&rdquo; barrier by giving learners a way to study the productions they admire in a structured, repeatable way.
+            I also believe there is an adjacent opportunity in audio analysis. An electronic music analysis tool that takes an MP3 as input and returns structured analysis of arrangement, frequency balance, dynamics, and production techniques. I have not found an equivalent yet, though this is the kind of claim that can change quickly. That kind of tool would address the &ldquo;no playing along&rdquo; barrier by giving learners a way to study the productions they admire in a structured, repeatable way.
           </p>
         </section>
 
@@ -156,7 +156,7 @@ export default function AIMusicEducation() {
             This is not a startup pitch. It is a statement of intersection. I have spent 30 years producing electronic music. I have organized the Pittsburgh Ableton User Group for over a decade and maintain a direct relationship with Ableton&apos;s international team. I am completing an MS in UX with formal training in research methods, usability evaluation, and interaction design. And I have built and operate an AI system used in daily work, with bounded autonomy and overnight automation.
           </p>
           <p className={styles.body}>
-            Each of those facts matters independently. Together, they give me a perspective that is still uncommon in this space. The production experience means I understand the domain from the inside, not as a researcher observing it. The PAUG leadership means I have watched hundreds of people at every skill level try to learn this craft. The UX training means I know how to study those learners systematically. The AI systems experience means I understand what AI can and cannot do today, not in theory but in daily practice.
+            Each of those facts matters independently. Together, they give me a perspective that is still fairly uncommon in this space. The production experience means I understand the domain from the inside, not as a researcher observing it. The PAUG leadership means I have watched hundreds of people at every skill level try to learn this craft. The UX training means I know how to study those learners systematically. The AI systems experience means I understand what AI can and cannot do today, not in theory but in daily practice.
           </p>
           <p className={styles.body}>
             The reason this concept feels plausible now is that AI capabilities have caught up to parts of the problem. Language models can explain. Audio analysis models can listen. Multi-agent systems can coordinate guidance across a longer learning flow. What still matters is connecting those capabilities to real curriculum design and real production practice.
