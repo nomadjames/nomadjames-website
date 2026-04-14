@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import pulseData from "../../../../public/data/clarence-pulse.json";
+import clarenceStats from "@/data/clarence-stats.json";
 import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
@@ -154,15 +155,15 @@ export default function PulsePage() {
           <h2 className={styles.sectionTitle}>Knowledge Graph</h2>
           <div className={styles.statsGrid}>
             <div className={styles.statCard}>
-              <span className={styles.statValue}>{formatNumber(data.knowledge_stats.active_facts)}</span>
+              <span className={styles.statValue}>{formatNumber(clarenceStats.active_facts)}</span>
               <span className={styles.statLabel}>Active Facts</span>
             </div>
             <div className={styles.statCard}>
-              <span className={styles.statValue}>{formatNumber(data.knowledge_stats.active_memories)}</span>
+              <span className={styles.statValue}>{formatNumber(clarenceStats.active_memories)}</span>
               <span className={styles.statLabel}>Memories</span>
             </div>
             <div className={styles.statCard}>
-              <span className={styles.statValue}>{formatNumber(data.knowledge_stats.total_entities)}</span>
+              <span className={styles.statValue}>{formatNumber(clarenceStats.entities)}</span>
               <span className={styles.statLabel}>Entities</span>
             </div>
             <div className={styles.statCard}>
@@ -170,7 +171,7 @@ export default function PulsePage() {
               <span className={styles.statLabel}>Relations</span>
             </div>
             <div className={styles.statCard}>
-              <span className={styles.statValue}>{formatNumber(data.knowledge_stats.indexed_vault_notes)}</span>
+              <span className={styles.statValue}>{formatNumber(clarenceStats.indexed_vault_notes)}</span>
               <span className={styles.statLabel}>Vault Notes Indexed</span>
             </div>
           </div>

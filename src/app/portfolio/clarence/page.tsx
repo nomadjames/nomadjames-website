@@ -3,12 +3,13 @@ import cs from "./page.module.css";
 import Tldr from "@/components/Tldr";
 import PretextTitle from "@/components/PretextTitle";
 import pulseData from "../../../../public/data/clarence-pulse.json";
+import clarenceStats from "@/data/clarence-stats.json";
 import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
-    "A systems design case study on building Clarence: a persistent AI collaborator with Hermes on GPT-5.4 as the primary orchestrator, Claude Code as a bounded specialist path, and a SQLite knowledge base holding 3,394 active memories, 2,474 entities, 10,349 active facts, and 2,128 indexed vault notes. The current system combines hardened memory, explicit handoffs, overnight automation, and a documented migration path from OpenClaw to the present Hermes + specialist-lane model.",
+    `A systems design case study on building Clarence: a persistent AI collaborator with Hermes on GPT-5.4 as the primary orchestrator, Claude Code as a bounded specialist path, and a SQLite knowledge base holding ${clarenceStats.active_memories.toLocaleString()} active memories, ${clarenceStats.entities.toLocaleString()} entities, ${clarenceStats.active_facts.toLocaleString()} active facts, and ${clarenceStats.indexed_vault_notes.toLocaleString()} indexed vault notes. The current system combines hardened memory, explicit handoffs, overnight automation, and a documented migration path from OpenClaw to the present Hermes + specialist-lane model.`,
 };
 
 type ClarencePulse = {
@@ -28,6 +29,7 @@ type ClarencePulse = {
 };
 
 const livePulse = pulseData as ClarencePulse;
+const stats = clarenceStats;
 
 export default function ClarencePage() {
   return (
@@ -80,11 +82,11 @@ export default function ClarencePage() {
               <span className={cs.liveCardKicker}>System Pulse</span>
               <h2 className={cs.liveCardTitle}>Public-safe telemetry for the live Clarence system</h2>
               <p className={cs.liveCardBody}>
-                {livePulse.heartbeat.uptime_days} days online since March 20, 2026. {livePulse.knowledge_stats.active_facts.toLocaleString()} active facts, {livePulse.knowledge_stats.active_memories.toLocaleString()} memories, {livePulse.system_vitals.hermes_skills.toLocaleString()} Hermes skills.
+                {livePulse.heartbeat.uptime_days} days online since March 20, 2026. {stats.active_facts.toLocaleString()} active facts, {stats.active_memories.toLocaleString()} memories, {livePulse.system_vitals.hermes_skills.toLocaleString()} Hermes skills.
               </p>
               <span className={cs.liveCardMeta}>Open the Pulse page →</span>
             </a>
-            <a href="/clarence-graph" className={cs.liveCard}>
+            <a href="/clarence-graph/" className={cs.liveCard}>
               <span className={cs.liveCardKicker}>Knowledge Graph</span>
               <h2 className={cs.liveCardTitle}>Interactive graph view of the public Clarence entity slice</h2>
               <p className={cs.liveCardBody}>
@@ -96,21 +98,21 @@ export default function ClarencePage() {
         </section>
 
         <Tldr>
-          Clarence now runs as a tandem system: Hermes on GPT-5.4 handles the main conversation, planning, memory stewardship, and synthesis, while Claude Code is reserved for bounded specialist work. The knowledge layer currently holds {livePulse.knowledge_stats.active_memories.toLocaleString()} active memories, {livePulse.knowledge_stats.total_entities.toLocaleString()} entities, {livePulse.knowledge_stats.active_facts.toLocaleString()} active facts, and {livePulse.knowledge_stats.indexed_vault_notes.toLocaleString()} indexed Obsidian notes. The most important design work happened after the migration, not before it: hardening memory, making routing explicit, and turning specialist escalation into a deliberate leverage path instead of a default habit. The result is less flashy than a fully autonomous demo, but far more trustworthy.
+          Clarence now runs as a tandem system: Hermes on GPT-5.4 handles the main conversation, planning, memory stewardship, and synthesis, while Claude Code is reserved for bounded specialist work. The knowledge layer currently holds {stats.active_memories.toLocaleString()} active memories, {stats.entities.toLocaleString()} entities, {stats.active_facts.toLocaleString()} active facts, and {stats.indexed_vault_notes.toLocaleString()} indexed Obsidian notes. The most important design work happened after the migration, not before it: hardening memory, making routing explicit, and turning specialist escalation into a deliberate leverage path instead of a default habit. The result is less flashy than a fully autonomous demo, but far more trustworthy.
         </Tldr>
 
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>{livePulse.knowledge_stats.active_facts.toLocaleString()}</span>
+            <span className={cs.statNum}>{stats.active_facts.toLocaleString()}</span>
             <span className={cs.statLabel}>Active facts in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>{livePulse.knowledge_stats.active_memories.toLocaleString()}</span>
+            <span className={cs.statNum}>{stats.active_memories.toLocaleString()}</span>
             <span className={cs.statLabel}>Active memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>{livePulse.knowledge_stats.indexed_vault_notes.toLocaleString()}</span>
+            <span className={cs.statNum}>{stats.indexed_vault_notes.toLocaleString()}</span>
             <span className={cs.statLabel}>Indexed Obsidian vault notes</span>
           </div>
           <div className={cs.stat}>
@@ -126,7 +128,7 @@ export default function ClarencePage() {
             <span className={cs.graphCaption}>Interactive public slice of the Clarence entity graph</span>
           </div>
           <iframe
-            src="/clarence-graph"
+            src="/clarence-graph/"
             title="Clarence Knowledge Graph Visualization"
             loading="lazy"
             className={cs.graphFrame}
@@ -156,15 +158,14 @@ export default function ClarencePage() {
             a chat log. That model is useful, but it is not collaboration.
           </p>
           <p className={styles.body}>
-            The question I set out to explore: <strong>what does it mean to design a genuine collaborator
-            rather than a responsive tool?</strong> A collaborator has agency. It acts when you are not watching.
-            It accumulates context over time. It knows your priorities well enough to exercise judgment about
-            what matters without being asked every time.
+            The question I set out to explore: <strong>what does it take to make an AI system useful across
+            sessions instead of only within one chat?</strong> It needs durable context, explicit boundaries,
+            and enough judgment to stay useful without pretending it should decide everything on its own.
           </p>
           <p className={styles.body}>
-            Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous
-            system running on the Hermes gateway, hard-pinned to GPT-5.4 via OpenAI, with Claude Code used as a bounded
-            specialist path rather than the main brain. After the forced migration off the old OpenClaw stack, the most
+            Clarence is my attempt to answer that question in practice. It is an autonomous
+            system running on the Hermes gateway, hard-pinned to GPT-5.4 via OpenAI, with Claude Code used for bounded
+            specialist work when the task justifies it. After the forced migration off the old OpenClaw stack, the most
             important work was not just restoring functionality. It was hardening memory: stale embeddings, duplicate
             conversation memories, broken retrieval paths, dead Obsidian links, and fake-green health checks all had to be
             dragged into the light and fixed. Clarence now maintains over 10,000 active facts and 3,000 active memories
@@ -326,17 +327,18 @@ export default function ClarencePage() {
             <div className={cs.archDiagramRow}>
               <div className={cs.archDiagramLabel}>Routing</div>
               <div className={cs.archDiagramNodes}>
-                <span className={cs.archDiagramNodeAccent}>OpenAI for volume</span>
+                <span className={cs.archDiagramNodeAccent}>GPT-5.4 daily runtime</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Claude Code for leverage</span>
+                <span className={cs.archDiagramNode}>Claude Code specialist path</span>
                 <span className={cs.archDiagramArrow} aria-hidden="true">→</span>
-                <span className={cs.archDiagramNode}>Free support paths when bounded</span>
+                <span className={cs.archDiagramNode}>Lower-cost support paths when bounded</span>
               </div>
               <p className={cs.archDiagramNote}>
                 The routing rule is simple because the budget is real. GPT-5.4 handles the daily conversation,
                 decomposition, explanation, and synthesis. Claude Code is reserved for higher-leverage repo work and
-                focused investigation bursts. Cheaper or free support paths still exist, but they are helpers, not the
-                main brain. The operating rule is blunt by design: OpenAI for volume, Claude Code for leverage.
+                focused investigation bursts. Lower-cost support paths still exist, but only for clearly bounded support
+                tasks. The point was not clever routing. The point was keeping the system predictable enough to trust and
+                cheap enough to run.
               </p>
             </div>
 
@@ -354,8 +356,8 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Session Handoff Notes</span>
               </div>
               <p className={cs.archDiagramNote}>
-                The knowledge database currently holds 3,394 active memories, 2,474 entities, 10,349 active facts,
-                and 14,882 total facts. The Obsidian vault contains 2,128 markdown notes. Hermes also keeps a compact
+                The knowledge database currently holds {stats.active_memories.toLocaleString()} active memories, {stats.entities.toLocaleString()} entities, {stats.active_facts.toLocaleString()} active facts,
+                and {stats.total_facts.toLocaleString()} total facts. The Obsidian vault contains {stats.indexed_vault_notes.toLocaleString()} markdown notes. Hermes also keeps a compact
                 hot-memory layer in MEMORY.md and USER.md for turn-level continuity. The important design choice is not
                 just storage. It is ownership: Hermes remains the canonical memory steward, and Claude gets bounded,
                 task-specific access instead of ambient omniscience.
@@ -417,7 +419,7 @@ export default function ClarencePage() {
           <div className={cs.workList}>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>12:10 AM</span>
-              <p className={cs.workDesc}><strong>Knowledge Sync</strong>: pulls reference material, refreshes the vault-backed knowledge layer, and reports the run overnight. The vault currently contains 2,128 markdown notes.</p>
+              <p className={cs.workDesc}><strong>Knowledge Sync</strong>: pulls reference material, refreshes the vault-backed knowledge layer, and reports the run overnight. The vault currently contains {stats.indexed_vault_notes.toLocaleString()} markdown notes.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:10 AM</span>
@@ -528,13 +530,13 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>SQLite Knowledge Database + RAG</h3>
             <p className={styles.body}>
-              Long-term memory is still stored in a single consolidated SQLite database (clarence.db). As of April 11, 2026, it holds 3,394 active memories (4,261 total), 2,474 entities, and 10,349 active facts (14,882 total).
+              Long-term memory is still stored in a single consolidated SQLite database (clarence.db). As of {stats.verified_label}, it holds {stats.active_memories.toLocaleString()} active memories ({stats.total_memories.toLocaleString()} total), {stats.entities.toLocaleString()} entities, and {stats.active_facts.toLocaleString()} active facts ({stats.total_facts.toLocaleString()} total).
               The schema separates deterministic profile lookup from fuzzier memory retrieval, which matters more than it
               sounds. Names, preferences, and project constants should resolve exactly. Reflection, history, and reference
               material should be searchable by meaning.
             </p>
             <p className={styles.body}>
-              The Obsidian side of the system is also still real: 2,128 markdown notes in the vault, synced into the
+              The Obsidian side of the system is also still real: {stats.indexed_vault_notes.toLocaleString()} markdown notes in the vault, synced into the
               knowledge layer and available for retrieval. This is one of the reasons the system survived migration pressure.
               The durable substrate was portable even when the execution layer changed.
             </p>
@@ -559,7 +561,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Multi-Surface Communication</h3>
             <p className={styles.body}>
-              Discord (15 channels in the current directory), Telegram (interactive conversations), HANDOFF.md (session continuity). Each surface serves a different communication need. Discord for async notification and overnight reporting. Telegram for real-time dialogue and morning briefings. HANDOFF.md for session-to-session continuity.
+              Discord ({stats.discord_channels.toLocaleString()} channels in the current directory), Telegram (interactive conversations), HANDOFF.md (session continuity). Each surface serves a different communication need. Discord for async notification and overnight reporting. Telegram for real-time dialogue and morning briefings. HANDOFF.md for session-to-session continuity.
             </p>
           </div>
 
@@ -605,7 +607,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Memory Growth Without Garbage Collection</h3>
             <p className={styles.body}>
-              The knowledge base grew from ~170 to 4,261 memories and the facts table exploded to 14,882
+              The knowledge base grew from ~170 to {stats.total_memories.toLocaleString()} memories and the facts table exploded to {stats.total_facts.toLocaleString()}
               entries after vault fact extraction processed thousands of notes and documents. More data does not automatically
               mean better recall. As the database scales, the vector search returns increasingly similar
               results, and the signal-to-noise ratio in retrieved context degrades. Memory needs pruning
@@ -649,8 +651,8 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>Knowledge database verified live on April 11, 2026: 3,394 active memories (4,261 total), 2,474 entities, 10,349 active facts (14,882 total)</li>
-            <li>Obsidian knowledge layer verified live: 2,128 markdown notes indexed into the working knowledge stack</li>
+            <li>Knowledge database verified live on {stats.verified_label}: {stats.active_memories.toLocaleString()} active memories ({stats.total_memories.toLocaleString()} total), {stats.entities.toLocaleString()} entities, {stats.active_facts.toLocaleString()} active facts ({stats.total_facts.toLocaleString()} total)</li>
+            <li>Obsidian knowledge layer verified live: {stats.indexed_vault_notes.toLocaleString()} markdown notes indexed into the working knowledge stack</li>
             <li>Hermes skill library verified live: 137 skills spanning research, development, infrastructure, and creative workflows</li>
             <li>Overnight Hermes scheduler verified live: 15 scheduled jobs spanning knowledge sync, health checks, cost reporting, calendar, job search, and summaries</li>
             <li>Hermes remains hard-pinned to GPT-5.4 as the primary orchestrator and memory steward</li>

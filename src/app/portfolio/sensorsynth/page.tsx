@@ -193,7 +193,7 @@ export default function SensorSynthFM() {
             Read it here: <a href="/writing/sensorsynth-needed-a-wiki">Why SensorSynth FM Needed a Wiki Before It Needed More Features</a>.
           </p>
           <p className={styles.body}>
-            The code lives on <a href="https://github.com/nomadjames/SensorSynthFM" target="_blank" rel="noopener noreferrer">GitHub</a>, and the public project docs now live at <a href="https://nomadjames.github.io/SensorSynthFM/" target="_blank" rel="noopener noreferrer">nomadjames.github.io/SensorSynthFM</a>.
+            The code lives on <a href="https://github.com/nomadjames/SensorSynthFM" target="_blank" rel="noopener noreferrer">GitHub</a>. The public documentation layer is still in progress.
           </p>
         </section>
 

@@ -1,4 +1,3 @@
-import CompressionPathHero from "@/components/CompressionPathHero";
 import styles from "./page.module.css";
 
 type FeaturedItem = {
@@ -25,7 +24,7 @@ const featuredStudies: FeaturedItem[] = [
     title: "Clarence: Autonomous Agent Ecosystem",
     category: "AI Systems Design",
     year: "2025–2026",
-    tldr: "I built an autonomous AI system that manages a knowledge base of 3,397 active memories, 2,474 entities, and 10,349 active facts with full vector search across 2,075 indexed vault notes, routes tasks across multiple models by cost and capability, syncs reference materials from Google Drive, and posts reports to 9 Discord channels. Then the platform I built it on changed the rules, and I had to migrate the entire system under constraint in 48 hours. The real lesson was not about automation. It was about trust calibration, platform dependency, and what happens when you design a collaborator instead of a tool.",
+    tldr: "I built a production AI system for persistent memory, task routing, and daily collaboration. Then the platform it depended on changed the rules, and I had to migrate it under a 48-hour deadline. The case study is about designing human-AI collaboration under real trust and platform constraints.",
     link: "/portfolio/clarence",
   },
   {
@@ -123,47 +122,64 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <CompressionPathHero />
+        <header className={`container ${styles.hero}`}>
+          <div className={styles.eyebrow}>
+            <span className={styles.eyebrowLabel}>Youngstown, OH</span>
+            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
+            <span className={styles.eyebrowLabel}>MS User Experience</span>
+            <span className={styles.eyebrowDot} aria-hidden="true">·</span>
+            <span className={styles.eyebrowLabel}>UX + AI Systems</span>
+          </div>
+
+          <h1 className={styles.name}>James Dishman</h1>
+          <p className={styles.mantra}>UX Researcher, Designer, and AI Systems Builder</p>
+          <div className={styles.thesis}>
+            <p>I research and design systems where people and AI work together, with a focus on creativity tools, accessibility, and agent architectures.</p>
+          </div>
+          <p className={styles.bio}>
+            The work below starts with completed case studies, then moves into active builds and longer-term directions.
+          </p>
+        </header>
 
         <div className={`container ${styles.contentShell}`}>
           <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>§ Portfolio</span>
-            <div className={styles.sectionLine} />
-          </div>
-          <FeaturedCardList items={featuredStudies} />
-          <div className={styles.sectionFooter}>
-            <a href="/portfolio" className={styles.allWorkLink}>See portfolio →</a>
-          </div>
-        </section>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionLabel}>§ Portfolio</span>
+              <div className={styles.sectionLine} />
+            </div>
+            <FeaturedCardList items={featuredStudies} />
+            <div className={styles.sectionFooter}>
+              <a href="/portfolio" className={styles.allWorkLink}>See portfolio →</a>
+            </div>
+          </section>
 
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>§ Building</span>
-            <div className={styles.sectionLine} />
-          </div>
-          <p className={styles.sectionIntro}>
-            Active work in development. These projects are real, public, and still changing.
-          </p>
-          <CompactLinkList items={building} />
-          <div className={styles.sectionFooter}>
-            <a href="/building" className={styles.allWorkLink}>Open building →</a>
-          </div>
-        </section>
+          <section className={styles.section}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionLabel}>§ Building</span>
+              <div className={styles.sectionLine} />
+            </div>
+            <p className={styles.sectionIntro}>
+              Active work in development. These projects are real, public, and still changing.
+            </p>
+            <CompactLinkList items={building} />
+            <div className={styles.sectionFooter}>
+              <a href="/building" className={styles.allWorkLink}>Open building →</a>
+            </div>
+          </section>
 
-        <section className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>§ Vision</span>
-            <div className={styles.sectionLine} />
-          </div>
-          <p className={styles.sectionIntro}>
-            Planned work and concept direction. These are ideas I think are worth pursuing next.
-          </p>
-          <CompactLinkList items={vision} />
-          <div className={styles.sectionFooter}>
-            <a href="/vision" className={styles.allWorkLink}>Open vision →</a>
-          </div>
-        </section>
+          <section className={styles.section}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionLabel}>§ Vision</span>
+              <div className={styles.sectionLine} />
+            </div>
+            <p className={styles.sectionIntro}>
+              Planned work and concept direction. These are ideas I think are worth pursuing next.
+            </p>
+            <CompactLinkList items={vision} />
+            <div className={styles.sectionFooter}>
+              <a href="/vision" className={styles.allWorkLink}>Open vision →</a>
+            </div>
+          </section>
         </div>
       </main>
     </div>

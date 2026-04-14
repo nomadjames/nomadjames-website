@@ -23,7 +23,7 @@ const featured: FeaturedItem[] = [
     title: "Clarence: Autonomous Agent Ecosystem",
     category: "AI Systems Design",
     year: "2025–2026",
-    blurb: "An autonomous AI collaborator built to manage memory, route work across models, and operate as a real daily system under practical constraints. It is the clearest expression of my systems thinking, research instincts, and design judgment in one project.",
+    blurb: "An autonomous AI collaborator built to manage memory, route work across models, and operate as a real daily system under practical constraints. The case study focuses on trust calibration, memory design, and what changed when the stack had to migrate under pressure.",
     link: "/portfolio/clarence",
   },
   {
@@ -39,7 +39,7 @@ const featured: FeaturedItem[] = [
     title: "Accessibility Audit Suite: Music Tech Meets WCAG",
     category: "UX Research",
     year: "2025",
-    blurb: "A multi-method accessibility audit across web, social, assistive technology, PDF remediation, and cognitive accessibility. It is one of the strongest examples of rigor, breadth, and practical design ethics on the site.",
+    blurb: "A multi-method accessibility audit across web, social, assistive technology, PDF remediation, and cognitive accessibility. The project combines technical remediation with practical design ethics.",
     link: "/portfolio/accessibility-audit",
   },
 ];
@@ -214,7 +214,7 @@ export default function Portfolio() {
           <div className={styles.headerRule} />
           <h1 className={styles.pageTitle}>Portfolio</h1>
           <p className={styles.subtitle}>
-            Completed work. The three strongest case studies stay at the top. Everything else follows in order of importance.
+            Completed work. Featured projects stay at the top, followed by the broader archive.
           </p>
         </header>
 
@@ -223,7 +223,7 @@ export default function Portfolio() {
             <span className={styles.sectionLabel}>§ Section 01</span>
             <h2 className={styles.moreWorkTitle}>Featured Work</h2>
             <p className={styles.moreWorkDesc}>
-              The clearest representation of how I think, research, design, and build.
+              Selected case studies from the top of the portfolio.
             </p>
           </div>
           <FeaturedList items={featured} />

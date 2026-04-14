@@ -10,8 +10,12 @@
   flex-direction: column;
 }
 
+.hero {
+  padding: 7rem 0 0.75rem;
+}
+
 .contentShell {
-  padding-top: 2rem;
+  padding-top: 0.5rem;
 }
 
 .eyebrow {

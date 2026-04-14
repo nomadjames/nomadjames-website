@@ -140,7 +140,7 @@ export default function SensorSynthWikiArticle() {
               it will keep the project from disappearing into ambition again.
             </p>
             <p className={styles.body}>
-              The public docs layer lives at <a href="https://nomadjames.github.io/SensorSynthFM/" target="_blank" rel="noopener noreferrer">nomadjames.github.io/SensorSynthFM</a>.
+              The public docs layer is still in progress.
             </p>
             <p className={styles.body}>
               You can read the case study for the broader design framing at

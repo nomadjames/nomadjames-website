@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import Tldr from "@/components/Tldr";
 import PretextTitle from "@/components/PretextTitle";
 import SmartBackLink from "@/components/SmartBackLink";
+
 export const metadata = {
   title: "About | James Dishman",
   description:
@@ -56,13 +57,12 @@ export default function AboutPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>What I Actually Believe</h2>
           <p className={styles.body}>
-            Technology should make humans better. I design the part where that actually happens.
+            Technology should make people more capable, more creative, or more connected to the thing
+            they care about. That is how I decide what is worth building.
           </p>
           <p className={styles.body}>
-            That is not a tagline. It is a filter. Every project I take on, every system I build,
-            gets measured against that. If the technology does not make the person using it more
-            capable, more creative, or more connected to the thing they care about, I am not
-            interested in building it.
+            If a system does not help the person using it do better work, think more clearly, or stay
+            closer to the reason they came to the tool in the first place, I am not interested in it.
           </p>
           <p className={styles.body}>
             I see design through Don Norman&apos;s frameworks as a default lens. Affordances,
@@ -84,9 +84,8 @@ export default function AboutPage() {
             I do my best work when I know the subject deeply. The Ableton evaluations in my
             portfolio are credible because I have lived inside that ecosystem for years. The Oblique
             Oracle exists because I cherish the I Ching, not because I saw a market opportunity.
-            Clarence is not a demo project. It is a system I use every day, with a knowledge database
-            of 3,397 active memories and 10,349 active facts that grew from two weeks of intensive
-            daily use, corrections, and overnight pipeline runs.
+            Clarence is not a demo project. It is a system I use every day, built through repeated
+            correction, daily use, and overnight pipeline runs.
           </p>
           <p className={styles.body}>
             That depth is what I bring to a team. I learn the domain, I learn the users, and I
@@ -131,11 +130,10 @@ export default function AboutPage() {
             templates. No themes. Built from scratch.
           </p>
           <p className={styles.body}>
-            It was a collaboration between Clarence and me, my AI collaborator system. The current runtime now lives in Hermes on GPT-5.4, with the specialist coding lane kept separate from the main conversation layer.
-            I directed every decision. Clarence executed. That distinction matters. I chose the
-            typography, the layout, the voice, the color palette, the information architecture.
-            Clarence wrote the code, ran the builds, managed the deployments, and kept track of
-            forty things at once while I was out in the field swapping meters.
+            It was a collaboration between Clarence and me, but the hierarchy was clear. I reviewed the
+            site on my iPad and phone between stops on my meter route, sent corrections through Telegram,
+            and made the decisions about design, voice, layout, and information architecture. Clarence
+            handled code generation, build management, and deployment.
           </p>
 
           <h3 className={styles.subheading}>How It Actually Worked</h3>
@@ -153,38 +151,11 @@ export default function AboutPage() {
             and we did not figure out why until that evening.
           </p>
           <p className={styles.body}>
-            The part that matters most: Clarence has a knowledge database with 3,394 active memories
-            (4,261 total including archived) built from our conversations, my reading, and every
-            correction I have ever given it. It distills what I care about, how I think, and what I
-            will not tolerate. The portfolio content was not generated from a generic prompt. It was
-            extracted from a system that knows my voice, my work, and my standards because I spent
-            two weeks of intensive daily teaching with it. That database is the real artifact. The
-            site is just what it looks like when you render it.
+            The portfolio content was not generated from a generic prompt. It came out of repeated
+            correction and daily use. Clarence could move quickly because it had already learned my
+            standards, but the calls about what stayed, what got cut, and how the work should sound
+            were mine.
           </p>
-
-          <h3 className={styles.subheading}>What Each Side Brought</h3>
-          <div className={styles.splitGrid}>
-            <div className={styles.splitCard}>
-              <span className={styles.splitLabel}>James</span>
-              <ul className={styles.splitList}>
-                <li>Vision and creative direction</li>
-                <li>Taste: knowing when something looked wrong even if it was technically correct</li>
-                <li>Domain expertise in UX, music, and the subject matter of every case study</li>
-                <li>Quality control from a real device in real lighting conditions</li>
-                <li>The word &quot;no&quot; when Clarence got ahead of itself</li>
-              </ul>
-            </div>
-            <div className={styles.splitCard}>
-              <span className={styles.splitLabel}>Clarence</span>
-              <ul className={styles.splitList}>
-                <li>Execution speed: parallel agents building multiple pages simultaneously</li>
-                <li>Memory systems that tracked every decision and preference across sessions</li>
-                <li>Code generation, build management, deployment pipeline</li>
-                <li>The ability to hold the full context of a growing codebase in working memory</li>
-                <li>Patience for the fifteenth round of &quot;make this two pixels smaller&quot;</li>
-              </ul>
-            </div>
-          </div>
 
           <h3 className={styles.subheading}>What is Honest About This</h3>
           <p className={styles.body}>

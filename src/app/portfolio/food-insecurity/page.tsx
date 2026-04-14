@@ -432,9 +432,7 @@ export default function FoodInsecurityResearch() {
               </a>
             </li>
             <li>
-              <a href="/pdfs/food-insecurity-affinity-diagram.pdf" target="_blank" rel="noopener noreferrer">
-                Affinity diagram (90MB synthesis artifact)
-              </a>
+              Affinity diagram synthesis artifact (not currently published on this site)
             </li>
             <li>
               <a href="/pdfs/food-insecurity-jtbd-analysis.pdf" target="_blank" rel="noopener noreferrer">
