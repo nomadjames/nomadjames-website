@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "generate:clarence-graph": "python3 scripts/generate-clarence-graph.py"
+    "generate:clarence-graph": "python3 scripts/generate-clarence-graph.py",
+    "verify:clarence-graph": "python3 scripts/verify-clarence-graph.py",
+    "refresh:clarence-graph": "npm run generate:clarence-graph && npm run verify:clarence-graph && npm run build"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.3",

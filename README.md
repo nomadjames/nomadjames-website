@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nomadjames-website
 
-## Getting Started
+James Dishman’s portfolio site, built with Next.js.
 
-First, run the development server:
+## Core commands
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Public Clarence graph workflow
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The public Clarence graph must stay anonymous. The shipped JSON is allowed to expose only:
+- node id
+- node type
+- connection count
+- edges
+- aggregate stats
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+It must never ship node names, descriptions, labels, or source-name fields.
 
-## Learn More
+### One-command refresh
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run refresh:clarence-graph
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+That command does three things in order:
+1. Regenerates `public/clarence-graph/graph-data.json` from the local Clarence DB
+2. Verifies the export contains no node names or source fields
+3. Runs a production build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Individual steps
 
-## Deploy on Vercel
+```bash
+npm run generate:clarence-graph
+npm run verify:clarence-graph
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Default Clarence DB path
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The graph generator reads from:
+
+```bash
+~/.openclaw/workspace/memory/clarence.db
+```
+
+If you need a different DB or output path, call the script directly:
+
+```bash
+python3 scripts/generate-clarence-graph.py /path/to/clarence.db /path/to/output.json
+python3 scripts/verify-clarence-graph.py /path/to/output.json
+```
+
+## Safety rule for future updates
+
+If the graph is refreshed, run `npm run refresh:clarence-graph` before commit or deploy. Do not ship a graph export that includes entity names.
