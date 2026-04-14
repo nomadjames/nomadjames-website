@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:clarence-graph": "python3 scripts/generate-clarence-graph.py"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.3",

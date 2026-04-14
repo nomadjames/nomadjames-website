@@ -162,7 +162,7 @@
         const size = Math.min(35, Math.max(8, 8 + Math.log(conns + 1) * 6));
         return {
           id: n.id,
-          label: n.name || n.id,
+          label: '',
           shape: style.shape,
           size: size,
           color: {
@@ -174,7 +174,7 @@
           font: { color: 'rgba(255,255,255,0.75)', size: 11, face: '-apple-system, sans-serif' },
           borderWidth: 0,
           borderWidthSelected: 2,
-          // Store metadata for tooltip
+          // Store metadata for generic public-safe tooltip text
           _type: n.type || 'unknown',
           _connections: conns,
         };
@@ -329,8 +329,10 @@
         if (e.nodes.length > 0) {
           const nodeId = e.nodes[0];
           const nodeData = visNodes.get(nodeId);
-          ttName.textContent = nodeData.label;
-          ttType.textContent = nodeData._type;
+          const style = getStyle(nodeData._type);
+          const connectionLabel = nodeData._connections === 1 ? '1 connection' : `${nodeData._connections} connections`;
+          ttName.textContent = `${style.label} node`;
+          ttType.textContent = connectionLabel;
           // Position tooltip at click location
           tooltipEl.style.left = e.event.center.x + 'px';
           tooltipEl.style.top = (e.event.center.y - 12) + 'px';
