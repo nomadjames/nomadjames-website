@@ -4,6 +4,50 @@ Sequential record of all changes to the portfolio site. Includes both Clarence-e
 
 ---
 
+## 2026-04-14
+
+### b9769fa — Fold Clarence graph refresh into repo workflow
+- **Who:** Clarence
+- Added `scripts/verify-clarence-graph.py`
+- Added `npm run verify:clarence-graph` and `npm run refresh:clarence-graph`
+- Replaced the generic README with repo-specific workflow instructions for the public Clarence graph
+- Verified the one-command path regenerates, verifies anonymity, and builds cleanly
+
+### 9071d13 — Harden public Clarence graph export
+- **Who:** Clarence
+- Removed node names from the public Clarence graph UI
+- Regenerated `public/clarence-graph/graph-data.json` with no shipped `name` fields
+- Added repo-local `scripts/generate-clarence-graph.py`
+- Confirmed the public graph now exposes anonymous structure only
+
+### fded7fc — Polish about page compression path section
+- **Who:** Clarence
+- Tightened copy and presentation in the about-page compression path section
+
+### 72e6f6a — Place compression path on about page
+- **Who:** Clarence
+- Moved the compression path narrative onto the about page
+
+### 2c572ac — Fix Clarence graph embed routing
+- **Who:** Clarence
+- Corrected Clarence graph embed routing so the public graph frame resolves properly
+
+### be05b72 — Clean dormant compression path hero copy
+- **Who:** Clarence
+- Removed dormant compression path hero copy that was no longer pulling its weight
+
+### aff297b — Tighten site copy and fix trailing slash export
+- **Who:** Clarence
+- Tightened site copy and fixed export behavior tied to trailing slash handling
+
+### dc2a1cc — Clean portfolio copy and fix site links
+- **Who:** Clarence
+- Cleaned portfolio copy and corrected site links
+
+### 2fc701a — fix: remove hero external links
+- **Who:** Clarence
+- Removed external links from the hero section
+
 ## 2026-03-27
 
 ### 3f4d7c7 -- Fix About page: remove age, trim grandstanding, honest voice
