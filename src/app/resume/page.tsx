@@ -78,7 +78,7 @@ export default function Resume() {
             <div className={styles.roleHeader}>
               <div>
                 <h3 className={styles.roleTitle}>Smart Meter Technician</h3>
-                <p className={styles.roleOrg}>Wellington Energy (First Energy subcontractor)</p>
+                <p className={styles.roleOrg}>Wellington Energy (FirstEnergy subcontractor)</p>
               </div>
               <span className={styles.roleDates}>April 2025–Present</span>
             </div>
