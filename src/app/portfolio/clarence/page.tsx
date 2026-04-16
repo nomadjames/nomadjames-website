@@ -26,6 +26,7 @@ type ClarencePulse = {
   };
   system_vitals: {
     hermes_skills: number;
+    cron_jobs_active: number;
   };
 };
 
@@ -99,7 +100,7 @@ export default function ClarencePage() {
         </section>
 
         <Tldr>
-          Clarence now runs as a tandem system: Hermes on GPT-5.4 handles the main conversation, planning, memory stewardship, and synthesis, while Claude Code is reserved for bounded specialist work. The knowledge layer currently holds {stats.active_memories.toLocaleString()} active memories, {stats.entities.toLocaleString()} entities, {stats.active_facts.toLocaleString()} active facts, and {stats.indexed_vault_notes.toLocaleString()} indexed Obsidian notes. The most important design work happened after the migration, not before it: hardening memory, making routing explicit, and turning specialist escalation into a deliberate leverage path instead of a default habit. The result is less flashy than a fully autonomous demo, but far more trustworthy.
+          I built a production AI system for persistent memory, task routing, and daily collaboration. It started on one platform, outgrew it, survived a forced migration, and now runs on a completely different architecture than where it began. The case study is about designing human-AI collaboration under real trust and platform constraints, and what happens when the infrastructure has to change but the relationship cannot.
         </Tldr>
 
         {/* Stats bar */}
@@ -109,16 +110,16 @@ export default function ClarencePage() {
             <span className={cs.statLabel}>Active facts in knowledge DB</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>{stats.active_memories.toLocaleString()}</span>
-            <span className={cs.statLabel}>Active memories in knowledge DB</span>
+            <span className={cs.statNum}>{stats.total_memories.toLocaleString()}</span>
+            <span className={cs.statLabel}>Memories in knowledge DB</span>
           </div>
           <div className={cs.stat}>
             <span className={cs.statNum}>{stats.indexed_vault_notes.toLocaleString()}</span>
             <span className={cs.statLabel}>Indexed Obsidian vault notes</span>
           </div>
           <div className={cs.stat}>
-            <span className={cs.statNum}>{livePulse.system_vitals.hermes_skills.toLocaleString()}</span>
-            <span className={cs.statLabel}>Hermes skills available</span>
+            <span className={cs.statNum}>{livePulse.system_vitals.cron_jobs_active.toLocaleString()}</span>
+            <span className={cs.statLabel}>Cron jobs</span>
           </div>
         </div>
 
@@ -196,6 +197,39 @@ export default function ClarencePage() {
             That work is less glamorous than a multi-agent demo, but it is what makes Clarence feel like a collaborator
             instead of a novelty. The value is not that it can answer a question once. The value is that it can still be
             coherent next week, after corrections, migrations, overnight jobs, and hundreds of accumulated decisions.
+          </p>
+        </section>
+
+        <section className={`${styles.section} ${styles.sectionHighlight}`}>
+          <h2 className={styles.sectionTitle}>Public Read-Only Access</h2>
+          <p className={styles.body}>
+            The hard part is not getting a good answer once. It is carrying context forward after the chat ends. If
+            memory ends at the context window, every new session starts with reconstruction. I built Clarence because I
+            wanted memory that survives that reset. The current knowledge layer holds {stats.active_memories.toLocaleString()} active memories, {stats.active_facts.toLocaleString()} active facts, and {stats.indexed_vault_notes.toLocaleString()} indexed vault notes.
+          </p>
+          <p className={styles.body}>
+            The recent milestone was putting that memory on a public read-only MCP path without opening writes. The
+            endpoint lives at <a href="https://clarence-memory.nomadjames.com/mcp" target="_blank" rel="noopener noreferrer">clarence-memory.nomadjames.com/mcp</a>.
+            Cloudflare fronts it. A local Streamable HTTP bridge serves it on port 8765. The public health check is at <a href="https://clarence-memory.nomadjames.com/healthz" target="_blank" rel="noopener noreferrer">/healthz</a>.
+            Claude Code reaches the same read-only server through a local alias in ~/.claude.json. Hermes still owns writes.
+          </p>
+          <p className={styles.body}>
+            The real work was the boundary, not the endpoint. The main 384-dimensional memory and fact indexes now line
+            up with the active tables, and the missing read methods are exposed through MCP. Claude gets bounded
+            retrieval instead of raw database access. I also set up a second NVIDIA embedding lane for hybrid retrieval
+            experiments, but writes still go through Hermes only.
+          </p>
+          <p className={styles.body}>
+            The work was messy. I had to patch a vendored MCP SDK inside a pinned supergateway install so duplicate SSE
+            GET requests would stop killing the child process on reconnect. I also had to anonymize the public graph
+            export so I could show the structure on the site without exposing entity names. None of that is glamorous.
+            It is what turned this from a local demo into something I can expose with a straight face.
+          </p>
+          <p className={styles.body}>
+            That matters because Clarence is not the thing I am trying to show off. It is the layer under the next
+            round of work, especially SensorSynthFM. When I come back to that project, I do not want to reconstruct old
+            decisions, blockers, and experiments from scratch. I want Clarence to remember where the work stopped and
+            hand that context over safely when a specialist model needs it.
           </p>
         </section>
 
@@ -314,10 +348,7 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Claude Code Specialist Lane</span>
               </div>
               <p className={cs.archDiagramNote}>
-                The current handoff model is explicit. Hermes frames the task, names the scope, and decides whether
-                specialist escalation is needed at all. The current handoff stack includes a quick dispatch wrapper for
-                common cases, a JSON-spec launcher for structured task bundles, and a packet-level parallel runner for
-                up to three read-only investigations at once.
+                Hermes is the active orchestrator, running GPT-5.4 via OpenAI. It schedules and dispatches agent sessions across 20 cron jobs running in the overnight window between 11 PM and 4:45 AM ET, plus a bridge health watchdog that runs every five minutes around the clock. The system was originally built on OpenClaw, a different orchestration platform. When Anthropic blocked subscription-tier Claude access via that platform in April 2026, the entire runtime had to be migrated to Hermes under a 48-hour deadline. The migration preserved the memory layer, the cron architecture, and the collaboration patterns while replacing the orchestrator, model routing, and interface stack underneath them.
               </p>
             </div>
 
@@ -333,11 +364,7 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Lower-cost support paths when bounded</span>
               </div>
               <p className={cs.archDiagramNote}>
-                The routing rule is simple because the budget is real. GPT-5.4 handles the daily conversation,
-                decomposition, explanation, and synthesis. Claude Code is reserved for higher-leverage repo work and
-                focused investigation bursts. Lower-cost support paths still exist, but only for clearly bounded support
-                tasks. The point was not clever routing. The point was keeping the system predictable enough to trust and
-                cheap enough to run.
+                All 20 cron jobs run on GPT-5.4 or as direct script executions with no model call. The original architecture routed jobs across free-tier models (Gemini Flash, MiniMax) through a custom Rust bridge to eliminate overnight cost. The current architecture runs everything through the Hermes gateway on GPT-5.4, with Ollama cloud models (DeepSeek V3.2, Qwen3 Coder, Gemma 4, MiniMax M2.7, and others) available for supporting work and research tasks. Model switching is immediate via Hermes config. The routing philosophy shifted from cost-first to capability-first: use the model that produces the best result for each task, with cost as a secondary constraint.
               </p>
             </div>
 
@@ -355,11 +382,7 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Session Handoff Notes</span>
               </div>
               <p className={cs.archDiagramNote}>
-                The knowledge database currently holds {stats.active_memories.toLocaleString()} active memories, {stats.entities.toLocaleString()} entities, {stats.active_facts.toLocaleString()} active facts,
-                and {stats.total_facts.toLocaleString()} total facts. The Obsidian vault contains {stats.indexed_vault_notes.toLocaleString()} markdown notes. Hermes also keeps a compact
-                hot-memory layer in MEMORY.md and USER.md for turn-level continuity. The important design choice is not
-                just storage. It is ownership: Hermes remains the canonical memory steward, and Claude gets bounded,
-                task-specific access instead of ambient omniscience.
+                A single consolidated SQLite database (clarence.db) holds 4,266 memories, 14,887 facts, 2,475 entities, and 283 entity relations, shared by all agents through a custom MCP server exposing 16 read-only tools plus a separate write-capable ops server. The vector search layer runs two embedding sets: MiniLM 384-dimensional (production) and NVIDIA 2048-dimensional (evaluation), both at 100% coverage after an April 2026 backfill. Agents query by meaning, not just keywords. A conversation distillation pipeline processes conversations nightly, extracting decisions, corrections, and preferences into the memory DB automatically. The knowledge base grew from roughly 170 memories to over 4,200 because this pipeline captures context that would otherwise evaporate.
               </p>
             </div>
 
@@ -377,7 +400,7 @@ export default function ClarencePage() {
                 <span className={cs.archDiagramNode}>Manual Implementation Escalation</span>
               </div>
               <p className={cs.archDiagramNote}>
-                As of April 10, 2026, Hermes has 15 scheduled overnight jobs, including knowledge sync, database
+                As of {stats.verified_label}, Hermes has {livePulse.system_vitals.cron_jobs_active.toLocaleString()} active scheduled jobs, including knowledge sync, database
                 health checks, portfolio drift audits, cost reporting, calendar briefing, job search, and overnight
                 summaries. The new Claude automation lane is intentionally narrower: automated parallel read-only
                 investigations are live, while actual implementation still routes through manual or interactive Claude
@@ -406,19 +429,25 @@ export default function ClarencePage() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Overnight Loop</h2>
           <p className={styles.body}>
-            The most consequential design element is still what happens between 11 PM and 5 AM ET. The current
-            Hermes scheduler now has 15 scheduled jobs again, but that number only makes sense in historical context.
-            The path was 26 jobs on the older system, then a consolidation down to 14, then a cautious Hermes rebuild
-            that briefly ran only 3, and now a broader overnight set that includes knowledge sync, database health,
-            portfolio drift auditing, cost reporting, calendar briefing, job search, and overnight summaries. The
-            rule underneath all of those iterations stayed the same: do autonomous work at night, finish before the
-            morning, and make the outputs observable.
+            The most consequential design element is still what happens between 11 PM and 4:45 AM ET. The current Hermes scheduler runs 20 cron jobs, all on GPT-5.4 or as direct script executions with no model call. The overnight set now includes knowledge sync, database health, portfolio drift auditing, cost reporting, calendar briefing, job search, overnight summaries, conversation distillation, memory auditing, and a bridge watchdog that runs every five minutes around the clock. The rule underneath all of those iterations stayed the same: do autonomous work at night, finish before the morning, and make the outputs observable.
           </p>
 
           <div className={cs.workList}>
             <div className={cs.workEntry}>
+              <span className={cs.workTime}>11:00 PM</span>
+              <p className={cs.workDesc}><strong>hermes-doctor-nightly</strong>: runs a full Hermes doctor pass and posts the raw report so runtime drift, tool failures, and config problems are visible before the rest of the overnight loop fans out.</p>
+            </div>
+            <div className={cs.workEntry}>
               <span className={cs.workTime}>12:10 AM</span>
               <p className={cs.workDesc}><strong>Knowledge Sync</strong>: pulls reference material, refreshes the vault-backed knowledge layer, and reports the run overnight. The vault currently contains {stats.indexed_vault_notes.toLocaleString()} markdown notes.</p>
+            </div>
+            <div className={cs.workEntry}>
+              <span className={cs.workTime}>3:00 AM</span>
+              <p className={cs.workDesc}><strong>db-health-check</strong>: audits clarence.db for integrity, freshness, and embedding coverage so the memory layer is monitored as a live production system instead of assumed healthy.</p>
+            </div>
+            <div className={cs.workEntry}>
+              <span className={cs.workTime}>4:23 AM</span>
+              <p className={cs.workDesc}><strong>Overnight Summary</strong>: compiles the night&apos;s outputs into a single morning-facing summary after the rest of the loop finishes.</p>
             </div>
             <div className={cs.workEntry}>
               <span className={cs.workTime}>4:10 AM</span>
@@ -428,16 +457,14 @@ export default function ClarencePage() {
               <span className={cs.workTime}>4:20 AM</span>
               <p className={cs.workDesc}><strong>Daily Job Search</strong>: aggregates UX, AI, and HCI opportunities and posts the results in the morning window.</p>
             </div>
+            <div className={cs.workEntry}>
+              <span className={cs.workTime}>Every 5 min</span>
+              <p className={cs.workDesc}><strong>mcp-bridge-watchdog</strong>: checks the MCP bridge and OAuth front door around the clock so the read-only memory interface stays reachable from remote clients.</p>
+            </div>
           </div>
 
           <p className={styles.body} style={{marginTop: "1.5rem"}}>
-            <strong>Evolution note:</strong> the system originally ran 26 cron jobs on OpenClaw. Those were
-            consolidated down after diagnosing that early cheap sub-agents were hallucinating tool calls
-            rather than executing them. The lesson from that round was real: more jobs is not better jobs, and
-            cheap models that produce fiction are worse than no models at all. The Hermes pipeline starts from
-            3 deliberately, partly because the migration is fresh and partly because I want each rebuilt job
-            to earn its place rather than be ported on momentum. Whether the consolidation principle holds
-            across the second iteration is still an open question. Six nights is not enough data.
+            <strong>Evolution note:</strong> the system originally ran 26 cron jobs on OpenClaw. Those were consolidated down after diagnosing that early routing policies optimized too hard for cost and not hard enough for execution quality. The Hermes rebuild started smaller, then expanded back to 20 active jobs once the runtime, reporting, and memory layers were stable again. The lesson from that round was real: more jobs is not better jobs, and a model policy that saves money but produces unreliable work is worse than no automation at all.
           </p>
         </section>
 
@@ -484,7 +511,7 @@ export default function ClarencePage() {
               explicit: self-audit prompt trimmed from 7,582 chars to 1,276 chars. Bootstrap files trimmed
               from 11 to 7 (~18KB total). Memory files reduced from 106KB to 40KB. The lightContext flag
               enabled on every cron job. The total effect: every session starts with less noise and more
-              signal, and the overnight loop runs at zero model cost.
+              signal, and the overnight loop now runs on GPT-5.4 or as direct script executions with no model call.
             </p>
             <p className={styles.body}>
               The routing policy is now deliberately less clever and more disciplined. GPT-5.4 carries the day-to-day
@@ -650,15 +677,19 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What Has Been Accomplished</h2>
 
           <ul className={styles.methodList}>
-            <li>Knowledge database verified live on {stats.verified_label}: {stats.active_memories.toLocaleString()} active memories ({stats.total_memories.toLocaleString()} total), {stats.entities.toLocaleString()} entities, {stats.active_facts.toLocaleString()} active facts ({stats.total_facts.toLocaleString()} total)</li>
+            <li>Knowledge database verified live on {stats.verified_label}: 4,266 memories, 14,887 facts with full embedding coverage, 2,475 entities, and 283 entity relations</li>
             <li>Obsidian knowledge layer verified live: {stats.indexed_vault_notes.toLocaleString()} markdown notes indexed into the working knowledge stack</li>
-            <li>Hermes skill library verified live: 137 skills spanning research, development, infrastructure, and creative workflows</li>
-            <li>Overnight Hermes scheduler verified live: 15 scheduled jobs spanning knowledge sync, health checks, cost reporting, calendar, job search, and summaries</li>
+            <li>Hermes skill library verified live: {livePulse.system_vitals.hermes_skills.toLocaleString()} skills spanning research, development, infrastructure, and creative workflows</li>
+            <li>Overnight Hermes scheduler verified live: 20 scheduled cron jobs running between 11 PM and 4:45 AM ET, plus the MCP bridge watchdog every 5 minutes around the clock</li>
             <li>Hermes remains hard-pinned to GPT-5.4 as the primary orchestrator and memory steward</li>
             <li>Claude Code is now integrated as a bounded specialist lane rather than a casual default assistant</li>
+            <li>All crons now run on GPT-5.4 or as direct script executions with no model call</li>
             <li>Read-only Claude handoff stack built: packet wrapper, parallel runner, JSON launcher, and quick-dispatch CLI</li>
             <li>Parallel Claude investigation path verified live with successful 2-task and 3-task runs</li>
             <li>Explicit handoff artifacts now exist: outgoing packets, results, archive trail, HANDOFF.md continuity notes</li>
+            <li>Read-only memory access now ships through a custom MCP server exposing 16 read-only tools plus a separate write-capable ops MCP</li>
+            <li>Remote MCP bridge access now runs through Cloudflare tunnels and an OAuth 2.1 shim, enabling claude.ai as a peer interface alongside Telegram and CLI</li>
+            <li>Discord integration now handles cron reporting, exchange logging, and alerts across multiple channels</li>
             <li>Historical migration from OpenClaw to Hermes preserved while present-day architecture is now documented separately</li>
             <li>Open source memory architecture remains published at github.com/nomadjames/clarence-memory-structure</li>
           </ul>
@@ -874,10 +905,10 @@ export default function ClarencePage() {
             starting from scratch.
           </p>
           <ul className={styles.methodList}>
-            <li>Full SQLite schema with 15 tables: memories, entities, facts, sessions, work items, vector tables</li>
-            <li>RAG pipeline: all-MiniLM-L6-v2 embeddings (384-dim) via sqlite-vec, fully local, with automated GC</li>
+            <li>SQLite knowledge base spanning memories, entities, facts, sessions, work items, profiles, vault notes, and vector indexes</li>
+            <li>Primary all-MiniLM-L6-v2 retrieval index via sqlite-vec, plus a second NVIDIA evaluation lane for hybrid search experiments</li>
             <li>Conversation distillation: nightly LLM-driven extraction of durable knowledge from raw transcripts</li>
-            <li>MCP servers: full CRUD for memories, entities, sessions, and work items</li>
+            <li>MCP interfaces: full internal CRUD, plus a capability-enforced public read-only connector surface</li>
             <li>Obsidian vault sync: bidirectional between markdown notes and the knowledge database</li>
           </ul>
           <p className={styles.body}>
@@ -965,8 +996,8 @@ export default function ClarencePage() {
         </section>
 
         {/* Verification timestamp */}
-        <p className={cs.verifiedStamp} data-verified="2026-04-10">
-          Current-state numbers and architecture on this page were re-verified against the live system on April 10, 2026. Historical sections remain intentionally dated where the path itself matters.
+        <p className={cs.verifiedStamp} data-verified={stats.verified_date}>
+          Current-state numbers and architecture on this page were re-verified against the live system on {stats.verified_label}. Historical sections remain intentionally dated where the path itself matters.
         </p>
 
         {/* Footer nav */}
