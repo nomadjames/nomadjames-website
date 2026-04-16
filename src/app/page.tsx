@@ -134,7 +134,7 @@ export default function Home() {
           <h1 className={styles.name}>James Dishman</h1>
           <p className={styles.mantra}>UX Researcher, Designer, and AI Systems Builder</p>
           <div className={styles.thesis}>
-            <p>I research and design systems where people and AI work together, with a focus on creativity tools, accessibility, and agent architectures.</p>
+            <p>I research and design systems where people and AI work together. My focus is creativity tools, accessibility, and the architecture of AI agents that actually collaborate instead of just responding.</p>
           </div>
           <p className={styles.bio}>
             The work below starts with completed case studies, then moves into active builds and longer-term directions.

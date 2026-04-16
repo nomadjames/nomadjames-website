@@ -47,10 +47,7 @@ export default function AboutPage() {
             about how people actually use things.
           </p>
           <p className={styles.body}>
-            I produce electronic music. I co-founded the Pittsburgh Ableton User Group with Paul
-            Miller and Steve Knots and serve as the direct liaison to Ableton&apos;s international
-            community team. I am completing an MS in User Experience at Kent State, where
-            the formal training meets the instinct I have been building for years.
+            I produce electronic music. I have for thirty years. I co-founded the Pittsburgh Ableton User Group with Paul Miller and Steve Knots and serve as the direct liaison to Ableton&apos;s international community team. I maintain a personal collection of over 50,000 tracks, curated across 25 years. That collection is not a hobby detail. It is an artifact of how I think: curation as an intellectual method, applied to sound, community, and now research. I am finishing an MS in User Experience at Kent State with a 3.95 GPA, where the formal training meets the instinct I have been building for years.
           </p>
         </section>
 
@@ -109,14 +106,7 @@ export default function AboutPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>What is Next</h2>
           <p className={styles.body}>
-            I am in the capstone phase of my MS at Kent State. Long-term, I am interested in
-            doctoral research in Human-Computer Interaction. The research questions I care about sit
-            at the boundary of AI and creativity: what happens when the tool starts having opinions,
-            and how do you design for that without pretending it is simple?
-          </p>
-          <p className={styles.body}>
-            If you are working on research problems or building tools that need someone who
-            understands both the design and the system underneath it, I would like to talk.
+            I graduate from Kent State in December 2026. After that, I am pursuing doctoral research in Human-Computer Interaction. The research questions I care about sit at the intersection of HCI, learning sciences, and creativity support tools: how do people develop creative capacity, and how do AI systems support or hinder that process? My work on Clarence, my years inside music production tools, and the curatorial knowledge encoded in a 50,000-track collection are not separate interests. They are the same question approached from different angles. If you are working on problems in this space, I would like to talk.
           </p>
         </section>
 

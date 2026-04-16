@@ -34,11 +34,7 @@ export default function Resume() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Summary</h2>
           <p className={styles.summary}>
-            UX researcher and designer finishing an MS in User Experience at Kent State University.
-            Background spans accessibility auditing, discovery research, and AI product design.
-            Electronic music production and a decade as Pittsburgh&apos;s Ableton User Group organizer
-            inform a practice focused on expert users, cognitively demanding systems, and tools that
-            genuinely extend human capability.
+            UX researcher and designer graduating with an MS in User Experience from Kent State University in December 2026, 3.95 GPA. Background spans accessibility auditing, discovery research, AI agent system design, and creativity support tools. Thirty years in electronic music production and a decade co-leading Pittsburgh&apos;s Ableton User Group inform a practice focused on expert users, cognitively demanding systems, and tools that genuinely extend human capability.
           </p>
         </section>
 
@@ -162,7 +158,7 @@ export default function Resume() {
             <div className={styles.edu}>
               <div className={styles.eduDegree}>MS, User Experience <span className={styles.dot}>·</span> 3.95 GPA</div>
               <div className={styles.eduOrg}>Kent State University</div>
-              <div className={styles.eduDates}>Expected December 2026</div>
+              <div className={styles.eduDates}>December 2026</div>
             </div>
             <div className={styles.edu}>
               <div className={styles.eduDegree}>BA, English Writing</div>
