@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import styles from "./demo.module.css";
 import SmartBackLink from "@/components/SmartBackLink";
+import { hexagramByBinary } from "@/data/hexagrams-legge";
 
 /* ── Config ───────────────────────────────────────────── */
 
@@ -338,6 +339,25 @@ export default function OracleDemo() {
         const changingLines = lines
           .map((l, i) => (l.changing ? i + 1 : null))
           .filter((x): x is number => x !== null);
+        const binaryKey = lines.map((l) => (l.solid ? "1" : "0")).join("");
+        const legge = hexagramByBinary(binaryKey);
+        const primary: Record<string, unknown> = {
+          name: hexagram.name,
+          chinese: hexagram.chinese,
+          upperTrigram: hexagram.upperTrigram,
+          lowerTrigram: hexagram.lowerTrigram,
+        };
+        if (legge) {
+          primary.kingWen = legge.number;
+          primary.leggeName = legge.name;
+          primary.judgment = legge.judgment;
+          primary.image = legge.image;
+          if (changingLines.length > 0) {
+            primary.changingLineTexts = changingLines.map(
+              (pos) => legge.lineTexts[pos - 1],
+            );
+          }
+        }
         const res = await fetch(ORACLE_API, {
           method: "POST",
           headers: {
@@ -346,12 +366,7 @@ export default function OracleDemo() {
           },
           body: JSON.stringify({
             question: question.trim(),
-            primary: {
-              name: hexagram.name,
-              chinese: hexagram.chinese,
-              upperTrigram: hexagram.upperTrigram,
-              lowerTrigram: hexagram.lowerTrigram,
-            },
+            primary,
             relating: null,
             changingLines,
             strategy,
