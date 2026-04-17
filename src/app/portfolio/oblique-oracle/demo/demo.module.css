@@ -287,20 +287,41 @@
 /* ── Back link ────────────────────────────────────────── */
 
 .backLink {
-  display: inline-block;
-  font-size: 0.62rem;
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 201;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--ruby-dim);
-  margin-bottom: 2rem;
-  padding-top: 3rem;
-  transition: color 0.3s, text-shadow 0.3s;
+  letter-spacing: 0.16em;
+  color: var(--ruby-bright);
+  padding: 0.5rem 0.85rem;
+  background: rgba(8, 2, 4, 0.78);
+  border: 1px solid rgba(196, 18, 48, 0.45);
+  border-radius: 2px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  transition: color 0.3s, border-color 0.3s, text-shadow 0.3s, background 0.3s;
 }
 
 .backLink:hover {
-  color: var(--ruby-bright);
-  text-shadow: 0 0 12px rgba(196, 18, 48, 0.5);
+  color: var(--gold);
+  border-color: rgba(255, 215, 0, 0.7);
+  background: rgba(20, 6, 10, 0.88);
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.45);
   opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .backLink {
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.62rem;
+    padding: 0.4rem 0.65rem;
+    letter-spacing: 0.12em;
+  }
 }
 
 /* ── Oracle Header ─────────────────────────────────────── */
