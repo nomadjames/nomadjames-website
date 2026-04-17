@@ -3,10 +3,13 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import styles from "./demo.module.css";
 import SmartBackLink from "@/components/SmartBackLink";
+import { hexagramByBinary } from "@/data/hexagrams-legge";
 
 /* ── Config ───────────────────────────────────────────── */
 
-const ORACLE_API = process.env.NEXT_PUBLIC_ORACLE_API || "";
+const ORACLE_API =
+  process.env.NEXT_PUBLIC_ORACLE_API ||
+  "https://oblique-oracle-proxy.nomadjames.workers.dev/synthesize";
 
 /* ── I Ching hexagram data (all 64) ──────────────────── */
 
@@ -333,24 +336,67 @@ export default function OracleDemo() {
     let synthesis = "";
     if (ORACLE_API) {
       try {
+        const changingLines = lines
+          .map((l, i) => (l.changing ? i + 1 : null))
+          .filter((x): x is number => x !== null);
+        const binaryKey = lines.map((l) => (l.solid ? "1" : "0")).join("");
+        const legge = hexagramByBinary(binaryKey);
+        const primary: Record<string, unknown> = {
+          name: hexagram.name,
+          chinese: hexagram.chinese,
+          upperTrigram: hexagram.upperTrigram,
+          lowerTrigram: hexagram.lowerTrigram,
+        };
+        if (legge) {
+          primary.kingWen = legge.number;
+          primary.leggeName = legge.name;
+          primary.judgment = legge.judgment;
+          primary.image = legge.image;
+          if (changingLines.length > 0) {
+            primary.changingLineTexts = changingLines.map(
+              (pos) => legge.lineTexts[pos - 1],
+            );
+          }
+        }
         const res = await fetch(ORACLE_API, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "text/event-stream",
+          },
           body: JSON.stringify({
             question: question.trim(),
-            hexagram: hexagram.name,
-            hexagramChinese: hexagram.chinese,
-            upperTrigram: hexagram.upperTrigram,
-            lowerTrigram: hexagram.lowerTrigram,
-            changingLines: lines
-              .map((l, i) => (l.changing ? i + 1 : null))
-              .filter(Boolean),
+            primary,
+            relating: null,
+            changingLines,
             strategy,
           }),
         });
-        if (res.ok) {
-          const data = await res.json();
-          if (!data.fallback && data.text) synthesis = data.text;
+        if (res.ok && res.body) {
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = "";
+          streamLoop: while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            let nl: number;
+            while ((nl = buffer.indexOf("\n")) !== -1) {
+              const line = buffer.slice(0, nl).trimEnd();
+              buffer = buffer.slice(nl + 1);
+              if (!line.startsWith("data: ")) continue;
+              const payload = line.slice(6);
+              if (payload === "[DONE]") break streamLoop;
+              try {
+                const json = JSON.parse(payload);
+                const chunk: string | undefined =
+                  json?.choices?.[0]?.delta?.content ?? json?.text;
+                if (chunk) synthesis += chunk;
+              } catch {
+                /* ignore malformed chunk */
+              }
+            }
+          }
         }
       } catch { /* fall through */ }
     }
