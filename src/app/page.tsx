@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import SineWaveHero from "@/components/SineWaveHero";
 
 type FeaturedItem = {
   num: string;
@@ -132,6 +133,7 @@ export default function Home() {
           </div>
 
           <h1 className={styles.name}>James Dishman</h1>
+          <SineWaveHero className={styles.sineWave} />
           <p className={styles.mantra}>UX Researcher, Designer, and AI Systems Builder</p>
           <div className={styles.thesis}>
             <p>I research and design systems where people and AI work together. My focus is creativity tools, accessibility, and the architecture of AI agents that actually collaborate instead of just responding.</p>
