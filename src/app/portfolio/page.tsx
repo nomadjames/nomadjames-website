@@ -157,6 +157,13 @@ const archive: LinkItem[] = [
     year: "2024–2026",
     link: "/pdfs/unmoderated-usability-testing.pdf",
   },
+  {
+    num: "20",
+    title: "Oblique Oracle: Algorithmic Divination as Design Research",
+    category: "Product Design · AI Integration",
+    year: "2026",
+    link: "/portfolio/oblique-oracle",
+  },
 ];
 
 function FeaturedList({ items }: { items: FeaturedItem[] }) {
