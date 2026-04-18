@@ -138,6 +138,59 @@ const externalSketches = [
   },
 ];
 
+const loopStudies = [
+  {
+    slug: "01-prism-bloom",
+    title: "Prism Bloom",
+    note: "Radial rainbow bloom with a slow inward pull.",
+  },
+  {
+    slug: "02-cathedral-wheel",
+    title: "Cathedral Wheel",
+    note: "Stained-glass symmetry with a cooler color rotation.",
+  },
+  {
+    slug: "03-spiral-tide",
+    title: "Spiral Tide",
+    note: "Liquid spiral motion with a brighter magenta-cyan bias.",
+  },
+  {
+    slug: "04-mosaic-sun",
+    title: "Mosaic Sun",
+    note: "Tile-like sunburst with a warmer high-contrast finish.",
+  },
+  {
+    slug: "05-opal-labyrinth",
+    title: "Opal Labyrinth",
+    note: "Iridescent maze energy with a darker jewel-tone drift.",
+  },
+  {
+    slug: "06-rosette-current",
+    title: "Rosette Current",
+    note: "Electric petal loop with the fastest hue travel in the set.",
+  },
+  {
+    slug: "07-glass-flower",
+    title: "Glass Flower",
+    note: "Layered stained-glass bloom with a gentler pulse.",
+  },
+  {
+    slug: "08-tile-comet",
+    title: "Tile Comet",
+    note: "Radial tile burst with a sharper push through the frame.",
+  },
+  {
+    slug: "09-ribbon-orbit",
+    title: "Ribbon Orbit",
+    note: "Ribbon-like spiral motion with a brighter orbiting palette.",
+  },
+  {
+    slug: "10-aurora-emblem",
+    title: "Aurora Emblem",
+    note: "Cool aurora gradients and a slower, calmer turn.",
+  },
+];
+
 export default function LabPage() {
   return (
     <div className={styles.page}>
@@ -282,6 +335,36 @@ export default function LabPage() {
             ))}
           </section>
         )}
+
+        <section className={styles.loopSection}>
+          <h2 className={styles.sectionHeading}>Loop Studies</h2>
+          <p className={styles.loopIntro}>
+            Ten short motion studies from the current psychedelic clip factory, built from hosted FLUX stills and finished locally.
+            Muted, inline, and looping by default.
+          </p>
+          <div className={styles.loopGrid}>
+            {loopStudies.map((study) => (
+              <article key={study.slug} className={styles.loopCard}>
+                <video
+                  className={styles.loopVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="none"
+                  poster={`/lab/loop-studies/${study.slug}.jpg`}
+                  aria-label={study.title}
+                >
+                  <source src={`/lab/loop-studies/${study.slug}.mp4`} type="video/mp4" />
+                </video>
+                <div className={styles.loopBody}>
+                  <h3 className={styles.loopStudyTitle}>{study.title}</h3>
+                  <p className={styles.loopStudyNote}>{study.note}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );
