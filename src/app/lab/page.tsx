@@ -191,6 +191,11 @@ const loopStudies = [
   },
 ];
 
+const loopRemixes = loopStudies.map((study) => ({
+  ...study,
+  note: `Patched Colliding Scopes remix of ${study.title}, using the original loop as a live kaleidoscope source.`,
+}));
+
 export default function LabPage() {
   return (
     <div className={styles.page}>
@@ -359,6 +364,36 @@ export default function LabPage() {
                 </video>
                 <div className={styles.loopBody}>
                   <h3 className={styles.loopStudyTitle}>{study.title}</h3>
+                  <p className={styles.loopStudyNote}>{study.note}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.loopSection}>
+          <h2 className={styles.sectionHeading}>Colliding Scopes Remixes</h2>
+          <p className={styles.loopIntro}>
+            A second pass on the same ten loops, this time feeding each finished clip into a patched Colliding Scopes kaleidoscope pipeline.
+            Same source set, different folding logic.
+          </p>
+          <div className={styles.loopGrid}>
+            {loopRemixes.map((study) => (
+              <article key={`remix-${study.slug}`} className={styles.loopCard}>
+                <video
+                  className={styles.loopVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="none"
+                  poster={`/lab/loop-remixes/${study.slug}.jpg`}
+                  aria-label={`${study.title} remix`}
+                >
+                  <source src={`/lab/loop-remixes/${study.slug}.mp4`} type="video/mp4" />
+                </video>
+                <div className={styles.loopBody}>
+                  <h3 className={styles.loopStudyTitle}>{study.title} Remix</h3>
                   <p className={styles.loopStudyNote}>{study.note}</p>
                 </div>
               </article>
