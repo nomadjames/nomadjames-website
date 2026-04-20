@@ -3,9 +3,9 @@ import PretextTitle from "@/components/PretextTitle";
 import SmartBackLink from "@/components/SmartBackLink";
 
 export const metadata = {
-  title: "Why SensorSynth FM Needed a Wiki Before It Needed More Features | James Dishman",
+  title: "Why SensorSynthFM Needed a Wiki Before It Needed More Features | James Dishman",
   description:
-    "Why I built a durable project wiki for SensorSynth FM, what documentation drift was hiding, and how the wiki keeps the thesis-demo work honest.",
+    "Why I built a durable project wiki for SensorSynthFM, what documentation drift was hiding, and how the wiki keeps the thesis-demo work honest.",
 };
 
 export default function SensorSynthWikiArticle() {
@@ -25,11 +25,11 @@ export default function SensorSynthWikiArticle() {
             <span>6 min read</span>
           </div>
           <PretextTitle
-            text={"Why SensorSynth FM Needed\na Wiki Before It Needed\nMore Features"}
+            text={"Why SensorSynthFM Needed\na Wiki Before It Needed\nMore Features"}
             className={styles.title}
           />
           <p className={styles.lede}>
-            SensorSynth FM did not have an idea problem. It had a truth problem.
+            SensorSynthFM did not have an idea problem. It had a truth problem.
             The repo, the design docs, the README, and the actual prototype had
             drifted apart. The wiki exists to make the next move obvious.
           </p>
@@ -39,7 +39,7 @@ export default function SensorSynthWikiArticle() {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>The problem was not lack of ideas</h2>
             <p className={styles.body}>
-              SensorSynth FM already had plenty of ambition: passive sensing,
+              SensorSynthFM already had plenty of ambition: passive sensing,
               embodied interaction, FM synthesis, environmental modulation,
               camera and motion inputs, live performance, a broader research
               frame around musical expression. More features were not the hard
@@ -117,7 +117,7 @@ export default function SensorSynthWikiArticle() {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>What the public version should be</h2>
             <p className={styles.body}>
-              I do think SensorSynth FM deserves a public documentation surface.
+              I do think SensorSynthFM deserves a public documentation surface.
               This project benefits from open development. The right public shape
               is not a giant note dump. It is a curated project wiki: thesis
               demo definition, architecture notes, key decisions, research map,
@@ -144,13 +144,13 @@ export default function SensorSynthWikiArticle() {
             </p>
             <p className={styles.body}>
               You can read the case study for the broader design framing at
-              <a href="/portfolio/sensorsynth"> SensorSynth FM</a>.
+              <a href="/building/sensorsynth"> SensorSynthFM</a>.
             </p>
           </section>
 
           <div className={styles.tags}>
             {[
-              "SensorSynth FM",
+              "SensorSynthFM",
               "Documentation",
               "Design Research",
               "AudioKit",
