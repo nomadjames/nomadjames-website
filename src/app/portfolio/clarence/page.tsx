@@ -7,6 +7,7 @@ import clarenceStats from "@/data/clarence-stats.json";
 import SmartBackLink from "@/components/SmartBackLink";
 import ClarenceGraphFrame from "@/components/ClarenceGraphFrame";
 
+// Force rebuild: 2026-04-20 cache-bust after stale deploy investigation.
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
