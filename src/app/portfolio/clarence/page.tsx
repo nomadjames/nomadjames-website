@@ -7,7 +7,6 @@ import clarenceStats from "@/data/clarence-stats.json";
 import SmartBackLink from "@/components/SmartBackLink";
 import ClarenceGraphFrame from "@/components/ClarenceGraphFrame";
 
-// Force rebuild: 2026-04-20 cache-bust after stale deploy investigation.
 export const metadata = {
   title: "Clarence: Designing an Autonomous AI Collaborator | James Dishman",
   description:
@@ -493,12 +492,7 @@ export default function ClarencePage() {
           <div className={styles.finding}>
             <h3 className={styles.findingTitle}>Memory Growth Without Garbage Collection</h3>
             <p className={styles.body}>
-              The knowledge base grew from ~170 to {stats.total_memories.toLocaleString()} memories and the facts table exploded to {stats.total_facts.toLocaleString()}
-              entries after vault fact extraction processed thousands of notes and documents. More data does not automatically
-              mean better recall. As the database scales, the vector search returns increasingly similar
-              results, and the signal-to-noise ratio in retrieved context degrades. Memory needs pruning
-              and consolidation, not just accumulation. Automated garbage collection helps, but the
-              curation problem is fundamentally unsolved.
+              The knowledge base grew from ~170 to {stats.total_memories.toLocaleString()} memories and the facts table exploded to {stats.total_facts.toLocaleString()} entries after vault fact extraction processed thousands of notes and documents. More data does not automatically mean better recall. As the database scales, the vector search returns increasingly similar results, and the signal-to-noise ratio in retrieved context degrades. Memory needs pruning and consolidation, not just accumulation. Automated garbage collection helps, but the curation problem is fundamentally unsolved.
             </p>
           </div>
 
@@ -548,6 +542,74 @@ export default function ClarencePage() {
             <li>Telegram interface with brief mode reducing per-message context injection from ~10KB to ~150 bytes</li>
             <li>Private mesh networking via Tailscale for device continuity across Linux, iPhone, and iPad</li>
           </ul>
+        </section>
+
+        {/* Week Four: Opening the System */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Week Four: Opening the System</h2>
+          <p className={styles.body}>
+            The first three weeks were about building the thing, surviving a platform migration, and hardening the foundation underneath it. Week four was about opening it up.
+          </p>
+          <p className={styles.body}>
+            By mid-April three things were true at once. The knowledge layer was stable, with over 4,000 memories, full embedding coverage, and a hardened Data Access Layer. Hermes was running reliably on GPT-5.4 via the Codex provider API. Claude Code had settled into a bounded specialist lane for repo-level work.
+          </p>
+          <p className={styles.body}>
+            The question became: what would it take to let any capable reasoning layer use Clarence&apos;s knowledge, not just the one that happened to live on the box?
+          </p>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>The MCP Bridges</h3>
+            <p className={styles.body}>
+              The answer was Model Context Protocol (MCP) bridges: small servers that expose specific capabilities through a standardized protocol. I built two.
+            </p>
+            <p className={styles.body}>
+              The memory MCP exposes 16 read-only tools over clarence.db: semantic search, entity lookup, fact retrieval, relation traversal, work item listing, vault note access. It runs locally and is fronted by a Cloudflare tunnel at clarence-memory.nomadjames.com/mcp. Read-only is deliberate. Any client can query the knowledge layer, but writes stay on the local box with Hermes.
+            </p>
+            <p className={styles.body}>
+              The ops MCP exposes a smaller set of action tools: triggering Hermes cron jobs, reading controlled file paths, checking system health. It sits behind an OAuth 2.1 + PKCE shim. External clients authenticate through the same flow Claude Code uses for GitHub or Google Drive.
+            </p>
+            <p className={styles.body}>
+              Both tunnels run as systemd services under a watchdog that checks health every five minutes. Hardening that took a full day of debugging supergateway child-process cleanup issues against a real Claude.ai session. The debugging itself was a test of the hybrid: I was running the diagnosis from claude.ai while Hermes was still running the jobs I was debugging. The architecture had to work under observation without breaking.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>Claude.ai as a Peer Interface</h3>
+            <p className={styles.body}>
+              What the MCP bridges change is not just a deployment convenience. They change which reasoning layer is available for which kinds of work.
+            </p>
+            <p className={styles.body}>
+              Hermes on GPT-5.4 is good at routine orchestration. It knows the system, it is always on, and it costs very little. It runs every overnight job and most day-to-day routing. But for open-ended thinking, cross-domain synthesis, or voice-critical writing, I want Claude. The MCP bridges let a Claude.ai conversation reach into clarence.db for context, dispatch ops tasks to Hermes, and read the results without copy-paste friction.
+            </p>
+            <p className={styles.body}>
+              In practice: during a normal conversation on claude.ai, Claude can pull work items, search memories, check system status, and execute bounded Hermes actions. This portfolio edit was drafted that way. Claude.ai read clarence.db through the memory MCP, committed to this repo through the GitHub MCP, and checked system health through the ops MCP. Three MCP servers, one live conversation, one cohesive piece of work.
+            </p>
+          </div>
+
+          <div className={styles.finding}>
+            <h3 className={styles.findingTitle}>The Layer That Survived Every Migration</h3>
+            <p className={styles.body}>
+              Four architectures in one month. Each rebuild was forced by external constraint: platform policy, cost, model availability, integration opportunity. The interesting finding is that each rebuild got cheaper than the last because one layer did not have to move.
+            </p>
+            <p className={styles.body}>
+              Phase 1 (OpenClaw): reasoning was Claude via OpenClaw&apos;s scheduled sessions. Memory was clarence.db in SQLite with MiniLM embeddings.
+            </p>
+            <p className={styles.body}>
+              Phase 2 (Hermes on Claude): orchestration moved to Hermes, which connected to Claude via OAuth. Memory did not move. The 48-hour forced migration preserved the entire knowledge layer.
+            </p>
+            <p className={styles.body}>
+              Phase 3 (Hermes on GPT-5.4 via Codex): reasoning moved from Claude to GPT-5.4 via the openai-codex provider after cost and reliability issues. Hermes kept its orchestration role. Memory did not move.
+            </p>
+            <p className={styles.body}>
+              Phase 4 (MCP hybrid): Claude.ai joined the reasoning surface through remote MCP bridges. Claude Code kept its repo role. Hermes kept its orchestration role. Memory did not move.
+            </p>
+            <p className={styles.body}>
+              The knowledge management layer outlasted every reasoning-layer decision. That was not entirely deliberate. The original architectural choices (single consolidated SQLite file, MCP interface, local vector search, no proprietary schema) turned out to be survivability decisions before I understood I was making survivability decisions.
+            </p>
+            <p className={styles.body}>
+              The principle I can state now, and could not have stated in week one: build so that the most valuable layer is the one that has to move least often. In this project that layer is knowledge. In a different project it might be workflow definitions, user context, or evaluation data. The specifics do not transfer. The instinct to identify the layer does.
+            </p>
+          </div>
         </section>
 
         {/* Week Three: Engineering the Foundation */}
