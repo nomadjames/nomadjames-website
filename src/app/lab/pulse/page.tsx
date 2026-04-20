@@ -140,7 +140,7 @@ export default function PulsePage() {
               <span className={styles.archValue}>{data.architecture.primary_model}</span>
             </div>
             <div className={styles.archCard}>
-              <span className={styles.archLabel}>Specialist Lane</span>
+              <span className={styles.archLabel}>Reasoning Lanes</span>
               <span className={styles.archValue}>{data.architecture.specialist_lane}</span>
             </div>
             <div className={styles.archCard}>
