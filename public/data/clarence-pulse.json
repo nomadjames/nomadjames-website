@@ -43,9 +43,9 @@
   },
   "architecture": {
     "orchestrator": "Hermes",
-    "primary_model": "GPT-5.4",
-    "specialist_lane": "Claude Code",
-    "memory_backend": "SQLite + Chroma"
+    "primary_model": "GPT-5.4 via Codex",
+    "specialist_lane": "Claude Code + Claude.ai (MCP)",
+    "memory_backend": "SQLite + sqlite-vec"
   },
   "public_endpoints": {
     "knowledge_graph": "/clarence-graph/",
