@@ -107,7 +107,7 @@ export default function ClarencePage() {
         {/* Stats bar */}
         <div className={cs.statsBar}>
           <div className={cs.stat}>
-            <span className={cs.statNum}>20</span>
+            <span className={cs.statNum}>18</span>
             <span className={cs.statLabel}>Active cron jobs</span>
           </div>
           <div className={cs.stat}>
@@ -164,7 +164,7 @@ export default function ClarencePage() {
             and enough judgment to stay useful without pretending it should decide everything on its own.
           </p>
           <p className={styles.body}>
-            Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous system that runs 20 scheduled cron jobs overnight, manages a knowledge database of over 4,200 memories and nearly 15,000 indexed facts, routes tasks across models based on what each job actually needs, distills every conversation into durable memory, and writes nightly reports that feed into what it does while I sleep. The system was originally built on OpenClaw, a different orchestration platform. In April 2026, the platform it depended on changed its access rules with minimal notice. I migrated the entire runtime to Hermes, a new orchestrator running GPT-5.4, in under 48 hours. The memory layer, the cron architecture, and the collaboration patterns survived. The infrastructure underneath them did not.
+            Clarence is my attempt to answer that question in practice. It is not a chatbot. It is an autonomous system that runs 18 scheduled cron jobs overnight, manages a knowledge database of over 4,200 memories and nearly 15,000 indexed facts, routes tasks across models based on what each job actually needs, distills every conversation into durable memory, and writes nightly reports that feed into what it does while I sleep. The system was originally built on OpenClaw, a different orchestration platform. In April 2026, the platform it depended on changed its access rules with minimal notice. I migrated the entire runtime to Hermes, a new orchestrator running GPT-5.4, in under 48 hours. The memory layer, the cron architecture, and the collaboration patterns survived. The infrastructure underneath them did not.
           </p>
           <p className={styles.body}>
             I am both the designer and the primary user of this system. That dual position is unusual, and worth
@@ -309,10 +309,10 @@ export default function ClarencePage() {
             The interface layer runs through Telegram, Discord, and now claude.ai via a remote MCP bridge tunneled through Cloudflare. All device access goes over either Tailscale (private mesh) or the Cloudflare tunnel (for external AI clients). I move between Linux, iPhone, and iPad throughout the day. The system has to be reachable from all of them without exposing anything to the public internet.
           </p>
           <p className={styles.body}>
-            The orchestration layer is Hermes, running GPT-5.4 via OpenAI. It schedules 20 cron jobs in the overnight window between 11 PM and 4:45 AM ET, plus a bridge health watchdog that runs every five minutes around the clock. Each job is isolated with its own context scope and delivery target. The system was originally orchestrated by OpenClaw. When that platform became unavailable, Hermes replaced it. The migration preserved everything above the orchestrator: memory, crons, collaboration patterns. What changed was the engine, not the car.
+            The orchestration layer is Hermes, running GPT-5.4 via OpenAI. It schedules 18 cron jobs in the overnight window between 11 PM and 4:45 AM ET, plus a bridge health watchdog that runs every five minutes around the clock. Each job is isolated with its own context scope and delivery target. The system was originally orchestrated by OpenClaw. When that platform became unavailable, Hermes replaced it. The migration preserved everything above the orchestrator: memory, crons, collaboration patterns. What changed was the engine, not the car.
           </p>
           <p className={styles.body}>
-            The model layer routes work based on capability, not cost. All 20 cron jobs currently run on GPT-5.4 or as direct script executions. Ollama cloud models (DeepSeek V3.2, Qwen3 Coder, Gemma 4, MiniMax, and others) are available for supporting work and research. Model switching is immediate via config. The routing philosophy shifted over time from cost-first (when the system ran on free-tier models to keep the overnight loop at zero cost) to capability-first (use the model that produces the best result for each task).
+            The model layer routes work based on capability, not cost. All 18 cron jobs currently run on GPT-5.4 or as direct script executions. Ollama cloud models (DeepSeek V3.2, Qwen3 Coder, Gemma 4, MiniMax, and others) are available for supporting work and research. Model switching is immediate via config. The routing philosophy shifted over time from cost-first (when the system ran on free-tier models to keep the overnight loop at zero cost) to capability-first (use the model that produces the best result for each task).
           </p>
           <p className={styles.body}>
             The memory layer is a single SQLite database (clarence.db) holding 4,266 memories, 14,887 facts, 2,475 entities, and 283 entity relations. All agents access it through MCP servers: 16 read-only tools for retrieval, plus a separate write-capable ops server for task dispatch and system management. Two embedding sets run in production: MiniLM 384-dimensional and NVIDIA 2048-dimensional, both at 100% coverage. Agents query by meaning, not keywords. A conversation distillation pipeline processes conversations nightly, extracting decisions, corrections, and preferences into the database automatically. An Obsidian vault syncs bidirectionally: what I write, agents can read.
@@ -328,7 +328,7 @@ export default function ClarencePage() {
             Naming agents was a deliberate design choice, not decoration. Names create accountability. When a named agent produces output, I read it differently than output from an anonymous function call. The names also make role boundaries explicit across the codebase and the cron config.
           </p>
           <p className={styles.body}>
-            The current system runs 20 jobs across distinct roles: system health monitoring, knowledge synchronization, cost tracking, portfolio drift auditing, research briefings, conversation distillation, memory consolidation, calendar briefings, model roster evaluation, and a bridge health watchdog added in April 2026 after a day of diagnosing reliability problems in real time with Claude as a peer debugger.
+            The current system runs 18 jobs across distinct roles: system health monitoring, knowledge synchronization, cost tracking, portfolio drift auditing, research briefings, conversation distillation, memory consolidation, calendar briefings, model roster evaluation, and a bridge health watchdog added in April 2026 after a day of diagnosing reliability problems in real time with Claude as a peer debugger.
           </p>
           <p className={styles.body}>
             The delegation architecture follows hard rules. Clarence orchestrates. Subagents execute. Every task gets immediate acknowledgment with a plan and time estimate. Multiple independent tasks run in parallel. Clarence never blocks on a subagent. It stays available to coordinate while work runs in the background.
@@ -342,7 +342,7 @@ export default function ClarencePage() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>The Overnight Loop</h2>
           <p className={styles.body}>
-            The most consequential design element is what happens while I sleep. Twenty cron jobs run between 11 PM and 4:45 AM ET, staggered to avoid collisions. They are sequenced deliberately: the conversation distillation pipeline processes the day&apos;s conversations first, so the memory database is current before the research and reporting jobs run against it. A health check job at 3 AM verifies database integrity. An overnight summary at 4:23 AM compiles everything into a report ready when I wake up. A daily executive brief at 4:30 AM synthesizes priorities for the day ahead.
+            The most consequential design element is what happens while I sleep. Eighteen cron jobs run between 11 PM and 4:45 AM ET, staggered to avoid collisions. They are sequenced deliberately: the conversation distillation pipeline processes the day&apos;s conversations first, so the memory database is current before the research and reporting jobs run against it. A health check job at 3 AM verifies database integrity. An overnight summary at 4:23 AM compiles everything into a report ready when I wake up. A daily executive brief at 4:30 AM synthesizes priorities for the day ahead.
           </p>
           <p className={styles.body}>
             The self-improving loop works like this: nightly audits surface improvements. Those improvements feed a task queue. Execution jobs pick up the queue and do the work. The next night&apos;s audit reviews what was done. The conversation distillation pipeline means every correction I make during the day feeds back into the memory layer that night. The system compounds overnight rather than just reporting.
@@ -531,7 +531,7 @@ export default function ClarencePage() {
           <h2 className={styles.sectionTitle}>What the System Does Today</h2>
 
           <ul className={styles.methodList}>
-            <li>20 scheduled cron jobs running in a nightly window (11 PM to 4:45 AM ET), plus a bridge health watchdog running every five minutes</li>
+            <li>18 scheduled cron jobs running in a nightly window (11 PM to 4:45 AM ET), plus a bridge health watchdog running every five minutes</li>
             <li>4,266 memories and 14,887 indexed facts in a single authoritative database, with full embedding coverage across two vector sets</li>
             <li>Conversation distillation pipeline writing new memories nightly from real conversations</li>
             <li>16 read-only MCP tools plus a write-capable ops server, accessible remotely via Cloudflare tunnels and OAuth 2.1</li>
@@ -716,7 +716,7 @@ export default function ClarencePage() {
             <h3 className={styles.findingTitle}>The Migration: OpenClaw to Hermes</h3>
             <p className={styles.body}>
               The response was not to abandon the architecture. It was to migrate it to a platform that
-              Anthropic still supported. Hermes is an agent gateway that connects to Claude via OAuth, the
+              Anthropic still supported. Hermes is an agent gateway that initially connected to Claude via OAuth, the
               same authentication path Claude Code uses. It runs its own Telegram bot, its own session
               management, its own memory layer. The migration happened on April 2, before the email arrived.
               I had already felt the pressure and started moving.
