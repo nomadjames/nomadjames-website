@@ -199,7 +199,7 @@ def generate_pulse() -> dict:
         "orchestrator": "Hermes",
         "primary_model": "GPT-5.4",
         "specialist_lane": "Claude Code",
-        "memory_backend": "SQLite + Chroma",
+        "memory_backend": "SQLite + sqlite-vec",
     }
 
     # Public endpoints
