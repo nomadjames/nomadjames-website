@@ -252,13 +252,14 @@ export default function LabPage() {
         </header>
 
         <section className={styles.featuredSection}>
+          <h2 className={styles.sectionHeading}>Featured Projects</h2>
           {featuredProjects.map((project, index) => (
             <article key={project.url} className={styles.featuredCard}>
               <div className={styles.featuredContent}>
                 <span className={styles.featuredKicker}>
                   {index === 0 ? "Featured project" : "Featured artwork"}
                 </span>
-                <h2 className={styles.featuredTitle}>{project.title}</h2>
+                <h3 className={styles.featuredTitle}>{project.title}</h3>
                 <div className={styles.cardMeta}>
                   <span className={styles.courseTag}>
                     {project.category} &middot; {project.year}
@@ -319,57 +320,23 @@ export default function LabPage() {
           </div>
         </section>
 
-        <section className={styles.grid}>
-          {sketches.map((sketch) => (
-            <article key={sketch.slug} className={styles.card}>
-              <div className={styles.iframeWrapper}>
-                <iframe
-                  src={`/sketches/${sketch.slug}.html`}
-                  title={sketch.title}
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin"
-                  className={styles.iframe}
-                />
-              </div>
-              <div className={styles.cardBody}>
-                <h2 className={styles.cardTitle}>{sketch.title}</h2>
-                <p className={styles.cardDesc}>{sketch.description}</p>
-                <div className={styles.cardMeta}>
-                  <span className={styles.courseTag}>
-                    {sketch.course} &middot; {sketch.year}
-                  </span>
-                  <span className={styles.hint}>{sketch.interaction}</span>
+        <section>
+          <h2 className={styles.sectionHeading}>Sketches</h2>
+          <div className={styles.grid}>
+            {sketches.map((sketch) => (
+              <article key={sketch.slug} className={styles.card}>
+                <div className={styles.iframeWrapper}>
+                  <iframe
+                    src={`/sketches/${sketch.slug}.html`}
+                    title={sketch.title}
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"
+                    className={styles.iframe}
+                  />
                 </div>
-              </div>
-            </article>
-          ))}
-        </section>
-
-        {externalSketches.length > 0 && (
-          <section className={styles.grid} style={{ marginTop: "2rem" }}>
-            {externalSketches.map((sketch) => (
-              <article key={sketch.title} className={styles.card}>
                 <div className={styles.cardBody}>
-                  <h2 className={styles.cardTitle}>{sketch.title}</h2>
+                  <h3 className={styles.cardTitle}>{sketch.title}</h3>
                   <p className={styles.cardDesc}>{sketch.description}</p>
-                  <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem", flexWrap: "wrap" }}>
-                    {sketch.versions.map((v) => (
-                      <a
-                        key={v.label}
-                        href={v.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          fontFamily: "var(--font-mono)",
-                          fontSize: "0.75rem",
-                          color: "var(--orange)",
-                          letterSpacing: "0.04em",
-                        }}
-                      >
-                        {v.label} ↗
-                      </a>
-                    ))}
-                  </div>
                   <div className={styles.cardMeta}>
                     <span className={styles.courseTag}>
                       {sketch.course} &middot; {sketch.year}
@@ -379,8 +346,45 @@ export default function LabPage() {
                 </div>
               </article>
             ))}
-          </section>
-        )}
+          </div>
+
+          {externalSketches.length > 0 && (
+            <div className={styles.grid} style={{ marginTop: "2rem" }}>
+              {externalSketches.map((sketch) => (
+                <article key={sketch.title} className={styles.card}>
+                  <div className={styles.cardBody}>
+                    <h3 className={styles.cardTitle}>{sketch.title}</h3>
+                    <p className={styles.cardDesc}>{sketch.description}</p>
+                    <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem", flexWrap: "wrap" }}>
+                      {sketch.versions.map((v) => (
+                        <a
+                          key={v.label}
+                          href={v.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            fontFamily: "var(--font-mono)",
+                            fontSize: "0.75rem",
+                            color: "var(--orange)",
+                            letterSpacing: "0.04em",
+                          }}
+                        >
+                          {v.label} ↗
+                        </a>
+                      ))}
+                    </div>
+                    <div className={styles.cardMeta}>
+                      <span className={styles.courseTag}>
+                        {sketch.course} &middot; {sketch.year}
+                      </span>
+                      <span className={styles.hint}>{sketch.interaction}</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
 
         <section className={styles.loopSection}>
           <h2 className={styles.sectionHeading}>Loop Studies</h2>

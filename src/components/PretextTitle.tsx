@@ -108,19 +108,16 @@ export default function PretextTitle({
     return () => resizeObserver.disconnect();
   }, [text]);
 
-  // Render hidden measurer + animated characters
+  // Render one semantic heading, then overlay decorative animated characters.
   return (
     <div style={{ position: "relative" }}>
-      {/* Invisible reference element for font/size measurement */}
       <Tag
         ref={containerRef}
         className={className}
         style={{
-          visibility: ready ? "hidden" : "visible",
-          position: ready ? "absolute" : "relative",
+          color: ready ? "transparent" : undefined,
           pointerEvents: "none",
         }}
-        aria-hidden={ready}
       >
         {text.split("\n").map((line, i) => (
           <span key={i}>
@@ -132,7 +129,15 @@ export default function PretextTitle({
 
       {/* Animated characters */}
       {ready && (
-        <Tag className={className} aria-label={text.replace("\n", " ")}>
+        <div
+          className={className}
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
+          }}
+        >
           {(() => {
             let charIndex = 0;
             const lineGroups: CharPosition[][] = [];
@@ -146,7 +151,6 @@ export default function PretextTitle({
               <span
                 key={lineIdx}
                 style={{ display: "block" }}
-                aria-hidden="true"
               >
                 {lineChars.map((c) => {
                   const i = charIndex++;
@@ -171,7 +175,7 @@ export default function PretextTitle({
               </span>
             ));
           })()}
-        </Tag>
+        </div>
       )}
     </div>
   );

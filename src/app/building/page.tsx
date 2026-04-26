@@ -35,7 +35,9 @@ function FeaturedList({ items }: { items: FeaturedItem[] }) {
         <article key={item.num} className={styles.workItem}>
           <span className={styles.workNum}>{item.num}</span>
           <div className={styles.workContent}>
-            <a href={item.link} className={styles.workTitle}>{item.title}</a>
+            <h3 className={styles.workTitleHeading}>
+              <a href={item.link} className={styles.workTitle}>{item.title}</a>
+            </h3>
             <div className={styles.workMeta}>
               <span className={styles.category}>{item.category}</span>
               <span className={styles.metaDot} aria-hidden="true">·</span>

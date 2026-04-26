@@ -77,13 +77,13 @@ export default function ClarencePage() {
 
         <section className={cs.liveShowcase}>
           <div className={cs.liveShowcaseHeader}>
-            <span className={cs.graphTitle}>Live system</span>
+            <h2 className={cs.graphTitle}>Live System Snapshots</h2>
             <span className={cs.graphCaption}>Interactive public-safe surfaces from the current Clarence stack</span>
           </div>
           <div className={cs.liveShowcaseGrid}>
             <a href="/lab/pulse" className={cs.liveCard}>
               <span className={cs.liveCardKicker}>System Pulse</span>
-              <h2 className={cs.liveCardTitle}>Public-safe telemetry for the live Clarence system</h2>
+              <h3 className={cs.liveCardTitle}>Public-safe telemetry for the live Clarence system</h3>
               <p className={cs.liveCardBody}>
                 {livePulse.heartbeat.uptime_days} days online since March 20, 2026. {stats.active_facts.toLocaleString()} active facts, {stats.active_memories.toLocaleString()} memories, {livePulse.system_vitals.hermes_skills.toLocaleString()} Hermes skills.
               </p>
@@ -91,7 +91,7 @@ export default function ClarencePage() {
             </a>
             <a href="/clarence-graph/" className={cs.liveCard}>
               <span className={cs.liveCardKicker}>Knowledge Graph</span>
-              <h2 className={cs.liveCardTitle}>Interactive graph view of the public Clarence entity slice</h2>
+              <h3 className={cs.liveCardTitle}>Interactive graph view of the public Clarence entity slice</h3>
               <p className={cs.liveCardBody}>
                 A visual entry point into the system architecture and memory structure. It is useful, explorable, and immediately shows that this is a designed system, not a static case study.
               </p>
@@ -127,7 +127,7 @@ export default function ClarencePage() {
         {/* Live Knowledge Graph */}
         <div className={cs.graphSection}>
           <div className={cs.graphHeader}>
-            <span className={cs.graphTitle}>Live Knowledge Graph</span>
+            <h2 className={cs.graphTitle}>Live Knowledge Graph</h2>
             <span className={cs.graphCaption}>Interactive public slice of the Clarence entity graph</span>
           </div>
           <ClarenceGraphFrame
