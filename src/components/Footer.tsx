@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -9,23 +10,23 @@ export default function Footer() {
           <div className={styles.column}>
             <span className={styles.columnLabel}>Site</span>
             <nav className={styles.columnLinks} aria-label="Site navigation">
-              <a href="/">Home</a>
-              <a href="/portfolio">Work</a>
-              <a href="/lab">Lab</a>
-              <a href="/writing">Writing</a>
-              <a href="/about">About</a>
+              <Link href="/">Home</Link>
+              <Link href="/portfolio">Work</Link>
+              <Link href="/lab">Lab</Link>
+              <Link href="/writing">Writing</Link>
+              <Link href="/about">About</Link>
             </nav>
           </div>
 
           <div className={styles.column}>
             <span className={styles.columnLabel}>Work</span>
             <nav className={styles.columnLinks} aria-label="Work navigation">
-              <a href="/portfolio">Portfolio</a>
-              <a href="/building">Building</a>
-              <a href="/vision">Vision</a>
-              <a href="/resume">Résumé</a>
-              <a href="/contact">Contact</a>
-              <a href="/services">Services</a>
+              <Link href="/portfolio">Portfolio</Link>
+              <Link href="/building">Building</Link>
+              <Link href="/vision">Vision</Link>
+              <Link href="/resume">Résumé</Link>
+              <Link href="/contact">Contact</Link>
+              <Link href="/services">Services</Link>
             </nav>
           </div>
 
