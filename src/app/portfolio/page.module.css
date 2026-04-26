@@ -60,13 +60,17 @@
   min-width: 0;
 }
 
+.workTitleHeading {
+  margin: 0 0 0.4rem;
+}
+
 .workTitle {
   display: block;
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--fg);
-  margin-bottom: 0.4rem;
+  margin: 0;
   transition: color 0.2s;
 }
 

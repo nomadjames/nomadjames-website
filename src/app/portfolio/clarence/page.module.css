@@ -157,9 +157,11 @@
 .graphTitle {
   font-family: var(--font-mono);
   font-size: 0.68rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--orange);
+  margin: 0;
 }
 
 .graphCaption {
