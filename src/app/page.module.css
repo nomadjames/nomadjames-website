@@ -142,10 +142,12 @@
 .sectionLabel {
   font-family: var(--font-mono);
   font-size: 0.68rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--fg-dim);
   white-space: nowrap;
+  margin: 0;
 }
 
 .sectionLine {
@@ -185,6 +187,10 @@
 .cardContent {
   flex: 1;
   min-width: 0;
+}
+
+.cardTitleHeading {
+  margin: 0;
 }
 
 .cardTitle {
@@ -299,6 +305,10 @@
 .compactContent {
   flex: 1;
   min-width: 0;
+}
+
+.compactTitleHeading {
+  margin: 0;
 }
 
 .compactTitle {
