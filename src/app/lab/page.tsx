@@ -1,11 +1,43 @@
 import styles from "./page.module.css";
+import pulseData from "../../../public/data/clarence-pulse.json";
 import SmartBackLink from "@/components/SmartBackLink";
+import LabVideo from "./LabVideo";
 
 export const metadata = {
   title: "Lab | James Dishman",
   description:
     "Interactive experiments, creative coding, and small prototype systems. Featured: Micro-Museum of Broken Interfaces and my horizons.",
 };
+
+type PulseData = {
+  generated_date: string;
+  freshness: string;
+  heartbeat: {
+    status: string;
+  };
+};
+
+const data = pulseData as PulseData;
+
+function formatGeneratedDate(dateString: string): string {
+  const date = new Date(`${dateString}T00:00:00Z`);
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+function StatusIndicator({ status }: { status: string }) {
+  const isOnline = status === "online";
+  return (
+    <span className={`${styles.statusIndicator} ${isOnline ? styles.online : styles.offline}`}>
+      <span className={styles.statusDot} aria-hidden="true" />
+      {status}
+    </span>
+  );
+}
 
 const featuredProjects = [
   {
@@ -259,7 +291,16 @@ export default function LabPage() {
 
         {/* Live Systems */}
         <section className={styles.liveSection}>
-          <h2 className={styles.sectionHeading}>Live Systems</h2>
+          <h2 className={styles.sectionHeading}>
+            Live Systems
+            <span className={styles.srOnly}>Live: Clarence system status, updated daily</span>
+          </h2>
+          <div className={styles.liveFreshnessRow}>
+            <p className={styles.liveFreshness}>
+              Updated {formatGeneratedDate(data.generated_date)}, refreshed {data.freshness}
+            </p>
+            <StatusIndicator status={data.heartbeat.status} />
+          </div>
           <div className={styles.liveGrid}>
             {liveSystems.map((system) => (
               <article key={system.slug} className={styles.liveCard}>
@@ -350,18 +391,12 @@ export default function LabPage() {
           <div className={styles.loopGrid}>
             {loopStudies.map((study) => (
               <article key={study.slug} className={styles.loopCard}>
-                <video
+                <LabVideo
                   className={styles.loopVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="none"
+                  src={`/lab/loop-studies/${study.slug}.mp4`}
                   poster={`/lab/loop-studies/${study.slug}.jpg`}
-                  aria-label={study.title}
-                >
-                  <source src={`/lab/loop-studies/${study.slug}.mp4`} type="video/mp4" />
-                </video>
+                  ariaLabel={study.title}
+                />
                 <div className={styles.loopBody}>
                   <h3 className={styles.loopStudyTitle}>{study.title}</h3>
                   <p className={styles.loopStudyNote}>{study.note}</p>
@@ -380,18 +415,12 @@ export default function LabPage() {
           <div className={styles.loopGrid}>
             {loopRemixes.map((study) => (
               <article key={`remix-${study.slug}`} className={styles.loopCard}>
-                <video
+                <LabVideo
                   className={styles.loopVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="none"
+                  src={`/lab/loop-remixes/${study.slug}.mp4`}
                   poster={`/lab/loop-remixes/${study.slug}.jpg`}
-                  aria-label={`${study.title} remix`}
-                >
-                  <source src={`/lab/loop-remixes/${study.slug}.mp4`} type="video/mp4" />
-                </video>
+                  ariaLabel={`${study.title} remix`}
+                />
                 <div className={styles.loopBody}>
                   <h3 className={styles.loopStudyTitle}>{study.title} Remix</h3>
                   <p className={styles.loopStudyNote}>{study.note}</p>
