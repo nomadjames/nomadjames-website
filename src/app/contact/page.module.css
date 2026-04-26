@@ -95,6 +95,22 @@
   border-color: var(--orange);
 }
 
+.input[aria-invalid="true"],
+.textarea[aria-invalid="true"] {
+  border-color: #c0392b;
+}
+
+.fieldError {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #ff8a7a;
+}
+
+.fieldError[hidden] {
+  display: none;
+}
+
 .textarea {
   resize: vertical;
   min-height: 120px;
@@ -130,7 +146,15 @@
   padding: 1.25rem 0;
 }
 
+.success:focus,
+.errorMsg:focus {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+
 .errorMsg {
+  margin: 0;
   font-size: 0.875rem;
-  color: #c0392b;
+  line-height: 1.5;
+  color: #ff8a7a;
 }
