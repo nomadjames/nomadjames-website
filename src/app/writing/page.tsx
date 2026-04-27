@@ -17,11 +17,11 @@ const posts = [
   },
   {
     slug: "sensorsynth-needed-a-wiki",
-    title: "Why SensorSynth FM Needed a Wiki Before It Needed More Features",
+    title: "Why SensorSynthFM Needed a Wiki Before It Needed More Features",
     date: "April 11, 2026",
     description:
-      "Why SensorSynth FM had a truth problem, not an idea problem, and how a project wiki keeps the thesis-demo work honest.",
-    tags: ["SensorSynth FM", "Documentation", "Creative Technology", "Research"],
+      "Why SensorSynthFM had a truth problem, not an idea problem, and how a project wiki keeps the thesis-demo work honest.",
+    tags: ["SensorSynthFM", "Documentation", "Creative Technology", "Research"],
   },
   {
     slug: "pretext-30-year-browser-problem",

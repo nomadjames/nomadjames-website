@@ -54,12 +54,12 @@ const featuredStudies: FeaturedItem[] = [
 const building: CompactItem[] = [
   {
     num: "01",
-    title: "SensorSynth FM",
+    title: "SensorSynthFM",
     category: "Product Design · iOS",
     year: "2026",
     blurb: "An iPad FM synthesizer that treats device sensors, motion, environment, camera, spatial, and touch as modulation sources. This is the main active build.",
-    link: "/portfolio/sensorsynth",
-    ariaLabel: "Read the SensorSynth FM case study",
+    link: "/building/sensorsynth",
+    ariaLabel: "Read the SensorSynthFM case study",
   },
   {
     num: "02",
@@ -146,9 +146,9 @@ export default function Home() {
 
           <h1 className={styles.name}>James Dishman</h1>
           <SineWaveHero className={styles.sineWave} />
-          <p className={styles.mantra}>UX Researcher, Designer, and AI Systems Builder</p>
+          <p className={styles.mantra}>UX Designer, AI Systems Builder, Electronic Music Producer</p>
           <div className={styles.thesis}>
-            <p>I research and design systems where people and AI work together. My focus is creativity tools, accessibility, and the architecture of AI agents that actually collaborate instead of just responding.</p>
+            <p>I research and design systems where creativity, community, and AI intersect. Thirty years in electronic music production, a decade leading the Pittsburgh Ableton User Group, and formal UX training at Kent State converge into a single practice. The focus: creativity tools, accessibility, and AI agents that actually collaborate instead of just responding.</p>
           </div>
           <p className={styles.bio}>
             The work below starts with completed case studies, then moves into active builds and longer-term directions.

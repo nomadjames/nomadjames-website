@@ -12,11 +12,11 @@ type FeaturedItem = {
 const featured: FeaturedItem[] = [
   {
     num: "01",
-    title: "SensorSynth FM",
+    title: "SensorSynthFM",
     category: "Product Design · iOS",
     year: "2026",
     blurb: "An iPad FM synthesizer that treats motion, environment, camera, spatial, and touch as modulation sources. This is the most important active product build on the site, and it stays here until the system is finished enough to graduate into the completed portfolio.",
-    link: "/portfolio/sensorsynth",
+    link: "/building/sensorsynth",
   },
   {
     num: "02",

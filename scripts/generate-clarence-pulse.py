@@ -194,12 +194,16 @@ def generate_pulse() -> dict:
         "work_items_by_type": db_stats["work_types"],
     }
 
-    # Architecture info (static, public)
+    # Architecture info (static, public). Values reflect the current hybrid
+    # stack as of April 14, 2026: Hermes orchestrates, GPT-5.4 via the
+    # openai-codex provider is the primary runtime, Claude Code and Claude.ai
+    # operate as specialist and peer reasoning surfaces through MCP bridges,
+    # and clarence.db uses sqlite-vec for in-process vector retrieval.
     architecture = {
         "orchestrator": "Hermes",
-        "primary_model": "GPT-5.4",
-        "specialist_lane": "Claude Code",
-        "memory_backend": "SQLite + Chroma",
+        "primary_model": "GPT-5.4 via Codex",
+        "specialist_lane": "Claude Code + Claude.ai (MCP)",
+        "memory_backend": "SQLite + sqlite-vec",
     }
 
     # Public endpoints
