@@ -140,12 +140,12 @@ export default function ClarencePage() {
         <section className={`${styles.section} ${styles.sectionHighlight}`}>
           <h2 className={styles.sectionTitle}>Documentation and System Notes</h2>
           <p className={styles.body}>
-            Clarence now has a dedicated system wiki because too much durable system knowledge was
-            trapped in chat history, repo docs, and a fragile note surface. I wrote a companion article
-            about why that became necessary.
+            Clarence now has two companion writing pieces. One explains why the system needed a wiki.
+            The other shows how I work with it day to day: critique, creative prototyping, workflow,
+            verification, and the human boundary.
           </p>
           <p className={styles.body}>
-            Read it here: <a href="/writing/clarence-needed-a-system-wiki">Why Clarence Needed a System Wiki</a>.
+            Read them here: <a href="/writing/clarence-needed-a-system-wiki">Why Clarence Needed a System Wiki</a> and <a href="/writing/working-with-clarence">Working With Clarence</a>.
           </p>
           <p className={styles.body}>
             The public-safe architecture notes currently live in the public repo at <a href="https://github.com/nomadjames/clarence-architecture" target="_blank" rel="noopener noreferrer">github.com/nomadjames/clarence-architecture</a>. The raw internal system wiki stays private, which is the correct boundary.

@@ -8,6 +8,14 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "working-with-clarence",
+    title: "Working With Clarence",
+    date: "May 4, 2026",
+    description:
+      "How I use Clarence for UX critique, creative prototyping, and system workflow without handing off judgment.",
+    tags: ["AI Systems", "Human-AI Collaboration", "UX Critique", "Verification"],
+  },
+  {
     slug: "clarence-needed-a-system-wiki",
     title: "Why Clarence Needed a System Wiki",
     date: "April 11, 2026",
