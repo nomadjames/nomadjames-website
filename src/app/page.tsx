@@ -70,6 +70,15 @@ const building: CompactItem[] = [
     link: "/portfolio/oblique-oracle",
     ariaLabel: "Read the Oblique Oracle case study",
   },
+  {
+    num: "03",
+    title: "RandyCamp Clipcycle",
+    category: "Creative Technology · Installation",
+    year: "2026",
+    blurb: "A fullscreen VJ clip cycler and portable visual-system build for RandyCamp, moving from randomized media playback toward an interface and Raspberry Pi installation.",
+    link: "/building/randycamp-clipcycle",
+    ariaLabel: "Open the RandyCamp Clipcycle build",
+  },
 ];
 
 const vision: CompactItem[] = [

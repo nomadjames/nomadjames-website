@@ -26,6 +26,14 @@ const featured: FeaturedItem[] = [
     blurb: "A divination app built around I Ching generation, Oblique Strategies, and AI synthesis. It is both a product direction and a design-research artifact for studying how people respond to fluent algorithmic guidance.",
     link: "/portfolio/oblique-oracle",
   },
+  {
+    num: "03",
+    title: "RandyCamp Clipcycle",
+    category: "Creative Technology · Installation",
+    year: "2026",
+    blurb: "A fullscreen VJ clip cycler and portable visual-system build for RandyCamp, moving from randomized media playback toward an interface and Raspberry Pi installation.",
+    link: "/building/randycamp-clipcycle",
+  },
 ];
 
 function FeaturedList({ items }: { items: FeaturedItem[] }) {
