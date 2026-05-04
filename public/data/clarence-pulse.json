@@ -9,7 +9,7 @@
     "recent_activity": "this_week"
   },
   "knowledge_stats": {
-    "active_facts": 10227,
+    "active_facts": 10230,
     "active_memories": 3266,
     "memory_breakdown": {
       "decision": 1,
@@ -20,22 +20,22 @@
       "user": 351
     },
     "indexed_vault_notes": 1973,
-    "total_entities": 2454,
+    "total_entities": 2455,
     "entity_relations": 283
   },
   "system_vitals": {
-    "hermes_skills": 599,
-    "cron_jobs_active": 22,
+    "hermes_skills": 219,
+    "cron_jobs_active": 23,
     "retrieval_feedback_entries": 10
   },
   "activity_summary": {
     "sessions_last_30_days": 112,
     "work_items_by_type": {
-      "build": 24,
+      "build": 25,
       "decision": 3,
-      "design": 29,
+      "design": 30,
       "feature": 16,
-      "fix": 24,
+      "fix": 25,
       "infra": 43,
       "research": 24,
       "task": 19
@@ -43,7 +43,7 @@
   },
   "architecture": {
     "orchestrator": "Hermes",
-    "primary_model": "GPT-5.4 via Codex",
+    "primary_model": "GPT-5.5 via Codex",
     "specialist_lane": "Claude Code + Claude.ai (MCP)",
     "memory_backend": "SQLite + sqlite-vec"
   },

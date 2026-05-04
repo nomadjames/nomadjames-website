@@ -74,7 +74,7 @@ export default function ClarenceSystemWikiArticle() {
             <h2 className={styles.sectionTitle}>What the system wiki actually captures</h2>
             <p className={styles.body}>
               The wiki gives Clarence a durable self-description: Hermes as the
-              active runtime, GPT-5.4 as the pinned primary model, the gateway
+              active runtime, GPT-5.5 as the pinned primary model, the gateway
               and cron surfaces, the layered memory design, and the fact that
               important legacy data still lives under the old OpenClaw tree even
               though OpenClaw is no longer the active runtime.

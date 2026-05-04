@@ -106,7 +106,7 @@ def get_hermes_stats() -> dict:
     # Count skill files
     skills_count = 0
     if HERMES_SKILLS.exists():
-        skills_count = len(list(HERMES_SKILLS.glob("**/*.md")))
+        skills_count = len(list(HERMES_SKILLS.glob("**/SKILL.md")))
 
     # Count active cron jobs
     cron_jobs = 0
@@ -195,13 +195,13 @@ def generate_pulse() -> dict:
     }
 
     # Architecture info (static, public). Values reflect the current hybrid
-    # stack as of April 14, 2026: Hermes orchestrates, GPT-5.4 via the
+    # stack as of April 14, 2026: Hermes orchestrates, GPT-5.5 via the
     # openai-codex provider is the primary runtime, Claude Code and Claude.ai
     # operate as specialist and peer reasoning surfaces through MCP bridges,
     # and clarence.db uses sqlite-vec for in-process vector retrieval.
     architecture = {
         "orchestrator": "Hermes",
-        "primary_model": "GPT-5.4 via Codex",
+        "primary_model": "GPT-5.5 via Codex",
         "specialist_lane": "Claude Code + Claude.ai (MCP)",
         "memory_backend": "SQLite + sqlite-vec",
     }
