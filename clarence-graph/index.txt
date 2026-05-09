@@ -1,0 +1,404 @@
+1:"$Sreact.fragment"
+2:I[79520,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+3:I[49605,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+4:I[88589,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+5:I[39756,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+6:I[37457,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+7:I[22016,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+11:I[68027,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
+:HL["/_next/static/chunks/007oedr._5_vs.css","style"]
+:HL["/_next/static/media/0e64cfb82a47c250-s.p.0ifiqyzdok2k..woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/70bc3e132a0a741e-s.p.1409xf.ylxg8g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/99e609270109b47d-s.p.16-z~2sp29ex6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/ef7be03ed7e60a63-s.p.14o~5h-2n.9~4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/effe91970fc4db64-s.p.07ig5l8azj~hy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/0ewoyzg50cw.z.css","style"]
+0:{"P":null,"c":["","clarence-graph",""],"q":"","i":false,"f":[[["",{"children":["clarence-graph",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/007oedr._5_vs.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/06ld.m06su4l7.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"outfit_9f4f9187-module__4LtYgq__variable inter_c15e96cb-module__0bjUvq__variable jetbrains_mono_2295a51-module__sw0ZqW__variable ibm_plex_mono_c7d8cc32-module__U1BAtG__variable ibm_plex_serif_9de0796e-module__MmJDoW__variable","children":[["$","head",null,{"children":[["$","$L2",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-VWV4GHNHV7","strategy":"afterInteractive"}],["$","$L2",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-VWV4GHNHV7');\n          "}]]}],["$","body",null,{"className":"antialiased","children":[["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"style":{"minHeight":"100vh","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center","padding":"2rem","textAlign":"center"},"children":[["$","span",null,{"style":{"fontFamily":"var(--font-mono)","fontSize":"0.75rem","color":"var(--fg-muted)","letterSpacing":"0.06em","textTransform":"uppercase","marginBottom":"1rem"},"children":"404"}],["$","h1",null,{"style":{"fontFamily":"var(--font-heading)","fontSize":"clamp(2rem, 5vw, 3.5rem)","fontWeight":700,"lineHeight":1.1,"marginBottom":"1.5rem","color":"var(--fg)"},"children":"Page not found"}],["$","p",null,{"style":{"fontFamily":"var(--font-body)","fontSize":"1.05rem","lineHeight":1.6,"color":"var(--fg-muted)","maxWidth":"480px","marginBottom":"2.5rem"},"children":"Whatever you were looking for is not here. It may have moved, or it may never have existed in the first place."}],["$","$L7",null,{"href":"/","style":{"fontFamily":"var(--font-mono)","fontSize":"0.8rem","letterSpacing":"0.04em","color":"var(--orange)","textDecoration":"none","transition":"opacity 0.2s ease"},"children":"Back to home"}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"Footer-module__S6Hkya__footer","children":["$","div",null,{"className":"container","children":["$","div",null,{"className":"Footer-module__S6Hkya__content","children":[["$","div",null,{"className":"Footer-module__S6Hkya__column","children":[["$","span",null,{"className":"Footer-module__S6Hkya__columnLabel","children":"Site"}],["$","nav",null,{"className":"Footer-module__S6Hkya__columnLinks","aria-label":"Site navigation","children":[["$","$L7",null,{"href":"/","children":"Home"}],["$","$L7",null,{"href":"/portfolio","children":"Work"}],["$","$L7",null,{"href":"/lab","children":"Lab"}],["$","$L7",null,{"href":"/writing","children":"Writing"}],["$","$L7",null,{"href":"/about","children":"About"}]]}]]}],["$","div",null,{"className":"Footer-module__S6Hkya__column","children":[["$","span",null,{"className":"Footer-module__S6Hkya__columnLabel","children":"Practical"}],["$","nav",null,{"className":"Footer-module__S6Hkya__columnLinks","aria-label":"Practical navigation","children":[["$","$L7",null,{"href":"/resume","children":"Résumé"}],["$","$L7",null,{"href":"/contact","children":"Contact"}],["$","$L7",null,{"href":"/services","children":"Services"}]]}]]}],["$","div",null,{"className":"Footer-module__S6Hkya__column","children":[["$","span",null,{"className":"Footer-module__S6Hkya__columnLabel","children":"Elsewhere"}],["$","nav",null,{"className":"Footer-module__S6Hkya__columnLinks","aria-label":"External links","children":[["$","a",null,{"href":"https://www.linkedin.com/in/james-dishman-3a512163/","target":"_blank","rel":"noopener noreferrer","children":"LinkedIn"}],["$","a",null,{"href":"https://github.com/nomadjames","target":"_blank","rel":"noopener noreferrer","children":"GitHub"}],["$","a",null,{"href":"https://open.substack.com/pub/nomadjames","target":"_blank","rel":"noopener noreferrer","children":"Substack"}],"$L8","$L9","$La","$Lb"]}],"$Lc"]}]]}]}]}]]}]]}]]}],{"children":["$Ld",{"children":["$Le",{},null,false,null]},null,false,"$@f"]},null,false,null],"$L10",false]],"m":"$undefined","G":["$11",["$L12"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"6xmXkrZCKb_FUk4bB492w"}
+17:I[97367,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
+19:I[97367,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
+1a:"$Sreact.suspense"
+8:["$","a",null,{"href":"https://medium.com/@nomadjames","target":"_blank","rel":"noopener noreferrer","children":"Medium"}]
+9:["$","a",null,{"href":"https://soundcloud.com/nomadjames","target":"_blank","rel":"noopener noreferrer","children":"SoundCloud"}]
+a:["$","a",null,{"href":"https://nomadjames.bandcamp.com/","target":"_blank","rel":"noopener noreferrer","children":"Bandcamp"}]
+b:["$","a",null,{"href":"https://www.mixcloud.com/nomadjames/","target":"_blank","rel":"noopener noreferrer","children":"Mixcloud"}]
+c:["$","p",null,{"className":"Footer-module__S6Hkya__copyright","children":["© ",2026," James Dishman"]}]
+d:["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+13:T360f,<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarence Knowledge Graph</title>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    /* === Reset & Base === */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #050505; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+    /* === Graph Container === */
+    #graph { width: 100%; height: 100%; }
+
+    /* === Loading Overlay === */
+    #loader {
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #050505; transition: opacity 0.6s ease;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    #loader .spinner {
+      width: 32px; height: 32px; border: 2px solid rgba(99,102,241,0.2);
+      border-top-color: #6366f1; border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    #loader .progress {
+      margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.3);
+      letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* === Stats Badge (top-right) === */
+    #stats {
+      position: fixed; top: 12px; right: 12px; z-index: 50;
+      padding: 6px 12px; border-radius: 20px;
+      background: rgba(255,255,255,0.06); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 11px; color: rgba(255,255,255,0.45);
+      letter-spacing: 0.3px; opacity: 0; transition: opacity 0.6s ease;
+    }
+    #stats.visible { opacity: 1; }
+
+    /* === Legend (bottom-left) === */
+    #legend {
+      position: fixed; bottom: 12px; left: 12px; z-index: 50;
+      padding: 10px 14px; border-radius: 8px;
+      background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column; gap: 5px;
+      opacity: 0; transition: opacity 0.6s ease;
+    }
+    #legend.visible { opacity: 1; }
+    .legend-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 10px; color: rgba(255,255,255,0.4);
+      text-transform: capitalize;
+    }
+    .legend-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+
+    /* === Node Tooltip === */
+    #tooltip {
+      position: fixed; z-index: 60; pointer-events: none;
+      padding: 8px 12px; border-radius: 6px;
+      background: rgba(15,15,15,0.92); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      opacity: 0; transition: opacity 0.15s ease; transform: translate(-50%, -100%);
+    }
+    #tooltip.visible { opacity: 1; }
+    #tooltip .tt-name { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 500; }
+    #tooltip .tt-type { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 2px; text-transform: capitalize; }
+  </style>
+</head>
+<body>
+  <!-- Loading overlay -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <div class="progress" id="progress">Loading graph…</div>
+  </div>
+
+  <!-- Stats badge -->
+  <div id="stats"></div>
+
+  <!-- Legend (populated dynamically) -->
+  <div id="legend"></div>
+
+  <!-- Node tooltip -->
+  <div id="tooltip">
+    <div class="tt-name" id="tt-name"></div>
+    <div class="tt-type" id="tt-type"></div>
+  </div>
+
+  <!-- Graph canvas -->
+  <div id="graph"></div>
+
+  <script>
+    // =========================================================================
+    // Configuration
+    // =========================================================================
+    const TYPE_STYLES = {
+      concept:       { color: '#6366f1', shape: 'dot',     label: 'Concept' },
+      tool:          { color: '#f97316', shape: 'diamond',  label: 'Tool' },
+      project:       { color: '#22c55e', shape: 'square',   label: 'Project' },
+      course:        { color: '#eab308', shape: 'triangle', label: 'Course' },
+      research:      { color: '#8b5cf6', shape: 'star',     label: 'Research' },
+      'research-topic': { color: '#8b5cf6', shape: 'star',  label: 'Research' },
+      research_topic:   { color: '#8b5cf6', shape: 'star',  label: 'Research' },
+      organization:  { color: '#14b8a6', shape: 'hexagon',  label: 'Organization' },
+      company:       { color: '#14b8a6', shape: 'hexagon',  label: 'Organization' },
+      institution:   { color: '#14b8a6', shape: 'hexagon',  label: 'Organization' },
+    };
+    const DEFAULT_STYLE = { color: '#64748b', shape: 'dot', label: 'Other' };
+
+    function getStyle(type) {
+      return TYPE_STYLES[(type || '').toLowerCase()] || DEFAULT_STYLE;
+    }
+
+    // Read URL params for optional type filter
+    const params = new URLSearchParams(window.location.search);
+    const filterType = params.get('type');
+
+    // =========================================================================
+    // Load Data & Build Graph
+    // =========================================================================
+    (async function init() {
+      const progressEl = document.getElementById('progress');
+      const loaderEl = document.getElementById('loader');
+
+      // Fetch graph data from static JSON
+      let data;
+      try {
+        const res = await fetch('/clarence-graph/graph-data.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+      } catch (err) {
+        progressEl.textContent = 'Failed to load graph data';
+        console.error('Graph load error:', err);
+        return;
+      }
+
+      progressEl.textContent = 'Building graph…';
+
+      // --- Filter nodes by type if ?type= param is set ---
+      let nodes = data.nodes || [];
+      let edges = data.edges || [];
+      const stats = data.stats || {};
+
+      if (filterType) {
+        const ft = filterType.toLowerCase();
+        const allowedIds = new Set(nodes.filter(n => (n.type || '').toLowerCase() === ft).map(n => n.id));
+        nodes = nodes.filter(n => allowedIds.has(n.id));
+        edges = edges.filter(e => allowedIds.has(e.from) && allowedIds.has(e.to));
+      }
+
+      // --- Build vis-network DataSets ---
+      const visNodes = new vis.DataSet(nodes.map(n => {
+        const style = getStyle(n.type);
+        const conns = n.connections || 1;
+        const size = Math.min(35, Math.max(8, 8 + Math.log(conns + 1) * 6));
+        return {
+          id: n.id,
+          label: '',
+          shape: style.shape,
+          size: size,
+          color: {
+            background: style.color,
+            border: style.color,
+            highlight: { background: style.color, border: '#fff' },
+            hover: { background: style.color, border: '#fff' },
+          },
+          font: { color: 'rgba(255,255,255,0.75)', size: 11, face: '-apple-system, sans-serif' },
+          borderWidth: 0,
+          borderWidthSelected: 2,
+          // Store metadata for generic public-safe tooltip text
+          _type: n.type || 'unknown',
+          _connections: conns,
+        };
+      }));
+
+      const visEdges = new vis.DataSet(edges.map(e => {
+        const implicit = e.implicit === true;
+        return {
+          from: e.from,
+          to: e.to,
+          color: {
+            color: implicit ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.15)',
+            highlight: 'rgba(255,255,255,0.4)',
+            hover: 'rgba(255,255,255,0.3)',
+          },
+          dashes: implicit ? [4, 4] : false,
+          width: implicit ? 0.5 : 0.8,
+          smooth: { type: 'continuous', roundness: 0.2 },
+        };
+      }));
+
+      // --- Network Options ---
+      const options = {
+        nodes: {
+          scaling: {
+            label: { enabled: true, min: 14, max: 22, drawThreshold: 9 },
+          },
+        },
+        edges: {
+          selectionWidth: 1.5,
+          hoverWidth: 0.5,
+        },
+        physics: {
+          solver: 'barnesHut',
+          barnesHut: {
+            gravitationalConstant: -3000,
+            springLength: 200,
+            springConstant: 0.02,
+            damping: 0.15,
+          },
+          stabilization: {
+            enabled: true,
+            iterations: 150,
+            updateInterval: 15,
+          },
+          // Keep gently floating after stabilization
+          minVelocity: 0.3,
+          maxVelocity: 8,
+        },
+        interaction: {
+          hover: true,
+          tooltipDelay: 9999999,  // Disable built-in tooltips
+          zoomView: true,
+          dragView: true,
+          dragNodes: true,
+          navigationButtons: false,
+          keyboard: false,
+        },
+        layout: { improvedLayout: true },
+      };
+
+      // --- Create Network ---
+      const container = document.getElementById('graph');
+      const network = new vis.Network(container, { nodes: visNodes, edges: visEdges }, options);
+
+      // --- Stabilization Progress ---
+      network.on('stabilizationProgress', (p) => {
+        const pct = Math.round((p.iterations / p.total) * 100);
+        progressEl.textContent = `Stabilizing… ${pct}%`;
+      });
+
+      network.on('stabilizationIterationsDone', () => {
+        // Fade out loader
+        loaderEl.classList.add('hidden');
+        setTimeout(() => { loaderEl.style.display = 'none'; }, 700);
+
+        // Show UI elements
+        document.getElementById('stats').classList.add('visible');
+        document.getElementById('legend').classList.add('visible');
+      });
+
+      // --- Populate Stats Badge ---
+      const nodeCount = filterType ? nodes.length : (stats.total_nodes || nodes.length);
+      const edgeCount = filterType ? edges.length : (stats.total_edges || edges.length);
+      document.getElementById('stats').textContent = `${nodeCount} entities · ${edgeCount} connections`;
+
+      // --- Populate Legend (only types present in data) ---
+      const typesPresent = new Map();
+      nodes.forEach(n => {
+        const t = (n.type || '').toLowerCase();
+        if (!typesPresent.has(t)) {
+          const s = getStyle(t);
+          typesPresent.set(t, s);
+        }
+      });
+
+      const legendEl = document.getElementById('legend');
+      // Deduplicate by label (research variants merge)
+      const legendSeen = new Set();
+      typesPresent.forEach((style, type) => {
+        if (legendSeen.has(style.label)) return;
+        legendSeen.add(style.label);
+        const item = document.createElement('div');
+        item.className = 'legend-item';
+        item.innerHTML = `<span class="legend-dot" style="background:${style.color}"></span>${style.label}`;
+        legendEl.appendChild(item);
+      });
+
+      // =======================================================================
+      // Interactivity
+      // =======================================================================
+      const tooltipEl = document.getElementById('tooltip');
+      const ttName = document.getElementById('tt-name');
+      const ttType = document.getElementById('tt-type');
+      let highlightActive = false;
+
+      // --- Hover: highlight node + neighbors, dim the rest ---
+      network.on('hoverNode', (e) => {
+        highlightActive = true;
+        const nodeId = e.node;
+        const connectedNodes = network.getConnectedNodes(nodeId);
+        const connectedEdges = network.getConnectedEdges(nodeId);
+        const allNodeIds = visNodes.getIds();
+        const allEdgeIds = visEdges.getIds();
+
+        // Dim all nodes
+        const nodeUpdates = allNodeIds.map(id => {
+          const isHighlighted = id === nodeId || connectedNodes.includes(id);
+          return { id, opacity: isHighlighted ? 1.0 : 0.12 };
+        });
+        visNodes.update(nodeUpdates);
+
+        // Dim all edges
+        const connectedEdgeSet = new Set(connectedEdges);
+        const edgeUpdates = allEdgeIds.map(id => ({
+          id, hidden: !connectedEdgeSet.has(id),
+        }));
+        visEdges.update(edgeUpdates);
+      });
+
+      network.on('blurNode', () => {
+        if (!highlightActive) return;
+        highlightActive = false;
+        // Restore all nodes
+        visNodes.update(visNodes.getIds().map(id => ({ id, opacity: 1.0 })));
+        // Restore all edges
+        visEdges.update(visEdges.getIds().map(id => ({ id, hidden: false })));
+      });
+
+      // --- Click: show tooltip near node ---
+      network.on('click', (e) => {
+        if (e.nodes.length > 0) {
+          const nodeId = e.nodes[0];
+          const nodeData = visNodes.get(nodeId);
+          const style = getStyle(nodeData._type);
+          const connectionLabel = nodeData._connections === 1 ? '1 connection' : `${nodeData._connections} connections`;
+          ttName.textContent = `${style.label} node`;
+          ttType.textContent = connectionLabel;
+          // Position tooltip at click location
+          tooltipEl.style.left = e.event.center.x + 'px';
+          tooltipEl.style.top = (e.event.center.y - 12) + 'px';
+          tooltipEl.classList.add('visible');
+        } else {
+          tooltipEl.classList.remove('visible');
+        }
+      });
+
+      // Hide tooltip on drag/zoom
+      network.on('dragStart', () => tooltipEl.classList.remove('visible'));
+      network.on('zoom', () => tooltipEl.classList.remove('visible'));
+
+      // --- Double-click: zoom to neighborhood ---
+      network.on('doubleClick', (e) => {
+        if (e.nodes.length > 0) {
+          const nodeId = e.nodes[0];
+          const neighbors = network.getConnectedNodes(nodeId);
+          const fitNodes = [nodeId, ...neighbors];
+          network.fit({ nodes: fitNodes, animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+        }
+      });
+
+      // Disable right-click context menu
+      container.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    })();
+  </script>
+</body>
+</html>
+e:["$","$1","c",{"children":[["$","main",null,{"className":"page-module__U7mUlq__page","children":["$","iframe",null,{"srcDoc":"$13","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]}],["$L14"],"$L15"]}]
+16:[]
+f:"$W16"
+10:["$","$1","h",{"children":[null,["$","$L17",null,{"children":"$L18"}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$1a",null,{"name":"Next.Metadata","children":"$L1b"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+12:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/007oedr._5_vs.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1c:I[97367,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+14:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:["$","$L1c",null,{"children":["$","$1a",null,{"name":"Next.MetadataOutlet","children":"$@1d"}]}]
+18:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1e:I[27201,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+1b:[["$","title","0",{"children":"Clarence Knowledge Graph | James Dishman"}],["$","meta","1",{"name":"description","content":"Interactive public-safe graph view of the Clarence knowledge surface."}],["$","meta","2",{"property":"og:title","content":"James Dishman | UX Designer & AI Researcher"}],["$","meta","3",{"property":"og:description","content":"UX researcher and designer working at the intersection of AI, creativity, and human decision-making. MS UX candidate at Kent State University."}],["$","meta","4",{"property":"og:type","content":"website"}],["$","meta","5",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","6",{"name":"twitter:title","content":"James Dishman | UX Designer & AI Researcher"}],["$","meta","7",{"name":"twitter:description","content":"UX researcher and designer working at the intersection of AI, creativity, and human decision-making. MS UX candidate at Kent State University."}],["$","link","8",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1e","9",{}]]
+1d:null

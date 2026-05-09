@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>RandyCamp Clipcycle Live Preview</title>
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+  <main class="stage" aria-label="RandyCamp Ghost Operator visualizer">
+    <section id="artLayer" class="art-layer" aria-hidden="true"></section>
+    <section id="roboLayer" class="robo-layer" aria-hidden="true"></section>
+    <section class="video-layer" aria-hidden="true">
+      <video id="primaryA" class="clip primary active" muted playsinline autoplay preload="auto"></video>
+      <video id="primaryB" class="clip primary" muted playsinline autoplay preload="auto"></video>
+      <video id="ghost" class="clip ghost" muted playsinline autoplay loop preload="auto"></video>
+    </section>
+    <section class="psyche" aria-hidden="true"></section>
+    <section class="grain" aria-hidden="true"></section>
+    <aside class="hud">
+      <div class="kicker">RANDYCAMP × CLIPCYCLE</div>
+      <h1>live randomized preview</h1>
+      <p id="status">loading generated clips, public-domain artwork, and API modulation</p>
+      <p id="modulator" class="modulator">API modulation warming up</p>
+      <p id="credit" class="credit"></p>
+      <button id="startButton" type="button">start live preview</button>
+    </aside>
+  </main>
+  <script src="app.js?v=2" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "people": [
+    {
+      "firstname": "Fallback",
+      "lastname": "Signal",
+      "birthday": "1984-05-04",
+      "gender": "nonbinary",
+      "address": {
+        "zipcode": "44444",
+        "country_code": "US",
+        "latitude": 41.0998,
+        "longitude": -80.6495
+      }
+    },
+    {
+      "firstname": "Neon",
+      "lastname": "Cicada",
+      "birthday": "1997-08-16",
+      "gender": "female",
+      "address": {
+        "zipcode": "15222",
+        "country_code": "US",
+        "latitude": 40.4406,
+        "longitude": -79.9959
+      }
+    },
+    {
+      "firstname": "Static",
+      "lastname": "Orchid",
+      "birthday": "1972-11-23",
+      "gender": "male",
+      "address": {
+        "zipcode": "60611",
+        "country_code": "US",
+        "latitude": 41.8781,
+        "longitude": -87.6298
+      }
+    },
+    {
+      "firstname": "Glass",
+      "lastname": "Moth",
+      "birthday": "2005-02-09",
+      "gender": "unknown",
+      "address": {
+        "zipcode": "43085",
+        "country_code": "US",
+        "latitude": 39.9612,
+        "longitude": -82.9988
+      }
+    },
+    {
+      "firstname": "Velvet",
+      "lastname": "Radar",
+      "birthday": "1966-12-31",
+      "gender": "unknown",
+      "address": {
+        "zipcode": "90210",
+        "country_code": "AQ",
+        "latitude": -72.0,
+        "longitude": 53.0
+      }
+    }
+  ]
+}

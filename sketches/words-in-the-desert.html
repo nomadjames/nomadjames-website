@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #141414;
+    }
+    body {
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script>
+    let customFont;
+    let textContent = "Today I woke up in the desert. The desert is very different from Ohio. Right now I can see for miles. I can see the lives of 1.65 million people unfolding in front of me in one view. I sit here and write code, code with words. The words I pick would be different if I were in another place, but today, I am in the Valley of the Sun. Tomorrow I will be somewhere else, and tomorrow I will pick different words. The meaning of the words I pick will be different, because tomorrow will be different. The only true constant is change.";
+    let words = [];
+    let startTime;
+    const duration = 12000;
+    let settled = false;
+    let availableBgColors = ["#be824b","#926842","#010b13","#860111","#878681","#b7a652","#c7a484","#808000","#858585"];
+    let bg1, bg2, bg3;
+    let fittedTextSize = 20;
+    let fittedLineHeight = 36;
+
+    function preload() {
+      customFont = loadFont("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.ttf");
+    }
+
+    function setup() {
+      createCanvas(getCanvasWidth(), getCanvasHeight());
+      textFont(customFont);
+      initializeWords();
+      randomizeBgColors();
+      startTime = millis();
+    }
+
+    function draw() {
+      noStroke();
+      fill(bg1); rect(0, 0, width, height / 3);
+      fill(bg2); rect(0, height / 3, width, height / 3);
+      fill(bg3); rect(0, (height / 3) * 2, width, height / 3);
+
+      let t = constrain(millis() - startTime, 0, duration);
+      textSize(fittedTextSize);
+
+      for (let i = 0; i < words.length; i++) {
+        let obj = words[i];
+        obj.x = easeInOutQuad(t, obj.x, obj.targetX - obj.x, duration);
+        obj.y = easeInOutQuad(t, obj.y, obj.targetY - obj.y, duration);
+        push();
+        if (settled) {
+          textAlign(LEFT, TOP);
+          noStroke();
+        } else {
+          textAlign(CENTER, CENTER);
+          stroke(0);
+          strokeWeight(max(1, fittedTextSize * 0.08));
+        }
+        fill(obj.col);
+        text(obj.word, obj.x, obj.y);
+        pop();
+      }
+    }
+
+    function initializeWords() {
+      words = textContent.split(" ").map((word) => ({
+        word,
+        x: random(width),
+        y: random(height),
+        targetX: random(width),
+        targetY: random(height),
+        col: color(random(255), random(255), random(255))
+      }));
+      updateResponsiveLayout();
+    }
+
+    function getCanvasWidth() {
+      return max(260, window.innerWidth || document.documentElement.clientWidth || 600);
+    }
+
+    function getCanvasHeight() {
+      return max(260, window.innerHeight || document.documentElement.clientHeight || 600);
+    }
+
+    function getMargin() {
+      return constrain(width * 0.08, 22, 42);
+    }
+
+    function getWordRenderWidth(word) {
+      return textWidth(word + " ");
+    }
+
+    function getParagraphPadding(size) {
+      return max(8, size * 0.35);
+    }
+
+    function updateResponsiveLayout() {
+      fitParagraphToCanvas();
+      if (settled) {
+        computeLayout();
+      } else {
+        scatterWords();
+      }
+    }
+
+    function fitParagraphToCanvas() {
+      const baseMargin = getMargin();
+      const minSize = 11;
+      const maxSize = min(20, width * 0.05);
+
+      for (let size = maxSize; size >= minSize; size -= 1) {
+        textSize(size);
+        const padding = getParagraphPadding(size);
+        const margin = baseMargin + padding;
+        const maxWidth = width - margin * 2;
+        const maxHeight = height - margin * 2;
+        const lineHeight = size * 1.5;
+        let x = margin;
+        let y = margin;
+
+        for (let i = 0; i < words.length; i++) {
+          let wordWidth = getWordRenderWidth(words[i].word);
+          if (x + wordWidth > margin + maxWidth) {
+            x = margin;
+            y += lineHeight;
+          }
+          x += wordWidth;
+        }
+
+        if (y + lineHeight <= margin + maxHeight) {
+          fittedTextSize = size;
+          fittedLineHeight = lineHeight;
+          return;
+        }
+      }
+
+      fittedTextSize = minSize;
+      fittedLineHeight = minSize * 1.5;
+    }
+
+    function computeLayout() {
+      textSize(fittedTextSize);
+      const margin = getMargin() + getParagraphPadding(fittedTextSize);
+      let x = margin;
+      let y = margin;
+
+      for (let i = 0; i < words.length; i++) {
+        let wordStr = words[i].word;
+        let wordWidth = getWordRenderWidth(wordStr);
+        if (x + wordWidth > width - margin) {
+          x = margin;
+          y += fittedLineHeight;
+        }
+        words[i].targetX = x;
+        words[i].targetY = y;
+        x += wordWidth;
+      }
+    }
+
+    function scatterWords() {
+      textSize(fittedTextSize);
+      const margin = getMargin();
+      for (let i = 0; i < words.length; i++) {
+        const wordWidth = textWidth(words[i].word);
+        const halfWidth = max(wordWidth / 2, fittedTextSize * 0.5);
+        const halfHeight = fittedTextSize * 0.6;
+        words[i].targetX = random(margin + halfWidth, width - margin - halfWidth);
+        words[i].targetY = random(margin + halfHeight, height - margin - halfHeight);
+      }
+    }
+
+    function randomizeBgColors() {
+      let choices = shuffle(availableBgColors.slice());
+      bg1 = choices[0];
+      bg2 = choices[1];
+      bg3 = choices[2];
+    }
+
+    function easeInOutQuad(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    function mousePressed() {
+      randomizeBgColors();
+      for (let i = 0; i < words.length; i++) {
+        words[i].col = color(random(255), random(255), random(255));
+      }
+      startTime = millis();
+      if (!settled) {
+        computeLayout();
+        settled = true;
+      } else {
+        scatterWords();
+        settled = false;
+      }
+    }
+
+    function windowResized() {
+      resizeCanvas(getCanvasWidth(), getCanvasHeight());
+      updateResponsiveLayout();
+      startTime = millis();
+    }
+  </script>
+</body>
+</html>

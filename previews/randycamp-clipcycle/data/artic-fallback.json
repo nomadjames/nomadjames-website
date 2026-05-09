@@ -1,0 +1,909 @@
+{
+  "source": "Art Institute of Chicago public API, public-domain search, pages 1-5 fetched during build",
+  "iiifBase": "https://www.artic.edu/iiif/2",
+  "count": 90,
+  "artworks": [
+    {
+      "id": 28560,
+      "title": "The Bedroom",
+      "artist": "Vincent van Gogh (Dutch, 1853\u20131890)",
+      "date": "1889",
+      "image_id": "6644829f-f292-c5c4-a73c-0356a6fdbf0d",
+      "local_url": "assets/artic/001-28560.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/6644829f-f292-c5c4-a73c-0356a6fdbf0d/full/900,/0/default.jpg",
+      "local_size_bytes": 260577
+    },
+    {
+      "id": 21023,
+      "title": "Buddha Shakyamuni Seated in Meditation (Dhyanamudra)",
+      "artist": "India",
+      "date": "Chola period, about 12th century",
+      "image_id": "0675f9a9-1a7b-c90a-3bb6-7f7be2afb678",
+      "local_url": "assets/artic/002-21023.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/0675f9a9-1a7b-c90a-3bb6-7f7be2afb678/full/900,/0/default.jpg",
+      "local_size_bytes": 238151
+    },
+    {
+      "id": 20684,
+      "title": "Paris Street; Rainy Day",
+      "artist": "Gustave Caillebotte (French, 1848\u20131894)",
+      "date": "1877",
+      "image_id": "f8fd76e9-c396-5678-36ed-6a348c904d27",
+      "local_url": "assets/artic/003-20684.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/f8fd76e9-c396-5678-36ed-6a348c904d27/full/900,/0/default.jpg",
+      "local_size_bytes": 198908
+    },
+    {
+      "id": 27992,
+      "title": "A Sunday on La Grande Jatte \u2014 1884",
+      "artist": "Georges Seurat (French, 1859\u20131891)",
+      "date": "1884\u201386, border added 1888\u201389",
+      "image_id": "2d484387-2509-5e8e-2c43-22f9981972eb",
+      "local_url": "assets/artic/004-27992.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/900,/0/default.jpg",
+      "local_size_bytes": 219845
+    },
+    {
+      "id": 75644,
+      "title": "Coronation Stone of Moctezuma Xocoyotzin",
+      "artist": "Maker unknown (Mexica, Aztec)",
+      "date": "c. 1503",
+      "image_id": "ea8c5d62-6ce8-88e8-feb1-e0053cf534c5",
+      "local_url": "assets/artic/005-75644.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/ea8c5d62-6ce8-88e8-feb1-e0053cf534c5/full/900,/0/default.jpg",
+      "local_size_bytes": 539453
+    },
+    {
+      "id": 102611,
+      "title": "Veranda Post (\u00d2p\u00f3 \u00d2g\u00f2g\u00e1)",
+      "artist": "Olowe of Ise (died 1938)",
+      "date": "1910-14",
+      "image_id": "fec5d023-0b46-45df-eb57-cbf64e24121d",
+      "local_url": "assets/artic/006-102611.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/fec5d023-0b46-45df-eb57-cbf64e24121d/full/900,/0/default.jpg",
+      "local_size_bytes": 104923
+    },
+    {
+      "id": 89503,
+      "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)\"",
+      "artist": "Katsushika Hokusai \u845b\u98fe \u5317\u658e",
+      "date": "1830/33",
+      "image_id": "2fa24f36-cc26-41b6-4b49-12bba2a6c1c8",
+      "local_url": "assets/artic/007-89503.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/2fa24f36-cc26-41b6-4b49-12bba2a6c1c8/full/900,/0/default.jpg",
+      "local_size_bytes": 247142
+    },
+    {
+      "id": 87479,
+      "title": "The Assumption of the Virgin",
+      "artist": "El Greco (Dom\u00e9nikos Theotok\u00f3poulos; Greek, active in Spain, 1541\u20131614)",
+      "date": "1577\u201379",
+      "image_id": "47fd1564-93f5-f30b-7786-013421133b4a",
+      "local_url": "assets/artic/008-87479.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/47fd1564-93f5-f30b-7786-013421133b4a/full/900,/0/default.jpg",
+      "local_size_bytes": 602742
+    },
+    {
+      "id": 64818,
+      "title": "Stacks of Wheat (End of Summer)",
+      "artist": "Claude Monet (French, 1840\u20131926)",
+      "date": "1890\u201391",
+      "image_id": "a38e2828-ec6f-ece1-a30f-70243449197b",
+      "local_url": "assets/artic/009-64818.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/a38e2828-ec6f-ece1-a30f-70243449197b/full/900,/0/default.jpg",
+      "local_size_bytes": 166168
+    },
+    {
+      "id": 16568,
+      "title": "Water Lilies",
+      "artist": "Claude Monet (French, 1840\u20131926)",
+      "date": "1906",
+      "image_id": "3c27b499-af56-f0d5-93b5-a7f2f1ad5813",
+      "local_url": "assets/artic/010-16568.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/3c27b499-af56-f0d5-93b5-a7f2f1ad5813/full/900,/0/default.jpg",
+      "local_size_bytes": 307329
+    },
+    {
+      "id": 14655,
+      "title": "Two Sisters (On the Terrace)",
+      "artist": "Pierre-Auguste Renoir (French, 1841\u20131919)",
+      "date": "1881",
+      "image_id": "3a608f55-d76e-fa96-d0b1-0789fbc48f1e",
+      "local_url": "assets/artic/011-14655.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/3a608f55-d76e-fa96-d0b1-0789fbc48f1e/full/900,/0/default.jpg",
+      "local_size_bytes": 425366
+    },
+    {
+      "id": 80607,
+      "title": "Self-Portrait",
+      "artist": "Vincent van Gogh (Dutch, 1853\u20131890)",
+      "date": "1887",
+      "image_id": "47c5bcb8-62ef-e5d7-55e7-f5121f409a30",
+      "local_url": "assets/artic/012-80607.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/47c5bcb8-62ef-e5d7-55e7-f5121f409a30/full/900,/0/default.jpg",
+      "local_size_bytes": 490951
+    },
+    {
+      "id": 111442,
+      "title": "The Child's Bath",
+      "artist": "Mary Cassatt (American, 1844\u20131926)",
+      "date": "1893",
+      "image_id": "3b885ae0-4d46-5fe4-d70a-00474827f02c",
+      "local_url": "assets/artic/013-111442.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/3b885ae0-4d46-5fe4-d70a-00474827f02c/full/900,/0/default.jpg",
+      "local_size_bytes": 382334
+    },
+    {
+      "id": 61128,
+      "title": "At the Moulin Rouge",
+      "artist": "Henri de Toulouse-Lautrec (French, 1864\u20131901)",
+      "date": "1892\u201395",
+      "image_id": "defb4004-b500-218d-3d9b-9a02423f097d",
+      "local_url": "assets/artic/014-61128.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/defb4004-b500-218d-3d9b-9a02423f097d/full/900,/0/default.jpg",
+      "local_size_bytes": 183537
+    },
+    {
+      "id": 16571,
+      "title": "Arrival of the Normandy Train, Gare Saint-Lazare",
+      "artist": "Claude Monet (French, 1840\u20131926)",
+      "date": "1877",
+      "image_id": "0f1cc0e0-e42e-be16-3f71-2022da38cb93",
+      "local_url": "assets/artic/015-16571.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/0f1cc0e0-e42e-be16-3f71-2022da38cb93/full/900,/0/default.jpg",
+      "local_size_bytes": 228868
+    },
+    {
+      "id": 111436,
+      "title": "The Basket of Apples",
+      "artist": "Paul Cezanne (French, 1839\u20131906)",
+      "date": "c. 1893",
+      "image_id": "52ac8996-3460-cf71-cb42-5c4d0aa29b74",
+      "local_url": "assets/artic/016-111436.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/52ac8996-3460-cf71-cb42-5c4d0aa29b74/full/900,/0/default.jpg",
+      "local_size_bytes": 199272
+    },
+    {
+      "id": 11723,
+      "title": "Woman at Her Toilette",
+      "artist": "Berthe Morisot (French, 1841\u20131895)",
+      "date": "1875\u201380",
+      "image_id": "78c80988-6524-cec7-c661-a4c0a706d06f",
+      "local_url": "assets/artic/017-11723.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/78c80988-6524-cec7-c661-a4c0a706d06f/full/900,/0/default.jpg",
+      "local_size_bytes": 203088
+    },
+    {
+      "id": 15468,
+      "title": "Saint George and the Dragon",
+      "artist": "Bernat Martorell (Spanish, active from 1427\u2013died 1452)",
+      "date": "1434\u201335",
+      "image_id": "8a0e4ac9-43ea-bc3e-884b-ee27f8a10501",
+      "local_url": "assets/artic/018-15468.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/8a0e4ac9-43ea-bc3e-884b-ee27f8a10501/full/900,/0/default.jpg",
+      "local_size_bytes": 569318
+    },
+    {
+      "id": 90048,
+      "title": "Distant View of Niagara Falls",
+      "artist": "Thomas Cole (American, born England, 1801\u20131848)",
+      "date": "1830",
+      "image_id": "18092196-50ae-3ff1-9205-1b3110e966c3",
+      "local_url": "assets/artic/019-90048.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/18092196-50ae-3ff1-9205-1b3110e966c3/full/900,/0/default.jpg",
+      "local_size_bytes": 218119
+    },
+    {
+      "id": 14598,
+      "title": "The Beach at Sainte-Adresse",
+      "artist": "Claude Monet (French, 1840\u20131926)",
+      "date": "1867",
+      "image_id": "95be2572-b53d-8e7b-abc9-10eb48d4fa5d",
+      "local_url": "assets/artic/020-14598.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/95be2572-b53d-8e7b-abc9-10eb48d4fa5d/full/900,/0/default.jpg",
+      "local_size_bytes": 195960
+    },
+    {
+      "id": 80084,
+      "title": "The Crucifixion",
+      "artist": "Francisco de Zurbar\u00e1n (Spanish, 1598\u20131664)",
+      "date": "1627",
+      "image_id": "c8ee825f-bc8c-c76b-1f05-5d692d9a6b47",
+      "local_url": "assets/artic/021-80084.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/c8ee825f-bc8c-c76b-1f05-5d692d9a6b47/full/900,/0/default.jpg",
+      "local_size_bytes": 197617
+    },
+    {
+      "id": 8991,
+      "title": "Improvisation No. 30 (Cannons)",
+      "artist": "Vasily Kandinsky",
+      "date": "1913",
+      "image_id": "b5bc6b66-9e6e-fe57-dcec-fc49e820e904",
+      "local_url": "assets/artic/022-8991.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/b5bc6b66-9e6e-fe57-dcec-fc49e820e904/full/900,/0/default.jpg",
+      "local_size_bytes": 290051
+    },
+    {
+      "id": 25865,
+      "title": "The Herring Net",
+      "artist": "Winslow Homer (American, 1836\u20131910)",
+      "date": "1885",
+      "image_id": "5dca7347-c6dc-24dd-d073-d705b9cdc575",
+      "local_url": "assets/artic/023-25865.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/5dca7347-c6dc-24dd-d073-d705b9cdc575/full/900,/0/default.jpg",
+      "local_size_bytes": 141450
+    },
+    {
+      "id": 154235,
+      "title": "The Girl by the Window",
+      "artist": "Edvard Munch (Norwegian, 1863\u20131944)",
+      "date": "1893",
+      "image_id": "d7df2633-3b40-f570-c906-211503a37cde",
+      "local_url": "assets/artic/024-154235.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/d7df2633-3b40-f570-c906-211503a37cde/full/900,/0/default.jpg",
+      "local_size_bytes": 385031
+    },
+    {
+      "id": 16487,
+      "title": "The Bay of Marseille, Seen from L'Estaque",
+      "artist": "Paul Cezanne (French, 1839\u20131906)",
+      "date": "c. 1885",
+      "image_id": "d4ca6321-8656-3d3f-a362-2ee297b2b813",
+      "local_url": "assets/artic/025-16487.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/d4ca6321-8656-3d3f-a362-2ee297b2b813/full/900,/0/default.jpg",
+      "local_size_bytes": 201836
+    },
+    {
+      "id": 59847,
+      "title": "Cupid Chastised",
+      "artist": "Bartolomeo Manfredi (Italian, 1582\u20131622)",
+      "date": "1613",
+      "image_id": "0f951635-312c-0829-451b-553f461c5518",
+      "local_url": "assets/artic/026-59847.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/0f951635-312c-0829-451b-553f461c5518/full/900,/0/default.jpg",
+      "local_size_bytes": 270622
+    },
+    {
+      "id": 869,
+      "title": "The Watermill with the Great Red Roof",
+      "artist": "Meindert Hobbema (Dutch, 1638\u20131709)",
+      "date": "c. 1665",
+      "image_id": "237c25a2-6051-a8e7-1610-a01938d4deab",
+      "local_url": "assets/artic/027-869.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/237c25a2-6051-a8e7-1610-a01938d4deab/full/900,/0/default.jpg",
+      "local_size_bytes": 197149
+    },
+    {
+      "id": 43714,
+      "title": "E-10: English Dining Room of the Georgian Period, 1770-90",
+      "artist": "Designed by Narcissa Niblack Thorne",
+      "date": "c. 1937",
+      "image_id": "416b87c8-515f-0066-5c44-b7562162f2c0",
+      "local_url": "assets/artic/028-43714.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/416b87c8-515f-0066-5c44-b7562162f2c0/full/900,/0/default.jpg",
+      "local_size_bytes": 194933
+    },
+    {
+      "id": 61603,
+      "title": "Ballet at the Paris Op\u00e9ra",
+      "artist": "Edgar Degas",
+      "date": "1877",
+      "image_id": "cb34b0a8-bc51-d063-aab1-47c7debf3a7b",
+      "local_url": "assets/artic/029-61603.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/cb34b0a8-bc51-d063-aab1-47c7debf3a7b/full/900,/0/default.jpg",
+      "local_size_bytes": 133815
+    },
+    {
+      "id": 156538,
+      "title": "Chicago Stock Exchange Trading Room: Reconstruction at the Art Institute of Chicago",
+      "artist": "Adler & Sullivan, original architects; American, 1883-1896",
+      "date": "1893/94 (original built)\n1972 (original demolished)\n1976/77 (reconstructed)",
+      "image_id": "47b28b55-ced6-502d-f111-fbe0033f8dc8",
+      "local_url": "assets/artic/030-156538.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/47b28b55-ced6-502d-f111-fbe0033f8dc8/full/900,/0/default.jpg",
+      "local_size_bytes": 215774
+    },
+    {
+      "id": 69780,
+      "title": "The Fountain, Villa Torlonia, Frascati, Italy",
+      "artist": "John Singer Sargent (American, 1856\u20131925)",
+      "date": "1907",
+      "image_id": "3f9aa9db-61e1-7060-fdb0-bfd7e41ddd08",
+      "local_url": "assets/artic/031-69780.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/3f9aa9db-61e1-7060-fdb0-bfd7e41ddd08/full/900,/0/default.jpg",
+      "local_size_bytes": 379787
+    },
+    {
+      "id": 109819,
+      "title": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+      "artist": "Piet Mondrian",
+      "date": "1921",
+      "image_id": "25f660ee-f1db-d13b-42a5-56df97c98ba7",
+      "local_url": "assets/artic/032-109819.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/25f660ee-f1db-d13b-42a5-56df97c98ba7/full/900,/0/default.jpg",
+      "local_size_bytes": 71762
+    },
+    {
+      "id": 56905,
+      "title": "Nocturne: Blue and Gold\u2014Southampton Water",
+      "artist": "James McNeill Whistler (American, 1834\u20131903)",
+      "date": "1872",
+      "image_id": "50034c7f-ce51-00f1-430e-a6f7efc233fc",
+      "local_url": "assets/artic/033-56905.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/50034c7f-ce51-00f1-430e-a6f7efc233fc/full/900,/0/default.jpg",
+      "local_size_bytes": 100823
+    },
+    {
+      "id": 81558,
+      "title": "Acrobats at the Cirque Fernando (Francisca and Angelina Wartenberg)",
+      "artist": "Pierre-Auguste Renoir (French, 1841\u20131919)",
+      "date": "1879",
+      "image_id": "321c45f5-22a3-84a2-44cc-cf66642d4cf2",
+      "local_url": "assets/artic/034-81558.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/321c45f5-22a3-84a2-44cc-cf66642d4cf2/full/900,/0/default.jpg",
+      "local_size_bytes": 333343
+    },
+    {
+      "id": 5848,
+      "title": "Landscape with Saint John on Patmos",
+      "artist": "Nicolas Poussin (French, 1594\u20131665)",
+      "date": "1640",
+      "image_id": "aa870b0d-5a1b-660a-6dc6-56c12109cf6e",
+      "local_url": "assets/artic/035-5848.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/aa870b0d-5a1b-660a-6dc6-56c12109cf6e/full/900,/0/default.jpg",
+      "local_size_bytes": 192369
+    },
+    {
+      "id": 4796,
+      "title": "Fishing Boats with Hucksters Bargaining for Fish",
+      "artist": "Joseph Mallord William Turner (English, 1775\u20131851)",
+      "date": "1837\u201338",
+      "image_id": "8641479e-c93e-f1a8-9925-19be061706da",
+      "local_url": "assets/artic/036-4796.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/8641479e-c93e-f1a8-9925-19be061706da/full/900,/0/default.jpg",
+      "local_size_bytes": 179411
+    },
+    {
+      "id": 109780,
+      "title": "Love of Winter",
+      "artist": "George Wesley Bellows (American, 1882\u20131925)",
+      "date": "1914",
+      "image_id": "18ab0c35-e35c-0216-9afd-f93357920db1",
+      "local_url": "assets/artic/037-109780.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/18ab0c35-e35c-0216-9afd-f93357920db1/full/900,/0/default.jpg",
+      "local_size_bytes": 262939
+    },
+    {
+      "id": 14572,
+      "title": "The Millinery Shop",
+      "artist": "Edgar Degas (French, 1834\u20131917)",
+      "date": "1879-86",
+      "image_id": "6f513908-03cc-b974-633b-adfce56b7936",
+      "local_url": "assets/artic/038-14572.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/6f513908-03cc-b974-633b-adfce56b7936/full/900,/0/default.jpg",
+      "local_size_bytes": 210450
+    },
+    {
+      "id": 95998,
+      "title": "Old Man with a Gold Chain",
+      "artist": "Rembrandt van Rijn (Dutch, 1606\u20131669)",
+      "date": "1631",
+      "image_id": "3eaab3a3-2b47-9fdd-121c-050f6b8d9ccb",
+      "local_url": "assets/artic/039-95998.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/3eaab3a3-2b47-9fdd-121c-050f6b8d9ccb/full/900,/0/default.jpg",
+      "local_size_bytes": 166159
+    },
+    {
+      "id": 20579,
+      "title": "Hercules and the Lernaean Hydra",
+      "artist": "Gustave Moreau (French, 1826-1898)",
+      "date": "1875\u201376",
+      "image_id": "2ae64c8a-266d-470a-a25a-c83127564636",
+      "local_url": "assets/artic/040-20579.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/2ae64c8a-266d-470a-a25a-c83127564636/full/900,/0/default.jpg",
+      "local_size_bytes": 235381
+    },
+    {
+      "id": 24548,
+      "title": "Shiva as Lord of the Dance (Nataraja)",
+      "artist": "India",
+      "date": "Chola period, about 10th/11th century",
+      "image_id": "cf50f037-5fb2-e197-0e56-3ae701edb3e2",
+      "local_url": "assets/artic/041-24548.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/cf50f037-5fb2-e197-0e56-3ae701edb3e2/full/900,/0/default.jpg",
+      "local_size_bytes": 216563
+    },
+    {
+      "id": 64339,
+      "title": "Coffin and Mummy of Paankhaenamun",
+      "artist": "Egyptian; Thebes (now Luxor), Egypt",
+      "date": "Third Intermediate Period, Dynasty 22, reign of Osorkon I (about 924\u2013889 BCE)",
+      "image_id": "93270aaf-16a5-1604-c6c8-0f3c003eb7a1",
+      "local_url": "assets/artic/042-64339.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/93270aaf-16a5-1604-c6c8-0f3c003eb7a1/full/900,/0/default.jpg",
+      "local_size_bytes": 691545
+    },
+    {
+      "id": 151358,
+      "title": "Male Figure (Nkisi Nkondi)",
+      "artist": "Kongo: Vili",
+      "date": "Probably early to mid-19th century",
+      "image_id": "c3f36398-eee0-77a9-17f4-204f3252f6f9",
+      "local_url": "assets/artic/043-151358.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/c3f36398-eee0-77a9-17f4-204f3252f6f9/full/900,/0/default.jpg",
+      "local_size_bytes": 381307
+    },
+    {
+      "id": 27984,
+      "title": "Woman before an Aquarium",
+      "artist": "Henri Matisse",
+      "date": "1921\u201323",
+      "image_id": "d0e36029-27fc-bf4e-357a-55cfbaf7bdfd",
+      "local_url": "assets/artic/044-27984.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/d0e36029-27fc-bf4e-357a-55cfbaf7bdfd/full/900,/0/default.jpg",
+      "local_size_bytes": 207007
+    },
+    {
+      "id": 16146,
+      "title": "Equestrienne (At the Cirque Fernando)",
+      "artist": "Henri de Toulouse-Lautrec (French, 1864\u20131901)",
+      "date": "1887\u201388",
+      "image_id": "65db9e21-83c3-1cc6-7240-1e1996d87f52",
+      "local_url": "assets/artic/045-16146.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/65db9e21-83c3-1cc6-7240-1e1996d87f52/full/900,/0/default.jpg",
+      "local_size_bytes": 174875
+    },
+    {
+      "id": 16499,
+      "title": "Jesus Mocked by the Soldiers",
+      "artist": "\u00c9douard Manet (French, 1832\u20131883)",
+      "date": "1865",
+      "image_id": "4d03ba14-a01a-d003-404a-cf3f9fb40ede",
+      "local_url": "assets/artic/046-16499.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/4d03ba14-a01a-d003-404a-cf3f9fb40ede/full/900,/0/default.jpg",
+      "local_size_bytes": 285104
+    },
+    {
+      "id": 146701,
+      "title": "Mountain Brook",
+      "artist": "Albert Bierstadt (American, born Solingen, Prussia, now Germany, 1830\u20131902)",
+      "date": "1863",
+      "image_id": "d55b0cfc-0716-d6cd-3b38-5742903ce046",
+      "local_url": "assets/artic/047-146701.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/d55b0cfc-0716-d6cd-3b38-5742903ce046/full/900,/0/default.jpg",
+      "local_size_bytes": 466184
+    },
+    {
+      "id": 103887,
+      "title": "A Young Lady with a Parrot",
+      "artist": "Rosalba Carriera",
+      "date": "c. 1730",
+      "image_id": "2d9fb8b5-b9a3-3e41-270e-3c480f7b317b",
+      "local_url": "assets/artic/048-103887.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/2d9fb8b5-b9a3-3e41-270e-3c480f7b317b/full/900,/0/default.jpg",
+      "local_size_bytes": 259096
+    },
+    {
+      "id": 16776,
+      "title": "After the Hurricane, Bahamas",
+      "artist": "Winslow Homer",
+      "date": "1899",
+      "image_id": "b34de958-1cbe-065f-4941-c34f64d2b366",
+      "local_url": "assets/artic/049-16776.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/b34de958-1cbe-065f-4941-c34f64d2b366/full/900,/0/default.jpg",
+      "local_size_bytes": 239780
+    },
+    {
+      "id": 84709,
+      "title": "Still Life with Game Fowl",
+      "artist": "Juan S\u00e1nchez Cot\u00e1n (Spanish, 1560\u20131627)",
+      "date": "c. 1600\u20133",
+      "image_id": "f2021182-1302-f76f-97f1-4e7850030e3b",
+      "local_url": "assets/artic/050-84709.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/f2021182-1302-f76f-97f1-4e7850030e3b/full/900,/0/default.jpg",
+      "local_size_bytes": 158681
+    },
+    {
+      "id": 19339,
+      "title": "Arl\u00e9siennes (Mistral)",
+      "artist": "Paul Gauguin (French, 1848\u20131903)",
+      "date": "1888",
+      "image_id": "ae6ac285-6887-dd76-4570-d379c786dfae",
+      "local_url": "assets/artic/051-19339.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/ae6ac285-6887-dd76-4570-d379c786dfae/full/900,/0/default.jpg",
+      "local_size_bytes": 247890
+    },
+    {
+      "id": 28849,
+      "title": "A City Park",
+      "artist": "William Merritt Chase (American, 1849\u20131916)",
+      "date": "c. 1887",
+      "image_id": "72a76270-d6f4-e744-d47b-307873a8e8ff",
+      "local_url": "assets/artic/052-28849.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/72a76270-d6f4-e744-d47b-307873a8e8ff/full/900,/0/default.jpg",
+      "local_size_bytes": 212088
+    },
+    {
+      "id": 15401,
+      "title": "At Mouquin's",
+      "artist": "William Glackens (American, 1870\u20131938)",
+      "date": "1905",
+      "image_id": "b146368d-a855-63ac-6115-04b835c60bb0",
+      "local_url": "assets/artic/053-15401.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/b146368d-a855-63ac-6115-04b835c60bb0/full/900,/0/default.jpg",
+      "local_size_bytes": 386021
+    },
+    {
+      "id": 193664,
+      "title": "The Captive Slave (Ira Aldridge)",
+      "artist": "John Philip Simpson (English, 1782\u20131847)",
+      "date": "1827",
+      "image_id": "5490fd49-dd52-4fd7-7d41-d871dcffae55",
+      "local_url": "assets/artic/054-193664.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/5490fd49-dd52-4fd7-7d41-d871dcffae55/full/900,/0/default.jpg",
+      "local_size_bytes": 224932
+    },
+    {
+      "id": 64724,
+      "title": "The Home of the Heron",
+      "artist": "George Inness (American, 1825\u20131894)",
+      "date": "1893",
+      "image_id": "0f2d999d-0173-2935-a6d0-0175bb97b2a9",
+      "local_url": "assets/artic/055-64724.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/0f2d999d-0173-2935-a6d0-0175bb97b2a9/full/900,/0/default.jpg",
+      "local_size_bytes": 135900
+    },
+    {
+      "id": 81512,
+      "title": "Interrupted Reading",
+      "artist": "Jean-Baptiste-Camille Corot (French, 1796\u20131875)",
+      "date": "c. 1870",
+      "image_id": "1c2d32a7-790c-501a-e124-00f28cf5052d",
+      "local_url": "assets/artic/056-81512.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/1c2d32a7-790c-501a-e124-00f28cf5052d/full/900,/0/default.jpg",
+      "local_size_bytes": 324080
+    },
+    {
+      "id": 73413,
+      "title": "Bust of a Youth (Saint John the Baptist)",
+      "artist": "Francesco Mochi (Italian, 1580\u20131654)",
+      "date": "1630-40",
+      "image_id": "4e37b182-cc1e-ef86-3eb2-de7d5b9db717",
+      "local_url": "assets/artic/057-73413.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/4e37b182-cc1e-ef86-3eb2-de7d5b9db717/full/900,/0/default.jpg",
+      "local_size_bytes": 113067
+    },
+    {
+      "id": 44892,
+      "title": "Fish (Still Life)",
+      "artist": "\u00c9douard Manet (French, 1832\u20131883)",
+      "date": "1864",
+      "image_id": "0cbe27e8-2fec-3445-bc48-ce40a8f2dc25",
+      "local_url": "assets/artic/058-44892.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/0cbe27e8-2fec-3445-bc48-ce40a8f2dc25/full/900,/0/default.jpg",
+      "local_size_bytes": 204921
+    },
+    {
+      "id": 4575,
+      "title": "Judith",
+      "artist": "Jan Sanders van Hemessen (Netherlandish, active c. 1519\u20131556)",
+      "date": "c. 1540",
+      "image_id": "5b9758c9-24ef-8661-fac0-c9a4229eefd4",
+      "local_url": "assets/artic/059-4575.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/5b9758c9-24ef-8661-fac0-c9a4229eefd4/full/900,/0/default.jpg",
+      "local_size_bytes": 199802
+    },
+    {
+      "id": 144969,
+      "title": "The Interior of the Palm House on the Pfaueninsel Near Potsdam",
+      "artist": "Carl Blechen (German, 1798\u20131840)",
+      "date": "1834",
+      "image_id": "38bb6be4-223e-af7a-7e18-f9ad0c388d3c",
+      "local_url": "assets/artic/060-144969.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/38bb6be4-223e-af7a-7e18-f9ad0c388d3c/full/900,/0/default.jpg",
+      "local_size_bytes": 358841
+    },
+    {
+      "id": 44018,
+      "title": "Croquet Scene",
+      "artist": "Winslow Homer (American, 1836\u20131910)",
+      "date": "1866",
+      "image_id": "f7b2db45-f393-653c-07ef-84319b0cdb92",
+      "local_url": "assets/artic/061-44018.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/f7b2db45-f393-653c-07ef-84319b0cdb92/full/900,/0/default.jpg",
+      "local_size_bytes": 151558
+    },
+    {
+      "id": 76571,
+      "title": "View of Cotopaxi",
+      "artist": "Frederic Edwin Church (American, 1826\u20131900)",
+      "date": "1857",
+      "image_id": "33fc29fc-097b-576b-c9e6-c3352d9d3f15",
+      "local_url": "assets/artic/062-76571.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/33fc29fc-097b-576b-c9e6-c3352d9d3f15/full/900,/0/default.jpg",
+      "local_size_bytes": 161415
+    },
+    {
+      "id": 110507,
+      "title": "In the Sea",
+      "artist": "Arnold B\u00f6cklin (Swiss, 1827\u20131901)",
+      "date": "1883",
+      "image_id": "fa81bfb9-5a07-5e3c-33b4-4efde68981c8",
+      "local_url": "assets/artic/063-110507.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/fa81bfb9-5a07-5e3c-33b4-4efde68981c8/full/900,/0/default.jpg",
+      "local_size_bytes": 170850
+    },
+    {
+      "id": 16551,
+      "title": "Beata Beatrix",
+      "artist": "Dante Gabriel Rossetti (English, 1828\u20131882)",
+      "date": "1871\u201372",
+      "image_id": "194674a2-f451-65f7-ba46-6aac4d894f0b",
+      "local_url": "assets/artic/064-16551.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/194674a2-f451-65f7-ba46-6aac4d894f0b/full/900,/0/default.jpg",
+      "local_size_bytes": 368690
+    },
+    {
+      "id": 62042,
+      "title": "Still Life with Dead Game, Fruits, and Vegetables in a Market",
+      "artist": "Frans Snyders (Flemish, 1579-1657)",
+      "date": "1614",
+      "image_id": "d9bde524-38b2-4262-3338-e4d06a50746d",
+      "local_url": "assets/artic/065-62042.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/d9bde524-38b2-4262-3338-e4d06a50746d/full/900,/0/default.jpg",
+      "local_size_bytes": 198602
+    },
+    {
+      "id": 97910,
+      "title": "The Advance-Guard, or The Military Sacrifice (The Ambush)",
+      "artist": "Frederic Remington (American, 1861\u20131909)",
+      "date": "1890",
+      "image_id": "f1e03813-f9c7-f4f8-fbe8-a5eeae84fda4",
+      "local_url": "assets/artic/066-97910.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/f1e03813-f9c7-f4f8-fbe8-a5eeae84fda4/full/900,/0/default.jpg",
+      "local_size_bytes": 156203
+    },
+    {
+      "id": 145681,
+      "title": "Frederick Douglass",
+      "artist": "Samuel J. Miller",
+      "date": "1847-52",
+      "image_id": "68597cf9-01aa-7c1f-1179-d4b8811e1c05",
+      "local_url": "assets/artic/067-145681.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/68597cf9-01aa-7c1f-1179-d4b8811e1c05/full/900,/0/default.jpg",
+      "local_size_bytes": 218678
+    },
+    {
+      "id": 18757,
+      "title": "Ceremonial Knife (Tumi)",
+      "artist": "Chim\u00fa",
+      "date": "1100\u20131470",
+      "image_id": "801ac46f-ead4-a77a-8523-34dfade43877",
+      "local_url": "assets/artic/068-18757.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/801ac46f-ead4-a77a-8523-34dfade43877/full/900,/0/default.jpg",
+      "local_size_bytes": 325458
+    },
+    {
+      "id": 105466,
+      "title": "The Battle between the Gods and the Giants",
+      "artist": "Joachim Antonisz. Wtewael (Dutch, c. 1566\u20131638)",
+      "date": "c. 1608",
+      "image_id": "8111acce-c8ce-2ef3-5f32-61cd63905c7d",
+      "local_url": "assets/artic/069-105466.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/8111acce-c8ce-2ef3-5f32-61cd63905c7d/full/900,/0/default.jpg",
+      "local_size_bytes": 199451
+    },
+    {
+      "id": 62371,
+      "title": "Madame Cezanne in a Yellow Chair",
+      "artist": "Paul Cezanne (French, 1839\u20131906)",
+      "date": "1888\u201390",
+      "image_id": "4822cd01-44ac-041a-36b8-c0542377b750",
+      "local_url": "assets/artic/070-62371.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/4822cd01-44ac-041a-36b8-c0542377b750/full/900,/0/default.jpg",
+      "local_size_bytes": 267904
+    },
+    {
+      "id": 76395,
+      "title": "Flower Clouds",
+      "artist": "Odilon Redon",
+      "date": "c. 1903",
+      "image_id": "fb2077d9-82cc-ca7e-f450-5471d7f78c9a",
+      "local_url": "assets/artic/071-76395.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/fb2077d9-82cc-ca7e-f450-5471d7f78c9a/full/900,/0/default.jpg",
+      "local_size_bytes": 223066
+    },
+    {
+      "id": 57051,
+      "title": "The Fountains",
+      "artist": "Hubert Robert (French, 1733-1808)",
+      "date": "1787\u201388",
+      "image_id": "62fd0e14-d7fe-0d01-ab00-1eed84b4f294",
+      "local_url": "assets/artic/072-57051.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/62fd0e14-d7fe-0d01-ab00-1eed84b4f294/full/900,/0/default.jpg",
+      "local_size_bytes": 351100
+    },
+    {
+      "id": 111317,
+      "title": "Am\u00e9d\u00e9e-David, the Comte de Pastoret",
+      "artist": "Jean-Auguste-Dominique Ingres (French, 1780-1867)",
+      "date": "1823\u201326",
+      "image_id": "8d119fd0-2f57-f20e-a3f5-a573904001e9",
+      "local_url": "assets/artic/073-111317.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/8d119fd0-2f57-f20e-a3f5-a573904001e9/full/900,/0/default.jpg",
+      "local_size_bytes": 225429
+    },
+    {
+      "id": 14591,
+      "title": "Woman Reading",
+      "artist": "\u00c9douard Manet (French, 1832\u20131883)",
+      "date": "1880\u201382",
+      "image_id": "fd991fea-0c13-8444-7879-aba467f1d9db",
+      "local_url": "assets/artic/074-14591.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/fd991fea-0c13-8444-7879-aba467f1d9db/full/900,/0/default.jpg",
+      "local_size_bytes": 402480
+    },
+    {
+      "id": 23972,
+      "title": "Virgin and Child with the Young Saint John the Baptist",
+      "artist": "Correggio (Antonio Allegri; Italian, 1489\u20131534)",
+      "date": "c. 1515",
+      "image_id": "d63b9402-c42b-cce3-aa63-6d213ad621cd",
+      "local_url": "assets/artic/075-23972.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/d63b9402-c42b-cce3-aa63-6d213ad621cd/full/900,/0/default.jpg",
+      "local_size_bytes": 289446
+    },
+    {
+      "id": 16327,
+      "title": "The Annunciation",
+      "artist": "Jean Hey (Master of Moulins; Netherlandish, c. 1480-c.1504)",
+      "date": "1490\u201395",
+      "image_id": "77951d0c-d781-eac6-f4ff-f13cc5cfc0cf",
+      "local_url": "assets/artic/076-16327.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/77951d0c-d781-eac6-f4ff-f13cc5cfc0cf/full/900,/0/default.jpg",
+      "local_size_bytes": 433426
+    },
+    {
+      "id": 127859,
+      "title": "Stela of Amenemhat and Hemet",
+      "artist": "Egyptian; probably Thebes (now Luxor), Egypt",
+      "date": "Middle Kingdom, early Dynasty 12, about 1956\u20131877 BCE",
+      "image_id": "9365a024-75ce-75e9-756f-1c2c96eadec9",
+      "local_url": "assets/artic/077-127859.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/9365a024-75ce-75e9-756f-1c2c96eadec9/full/900,/0/default.jpg",
+      "local_size_bytes": 232327
+    },
+    {
+      "id": 60812,
+      "title": "Merahi metua no Tehamana (Tehamana Has Many Parents or The Ancestors of Tehamana)",
+      "artist": "Paul Gauguin (French, 1848\u20131903)",
+      "date": "1893",
+      "image_id": "48268fc7-2eb4-ded6-1293-e91f27b66478",
+      "local_url": "assets/artic/078-60812.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/48268fc7-2eb4-ded6-1293-e91f27b66478/full/900,/0/default.jpg",
+      "local_size_bytes": 481781
+    },
+    {
+      "id": 27307,
+      "title": "Madame de Pastoret and Her Son",
+      "artist": "Jacques-Louis David (French, 1748\u20131825)",
+      "date": "1791\u201392",
+      "image_id": "72227c9e-413c-8930-477d-5a90e0a2123c",
+      "local_url": "assets/artic/079-27307.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/72227c9e-413c-8930-477d-5a90e0a2123c/full/900,/0/default.jpg",
+      "local_size_bytes": 464329
+    },
+    {
+      "id": 91620,
+      "title": "Portrait Vessel",
+      "artist": "Ceramist unknown (Moche)",
+      "date": "600\u2013700",
+      "image_id": "239e0072-de08-cb26-1484-4776fc27b0fb",
+      "local_url": "assets/artic/080-91620.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/239e0072-de08-cb26-1484-4776fc27b0fb/full/900,/0/default.jpg",
+      "local_size_bytes": 229814
+    },
+    {
+      "id": 100829,
+      "title": "Magnolias on Light Blue Velvet Cloth",
+      "artist": "Martin Johnson Heade (American, 1819\u20131904)",
+      "date": "1885\u201395",
+      "image_id": "0729fbba-51e3-a2d7-6d4d-61c2be62af3f",
+      "local_url": "assets/artic/081-100829.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/0729fbba-51e3-a2d7-6d4d-61c2be62af3f/full/900,/0/default.jpg",
+      "local_size_bytes": 137024
+    },
+    {
+      "id": 111559,
+      "title": "Boy on a Ram",
+      "artist": "Francisco Jos\u00e9 de Goya y Lucientes (Spanish, 1746\u20131828)",
+      "date": "1786\u201387",
+      "image_id": "e54a695c-16df-cf45-9dd4-b517e8c32cc3",
+      "local_url": "assets/artic/082-111559.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/e54a695c-16df-cf45-9dd4-b517e8c32cc3/full/900,/0/default.jpg",
+      "local_size_bytes": 312886
+    },
+    {
+      "id": 184371,
+      "title": "The Nativity",
+      "artist": "Fra Bartolommeo (Baccio della Porta; Italian, 1472-1517)",
+      "date": "1504\u20137",
+      "image_id": "40fdb1d6-93fe-2916-78fb-f56a1ac261f1",
+      "local_url": "assets/artic/083-184371.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/40fdb1d6-93fe-2916-78fb-f56a1ac261f1/full/900,/0/default.jpg",
+      "local_size_bytes": 368129
+    },
+    {
+      "id": 127644,
+      "title": "Autumn Maples with Poem Slips",
+      "artist": "Tosa Mitsuoki",
+      "date": "c. 1675",
+      "image_id": "86e919b9-d366-b3ca-d26f-4c16880474a3",
+      "local_url": "assets/artic/084-127644.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/86e919b9-d366-b3ca-d26f-4c16880474a3/full/900,/0/default.jpg",
+      "local_size_bytes": 162479
+    },
+    {
+      "id": 159136,
+      "title": "Portrait Bust of a Woman",
+      "artist": "Roman",
+      "date": "Mid\u20132nd century",
+      "image_id": "34133244-99a5-246f-c72f-76f32e55d253",
+      "local_url": "assets/artic/085-159136.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/34133244-99a5-246f-c72f-76f32e55d253/full/900,/0/default.jpg",
+      "local_size_bytes": 164052
+    },
+    {
+      "id": 88793,
+      "title": "Retable and Frontal of the Life of Christ and the Virgin",
+      "artist": "Spanish",
+      "date": "1396",
+      "image_id": "97908967-4d35-cde9-6d90-7e90d3fa1dd6",
+      "local_url": "assets/artic/086-88793.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/97908967-4d35-cde9-6d90-7e90d3fa1dd6/full/900,/0/default.jpg",
+      "local_size_bytes": 190743
+    },
+    {
+      "id": 72801,
+      "title": "Icebound",
+      "artist": "John Henry Twachtman (American, 1853\u20131902)",
+      "date": "c. 1889",
+      "image_id": "3ae75415-0551-ae17-c478-3b8687a6f246",
+      "local_url": "assets/artic/087-72801.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/3ae75415-0551-ae17-c478-3b8687a6f246/full/900,/0/default.jpg",
+      "local_size_bytes": 276066
+    },
+    {
+      "id": 14574,
+      "title": "Henri Degas and His Niece Lucie Degas (The Artist's Uncle and Cousin)",
+      "artist": "Edgar Degas (French, 1834\u20131917)",
+      "date": "1875\u201376",
+      "image_id": "ba4d7ead-bd10-e02d-6f5f-613050d7062e",
+      "local_url": "assets/artic/088-14574.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/ba4d7ead-bd10-e02d-6f5f-613050d7062e/full/900,/0/default.jpg",
+      "local_size_bytes": 239004
+    },
+    {
+      "id": 120154,
+      "title": "Still Life\u2014Strawberries, Nuts, &c.",
+      "artist": "Raphaelle Peale (American, 1774\u20131825)",
+      "date": "1822",
+      "image_id": "1cddae1c-99d5-462f-4aa6-128c0732ac11",
+      "local_url": "assets/artic/089-120154.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/1cddae1c-99d5-462f-4aa6-128c0732ac11/full/900,/0/default.jpg",
+      "local_size_bytes": 147196
+    },
+    {
+      "id": 111617,
+      "title": "Cabin in the Cotton",
+      "artist": "Horace Pippin (American, 1888\u20131946)",
+      "date": "c. 1931\u201337",
+      "image_id": "18dd28cc-ae57-b852-cbc4-d184c6f0555d",
+      "local_url": "assets/artic/090-111617.jpg",
+      "iiif_url": "https://www.artic.edu/iiif/2/18dd28cc-ae57-b852-cbc4-d184c6f0555d/full/900,/0/default.jpg",
+      "local_size_bytes": 159437
+    }
+  ],
+  "cachedAt": "2026-05-04",
+  "cacheWidth": 900
+}

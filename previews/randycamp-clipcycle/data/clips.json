@@ -1,0 +1,188 @@
+{
+  "generatedAt": "2026-05-06",
+  "note": "Curated web preview pool. Full local RandyCamp/Clipcycle library remains external and changes over time.",
+  "clips": [
+    {
+      "id": 1,
+      "title": "welcome to randycamp 60 web 1 0 monkey portal",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/01-welcome-to-randycamp-60-web-1-0-monkey-portal.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_60_web_1_0_monkey_portal.mp4"
+    },
+    {
+      "id": 2,
+      "title": "welcome to randycamp 58 mission control orbit apes",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/02-welcome-to-randycamp-58-mission-control-orbit-ap.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_58_mission_control_orbit_apes.mp4"
+    },
+    {
+      "id": 3,
+      "title": "welcome to randycamp 56 security cam night vision",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/03-welcome-to-randycamp-56-security-cam-night-visio.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_56_security_cam_night_vision.mp4"
+    },
+    {
+      "id": 4,
+      "title": "welcome to randycamp 55 op art quilt chimps",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/04-welcome-to-randycamp-55-op-art-quilt-chimps.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_55_op_art_quilt_chimps.mp4"
+    },
+    {
+      "id": 5,
+      "title": "welcome to randycamp 57 comic halftone boom",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/05-welcome-to-randycamp-57-comic-halftone-boom.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_57_comic_halftone_boom.mp4"
+    },
+    {
+      "id": 6,
+      "title": "welcome to randycamp 54 aquarium kelp capuchins",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/06-welcome-to-randycamp-54-aquarium-kelp-capuchins.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_54_aquarium_kelp_capuchins.mp4"
+    },
+    {
+      "id": 7,
+      "title": "welcome to randycamp 53 cutaway lava burrow",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/07-welcome-to-randycamp-53-cutaway-lava-burrow.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_53_cutaway_lava_burrow.mp4"
+    },
+    {
+      "id": 8,
+      "title": "welcome to randycamp 51 oscilloscope howler signal",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/08-welcome-to-randycamp-51-oscilloscope-howler-sign.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_51_oscilloscope_howler_signal.mp4"
+    },
+    {
+      "id": 9,
+      "title": "welcome to randycamp 48 stained glass gibbon window",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/09-welcome-to-randycamp-48-stained-glass-gibbon-win.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_48_stained_glass_gibbon_window.mp4"
+    },
+    {
+      "id": 10,
+      "title": "welcome to randycamp 47 weather radar banana squall",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/10-welcome-to-randycamp-47-weather-radar-banana-squ.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_47_weather_radar_banana_squall.mp4"
+    },
+    {
+      "id": 11,
+      "title": "welcome to randycamp 45 pixel handheld jungle",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/11-welcome-to-randycamp-45-pixel-handheld-jungle.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_45_pixel_handheld_jungle.mp4"
+    },
+    {
+      "id": 12,
+      "title": "welcome to randycamp 44 xerox zine totem",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/12-welcome-to-randycamp-44-xerox-zine-totem.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_44_xerox_zine_totem.mp4"
+    },
+    {
+      "id": 13,
+      "title": "welcome to randycamp 43 thermal trailcam macaques",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/13-welcome-to-randycamp-43-thermal-trailcam-macaque.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_43_thermal_trailcam_macaques.mp4"
+    },
+    {
+      "id": 14,
+      "title": "welcome to randycamp 42 blueprint canopy survey",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/14-welcome-to-randycamp-42-blueprint-canopy-survey.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_42_blueprint_canopy_survey.mp4"
+    },
+    {
+      "id": 15,
+      "title": "welcome to randycamp 41 risograph banana stampede",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/15-welcome-to-randycamp-41-risograph-banana-stamped.mp4",
+      "relativePath": "randycamp-ascii-monkeys/third-wave-2026-05-03/welcome_to_randycamp_41_risograph_banana_stampede.mp4"
+    },
+    {
+      "id": 16,
+      "title": "welcome to randycamp 21 prism monkey shrine",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/16-welcome-to-randycamp-21-prism-monkey-shrine.mp4",
+      "relativePath": "randycamp-ascii-monkeys/second-wave-2026-05-03/welcome_to_randycamp_21_prism_monkey_shrine.mp4"
+    },
+    {
+      "id": 17,
+      "title": "welcome to randycamp 23 checkerboard chimp portal",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/17-welcome-to-randycamp-23-checkerboard-chimp-porta.mp4",
+      "relativePath": "randycamp-ascii-monkeys/second-wave-2026-05-03/welcome_to_randycamp_23_checkerboard_chimp_portal.mp4"
+    },
+    {
+      "id": 18,
+      "title": "welcome to randycamp 27 monkey constellation map",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/18-welcome-to-randycamp-27-monkey-constellation-map.mp4",
+      "relativePath": "randycamp-ascii-monkeys/second-wave-2026-05-03/welcome_to_randycamp_27_monkey_constellation_map.mp4"
+    },
+    {
+      "id": 19,
+      "title": "welcome to randycamp 29 ascii waterfall troop",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/19-welcome-to-randycamp-29-ascii-waterfall-troop.mp4",
+      "relativePath": "randycamp-ascii-monkeys/second-wave-2026-05-03/welcome_to_randycamp_29_ascii_waterfall_troop.mp4"
+    },
+    {
+      "id": 20,
+      "title": "welcome to randycamp 35 laser cave echoes",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/20-welcome-to-randycamp-35-laser-cave-echoes.mp4",
+      "relativePath": "randycamp-ascii-monkeys/second-wave-2026-05-03/welcome_to_randycamp_35_laser_cave_echoes.mp4"
+    },
+    {
+      "id": 21,
+      "title": "welcome to randycamp 37 ghost monkey xray",
+      "category": "randycamp-ascii-monkeys",
+      "url": "media/21-welcome-to-randycamp-37-ghost-monkey-xray.mp4",
+      "relativePath": "randycamp-ascii-monkeys/second-wave-2026-05-03/welcome_to_randycamp_37_ghost_monkey_xray.mp4"
+    },
+    {
+      "id": 22,
+      "title": "07 glass flower",
+      "category": "loop-studies",
+      "url": "media/22-07-glass-flower.mp4",
+      "relativePath": "loop-studies/website-out/07-glass-flower.mp4"
+    },
+    {
+      "id": 23,
+      "title": "02 cathedral wheel",
+      "category": "loop-studies",
+      "url": "media/23-02-cathedral-wheel.mp4",
+      "relativePath": "loop-studies/website-out/02-cathedral-wheel.mp4"
+    },
+    {
+      "id": 24,
+      "title": "03 spiral tide",
+      "category": "loop-studies",
+      "url": "media/24-03-spiral-tide.mp4",
+      "relativePath": "loop-studies/website-out/03-spiral-tide.mp4"
+    },
+    {
+      "id": 25,
+      "title": "05 opal labyrinth",
+      "category": "loop-studies",
+      "url": "media/25-05-opal-labyrinth.mp4",
+      "relativePath": "loop-studies/website-out/05-opal-labyrinth.mp4"
+    },
+    {
+      "id": 26,
+      "title": "07 glass flower",
+      "category": "nvidia-flux",
+      "url": "media/26-07-glass-flower.mp4",
+      "relativePath": "nvidia-flux/ten-pack/07-glass-flower.mp4"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; display: flex; align-items: center; justify-content: center; width: 100%; height: 100vh; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script>
+    const NUM_RECTS_MIN = 5;
+    const NUM_RECTS_MAX = 20;
+    const GEN_INTERVAL = 5000;
+    let outerRects = [];
+    let staticLayer;
+    let isAnimating = true;
+    function setup() {
+      createCanvas(600, 600);
+      frameRate(30);
+      colorMode(HSB, 255);
+      staticLayer = createGraphics(600, 600);
+      staticLayer.colorMode(HSB, 255);
+      staticLayer.background(0, 0, 190);
+      const numRects = int(random(NUM_RECTS_MIN, NUM_RECTS_MAX + 1));
+      for (let i = 0; i < numRects; i++) {
+        const baseW = random(50, 300);
+        const baseH = random(50, 300);
+        outerRects.push({
+          x: random(600 * 0.1, 600 * 0.8),
+          y: random(600 * 0.1, 600 * 0.8),
+          baseW, baseH, w: baseW, h: baseH,
+          wAmp: random(10, 50), hAmp: random(10, 50),
+          wPhase: random(TWO_PI), hPhase: random(TWO_PI),
+          xSpeed: random(-2, 2), ySpeed: random(-2, 2),
+          lastGenTime: millis(),
+        });
+      }
+    }
+    function draw() {
+      background(0, 0, 255, 30);
+      image(staticLayer, 0, 0);
+      const t = millis() / 1000;
+      for (let r of outerRects) {
+        r.x += r.xSpeed;
+        r.y += r.ySpeed;
+        r.w = map(sin(t + r.wPhase), -1, 1, 10, 250);
+        r.h = map(sin(t + r.hPhase), -1, 1, 10, 250);
+        if (r.x < 0 || r.x + r.w > 600) r.xSpeed *= -1;
+        if (r.y < 0 || r.y + r.h > 600) r.ySpeed *= -1;
+        push();
+        noFill();
+        stroke(color(random(255), 255, 255));
+        strokeWeight(2);
+        rect(r.x, r.y, r.w, r.h);
+        pop();
+        if (millis() - r.lastGenTime > GEN_INTERVAL) {
+          r.lastGenTime = millis();
+          drawNestedRect(staticLayer, r.x, r.y, r.w, r.h);
+        }
+      }
+    }
+    function drawNestedRect(g, x, y, w, h) {
+      const col = color(random(255), random(255), random(255), random(50, 255));
+      g.noStroke();
+      g.fill(col);
+      g.rect(x, y, w, h);
+    }
+    function mousePressed() {
+      isAnimating = !isAnimating;
+      isAnimating ? loop() : noLoop();
+    }
+  </script>
+</body>
+</html>
