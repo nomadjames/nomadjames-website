@@ -1,0 +1,72 @@
+name: Deploy static artifact to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: https://nomadjames.com/
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public artifact repo
+        uses: actions/checkout@v4
+
+      - name: Verify deploy-only boundary
+        run: |
+          set -euo pipefail
+          test -f CNAME
+          test -f .nojekyll
+          test ! -d src
+          test ! -d scripts
+          test ! -d docs
+          test ! -f package.json
+          test ! -f package-lock.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          graph = Path('clarence-graph/graph-data.json')
+          if graph.exists():
+              data = json.loads(graph.read_text(encoding='utf-8'))
+              assert data.get('sanitized') is True, 'Clarence graph is not marked sanitized'
+              nodes = data.get('nodes', [])
+              names = sum(1 for node in nodes if isinstance(node, dict) and 'name' in node)
+              labels = sum(1 for node in nodes if isinstance(node, dict) and 'label' in node)
+              assert names == 0 and labels == 0, f'Clarence graph exposes names={names}, labels={labels}'
+          print('deploy-only boundary ok')
+          PY
+
+      - name: Prepare Pages artifact
+        run: |
+          set -euo pipefail
+          rm -rf pages-artifact
+          mkdir pages-artifact
+          find . -mindepth 1 -maxdepth 1 \
+            ! -name .git \
+            ! -name .github \
+            ! -name pages-artifact \
+            -exec cp -a {} pages-artifact/ \;
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./pages-artifact
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
