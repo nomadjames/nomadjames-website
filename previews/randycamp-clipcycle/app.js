@@ -11,7 +11,9 @@ const GHOST_REFRESH_MS = 11800;
 const MOD_REFRESH_MIN_MS = 45000;
 const MOD_REFRESH_MAX_MS = 90000;
 const ART_CARD_COUNT = 9;
-const EMBED_MODE = new URLSearchParams(window.location.search).get('embed') === '1';
+const urlParams = new URLSearchParams(window.location.search);
+const SMALL_VIEWPORT_MODE = window.matchMedia('(max-width: 720px), (max-height: 520px)').matches;
+const EMBED_MODE = urlParams.get('embed') === '1' || SMALL_VIEWPORT_MODE;
 
 document.documentElement.classList.toggle('embed-mode', EMBED_MODE);
 
