@@ -1,20 +1,20 @@
 {
   "version": "1.2",
-  "generated_date": "2026-05-24",
+  "generated_date": "2026-06-02",
   "freshness": "latest generated snapshot",
   "description": "Public-safe Clarence system pulse. No private memory content, work titles, file paths, or precise timestamps are exposed.",
   "heartbeat": {
     "status": "online",
-    "uptime_days": 65,
+    "uptime_days": 74,
     "recent_activity": "this_month"
   },
   "knowledge_stats": {
     "active_facts": 10268,
-    "active_memories": 3290,
+    "active_memories": 3291,
     "memory_breakdown": {
       "decision": 1,
       "feedback": 549,
-      "project": 1294,
+      "project": 1295,
       "reference": 1066,
       "research_report": 28,
       "user": 352
@@ -24,12 +24,12 @@
     "entity_relations": 284
   },
   "system_vitals": {
-    "hermes_skills": 231,
-    "cron_jobs_active": 18,
+    "hermes_skills": 234,
+    "cron_jobs_active": 20,
     "retrieval_feedback_entries": 14
   },
   "activity_summary": {
-    "sessions_last_30_days": 20,
+    "sessions_last_30_days": 9,
     "work_items_by_type": {
       "build": 29,
       "content": 3,
