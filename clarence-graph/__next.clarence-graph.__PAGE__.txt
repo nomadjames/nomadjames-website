@@ -367,7 +367,7 @@
   </script>
 </body>
 </html>
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"page-module__U7mUlq__page","children":["$","iframe",null,{"srcDoc":"$2","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]}],["$L3"],"$L4"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"UeUNB8ZeBNRRTuBZm6j0m"}
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"page-module__U7mUlq__page","children":["$","iframe",null,{"srcDoc":"$2","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]}],["$L3"],"$L4"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"-yn23HpyGb-vIMqK6TtER"}
 3:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next"}]
 4:["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]
 7:null
