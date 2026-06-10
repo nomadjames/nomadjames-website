@@ -1,11 +1,11 @@
 {
   "version": "1.2",
-  "generated_date": "2026-06-09",
+  "generated_date": "2026-06-10",
   "freshness": "latest generated snapshot",
   "description": "Public-safe Clarence system pulse. No private memory content, work titles, file paths, or precise timestamps are exposed.",
   "heartbeat": {
     "status": "online",
-    "uptime_days": 81,
+    "uptime_days": 82,
     "recent_activity": "older"
   },
   "knowledge_stats": {
