@@ -1,10 +1,6 @@
 1:"$Sreact.fragment"
-2:I[47257,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ClientPageRoot"]
-3:I[73083,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0_cl8zt.g_062.js","/_next/static/chunks/04jtmk68~sfz8.js"],"default"]
-6:I[97367,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
-7:"$Sreact.suspense"
-:HL["/_next/static/chunks/0qbgaqy89hbie.css","style"]
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0qbgaqy89hbie.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/0_cl8zt.g_062.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/04jtmk68~sfz8.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"EAo5hKz8LGYOgQUTgjFbQ"}
-4:{}
-5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
-8:null
+2:I[22016,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+3:I[97367,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"container","style":{"padding":"6rem 0"},"children":[["$","p",null,{"style":{"color":"var(--orange)","fontFamily":"var(--font-mono)","textTransform":"uppercase","letterSpacing":"0.08em"},"children":"Demo moved"}],["$","h1",null,{"style":{"fontFamily":"var(--font-heading)","fontSize":"clamp(2rem, 6vw, 4rem)","margin":"1rem 0"},"children":"The Oblique Oracle demo now lives in Building."}],["$","p",null,{"style":{"maxWidth":"62ch","color":"var(--fg-muted)","lineHeight":1.7},"children":"Oblique Oracle is still in development, so the live demo moved with the active project page."}],["$","p",null,{"style":{"marginTop":"2rem"},"children":["$","$L2",null,{"href":"/building/oblique-oracle/demo","style":{"color":"var(--orange)"},"children":"Open the active demo →"}]}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"oYWxDj8lbPS9xzRbn5cYE"}
+5:null
