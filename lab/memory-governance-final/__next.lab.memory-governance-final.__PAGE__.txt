@@ -1,8 +1,9 @@
 1:"$Sreact.fragment"
-2:I[52438,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0rk92-yli6g-t.js"],"default"]
-3:I[91902,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0rk92-yli6g-t.js"],"default"]
-4:I[97367,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
-5:"$Sreact.suspense"
+2:I[12929,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01x6pkbun9b1n.js"],"default"]
+3:I[52438,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01x6pkbun9b1n.js"],"default"]
+4:I[91902,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/01x6pkbun9b1n.js"],"default"]
+5:I[97367,["/_next/static/chunks/06ld.m06su4l7.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
 :HL["/_next/static/chunks/0gy4b7x88ofs..css","style"]
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"page-module__WWadqa__page","children":["$","main",null,{"className":"container","children":[["$","div",null,{"className":"page-module__WWadqa__backLink","children":["$","$L2",null,{"fallbackHref":"/lab","children":"← Lab"}]}],["$","$L3",null,{}]]}]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0gy4b7x88ofs..css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/0rk92-yli6g-t.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"oYWxDj8lbPS9xzRbn5cYE"}
-6:null
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"page-module__WWadqa__page","children":[["$","$L2",null,{"data":[{"@context":"https://schema.org","@type":"CreativeWork","name":"Memory Governance Final Preview","description":"A hybrid memory governance lab showing why retrieval score, confidence, and authority are different things.","author":{"@type":"Person","name":"James Dishman","url":"https://nomadjames.com"},"url":"https://nomadjames.com/lab/memory-governance-final/","datePublished":"2026-05-06","dateModified":"2026-06-26","keywords":"Memory Governance, Retrieval Score, Confidence, Authority, AI Systems, Interactive Prototype"}]}],["$","main",null,{"className":"container","children":[["$","div",null,{"className":"page-module__WWadqa__backLink","children":["$","$L3",null,{"fallbackHref":"/lab","children":"← Lab"}]}],["$","$L4",null,{}]]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0gy4b7x88ofs..css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/01x6pkbun9b1n.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"u_25s685nd4Z7eao6WjCS"}
+7:null
