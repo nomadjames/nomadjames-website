@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://nomadjames.com/building/sensorsynth/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-07-01</lastmod>
   </url>
   <url>
     <loc>https://nomadjames.com/lab/ltx-2080-fever-dreams/</loc>
@@ -143,5 +143,9 @@
   <url>
     <loc>https://nomadjames.com/building/oblique-oracle/demo/</loc>
     <lastmod>2026-06-26</lastmod>
+  </url>
+  <url>
+    <loc>https://nomadjames.com/building/sensorsynth/process/</loc>
+    <lastmod>2026-07-01</lastmod>
   </url>
 </urlset>

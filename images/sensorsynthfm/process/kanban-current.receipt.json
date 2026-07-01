@@ -1,0 +1,46 @@
+{
+  "script_version": "2026-07-01.2",
+  "generated_at_utc": "2026-07-01T14:04:55Z",
+  "source_label": "SensorSynthFM capstone task board",
+  "task_count": 33,
+  "counts_by_status": {
+    "done": 20,
+    "ready": 4,
+    "scheduled": 1,
+    "todo": 8
+  },
+  "image_path": "public/images/sensorsynthfm/process/kanban-current.png",
+  "refresh_command": "python3 scripts/render-sensorsynth-kanban-snapshot.py --image public/images/sensorsynthfm/process/kanban-current.png --receipt public/images/sensorsynthfm/process/kanban-current.receipt.json",
+  "git_sha": "77372e4",
+  "chrome_version": "Google Chrome 149.0.7827.196",
+  "rendered_field_policy": "The image renders public card titles, status, priority, and abstracted lane labels only. Internal ids, raw assignee names, task bodies, comments, run logs, file paths, and raw workspace data are omitted.",
+  "public_safety_checks": [
+    "task ids omitted",
+    "raw assignee names omitted",
+    "task bodies omitted",
+    "comments and run logs omitted",
+    "workspace paths and raw board data omitted"
+  ],
+  "featured_completed_lane": [
+    {
+      "title": "Capstone evidence gate",
+      "status": "Done",
+      "lane": "Stewardship"
+    },
+    {
+      "title": "Discovery research gate",
+      "status": "Done",
+      "lane": "Stewardship"
+    },
+    {
+      "title": "Parked ambition register",
+      "status": "Done",
+      "lane": "Stewardship"
+    },
+    {
+      "title": "Peer feedback cleanup",
+      "status": "Done",
+      "lane": "Stewardship"
+    }
+  ]
+}
