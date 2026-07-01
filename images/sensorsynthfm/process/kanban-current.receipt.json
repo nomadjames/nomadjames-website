@@ -1,17 +1,26 @@
 {
   "script_version": "2026-07-01.2",
-  "generated_at_utc": "2026-07-01T14:04:55Z",
+  "generated_at_utc": "2026-07-01T14:15:43Z",
   "source_label": "SensorSynthFM capstone task board",
   "task_count": 33,
   "counts_by_status": {
-    "done": 20,
-    "ready": 4,
+    "done": 21,
+    "ready": 3,
     "scheduled": 1,
     "todo": 8
   },
+  "flow_direction": "left_to_right",
+  "displayed_status_order": [
+    "scheduled",
+    "todo",
+    "ready",
+    "running",
+    "blocked",
+    "done"
+  ],
   "image_path": "public/images/sensorsynthfm/process/kanban-current.png",
   "refresh_command": "python3 scripts/render-sensorsynth-kanban-snapshot.py --image public/images/sensorsynthfm/process/kanban-current.png --receipt public/images/sensorsynthfm/process/kanban-current.receipt.json",
-  "git_sha": "77372e4",
+  "git_sha": "65157a2",
   "chrome_version": "Google Chrome 149.0.7827.196",
   "rendered_field_policy": "The image renders public card titles, status, priority, and abstracted lane labels only. Internal ids, raw assignee names, task bodies, comments, run logs, file paths, and raw workspace data are omitted.",
   "public_safety_checks": [
