@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>How Clarence Remembers | James Dishman</title>
+<meta name="description" content="A public-safe architecture report on Clarence: prompt context, session recall, structured memory, semantic retrieval, the system Wiki, procedural skills, and governed maintenance.">
+<link rel="canonical" href="https://nomadjames.com/clarence-memory-system/">
+<meta property="og:title" content="How Clarence Remembers | James Dishman">
+<meta property="og:description" content="A public-safe map of the current Clarence memory system and the boundaries that keep it useful.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nomadjames.com/clarence-memory-system/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"How Clarence Remembers","description":"A public-safe architecture report on the current Clarence memory system.","author":{"@type":"Person","name":"James Dishman"},"datePublished":"2026-07-15","dateModified":"2026-07-15","url":"https://nomadjames.com/clarence-memory-system/"}
+</script>
+<style>
+  :root {
+    --bg:#090909; --panel:#111111; --panel-2:#161616; --text:#f3efe7; --muted:#a9a39a;
+    --dim:#77716a; --line:#302d29; --orange:#e8913a; --green:#8da66b; --red:#d06b5c;
+    --sand:#d8c8ad; --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --serif:Georgia,"Times New Roman",serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.65; }
+  a { color:inherit; }
+  .page { max-width:1180px; margin:0 auto; padding:42px 24px 100px; }
+  .topbar { display:flex; justify-content:space-between; gap:20px; align-items:center; margin-bottom:68px; }
+  .back { color:var(--muted); text-decoration:none; font-family:var(--mono); font-size:12px; }
+  .back:hover { color:var(--orange); }
+  .stamp { color:var(--dim); font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; }
+  .eyebrow { color:var(--orange); font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; }
+  h1,h2,h3 { margin:0; font-weight:500; }
+  h1 { max-width:900px; margin-top:10px; font-family:var(--serif); font-size:clamp(3rem,8vw,6.7rem); line-height:.95; letter-spacing:-.045em; }
+  .lead { max-width:790px; margin:26px 0 0; color:var(--muted); font-size:19px; line-height:1.65; }
+  .verdict { margin-top:32px; padding:20px 22px; border:1px solid var(--line); border-left:3px solid var(--orange); background:var(--panel); max-width:900px; }
+  .verdict strong { color:var(--text); }
+  .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:54px 0 18px; background:var(--line); border:1px solid var(--line); }
+  .metric { min-width:0; padding:24px; background:var(--panel); }
+  .metric-value { display:block; font-family:var(--serif); font-size:34px; line-height:1.1; }
+  .metric-label { display:block; margin-top:8px; color:var(--muted); font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.06em; }
+  .snapshot { color:var(--dim); font-size:12px; }
+  section { margin-top:92px; scroll-margin-top:24px; }
+  .section-head { display:grid; grid-template-columns:170px minmax(0,1fr); gap:24px; border-top:1px solid var(--line); padding-top:18px; margin-bottom:28px; }
+  .section-index { color:var(--dim); font-family:var(--mono); font-size:11px; }
+  h2 { font-family:var(--serif); font-size:clamp(2rem,4vw,3.3rem); line-height:1.05; letter-spacing:-.025em; }
+  .section-intro { max-width:780px; margin:0 0 28px 194px; color:var(--muted); font-size:17px; }
+  .diagram-shell { border:1px solid var(--line); background:#050505; padding:18px; overflow-x:auto; }
+  .diagram-label { margin:0 0 12px; color:var(--dim); font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; }
+  .diagram-shell svg { display:block; width:100%; min-width:850px; height:auto; }
+  .diagram-note { margin:14px 2px 2px; color:var(--dim); font-size:12px; }
+  .sequence { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .step { display:grid; grid-template-columns:38px minmax(0,1fr); gap:14px; padding:20px; border:1px solid var(--line); background:var(--panel); }
+  .step-num { width:32px; height:32px; display:grid; place-items:center; border:1px solid var(--orange); border-radius:50%; color:var(--orange); font-family:var(--mono); font-size:10px; }
+  .step strong { display:block; margin-bottom:5px; }
+  .step p { margin:0; color:var(--muted); font-size:14px; }
+  .table-wrap { overflow-x:auto; border:1px solid var(--line); }
+  table { width:100%; border-collapse:collapse; min-width:900px; }
+  thead { background:var(--panel-2); }
+  th { padding:12px 14px; color:var(--dim); font-family:var(--mono); font-size:9px; text-transform:uppercase; letter-spacing:.06em; text-align:left; }
+  td { padding:14px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; vertical-align:top; }
+  td:first-child { color:var(--text); font-weight:600; }
+  .badge { display:inline-block; padding:3px 9px; border-radius:999px; font-family:var(--mono); font-size:9px; text-transform:uppercase; letter-spacing:.04em; }
+  .active { color:#c9e4a5; background:rgba(141,166,107,.14); }
+  .support { color:#f0b47d; background:rgba(232,145,58,.13); }
+  .stage { color:#d9d1c6; background:rgba(169,163,154,.12); }
+  .retired { color:#efafa5; background:rgba(208,107,92,.12); }
+  .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+  .card { border:1px solid var(--line); background:var(--panel); padding:24px; }
+  .card h3 { font-family:var(--serif); font-size:23px; margin-bottom:12px; }
+  .card p { color:var(--muted); margin:0; }
+  .card ul { margin:0; padding-left:18px; color:var(--muted); }
+  .card li { margin:7px 0; }
+  .card.good { border-top:3px solid var(--green); }
+  .card.warn { border-top:3px solid var(--orange); }
+  .card.stop { border-top:3px solid var(--red); }
+  .flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .flow .card { min-height:190px; }
+  .kicker { color:var(--orange); font-family:var(--mono); font-size:9px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px; }
+  .challenge-list { display:grid; gap:10px; }
+  .challenge { display:grid; grid-template-columns:220px minmax(0,1fr); gap:24px; padding:18px 20px; border:1px solid var(--line); background:var(--panel); }
+  .challenge strong { color:var(--text); }
+  .challenge p { margin:0; color:var(--muted); }
+  .boundary { border:1px solid var(--line); border-left:3px solid var(--green); padding:22px; background:var(--panel); }
+  .boundary p { margin:0; color:var(--muted); }
+  .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+  .button { display:inline-block; padding:11px 15px; border:1px solid var(--line); text-decoration:none; font-family:var(--mono); font-size:11px; }
+  .button:hover { border-color:var(--orange); color:var(--orange); }
+  footer { margin-top:100px; padding-top:20px; border-top:1px solid var(--line); color:var(--dim); font-size:12px; }
+  @media (max-width:900px) {
+    .metrics { grid-template-columns:repeat(2,1fr); }
+    .section-head { grid-template-columns:1fr; gap:7px; }
+    .section-intro { margin-left:0; }
+    .flow { grid-template-columns:1fr; }
+  }
+  @media (max-width:650px) {
+    .page { padding:28px 14px 72px; }
+    .topbar { margin-bottom:48px; align-items:flex-start; }
+    .stamp { text-align:right; }
+    h1 { font-size:3.35rem; }
+    .lead { font-size:17px; }
+    .metrics { grid-template-columns:1fr; }
+    section { margin-top:70px; }
+    .sequence,.grid-2 { grid-template-columns:1fr; }
+    .diagram-shell::before { content:"Swipe horizontally to inspect the full architecture"; display:block; margin-bottom:10px; color:var(--orange); font-family:var(--mono); font-size:9px; text-transform:uppercase; letter-spacing:.05em; }
+    .diagram-shell svg { min-width:850px; }
+    .table-wrap { border:0; overflow:visible; }
+    table { min-width:0; }
+    thead { display:none; }
+    tbody,tr,td { display:block; width:100%; }
+    tr { margin-bottom:12px; border:1px solid var(--line); background:var(--panel); }
+    td { display:grid; grid-template-columns:84px minmax(0,1fr); gap:9px; border-top:1px solid var(--line); padding:9px 12px; overflow-wrap:anywhere; }
+    td:first-child { display:block; border-top:0; background:var(--panel-2); padding:12px; }
+    td::before { color:var(--dim); font-family:var(--mono); font-size:8px; text-transform:uppercase; letter-spacing:.05em; }
+    td:first-child::before { display:none; }
+    td:nth-child(2)::before { content:"Role"; }
+    td:nth-child(3)::before { content:"Reads"; }
+    td:nth-child(4)::before { content:"Writes"; }
+    td:nth-child(5)::before { content:"Status"; }
+    .challenge { grid-template-columns:1fr; gap:6px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a class="back" href="/portfolio/clarence">← Clarence case study</a>
+    <span class="stamp">Public-safe architecture · July 15, 2026</span>
+  </div>
+
+  <header>
+    <div class="eyebrow">Clarence system report</div>
+    <h1>How Clarence remembers</h1>
+    <p class="lead">Memory is not one database. It is a governed stack of prompt context, transcript recall, structured knowledge, semantic indexes, a human-readable Wiki, procedural skills, and temporary execution state.</p>
+    <div class="verdict"><strong>The system is live and useful.</strong> Its value comes from separating those jobs instead of calling every stored thing memory. Clarence decides what becomes durable, where it belongs, and what must remain temporary.</div>
+
+    <div class="metrics" aria-label="Verified public-safe memory snapshot">
+      <div class="metric"><span class="metric-value">1,238</span><span class="metric-label">Current memories</span></div>
+      <div class="metric"><span class="metric-value">10,259</span><span class="metric-label">Current facts</span></div>
+      <div class="metric"><span class="metric-value">1,863</span><span class="metric-label">Indexed vault notes</span></div>
+      <div class="metric"><span class="metric-value">4</span><span class="metric-label">Local vector lanes</span></div>
+    </div>
+    <p class="snapshot">Verified July 15, 2026. Counts are a reviewed snapshot, not real-time telemetry.</p>
+  </header>
+
+  <section id="architecture">
+    <div class="section-head"><span class="section-index">01 · Architecture</span><h2>The current system</h2></div>
+    <p class="section-intro">A message enters through Hermes. Bounded context is assembled for the turn. Durable knowledge stays in separate stores with separate write rules. Read-only clients do not become peer memory writers.</p>
+    <div class="diagram-shell">
+      <p class="diagram-label">Solid green lines write · dashed orange lines read · dotted gray lines stage or report</p>
+      <svg viewBox="0 0 1160 720" role="img" aria-labelledby="architectureTitle architectureDesc" xmlns="http://www.w3.org/2000/svg">
+        <title id="architectureTitle">Public-safe Clarence memory system architecture</title>
+        <desc id="architectureDesc">A layered diagram of the Hermes runtime, prompt context, session history, retrieval tools, structured memory, Wiki, skills, run-state, corpus staging, maintenance, and read-only external clients.</desc>
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1f1f1f" stroke-width=".7"/></pattern>
+          <marker id="greenArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#8da66b" stroke-width="1.5"/></marker>
+          <marker id="orangeArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#e8913a" stroke-width="1.5"/></marker>
+          <marker id="grayArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#77716a" stroke-width="1.5"/></marker>
+        </defs>
+        <rect width="1160" height="720" fill="#050505"/><rect width="1160" height="720" fill="url(#grid)"/>
+        <g fill="none" stroke="#302d29"><rect x="20" y="20" width="1120" height="105" rx="10"/><rect x="20" y="145" width="1120" height="125" rx="10"/><rect x="20" y="290" width="1120" height="145" rx="10"/><rect x="20" y="455" width="1120" height="120" rx="10"/><rect x="20" y="595" width="1120" height="100" rx="10"/></g>
+        <g font-family="ui-monospace,monospace" font-size="9" fill="#77716a" letter-spacing="1"><text x="34" y="38">INTERACTION + RUNTIME</text><text x="34" y="163">TURN CONTEXT + HISTORY</text><text x="34" y="308">RETRIEVAL + STRUCTURED MEMORY</text><text x="34" y="473">READABLE + PROCEDURAL + STAGING</text><text x="34" y="613">MAINTENANCE + EXTERNAL READERS</text></g>
+        <g fill="none" stroke-linecap="round" stroke-width="2">
+          <path d="M250 76H390" stroke="#8da66b" marker-end="url(#greenArrow)"/><path d="M770 76H910" stroke="#8da66b" marker-end="url(#greenArrow)"/>
+          <path d="M160 190C230 130 430 130 500 105" stroke="#e8913a" stroke-dasharray="6 5" marker-end="url(#orangeArrow)"/><path d="M440 190C470 145 530 140 560 105" stroke="#e8913a" stroke-dasharray="6 5" marker-end="url(#orangeArrow)"/>
+          <path d="M650 105C690 135 735 155 760 190" stroke="#8da66b" marker-end="url(#greenArrow)"/><path d="M790 105C870 135 970 155 1010 190" stroke="#e8913a" stroke-dasharray="6 5" marker-end="url(#orangeArrow)"/>
+          <path d="M520 230C590 275 760 285 820 325" stroke="#e8913a" stroke-dasharray="6 5" marker-end="url(#orangeArrow)"/>
+          <path d="M500 105C400 200 240 270 165 330" stroke="#8da66b" marker-end="url(#greenArrow)"/><path d="M570 105C530 210 490 270 465 330" stroke="#8da66b" marker-end="url(#greenArrow)"/>
+          <path d="M285 370H630" stroke="#8da66b" marker-end="url(#greenArrow)"/><path d="M560 370H630" stroke="#e8913a" stroke-dasharray="6 5" marker-end="url(#orangeArrow)"/>
+          <path d="M650 105C530 280 260 410 165 495" stroke="#8da66b" marker-end="url(#greenArrow)"/><path d="M690 105C620 300 500 420 450 495" stroke="#8da66b" marker-end="url(#greenArrow)"/><path d="M730 105C710 320 745 420 750 495" stroke="#8da66b" marker-end="url(#greenArrow)"/>
+          <path d="M1010 495C990 450 940 420 900 405" stroke="#77716a" stroke-dasharray="3 5" marker-end="url(#grayArrow)"/>
+          <path d="M170 630C150 590 155 555 165 540" stroke="#8da66b" marker-end="url(#greenArrow)"/><path d="M240 630C360 555 650 455 730 405" stroke="#8da66b" marker-end="url(#greenArrow)"/>
+          <path d="M500 630C600 550 760 460 820 405" stroke="#e8913a" stroke-dasharray="6 5" marker-end="url(#orangeArrow)"/><path d="M1030 105C1100 260 1100 520 1010 630" stroke="#e8913a" stroke-dasharray="6 5" marker-end="url(#orangeArrow)"/>
+        </g>
+        <g font-family="ui-monospace,monospace" text-anchor="middle">
+          <g><rect x="50" y="50" width="200" height="54" rx="6" fill="#111" stroke="#77716a"/><text x="150" y="73" font-size="12" fill="#f3efe7">James + local surfaces</text><text x="150" y="91" font-size="8" fill="#a9a39a">chat · terminal · dashboard</text></g>
+          <g><rect x="390" y="44" width="380" height="66" rx="7" fill="#1b120b" stroke="#e8913a" stroke-width="2"/><text x="580" y="71" font-size="14" fill="#f3efe7">Hermes / Clarence</text><text x="580" y="92" font-size="9" fill="#f0b47d">orchestration · judgment · canonical write gate</text></g>
+          <g><rect x="910" y="50" width="200" height="54" rx="6" fill="#111" stroke="#77716a"/><text x="1010" y="73" font-size="12" fill="#f3efe7">External clients</text><text x="1010" y="91" font-size="8" fill="#a9a39a">bounded read or handoff lanes</text></g>
+          <g><rect x="50" y="190" width="220" height="55" rx="6" fill="#10150d" stroke="#8da66b"/><text x="160" y="213" font-size="12" fill="#f3efe7">Prompt memory</text><text x="160" y="232" font-size="8" fill="#c9e4a5">stable preferences · working rules</text></g>
+          <g><rect x="330" y="190" width="230" height="55" rx="6" fill="#0d1714" stroke="#5fae95"/><text x="445" y="213" font-size="12" fill="#f3efe7">Memory provider</text><text x="445" y="232" font-size="8" fill="#a8daca">prefetch · mirror · stage</text></g>
+          <g><rect x="650" y="190" width="220" height="55" rx="6" fill="#14111b" stroke="#a98ee3"/><text x="760" y="213" font-size="12" fill="#f3efe7">Session history</text><text x="760" y="232" font-size="8" fill="#c8b8ef">transcripts · search · continuity</text></g>
+          <g><rect x="930" y="190" width="160" height="55" rx="6" fill="#0d1714" stroke="#5fae95"/><text x="1010" y="213" font-size="12" fill="#f3efe7">History search</text><text x="1010" y="232" font-size="8" fill="#a8daca">prior sessions</text></g>
+          <g><rect x="50" y="330" width="235" height="72" rx="6" fill="#0d1714" stroke="#5fae95"/><text x="168" y="355" font-size="12" fill="#f3efe7">Memory tools</text><text x="168" y="375" font-size="8" fill="#a8daca">exact · semantic · deep recall</text><text x="168" y="390" font-size="8" fill="#a9a39a">governed writes + retirement</text></g>
+          <g><rect x="360" y="330" width="200" height="72" rx="6" fill="#19140a" stroke="#e8b34a"/><text x="460" y="355" font-size="12" fill="#f3efe7">Context graph</text><text x="460" y="375" font-size="8" fill="#f0cf83">entities · facts · relations</text><text x="460" y="390" font-size="8" fill="#a9a39a">read-only prototype</text></g>
+          <g><rect x="630" y="320" width="480" height="90" rx="7" fill="#14111b" stroke="#a98ee3" stroke-width="2"/><text x="870" y="349" font-size="14" fill="#f3efe7">Structured knowledge system</text><text x="870" y="372" font-size="8" fill="#c8b8ef">memories · facts · entities · relations · vault index · corpus</text><text x="870" y="393" font-size="8" fill="#a9a39a">SQLite + four local semantic vector lanes</text></g>
+          <g><rect x="50" y="495" width="230" height="54" rx="6" fill="#0b1518" stroke="#54b4c6"/><text x="165" y="518" font-size="12" fill="#f3efe7">System Wiki</text><text x="165" y="537" font-size="8" fill="#9edce7">human-readable compiled truth</text></g>
+          <g><rect x="340" y="495" width="220" height="54" rx="6" fill="#10150d" stroke="#8da66b"/><text x="450" y="518" font-size="12" fill="#f3efe7">Skills</text><text x="450" y="537" font-size="8" fill="#c9e4a5">repeatable procedures</text></g>
+          <g><rect x="640" y="495" width="220" height="54" rx="6" fill="#111" stroke="#77716a"/><text x="750" y="518" font-size="12" fill="#f3efe7">Run-state</text><text x="750" y="537" font-size="8" fill="#a9a39a">temporary task continuity</text></g>
+          <g><rect x="920" y="495" width="190" height="54" rx="6" fill="#19140a" stroke="#e8b34a"/><text x="1015" y="518" font-size="12" fill="#f3efe7">Corpus staging</text><text x="1015" y="537" font-size="8" fill="#f0cf83">manual promotion path</text></g>
+          <g><rect x="50" y="630" width="240" height="42" rx="6" fill="#10150d" stroke="#8da66b"/><text x="170" y="656" font-size="11" fill="#f3efe7">Sync + index + vectors</text></g>
+          <g><rect x="380" y="630" width="240" height="42" rx="6" fill="#111" stroke="#77716a"/><text x="500" y="656" font-size="11" fill="#f3efe7">Report-only hygiene audit</text></g>
+          <g><rect x="710" y="630" width="180" height="42" rx="6" fill="#111" stroke="#77716a"/><text x="800" y="656" font-size="11" fill="#f3efe7">Growth guard</text></g>
+          <g><rect x="930" y="630" width="180" height="42" rx="6" fill="#171010" stroke="#d06b5c"/><text x="1020" y="656" font-size="11" fill="#f3efe7">Read-only gateways</text></g>
+        </g>
+      </svg>
+      <p class="diagram-note">The structured database is authoritative for machine-queryable knowledge. The Wiki is authoritative for readable synthesis. Neither transcript history nor run-state becomes truth merely because it exists.</p>
+    </div>
+  </section>
+
+  <section id="turn">
+    <div class="section-head"><span class="section-index">02 · Turn flow</span><h2>How one conversation turn works</h2></div>
+    <div class="sequence">
+      <div class="step"><span class="step-num">01</span><div><strong>Hermes receives the message.</strong><p>Identity, permissions, model policy, and the current profile establish the operating boundary.</p></div></div>
+      <div class="step"><span class="step-num">02</span><div><strong>Stable prompt memory is already present.</strong><p>A small reviewed set of preferences and durable operating facts enters the session context.</p></div></div>
+      <div class="step"><span class="step-num">03</span><div><strong>The memory provider adds bounded recall.</strong><p>Relevant structured memories and facts are retrieved for the turn without dumping the full database into the prompt.</p></div></div>
+      <div class="step"><span class="step-num">04</span><div><strong>The transcript enters session history.</strong><p>Conversation history remains searchable for what was said, including goals, decisions, and prior corrections.</p></div></div>
+      <div class="step"><span class="step-num">05</span><div><strong>Additional tools retrieve evidence.</strong><p>Exact lookup, semantic search, deep recall, Wiki search, and relationship queries serve different evidence needs.</p></div></div>
+      <div class="step"><span class="step-num">06</span><div><strong>The turn does not automatically become truth.</strong><p>Most conversation remains transcript history. Durable promotion requires a deliberate destination and a governed write.</p></div></div>
+      <div class="step"><span class="step-num">07</span><div><strong>Explicit preferences can be staged.</strong><p>Candidate capture identifies statements worth review, but candidates do not promote themselves.</p></div></div>
+      <div class="step"><span class="step-num">08</span><div><strong>Durable knowledge lands in the right layer.</strong><p>Stable facts, readable synthesis, repeatable procedures, and temporary task state remain separate.</p></div></div>
+    </div>
+  </section>
+
+  <section id="components">
+    <div class="section-head"><span class="section-index">03 · Inventory</span><h2>What each component does</h2></div>
+    <p class="section-intro">The same information can appear in more than one layer, but each layer has one job. That is the difference between redundancy and confusion.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Role</th><th>Reads</th><th>Writes</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Prompt memory</td><td>Small always-needed preferences, corrections, and stable system facts.</td><td>Session-start snapshot</td><td>Governed memory tool</td><td><span class="badge active">active</span></td></tr>
+          <tr><td>Memory provider</td><td>Automatic bounded prefetch, mirrored hot-memory changes, and candidate staging.</td><td>Structured knowledge</td><td>Mirrors and candidates</td><td><span class="badge active">active</span></td></tr>
+          <tr><td>Candidate staging</td><td>Holds possible preferences or directives until reviewed.</td><td>Explicit user signals</td><td>Candidate rows only</td><td><span class="badge stage">staging</span></td></tr>
+          <tr><td>Session history</td><td>Records conversations, usage, routing, and continuity.</td><td>Hermes runtime</td><td>Every conversation</td><td><span class="badge active">active</span></td></tr>
+          <tr><td>History search</td><td>Finds actual prior discussions without pretending transcript text is current truth.</td><td>Session history</td><td>None</td><td><span class="badge support">access</span></td></tr>
+          <tr><td>Structured knowledge</td><td>Canonical machine-queryable facts, memories, entities, relations, indexes, and lifecycle state.</td><td>Memory tools and maintenance</td><td>Clarence-governed paths</td><td><span class="badge active">canonical</span></td></tr>
+          <tr><td>Memory tools</td><td>Exact lookup, semantic search, deep recall, governed writes, retirement, and feedback.</td><td>Structured knowledge</td><td>Approved operations</td><td><span class="badge active">active</span></td></tr>
+          <tr><td>Vector lanes</td><td>Local semantic retrieval across memories, facts, vault notes, and large documents.</td><td>Embedded source rows</td><td>Indexer-managed vectors</td><td><span class="badge active">full coverage</span></td></tr>
+          <tr><td>Deep recall</td><td>Combines semantic, lexical, metadata, Wiki, profile, and corpus candidates.</td><td>Multiple retrieval lanes</td><td>Telemetry and feedback</td><td><span class="badge active">active</span></td></tr>
+          <tr><td>Context graph</td><td>Answers relationship-first questions over explicit entities and relations.</td><td>Structured knowledge</td><td>None</td><td><span class="badge stage">read-only pilot</span></td></tr>
+          <tr><td>System Wiki</td><td>Human-readable compiled truth: architecture, decisions, source maps, and current state.</td><td>Task intake and review</td><td>Durable synthesis</td><td><span class="badge active">compiled truth</span></td></tr>
+          <tr><td>Vault index</td><td>Makes reviewed notes searchable beside structured memory without pretending they are identical.</td><td>Reviewed notes</td><td>Search index and vectors</td><td><span class="badge active">scheduled</span></td></tr>
+          <tr><td>Skills</td><td>Procedural memory for repeatable workflows, verification, and tool use.</td><td>Skill catalog</td><td>Reviewed skill files</td><td><span class="badge active">procedure authority</span></td></tr>
+          <tr><td>Run-state</td><td>Temporary task handoff, command receipts, blockers, and next action.</td><td>Current task only</td><td>During substantial work</td><td><span class="badge support">temporary</span></td></tr>
+          <tr><td>Corpus index</td><td>Large-document metadata, chunks, exclusions, extraction state, and semantic vectors.</td><td>Curated source packs</td><td>Manual promotion path</td><td><span class="badge support">active store</span></td></tr>
+          <tr><td>Maintenance jobs</td><td>Refresh indexes, audit hygiene, checkpoint growth, and report drift.</td><td>Stores and schedulers</td><td>Indexes or reports</td><td><span class="badge active">scheduled</span></td></tr>
+          <tr><td>External readers</td><td>Give approved clients a narrow view without granting canonical write authority.</td><td>Public-safe or read-only surfaces</td><td>None</td><td><span class="badge support">bounded</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="authority">
+    <div class="section-head"><span class="section-index">04 · Authority</span><h2>What wins when layers disagree</h2></div>
+    <div class="grid-2">
+      <div class="card good"><div class="kicker">Source hierarchy</div><h3>Use the narrowest authoritative layer</h3><ul><li>Live services and source code establish runtime truth.</li><li>Prompt memory holds stable preferences and corrections.</li><li>Structured knowledge holds queryable durable state.</li><li>The Wiki holds readable synthesis and design reasoning.</li><li>Skills hold procedures.</li><li>Session history proves what was said.</li><li>Run-state proves what happened during a task.</li></ul></div>
+      <div class="card warn"><div class="kicker">Write hierarchy</div><h3>Clarence remains the gate</h3><ul><li>External clients read or submit handoffs.</li><li>Candidate staging never self-promotes.</li><li>The graph has no write path.</li><li>Hygiene audits propose rather than silently mutate.</li><li>Retrieved material is evidence until verified.</li><li>Public surfaces receive curated snapshots, not private live memory.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="retrieval">
+    <div class="section-head"><span class="section-index">05 · Retrieval</span><h2>Six ways to find the right evidence</h2></div>
+    <div class="flow">
+      <div class="card"><div class="kicker">Lane 01</div><h3>Exact lookup</h3><p>Known names and identifiers avoid semantic guesswork.</p></div>
+      <div class="card"><div class="kicker">Lane 02</div><h3>Semantic search</h3><p>Local vectors retrieve related memories, facts, notes, and document chunks.</p></div>
+      <div class="card"><div class="kicker">Lane 03</div><h3>Lexical backstop</h3><p>Full-text, title, path, and metadata affinity recover exact evidence vectors miss.</p></div>
+      <div class="card"><div class="kicker">Lane 04</div><h3>Deep recall</h3><p>A bounded candidate pool combines lanes and protects strong exact hits.</p></div>
+      <div class="card"><div class="kicker">Lane 05</div><h3>Relationship recall</h3><p>The graph answers dependency, ownership, and project-membership questions.</p></div>
+      <div class="card"><div class="kicker">Lane 06</div><h3>Feedback</h3><p>Useful and noise ratings create evidence for improving ranking over time.</p></div>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="section-head"><span class="section-index">06 · Status</span><h2>Active, experimental, and retired</h2></div>
+    <div class="grid-2">
+      <div class="card good"><div class="kicker">Active core</div><h3>What the system depends on</h3><ul><li>Hermes orchestration</li><li>Prompt memory and session history</li><li>Structured knowledge and local vectors</li><li>System Wiki and skills</li><li>Scheduled indexing and reporting</li></ul></div>
+      <div class="card"><div class="kicker">Active support</div><h3>What makes it usable</h3><ul><li>Automatic bounded prefetch</li><li>History search and deep recall</li><li>Vault and corpus indexes</li><li>Hygiene audit and growth monitoring</li><li>Public-safe graph and Pulse surfaces</li></ul></div>
+      <div class="card warn"><div class="kicker">Experimental or staging</div><h3>Useful without being authority</h3><ul><li>Explicit-signal candidate capture</li><li>Context graph pilot</li><li>Manual corpus staging</li><li>Optional reranking path</li><li>Early retrieval-feedback loop</li></ul></div>
+      <div class="card stop"><div class="kicker">Retired</div><h3>Do not revive by accident</h3><ul><li>The former OpenClaw runtime</li><li>The old default-profile control plane</li><li>Automatic conversation distillation</li><li>The former remote memory replica</li><li>Historical cron piles and hidden routing assumptions</li></ul></div>
+    </div>
+  </section>
+
+  <section id="challenges">
+    <div class="section-head"><span class="section-index">07 · Open work</span><h2>What still needs discipline</h2></div>
+    <div class="challenge-list">
+      <div class="challenge"><strong>Transcript retention</strong><p>Conversation history grows quickly. Indexing and checkpoints are working, but long-term retention still needs an explicit policy.</p></div>
+      <div class="challenge"><strong>Prompt scarcity</strong><p>Always-injected context is finite. New facts must replace or consolidate older material instead of accumulating forever.</p></div>
+      <div class="challenge"><strong>Review debt</strong><p>Hygiene is intentionally proposal-first. The remaining work is reviewing and applying the right proposals without turning maintenance into autonomous deletion.</p></div>
+      <div class="challenge"><strong>Ranking maturity</strong><p>Semantic coverage is complete, but optional reranking remains disabled and the feedback corpus is still young.</p></div>
+      <div class="challenge"><strong>Corpus freshness</strong><p>Large-document promotion is manual. That keeps publication deliberate, but it also creates a second freshness clock.</p></div>
+      <div class="challenge"><strong>Legacy naming</strong><p>Parts of the durable storage layer still carry names from the previous runtime. The system works, but the namespace can mislead future audits.</p></div>
+    </div>
+  </section>
+
+  <section id="boundary">
+    <div class="section-head"><span class="section-index">08 · Public boundary</span><h2>What this report leaves out</h2></div>
+    <div class="boundary"><p>This is a curated architecture report. It excludes private memory text, personal profile content, conversation excerpts, work-item titles, filesystem locations, network topology, credentials, operational thresholds, precise activity times, and writable remote interfaces. The point is to show the design without publishing the operating record.</p></div>
+    <div class="links"><a class="button" href="/portfolio/clarence">Read the Clarence case study</a><a class="button" href="/lab/pulse">Open public-safe Pulse</a><a class="button" href="/clarence-graph/">Explore the knowledge graph</a></div>
+  </section>
+
+  <footer><p>Designed and maintained by James Dishman. Public-facing agent name: Clarence. Snapshot reviewed July 15, 2026.</p></footer>
+</div>
+</body>
+</html>

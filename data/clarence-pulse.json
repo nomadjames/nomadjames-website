@@ -1,55 +1,56 @@
 {
-  "version": "1.2",
-  "generated_date": "2026-06-24",
-  "freshness": "latest generated snapshot",
+  "version": "1.3",
+  "generated_date": "2026-07-15",
+  "freshness": "reviewed public snapshot",
   "description": "Public-safe Clarence system pulse. No private memory content, work titles, file paths, or precise timestamps are exposed.",
   "heartbeat": {
     "status": "online",
-    "uptime_days": 96,
-    "recent_activity": "older"
+    "uptime_days": 117,
+    "recent_activity": "today"
   },
   "knowledge_stats": {
-    "active_facts": 10268,
-    "active_memories": 3295,
+    "active_facts": 10259,
+    "active_memories": 1238,
     "memory_breakdown": {
       "decision": 1,
-      "feedback": 549,
-      "project": 1297,
-      "reference": 1068,
-      "research_report": 28,
-      "user": 352
+      "feedback": 20,
+      "project": 133,
+      "reference": 1038,
+      "research_report": 22,
+      "user": 24
     },
-    "indexed_vault_notes": 2187,
-    "total_entities": 2460,
-    "entity_relations": 284
+    "indexed_vault_notes": 1863,
+    "total_entities": 2428,
+    "entity_relations": 286
   },
   "system_vitals": {
-    "hermes_skills": 265,
+    "hermes_skills": 254,
     "cron_jobs_active": 8,
-    "retrieval_feedback_entries": 14
+    "retrieval_feedback_entries": 32
   },
   "activity_summary": {
-    "sessions_last_30_days": 0,
+    "sessions_last_30_days": 365,
     "work_items_by_type": {
-      "build": 29,
+      "build": 33,
       "content": 3,
       "decision": 3,
       "design": 34,
-      "feature": 21,
-      "fix": 38,
-      "infra": 55,
+      "feature": 22,
+      "fix": 46,
+      "infra": 56,
       "research": 28,
       "task": 19
     }
   },
   "architecture": {
     "orchestrator": "Hermes",
-    "primary_model": "GPT-5.5",
-    "specialist_lane": "Claude Code",
+    "primary_model": "GPT-5.6 Sol",
+    "specialist_lane": "Claude Code + bounded local worker",
     "memory_backend": "SQLite + sqlite-vec"
   },
   "public_endpoints": {
     "knowledge_graph": "/clarence-graph/",
+    "memory_architecture": "/clarence-memory-system/",
     "case_study": "/portfolio/clarence"
   }
 }
