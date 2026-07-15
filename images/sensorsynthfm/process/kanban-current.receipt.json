@@ -1,13 +1,22 @@
 {
-  "script_version": "2026-07-01.2",
-  "generated_at_utc": "2026-07-01T14:15:43Z",
+  "script_version": "2026-07-15.1",
+  "generated_date": "2026-07-15",
+  "sanitized": true,
   "source_label": "SensorSynthFM capstone task board",
-  "task_count": 33,
-  "counts_by_status": {
-    "done": 21,
-    "ready": 3,
+  "source_task_count": 45,
+  "displayed_task_count": 16,
+  "source_counts_by_status": {
     "scheduled": 1,
-    "todo": 8
+    "todo": 0,
+    "ready": 0,
+    "running": 0,
+    "blocked": 2,
+    "done": 42
+  },
+  "displayed_counts_by_status": {
+    "done": 14,
+    "blocked": 1,
+    "scheduled": 1
   },
   "flow_direction": "left_to_right",
   "displayed_status_order": [
@@ -19,37 +28,31 @@
     "done"
   ],
   "image_path": "public/images/sensorsynthfm/process/kanban-current.png",
-  "refresh_command": "python3 scripts/render-sensorsynth-kanban-snapshot.py --image public/images/sensorsynthfm/process/kanban-current.png --receipt public/images/sensorsynthfm/process/kanban-current.receipt.json",
-  "git_sha": "65157a2",
-  "chrome_version": "Google Chrome 149.0.7827.196",
-  "rendered_field_policy": "The image renders public card titles, status, priority, and abstracted lane labels only. Internal ids, raw assignee names, task bodies, comments, run logs, file paths, and raw workspace data are omitted.",
+  "rendered_field_policy": "This image is a reviewed public projection of the private working board. It shows approved milestone titles, status, and abstracted work lanes only. Raw ids, task bodies, comments, logs, local paths, worker names, and unrelated internal cards are omitted.",
   "public_safety_checks": [
-    "task ids omitted",
-    "raw assignee names omitted",
-    "task bodies omitted",
-    "comments and run logs omitted",
-    "workspace paths and raw board data omitted"
+    "explicit title allowlist",
+    "unclassified titles fail the render",
+    "raw ids and task bodies omitted",
+    "comments, logs, paths, and precise timestamps omitted",
+    "private worker names replaced by abstract work lanes",
+    "unrelated internal cards excluded"
   ],
-  "featured_completed_lane": [
-    {
-      "title": "Capstone evidence gate",
-      "status": "Done",
-      "lane": "Stewardship"
-    },
-    {
-      "title": "Discovery research gate",
-      "status": "Done",
-      "lane": "Stewardship"
-    },
-    {
-      "title": "Parked ambition register",
-      "status": "Done",
-      "lane": "Stewardship"
-    },
-    {
-      "title": "Peer feedback cleanup",
-      "status": "Done",
-      "lane": "Stewardship"
-    }
+  "displayed_titles": [
+    "Microphone diagnostics on physical iPad",
+    "Modulation matrix implementation",
+    "Gesture-safe route editor: physical iPad validation",
+    "Adaptive route inspector implementation",
+    "Desk research page published",
+    "Physical iPad activation",
+    "Initial process page published",
+    "Safe-area and control-authority repair",
+    "Capstone evidence gate",
+    "Physical sensor mapping evaluation",
+    "Evaluation plan",
+    "Interaction model",
+    "Accessibility requirements",
+    "Build history upkeep after verified milestones",
+    "Scene fingerprint MVP",
+    "Public source atlas"
   ]
 }

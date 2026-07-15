@@ -1,0 +1,35 @@
+{
+  "script_version": "2026-07-01.2",
+  "generated_date": "2026-07-01",
+  "sanitized": true,
+  "source_label": "SensorSynthFM capstone task board",
+  "source_task_count": 33,
+  "displayed_task_count": 33,
+  "source_counts_by_status": {
+    "scheduled": 1,
+    "todo": 8,
+    "ready": 3,
+    "running": 0,
+    "blocked": 0,
+    "done": 21
+  },
+  "flow_direction": "left_to_right",
+  "displayed_status_order": [
+    "scheduled",
+    "todo",
+    "ready",
+    "running",
+    "blocked",
+    "done"
+  ],
+  "image_path": "public/images/sensorsynthfm/process/archive/kanban-2026-07-01.png",
+  "rendered_field_policy": "Original public-safe board state from July 1, 2026. The precise generation time in the original public image was replaced by the snapshot date. The capture shows public card titles, status, priority, and abstracted work lanes. Raw ids, task bodies, comments, logs, paths, and credentials were omitted.",
+  "public_safety_checks": [
+    "raw ids omitted",
+    "task bodies omitted",
+    "comments and logs omitted",
+    "local paths and credentials omitted",
+    "work lanes abstracted"
+  ],
+  "historical_note": "This is the first published board state. The tall completed lane extends beyond the original frame and is kept as part of the process record."
+}
