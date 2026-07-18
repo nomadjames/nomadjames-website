@@ -4,17 +4,17 @@
   "sanitized": true,
   "source_label": "SensorSynthFM capstone task board",
   "source_task_count": 46,
-  "displayed_task_count": 17,
+  "displayed_task_count": 18,
   "source_counts_by_status": {
     "scheduled": 1,
     "todo": 0,
     "ready": 0,
-    "running": 1,
+    "running": 0,
     "blocked": 1,
-    "done": 43
+    "done": 44
   },
   "displayed_counts_by_status": {
-    "done": 15,
+    "done": 16,
     "blocked": 1,
     "scheduled": 1
   },
@@ -43,6 +43,7 @@
     "Gesture-safe route editor: physical iPad validation",
     "Adaptive route inspector implementation",
     "Dated capstone build history",
+    "Matrix layout design note published",
     "Desk research page published",
     "Physical iPad activation",
     "Initial process page published",
