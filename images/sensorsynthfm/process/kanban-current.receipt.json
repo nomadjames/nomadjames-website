@@ -1,21 +1,23 @@
 {
-  "script_version": "2026-07-15.1",
-  "generated_date": "2026-07-17",
+  "script_version": "2026-07-18.1",
+  "generated_date": "2026-07-18",
   "sanitized": true,
   "source_label": "SensorSynthFM capstone task board",
-  "source_task_count": 46,
-  "displayed_task_count": 18,
+  "source_task_count": 53,
+  "displayed_task_count": 24,
   "source_counts_by_status": {
     "scheduled": 1,
-    "todo": 0,
-    "ready": 0,
+    "todo": 3,
+    "ready": 2,
     "running": 0,
-    "blocked": 1,
-    "done": 44
+    "blocked": 2,
+    "done": 45
   },
   "displayed_counts_by_status": {
+    "ready": 2,
+    "blocked": 2,
+    "todo": 3,
     "done": 16,
-    "blocked": 1,
     "scheduled": 1
   },
   "flow_direction": "left_to_right",
@@ -38,9 +40,15 @@
     "unrelated internal cards excluded"
   ],
   "displayed_titles": [
+    "Accepted prototype integration review",
+    "Physical native-versus-study comparison",
+    "Final modulation-page composition decision",
+    "Thesis-demo cognitive walkthrough",
+    "Two-minute mapping survival pass",
+    "Performance-page note-entry definition",
+    "Advisor-ready capstone evidence brief",
     "Microphone diagnostics on physical iPad",
     "Modulation matrix implementation",
-    "Gesture-safe route editor: physical iPad validation",
     "Adaptive route inspector implementation",
     "Dated capstone build history",
     "Matrix layout design note published",
