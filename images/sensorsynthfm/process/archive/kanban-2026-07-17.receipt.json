@@ -1,0 +1,59 @@
+{
+  "script_version": "2026-07-15.1",
+  "generated_date": "2026-07-17",
+  "sanitized": true,
+  "source_label": "SensorSynthFM capstone task board",
+  "source_task_count": 46,
+  "displayed_task_count": 17,
+  "source_counts_by_status": {
+    "scheduled": 1,
+    "todo": 0,
+    "ready": 0,
+    "running": 1,
+    "blocked": 1,
+    "done": 43
+  },
+  "displayed_counts_by_status": {
+    "done": 15,
+    "blocked": 1,
+    "scheduled": 1
+  },
+  "flow_direction": "left_to_right",
+  "displayed_status_order": [
+    "scheduled",
+    "todo",
+    "ready",
+    "running",
+    "blocked",
+    "done"
+  ],
+  "image_path": "public/images/sensorsynthfm/process/archive/kanban-2026-07-17.png",
+  "rendered_field_policy": "This image is a reviewed public projection of the private working board. It shows approved milestone titles, status, and abstracted work lanes only. Raw ids, task bodies, comments, logs, local paths, worker names, and unrelated internal cards are omitted.",
+  "public_safety_checks": [
+    "explicit title allowlist",
+    "unclassified titles fail the render",
+    "raw ids and task bodies omitted",
+    "comments, logs, paths, and precise timestamps omitted",
+    "private worker names replaced by abstract work lanes",
+    "unrelated internal cards excluded"
+  ],
+  "displayed_titles": [
+    "Microphone diagnostics on physical iPad",
+    "Modulation matrix implementation",
+    "Gesture-safe route editor: physical iPad validation",
+    "Adaptive route inspector implementation",
+    "Dated capstone build history",
+    "Desk research page published",
+    "Physical iPad activation",
+    "Initial process page published",
+    "Safe-area and control-authority repair",
+    "Capstone evidence gate",
+    "Physical sensor mapping evaluation",
+    "Evaluation plan",
+    "Interaction model",
+    "Accessibility requirements",
+    "Build history upkeep after verified milestones",
+    "Scene fingerprint MVP",
+    "Public source atlas"
+  ]
+}

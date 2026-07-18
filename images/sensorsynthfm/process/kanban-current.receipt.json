@@ -1,15 +1,15 @@
 {
   "script_version": "2026-07-15.1",
-  "generated_date": "2026-07-16",
+  "generated_date": "2026-07-17",
   "sanitized": true,
   "source_label": "SensorSynthFM capstone task board",
-  "source_task_count": 45,
+  "source_task_count": 46,
   "displayed_task_count": 17,
   "source_counts_by_status": {
     "scheduled": 1,
     "todo": 0,
     "ready": 0,
-    "running": 0,
+    "running": 1,
     "blocked": 1,
     "done": 43
   },
