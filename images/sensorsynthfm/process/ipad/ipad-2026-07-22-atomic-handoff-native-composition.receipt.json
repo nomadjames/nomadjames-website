@@ -1,0 +1,13 @@
+{
+  "bytes": 162867,
+  "capture_date": "2026-07-22",
+  "height": 1668,
+  "redactions": [
+    "iPad status bar, top 64 pixels"
+  ],
+  "sanitized": true,
+  "sha256": "5cbf760fbfc25ec3cd705899dd08d1bd98515e623e83fc3d78d5aea3cc6dfbe4",
+  "source": "Xcode physical-device screenshot",
+  "visual_reviewed": true,
+  "width": 2420
+}

@@ -1,23 +1,22 @@
 {
-  "script_version": "2026-07-18.1",
-  "generated_date": "2026-07-18",
+  "script_version": "2026-07-22.1",
+  "generated_date": "2026-07-22",
   "sanitized": true,
   "source_label": "SensorSynthFM capstone task board",
-  "source_task_count": 53,
+  "source_task_count": 56,
   "displayed_task_count": 24,
   "source_counts_by_status": {
     "scheduled": 1,
-    "todo": 3,
+    "todo": 2,
     "ready": 2,
     "running": 0,
-    "blocked": 2,
-    "done": 45
+    "blocked": 0,
+    "done": 51
   },
   "displayed_counts_by_status": {
+    "done": 19,
     "ready": 2,
-    "blocked": 2,
-    "todo": 3,
-    "done": 16,
+    "todo": 2,
     "scheduled": 1
   },
   "flow_direction": "left_to_right",
@@ -40,7 +39,6 @@
     "unrelated internal cards excluded"
   ],
   "displayed_titles": [
-    "Accepted prototype integration review",
     "Physical native-versus-study comparison",
     "Final modulation-page composition decision",
     "Thesis-demo cognitive walkthrough",
@@ -63,6 +61,7 @@
     "Accessibility requirements",
     "Build history upkeep after verified milestones",
     "Scene fingerprint MVP",
-    "Public source atlas"
+    "Public source atlas",
+    "Atomic handoff: physical iPad validation"
   ]
 }
