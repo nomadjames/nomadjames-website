@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,34136,o=>{"use strict";var t=o.i(71645);o.s(["default",0,function(){return(0,t.useEffect)(()=>{let o=`/building/music-atlas/${window.location.search}${window.location.hash}`;window.location.replace(o)},[]),null}])}]);
