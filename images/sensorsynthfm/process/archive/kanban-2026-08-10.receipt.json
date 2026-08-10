@@ -1,0 +1,73 @@
+{
+  "script_version": "2026-07-22.1",
+  "generated_date": "2026-08-10",
+  "sanitized": true,
+  "source_label": "SensorSynthFM capstone task board",
+  "source_task_count": 67,
+  "displayed_task_count": 30,
+  "source_counts_by_status": {
+    "scheduled": 2,
+    "todo": 6,
+    "ready": 1,
+    "running": 0,
+    "blocked": 2,
+    "done": 56
+  },
+  "displayed_counts_by_status": {
+    "done": 20,
+    "scheduled": 2,
+    "blocked": 2,
+    "todo": 6
+  },
+  "flow_direction": "left_to_right",
+  "displayed_status_order": [
+    "scheduled",
+    "todo",
+    "ready",
+    "running",
+    "blocked",
+    "done"
+  ],
+  "image_path": "public/images/sensorsynthfm/process/archive/kanban-2026-08-10.png",
+  "rendered_field_policy": "This image is a reviewed public projection of the private working board. It shows approved milestone titles, status, and abstracted work lanes only. Raw ids, task bodies, comments, logs, local paths, worker names, and unrelated internal cards are omitted.",
+  "public_safety_checks": [
+    "explicit title allowlist",
+    "unclassified titles fail the render",
+    "raw ids and task bodies omitted",
+    "comments, logs, paths, and precise timestamps omitted",
+    "private worker names replaced by abstract work lanes",
+    "unrelated internal cards excluded"
+  ],
+  "displayed_titles": [
+    "Requirements engineering operating model",
+    "Physical native-versus-study comparison",
+    "Final modulation-page composition decision",
+    "Performance-page note-entry definition",
+    "Microphone diagnostics on physical iPad",
+    "Modulation matrix implementation",
+    "Adaptive route inspector implementation",
+    "Dated capstone build history",
+    "Matrix layout design note published",
+    "Current interface-state inventory",
+    "Note-entry interaction research",
+    "Desk research page published",
+    "Physical iPad activation",
+    "Initial process page published",
+    "Safe-area and control-authority repair",
+    "Current interface evidence in Figma",
+    "Note-entry interaction specification",
+    "Capstone evidence gate",
+    "Physical sensor mapping evaluation",
+    "Evaluation plan",
+    "Note-entry interaction prototype",
+    "Interaction model",
+    "Accessibility requirements",
+    "Note-entry SwiftUI implementation",
+    "Note-entry physical iPad evaluation",
+    "Build history upkeep after verified milestones",
+    "Scene fingerprint MVP",
+    "Note-entry evidence publication",
+    "Public source atlas",
+    "Atomic handoff: physical iPad validation"
+  ]
+}

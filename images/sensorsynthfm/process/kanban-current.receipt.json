@@ -1,23 +1,23 @@
 {
   "script_version": "2026-07-22.1",
-  "generated_date": "2026-07-22",
+  "generated_date": "2026-08-10",
   "sanitized": true,
   "source_label": "SensorSynthFM capstone task board",
-  "source_task_count": 56,
-  "displayed_task_count": 24,
+  "source_task_count": 67,
+  "displayed_task_count": 30,
   "source_counts_by_status": {
-    "scheduled": 1,
-    "todo": 2,
-    "ready": 2,
+    "scheduled": 2,
+    "todo": 6,
+    "ready": 1,
     "running": 0,
-    "blocked": 0,
-    "done": 51
+    "blocked": 2,
+    "done": 56
   },
   "displayed_counts_by_status": {
-    "done": 19,
-    "ready": 2,
-    "todo": 2,
-    "scheduled": 1
+    "done": 20,
+    "scheduled": 2,
+    "blocked": 2,
+    "todo": 6
   },
   "flow_direction": "left_to_right",
   "displayed_status_order": [
@@ -39,28 +39,34 @@
     "unrelated internal cards excluded"
   ],
   "displayed_titles": [
+    "Requirements engineering operating model",
     "Physical native-versus-study comparison",
     "Final modulation-page composition decision",
-    "Thesis-demo cognitive walkthrough",
-    "Two-minute mapping survival pass",
     "Performance-page note-entry definition",
-    "Advisor-ready capstone evidence brief",
     "Microphone diagnostics on physical iPad",
     "Modulation matrix implementation",
     "Adaptive route inspector implementation",
     "Dated capstone build history",
     "Matrix layout design note published",
+    "Current interface-state inventory",
+    "Note-entry interaction research",
     "Desk research page published",
     "Physical iPad activation",
     "Initial process page published",
     "Safe-area and control-authority repair",
+    "Current interface evidence in Figma",
+    "Note-entry interaction specification",
     "Capstone evidence gate",
     "Physical sensor mapping evaluation",
     "Evaluation plan",
+    "Note-entry interaction prototype",
     "Interaction model",
     "Accessibility requirements",
+    "Note-entry SwiftUI implementation",
+    "Note-entry physical iPad evaluation",
     "Build history upkeep after verified milestones",
     "Scene fingerprint MVP",
+    "Note-entry evidence publication",
     "Public source atlas",
     "Atomic handoff: physical iPad validation"
   ]

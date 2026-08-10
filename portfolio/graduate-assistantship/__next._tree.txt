@@ -13,5 +13,5 @@
 :HL["/_next/static/media/ef7be03ed7e60a63-s.p.14o~5h-2n.9~4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/effe91970fc4db64-s.p.07ig5l8azj~hy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/chunks/10fq3mgwns2cd.css","style"]
-:HL["/_next/static/chunks/16fg14s3mdnib.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"portfolio","param":null,"prefetchHints":0,"slots":{"children":{"name":"graduate-assistantship","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"8YSqjUSN1taLLzAwk6Niv"}
+:HL["/_next/static/chunks/07879o~5zyh~u.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"portfolio","param":null,"prefetchHints":0,"slots":{"children":{"name":"graduate-assistantship","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"BBZQCtwq2kvtFQ8FxI--a"}
