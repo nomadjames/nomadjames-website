@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Groove Dice</title>
+<meta name="description" content="A browser-based drum sequencer for rolling, editing, humanizing, and exporting rule-bound grooves.">
+<link rel="canonical" href="https://nomadjames.com/groove-dice/">
+<meta property="og:title" content="Groove Dice">
+<meta property="og:description" content="Roll a groove, pull it apart, program velocity and timing, then export MIDI or WAV.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nomadjames.com/groove-dice/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f1218'/%3E%3Crect x='6' y='6' width='20' height='20' rx='4' transform='rotate(12 16 16)' fill='none' stroke='%23ff9d32' stroke-width='2'/%3E%3Ccircle cx='13' cy='13' r='2' fill='%23ff9d32'/%3E%3Ccircle cx='19' cy='19' r='2' fill='%23ff9d32'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css?v=gd012-20260824-1">
+</head>
+<body>
+<header class="topbar">
+  <h1 class="brand">GROOVE<span class="brand-accent">DICE</span></h1>
+  <p id="status" class="status" aria-live="polite">READY</p>
+</header>
+
+<main class="instrument">
+
+  <!-- Primary one-bar view sits above the controls. -->
+  <section class="panel sequencer-panel" aria-label="Sequencer">
+    <div class="seq-head">
+      <h2>SEQUENCER</h2>
+      <div id="barSelector" class="bar-selector" role="tablist" aria-label="Bars"></div>
+      <div class="seq-actions">
+        <button id="loopBtn" class="btn small active-toggle" type="button" aria-pressed="true">LOOP: ON</button>
+        <button id="exportMidiBtn" class="btn small" type="button">EXPORT MIDI</button>
+        <button id="exportWavBtn" class="btn small" type="button">EXPORT WAV</button>
+      </div>
+    </div>
+    <div id="grid" class="grid"></div>
+    <div id="velocityPalette" class="velocity-palette" role="group" aria-label="Note velocity palette">
+      <span class="mini-label">PAINT VELOCITY</span>
+      <button type="button" class="palette-btn" data-velocity-mode="ghost" aria-pressed="false">GHOST <small>35</small></button>
+      <button type="button" class="palette-btn" data-velocity-mode="soft" aria-pressed="false">SOFT <small>60</small></button>
+      <button type="button" class="palette-btn active" data-velocity-mode="med" aria-pressed="true">MED <small>90</small></button>
+      <button type="button" class="palette-btn" data-velocity-mode="accent" aria-pressed="false">ACCENT <small>120</small></button>
+      <button type="button" class="palette-btn erase" data-velocity-mode="erase" aria-pressed="false">ERASE</button>
+    </div>
+    <p class="hint">Click a lit note to erase it. Select a velocity, then click or drag empty cells to paint. Cell brightness = velocity, nudge = timing offset.</p>
+  </section>
+
+  <!-- TRANSPORT -->
+  <section class="panel transport" aria-label="Transport">
+    <div class="transport-row">
+      <div class="dice-block">
+        <button id="rollBtn" class="die-btn" aria-label="Roll: new groove with new seed" title="Roll the die — new seed, family, kit and pattern">
+          <svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true">
+            <g transform="rotate(12 32 32)">
+              <rect x="10" y="10" width="44" height="44" rx="9" fill="none" stroke="#ff9d32" stroke-width="3"/>
+              <circle class="pip" cx="23" cy="23" r="4" fill="#ff9d32"/>
+              <circle class="pip" cx="41" cy="41" r="4" fill="#ff9d32"/>
+            </g>
+          </svg>
+        </button>
+        <span class="die-label">ROLL</span>
+      </div>
+
+      <button id="playBtn" class="btn btn-primary" aria-label="Play or stop">PLAY</button>
+      <div class="seed-mode-stack">
+        <button id="newSeedBtn" class="btn" title="Same settings, new deterministic variation">NEW SEED</button>
+
+        <!-- GROOVE / FILL segmented control: directly below NEW SEED on desktop,
+             always visible; per-bar generation mode. -->
+        <div class="mode-block" role="group" aria-label="Generation mode for current bar">
+          <span class="mini-label">BAR MODE</span>
+          <div class="segmented" id="modeControl">
+            <button id="modeGrooveBtn" class="seg-btn active" data-mode="groove">GROOVE</button>
+            <button id="modeFillBtn" class="seg-btn" data-mode="fill">FILL</button>
+          </div>
+        </div>
+        <div class="vol-block">
+          <label for="volume">VOL <output id="volumeOut">80%</output></label>
+          <input type="range" id="volume" min="0" max="100" value="80">
+        </div>
+      </div>
+      <div class="transport-settings" aria-label="Primary groove settings">
+        <label>FAMILY<select id="family"><option value="random" selected>RANDOM</option></select></label>
+        <label>KIT<select id="kit"><option value="random" selected>RANDOM</option></select></label>
+        <label>BPM <input type="text" id="bpm" inputmode="numeric" pattern="[0-9]*" min="40" max="220" value="96" aria-describedby="status"></label>
+      </div>
+    </div>
+    <div class="settings-row">
+      <label>DENSITY <input type="range" id="density" min="0" max="100" value="50"><output id="densityOut">50%</output></label>
+      <label>FEEL <input type="range" id="feel" min="0" max="100" value="50"><output id="feelOut">50%</output></label>
+      <label>HUMANIZE <input type="range" id="humanize" min="0" max="100" value="30"><output id="humanizeOut">30%</output></label>
+      <label>BARS <select id="bars"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label>
+    </div>
+  </section>
+
+  <section class="panel origin-note" aria-labelledby="originTitle">
+    <h2 id="originTitle">HOW THIS CAME ABOUT</h2>
+    <p>Groove Dice started with a simple question: could the rhythmic logic in Attack Magazine’s Beat Dissected series become an instrument instead of another folder of reference material? I wanted a quick way to roll a pattern, hear why it worked, and then pull it apart through density, feel, timing, velocity, and individual notes.</p>
+    <p>I worked through the instrument with Clarence, using OX Alpha for implementation passes while I stayed on the musical and interaction decisions. The first versions repeated themselves, ignored controls, cached the wrong build, and occasionally refused to let me edit while the beat was playing. That friction was useful. Every failure forced the rhythm engine and the interface to explain themselves more clearly.</p>
+    <p>It is still an experiment, but it is one I can actually use. That was the bar.</p>
+  </section>
+
+  <footer class="foot">
+    <p>This is an experimental build with OX Alpha. <a href="https://oxalpha.io/" target="_blank" rel="noopener noreferrer">Learn more about OX Alpha</a>.</p>
+    <p>Drum map: Kick 36 · Snare 38 · Closed Hat 42 · Perc 39 (ch 10) — SMF0 MIDI, 16-bit PCM WAV.</p>
+    <p>Rhythmic research inspired by Attack Magazine. Original grammars and implementation.</p>
+    <p><a class="lab-backlink" href="/lab/">← Back to the Lab</a></p>
+  </footer>
+</main>
+<script type="module" src="js/app.js?v=gd012-20260824-1"></script>
+</body>
+</html>
