@@ -3,7 +3,7 @@
 7:I[97367,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 8:"$Sreact.suspense"
 :HL["/_next/static/chunks/0ewoyzg50cw.z.css","style"]
-3:T360f,<!DOCTYPE html>
+3:T370f,<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -264,7 +264,12 @@
       // --- Populate Stats Badge ---
       const nodeCount = filterType ? nodes.length : (stats.total_nodes || nodes.length);
       const edgeCount = filterType ? edges.length : (stats.total_edges || edges.length);
-      document.getElementById('stats').textContent = `${nodeCount} entities · ${edgeCount} connections`;
+      const snapshotDate = data.generated
+        ? new Date(data.generated).toLocaleDateString('en-US', {
+            month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC',
+          })
+        : 'date unavailable';
+      document.getElementById('stats').textContent = `${nodeCount} entities · ${edgeCount} connections · snapshot ${snapshotDate}`;
 
       // --- Populate Legend (only types present in data) ---
       const typesPresent = new Map();
@@ -368,7 +373,7 @@
   </script>
 </body>
 </html>
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[["$","$L2",null,{"data":[{"@context":"https://schema.org","@type":"WebPage","name":"Clarence Knowledge Graph","description":"Interactive public-safe graph view of the Clarence knowledge surface.","url":"https://nomadjames.com/clarence-graph/","datePublished":"2026-04-12","dateModified":"2026-06-26","author":{"@type":"Person","name":"James Dishman","url":"https://nomadjames.com"}}]}],["$","iframe",null,{"srcDoc":"$3","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L4","$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iLzPFzCeksESomR80sV28"}
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[["$","$L2",null,{"data":[{"@context":"https://schema.org","@type":"WebPage","name":"Clarence Knowledge Graph","description":"Interactive public-safe graph view of the Clarence knowledge surface.","url":"https://nomadjames.com/clarence-graph/","datePublished":"2026-04-12","dateModified":"2026-08-25","author":{"@type":"Person","name":"James Dishman","url":"https://nomadjames.com"}}]}],["$","iframe",null,{"srcDoc":"$3","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L4","$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"a409fqaiN-rTHjYOQ5HS1"}
 4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next"}]
 5:["$","script","script-0",{"src":"/_next/static/chunks/04v-6m-nd4sqe.js","async":true}]
 6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]

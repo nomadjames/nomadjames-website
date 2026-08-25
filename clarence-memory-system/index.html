@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://nomadjames.com/clarence-memory-system/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"How Clarence Remembers","description":"A public-safe architecture report on the current Clarence memory system.","author":{"@type":"Person","name":"James Dishman"},"datePublished":"2026-07-15","dateModified":"2026-07-15","url":"https://nomadjames.com/clarence-memory-system/"}
+{"@context":"https://schema.org","@type":"TechArticle","headline":"How Clarence Remembers","description":"A public-safe architecture report on the current Clarence memory system.","author":{"@type":"Person","name":"James Dishman"},"datePublished":"2026-07-15","dateModified":"2026-08-25","url":"https://nomadjames.com/clarence-memory-system/"}
 </script>
 <style>
   :root {
@@ -127,7 +127,7 @@
 <div class="page">
   <div class="topbar">
     <a class="back" href="/portfolio/clarence">← Clarence case study</a>
-    <span class="stamp">Public-safe architecture · July 15, 2026</span>
+    <span class="stamp">Public-safe architecture · August 25, 2026</span>
   </div>
 
   <header>
@@ -137,12 +137,12 @@
     <div class="verdict"><strong>The system is live and useful.</strong> Its value comes from separating those jobs instead of calling every stored thing memory. Clarence decides what becomes durable, where it belongs, and what must remain temporary.</div>
 
     <div class="metrics" aria-label="Verified public-safe memory snapshot">
-      <div class="metric"><span class="metric-value">1,238</span><span class="metric-label">Current memories</span></div>
-      <div class="metric"><span class="metric-value">10,259</span><span class="metric-label">Current facts</span></div>
-      <div class="metric"><span class="metric-value">1,863</span><span class="metric-label">Indexed vault notes</span></div>
+      <div class="metric"><span class="metric-value">1,236</span><span class="metric-label">Current memories</span></div>
+      <div class="metric"><span class="metric-value">10,224</span><span class="metric-label">Current facts</span></div>
+      <div class="metric"><span class="metric-value">1,925</span><span class="metric-label">Indexed vault notes</span></div>
       <div class="metric"><span class="metric-value">4</span><span class="metric-label">Local vector lanes</span></div>
     </div>
-    <p class="snapshot">Verified July 15, 2026. Counts are a reviewed snapshot, not real-time telemetry.</p>
+    <p class="snapshot">Verified August 25, 2026. Counts are a reviewed snapshot, not real-time telemetry.</p>
   </header>
 
   <section id="architecture">
@@ -275,7 +275,7 @@
   <section id="challenges">
     <div class="section-head"><span class="section-index">07 · Open work</span><h2>What still needs discipline</h2></div>
     <div class="challenge-list">
-      <div class="challenge"><strong>Transcript retention</strong><p>Conversation history grows quickly. Indexing and checkpoints are working, but long-term retention still needs an explicit policy.</p></div>
+      <div class="challenge"><strong>Transcript retention</strong><p>Conversation history grows quickly. Retention, checkpoints, and a growth guard now exist; the remaining judgment is how much old transcript detail stays useful before it becomes retrieval noise.</p></div>
       <div class="challenge"><strong>Prompt scarcity</strong><p>Always-injected context is finite. New facts must replace or consolidate older material instead of accumulating forever.</p></div>
       <div class="challenge"><strong>Review debt</strong><p>Hygiene is intentionally proposal-first. The remaining work is reviewing and applying the right proposals without turning maintenance into autonomous deletion.</p></div>
       <div class="challenge"><strong>Ranking maturity</strong><p>Semantic coverage is complete, but optional reranking remains disabled and the feedback corpus is still young.</p></div>
@@ -290,7 +290,7 @@
     <div class="links"><a class="button" href="/portfolio/clarence">Read the Clarence case study</a><a class="button" href="/lab/pulse">Open public-safe Pulse</a><a class="button" href="/clarence-graph/">Explore the knowledge graph</a></div>
   </section>
 
-  <footer><p>Designed and maintained by James Dishman. Public-facing agent name: Clarence. Snapshot reviewed July 15, 2026.</p></footer>
+  <footer><p>Designed and maintained by James Dishman. Public-facing agent name: Clarence. Snapshot reviewed August 25, 2026.</p></footer>
 </div>
 </body>
 </html>

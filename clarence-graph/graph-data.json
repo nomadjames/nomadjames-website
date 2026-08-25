@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-14T20:50:33.325303+00:00",
+  "generated": "2026-08-25T15:36:38.910178+00:00",
   "sanitized": true,
   "nodes": [
     {
       "id": 3,
       "type": "project",
-      "connections": 0
+      "connections": 9
     },
     {
       "id": 4,
@@ -16,16 +16,6 @@
       "id": 5,
       "type": "project",
       "connections": 0
-    },
-    {
-      "id": 6,
-      "type": "project",
-      "connections": 1
-    },
-    {
-      "id": 8,
-      "type": "project",
-      "connections": 2
     },
     {
       "id": 11,
@@ -225,12 +215,12 @@
     {
       "id": 61,
       "type": "project",
-      "connections": 0
+      "connections": 2
     },
     {
       "id": 63,
       "type": "project",
-      "connections": 0
+      "connections": 1
     },
     {
       "id": 64,
@@ -245,7 +235,7 @@
     {
       "id": 66,
       "type": "concept",
-      "connections": 9
+      "connections": 10
     },
     {
       "id": 67,
@@ -483,16 +473,6 @@
       "connections": 1
     },
     {
-      "id": 118,
-      "type": "tool",
-      "connections": 0
-    },
-    {
-      "id": 119,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 120,
       "type": "project",
       "connections": 0
@@ -634,22 +614,22 @@
     },
     {
       "id": 150,
-      "type": "research",
+      "type": "research-topic",
       "connections": 2
     },
     {
       "id": 151,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
       "id": 152,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
       "id": 153,
-      "type": "research",
+      "type": "research-topic",
       "connections": 2
     },
     {
@@ -714,22 +694,22 @@
     },
     {
       "id": 166,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
       "id": 167,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
       "id": 168,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
       "id": 169,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -1014,12 +994,12 @@
     },
     {
       "id": 229,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
       "id": 230,
-      "type": "research",
+      "type": "research-topic",
       "connections": 2
     },
     {
@@ -1244,7 +1224,7 @@
     },
     {
       "id": 277,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -1259,7 +1239,7 @@
     },
     {
       "id": 280,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -2473,11 +2453,6 @@
       "connections": 0
     },
     {
-      "id": 566,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 567,
       "type": "concept",
       "connections": 0
@@ -2625,7 +2600,7 @@
     {
       "id": 599,
       "type": "course",
-      "connections": 29
+      "connections": 28
     },
     {
       "id": 600,
@@ -2969,7 +2944,7 @@
     },
     {
       "id": 689,
-      "type": "research_topic",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -2994,7 +2969,7 @@
     },
     {
       "id": 695,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -3169,7 +3144,7 @@
     },
     {
       "id": 731,
-      "type": "research",
+      "type": "research-topic",
       "connections": 1
     },
     {
@@ -3265,11 +3240,11 @@
     {
       "id": 751,
       "type": "course",
-      "connections": 1
+      "connections": 2
     },
     {
       "id": 753,
-      "type": "research",
+      "type": "research-topic",
       "connections": 1
     },
     {
@@ -3339,7 +3314,7 @@
     },
     {
       "id": 768,
-      "type": "research_topic",
+      "type": "research-topic",
       "connections": 1
     },
     {
@@ -3354,7 +3329,7 @@
     },
     {
       "id": 771,
-      "type": "research_topic",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -3446,11 +3421,6 @@
       "id": 790,
       "type": "concept",
       "connections": 0
-    },
-    {
-      "id": 791,
-      "type": "project",
-      "connections": 9
     },
     {
       "id": 793,
@@ -3625,7 +3595,7 @@
     {
       "id": 829,
       "type": "concept",
-      "connections": 1
+      "connections": 0
     },
     {
       "id": 830,
@@ -3683,11 +3653,6 @@
       "connections": 0
     },
     {
-      "id": 841,
-      "type": "tool",
-      "connections": 0
-    },
-    {
       "id": 842,
       "type": "tool",
       "connections": 0
@@ -3709,7 +3674,7 @@
     },
     {
       "id": 846,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -3813,17 +3778,7 @@
       "connections": 0
     },
     {
-      "id": 870,
-      "type": "project",
-      "connections": 0
-    },
-    {
       "id": 871,
-      "type": "project",
-      "connections": 0
-    },
-    {
-      "id": 872,
       "type": "project",
       "connections": 0
     },
@@ -4099,7 +4054,7 @@
     },
     {
       "id": 933,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -4125,11 +4080,6 @@
     {
       "id": 938,
       "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 939,
-      "type": "project",
       "connections": 0
     },
     {
@@ -4349,7 +4299,7 @@
     },
     {
       "id": 987,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -4454,11 +4404,6 @@
     },
     {
       "id": 1009,
-      "type": "tool",
-      "connections": 0
-    },
-    {
-      "id": 1010,
       "type": "tool",
       "connections": 0
     },
@@ -5005,7 +4950,7 @@
     {
       "id": 1123,
       "type": "project",
-      "connections": 1
+      "connections": 0
     },
     {
       "id": 1124,
@@ -5044,7 +4989,7 @@
     },
     {
       "id": 1131,
-      "type": "research",
+      "type": "research-topic",
       "connections": 4
     },
     {
@@ -5274,11 +5219,6 @@
     },
     {
       "id": 1178,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 1179,
       "type": "concept",
       "connections": 0
     },
@@ -5969,7 +5909,7 @@
     },
     {
       "id": 1332,
-      "type": "research_topic",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -6164,7 +6104,7 @@
     },
     {
       "id": 1377,
-      "type": "research_topic",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -6191,11 +6131,6 @@
       "id": 1382,
       "type": "concept",
       "connections": 3
-    },
-    {
-      "id": 1383,
-      "type": "concept",
-      "connections": 0
     },
     {
       "id": 1384,
@@ -6225,17 +6160,12 @@
     {
       "id": 1390,
       "type": "concept",
-      "connections": 1
+      "connections": 2
     },
     {
       "id": 1391,
       "type": "course",
       "connections": 3
-    },
-    {
-      "id": 1392,
-      "type": "concept",
-      "connections": 1
     },
     {
       "id": 1394,
@@ -6478,11 +6408,6 @@
       "connections": 0
     },
     {
-      "id": 1448,
-      "type": "tool",
-      "connections": 0
-    },
-    {
       "id": 1449,
       "type": "tool",
       "connections": 0
@@ -6510,12 +6435,7 @@
     {
       "id": 1454,
       "type": "project",
-      "connections": 4
-    },
-    {
-      "id": 1455,
-      "type": "tool",
-      "connections": 1
+      "connections": 3
     },
     {
       "id": 1456,
@@ -6813,6 +6733,11 @@
       "connections": 0
     },
     {
+      "id": 1518,
+      "type": "research-topic",
+      "connections": 0
+    },
+    {
       "id": 1520,
       "type": "concept",
       "connections": 0
@@ -6959,7 +6884,7 @@
     },
     {
       "id": 1549,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -7124,7 +7049,7 @@
     },
     {
       "id": 1582,
-      "type": "research_topic",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -7254,17 +7179,17 @@
     },
     {
       "id": 1609,
-      "type": "topic",
+      "type": "research-topic",
       "connections": 1
     },
     {
       "id": 1610,
-      "type": "topic",
+      "type": "research-topic",
       "connections": 1
     },
     {
       "id": 1611,
-      "type": "topic",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -7389,8 +7314,8 @@
     },
     {
       "id": 1636,
-      "type": "research",
-      "connections": 2
+      "type": "research-topic",
+      "connections": 3
     },
     {
       "id": 1637,
@@ -7505,7 +7430,7 @@
     {
       "id": 1659,
       "type": "person",
-      "connections": 7
+      "connections": 6
     },
     {
       "id": 1660,
@@ -7565,11 +7490,6 @@
     {
       "id": 1673,
       "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 1674,
-      "type": "tool",
       "connections": 0
     },
     {
@@ -7775,7 +7695,7 @@
     {
       "id": 1717,
       "type": "concept",
-      "connections": 2
+      "connections": 0
     },
     {
       "id": 1718,
@@ -7794,7 +7714,7 @@
     },
     {
       "id": 1721,
-      "type": "research",
+      "type": "research-topic",
       "connections": 1
     },
     {
@@ -8189,12 +8109,7 @@
     },
     {
       "id": 1802,
-      "type": "research",
-      "connections": 0
-    },
-    {
-      "id": 1803,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -8389,7 +8304,7 @@
     },
     {
       "id": 1845,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -8424,7 +8339,7 @@
     },
     {
       "id": 1852,
-      "type": "research",
+      "type": "research-topic",
       "connections": 0
     },
     {
@@ -8518,11 +8433,6 @@
       "connections": 0
     },
     {
-      "id": 1880,
-      "type": "project",
-      "connections": 0
-    },
-    {
       "id": 1881,
       "type": "concept",
       "connections": 0
@@ -8534,11 +8444,6 @@
     },
     {
       "id": 1883,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 1884,
       "type": "concept",
       "connections": 0
     },
@@ -8555,11 +8460,6 @@
     {
       "id": 1889,
       "type": "course",
-      "connections": 0
-    },
-    {
-      "id": 1890,
-      "type": "concept",
       "connections": 0
     },
     {
@@ -8743,11 +8643,6 @@
       "connections": 0
     },
     {
-      "id": 1935,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 1938,
       "type": "concept",
       "connections": 0
@@ -8873,11 +8768,6 @@
       "connections": 0
     },
     {
-      "id": 1963,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 1964,
       "type": "concept",
       "connections": 0
@@ -8984,11 +8874,6 @@
     },
     {
       "id": 1986,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 1988,
       "type": "concept",
       "connections": 0
     },
@@ -9418,11 +9303,6 @@
       "connections": 0
     },
     {
-      "id": 2115,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2117,
       "type": "concept",
       "connections": 0
@@ -9463,27 +9343,12 @@
       "connections": 0
     },
     {
-      "id": 2127,
-      "type": "project",
-      "connections": 0
-    },
-    {
       "id": 2130,
       "type": "concept",
       "connections": 0
     },
     {
-      "id": 2131,
-      "type": "course",
-      "connections": 0
-    },
-    {
       "id": 2133,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2135,
       "type": "concept",
       "connections": 0
     },
@@ -9494,11 +9359,6 @@
     },
     {
       "id": 2140,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2142,
       "type": "concept",
       "connections": 0
     },
@@ -9538,11 +9398,6 @@
       "connections": 0
     },
     {
-      "id": 2155,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2156,
       "type": "concept",
       "connections": 0
@@ -9569,11 +9424,6 @@
     },
     {
       "id": 2161,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2162,
       "type": "concept",
       "connections": 0
     },
@@ -9693,11 +9543,6 @@
       "connections": 0
     },
     {
-      "id": 2191,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2193,
       "type": "concept",
       "connections": 0
@@ -9715,11 +9560,6 @@
     {
       "id": 2196,
       "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2197,
-      "type": "course",
       "connections": 0
     },
     {
@@ -9760,11 +9600,6 @@
     {
       "id": 2209,
       "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2210,
-      "type": "course",
       "connections": 0
     },
     {
@@ -9828,11 +9663,6 @@
       "connections": 0
     },
     {
-      "id": 2225,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2226,
       "type": "concept",
       "connections": 0
@@ -9883,11 +9713,6 @@
       "connections": 0
     },
     {
-      "id": 2236,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2238,
       "type": "concept",
       "connections": 0
@@ -9928,11 +9753,6 @@
       "connections": 0
     },
     {
-      "id": 2249,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2250,
       "type": "concept",
       "connections": 0
@@ -9959,11 +9779,6 @@
     },
     {
       "id": 2256,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2257,
       "type": "concept",
       "connections": 0
     },
@@ -10058,11 +9873,6 @@
       "connections": 0
     },
     {
-      "id": 2280,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2282,
       "type": "concept",
       "connections": 0
@@ -10143,11 +9953,6 @@
       "connections": 0
     },
     {
-      "id": 2300,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2301,
       "type": "concept",
       "connections": 0
@@ -10218,11 +10023,6 @@
       "connections": 0
     },
     {
-      "id": 2318,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2320,
       "type": "concept",
       "connections": 0
@@ -10245,11 +10045,6 @@
     {
       "id": 2325,
       "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2326,
-      "type": "course",
       "connections": 0
     },
     {
@@ -10328,11 +10123,6 @@
       "connections": 0
     },
     {
-      "id": 2343,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2344,
       "type": "concept",
       "connections": 0
@@ -10359,11 +10149,6 @@
     },
     {
       "id": 2353,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2354,
       "type": "concept",
       "connections": 0
     },
@@ -10478,11 +10263,6 @@
       "connections": 0
     },
     {
-      "id": 2386,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2387,
       "type": "concept",
       "connections": 0
@@ -10538,11 +10318,6 @@
       "connections": 0
     },
     {
-      "id": 2402,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2405,
       "type": "concept",
       "connections": 0
@@ -10568,22 +10343,12 @@
       "connections": 0
     },
     {
-      "id": 2411,
-      "type": "course",
-      "connections": 0
-    },
-    {
       "id": 2414,
       "type": "concept",
       "connections": 0
     },
     {
       "id": 2416,
-      "type": "course",
-      "connections": 0
-    },
-    {
-      "id": 2417,
       "type": "course",
       "connections": 0
     },
@@ -10614,11 +10379,6 @@
     },
     {
       "id": 2424,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2425,
       "type": "concept",
       "connections": 0
     },
@@ -10679,11 +10439,6 @@
     },
     {
       "id": 2441,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2442,
       "type": "concept",
       "connections": 0
     },
@@ -10928,11 +10683,6 @@
       "connections": 0
     },
     {
-      "id": 2505,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2506,
       "type": "concept",
       "connections": 0
@@ -10944,11 +10694,6 @@
     },
     {
       "id": 2508,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2509,
       "type": "concept",
       "connections": 0
     },
@@ -10978,17 +10723,7 @@
       "connections": 0
     },
     {
-      "id": 2515,
-      "type": "course",
-      "connections": 0
-    },
-    {
       "id": 2516,
-      "type": "concept",
-      "connections": 0
-    },
-    {
-      "id": 2517,
       "type": "concept",
       "connections": 0
     },
@@ -11343,11 +11078,6 @@
       "connections": 0
     },
     {
-      "id": 2624,
-      "type": "concept",
-      "connections": 0
-    },
-    {
       "id": 2625,
       "type": "concept",
       "connections": 0
@@ -11396,13 +11126,120 @@
       "id": 2636,
       "type": "tool",
       "connections": 0
+    },
+    {
+      "id": 2742,
+      "type": "project",
+      "connections": 0
+    },
+    {
+      "id": 3377,
+      "type": "project",
+      "connections": 0
+    },
+    {
+      "id": 3378,
+      "type": "project",
+      "connections": 0
+    },
+    {
+      "id": 3379,
+      "type": "project",
+      "connections": 0
+    },
+    {
+      "id": 3380,
+      "type": "project",
+      "connections": 2
+    },
+    {
+      "id": 3455,
+      "type": "project",
+      "connections": 1
+    },
+    {
+      "id": 3530,
+      "type": "project",
+      "connections": 0
+    },
+    {
+      "id": 3605,
+      "type": "agent",
+      "connections": 0
+    },
+    {
+      "id": 3606,
+      "type": "tool",
+      "connections": 0
+    },
+    {
+      "id": 3607,
+      "type": "concept",
+      "connections": 0
+    },
+    {
+      "id": 3608,
+      "type": "agent",
+      "connections": 2
+    },
+    {
+      "id": 3609,
+      "type": "agent",
+      "connections": 2
+    },
+    {
+      "id": 3684,
+      "type": "system",
+      "connections": 0
     }
   ],
   "edges": [
     {
-      "from": 262,
-      "to": 251,
+      "from": 24,
+      "to": 1646,
       "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 27,
+      "to": 1209,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 50,
+      "to": 599,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 61,
+      "to": 768,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 65,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 66,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 66,
+      "to": 248,
+      "relation": "used_by",
+      "implicit": false
+    },
+    {
+      "from": 66,
+      "to": 251,
+      "relation": "used_by",
       "implicit": false
     },
     {
@@ -11430,87 +11267,81 @@
       "implicit": false
     },
     {
-      "from": 24,
-      "to": 1646,
-      "relation": "used_in",
+      "from": 68,
+      "to": 94,
+      "relation": "uses_framework",
       "implicit": false
     },
     {
-      "from": 635,
-      "to": 1460,
-      "relation": "used_in",
+      "from": 114,
+      "to": 105,
+      "relation": "belongs_to_project",
       "implicit": false
     },
     {
-      "from": 1171,
-      "to": 1196,
-      "relation": "used_in",
+      "from": 117,
+      "to": 61,
+      "relation": "belongs_to_project",
       "implicit": false
     },
     {
-      "from": 27,
-      "to": 1209,
-      "relation": "used_in",
+      "from": 127,
+      "to": 135,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 1225,
-      "to": 1284,
-      "relation": "used_in",
+      "from": 127,
+      "to": 141,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 1253,
-      "to": 1189,
-      "relation": "used_in",
+      "from": 142,
+      "to": 337,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 1439,
-      "to": 1454,
-      "relation": "used_in",
+      "from": 150,
+      "to": 63,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 1455,
-      "to": 1454,
-      "relation": "used_in",
+      "from": 150,
+      "to": 1031,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 1526,
-      "to": 697,
-      "relation": "used_in",
+      "from": 153,
+      "to": 1389,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 1502,
-      "to": 697,
-      "relation": "used_in",
+      "from": 153,
+      "to": 1779,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 1547,
-      "to": 697,
-      "relation": "used_in",
+      "from": 218,
+      "to": 27,
+      "relation": "uses_tool",
       "implicit": false
     },
     {
-      "from": 1546,
-      "to": 697,
-      "relation": "used_in",
+      "from": 230,
+      "to": 205,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 1599,
-      "to": 1628,
-      "relation": "used_in",
-      "implicit": false
-    },
-    {
-      "from": 1604,
-      "to": 1628,
-      "relation": "used_in",
+      "from": 230,
+      "to": 206,
+      "relation": "authored_by",
       "implicit": false
     },
     {
@@ -11526,133 +11357,19 @@
       "implicit": false
     },
     {
+      "from": 262,
+      "to": 251,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
       "from": 279,
       "to": 904,
       "relation": "developed_by",
       "implicit": false
     },
     {
-      "from": 630,
-      "to": 121,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 759,
-      "to": 970,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 804,
-      "to": 970,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 808,
-      "to": 908,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 849,
-      "to": 852,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 890,
-      "to": 941,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 947,
-      "to": 911,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 929,
-      "to": 943,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 953,
-      "to": 67,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 957,
-      "to": 965,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 904,
-      "to": 826,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 960,
-      "to": 941,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 961,
-      "to": 965,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 967,
-      "to": 851,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 944,
-      "to": 911,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 984,
-      "to": 941,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 985,
-      "to": 941,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 1011,
-      "to": 215,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
-      "from": 1634,
-      "to": 608,
-      "relation": "developed_by",
-      "implicit": false
-    },
-    {
       "from": 353,
-      "to": 352,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 364,
       "to": 352,
       "relation": "uses_framework",
       "implicit": false
@@ -11676,6 +11393,12 @@
       "implicit": false
     },
     {
+      "from": 364,
+      "to": 352,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
       "from": 367,
       "to": 352,
       "relation": "uses_framework",
@@ -11685,6 +11408,12 @@
       "from": 374,
       "to": 352,
       "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 468,
+      "to": 599,
+      "relation": "belongs_to_course",
       "implicit": false
     },
     {
@@ -11712,69 +11441,15 @@
       "implicit": false
     },
     {
-      "from": 655,
-      "to": 662,
-      "relation": "uses_framework",
+      "from": 584,
+      "to": 586,
+      "relation": "authored_by",
       "implicit": false
     },
     {
-      "from": 8,
-      "to": 768,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 68,
-      "to": 94,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 910,
-      "to": 756,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 911,
-      "to": 947,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 997,
-      "to": 662,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 1000,
-      "to": 662,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 1297,
-      "to": 1296,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 1304,
-      "to": 1296,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 1382,
-      "to": 1392,
-      "relation": "uses_framework",
-      "implicit": false
-    },
-    {
-      "from": 1454,
-      "to": 662,
-      "relation": "uses_framework",
+      "from": 584,
+      "to": 587,
+      "relation": "authored_by",
       "implicit": false
     },
     {
@@ -11796,6 +11471,24 @@
       "implicit": false
     },
     {
+      "from": 630,
+      "to": 121,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 635,
+      "to": 1223,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 635,
+      "to": 1460,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
       "from": 645,
       "to": 1457,
       "relation": "belongs_to_course",
@@ -11804,6 +11497,24 @@
     {
       "from": 646,
       "to": 696,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 655,
+      "to": 662,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 667,
+      "to": 616,
+      "relation": "uses_tool",
+      "implicit": false
+    },
+    {
+      "from": 692,
+      "to": 697,
       "relation": "belongs_to_course",
       "implicit": false
     },
@@ -11826,9 +11537,255 @@
       "implicit": false
     },
     {
+      "from": 726,
+      "to": 697,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 731,
+      "to": 753,
+      "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 732,
+      "to": 291,
+      "relation": "affiliated_with",
+      "implicit": false
+    },
+    {
+      "from": 751,
+      "to": 698,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 759,
+      "to": 970,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 764,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 777,
+      "to": 820,
+      "relation": "related_to",
+      "implicit": false
+    },
+    {
+      "from": 801,
+      "to": 964,
+      "relation": "presented_at",
+      "implicit": false
+    },
+    {
+      "from": 803,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 804,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 804,
+      "to": 970,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 805,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 808,
+      "to": 908,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 814,
+      "to": 955,
+      "relation": "related_to",
+      "implicit": false
+    },
+    {
+      "from": 826,
+      "to": 904,
+      "relation": "affiliated_with",
+      "implicit": false
+    },
+    {
+      "from": 832,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 849,
+      "to": 852,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 865,
+      "to": 66,
+      "relation": "related_to",
+      "implicit": false
+    },
+    {
+      "from": 877,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 890,
+      "to": 941,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 904,
+      "to": 826,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 910,
+      "to": 756,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 911,
+      "to": 947,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 922,
+      "to": 3,
+      "relation": "belongs_to_project",
+      "implicit": false
+    },
+    {
+      "from": 922,
+      "to": 955,
+      "relation": "related_to",
+      "implicit": false
+    },
+    {
+      "from": 923,
+      "to": 993,
+      "relation": "presented_at",
+      "implicit": false
+    },
+    {
+      "from": 929,
+      "to": 943,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 944,
+      "to": 911,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 947,
+      "to": 911,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 953,
+      "to": 67,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 957,
+      "to": 965,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 960,
+      "to": 941,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 961,
+      "to": 965,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 967,
+      "to": 851,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 974,
+      "to": 993,
+      "relation": "presented_at",
+      "implicit": false
+    },
+    {
+      "from": 984,
+      "to": 941,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 985,
+      "to": 941,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
+      "from": 988,
+      "to": 978,
+      "relation": "presented_at",
+      "implicit": false
+    },
+    {
+      "from": 990,
+      "to": 964,
+      "relation": "presented_at",
+      "implicit": false
+    },
+    {
+      "from": 992,
+      "to": 993,
+      "relation": "presented_at",
+      "implicit": false
+    },
+    {
       "from": 996,
       "to": 1457,
       "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 997,
+      "to": 662,
+      "relation": "uses_framework",
       "implicit": false
     },
     {
@@ -11838,15 +11795,21 @@
       "implicit": false
     },
     {
+      "from": 1000,
+      "to": 662,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
       "from": 1001,
       "to": 698,
       "relation": "belongs_to_course",
       "implicit": false
     },
     {
-      "from": 751,
-      "to": 698,
-      "relation": "belongs_to_course",
+      "from": 1011,
+      "to": 215,
+      "relation": "developed_by",
       "implicit": false
     },
     {
@@ -11859,6 +11822,18 @@
       "from": 1016,
       "to": 697,
       "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1035,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1035,
+      "to": 636,
+      "relation": "related_to",
       "implicit": false
     },
     {
@@ -11880,703 +11855,7 @@
       "implicit": false
     },
     {
-      "from": 1102,
-      "to": 599,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1103,
-      "to": 599,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1120,
-      "to": 599,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 468,
-      "to": 599,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1121,
-      "to": 599,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1122,
-      "to": 599,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1123,
-      "to": 599,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1158,
-      "to": 1223,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1159,
-      "to": 1223,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1247,
-      "to": 1223,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1248,
-      "to": 1223,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1249,
-      "to": 1223,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1281,
-      "to": 1223,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1487,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1521,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1516,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1522,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1523,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1546,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 692,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1545,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1548,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1035,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1569,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1570,
-      "to": 697,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1585,
-      "to": 704,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1589,
-      "to": 704,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1755,
-      "to": 1759,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1769,
-      "to": 1759,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1751,
-      "to": 1759,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1817,
-      "to": 698,
-      "relation": "belongs_to_course",
-      "implicit": false
-    },
-    {
-      "from": 1083,
-      "to": 599,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1056,
-      "to": 599,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1084,
-      "to": 599,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1094,
-      "to": 599,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 635,
-      "to": 1223,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 50,
-      "to": 599,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1163,
-      "to": 1290,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1170,
-      "to": 1223,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1187,
-      "to": 1248,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1216,
-      "to": 1158,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1176,
-      "to": 1223,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1233,
-      "to": 1247,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1235,
-      "to": 1247,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1267,
-      "to": 1248,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1268,
-      "to": 1290,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1159,
-      "to": 1223,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1286,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1341,
-      "to": 1340,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1387,
-      "to": 1340,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1382,
-      "to": 1340,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1388,
-      "to": 1340,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1405,
-      "to": 1391,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1407,
-      "to": 1391,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1418,
-      "to": 1391,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1440,
-      "to": 1454,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 726,
-      "to": 697,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1097,
-      "to": 697,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1533,
-      "to": 697,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1534,
-      "to": 697,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1567,
-      "to": 1016,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1568,
-      "to": 1016,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1637,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1722,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1718,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1716,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1660,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1746,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1748,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 1750,
-      "to": 1648,
-      "relation": "referenced_in_course",
-      "implicit": false
-    },
-    {
-      "from": 732,
-      "to": 291,
-      "relation": "affiliated_with",
-      "implicit": false
-    },
-    {
-      "from": 826,
-      "to": 904,
-      "relation": "affiliated_with",
-      "implicit": false
-    },
-    {
-      "from": 1314,
-      "to": 1499,
-      "relation": "affiliated_with",
-      "implicit": false
-    },
-    {
-      "from": 1315,
-      "to": 1499,
-      "relation": "affiliated_with",
-      "implicit": false
-    },
-    {
-      "from": 777,
-      "to": 820,
-      "relation": "related_to",
-      "implicit": false
-    },
-    {
-      "from": 814,
-      "to": 955,
-      "relation": "related_to",
-      "implicit": false
-    },
-    {
-      "from": 865,
-      "to": 66,
-      "relation": "related_to",
-      "implicit": false
-    },
-    {
-      "from": 922,
-      "to": 955,
-      "relation": "related_to",
-      "implicit": false
-    },
-    {
-      "from": 1390,
-      "to": 1382,
-      "relation": "related_to",
-      "implicit": false
-    },
-    {
-      "from": 1451,
-      "to": 636,
-      "relation": "related_to",
-      "implicit": false
-    },
-    {
-      "from": 1035,
-      "to": 636,
-      "relation": "related_to",
-      "implicit": false
-    },
-    {
-      "from": 1823,
-      "to": 1820,
-      "relation": "related_to",
-      "implicit": false
-    },
-    {
-      "from": 66,
-      "to": 248,
-      "relation": "used_by",
-      "implicit": false
-    },
-    {
-      "from": 66,
-      "to": 251,
-      "relation": "used_by",
-      "implicit": false
-    },
-    {
-      "from": 114,
-      "to": 105,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 117,
-      "to": 8,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 803,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 764,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 804,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 805,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 832,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 922,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 65,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 877,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 829,
-      "to": 791,
-      "relation": "belongs_to_project",
-      "implicit": false
-    },
-    {
-      "from": 218,
-      "to": 27,
-      "relation": "uses_tool",
-      "implicit": false
-    },
-    {
-      "from": 667,
-      "to": 616,
-      "relation": "uses_tool",
-      "implicit": false
-    },
-    {
-      "from": 1297,
-      "to": 24,
-      "relation": "uses_tool",
-      "implicit": false
-    },
-    {
-      "from": 1304,
-      "to": 24,
-      "relation": "uses_tool",
-      "implicit": false
-    },
-    {
-      "from": 1608,
-      "to": 1005,
-      "relation": "uses_tool",
-      "implicit": false
-    },
-    {
-      "from": 1609,
-      "to": 1604,
-      "relation": "uses_tool",
-      "implicit": false
-    },
-    {
-      "from": 1610,
-      "to": 1005,
-      "relation": "uses_tool",
-      "implicit": false
-    },
-    {
-      "from": 1631,
-      "to": 1622,
-      "relation": "uses_tool",
-      "implicit": false
-    },
-    {
-      "from": 127,
-      "to": 135,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 127,
-      "to": 141,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 142,
-      "to": 337,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 150,
-      "to": 6,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 150,
-      "to": 1031,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 153,
-      "to": 1389,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 153,
-      "to": 1779,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 230,
-      "to": 205,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 230,
-      "to": 206,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 584,
-      "to": 586,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 584,
-      "to": 587,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 731,
-      "to": 753,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
       "from": 1048,
-      "to": 1064,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 1052,
       "to": 1064,
       "relation": "authored_by",
       "implicit": false
@@ -12588,9 +11867,33 @@
       "implicit": false
     },
     {
+      "from": 1052,
+      "to": 1064,
+      "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1056,
+      "to": 599,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
       "from": 1058,
       "to": 1064,
       "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1083,
+      "to": 599,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1084,
+      "to": 599,
+      "relation": "referenced_in_course",
       "implicit": false
     },
     {
@@ -12600,9 +11903,21 @@
       "implicit": false
     },
     {
+      "from": 1094,
+      "to": 599,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
       "from": 1095,
       "to": 1149,
       "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1097,
+      "to": 697,
+      "relation": "referenced_in_course",
       "implicit": false
     },
     {
@@ -12627,6 +11942,54 @@
       "from": 1101,
       "to": 1106,
       "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1102,
+      "to": 1131,
+      "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1102,
+      "to": 1134,
+      "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1102,
+      "to": 1135,
+      "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1102,
+      "to": 599,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1103,
+      "to": 599,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1120,
+      "to": 599,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1121,
+      "to": 599,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1122,
+      "to": 599,
+      "relation": "belongs_to_course",
       "implicit": false
     },
     {
@@ -12672,21 +12035,9 @@
       "implicit": false
     },
     {
-      "from": 1102,
-      "to": 1131,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 1102,
-      "to": 1134,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 1102,
-      "to": 1135,
-      "relation": "authored_by",
+      "from": 1143,
+      "to": 1779,
+      "relation": "published_in",
       "implicit": false
     },
     {
@@ -12714,6 +12065,156 @@
       "implicit": false
     },
     {
+      "from": 1158,
+      "to": 1223,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1159,
+      "to": 1223,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1159,
+      "to": 1223,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1163,
+      "to": 1290,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1170,
+      "to": 1223,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1171,
+      "to": 1196,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1176,
+      "to": 1223,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1182,
+      "to": 1197,
+      "relation": "published_in",
+      "implicit": false
+    },
+    {
+      "from": 1187,
+      "to": 1248,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1216,
+      "to": 1158,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1225,
+      "to": 1284,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1233,
+      "to": 1247,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1235,
+      "to": 1247,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1247,
+      "to": 1223,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1248,
+      "to": 1223,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1249,
+      "to": 1223,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1253,
+      "to": 1189,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1267,
+      "to": 1248,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1268,
+      "to": 1290,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1281,
+      "to": 1223,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1286,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1297,
+      "to": 1296,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 1297,
+      "to": 24,
+      "relation": "uses_tool",
+      "implicit": false
+    },
+    {
+      "from": 1304,
+      "to": 1296,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 1304,
+      "to": 24,
+      "relation": "uses_tool",
+      "implicit": false
+    },
+    {
       "from": 1309,
       "to": 1313,
       "relation": "authored_by",
@@ -12729,6 +12230,18 @@
       "from": 1309,
       "to": 1315,
       "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1314,
+      "to": 1499,
+      "relation": "affiliated_with",
+      "implicit": false
+    },
+    {
+      "from": 1315,
+      "to": 1499,
+      "relation": "affiliated_with",
       "implicit": false
     },
     {
@@ -12765,6 +12278,96 @@
       "from": 1320,
       "to": 1315,
       "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1341,
+      "to": 1340,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1382,
+      "to": 1340,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1382,
+      "to": 1390,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 1387,
+      "to": 1340,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1388,
+      "to": 1340,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1390,
+      "to": 1382,
+      "relation": "related_to",
+      "implicit": false
+    },
+    {
+      "from": 1405,
+      "to": 1391,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1407,
+      "to": 1391,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1418,
+      "to": 1391,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1439,
+      "to": 1454,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1440,
+      "to": 1454,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1451,
+      "to": 636,
+      "relation": "related_to",
+      "implicit": false
+    },
+    {
+      "from": 1454,
+      "to": 662,
+      "relation": "uses_framework",
+      "implicit": false
+    },
+    {
+      "from": 1487,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1502,
+      "to": 697,
+      "relation": "used_in",
       "implicit": false
     },
     {
@@ -12780,25 +12383,187 @@
       "implicit": false
     },
     {
+      "from": 1516,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1521,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1522,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1523,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1526,
+      "to": 697,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1533,
+      "to": 697,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1534,
+      "to": 697,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1545,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1546,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1546,
+      "to": 697,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1547,
+      "to": 697,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1548,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1567,
+      "to": 1016,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1568,
+      "to": 1016,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1569,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1570,
+      "to": 697,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1576,
+      "to": 1558,
+      "relation": "published_in",
+      "implicit": false
+    },
+    {
+      "from": 1584,
+      "to": 1585,
+      "relation": "presented_at",
+      "implicit": false
+    },
+    {
+      "from": 1585,
+      "to": 704,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1588,
+      "to": 1585,
+      "relation": "presented_at",
+      "implicit": false
+    },
+    {
+      "from": 1589,
+      "to": 704,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1599,
+      "to": 1628,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1604,
+      "to": 1628,
+      "relation": "used_in",
+      "implicit": false
+    },
+    {
+      "from": 1608,
+      "to": 1005,
+      "relation": "uses_tool",
+      "implicit": false
+    },
+    {
+      "from": 1609,
+      "to": 1604,
+      "relation": "uses_tool",
+      "implicit": false
+    },
+    {
+      "from": 1610,
+      "to": 1005,
+      "relation": "uses_tool",
+      "implicit": false
+    },
+    {
+      "from": 1631,
+      "to": 1622,
+      "relation": "uses_tool",
+      "implicit": false
+    },
+    {
+      "from": 1634,
+      "to": 608,
+      "relation": "developed_by",
+      "implicit": false
+    },
+    {
       "from": 1636,
       "to": 1659,
       "relation": "authored_by",
       "implicit": false
     },
     {
+      "from": 1637,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
       "from": 1642,
-      "to": 1659,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 1717,
-      "to": 1659,
-      "relation": "authored_by",
-      "implicit": false
-    },
-    {
-      "from": 1721,
       "to": 1659,
       "relation": "authored_by",
       "implicit": false
@@ -12810,15 +12575,75 @@
       "implicit": false
     },
     {
+      "from": 1660,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1716,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1718,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1721,
+      "to": 1659,
+      "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1722,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
       "from": 1739,
       "to": 1659,
       "relation": "authored_by",
       "implicit": false
     },
     {
+      "from": 1746,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1748,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
       "from": 1750,
       "to": 1659,
       "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1750,
+      "to": 1648,
+      "relation": "referenced_in_course",
+      "implicit": false
+    },
+    {
+      "from": 1751,
+      "to": 1759,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
+      "from": 1755,
+      "to": 1759,
+      "relation": "belongs_to_course",
       "implicit": false
     },
     {
@@ -12834,9 +12659,27 @@
       "implicit": false
     },
     {
+      "from": 1769,
+      "to": 1759,
+      "relation": "belongs_to_course",
+      "implicit": false
+    },
+    {
       "from": 1773,
       "to": 1780,
       "relation": "authored_by",
+      "implicit": false
+    },
+    {
+      "from": 1777,
+      "to": 1779,
+      "relation": "published_in",
+      "implicit": false
+    },
+    {
+      "from": 1780,
+      "to": 1773,
+      "relation": "published_in",
       "implicit": false
     },
     {
@@ -12864,117 +12707,51 @@
       "implicit": false
     },
     {
-      "from": 1143,
-      "to": 1779,
-      "relation": "published_in",
-      "implicit": false
-    },
-    {
-      "from": 1182,
-      "to": 1197,
-      "relation": "published_in",
-      "implicit": false
-    },
-    {
-      "from": 1576,
-      "to": 1558,
-      "relation": "published_in",
-      "implicit": false
-    },
-    {
-      "from": 1777,
-      "to": 1779,
-      "relation": "published_in",
-      "implicit": false
-    },
-    {
-      "from": 1780,
-      "to": 1773,
-      "relation": "published_in",
-      "implicit": false
-    },
-    {
-      "from": 801,
-      "to": 964,
-      "relation": "presented_at",
-      "implicit": false
-    },
-    {
-      "from": 923,
-      "to": 993,
-      "relation": "presented_at",
-      "implicit": false
-    },
-    {
-      "from": 974,
-      "to": 993,
-      "relation": "presented_at",
-      "implicit": false
-    },
-    {
-      "from": 988,
-      "to": 978,
-      "relation": "presented_at",
-      "implicit": false
-    },
-    {
-      "from": 990,
-      "to": 964,
-      "relation": "presented_at",
-      "implicit": false
-    },
-    {
-      "from": 992,
-      "to": 993,
-      "relation": "presented_at",
-      "implicit": false
-    },
-    {
-      "from": 1584,
-      "to": 1585,
-      "relation": "presented_at",
-      "implicit": false
-    },
-    {
-      "from": 1588,
-      "to": 1585,
-      "relation": "presented_at",
-      "implicit": false
-    },
-    {
       "from": 1801,
       "to": 493,
       "relation": "presented_at",
       "implicit": false
     },
     {
-      "from": 154,
-      "to": 675,
-      "relation": "related_topics",
-      "implicit": true
+      "from": 1817,
+      "to": 698,
+      "relation": "belongs_to_course",
+      "implicit": false
     },
     {
-      "from": 687,
-      "to": 697,
-      "relation": "cited_in",
-      "implicit": true
+      "from": 1823,
+      "to": 1820,
+      "relation": "related_to",
+      "implicit": false
     },
     {
-      "from": 686,
-      "to": 608,
-      "relation": "developer",
-      "implicit": true
+      "from": 3455,
+      "to": 751,
+      "relation": "belongs_to_course",
+      "implicit": false
     },
     {
-      "from": 759,
-      "to": 970,
-      "relation": "developer",
-      "implicit": true
+      "from": 3608,
+      "to": 3609,
+      "relation": "alias_of",
+      "implicit": false
     },
     {
-      "from": 804,
-      "to": 970,
-      "relation": "developer",
+      "from": 3608,
+      "to": 3380,
+      "relation": "part_of",
+      "implicit": false
+    },
+    {
+      "from": 3609,
+      "to": 3380,
+      "relation": "lane_of",
+      "implicit": false
+    },
+    {
+      "from": 24,
+      "to": 1340,
+      "relation": "referenced_in",
       "implicit": true
     },
     {
@@ -12990,15 +12767,99 @@
       "implicit": true
     },
     {
+      "from": 154,
+      "to": 675,
+      "relation": "related_topics",
+      "implicit": true
+    },
+    {
+      "from": 468,
+      "to": 599,
+      "relation": "cited_in",
+      "implicit": true
+    },
+    {
       "from": 468,
       "to": 1648,
       "relation": "referenced_in",
       "implicit": true
     },
     {
+      "from": 629,
+      "to": 1648,
+      "relation": "referenced_in",
+      "implicit": true
+    },
+    {
+      "from": 662,
+      "to": 1457,
+      "relation": "used_in",
+      "implicit": true
+    },
+    {
+      "from": 684,
+      "to": 683,
+      "relation": "related_concept",
+      "implicit": true
+    },
+    {
+      "from": 686,
+      "to": 608,
+      "relation": "developer",
+      "implicit": true
+    },
+    {
+      "from": 687,
+      "to": 697,
+      "relation": "cited_in",
+      "implicit": true
+    },
+    {
+      "from": 759,
+      "to": 970,
+      "relation": "developer",
+      "implicit": true
+    },
+    {
+      "from": 804,
+      "to": 970,
+      "relation": "developer",
+      "implicit": true
+    },
+    {
+      "from": 1003,
+      "to": 698,
+      "relation": "referenced_in",
+      "implicit": true
+    },
+    {
+      "from": 1005,
+      "to": 698,
+      "relation": "used_in",
+      "implicit": true
+    },
+    {
+      "from": 1012,
+      "to": 1648,
+      "relation": "referenced_in",
+      "implicit": true
+    },
+    {
+      "from": 1012,
+      "to": 698,
+      "relation": "used_in",
+      "implicit": true
+    },
+    {
       "from": 1035,
       "to": 697,
       "relation": "used_in",
+      "implicit": true
+    },
+    {
+      "from": 1053,
+      "to": 697,
+      "relation": "referenced_in",
       "implicit": true
     },
     {
@@ -13020,6 +12881,12 @@
       "implicit": true
     },
     {
+      "from": 1085,
+      "to": 599,
+      "relation": "related_course",
+      "implicit": true
+    },
+    {
       "from": 1086,
       "to": 599,
       "relation": "related_course",
@@ -13027,12 +12894,6 @@
     },
     {
       "from": 1087,
-      "to": 599,
-      "relation": "related_course",
-      "implicit": true
-    },
-    {
-      "from": 1085,
       "to": 599,
       "relation": "related_course",
       "implicit": true
@@ -13053,12 +12914,6 @@
       "from": 1108,
       "to": 599,
       "relation": "related_course",
-      "implicit": true
-    },
-    {
-      "from": 468,
-      "to": 599,
-      "relation": "cited_in",
       "implicit": true
     },
     {
@@ -13098,19 +12953,19 @@
       "implicit": true
     },
     {
-      "from": 1211,
-      "to": 1177,
-      "relation": "related_course",
-      "implicit": true
-    },
-    {
-      "from": 1199,
+      "from": 1193,
       "to": 1177,
       "relation": "related_course",
       "implicit": true
     },
     {
       "from": 1193,
+      "to": 1648,
+      "relation": "used_in",
+      "implicit": true
+    },
+    {
+      "from": 1199,
       "to": 1177,
       "relation": "related_course",
       "implicit": true
@@ -13122,13 +12977,19 @@
       "implicit": true
     },
     {
-      "from": 1298,
-      "to": 1340,
-      "relation": "referenced_in",
+      "from": 1211,
+      "to": 1177,
+      "relation": "related_course",
       "implicit": true
     },
     {
-      "from": 24,
+      "from": 1286,
+      "to": 1648,
+      "relation": "used_in",
+      "implicit": true
+    },
+    {
+      "from": 1298,
       "to": 1340,
       "relation": "referenced_in",
       "implicit": true
@@ -13152,15 +13013,15 @@
       "implicit": true
     },
     {
-      "from": 1437,
+      "from": 1434,
       "to": 1457,
       "relation": "related_course",
       "implicit": true
     },
     {
-      "from": 662,
+      "from": 1437,
       "to": 1457,
-      "relation": "used_in",
+      "relation": "related_course",
       "implicit": true
     },
     {
@@ -13170,21 +13031,15 @@
       "implicit": true
     },
     {
-      "from": 1462,
-      "to": 1457,
-      "relation": "used_in",
-      "implicit": true
-    },
-    {
-      "from": 1434,
-      "to": 1457,
-      "relation": "related_course",
-      "implicit": true
-    },
-    {
       "from": 1461,
       "to": 1457,
       "relation": "cited_in",
+      "implicit": true
+    },
+    {
+      "from": 1462,
+      "to": 1457,
+      "relation": "used_in",
       "implicit": true
     },
     {
@@ -13236,25 +13091,13 @@
       "implicit": true
     },
     {
-      "from": 1053,
-      "to": 697,
-      "relation": "referenced_in",
-      "implicit": true
-    },
-    {
-      "from": 684,
-      "to": 683,
-      "relation": "related_concept",
-      "implicit": true
-    },
-    {
-      "from": 1578,
+      "from": 1577,
       "to": 697,
       "relation": "used_in",
       "implicit": true
     },
     {
-      "from": 1577,
+      "from": 1578,
       "to": 697,
       "relation": "used_in",
       "implicit": true
@@ -13268,19 +13111,13 @@
     {
       "from": 1591,
       "to": 698,
-      "relation": "used_in",
+      "relation": "referenced_in",
       "implicit": true
     },
     {
       "from": 1591,
       "to": 698,
-      "relation": "referenced_in",
-      "implicit": true
-    },
-    {
-      "from": 1602,
-      "to": 698,
-      "relation": "related_course",
+      "relation": "used_in",
       "implicit": true
     },
     {
@@ -13290,15 +13127,15 @@
       "implicit": true
     },
     {
-      "from": 1005,
+      "from": 1600,
       "to": 698,
       "relation": "used_in",
       "implicit": true
     },
     {
-      "from": 1012,
+      "from": 1602,
       "to": 698,
-      "relation": "used_in",
+      "relation": "related_course",
       "implicit": true
     },
     {
@@ -13314,27 +13151,21 @@
       "implicit": true
     },
     {
-      "from": 1600,
-      "to": 698,
-      "relation": "used_in",
-      "implicit": true
-    },
-    {
       "from": 1636,
       "to": 1648,
       "relation": "referenced_in",
       "implicit": true
     },
     {
-      "from": 1003,
-      "to": 698,
-      "relation": "referenced_in",
+      "from": 1636,
+      "to": 1648,
+      "relation": "used_in",
       "implicit": true
     },
     {
-      "from": 629,
+      "from": 1637,
       "to": 1648,
-      "relation": "referenced_in",
+      "relation": "related_course",
       "implicit": true
     },
     {
@@ -13346,11 +13177,17 @@
     {
       "from": 1642,
       "to": 1648,
-      "relation": "used_in",
+      "relation": "referenced_in",
       "implicit": true
     },
     {
       "from": 1642,
+      "to": 1648,
+      "relation": "used_in",
+      "implicit": true
+    },
+    {
+      "from": 1658,
       "to": 1648,
       "relation": "referenced_in",
       "implicit": true
@@ -13362,33 +13199,9 @@
       "implicit": true
     },
     {
-      "from": 1012,
-      "to": 1648,
-      "relation": "referenced_in",
-      "implicit": true
-    },
-    {
-      "from": 1658,
-      "to": 1648,
-      "relation": "referenced_in",
-      "implicit": true
-    },
-    {
-      "from": 1193,
-      "to": 1648,
-      "relation": "used_in",
-      "implicit": true
-    },
-    {
       "from": 1663,
       "to": 1648,
       "relation": "referenced_in",
-      "implicit": true
-    },
-    {
-      "from": 1637,
-      "to": 1648,
-      "relation": "related_course",
       "implicit": true
     },
     {
@@ -13404,18 +13217,6 @@
       "implicit": true
     },
     {
-      "from": 1286,
-      "to": 1648,
-      "relation": "used_in",
-      "implicit": true
-    },
-    {
-      "from": 1717,
-      "to": 1648,
-      "relation": "used_in",
-      "implicit": true
-    },
-    {
       "from": 1746,
       "to": 1648,
       "relation": "used_in",
@@ -13423,21 +13224,19 @@
     }
   ],
   "stats": {
-    "total_nodes": 2279,
-    "total_edges": 337,
+    "total_nodes": 2238,
+    "total_edges": 338,
     "entity_types": {
-      "concept": 1470,
-      "tool": 303,
-      "project": 170,
-      "course": 137,
+      "concept": 1438,
+      "tool": 298,
+      "project": 169,
+      "course": 130,
       "person": 105,
-      "research-topic": 37,
-      "research": 26,
-      "research_topic": 6,
+      "research-topic": 72,
       "organization": 6,
       "skill": 3,
       "resource": 3,
-      "topic": 3,
+      "agent": 3,
       "company": 2,
       "event": 1,
       "interest": 1,
@@ -13446,9 +13245,10 @@
       "institution": 1,
       "publication": 1,
       "assignment": 1,
-      "report": 1
+      "report": 1,
+      "system": 1
     },
-    "entities_stripped": 195,
+    "entities_stripped": 191,
     "implicit_edges_added": 79
   }
 }

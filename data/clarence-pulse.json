@@ -1,51 +1,48 @@
 {
-  "version": "1.3",
-  "generated_date": "2026-07-15",
+  "version": "1.4",
+  "generated_date": "2026-08-25",
   "freshness": "reviewed public snapshot",
   "description": "Public-safe Clarence system pulse. No private memory content, work titles, file paths, or precise timestamps are exposed.",
   "heartbeat": {
     "status": "online",
-    "uptime_days": 117,
+    "uptime_days": 158,
     "recent_activity": "today"
   },
   "knowledge_stats": {
-    "active_facts": 10259,
-    "active_memories": 1238,
+    "active_facts": 10224,
+    "active_memories": 1236,
     "memory_breakdown": {
       "decision": 1,
       "feedback": 20,
-      "project": 133,
-      "reference": 1038,
-      "research_report": 22,
-      "user": 24
+      "project": 127,
+      "reference": 1044,
+      "research_report": 19,
+      "user": 25
     },
-    "indexed_vault_notes": 1863,
-    "total_entities": 2428,
-    "entity_relations": 286
+    "indexed_vault_notes": 1925,
+    "total_entities": 2429,
+    "entity_relations": 284
   },
   "system_vitals": {
-    "hermes_skills": 254,
-    "cron_jobs_active": 8,
-    "retrieval_feedback_entries": 32
+    "hermes_skills": 308,
+    "cron_jobs_active": 4,
+    "retrieval_feedback_entries": 37,
+    "sidecar_timers_enabled": 4,
+    "sidecar_timers_active": 4
   },
   "activity_summary": {
-    "sessions_last_30_days": 365,
+    "sessions_last_30_days": 1072,
     "work_items_by_type": {
-      "build": 33,
-      "content": 3,
-      "decision": 3,
-      "design": 34,
-      "feature": 22,
-      "fix": 46,
-      "infra": 56,
-      "research": 28,
-      "task": 19
+      "build": 1,
+      "feature": 1,
+      "fix": 2,
+      "research": 2
     }
   },
   "architecture": {
     "orchestrator": "Hermes",
-    "primary_model": "GPT-5.6 Sol",
-    "specialist_lane": "Claude Code + bounded local worker",
+    "primary_model": "Solar Pro 4 (Upstage)",
+    "specialist_lane": "GPT-5.6 Luna workers + Claude Code specialist",
     "memory_backend": "SQLite + sqlite-vec"
   },
   "public_endpoints": {
