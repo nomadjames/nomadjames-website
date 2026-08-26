@@ -1,0 +1,2923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="An endless generative audiovisual cosmos. Drag to steer, scroll to fly, and awaken a score composed from celestial motion.">
+<link rel="canonical" href="https://nomadjames.com/nocturne-for-six-orbits/">
+<meta property="og:title" content="Nocturne for Six Orbits">
+<meta property="og:description" content="A self-contained generative audiovisual instrument shaped by flight, drag, and celestial motion.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nomadjames.com/nocturne-for-six-orbits/">
+<link rel="icon" href="data:,">
+<title>Nocturne for Six Orbits</title>
+<style>
+  :root {
+    --ink: #e9e4da;
+    --dim: #93a0b1;
+    --accent: #dcb289;
+    --line: rgba(220, 178, 137, 0.16);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    background: #05070b;
+    color: var(--ink);
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #scene { position: fixed; inset: 0; display: block; cursor: grab; touch-action: none; }
+  #scene.grabbing { cursor: grabbing; }
+
+  .grain {
+    position: fixed; inset: 0; pointer-events: none;
+    opacity: 0.055; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .frame {
+    position: fixed; inset: 0;
+    margin: clamp(10px, 2.4vmin, 24px);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .title {
+    position: fixed; left: 50%;
+    top: clamp(24px, 6.5vh, 68px);
+    transform: translateX(-50%);
+    width: min(92vw, 760px);
+    text-align: center;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  h1 {
+    margin: 0; font-weight: 400;
+    font-size: clamp(1.35rem, 4.4vw, 2.7rem);
+    letter-spacing: 0.42em; text-indent: 0.42em;
+    color: #efe9dd;
+    text-shadow: 0 2px 26px rgba(0, 0, 0, 0.6);
+    animation: breatheTitle 13s ease-in-out infinite;
+  }
+
+  @keyframes breatheTitle {
+    0%, 100% { opacity: 0.92; }
+    50%      { opacity: 1; }
+  }
+
+  .sub {
+    margin-top: 1em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: clamp(0.55rem, 1.35vw, 0.72rem);
+    letter-spacing: 0.34em; text-indent: 0.34em;
+    color: rgba(147, 160, 177, 0.85);
+  }
+
+  .hint {
+    position: fixed; left: 50%;
+    bottom: calc(clamp(10px, 2.4vmin, 24px) + 52px);
+    transform: translateX(-50%);
+    width: min(90vw, 720px);
+    text-align: center;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.28em; text-indent: 0.28em;
+    line-height: 2;
+    color: rgba(147, 160, 177, 0.8);
+    pointer-events: none;
+    z-index: 5;
+    animation: hintFade 14s ease forwards;
+  }
+
+  @keyframes hintFade {
+    0%, 46%  { opacity: 0; }
+    58%      { opacity: 1; }
+    86%      { opacity: 0.95; }
+    100%     { opacity: 0; }
+  }
+
+  .controls {
+    position: fixed;
+    right: clamp(10px, 2.4vmin, 24px);
+    bottom: clamp(10px, 2.4vmin, 24px);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: calc(100vw - 20px);
+    z-index: 10;
+  }
+
+  .controls button {
+    appearance: none;
+    background: rgba(10, 15, 21, 0.55);
+    border: 1px solid rgba(220, 178, 137, 0.3);
+    color: #cdbfad;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-indent: 0.11em;
+    padding: 0.65em 1.1em;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.35s ease, color 0.35s ease;
+  }
+
+  .controls button:hover:not([disabled]),
+  .controls button:focus-visible:not([disabled]) {
+    border-color: rgba(220, 178, 137, 0.7);
+    color: #efe9dd;
+  }
+
+  .controls button:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .controls button[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .controls button.active {
+    border-color: rgba(220, 178, 137, 0.75);
+    color: #f3ead9;
+  }
+
+  /* ---------- about panel ---------- */
+
+  .about {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(92vw, 560px);
+    max-height: min(76vh, 640px);
+    overflow-y: auto;
+    background: rgba(7, 11, 17, 0.92);
+    border: 1px solid rgba(220, 178, 137, 0.28);
+    border-radius: 4px;
+    padding: clamp(20px, 4vw, 36px);
+    z-index: 20;
+    color: var(--ink);
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .about[hidden] { display: none; }
+
+  .about h2 {
+    margin: 0 0 1em;
+    font-weight: 400;
+    font-size: clamp(0.95rem, 2.6vw, 1.25rem);
+    letter-spacing: 0.3em; text-indent: 0.3em;
+    color: #efe9dd;
+  }
+
+  .about p {
+    margin: 0 0 1em;
+    font-size: clamp(0.82rem, 2vw, 0.95rem);
+    line-height: 1.75;
+    color: rgba(233, 228, 218, 0.88);
+  }
+
+  .about p:last-of-type { margin-bottom: 0; }
+
+  .about a {
+    color: #f3d4b2;
+    text-decoration-color: rgba(220, 178, 137, 0.55);
+    text-underline-offset: 0.2em;
+  }
+
+  .about a:hover,
+  .about a:focus-visible {
+    color: #fff4e5;
+  }
+
+  .about .close {
+    position: sticky;
+    top: 0;
+    float: right;
+    margin: -6px -6px 0 12px;
+    appearance: none;
+    background: rgba(10, 15, 21, 0.8);
+    border: 1px solid rgba(220, 178, 137, 0.4);
+    color: #cdbfad;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    padding: 0.5em 0.9em;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  .about .close:hover,
+  .about .close:focus-visible {
+    border-color: rgba(220, 178, 137, 0.8);
+    color: #efe9dd;
+  }
+
+  .about .close:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  noscript div {
+    position: fixed; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--dim);
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+  }
+
+  body.paused h1 { animation-play-state: paused; }
+
+  @media (prefers-reduced-motion: reduce) {
+    h1 { animation: none; }
+    .hint { animation: none; opacity: 0; }
+  }
+
+  @media (max-width: 620px) {
+    h1 { letter-spacing: 0.28em; text-indent: 0.28em; }
+    .sub { letter-spacing: 0.26em; text-indent: 0.26em; padding: 0 4vw; }
+    .controls {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      justify-content: center;
+      bottom: clamp(10px, 2.4vmin, 24px);
+    }
+    .hint { bottom: calc(clamp(10px, 2.4vmin, 24px) + 70px); }
+    .about { width: 94vw; max-height: 78vh; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="frame" aria-hidden="true"></div>
+
+<header class="title">
+  <h1>NOCTURNE FOR SIX ORBITS</h1>
+  <p class="sub">one continuous generative galaxy &mdash; fly it in either direction</p>
+</header>
+
+<p class="hint" id="hint">drag to steer the camera &middot; click to aim &middot; scroll to fly, again to fall back<br>arrow keys travel &middot; space suspends &middot; R reshuffles &middot; M sound</p>
+
+<div class="controls">
+  <button id="btn-audio" type="button" aria-label="Awaken sound"><span class="lbl">AWAKEN SOUND</span></button>
+  <button id="btn-pause" type="button" aria-label="Suspend motion"><span class="lbl">SUSPEND</span></button>
+  <button id="btn-reseed" type="button" aria-label="Reshuffle the constellation"><span class="lbl">RESHUFFLE</span></button>
+  <button id="btn-about" type="button" aria-label="About this piece" aria-expanded="false" aria-controls="about-panel"><span class="lbl">ABOUT</span></button>
+</div>
+
+<section class="about" id="about-panel" hidden aria-label="About this piece">
+  <button class="close" id="btn-about-close" type="button" aria-label="Close about panel">CLOSE</button>
+  <h2>WHAT THIS IS</h2>
+  <p>You are looking at a machine that composes itself. Everything here &mdash; the bodies, the light, the music &mdash; is generated live in your browser from a single self-contained HTML file. There is no recording, no library, no network: nothing plays back, because nothing was ever played in.</p>
+  <p>You are inside one continuous galaxy, not a sequence of scenes. Press on the sky and drag to steer &mdash; your hand turns the camera directly, left and right to sweep the horizon, up and down to raise or lower your gaze; a short press still aims at a body or into empty space, then scroll to fly forward along that ray. Scroll the other way to fall backward along the same line and retrace your path. Bodies swell with perspective as you approach, pass beside or behind the camera, and keep their places in the sky behind you.</p>
+  <p>The galaxy is carved into cubic regions that are generated lazily from your universe's seed and each region's coordinates. Fly a thousand regions away and return: the same bodies, rings, and colors wait exactly where you left them. Only a small neighborhood lives in memory at any moment &mdash; everything else is recomputed, identically, on demand.</p>
+  <p>Nothing here stands still. Every body carries a slow private motion &mdash; an orbit, a drift, a wobble &mdash; drawn from the same seed that placed it, so each returns to its post when you come back. Close bodies move gently so flybys stay readable; distant ones wander more freely.</p>
+  <p>Motion is part of the score. The sound tracks your actual velocity: small scrolls are already audible, larger bursts open the filters, widen the stereo field, feed the delay and reverb, and raise a low breath beneath the drones; slowing lets the ambience settle again, and flying backward darkens the tone and stretches the echoes. Dragging composes too: turning sweeps the sound across the room and fast swings add brightness and shimmer that settle when you let go. Dragging is also a scan &mdash; as the aim beam sweeps past real bodies, each one rings out as its own short voice: pitch from the body's place in the scale, register from its kind, brightness from its depth, pan from where it crossed your view. Sweep slowly to hear bodies one by one, or sweep fast to hear a burst of them.</p>
+  <p>The galaxy composes even while you rest. The slow drift of all those bodies is measured as one moving field &mdash; how far the crowd leans, how it churns, how it breathes &mdash; and that field quietly steers the chord color, the filter sway, the stereo orbit, and the echo character. Leave it alone for a few seconds and listen: the piece keeps changing without you. Close passes still become musical events shaped by a body's bearing, size, and your velocity, and selecting a body gently pulls the harmony toward it. Each region carries its own harmonic climate &mdash; transposition, timbre brightness, spatial width &mdash; and flying back recovers it.</p>
+  <p>The piece began as a challenge to make one HTML file feel like music for the eyes, and became this: an endless, navigable cosmos with a memory. James directed the interaction and sound design through repeated live testing. Clarence orchestrated the build and verification, using Ox Alpha as an implementation model. No one &mdash; human or machine &mdash; made it alone.</p>
+  <p><a href="https://nomadjames.com/lab">Back to the Lab</a></p>
+</section>
+
+<noscript>
+  <div>this nocturne asks politely for JavaScript</div>
+</noscript>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ================= guarded canvas acquisition ================= */
+
+  var canvas = document.getElementById('scene');
+  var ctx = canvas ? canvas.getContext('2d', { alpha: false }) : null;
+  if (!ctx) return;
+
+  var TAU = Math.PI * 2;
+
+  /* ================= deterministic randomness ================= */
+
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  // hash universe seed + three signed chunk coordinates into one 32-bit seed
+  function chunkSeed(uSeed, ci, cj, ck) {
+    var h = uSeed | 0;
+    h = Math.imul(h ^ (ci | 0), 0x85EBCA6B); h ^= h >>> 13;
+    h = Math.imul(h ^ (cj | 0), 0xC2B2AE35); h ^= h >>> 16;
+    h = Math.imul(h ^ (ck | 0), 0x27D4EB2F); h ^= h >>> 15;
+    return (h >>> 0) || 1;
+  }
+
+  /* ================= v5: deterministic autonomous body motion ================= */
+
+  // Every body gets a stable motion profile derived from its uid hash plus the
+  // universe seed. Current position is a pure function of (anchor, profile, t):
+  // slow orbit around an elliptical ring + drift along a fixed axis + wobble +
+  // precession of the orbit plane. No per-frame randomness anywhere.
+  function bodyMotionProfile(b) {
+    if (b.motion) return b.motion;
+    var h = 2166136261;
+    var s = b.uid;
+    for (var i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    h = (h ^ universeSeed) >>> 0;
+    var rng = mulberry32(h || 1);
+    var ax1 = rng() * TAU;                       // primary orbit axis angle
+    var ax2 = (rng() * 0.9 - 0.45) + uni.geo.squashBase; // orbit-plane tilt
+    var rate = (0.05 + rng() * 0.16);            // rad/s orbital rate
+    if (rng() < 0.3) rate = -rate;               // retrograde minority
+    b.motion = {
+      ax1: ax1,
+      ax2: ax2,
+      rate: rate,
+      rA: 6 + rng() * 16,                        // semi-major displacement
+      rB: 3 + rng() * 10,                        // semi-minor displacement
+      ph1: rng() * TAU,                          // orbital phase
+      preRate: (rng() * 2 - 1) * 0.02,           // precession of the orbit plane
+      driftAxis: { x: rng() * 2 - 1, y: rng() * 2 - 1, z: rng() * 2 - 1 },
+      driftAmp: 4 + rng() * 12,
+      driftRate: 0.03 + rng() * 0.09,
+      wobAmp: 1.5 + rng() * 5,
+      wobRate: 0.11 + rng() * 0.22,
+      wobPh: rng() * TAU
+    };
+    var dl = Math.sqrt(
+      b.motion.driftAxis.x * b.motion.driftAxis.x +
+      b.motion.driftAxis.y * b.motion.driftAxis.y +
+      b.motion.driftAxis.z * b.motion.driftAxis.z) || 1;
+    b.motion.driftAxis.x /= dl; b.motion.driftAxis.y /= dl; b.motion.driftAxis.z /= dl;
+    return b.motion;
+  }
+
+  // Autonomous displacement vector for a body at simulation time t.
+  // ampScale damps close flybys so near geometry stays readable while far
+  // bodies roam visibly. Deterministic in (anchor, profile, t).
+  function bodyDisplacement(b, distToCam, t, out) {
+    var mp = bodyMotionProfile(b);
+    var damp = clamp(distToCam / 900, 0, 1);
+    var amp = CONFIG.nearMotionDamp + (1 - CONFIG.nearMotionDamp) * damp;
+    // reduced-motion: shrink autonomous displacement but keep it nonzero and
+    // deterministic, so the idle composer still receives real motion signal
+    if (reducedMotion) amp *= CONFIG.rmMotionScale;
+    var th = mp.ph1 + t * mp.rate;
+    var pre = t * mp.preRate;
+    var c1 = Math.cos(mp.ax1 + pre), s1 = Math.sin(mp.ax1 + pre);
+    var st = Math.sin(mp.ax2);
+    // point on the tilted elliptical orbit ring
+    var ox = (c1 * Math.cos(th)) * mp.rA + (-s1 * Math.sin(th)) * mp.rB;
+    var oz = (s1 * Math.cos(th)) * mp.rA + (c1 * Math.sin(th)) * mp.rB;
+    var oy = (st * Math.sin(th)) * mp.rB;
+    var dw = Math.sin(t * mp.driftRate + mp.ph1) * mp.driftAmp;
+    var wb = Math.sin(t * mp.wobRate + mp.wobPh) * mp.wobAmp;
+    out.x = (ox + mp.driftAxis.x * dw) * amp;
+    out.y = (oy + mp.driftAxis.y * dw + wb * 0.6) * amp;
+    out.z = (oz + mp.driftAxis.z * dw + wb * 0.35) * amp;
+    return amp;
+  }
+
+  /* ================= configuration ================= */
+
+  var CONFIG = {
+    seed: 20260825,
+    chunk: 250,            // world units per cubic region edge
+    chunkRadius: 2.35,     // euclidean chunk-radius kept around the camera
+    chunkCacheMax: 64,     // hard cap on cached chunks
+    bodiesPerChunk: 5,
+    nebulaPerChunk: 24,
+    farStars: 190,
+    maxDPR: 1.75,
+    scanMs: 90,
+    maxVoices: 10,
+    maxEventsPerSec: 10,
+    masterLevel: 0.38,
+    focalFactor: 1.02,     // focal length = min(W,H) * this
+    near: 14,              // perspective near plane (world units)
+    farCull: 4200,
+    camSpeedMax: 3400,     // world units / second, instant clamp
+    wheelGain: 2.6,        // velocity kick per normalized delta pixel
+    damping: 4.4,          // exponential velocity decay per second
+    rmStep: 110,           // reduced-motion stepped travel distance
+
+    // --- v5 ---
+    dragThresholdPx: 6,    // pointer travel before a press becomes a drag
+    dragGainYaw: 0.0034,   // radians per CSS px of horizontal drag
+    dragGainPitch: 0.0028, // radians per CSS px of vertical drag
+    motionSqrtExp: 0.40,   // v5.2 perceptual curve exponent for speed -> audio
+    // v5.2 scroll-audio response shaping
+    motionAttackTau: 0.05, // s, perceptual-envelope attack time constant
+    motionReleaseTau: 0.26,// s, perceptual-envelope release (tracks velocity decay)
+    // v5.2 drag stereo-pan response shaping
+    dragPanRateScale: 1.6, // rad/s of yaw rate -> ~full interactive pan
+    dragPanClamp: 0.85,    // hard pan ceiling, safely below full scale
+    dragPanAttackTau: 0.05,// s, applied-pan attack time constant (<100ms)
+    dragPanReleaseTau: 0.14,// s, smooth prompt settle after release
+
+    // --- v5.3 drag sonic scan ---
+    scanRateCapPerSec: 6,  // dedicated encounter cap, independent of event caps
+    scanCooldownSec: 0.9,  // per-body retrigger cooldown
+    scanCellPadPx: 14,     // projected-radius padding defining a body's angular cell
+    scanCooldownCap: 160,  // hard bound on the cooldown ledger
+    scanLedgerCap: 256,    // hard bound on the per-drag geometric ledger
+    bodyMotionBase: 0.5,   // far-body autonomous amplitude scale (world units)
+    nearMotionDamp: 0.22,  // autonomous amplitude multiplier for close bodies
+    rmMotionScale: 0.3     // reduced-motion scale on autonomous displacement
+  };
+
+  /* ================= state ================= */
+
+  var W = 0, H = 0, cx = 0, cy = 0, focal = 900;
+  var running = true;
+  var tGlobal = 0;
+  var lastFrame = 0;
+  var seedCounter = 0;
+  var universeSeed = CONFIG.seed;
+  var reducedMotion = false;
+
+  var uni = null;
+  var palette = null;
+  var farStars = [];
+
+  var camera = {
+    eye: { x: 0, y: 0, z: 0 },
+    vel: { x: 0, y: 0, z: 0 },
+    yaw: 0, pitch: 0,
+    tYaw: 0, tPitch: 0,
+    aim: { x: 0, y: 0, z: 1 },     // unit travel ray, world space
+    selected: null,                 // selected body uid or null
+    aimScreen: { x: 0, y: 0 },
+    aimTime: -10,
+    distance: 0                     // total path length flown
+  };
+
+  var climate = {
+    identity: '',
+    hue: 0, rootShift: 0, octShift: 0,
+    cutoffScale: 1, panWidth: 1, delayT: 0.4,
+    droneSemis: [0, 12],
+    rootHz: 110
+  };
+
+  var chunks = new Map();          // "ci,cj,ck" -> chunk
+  var visitedChunks = {};          // id -> true, bounded diagnostic ledger
+  var visitedCount = 0;
+  var generatedTotal = 0;
+  var lastEnsure = -10;
+
+  var lastDrawList = [];           // visible bodies from the previous frame
+  var pulses = [];                 // flyby rings { sx, sy, age }
+  var flybyActive = {};            // uid -> expiry time
+  var flybyCooldowns = {};
+  var flybyTotal = 0;
+  var flybyLastCause = '';
+
+  var wheelStat = { count: 0, lastDelta: 0, lastImpulse: 0 };
+
+  // v5: signed camera speed and its perceptual audio envelope
+  var motionAudio = {
+    signedSpeed: 0,        // world units/sec along the forward ray (+ = ahead)
+    rawSpeed: 0,           // |velocity| in world units/sec
+    speedNorm: 0,          // normalized magnitude 0..1 (raw / camSpeedMax)
+    perceptual: 0,         // v5.2 curve value actually driving the audio
+    attackTau: CONFIG.motionAttackTau,  // live envelope time constants (diagnostics)
+    releaseTau: CONFIG.motionReleaseTau,
+    dirSign: 1,            // +1 forward travel, -1 reverse
+    filterOpen: 0, reverbBoost: 0, delayBoost: 0,
+    breathGain: 0, widthScale: 1, detuneExtra: 0,
+    tiltShift: 0           // spectral-tilt offset for reverse travel
+  };
+
+  // v5: pointer drag steering state
+  var dragState = {
+    active: false,         // currently steering
+    pending: false,        // pointer down, not yet classified
+    pointerId: null,
+    startX: 0, startY: 0, lastX: 0, lastY: 0,
+    totalEvents: 0,
+    accumulatedPx: 0,
+    yawRate: 0, pitchRate: 0,      // rad/s, smoothed
+    lastGesture: null,             // 'click' | 'drag'
+    lastGestureT: -10
+  };
+
+  // v5: drag -> audio energy and mapped outputs
+  var dragAudio = {
+    energy: 0,             // smoothed 0..1 steering intensity
+    panOrbit: 0,           // -1..1 stereo position driven by horizontal rate
+    brightLift: 0,         // 0..1 brightness/register lift from vertical rate
+    shimmer: 0,            // 0..1 tension/shimmer from fast turns
+    // v5.2 applied stereo pan with its own fast attack / smooth release envelope
+    panApplied: 0,         // current smoothed pan actually sent to the panners
+    panTarget: 0           // clamped target pan for the current steering state
+  };
+
+  // v5: aggregate autonomous body-motion field (the always-on composer input)
+  var bodyMotion = {
+    eligible: 0, moving: 0,
+    nearAvgSpeed: 0, farAvgSpeed: 0,   // autonomous displacement speed, world u/s
+    centroidDrift: 0,                  // bounded 0..1 centroid wander metric
+    angularFlux: 0,                    // 0..1 bearing churn across visible bodies
+    radialBreath: 0,                   // -1..1 radial expansion/contraction phase
+    coherence: 0,                      // 0..1 alignment of motion directions
+    density: 0,                        // visible eligible bodies per unit measure
+    nearFarBalance: 0,                 // 0..1 share of near bodies
+    checksum: '0',                     // stable summary of sampled positions
+    samples: []                        // representative { id, x, y, z, speed }
+  };
+
+  // v5: body-motion -> composition parameters (evolve even when idle)
+  var bodyAudio = {
+    inversion: 0,          // 0..N semitone drift of drone chord color
+    filterSway: 0,         // -1..1 slow filter motion from angular flux
+    stereoOrbit: 0,        // -1..1 panning orbit from centroid drift
+    modDepth: 0,           // 0..1 LFO depth on drone filters
+    delayCharacter: 0,     // 0..1 feedback/delay shaping
+    breathFloor: 0,        // 0..1 idle breath floor so idle never means silence
+    harmonicPull: 0        // 0..1 extra pull toward selected-body harmony
+  };
+
+  // v5.3: drag sonic-scan engine — bounded encounter state
+  var dragScan = {
+    totalEncounters: 0,          // lifetime scan encounters (reset on reshuffle)
+    dragEncounters: 0,           // encounters during the current drag
+    dragUniqueBodies: {},        // uid -> true during current drag (bounded)
+    cooldowns: {},               // uid -> expiry tGlobal (bounded, pruned)
+    rateWindowStart: -10,
+    rateWindowCount: 0,
+    lastBodyId: null,
+    lastBodyKind: null,
+    lastPitchHz: null,
+    lastPan: null,
+    lastDepth: null,
+    lastIntensity: null,
+    lastEncounterT: -10,
+    maxCooldownSize: 0           // high-water mark for diagnostics
+  };
+
+  // v5.3: continuous mono-safe drag parameters actually applied by updateMovement
+  var dragMono = {
+    dronePitchOffsetCents: 0,
+    droneFilterQ: 0.6,
+    breathGainExtra: 0,
+    delayFeedbackBoost: 0,
+    reverbSendBoost: 0
+  };
+
+  var selInfo = { uid: null, climateRef: null, time: -10 };
+
+  var diag = {
+    eventsTotal: 0,
+    eventsByType: {},
+    lastEvent: null,
+    energy: 0,
+    nodesCreated: 0,
+    voicesReleased: 0,
+    nearest: null
+  };
+
+  function hsl(h, s, l) { return { h: h, s: s, l: l }; }
+  function css(c, a) {
+    return 'hsla(' + c.h.toFixed(1) + ',' + c.s.toFixed(0) + '%,' + c.l.toFixed(0) + '%,' + a.toFixed(3) + ')';
+  }
+  function tint(c, a) {
+    var h = ((c.h + climate.hue) % 360 + 360) % 360;
+    return 'hsla(' + h.toFixed(1) + ',' + c.s.toFixed(0) + '%,' + c.l.toFixed(0) + '%,' + a.toFixed(3) + ')';
+  }
+  function clamp(v, lo, hi) { return v < lo ? lo : (v > hi ? hi : v); }
+  function wrap(a) { a %= TAU; return a < 0 ? a + TAU : a; }
+  function vlen(v) { return Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z); }
+
+  /* ================= universe profile ================= */
+
+  var ROOTS = [55.0, 61.74, 65.41, 73.42, 82.41, 87.31, 98.0];
+  var MODES = [
+    { name: 'aeolian',     steps: [0, 2, 3, 5, 7, 8, 10] },
+    { name: 'dorian',      steps: [0, 2, 3, 5, 7, 9, 10] },
+    { name: 'phrygian',    steps: [0, 1, 3, 5, 7, 8, 10] },
+    { name: 'lydian',      steps: [0, 2, 4, 6, 7, 9, 11] },
+    { name: 'mixolydian',  steps: [0, 2, 4, 5, 7, 9, 10] },
+    { name: 'penta-minor', steps: [0, 3, 5, 7, 10] }
+  ];
+
+  function buildProfile(rng) {
+    var warmHue = rng() * 360;
+    var coolHue = (warmHue + 90 + rng() * 140) % 360;
+    var mauveHue = (coolHue + 40 + rng() * 80) % 360;
+    var mode = MODES[Math.floor(rng() * MODES.length)];
+    var timbreFam = Math.floor(rng() * 3);
+
+    return {
+      id: '',
+      palette: {
+        warm:  hsl(warmHue, 48 + rng() * 18, 64 + rng() * 8),
+        cool:  hsl(coolHue, 30 + rng() * 16, 60 + rng() * 8),
+        mauve: hsl(mauveHue, 18 + rng() * 14, 58 + rng() * 8),
+        ink:   hsl(coolHue, 26, 86)
+      },
+      bgTint: hsl((rng() < 0.5 ? warmHue : coolHue), 30, 10),
+      texture: { drift: 0.25 + rng() * 0.7 },
+      geo: { squashBase: 0.24 + rng() * 0.16 },
+      music: {
+        rootHz: ROOTS[Math.floor(rng() * ROOTS.length)],
+        modeName: mode.name,
+        steps: mode.steps,
+        timbre: [['sine', 'triangle'], ['triangle', 'sine'], ['sine', 'sine']][timbreFam],
+        detuneCents: 3 + rng() * 12,
+        cutoffBase: 900 + rng() * 2200,
+        envAttack: [0.015, 0.45, 0.09][timbreFam],
+        envRelease: [1.4, 3.2, 0.6][timbreFam],
+        density: 0.65 + rng() * 0.9
+      }
+    };
+  }
+
+  /* ================= chunks: deterministic spatial field ================= */
+
+  function buildChunk(ci, cj, ck) {
+    var rng = mulberry32(chunkSeed(universeSeed, ci, cj, ck));
+    var m = uni.music;
+    var ch = {
+      id: ci + ',' + cj + ',' + ck,
+      ci: ci, cj: cj, ck: ck,
+      ox: ci * CONFIG.chunk, oy: cj * CONFIG.chunk, oz: ck * CONFIG.chunk,
+      climate: {
+        hue: Math.round(rng() * 70 - 35),
+        rootShift: Math.round(rng() * 12 - 6),
+        octShift: rng() < 0.2 ? -1 : (rng() < 0.32 ? 1 : 0),
+        cutoffScale: +(0.7 + rng() * 0.9).toFixed(3),
+        densScale: +(0.7 + rng() * 0.9).toFixed(3),
+        panWidth: +(0.6 + rng() * 0.7).toFixed(3),
+        delayT: +(0.3 + rng() * 0.35).toFixed(3),
+        droneSemis: [
+          m.steps[Math.floor(rng() * m.steps.length)],
+          m.steps[Math.floor(rng() * m.steps.length)] + 12
+        ]
+      },
+      bodies: [],
+      nebulae: []
+    };
+
+    for (var i = 0; i < CONFIG.bodiesPerChunk; i++) {
+      var roll = rng();
+      var kind = roll < 0.46 ? 'star' : (roll < 0.88 ? 'system' : 'landmark');
+      var colRoll = rng();
+      var col = colRoll < 0.55 ? uni.palette.warm : (colRoll < 0.83 ? uni.palette.cool : uni.palette.mauve);
+      var b = {
+        uid: uni.id + ':' + ch.id + ':' + i,
+        kind: kind,
+        bx: ch.ox + rng() * CONFIG.chunk,
+        by: ch.oy + rng() * CONFIG.chunk,
+        bz: ch.oz + rng() * CONFIG.chunk,
+        radius: kind === 'landmark' ? 9 + rng() * 8 : (kind === 'system' ? 5 + rng() * 7 : 1.6 + rng() * 3.4),
+        col: kind === 'landmark' ? uni.palette.mauve : col,
+        phase: rng() * TAU,
+        twSpeed: 0.25 + rng() * 0.9,
+        phi: rng() * TAU,
+        tilt: (rng() * 0.9 - 0.45) + uni.geo.squashBase,
+        rings: [],
+        planets: []
+      };
+      if (kind === 'system' || kind === 'landmark') {
+        var nr = kind === 'landmark' ? 1 + Math.floor(rng() * 2) : 2 + Math.floor(rng() * 3);
+        for (var r = 0; r < nr; r++) {
+          var rr = b.radius * (2.1 + r * (1.3 + rng() * 0.9));
+          b.rings.push({ r: rr });
+          var np = 1 + Math.floor(rng() * 2);
+          for (var pp = 0; pp < np; pp++) {
+            b.planets.push({
+              ring: r,
+              a0: rng() * TAU,
+              speed: (rng() < 0.35 ? -1 : 1) * (0.05 + rng() * 0.14),
+              size: 0.8 + rng() * 1.7,
+              col: rng() < 0.5 ? uni.palette.warm : uni.palette.cool
+            });
+          }
+        }
+      }
+      ch.bodies.push(b);
+    }
+
+    for (var nn = 0; nn < CONFIG.nebulaPerChunk; nn++) {
+      ch.nebulae.push({
+        x: ch.ox + rng() * CONFIG.chunk,
+        y: ch.oy + rng() * CONFIG.chunk,
+        z: ch.oz + rng() * CONFIG.chunk,
+        len: 4 + rng() * 9,
+        phase: rng() * TAU,
+        bucket: Math.floor(rng() * 3),
+        alpha: 0.04 + rng() * 0.07
+      });
+    }
+    return ch;
+  }
+
+  function chunkKey(ci, cj, ck) { return ci + ',' + cj + ',' + ck; }
+
+  function curChunkCoords() {
+    return {
+      ci: Math.floor(camera.eye.x / CONFIG.chunk),
+      cj: Math.floor(camera.eye.y / CONFIG.chunk),
+      ck: Math.floor(camera.eye.z / CONFIG.chunk)
+    };
+  }
+
+  function ensureChunks(force) {
+    var tNow = tGlobal;
+    if (!force && tNow - lastEnsure < 0.12) return;
+    lastEnsure = tNow;
+    var cc = curChunkCoords();
+    var rad = CONFIG.chunkRadius, rad2 = rad * rad;
+    var needed = [];
+    for (var di = -3; di <= 3; di++) {
+      for (var dj = -3; dj <= 3; dj++) {
+        for (var dk = -3; dk <= 3; dk++) {
+          var d2 = di * di + dj * dj + dk * dk;
+          if (d2 > rad2) continue;
+          var key = chunkKey(cc.ci + di, cc.cj + dj, cc.ck + dk);
+          if (!chunks.has(key)) needed.push({ key: key, ci: cc.ci + di, cj: cc.cj + dj, ck: cc.ck + dk, d2: d2 });
+        }
+      }
+    }
+    needed.sort(function (a, b) { return a.d2 - b.d2; });
+    for (var i = 0; i < needed.length; i++) {
+      var nk = needed[i];
+      chunks.set(nk.key, buildChunk(nk.ci, nk.cj, nk.ck));
+      generatedTotal++;
+      var id = uni.id + ':' + nk.key;
+      if (!visitedChunks[id]) { visitedChunks[id] = true; visitedCount++; }
+      if (chunks.size > CONFIG.chunkCacheMax) evictFarthest(cc);
+    }
+  }
+
+  function evictFarthest(cc) {
+    var farKey = null, farD = -1;
+    chunks.forEach(function (ch, key) {
+      var dx = ch.ci - cc.ci, dy = ch.cj - cc.cj, dz = ch.ck - cc.ck;
+      var d = dx * dx + dy * dy + dz * dz;
+      if (d > farD) { farD = d; farKey = key; }
+    });
+    if (farKey !== null) chunks.delete(farKey);
+  }
+
+  /* ================= regional climate blending ================= */
+
+  function blendClimate() {
+    var cc = curChunkCoords();
+    var wsum = 0, hue = 0, rs = 0, oct = 0, cut = 0, pan = 0, del = 0;
+    var f0 = 0, f1 = 0, bestD = 1e9, bestId = '';
+    chunks.forEach(function (ch) {
+      var centerX = (ch.ci + 0.5) * CONFIG.chunk;
+      var centerY = (ch.cj + 0.5) * CONFIG.chunk;
+      var centerZ = (ch.ck + 0.5) * CONFIG.chunk;
+      var dx = centerX - camera.eye.x, dy = centerY - camera.eye.y, dz = centerZ - camera.eye.z;
+      var d = Math.sqrt(dx * dx + dy * dy + dz * dz);
+      if (d > CONFIG.chunk * 2.6) return;
+      var w = 1 / (Math.pow(d / CONFIG.chunk, 2) + 0.35);
+      wsum += w;
+      hue += ch.climate.hue * w;
+      rs += ch.climate.rootShift * w;
+      oct += ch.climate.octShift * w;
+      cut += ch.climate.cutoffScale * w;
+      pan += ch.climate.panWidth * w;
+      del += ch.climate.delayT * w;
+      f0 += uni.music.rootHz * Math.pow(2, (ch.climate.droneSemis[0] + ch.climate.rootShift) / 12) * Math.pow(2, ch.climate.octShift) * 2 * w;
+      f1 += uni.music.rootHz * Math.pow(2, (ch.climate.droneSemis[1] + ch.climate.rootShift) / 12) * Math.pow(2, ch.climate.octShift) * 2 * w;
+      if (d < bestD) { bestD = d; bestId = ch.id; }
+    });
+    if (wsum <= 0) return;
+
+    // a selected body gently pulls the harmonic center toward its home region
+    var bias = 0;
+    if (selInfo.uid && selInfo.climateRef) {
+      bias = Math.exp(-(tGlobal - selInfo.time) / 5) * 0.8;
+      f0 = f0 * (1 - bias) + uni.music.rootHz * Math.pow(2, (selInfo.climateRef.droneSemis[0] + selInfo.climateRef.rootShift) / 12) * Math.pow(2, selInfo.climateRef.octShift) * 2 * bias;
+      f1 = f1 * (1 - bias) + uni.music.rootHz * Math.pow(2, (selInfo.climateRef.droneSemis[1] + selInfo.climateRef.rootShift) / 12) * Math.pow(2, selInfo.climateRef.octShift) * 2 * bias;
+      hue = hue * (1 - bias) + selInfo.climateRef.hue * bias;
+    }
+
+    climate.identity = bestId;
+    climate.hue = hue / wsum;
+    climate.rootShift = +(rs / wsum).toFixed(2);
+    climate.octShift = +(oct / wsum).toFixed(2);
+    climate.cutoffScale = cut / wsum;
+    climate.panWidth = pan / wsum;
+    climate.delayT = del / wsum;
+    climate.droneF = [f0 / wsum, f1 / wsum];
+    climate.rootHz = uni.music.rootHz * Math.pow(2, climate.rootShift / 12) * Math.pow(2, Math.round(climate.octShift));
+    audio.applyClimate(false);
+  }
+
+  /* ================= world build / resize ================= */
+
+  function genFarField() {
+    var rng = mulberry32((universeSeed ^ 0x5f356495) >>> 0);
+    farStars.length = 0;
+    for (var i = 0; i < CONFIG.farStars; i++) {
+      farStars.push({
+        x: rng() * W, y: rng() * H,
+        r: 0.35 + rng() * rng() * 1.2,
+        depth: rng(),
+        phase: rng() * TAU,
+        twSpeed: 0.25 + rng() * 0.9
+      });
+    }
+  }
+
+  function buildWorld(seed) {
+    universeSeed = seed;
+    var rng = mulberry32(seed);
+    uni = buildProfile(rng);
+    uni.id = seed.toString(36);
+    palette = uni.palette;
+
+    chunks.clear();
+    visitedChunks = {};
+    visitedCount = 0;
+    generatedTotal = 0;
+    camera.eye.x = 0; camera.eye.y = 0; camera.eye.z = 0;
+    camera.vel.x = 0; camera.vel.y = 0; camera.vel.z = 0;
+    camera.yaw = 0; camera.pitch = 0; camera.tYaw = 0; camera.tPitch = 0;
+    camera.aim.x = 0; camera.aim.y = 0; camera.aim.z = 1;
+    camera.selected = null;
+    camera.distance = 0;
+    camera.aimTime = -10;
+    selInfo = { uid: null, climateRef: null, time: -10 };
+    flybyActive = {};
+    flybyCooldowns = {};
+    flybyTotal = 0;
+    flybyLastCause = '';
+    dragScan.totalEncounters = 0;
+    dragScan.cooldowns = {};
+    dragScan.rateWindowCount = 0;
+    dragScan.lastBodyId = null;
+    dragScan.lastBodyKind = null;
+    dragScan.lastEncounterT = -10;
+    resetDragScan();
+    pulses.length = 0;
+    lastDrawList.length = 0;
+    diag.eventsTotal = 0;
+    diag.eventsByType = {};
+    diag.lastEvent = null;
+    diag.nearest = null;
+
+    ensureChunks(true);
+    var home = chunks.get(chunkKey(0, 0, 0));
+    if (home) {
+      climate.identity = home.id;
+      climate.hue = home.climate.hue;
+      climate.rootShift = home.climate.rootShift;
+      climate.octShift = home.climate.octShift;
+      climate.cutoffScale = home.climate.cutoffScale;
+      climate.panWidth = home.climate.panWidth;
+      climate.delayT = home.climate.delayT;
+      climate.droneSemis = home.climate.droneSemis;
+    }
+    climate.rootHz = uni.music.rootHz;
+    climate.droneF = [
+      uni.music.rootHz * Math.pow(2, climate.droneSemis[0] / 12) * 2,
+      uni.music.rootHz * Math.pow(2, climate.droneSemis[1] / 12) * 2
+    ];
+
+    genFarField();
+    if (audio.state === 'active') audio.rebuildTimbre();
+  }
+
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, CONFIG.maxDPR);
+    W = Math.max(300, window.innerWidth);
+    H = Math.max(240, window.innerHeight);
+    canvas.width = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    cx = W / 2;
+    cy = H * 0.52;
+    focal = Math.min(W, H) * CONFIG.focalFactor;
+
+    if (uni) genFarField();
+  }
+
+  /* ================= camera math ================= */
+
+  function worldToCam(wx, wy, wz) {
+    var tx = wx - camera.eye.x, ty = wy - camera.eye.y, tz = wz - camera.eye.z;
+    var cyw = Math.cos(camera.yaw), syw = Math.sin(camera.yaw);
+    var cp = Math.cos(camera.pitch), sp = Math.sin(camera.pitch);
+    var x1 = tx * cyw - tz * syw;
+    var z1 = tx * syw + tz * cyw;
+    return {
+      x: x1,
+      y: ty * cp + z1 * sp,
+      z: z1 * cp - ty * sp
+    };
+  }
+
+  function project(c) {
+    var s = focal / c.z;
+    return { sx: cx + c.x * s, sy: cy - c.y * s, scale: s };
+  }
+
+  function forwardVec() {
+    var cp = Math.cos(camera.pitch);
+    return {
+      x: Math.sin(camera.yaw) * cp,
+      y: -Math.sin(camera.pitch),
+      z: Math.cos(camera.yaw) * cp
+    };
+  }
+
+  // unit world-space ray through a screen coordinate
+  function camDirFromScreen(sx, sy) {
+    var dx = (sx - cx) / focal;
+    var dy = -(sy - cy) / focal;
+    var l = Math.sqrt(dx * dx + dy * dy + 1);
+    return camLocalToWorld(dx / l, dy / l, 1 / l);
+  }
+
+  function camLocalToWorld(dx, dy, dz) {
+    var cyw = Math.cos(camera.yaw), syw = Math.sin(camera.yaw);
+    var cp = Math.cos(camera.pitch), sp = Math.sin(camera.pitch);
+    var x1 = dx;
+    var y1 = dy * cp - dz * sp;
+    var z1 = dy * sp + dz * cp;
+    return {
+      x: x1 * cyw + z1 * syw,
+      y: y1,
+      z: -x1 * syw + z1 * cyw
+    };
+  }
+
+  function desiredYawPitch(dir) {
+    var l = vlen(dir) || 1;
+    var ny = dir.y / l;
+    return {
+      yaw: Math.atan2(dir.x, dir.z),
+      pitch: Math.asin(clamp(-ny, -1, 1))
+    };
+  }
+
+  /* ================= simulation step ================= */
+
+  function step(dt) {
+    // smooth orient toward the aim ray
+    var ky = 1 - Math.exp(-dt * 6);
+    var dyaw = ((camera.tYaw - camera.yaw + Math.PI) % TAU + TAU) % TAU - Math.PI;
+    camera.yaw += dyaw * ky;
+    camera.pitch += (camera.tPitch - camera.pitch) * ky;
+    camera.pitch = clamp(camera.pitch, -1.45, 1.45);
+
+    // inertial flight with exponential damping
+    var damp = Math.exp(-dt * CONFIG.damping);
+    camera.vel.x *= damp; camera.vel.y *= damp; camera.vel.z *= damp;
+    var sp = vlen(camera.vel);
+    if (sp > CONFIG.camSpeedMax) {
+      var f = CONFIG.camSpeedMax / sp;
+      camera.vel.x *= f; camera.vel.y *= f; camera.vel.z *= f;
+      sp = CONFIG.camSpeedMax;
+    }
+    camera.eye.x += camera.vel.x * dt;
+    camera.eye.y += camera.vel.y * dt;
+    camera.eye.z += camera.vel.z * dt;
+    camera.distance += sp * dt;
+
+    ensureChunks(false);
+
+    for (var i = pulses.length - 1; i >= 0; i--) {
+      pulses[i].age += dt;
+      if (pulses[i].age > 1.4) pulses.splice(i, 1);
+    }
+
+    // v5: signed camera speed along the forward ray drives everything audible
+    var fwd = forwardVec();
+    var spSigned = camera.vel.x * fwd.x + camera.vel.y * fwd.y + camera.vel.z * fwd.z;
+    motionAudio.signedSpeed = spSigned;
+    motionAudio.rawSpeed = sp;
+    motionAudio.speedNorm = clamp(sp / CONFIG.camSpeedMax, 0, 1);
+    // v5.2 perceptual response: a flatter curve exponent plus a much faster
+    // attack make ordinary wheel bursts audible within ~50ms, while the release
+    // still tracks camera velocity decay (no hang after movement stops)
+    var prevPerceptual = motionAudio.perceptual;
+    var targetP = Math.pow(motionAudio.speedNorm, CONFIG.motionSqrtExp);
+    var pTau = targetP > prevPerceptual ? CONFIG.motionAttackTau : CONFIG.motionReleaseTau;
+    motionAudio.perceptual += (targetP - motionAudio.perceptual) * (1 - Math.exp(-dt / pTau));
+    motionAudio.attackTau = pTau;
+    if (sp > 8) {
+      motionAudio.dirSign = spSigned >= 0 ? 1 : -1;
+    }
+    motionAudio.tiltShift = -motionAudio.dirSign; // reverse darkens spectral tilt
+
+    // drag angular-velocity smoothing toward instantaneous pointer rates
+    var instYaw = 0, instPitch = 0;
+    if (dragState.active) {
+      instYaw = dragState._instYawRate || 0;
+      instPitch = dragState._instPitchRate || 0;
+      dragState._instYawRate *= 0.5;
+      dragState._instPitchRate *= 0.5;
+    }
+    var drK = 1 - Math.exp(-dt * 9);       // fast attach while steering...
+    if (!dragState.active) drK = 1 - Math.exp(-dt * 3.2); // ...gentle settle after release
+    dragState.yawRate += (instYaw - dragState.yawRate) * drK;
+    dragState.pitchRate += (instPitch - dragState.pitchRate) * drK;
+
+    blendTimer -= dt;
+    if (blendTimer <= 0) { blendTimer = 0.15; blendClimate(); }
+    sampleBodyMotion();
+    audio.updateMovement(dt);
+    audio.updateDragAudio(dt);
+    audio.energyDecay(dt);
+  }
+
+  var blendTimer = 0;
+
+  /* ================= v5: aggregate body-motion field (idle composer input) ================= */
+
+  // Reusable scratch vectors: no per-frame allocation in the hot loop.
+  var _bdOut = { x: 0, y: 0, z: 0 };
+  var _bmPrev = new Map(); // uid -> { x, y, z } previous sample, bounded
+  var BM_PREV_CAP = 512;   // hard cap; enforced every sampling pass
+  var _bmPrevSeen = [];    // reused list of uids seen this pass (no per-frame alloc)
+  var seenSet = new Set(); // reused uid set for the stale prune
+
+  function sampleBodyMotion() {
+    _bmPrevSeen.length = 0;
+    seenSet.clear();
+    var n = 0, moving = 0;
+    var nearSum = 0, nearN = 0, farSum = 0, farN = 0;
+    var cxs = 0, cys = 0, czs = 0;         // centroid
+    var pxs = 0, pys = 0, pzs = 0;         // mean displacement direction (coherence)
+    var angSum = 0;                        // bearing churn accumulator
+    var rbSum = 0, rbN = 0;                // radial breathing accumulator
+    var nearCount = 0;
+    var samples = [];
+    var checksumAcc = 0;
+    chunks.forEach(function (ch) {
+      var arr = ch.bodies;
+      for (var i = 0; i < arr.length; i++) {
+        var b = arr[i];
+        var dxw = b.bx - camera.eye.x, dyw = b.by - camera.eye.y, dzw = b.bz - camera.eye.z;
+        var d2 = dxw * dxw + dyw * dyw + dzw * dzw;
+        if (d2 > 1600000) continue;        // sample only within ~1265 world units
+        var dist = Math.sqrt(d2);
+        bodyDisplacement(b, dist, tGlobal, _bdOut);
+        var wx = b.bx + _bdOut.x, wy = b.by + _bdOut.y, wz = b.bz + _bdOut.z;
+        // deterministic velocity estimate from two nearby time samples
+        bodyDisplacement(b, dist, tGlobal - 0.25, _bdOut);
+        var vx = (wx - (b.bx + _bdOut.x)) / 0.25;
+        var vy = (wy - (b.by + _bdOut.y)) / 0.25;
+        var vz = (wz - (b.bz + _bdOut.z)) / 0.25;
+        var spd = Math.sqrt(vx * vx + vy * vy + vz * vz);
+        if (spd < 1e-6) continue;          // every eligible body moves; guard degenerate zero
+        moving++;
+        if (dist < 320) { nearSum += spd; nearN++; nearCount++; }
+        else { farSum += spd; farN++; }
+        cxs += wx; cys += wy; czs += wz;
+        var inv = spd > 1e-6 ? 1 / spd : 0;
+        pxs += vx * inv; pys += vy * inv; pzs += vz * inv;
+        // radial breathing: is this body's autonomous motion pushing it away
+        // from (+1) or toward (-1) the camera? normalized by its speed
+        rbSum += (vx * dxw + vy * dyw + vz * dzw) / ((dist * spd) || 1);
+        rbN++;
+        // bearing churn: how much each body's angular position changes
+        var prev = _bmPrev.get(b.uid);
+        if (prev) {
+          var adx = wx - camera.eye.x, ady = wy - camera.eye.y, adz = wz - camera.eye.z;
+          var pdx = prev.x - camera.eye.x, pdy = prev.y - camera.eye.y, pdz = prev.z - camera.eye.z;
+          var dot = (adx * pdx + ady * pdy + adz * pdz) /
+            ((Math.sqrt(adx * adx + ady * ady + adz * adz) * Math.sqrt(pdx * pdx + pdy * pdy + pdz * pdz)) || 1);
+          angSum += Math.acos(clamp(dot, -1, 1));
+          checksumAcc = (checksumAcc + ((Math.imul(wx * 1000 | 0, 31) ^ Math.imul(wy * 1000 | 0, 17) ^ Math.imul(wz * 1000 | 0, 7)) >>> 0)) >>> 0;
+        }
+        _bmPrevSeen.push(b.uid);
+        _bmPrev.set(b.uid, prev ? (prev.x = wx, prev.y = wy, prev.z = wz, prev)
+                                : { x: wx, y: wy, z: wz });
+        if (samples.length < 5 && (b.kind !== 'star' || samples.length >= 3)) {
+          samples.push({
+            id: b.uid,
+            x: +wx.toFixed(1), y: +wy.toFixed(1), z: +wz.toFixed(1),
+            speed: +spd.toFixed(2)
+          });
+        }
+        n++;
+      }
+    });
+    // prune uids no longer eligible this pass, then enforce the hard cap
+    if (_bmPrev.size > _bmPrevSeen.length) {
+      for (var pk = 0; pk < _bmPrevSeen.length; pk++) seenSet.add(_bmPrevSeen[pk]);
+      _bmPrev.forEach(function (v, k) {
+        if (!seenSet.has(k)) _bmPrev.delete(k);
+      });
+    }
+    while (_bmPrev.size > BM_PREV_CAP) {
+      var firstKey = _bmPrev.keys().next().value;
+      _bmPrev.delete(firstKey);
+    }
+    bodyMotion.eligible = n;
+    bodyMotion.moving = moving;
+    bodyMotion.nearAvgSpeed = nearN ? +(nearSum / nearN).toFixed(3) : 0;
+    bodyMotion.farAvgSpeed = farN ? +(farSum / farN).toFixed(3) : 0;
+    if (n > 0) {
+      var mcx = cxs / n, mcy = cys / n, mcz = czs / n;
+      // centroid drift: distance of centroid from the geometric mean anchor
+      var acx = 0, acy = 0, acz = 0, an = 0;
+      chunks.forEach(function (ch) {
+        for (var i = 0; i < ch.bodies.length; i++) {
+          var b = ch.bodies[i];
+          var dxw = b.bx - camera.eye.x, dyw = b.by - camera.eye.y, dzw = b.bz - camera.eye.z;
+          if (dxw * dxw + dyw * dyw + dzw * dzw > 1600000) continue;
+          acx += b.bx; acy += b.by; acz += b.bz; an++;
+        }
+      });
+      if (an > 0) {
+        var dd = Math.sqrt((mcx - acx / an) * (mcx - acx / an) + (mcy - acy / an) * (mcy - acy / an) + (mcz - acz / an) * (mcz - acz / an));
+        bodyMotion.centroidDrift = +(clamp(dd / 40, 0, 1)).toFixed(3);
+      }
+      bodyMotion.angularFlux = +(clamp(angSum / n / 0.05, 0, 1)).toFixed(3);
+      bodyMotion.coherence = +(clamp(Math.sqrt(pxs * pxs + pys * pys + pzs * pzs) / n, 0, 1)).toFixed(3);
+      bodyMotion.radialBreath = rbN ? +(clamp(rbSum / rbN, -1, 1)).toFixed(3) : 0;
+      bodyMotion.density = +(n / 60).toFixed(3);
+      bodyMotion.nearFarBalance = n ? +(nearCount / n).toFixed(3) : 0;
+      bodyMotion.samples = samples;
+      bodyMotion.checksum = checksumAcc.toString(36);
+    }
+    updateBodyAudio();
+  }
+
+  function updateBodyAudio() {
+    var bm = bodyMotion;
+    var idleGate = clamp(1 - motionAudio.perceptual, 0.15, 1); // bodies matter most at rest
+    // slow deterministic phase of the aggregate field (~40 s period) so idle
+    // evolution keeps a long arc even when instantaneous metrics plateau
+    var fieldPhase = Math.sin(tGlobal * 0.157);
+    var target = {
+      inversion: clamp(bm.coherence * 4 + bm.radialBreath * 2 + fieldPhase * 0.5, 0, 7),
+      filterSway: clamp(bm.angularFlux * 2 - 0.5 + bm.radialBreath * 0.6, -1, 1),
+      stereoOrbit: clamp(bm.centroidDrift * 2.2, -1, 1) * Math.sin(tGlobal * 0.11),
+      // v5.1 deepened: multi-signal blend so ordinary idle metrics land the
+      // applied depth in the musically useful 0.35-0.65 band without pinning
+      modDepth: clamp(
+        0.1 +
+        bm.angularFlux * 0.35 +
+        bm.centroidDrift * 0.5 +
+        bm.coherence * 2.2 +
+        Math.abs(bm.radialBreath) * 0.5 +
+        (fieldPhase * 0.5 + 0.5) * 0.12,
+        0.12, 0.85
+      ),
+      delayCharacter: clamp(0.25 + bm.centroidDrift * 1.2 + bm.angularFlux * 0.4, 0, 1),
+      breathFloor: clamp(0.18 + bm.farAvgSpeed * 0.03 + bm.radialBreath * 0.08, 0.1, 0.55),
+      harmonicPull: selInfo.uid ? clamp(0.35 + bm.nearFarBalance * 0.4, 0, 1) : 0
+    };
+    var k = 1 - Math.exp(-0.02); // smooth toward targets each call
+    bodyAudio.inversion += (target.inversion * idleGate - bodyAudio.inversion) * k;
+    bodyAudio.filterSway += (target.filterSway * idleGate - bodyAudio.filterSway) * k;
+    bodyAudio.stereoOrbit += (target.stereoOrbit * idleGate - bodyAudio.stereoOrbit) * k;
+    bodyAudio.modDepth += (target.modDepth * (0.35 + 0.65 * idleGate) - bodyAudio.modDepth) * k;
+    bodyAudio.delayCharacter += (target.delayCharacter * (0.35 + 0.65 * idleGate) - bodyAudio.delayCharacter) * k;
+    bodyAudio.breathFloor += (target.breathFloor - bodyAudio.breathFloor) * k;
+    bodyAudio.harmonicPull += (target.harmonicPull * idleGate - bodyAudio.harmonicPull) * k;
+  }
+
+  /* ================= flyby event engine ================= */
+
+  var scanAcc = 0;
+
+  function allowEvent(key, tNow, cooldown, gateGap) {
+    if (tNow < (flybyCooldowns[key] || 0)) return false;
+    if (gateGap && tGlobal - lastEventT < gateGap) return false;
+    var win = diag.eventsByType._win;
+    if (win && win.t > tNow - 1 && win.n >= CONFIG.maxEventsPerSec) return false;
+    flybyCooldowns[key] = tNow + cooldown;
+    if (!diag.eventsByType._win || diag.eventsByType._win.t < tNow - 1) {
+      diag.eventsByType._win = { t: tNow, n: 0 };
+    }
+    diag.eventsByType._win.n++;
+    lastEventT = tNow;
+    return true;
+  }
+  var lastEventT = -10;
+
+  function fireEvent(type, detail) {
+    diag.eventsTotal++;
+    diag.eventsByType[type] = (diag.eventsByType[type] || 0) + 1;
+    diag.lastEvent = { type: type, detail: detail, region: climate.identity, t: +tGlobal.toFixed(2) };
+    audio.playEvent(type, detail);
+  }
+
+  function pruneCooldowns() {
+    var keys = Object.keys(flybyCooldowns);
+    if (keys.length > 240) {
+      var tNow = tGlobal;
+      for (var i = 0; i < keys.length; i++) {
+        if (flybyCooldowns[keys[i]] < tNow - 4) delete flybyCooldowns[keys[i]];
+      }
+    }
+    var fa = Object.keys(flybyActive);
+    if (fa.length > 120) {
+      for (var j = 0; j < fa.length; j++) {
+        if (flybyActive[fa[j]] < tGlobal) delete flybyActive[fa[j]];
+      }
+    }
+  }
+
+  function scanFlybys(dt) {
+    scanAcc += dt * 1000;
+    if (scanAcc < CONFIG.scanMs) return;
+    scanAcc = 0;
+    pruneCooldowns();
+    var CH = CONFIG.chunk;
+    var densityGate = 1 / Math.max(0.4, uni.music.density);
+    chunks.forEach(function (ch) {
+      for (var i = 0; i < ch.bodies.length; i++) {
+        var b = ch.bodies[i];
+        // v5: flybys track current animated positions
+        var fdx = b.bx - camera.eye.x, fdy = b.by - camera.eye.y, fdz = b.bz - camera.eye.z;
+        var fr = Math.sqrt(fdx * fdx + fdy * fdy + fdz * fdz);
+        bodyDisplacement(b, fr, tGlobal, _bdOut);
+        var bpx = b.bx + _bdOut.x, bpy = b.by + _bdOut.y, bpz = b.bz + _bdOut.z;
+        var dx = bpx - camera.eye.x, dyy = bpy - camera.eye.y, dz = bpz - camera.eye.z;
+        var rough = dx * dx + dyy * dyy + dz * dz;
+        var thresh = 80 + b.radius * 9 + (b.kind === 'landmark' ? 130 : 0);
+        if (rough > (thresh + 60) * (thresh + 60)) continue;
+        var d = Math.sqrt(rough);
+        if (d >= thresh) continue;
+        var exp = flybyActive[b.uid];
+        if (exp && exp > tGlobal) continue;
+        if (!allowEvent(b.uid, tGlobal, 2.4 * densityGate, 0.09)) continue;
+        flybyActive[b.uid] = tGlobal + 1.6;
+
+        var c = worldToCam(bpx, bpy, bpz);
+        var bearing = Math.atan2(c.x, c.z === 0 ? 0.0001 : c.z);
+        var speedPart = motionAudio.speedNorm;
+        flybyTotal++;
+        flybyLastCause = 'flyby:' + b.kind;
+        fireEvent('flyby', {
+          uid: b.uid, kind: b.kind,
+          bearing: +bearing.toFixed(3),
+          size: +b.radius.toFixed(1),
+          dist: +d.toFixed(1),
+          speed: +speedPart.toFixed(2),
+          strength: +(1 - d / thresh).toFixed(2)
+        });
+        var pr = project(c);
+        if (c.z > CONFIG.near && pr.sx > -40 && pr.sx < W + 40 && pr.sy > -40 && pr.sy < H + 40 && pulses.length < 6) {
+          pulses.push({ sx: pr.sx, sy: pr.sy, age: 0 });
+        }
+      }
+    });
+  }
+
+  /* ================= v5.3: drag sonic-scan engine ================= */
+
+  // Reusable geometric ledger: one entry per visible body, rebuilt each frame
+  // from lastDrawList (no allocation growth; hard-capped by CONFIG).
+  var scanLedger = [];
+
+  function scanAllow(uid) {
+    var now = tGlobal;
+    if (now - dragScan.rateWindowStart >= 1) {
+      dragScan.rateWindowStart = now;
+      dragScan.rateWindowCount = 0;
+    }
+    if (dragScan.rateWindowCount >= CONFIG.scanRateCapPerSec) return false;
+    if (now < (dragScan.cooldowns[uid] || 0)) return false;
+    dragScan.rateWindowCount++;
+    dragScan.cooldowns[uid] = now + CONFIG.scanCooldownSec;
+    var size = Object.keys(dragScan.cooldowns).length;
+    if (size > dragScan.maxCooldownSize) dragScan.maxCooldownSize = size;
+    return true;
+  }
+
+  function pruneScanCooldowns() {
+    var keys = Object.keys(dragScan.cooldowns);
+    for (var i = 0; i < keys.length; i++) {
+      if (dragScan.cooldowns[keys[i]] < tGlobal - 1) delete dragScan.cooldowns[keys[i]];
+    }
+    while (Object.keys(dragScan.cooldowns).length > CONFIG.scanCooldownCap) {
+      delete dragScan.cooldowns[Object.keys(dragScan.cooldowns)[0]];
+    }
+  }
+
+  function resetDragScan() {
+    dragScan.dragEncounters = 0;
+    dragScan.dragUniqueBodies = {};
+  }
+
+  // Called once per rendered frame while a real drag is active. Projects every
+  // visible body into screen space and registers an encounter when the aim ray
+  // enters a body's angular cell (projected disc + padding) or crosses the
+  // screen meridian at that body's row. Deterministic geometry only.
+  function updateDragScan() {
+    if (!dragState.active) return;
+    pruneScanCooldowns();
+    var pad = CONFIG.scanCellPadPx;
+    var n = Math.min(lastDrawList.length, CONFIG.scanLedgerCap);
+    var i, d;
+    for (i = 0; i < n; i++) {
+      d = lastDrawList[i];
+      var entry = scanLedger[i];
+      if (!entry) { entry = { uid: '', kind: '', sx: 0, sy: 0, pr: 0, depth: 0, inside: false }; scanLedger.push(entry); }
+      entry.uid = d.body.uid;
+      entry.kind = d.body.kind;
+      entry.sx = d.sx; entry.sy = d.sy; entry.pr = d.pr; entry.depth = d.z;
+      var rr = d.pr + pad;
+      entry.inside = Math.abs(cx - d.sx) <= rr && Math.abs(cy - d.sy) <= rr * 2.4;
+    }
+    scanLedger.length = n;
+
+    // pointer bearing this frame: which side of the aim ray the hand is on
+    var px = dragState.lastX, py = dragState.lastY;
+    var sideSign = (px - cx >= 0) ? 1 : -1;
+
+    for (i = 0; i < scanLedger.length; i++) {
+      var e = scanLedger[i];
+      var wasIn = e.insidePrev || false;
+      var isIn = e.inside ||
+        (Math.abs(e.sy - cy) < e.pr + pad + H * 0.12 && ((e.sx - cx) * sideSign <= 0));
+      e.insidePrev = isIn;
+      if (!(isIn && !wasIn)) continue;          // fire on cell ENTRY only
+      if (!scanAllow(e.uid)) continue;
+      registerEncounter(e);
+    }
+  }
+
+  function registerEncounter(e) {
+    dragScan.totalEncounters++;
+    dragScan.dragEncounters++;
+    if (!dragScan.dragUniqueBodies[e.uid]) dragScan.dragUniqueBodies[e.uid] = true;
+    dragScan.lastBodyId = e.uid;
+    dragScan.lastBodyKind = e.kind;
+    dragScan.lastDepth = +e.depth.toFixed(1);
+    var pan = clamp((e.sx - cx) / (W * 0.5), -1, 1);
+    dragScan.lastPan = +pan.toFixed(3);
+    var nearness = clamp(1 - e.depth / 2600, 0, 1);            // closer = brighter/longer
+    var intensity = clamp(
+      0.35 +
+      Math.abs(dragState.yawRate) / 2.2 +
+      Math.abs(dragState.pitchRate) / 1.8,
+      0, 1
+    );
+    dragScan.lastIntensity = +intensity.toFixed(3);
+    dragScan.lastEncounterT = tGlobal;
+    audio.playScanEncounter({
+      uid: e.uid,
+      kind: e.kind,
+      pan: pan,
+      depth: e.depth,
+      nearness: nearness,
+      intensity: intensity
+    });
+  }
+
+  /* ================= audio engine ================= */
+
+  var audio = {
+    state: 'off',
+    ctx: null,
+    master: null,
+    comp: null,
+    delay: null,
+    delayFb: null,
+    delayMix: null,
+    analyser: null,
+    freqData: null,
+    reverb: null,
+    reverbSend: null,
+    reverbReturn: null,
+    irSeconds: 0,
+    drones: [],
+    breath: null,
+    breathPan: null,
+    voices: [],
+    energySmoothed: 0,
+    lastLead: {},
+    movAcc: 0,
+    dragAcc: 0,
+
+    supported: function () {
+      return !!(window.AudioContext || window.webkitAudioContext);
+    },
+
+    init: function () {
+      if (!this.supported()) { this.setFailed(); return false; }
+      var AC = window.AudioContext || window.webkitAudioContext;
+      try {
+        this.ctx = new AC();
+        var c = this.ctx;
+        this.master = c.createGain();
+        this.master.gain.value = 0;
+        this.comp = c.createDynamicsCompressor();
+        this.comp.threshold.value = -20;
+        this.comp.knee.value = 18;
+        this.comp.ratio.value = 8;
+        this.comp.attack.value = 0.01;
+        this.comp.release.value = 0.24;
+        this.analyser = c.createAnalyser();
+        this.analyser.fftSize = 256;
+        this.analyser.smoothingTimeConstant = 0.82;
+        this.freqData = new Uint8Array(this.analyser.frequencyBinCount);
+        this.delay = c.createDelay(1.2);
+        this.delayFb = c.createGain();
+        this.delayFb.gain.value = 0.34;
+        this.delayMix = c.createGain();
+        this.delayMix.gain.value = 0.2;
+
+        // procedural impulse response: decaying stereo noise, fully synthesized
+        var secs = 2.8;
+        this.irSeconds = secs;
+        var irLen = Math.floor(c.sampleRate * secs);
+        var irBuf = c.createBuffer(2, irLen, c.sampleRate);
+        for (var ch = 0; ch < 2; ch++) {
+          var data = irBuf.getChannelData(ch);
+          var lp = 0;
+          for (var n = 0; n < irLen; n++) {
+            var white = Math.random() * 2 - 1;
+            lp = lp * 0.72 + white * 0.28;
+            data[n] = lp * Math.pow(1 - n / irLen, 2.4);
+          }
+        }
+        this.reverb = c.createConvolver();
+        this.reverb.buffer = irBuf;
+        this.reverbSend = c.createGain();
+        this.reverbSend.gain.value = 0.34;
+        this.reverbReturn = c.createGain();
+        this.reverbReturn.gain.value = 0.55;
+
+        this.master.connect(this.comp);
+        this.master.connect(this.delay);
+        this.delay.connect(this.delayFb);
+        this.delayFb.connect(this.delay);
+        this.delay.connect(this.delayMix);
+        this.delayMix.connect(this.comp);
+        this.master.connect(this.reverbSend);
+        this.reverbSend.connect(this.reverb);
+        this.reverb.connect(this.reverbReturn);
+        this.reverbReturn.connect(this.comp);
+        this.comp.connect(this.analyser);
+        this.analyser.connect(c.destination);
+
+        this.buildDrones();
+        this.buildBreath();
+        this.applyClimate(true);
+        this.state = 'active';
+        this.ctx.resume().then(function () {}).catch(function () {});
+        this.fadeMaster(CONFIG.masterLevel, 2.2);
+        return true;
+      } catch (err) {
+        this.ctx = null;
+        this.setFailed();
+        return false;
+      }
+    },
+
+    // two long detuned pad voices tracking the blended regional climate
+    buildDrones: function () {
+      var c = this.ctx;
+      this.drones.length = 0;
+      for (var i = 0; i < 2; i++) {
+        var o1 = c.createOscillator();
+        var o2 = c.createOscillator();
+        o1.type = 'sine'; o2.type = 'triangle';
+        var filt = c.createBiquadFilter();
+        filt.type = 'lowpass';
+        filt.frequency.value = 500;
+        filt.Q.value = 0.6;
+        var g = c.createGain();
+        g.gain.value = 0;
+        o1.connect(filt); o2.connect(filt);
+        filt.connect(g);
+        g.connect(this.master);
+        g.connect(this.reverbSend);
+        var lfo = c.createOscillator();
+        lfo.frequency.value = 0.05 + i * 0.03;
+        var lfoG = c.createGain();
+        lfoG.gain.value = 90;
+        lfo.connect(lfoG);
+        lfoG.connect(filt.frequency);
+        // v5.1: body-motion depth scales this drone's filter LFO depth
+        var bodyLfoG = c.createGain();
+        bodyLfoG.gain.value = 0;
+        lfo.connect(bodyLfoG);
+        bodyLfoG.connect(filt.frequency);
+        var pn = c.createStereoPanner ? c.createStereoPanner() : null;
+        if (pn) { g.connect(pn); pn.connect(this.master); pn.connect(this.reverbSend); }
+        else { g.connect(this.master); g.connect(this.reverbSend); }
+        o1.start(); o2.start(); lfo.start();
+        this.drones.push({ o1: o1, o2: o2, filt: filt, g: g, pan: pn, bodyLfoG: bodyLfoG });
+      }
+    },
+
+    // low movement-breath: looping synthesized noise through a wandering bandpass
+    buildBreath: function () {
+      var c = this.ctx;
+      var secs = 2;
+      var len = Math.floor(c.sampleRate * secs);
+      var buf = c.createBuffer(1, len, c.sampleRate);
+      var data = buf.getChannelData(0);
+      var lp = 0;
+      for (var i = 0; i < len; i++) {
+        var w = Math.random() * 2 - 1;
+        lp = lp * 0.86 + w * 0.14;
+        data[i] = lp * 2.4;
+      }
+      var src = c.createBufferSource();
+      src.buffer = buf;
+      src.loop = true;
+      var bp = c.createBiquadFilter();
+      bp.type = 'bandpass';
+      bp.frequency.value = 210;
+      bp.Q.value = 0.8;
+      var g = c.createGain();
+      g.gain.value = 0;
+      var lfo = c.createOscillator();
+      lfo.frequency.value = 0.07;
+      var lfoG = c.createGain();
+      lfoG.gain.value = 80;
+      lfo.connect(lfoG);
+      lfoG.connect(bp.frequency);
+      src.connect(bp);
+      bp.connect(g);
+      var pan = c.createStereoPanner ? c.createStereoPanner() : null;
+      if (pan) { g.connect(pan); pan.connect(this.master); pan.connect(this.reverbSend); }
+      else {
+        g.connect(this.master);
+        g.connect(this.reverbSend);
+      }
+      src.start(); lfo.start();
+      this.breath = { src: src, bp: bp, g: g };
+      this.breathPan = pan;
+    },
+
+    applyClimate: function (immediate) {
+      if (!this.ctx || this.state !== 'active') return;
+      var c = this.ctx;
+      var now = c.currentTime;
+      var tau = immediate ? 0.01 : 0.9;
+      var fs = climate.droneF || [110, 220];
+      for (var i = 0; i < this.drones.length; i++) {
+        var d = this.drones[i];
+        var f = fs[i % fs.length];
+        d.o1.frequency.setTargetAtTime(f, now, tau);
+        d.o2.frequency.setTargetAtTime(f * 1.003, now, tau);
+        var cut = Math.min(2800, uni.music.cutoffBase * climate.cutoffScale * 0.5 * (1 + motionAudio.perceptual * 2));
+        d.filt.frequency.setTargetAtTime(cut, now, tau);
+        d.g.gain.setTargetAtTime(i === 0 ? 0.05 : 0.032, now, tau);
+      }
+      this.delay.delayTime.setTargetAtTime(clamp(climate.delayT, 0.05, 1.1), now, tau);
+    },
+
+    // continuous motion -> sound parameter automation (throttled, smoothed)
+    // v5: the perceptual envelope (sqrt-curve of signed camera speed) drives
+    // every layer; reverse travel darkens spectral tilt and shifts delay character
+    updateMovement: function (dt) {
+      if (!this.ctx || this.state !== 'active') return;
+      this.movAcc += dt;
+      if (this.movAcc < 0.08) return;
+      this.movAcc = 0;
+      var sn = motionAudio.perceptual;
+      var dirSign = motionAudio.dirSign;
+      var now = this.ctx.currentTime;
+      var tc = 0.06; // v5.2 faster param automation so 100ms shows real movement
+      var tilt = 0.5 + 0.5 * (dirSign * 0.5 + 0.5); // forward bright, reverse dark
+      this.delayMix.gain.setTargetAtTime(0.16 + sn * 0.26, now, tc);
+      this.reverbSend.gain.setTargetAtTime((0.34 + sn * 0.28), now, tc);
+      // v5.3: steering energy feeds delay feedback, reverb send, and breath gain
+      if (this.delayFb) this.delayFb.gain.setTargetAtTime(clamp(0.34 + dragMono.delayFeedbackBoost, 0.2, 0.72), now, tc);
+      this.reverbSend.gain.setTargetAtTime(clamp(0.34 + sn * 0.28 + dragMono.reverbSendBoost, 0.3, 0.85), now, tc);
+      if (this.breath) {
+        var bg = clamp(sn * sn * 0.07 + bodyAudio.breathFloor * 0.09 + dragMono.breathGainExtra, 0, 0.16);
+        this.breath.g.gain.setTargetAtTime(bg, now, 0.12);
+        // breath bandpass wanders faster when moving; slow orbit at idle
+        var bpf = 210 + dirSign * sn * 60 + Math.sin(tGlobal * 0.13) * 40 * bodyAudio.stereoOrbit;
+        this.breath.bp.frequency.setTargetAtTime(clamp(bpf, 120, 420), now, 0.4);
+      }
+      var det = uni.music.detuneCents * (1 + sn * 1.4) + sn * 9 + bodyAudio.modDepth * 3;
+      // v5.3 continuous mono-safe drag parameters: yaw bends the drone pitch,
+      // vertical lift opens resonance, steering energy feeds breath/delay/reverb
+      var dYaw = clamp(dragAudio.panOrbit, -1, 1);
+      var dLift = dragAudio.brightLift;
+      var dEnergy = dragAudio.energy;
+      var bendTarget = dYaw * 55;                       // cents: up to ~1/2 semitone
+      dragMono.dronePitchOffsetCents = +(bendTarget).toFixed(2);
+      var qTarget = 0.6 + Math.abs(dLift) * 3.4;        // vertical drag -> resonance
+      dragMono.droneFilterQ = +qTarget.toFixed(3);
+      var bgExtra = dEnergy * 0.05;
+      dragMono.breathGainExtra = +bgExtra.toFixed(4);
+      var fbBoost = dEnergy * 0.16;
+      dragMono.delayFeedbackBoost = +fbBoost.toFixed(4);
+      var rvBoost = dEnergy * 0.14;
+      dragMono.reverbSendBoost = +rvBoost.toFixed(4);
+
+      for (var i = 0; i < this.drones.length; i++) {
+        var d = this.drones[i];
+        // v5.3 mono-safe drone pitch bend from horizontal drag (both oscillators)
+        d.o1.detune.setTargetAtTime(bendTarget, now, tc);
+        d.o2.detune.setTargetAtTime(bendTarget + det, now, tc);
+        var filtQ = qTarget;
+        d.filt.Q.setTargetAtTime(filtQ, now, tc);
+        d.filt.frequency.setTargetAtTime(
+          clamp(this._droneCutoff(i, sn, tilt) + bodyAudio.filterSway * 260, 90, 2900),
+          now, tc
+        );
+        // v5.1: body-motion depth drives a real filter modulation depth
+        if (d.bodyLfoG) d.bodyLfoG.gain.setTargetAtTime(40 + bodyAudio.modDepth * 160, now, 0.8);
+        // v5.2: drone pan = idle body orbit + interaction pan (same direction
+        // for both drones so a drag sweeps the whole image; opposite lean at idle)
+        if (d.pan) d.pan.pan.setTargetAtTime(
+          clamp(bodyAudio.stereoOrbit * 0.55 * (i === 0 ? 1 : -1) + dragAudio.panApplied * 0.7, -0.95, 0.95),
+          now, 0.08
+        );
+      }
+      // v5.1: slow harmonic/inversion drift of the drone chord from the field
+      var invHz = uni.music.rootHz *
+        Math.pow(2, (climate.droneSemis[0] + climate.rootShift + bodyAudio.inversion) / 12) *
+        Math.pow(2, Math.round(climate.octShift)) * 2;
+      this.drones[0].o1.frequency.setTargetAtTime(clamp(invHz, 40, 900), now, 2.5);
+      // delay time drifts with direction: reverse travel stretches echoes
+      this.delay.delayTime.setTargetAtTime(
+        clamp(climate.delayT + (dirSign < 0 ? 0.08 : -0.02) * sn + bodyAudio.delayCharacter * 0.14, 0.05, 1.15),
+        now, 0.5
+      );
+      motionAudio.filterOpen = +(sn * 2).toFixed(3);
+      motionAudio.reverbBoost = +(sn * 0.28).toFixed(3);
+      motionAudio.delayBoost = +(sn * 0.26).toFixed(3);
+      motionAudio.breathGain = +(sn * sn * 0.07).toFixed(4);
+      motionAudio.widthScale = +(1 + sn * 0.5).toFixed(3);
+      motionAudio.detuneExtra = +det.toFixed(2);
+    },
+
+    _droneCutoff: function (i, sn, tilt) {
+      var base = uni.music.cutoffBase * climate.cutoffScale * 0.5;
+      var openMul = 1 + sn * 2;
+      var tiltMul = i === 0 ? tilt : (2 - tilt); // split band emphasis by direction
+      return base * openMul * tiltMul;
+    },
+
+    // v5: drag steering composes independently from travel speed
+    // v5.2: the horizontal-rate pan gets its own fast-attack / smooth-release
+    // envelope so a ~160px drag is clearly panned within 100ms, short/slow
+    // drags pan proportionally less, and release settles without snapping
+    updateDragAudio: function (dt) {
+      if (!this.ctx || this.state !== 'active') return;
+      this.dragAcc += dt;
+      if (this.dragAcc < 0.09) return;
+      this.dragAcc = 0;
+      var yr = dragState.yawRate, pr = dragState.pitchRate;
+      var energy = clamp(Math.abs(yr) / 2.2 + Math.abs(pr) / 1.8, 0, 1); // rad/s scaled
+      dragAudio.energy += (energy - dragAudio.energy) * 0.25;
+      dragAudio.panOrbit = +(clamp(yr / CONFIG.dragPanRateScale, -1, 1)).toFixed(3);
+      dragAudio.brightLift = +(clamp(pr / 1.8, -1, 1)).toFixed(3);
+      dragAudio.shimmer = +(clamp(Math.abs(yr) + Math.abs(pr) > 1.4 ? 1 : 0.4, 0, 1)).toFixed(3);
+      // v5.2 applied stereo pan: clamped hard below full scale, smoothed with
+      // attack tau 0.05s while steering and release tau 0.14s after release
+      dragAudio.panTarget = clamp(dragAudio.panOrbit * 0.8, -CONFIG.dragPanClamp, CONFIG.dragPanClamp);
+      var panTau = dragState.active && Math.abs(dragAudio.panTarget) > Math.abs(dragAudio.panApplied)
+        ? CONFIG.dragPanAttackTau : CONFIG.dragPanReleaseTau;
+      var pk = 1 - Math.exp(-0.09 / panTau); // matches the update cadence
+      dragAudio.panApplied += (dragAudio.panTarget - dragAudio.panApplied) * pk;
+      dragAudio.attackTau = panTau;
+      dragAudio.releaseTau = CONFIG.dragPanReleaseTau;
+      dragAudio.clampLow = -CONFIG.dragPanClamp;
+      dragAudio.clampHigh = CONFIG.dragPanClamp;
+      var now = this.ctx.currentTime;
+      var tc = 0.18;
+      if (this.delayFb) this.delayFb.gain.setTargetAtTime(0.34 + dragAudio.energy * 0.22, now, tc);
+      if (this.breathPan) this.breathPan.pan.setTargetAtTime(clamp(dragAudio.panApplied, -0.95, 0.95), now, 0.03);
+      var lift = dragAudio.brightLift;
+      var shimmer = dragAudio.shimmer;
+      for (var i = 0; i < this.drones.length; i++) {
+        var d = this.drones[i];
+        var cut = clamp(this._droneCutoff(i, motionAudio.perceptual, 1) * (1 + lift * 0.9 + shimmer * 0.4) + bodyAudio.filterSway * 160, 90, 3200);
+        d.filt.frequency.setTargetAtTime(cut, now, tc);
+        d.o2.detune.setTargetAtTime(
+          uni.music.detuneCents * (1 + motionAudio.perceptual * 1.4) +
+          motionAudio.perceptual * 9 + bodyAudio.modDepth * 3 + shimmer * 11,
+          now, tc
+        );
+      }
+    },
+
+    rebuildTimbre: function () {
+      this.releaseAll(0.25);
+      this.applyClimate(false);
+    },
+
+    fadeMaster: function (to, sec) {
+      if (!this.ctx) return;
+      var g = this.master.gain;
+      var now = this.ctx.currentTime;
+      g.cancelScheduledValues(now);
+      g.setValueAtTime(g.value, now);
+      g.linearRampToValueAtTime(to, now + sec);
+    },
+
+    degreeToHz: function (deg) {
+      var steps = uni.music.steps, L = steps.length;
+      var oct = Math.floor(deg / L);
+      var idx = ((deg % L) + L) % L;
+      var semis = steps[idx] + oct * 12;
+      return uni.music.rootHz * Math.pow(2, (semis + climate.rootShift) / 12) * Math.pow(2, Math.round(climate.octShift)) * 2;
+    },
+
+    pickDegree: function (role, raw, span) {
+      var target = Math.round(raw * span);
+      if (!this.lastLead) this.lastLead = {};
+      var lead = this.lastLead[role];
+      if (lead === undefined || lead === null) lead = target;
+      var d = target - lead;
+      if (Math.abs(d) > 4) target = lead + (d > 0 ? 4 : -4);
+      this.lastLead[role] = target;
+      return target;
+    },
+
+    playEvent: function (type, detail) {
+      if (this.state !== 'active' || !this.ctx) return;
+      if (this.voices.length >= CONFIG.maxVoices) return;
+      var m = uni.music;
+      var sn = motionAudio.perceptual;
+
+      var pan = 0, dur = 1, hz = 220, vel = 0.5, role = 'chime', bright = 1;
+      if (type === 'flyby') {
+        role = 'flyby';
+        var bearing = wrap(detail.bearing);
+        hz = this.degreeToHz(this.pickDegree(role, bearing / TAU, 11));
+        pan = clamp(Math.sin(detail.bearing) * climate.panWidth * (1 + sn * 0.5), -0.95, 0.95);
+        dur = clamp(m.envRelease * (0.7 + detail.size * 0.1) * (1 - detail.speed * 0.3) + 0.4, 0.6, 3.6);
+        vel = 0.16 + 0.32 * detail.strength;
+        bright = 1 + detail.size * 0.12 + detail.strength * 0.3;
+      } else if (type === 'select') {
+        role = 'select';
+        hz = this.degreeToHz(this.pickDegree(role, 0.62, 9));
+        dur = Math.min(m.envRelease, 1.4);
+        vel = 0.14;
+      } else {
+        return;
+      }
+      this.spawnVoice(hz, vel, pan, dur * 1.6, false, bright);
+    },
+
+    // v5.3: one drag-scan encounter -> a short resonant glissando voice.
+    // Mono-safe by construction: pitch offset, filter sweep, and resonance all
+    // move regardless of playback channel layout.
+    playScanEncounter: function (d) {
+      if (this.state !== 'active' || !this.ctx) return;
+      this.sweepFinished();
+      if (this.voices.length >= CONFIG.maxVoices) return;
+      var m = uni.music;
+      var role = 'scan:' + d.kind;
+      // body kind sets register: landmark low, system mid, star high
+      var regSemi = d.kind === 'landmark' ? -7 : (d.kind === 'system' ? 0 : 9);
+      var deg = this.pickDegree(role, d.nearness, 11);
+      var hz = this.degreeToHz(deg) * Math.pow(2, regSemi / 12);
+      hz = clamp(hz, 55, 2600);
+      dragScan.lastPitchHz = +hz.toFixed(2);
+      var dur = clamp(0.22 + d.nearness * 0.5, 0.2, 0.8);       // closer = longer
+      var vel = clamp(0.16 + 0.34 * d.intensity, 0.14, 0.5);
+      this.spawnScanVoice(hz, vel, d.pan, dur, d.intensity, d.nearness);
+    },
+
+    spawnScanVoice: function (hz, vel, pan, dur, intensity, nearness) {
+      var self = this;
+      var ctxA = this.ctx;
+      var now = ctxA.currentTime;
+      var m = uni.music;
+
+      // two detuned oscillators with an upward glissando: pitch motion is
+      // unmistakable in mono and reads as "the beam sweeping onto the body"
+      var o1 = ctxA.createOscillator();
+      var o2 = ctxA.createOscillator();
+      o1.type = m.timbre[0];
+      o2.type = 'sawtooth';   // spectral edge scaled by drag speed below
+      var f1 = hz * Math.pow(2, -(0.4 + 0.6 * (1 - intensity)));
+      o1.frequency.setValueAtTime(f1, now);
+      o1.frequency.exponentialRampToValueAtTime(hz, now + 0.09);
+      o2.frequency.setValueAtTime(f1 * 2.003, now);
+      o2.frequency.exponentialRampToValueAtTime(hz * 2.003, now + 0.09);
+      o1.detune.value = -m.detuneCents - intensity * 14;
+      o2.detune.value = m.detuneCents + intensity * 14;
+
+      // resonant bandpass whose center sweeps down: depth -> brightness,
+      // resonance peak gives each encounter a vocal, plucked character
+      var filt = ctxA.createBiquadFilter();
+      filt.type = 'bandpass';
+      var fcHi = Math.min(7200, 900 + nearness * 3400 + m.cutoffBase * climate.cutoffScale * 0.35);
+      var fcLo = Math.max(180, fcHi * 0.32);
+      filt.frequency.setValueAtTime(fcHi, now);
+      filt.frequency.exponentialRampToValueAtTime(fcLo, now + dur);
+      filt.Q.value = 6 + intensity * 6;
+
+      var g = ctxA.createGain();
+      g.gain.value = 0;
+      var pn = ctxA.createStereoPanner ? ctxA.createStereoPanner() : null;
+      if (pn) pn.pan.value = clamp(pan, -0.95, 0.95);
+
+      o1.connect(filt);
+      o2.connect(filt);
+      filt.connect(g);
+      if (pn) { g.connect(pn); pn.connect(this.master); pn.connect(this.reverbSend); }
+      else { g.connect(this.master); g.connect(this.reverbSend); }
+
+      var atk = 0.012;                       // jarring, percussive onset
+      var peak = vel * 0.62;
+      var stop = now + atk + dur;
+      g.gain.setValueAtTime(0, now);
+      g.gain.linearRampToValueAtTime(peak, now + atk);
+      g.gain.exponentialRampToValueAtTime(0.0004, stop);
+
+      o1.start(now); o2.start(now);
+      o1.stop(stop + 0.05); o2.stop(stop + 0.05);
+
+      diag.nodesCreated += pn ? 5 : 4;
+
+      var rec = {
+        gain: g, until: stop,
+        cleanup: function () {
+          try { o1.disconnect(); } catch (e) {}
+          try { o2.disconnect(); } catch (e2) {}
+          try { g.disconnect(); } catch (e3) {}
+          try { if (pn) pn.disconnect(); } catch (e4) {}
+          diag.voicesReleased++;
+        }
+      };
+      o1.onended = function () { self.sweepFinished(); };
+      this.voices.push(rec);
+    },
+
+    spawnVoice: function (hz, vel, pan, dur, isChord, brightMul) {
+      var self = this;
+      var ctxA = this.ctx;
+      var now = ctxA.currentTime;
+      var m = uni.music;
+      var sn = motionAudio.perceptual;
+      brightMul = brightMul || 1;
+
+      var o1 = ctxA.createOscillator();
+      var o2 = ctxA.createOscillator();
+      o1.type = m.timbre[0]; o2.type = m.timbre[1];
+      o1.frequency.value = hz;
+      o2.frequency.value = hz;
+      o1.detune.value = -m.detuneCents;
+      o2.detune.value = m.detuneCents + sn * 9;
+
+      var filt = ctxA.createBiquadFilter();
+      filt.type = 'lowpass';
+      filt.frequency.value = Math.min(9500, m.cutoffBase * climate.cutoffScale * (0.7 + 0.6 * vel) * brightMul * (1 + sn * 0.4));
+      filt.Q.value = 0.8;
+
+      var g = ctxA.createGain();
+      g.gain.value = 0;
+      var pn = ctxA.createStereoPanner ? ctxA.createStereoPanner() : null;
+
+      o1.connect(filt); o2.connect(filt);
+      filt.connect(g);
+      if (pn) { pn.pan.value = pan; g.connect(pn); pn.connect(this.master); }
+      else { g.connect(this.master); }
+
+      var atk = Math.max(0.02, m.envAttack * 2.2);
+      var peak = vel * 0.8;
+      var stop = now + atk + dur;
+      g.gain.setValueAtTime(0, now);
+      g.gain.linearRampToValueAtTime(peak, now + atk);
+      g.gain.exponentialRampToValueAtTime(0.0004, stop);
+
+      o1.start(now); o2.start(now);
+      o1.stop(stop + 0.05); o2.stop(stop + 0.05);
+
+      diag.nodesCreated += pn ? 5 : 4;
+
+      var rec = {
+        gain: g, until: stop,
+        cleanup: function () {
+          try { o1.disconnect(); } catch (e) {}
+          try { o2.disconnect(); } catch (e2) {}
+          try { g.disconnect(); } catch (e3) {}
+          try { if (pn) pn.disconnect(); } catch (e4) {}
+          diag.voicesReleased++;
+        }
+      };
+      o1.onended = function () { self.sweepFinished(); };
+      this.voices.push(rec);
+    },
+
+    sweepFinished: function () {
+      if (!this.ctx) return;
+      var now = this.ctx.currentTime;
+      for (var i = this.voices.length - 1; i >= 0; i--) {
+        if (this.voices[i].until <= now + 0.001) {
+          this.voices[i].cleanup();
+          this.voices.splice(i, 1);
+        }
+      }
+    },
+
+    releaseAll: function (sec) {
+      if (!this.ctx) return;
+      var now = this.ctx.currentTime;
+      for (var i = 0; i < this.voices.length; i++) {
+        var v = this.voices[i];
+        try {
+          v.gain.gain.cancelScheduledValues(now);
+          v.gain.gain.setValueAtTime(v.gain.gain.value, now);
+          v.gain.gain.linearRampToValueAtTime(0.0001, now + (sec || 0.2));
+        } catch (e) {}
+      }
+      var self = this;
+      window.setTimeout(function () {
+        self.sweepFinished();
+      }, ((sec || 0.2) + 0.1) * 1000);
+    },
+
+    energyDecay: function (dt) {
+      this.energySmoothed *= Math.pow(0.94, dt * 60);
+    },
+
+    pollEnergy: function () {
+      if (this.analyser && this.state === 'active') {
+        this.analyser.getByteFrequencyData(this.freqData);
+        var sum = 0;
+        for (var i = 0; i < this.freqData.length; i += 4) sum += this.freqData[i];
+        var rms = sum / (this.freqData.length / 4) / 255;
+        this.energySmoothed = Math.max(this.energySmoothed * 0.985, rms);
+        diag.energy = +this.energySmoothed.toFixed(4);
+      }
+    },
+
+    setFailed: function () {
+      this.state = 'failed';
+      var btn = document.getElementById('btn-audio');
+      if (btn) {
+        btn.disabled = true;
+        var l = btn.querySelector('.lbl');
+        if (l) l.textContent = 'SOUND UNAVAILABLE';
+        btn.setAttribute('aria-label', 'Sound unavailable in this browser');
+        btn.classList.remove('active');
+      }
+    },
+
+    setUi: function () {
+      var btn = document.getElementById('btn-audio');
+      if (!btn) return;
+      var lbl = btn.querySelector('.lbl');
+      var map = {
+        off:     ['AWAKEN SOUND', 'Awaken sound'],
+        active:  ['MUTE SOUND', 'Mute sound'],
+        muted:   ['UNMUTE SOUND', 'Unmute sound'],
+        failed:  ['SOUND UNAVAILABLE', 'Sound unavailable']
+      };
+      var s = map[this.state] || map.off;
+      if (lbl) lbl.textContent = s[0];
+      btn.setAttribute('aria-label', s[1]);
+      btn.classList.toggle('active', this.state === 'active');
+      btn.disabled = (this.state === 'failed');
+    },
+
+    toggle: function () {
+      var self = this;
+      if (this.state === 'off') {
+        this.state = 'requested';
+        this.setUi();
+        if (!this.init()) { this.setFailed(); return; }
+        this.setUi();
+      } else if (this.state === 'active') {
+        this.fadeMaster(0, 0.3);
+        if (this.ctx && this.ctx.suspend) {
+          this.ctx.suspend().then(function () { self.state = 'muted'; self.setUi(); }).catch(function () {});
+        } else {
+          this.state = 'muted'; this.setUi();
+        }
+      } else if (this.state === 'muted') {
+        if (this.ctx && this.ctx.resume) {
+          this.ctx.resume().then(function () {
+            self.state = 'active'; self.setUi();
+            self.fadeMaster(running ? CONFIG.masterLevel : 0, 1.2);
+          }).catch(function () {});
+        }
+      }
+    },
+
+    onVisualPause: function (paused) {
+      if (this.state === 'active') {
+        if (paused) { this.fadeMaster(0, 0.4); if (this.ctx) this.ctx.suspend().catch(function () {}); }
+        else if (this.ctx) {
+          var self = this;
+          this.ctx.resume().then(function () { self.fadeMaster(CONFIG.masterLevel, 1.0); }).catch(function () {});
+        }
+      }
+    },
+
+    onHidden: function () {
+      if (this.state === 'active' && this.ctx) {
+        this.fadeMaster(0, 0.15);
+        this.ctx.suspend().catch(function () {});
+      }
+    }
+  };
+
+  /* ================= rendering ================= */
+
+  function drawFarField(t) {
+    ctx.save();
+    ctx.fillStyle = css(uni.palette.ink, 1);
+    var parY = camera.yaw * 40, parP = camera.pitch * 40;
+    for (var i = 0; i < farStars.length; i++) {
+      var s = farStars[i];
+      var tw = 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(t * s.twSpeed + s.phase));
+      ctx.globalAlpha = tw * (0.16 + 0.5 * s.depth);
+      var sx = (((s.x - parY * s.depth) % W) + W) % W;
+      var sy = (((s.y + parP * s.depth) % H) + H) % H;
+      ctx.beginPath();
+      ctx.arc(sx, sy, s.r, 0, TAU);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function flowVec(n, t) {
+    var a = Math.sin(n.y * 0.021 + t * 0.07 * uni.texture.drift + n.phase);
+    var b = Math.sin(n.z * 0.019 + t * 0.05 * uni.texture.drift + n.phase * 1.7);
+    var c2 = Math.cos(n.x * 0.017 + t * 0.04 + n.phase);
+    var l = Math.sqrt(a * a + b * b + c2 * c2) || 1;
+    return { x: a / l, y: b / l, z: c2 / l };
+  }
+
+  function collectAndDrawNebulae(t) {
+    var cols = [uni.palette.cool, uni.palette.mauve, uni.palette.warm];
+    var near = CONFIG.near, farC = 2400;
+    chunks.forEach(function (ch) {
+      var arr = ch.nebulae;
+      for (var i = 0; i < arr.length; i++) {
+        var n = arr[i];
+        var c = worldToCam(n.x, n.y, n.z);
+        if (c.z <= near || c.z > farC) continue;
+        var fv = flowVec(n, t);
+        var c2 = worldToCam(n.x + fv.x * n.len, n.y + fv.y * n.len, n.z + fv.z * n.len);
+        if (c2.z <= near) continue;
+        var p1 = project(c), p2 = project(c2);
+        if (p1.sx < -30 || p1.sx > W + 30 || p1.sy < -30 || p1.sy > H + 30) continue;
+        var k = clamp(1.5 - c.z / 2000, 0.25, 1);
+        ctx.globalAlpha = n.alpha * k * (0.7 + audio.energySmoothed * 2.5);
+        ctx.strokeStyle = tint(cols[n.bucket], 1);
+        ctx.lineWidth = clamp(2.4 - c.z / 1400, 0.5, 2.4);
+        ctx.beginPath();
+        ctx.moveTo(p1.sx, p1.sy);
+        ctx.lineTo(p2.sx, p2.sy);
+        ctx.stroke();
+      }
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  function drawRingPath(bx, by, bz, ring, t) {
+    var phi = ring.phi, tilt = ring.tilt;
+    var ux = Math.cos(phi), uz = Math.sin(phi);
+    var vx = -Math.sin(phi) * Math.cos(tilt);
+    var vy = Math.sin(tilt);
+    var vz = Math.cos(phi) * Math.cos(tilt);
+    var r = ring.r;
+    var prev = null, started = false;
+    ctx.beginPath();
+    var SEG = 22;
+    for (var sgi = 0; sgi <= SEG; sgi++) {
+      var th = (sgi / SEG) * TAU;
+      var wx = bx + (ux * Math.cos(th) + vx * Math.sin(th)) * r;
+      var wy = by + (vy * Math.sin(th)) * r;
+      var wz = bz + (uz * Math.cos(th) + vz * Math.sin(th)) * r;
+      var c = worldToCam(wx, wy, wz);
+      if (c.z <= CONFIG.near) { prev = null; started = false; continue; }
+      var p = project(c);
+      if (p.sx < -80 || p.sx > W + 80 || p.sy < -80 || p.sy > H + 80) { prev = null; started = false; continue; }
+      if (!started) { ctx.moveTo(p.sx, p.sy); started = true; }
+      else ctx.lineTo(p.sx, p.sy);
+      prev = p;
+    }
+    ctx.stroke();
+  }
+
+  function drawBody(d, t) {
+    var b = d.body, sx = d.sx, sy = d.sy, pr = d.pr, k = d.k;
+    if (b.kind === 'star') {
+      if (pr > 2.2) {
+        var gr = ctx.createRadialGradient(sx, sy, 0, sx, sy, pr * 6);
+        gr.addColorStop(0, tint(b.col, 0.85 * k));
+        gr.addColorStop(0.3, tint(b.col, 0.22 * k));
+        gr.addColorStop(1, tint(b.col, 0));
+        ctx.fillStyle = gr;
+        ctx.beginPath(); ctx.arc(sx, sy, pr * 6, 0, TAU); ctx.fill();
+      }
+      ctx.globalAlpha = clamp(0.4 + k * 0.6, 0, 1);
+      ctx.fillStyle = css(uni.palette.ink, 1);
+      ctx.beginPath(); ctx.arc(sx, sy, Math.max(0.6, pr), 0, TAU); ctx.fill();
+      if (pr > 7) {
+        ctx.strokeStyle = tint(b.col, 0.35 * k);
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.moveTo(sx - pr * 3.4, sy); ctx.lineTo(sx + pr * 3.4, sy);
+        ctx.moveTo(sx, sy - pr * 3.4); ctx.lineTo(sx, sy + pr * 3.4);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    } else if (b.kind === 'system' || b.kind === 'landmark') {
+      // rings first (behind the core glow at this painter order)
+      var ringAlpha = clamp(0.1 + k * 0.14, 0, 0.3);
+      ctx.strokeStyle = tint(b.col, ringAlpha);
+      ctx.lineWidth = clamp(pr * 0.06 + 0.4, 0.4, 2);
+      for (var ri = 0; ri < b.rings.length; ri++) {
+        drawRingPath(b.bx, b.by, b.bz, b.rings[ri], t);
+      }
+      // planets
+      for (var pi = 0; pi < b.planets.length; pi++) {
+        var pl = b.planets[pi];
+        var ring = b.rings[pl.ring];
+        if (!ring) continue;
+        var th = pl.a0 + tGlobal * pl.speed;
+        var ux = Math.cos(b.phi), uz = Math.sin(b.phi);
+        var vx = -Math.sin(b.phi) * Math.cos(b.tilt);
+        var vy = Math.sin(b.tilt);
+        var vz = Math.cos(b.phi) * Math.cos(b.tilt);
+        var wx = b.bx + (ux * Math.cos(th) + vx * Math.sin(th)) * ring.r;
+        var wy = b.by + (vy * Math.sin(th)) * ring.r;
+        var wz = b.bz + (uz * Math.cos(th) + vz * Math.sin(th)) * ring.r;
+        var pc = worldToCam(wx, wy, wz);
+        if (pc.z <= CONFIG.near) continue;
+        var pp = project(pc);
+        var prr = Math.max(0.5, pl.size * pp.scale);
+        ctx.fillStyle = tint(pl.col, clamp(0.35 + k * 0.6, 0, 1));
+        ctx.beginPath(); ctx.arc(pp.sx, pp.sy, prr, 0, TAU); ctx.fill();
+      }
+      // core glow
+      var cr = Math.max(pr, 1.2);
+      var cg = ctx.createRadialGradient(sx, sy, 0, sx, sy, cr * 7);
+      var pulse = 0.5 + 0.5 * Math.sin(t * 0.21 + b.phase);
+      cg.addColorStop(0, tint(b.col, (b.kind === 'landmark' ? 0.9 : 0.7) * k));
+      cg.addColorStop(0.25, tint(b.col, 0.2 * k * (0.7 + pulse * 0.5)));
+      cg.addColorStop(1, tint(b.col, 0));
+      ctx.fillStyle = cg;
+      ctx.beginPath(); ctx.arc(sx, sy, cr * 7, 0, TAU); ctx.fill();
+      ctx.fillStyle = css(uni.palette.ink, clamp(0.5 + k * 0.5, 0, 1));
+      ctx.beginPath(); ctx.arc(sx, sy, Math.max(0.8, cr * 0.5), 0, TAU); ctx.fill();
+      if (b.kind === 'landmark') {
+        // slow satellite retinue
+        for (var si = 0; si < 3; si++) {
+          var sa = tGlobal * (0.12 + si * 0.05) + b.phase + si * 2.1;
+          var sr = cr * (3.2 + si * 0.9);
+          var ssx = sx + Math.cos(sa) * sr;
+          var ssy = sy + Math.sin(sa) * sr * 0.5;
+          ctx.fillStyle = tint(b.col, 0.7 * k);
+          ctx.beginPath(); ctx.arc(ssx, ssy, Math.max(0.5, cr * 0.14), 0, TAU); ctx.fill();
+        }
+      }
+    }
+  }
+
+  function drawPulses() {
+    for (var i = 0; i < pulses.length; i++) {
+      var pu = pulses[i];
+      var q = pu.age / 1.4;
+      ctx.globalAlpha = (1 - q) * 0.35;
+      ctx.strokeStyle = tint(uni.palette.mauve, 1);
+      ctx.lineWidth = 1.2 * (1 - q) + 0.3;
+      ctx.beginPath();
+      ctx.arc(pu.sx, pu.sy, (1 - Math.pow(1 - q, 2)) * 60 + 3, 0, TAU);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawReticle(t) {
+    var fwd = forwardVec();
+    var ax = camera.eye.x + fwd.x * 520;
+    var ay = camera.eye.y + fwd.y * 520;
+    var az = camera.eye.z + fwd.z * 520;
+    var c = worldToCam(ax, ay, az);
+    var freshness = clamp(0.5 * Math.exp(-(t - camera.aimTime) / 1.6), 0.16, 0.5);
+    if (c.z > CONFIG.near) {
+      var p = project(c);
+      ctx.save();
+      ctx.globalAlpha = freshness;
+      ctx.strokeStyle = tint(uni.palette.warm, 1);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, 9, 0, TAU);
+      ctx.stroke();
+      ctx.beginPath();
+      for (var ti = 0; ti < 4; ti++) {
+        var ta = ti * Math.PI / 2;
+        ctx.moveTo(p.sx + Math.cos(ta) * 12, p.sy + Math.sin(ta) * 12);
+        ctx.lineTo(p.sx + Math.cos(ta) * 17, p.sy + Math.sin(ta) * 17);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+    // faint center cross: the resting aim reference
+    ctx.save();
+    ctx.globalAlpha = 0.1;
+    ctx.strokeStyle = '#93a0b1';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(cx - 4, cy); ctx.lineTo(cx + 4, cy);
+    ctx.moveTo(cx, cy - 4); ctx.lineTo(cx, cy + 4);
+    ctx.stroke();
+    ctx.restore();
+    // selected body marker
+    if (selInfo.uid && t - selInfo.time < 3) {
+      for (var i = 0; i < lastDrawList.length; i++) {
+        if (lastDrawList[i].body.uid === selInfo.uid) {
+          var d = lastDrawList[i];
+          var rr = Math.max(10, d.pr * 1.6 + 6);
+          var fade = 1 - (t - selInfo.time) / 3;
+          ctx.save();
+          ctx.globalAlpha = 0.5 * fade;
+          ctx.strokeStyle = tint(uni.palette.warm, 1);
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(d.sx, d.sy - rr); ctx.lineTo(d.sx + rr, d.sy);
+          ctx.lineTo(d.sx, d.sy + rr); ctx.lineTo(d.sx - rr, d.sy);
+          ctx.closePath();
+          ctx.stroke();
+          ctx.restore();
+          break;
+        }
+      }
+    }
+  }
+
+  function drawReadout() {
+    ctx.save();
+    ctx.font = '500 10px ui-monospace, Menlo, monospace';
+    ctx.fillStyle = 'rgba(147,160,177,0.5)';
+    ctx.textAlign = 'left';
+    ctx.fillText('REGION ' + (climate.identity || '').toUpperCase(), 20, H - 38);
+    ctx.fillText('TRAVEL ' + Math.round(camera.distance), 20, H - 22);
+    ctx.restore();
+  }
+
+  function renderFrame(t) {
+    var tintC = uni.bgTint;
+    var bg = ctx.createRadialGradient(cx, cy - H * 0.2, 0, cx, cy, Math.max(W, H) * 1.15);
+    var hueM = ((tintC.h + climate.hue) % 360 + 360) % 360;
+    bg.addColorStop(0, css(hsl(hueM, tintC.s, 13), 1));
+    bg.addColorStop(0.55, css(hsl(hueM, tintC.s * 0.8, 8), 1));
+    bg.addColorStop(1, '#05070b');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    drawFarField(t);
+
+    // nebula strokes behind bodies
+    collectAndDrawNebulae(t);
+
+    // drifting atmosphere washes (screen-space, slow)
+    var b2 = 0.5 + 0.5 * Math.sin(t * 0.11);
+    var boost = 1 + audio.energySmoothed * 2.2;
+    var blobs = [
+      { x: cx + Math.sin(t * 0.05) * W * 0.22, y: cy + Math.cos(t * 0.043) * H * 0.2, r: Math.min(W, H) * 0.62, col: uni.palette.warm, a: (0.07 + 0.03 * b2) * boost },
+      { x: cx + Math.cos(t * 0.037 + 2) * W * 0.3, y: cy + Math.sin(t * 0.031 + 1) * H * 0.24, r: Math.min(W, H) * 0.75, col: uni.palette.mauve, a: 0.055 * boost }
+    ];
+    for (var bi = 0; bi < blobs.length; bi++) {
+      var bl = blobs[bi];
+      var g2 = ctx.createRadialGradient(bl.x, bl.y, 0, bl.x, bl.y, bl.r);
+      g2.addColorStop(0, tint(bl.col, Math.min(0.3, bl.a)));
+      g2.addColorStop(1, tint(bl.col, 0));
+      ctx.fillStyle = g2;
+      ctx.fillRect(0, 0, W, H);
+    }
+
+    // gather visible bodies, sort back to front
+    var list = [];
+    var near = CONFIG.near, farC = CONFIG.farCull;
+    var margin = 90;
+    var nearestRec = null, nearestD = 1e9;
+    chunks.forEach(function (ch) {
+      var arr = ch.bodies;
+      for (var i = 0; i < arr.length; i++) {
+        var b = arr[i];
+        // v5: current animated position (anchor + seeded autonomous motion)
+        var adx = b.bx - camera.eye.x, ady = b.by - camera.eye.y, adz = b.bz - camera.eye.z;
+        var dist = Math.sqrt(adx * adx + ady * ady + adz * adz);
+        bodyDisplacement(b, dist, tGlobal, _bdOut);
+        var wx = b.bx + _bdOut.x, wy = b.by + _bdOut.y, wz = b.bz + _bdOut.z;
+        var c = worldToCam(wx, wy, wz);
+        if (c.z <= near || c.z > farC) continue;
+        var p = project(c);
+        if (p.sx < -margin || p.sx > W + margin || p.sy < -margin || p.sy > H + margin) continue;
+        var pr = Math.max(0.4, b.radius * p.scale);
+        if (dist < nearestD) {
+          nearestD = dist;
+          nearestRec = { id: b.uid, projRadius: +pr.toFixed(2), depth: +c.z.toFixed(1) };
+        }
+        list.push({
+          body: b, sx: p.sx, sy: p.sy, pr: pr, z: c.z,
+          wx: wx, wy: wy, wz: wz,
+          k: clamp(1.6 - c.z / 2600, 0.22, 1)
+        });
+      }
+    });
+    list.sort(function (a, b) { return b.z - a.z; });
+    for (var li = 0; li < list.length; li++) drawBody(list[li], t);
+    lastDrawList = list;
+    diag.nearest = nearestRec;
+
+    drawPulses();
+    drawReticle(t);
+    drawReadout();
+
+    // vignette
+    var vg = ctx.createRadialGradient(cx, cy, Math.min(W, H) * 0.35, cx, cy, Math.max(W, H) * 0.78);
+    vg.addColorStop(0, 'rgba(4,6,10,0)');
+    vg.addColorStop(1, 'rgba(3,5,8,0.6)');
+    ctx.fillStyle = vg;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  /* ================= diagnostics ================= */
+
+  function roundV(v, n) {
+    var p = Math.pow(10, n === undefined ? 3 : n);
+    return Math.round(v * p) / p;
+  }
+
+  window.__nocturneDiagnostics = function () {
+    var cc = curChunkCoords();
+    var fwd = forwardVec();
+    var live = 0;
+    chunks.forEach(function (ch) { live += ch.bodies.length + ch.nebulae.length; });
+    var chordHz = null;
+    if (audio.state === 'active' && audio.drones.length) {
+      chordHz = audio.drones.map(function (d) { return +d.o1.frequency.value.toFixed(2); });
+    }
+    var aboutPanel = document.getElementById('about-panel');
+    var sample = null;
+    var homeCh = chunks.get(chunkKey(cc.ci, cc.cj, cc.ck));
+    if (homeCh) {
+      sample = {
+        id: homeCh.id,
+        bodies: homeCh.bodies.slice(0, 6).map(function (b) {
+          return { id: b.uid, kind: b.kind, x: +b.bx.toFixed(2), y: +b.by.toFixed(2), z: +b.bz.toFixed(2), radius: +b.radius.toFixed(2) };
+        })
+      };
+    }
+    return {
+      universe: {
+        seed: universeSeed,
+        id: uni ? uni.id : null,
+        visualProfile: uni ? {
+          paletteWarmHue: +uni.palette.warm.h.toFixed(1),
+          paletteCoolHue: +uni.palette.cool.h.toFixed(1),
+          bgTintHue: +uni.bgTint.h.toFixed(1)
+        } : null,
+        musicalProfile: uni ? {
+          rootHz: uni.music.rootHz,
+          mode: uni.music.modeName,
+          timbre: uni.music.timbre.join('+'),
+          detuneCents: +uni.music.detuneCents.toFixed(1),
+          cutoffBase: Math.round(uni.music.cutoffBase),
+          envAttack: +uni.music.envAttack.toFixed(3),
+          envRelease: +uni.music.envRelease.toFixed(2),
+          density: +uni.music.density.toFixed(2)
+        } : null
+      },
+      navigation: {
+        mode: 'continuous-3d-chunks',
+        camera: {
+          x: roundV(camera.eye.x), y: roundV(camera.eye.y), z: roundV(camera.eye.z),
+          yaw: roundV(camera.yaw, 4), pitch: roundV(camera.pitch, 4)
+        },
+        forward: { x: roundV(fwd.x, 4), y: roundV(fwd.y, 4), z: roundV(fwd.z, 4) },
+        velocity: { x: roundV(camera.vel.x, 2), y: roundV(camera.vel.y, 2), z: roundV(camera.vel.z, 2) },
+        speed: roundV(motionAudio.rawSpeed, 2),
+        signedSpeed: roundV(motionAudio.signedSpeed, 2),
+        travel: {
+          aimRay: { x: roundV(camera.aim.x, 4), y: roundV(camera.aim.y, 4), z: roundV(camera.aim.z, 4) },
+          distanceFlown: roundV(camera.distance, 1),
+          selectedBodyId: camera.selected,
+          reducedMotionStepped: reducedMotion
+        },
+        lastWheelDelta: wheelStat.lastDelta,
+        lastWheelImpulse: roundV(wheelStat.lastImpulse, 2),
+        wheelEventCount: wheelStat.count,
+        chunk: { ci: cc.ci, cj: cc.cj, ck: cc.ck },
+        chunksCached: chunks.size,
+        chunkCap: CONFIG.chunkCacheMax,
+        chunksGenerated: generatedTotal,
+        regionsVisited: visitedCount,
+        bodiesLive: live,
+        bodyCapEstimate: CONFIG.chunkCacheMax * (CONFIG.bodiesPerChunk + CONFIG.nebulaPerChunk),
+        nearest: diag.nearest,
+        paused: !running,
+        reducedMotion: reducedMotion
+      },
+      region: {
+        identity: climate.identity,
+        hueShift: roundV(climate.hue, 1),
+        rootShift: climate.rootShift,
+        octaveShift: climate.octShift,
+        cutoffScale: roundV(climate.cutoffScale, 3),
+        panWidth: roundV(climate.panWidth, 3),
+        delayTime: roundV(climate.delayT, 3),
+        droneSemis: climate.droneSemis,
+        chunkSample: sample
+      },
+      motionAudio: {
+        input: {
+          signedSpeed: roundV(motionAudio.signedSpeed, 2),
+          rawSpeed: roundV(motionAudio.rawSpeed, 2),
+          speedNorm: roundV(motionAudio.speedNorm, 3),
+          perceptual: roundV(motionAudio.perceptual, 3),
+          directionSign: motionAudio.dirSign,
+          curve: 'pow(speedNorm, ' + CONFIG.motionSqrtExp + ')',
+          attackTauSec: roundV(motionAudio.attackTau, 3),
+          releaseTauSec: roundV(motionAudio.releaseTau, 3)
+        },
+        output: {
+          filterOpenMul: motionAudio.filterOpen,
+          reverbSendBoost: motionAudio.reverbBoost,
+          delayMixBoost: motionAudio.delayBoost,
+          breathGain: motionAudio.breathGain,
+          stereoWidthScale: motionAudio.widthScale,
+          detuneExtraCents: motionAudio.detuneExtra,
+          spectralTiltShift: motionAudio.tiltShift,
+          reverbSendGain: audio.reverbSend ? +audio.reverbSend.gain.value.toFixed(3) : null,
+          delayMixGain: audio.delayMix ? +audio.delayMix.gain.value.toFixed(3) : null,
+          delayFeedbackGain: audio.delayFb ? +audio.delayFb.gain.value.toFixed(3) : null,
+          // v5.2 actual AudioParam values, not formula outputs
+          breathGainParam: (audio.breath && audio.breath.g)
+            ? +audio.breath.g.gain.value.toFixed(4) : null,
+          breathBandpassHz: (audio.breath && audio.breath.bp)
+            ? +audio.breath.bp.frequency.value.toFixed(1) : null,
+          droneFilterHz: audio.drones.length
+            ? audio.drones.map(function (d) { return +d.filt.frequency.value.toFixed(1); }) : [],
+          droneDetuneCents: audio.drones.length
+            ? audio.drones.map(function (d) { return +d.o2.detune.value.toFixed(1); }) : []
+        }
+      },
+      drag: {
+        active: dragState.active,
+        pending: dragState.pending,
+        totalEvents: dragState.totalEvents,
+        accumulatedPx: Math.round(dragState.accumulatedPx),
+        yawRate: roundV(dragState.yawRate, 3),
+        pitchRate: roundV(dragState.pitchRate, 3),
+        lastGesture: dragState.lastGesture,
+        lastGestureAgeSec: dragState.lastGestureT >= 0 ? roundV(tGlobal - dragState.lastGestureT, 2) : null,
+        audio: {
+          energy: roundV(dragAudio.energy, 3),
+          panOrbit: dragAudio.panOrbit,
+          brightLift: dragAudio.brightLift,
+          shimmer: dragAudio.shimmer,
+          controls: ['delay feedback', 'breath pan', 'drone brightness', 'drone detune/shimmer'],
+          // v5.2 applied stereo-pan envelope and its bounds
+          panTarget: roundV(dragAudio.panTarget || 0, 3),
+          panApplied: roundV(dragAudio.panApplied || 0, 3),
+          attackTauSec: roundV(dragAudio.attackTau != null ? dragAudio.attackTau : CONFIG.dragPanAttackTau, 3),
+          releaseTauSec: roundV(dragAudio.releaseTau != null ? dragAudio.releaseTau : CONFIG.dragPanReleaseTau, 3),
+          clampLow: -CONFIG.dragPanClamp,
+          clampHigh: CONFIG.dragPanClamp,
+          breathPanParam: audio.breathPan ? +audio.breathPan.pan.value.toFixed(3) : null,
+          dronePanParams: audio.drones.length
+            ? audio.drones.map(function (d) { return d.pan ? +d.pan.pan.value.toFixed(3) : null; }) : [],
+          // v5.3 actual applied continuous mono-safe parameters
+          dronePitchOffsetCents: roundV(dragMono.dronePitchOffsetCents, 2),
+          droneFilterQ: audio.drones.length
+            ? +audio.drones[0].filt.Q.value.toFixed(3) : null,
+          breathGainExtra: roundV(dragMono.breathGainExtra, 4),
+          breathGainParam: (audio.breath && audio.breath.g)
+            ? +audio.breath.g.gain.value.toFixed(4) : null,
+          delayFeedbackBoost: roundV(dragMono.delayFeedbackBoost, 4),
+          delayFeedbackParam: audio.delayFb ? +audio.delayFb.gain.value.toFixed(4) : null,
+          reverbSendBoost: roundV(dragMono.reverbSendBoost, 4),
+          reverbSendParam: audio.reverbSend ? +audio.reverbSend.gain.value.toFixed(4) : null
+        }
+      },
+      // v5.3: drag sonic-scan encounter engine
+      dragScan: {
+        active: dragState.active && dragScan.dragEncounters >= 0,
+        totalEncounters: dragScan.totalEncounters,
+        encountersDuringCurrentDrag: dragScan.dragEncounters,
+        uniqueBodiesDuringCurrentDrag: Object.keys(dragScan.dragUniqueBodies).length,
+        lastBodyId: dragScan.lastBodyId,
+        lastBodyKind: dragScan.lastBodyKind,
+        lastPitchHz: dragScan.lastPitchHz,
+        lastPan: dragScan.lastPan,
+        lastDepth: dragScan.lastDepth,
+        lastIntensity: dragScan.lastIntensity,
+        rateWindowCount: dragScan.rateWindowCount,
+        rateCap: CONFIG.scanRateCapPerSec,
+        cooldownSize: Object.keys(dragScan.cooldowns).length,
+        cooldownCap: CONFIG.scanCooldownCap,
+        cooldownMaxSeen: dragScan.maxCooldownSize,
+        ledgerCap: CONFIG.scanLedgerCap,
+        lastEncounterAgeSec: dragScan.lastEncounterT >= 0 ? roundV(tGlobal - dragScan.lastEncounterT, 3) : null
+      },
+      bodyMotion: {
+        eligibleCount: bodyMotion.eligible,
+        movingCount: bodyMotion.moving,
+        nearAvgAutonomousSpeed: bodyMotion.nearAvgSpeed,
+        farAvgAutonomousSpeed: bodyMotion.farAvgSpeed,
+        centroidDrift: bodyMotion.centroidDrift,
+        angularFlux: bodyMotion.angularFlux,
+        radialBreath: bodyMotion.radialBreath,
+        coherence: bodyMotion.coherence,
+        density: bodyMotion.density,
+        nearFarBalance: bodyMotion.nearFarBalance,
+        checksum: bodyMotion.checksum,
+        ledgerSize: _bmPrev.size,
+        ledgerCap: BM_PREV_CAP,
+        samples: bodyMotion.samples
+      },
+      bodyAudio: {
+        inversionSemitones: roundV(bodyAudio.inversion, 3),
+        filterSway: roundV(bodyAudio.filterSway, 3),
+        stereoOrbit: roundV(bodyAudio.stereoOrbit, 3),
+        modDepth: roundV(bodyAudio.modDepth, 3),
+        delayCharacter: roundV(bodyAudio.delayCharacter, 3),
+        breathFloor: roundV(bodyAudio.breathFloor, 3),
+        harmonicPull: roundV(bodyAudio.harmonicPull, 3),
+        applied: {
+          droneFilterLfoDepthHz: audio.drones.length ? Math.round(40 + bodyAudio.modDepth * 160) : null,
+          filterSwayCutoffHz: roundV(bodyAudio.filterSway * 260, 1),
+          stereoOrbitPan: roundV(bodyAudio.stereoOrbit * 0.55, 3),
+          inversionDriftHz: (audio.drones[0] && uni) ? +audio.drones[0].o1.frequency.value.toFixed(2) : null,
+          delayTimeShiftSec: roundV(bodyAudio.delayCharacter * 0.14, 4),
+          breathGainAdd: roundV(bodyAudio.breathFloor * 0.09, 4)
+        }
+      },
+      flyby: {
+        total: flybyTotal,
+        active: Object.keys(flybyActive).length,
+        lastCause: flybyLastCause
+      },
+      visuals: { running: running, t: +tGlobal.toFixed(2), w: W, h: H, focal: Math.round(focal) },
+      audio: {
+        controlState: audio.state,
+        contextState: audio.ctx ? audio.ctx.state : null,
+        sampleRate: audio.ctx ? audio.ctx.sampleRate : null,
+        masterGain: audio.master ? +audio.master.gain.value.toFixed(3) : null,
+        energy: diag.energy,
+        voicesActive: audio.voices.length,
+        nodesCreated: diag.nodesCreated,
+        voicesReleased: diag.voicesReleased,
+        droneVoices: audio.drones.length,
+        droneChordHz: chordHz,
+        breathLayer: !!audio.breath,
+        reverbEnabled: !!(audio.reverb && audio.reverb.buffer),
+        reverbIrSeconds: audio.irSeconds,
+        reverbSendGain: audio.reverbSend ? +audio.reverbSend.gain.value.toFixed(2) : null,
+        delayMixGain: audio.delayMix ? +audio.delayMix.gain.value.toFixed(2) : null,
+        eventsTotal: diag.eventsTotal,
+        eventsByType: (function () {
+          var out = {};
+          for (var k in diag.eventsByType) { if (k !== '_win') out[k] = diag.eventsByType[k]; }
+          return out;
+        })(),
+        lastEvent: diag.lastEvent
+      },
+      about: {
+        open: !!(aboutPanel && !aboutPanel.hidden),
+        ariaExpanded: document.getElementById('btn-about').getAttribute('aria-expanded')
+      }
+    };
+  };
+
+  /* ================= main loop ================= */
+
+  function frame(now) {
+    window.requestAnimationFrame(frame);
+    var dt = (now - lastFrame) / 1000;
+    lastFrame = now;
+    if (!running) return;
+    if (dt > 0.1) dt = 0.1;
+    tGlobal += dt;
+    step(dt);
+    scanFlybys(dt);
+    updateDragScan();
+    audio.pollEnergy();
+    audio.sweepFinished();
+    renderFrame(tGlobal);
+  }
+
+  /* ================= interaction ================= */
+
+  function setRunning(on) {
+    running = on;
+    document.body.classList.toggle('paused', !on);
+    var btn = document.getElementById('btn-pause');
+    var label = btn ? btn.querySelector('.lbl') : null;
+    if (label) label.textContent = on ? 'SUSPEND' : 'RESUME';
+    if (btn) btn.setAttribute('aria-label', on ? 'Suspend motion' : 'Resume motion');
+    audio.onVisualPause(!on);
+    if (!on) renderFrame(tGlobal);
+  }
+
+  function togglePause() { setRunning(!running); }
+
+  function reseed() {
+    seedCounter++;
+    audio.releaseAll(0.2);
+    buildWorld(CONFIG.seed + seedCounter * 7919);
+    audio.lastLead = {};
+    if (audio.state === 'active') audio.fadeMaster(CONFIG.masterLevel, 0.8);
+    if (!running) renderFrame(tGlobal);
+  }
+
+  function applyWheel(delta) {
+    var kick = clamp(delta, -400, 400) * CONFIG.wheelGain;
+    wheelStat.count++;
+    wheelStat.lastDelta = delta;
+    wheelStat.lastImpulse = kick;
+    var fwd = forwardVec();
+    if (reducedMotion) {
+      // direct stepped movement, no inertia
+      var stp = clamp(kick * 0.42, -CONFIG.rmStep * 3, CONFIG.rmStep * 3);
+      camera.eye.x += fwd.x * stp;
+      camera.eye.y += fwd.y * stp;
+      camera.eye.z += fwd.z * stp;
+      camera.distance += Math.abs(stp);
+      ensureChunks(true);
+      if (!running) renderFrame(tGlobal);
+    } else {
+      camera.vel.x += fwd.x * kick;
+      camera.vel.y += fwd.y * kick;
+      camera.vel.z += fwd.z * kick;
+      var sp = vlen(camera.vel);
+      if (sp > CONFIG.camSpeedMax) {
+        var f = CONFIG.camSpeedMax / sp;
+        camera.vel.x *= f; camera.vel.y *= f; camera.vel.z *= f;
+      }
+      if (!running) {
+        // paused: integrate a little directly so the first event still visibly moves
+        camera.eye.x += camera.vel.x * 0.05;
+        camera.eye.y += camera.vel.y * 0.05;
+        camera.eye.z += camera.vel.z * 0.05;
+        ensureChunks(true);
+        renderFrame(tGlobal);
+      }
+    }
+  }
+
+  window.addEventListener('wheel', function (e) {
+    var panel = document.getElementById('about-panel');
+    if (panel && !panel.hidden) return; // let the panel scroll natively
+    e.preventDefault();
+    var delta = e.deltaY;
+    if (e.deltaMode === 1) delta *= 16;
+    else if (e.deltaMode === 2) delta *= 100;
+    applyWheel(delta);
+  }, { passive: false });
+
+  /* ================= v5: pointer drag steering ================= */
+
+  function onPointerDown(e) {
+    if (aboutIsOpen()) return; // panel interaction is not camera control
+    if (dragState.pending || dragState.active) return;
+    dragState.pending = true;
+    dragState.pointerId = e.pointerId;
+    dragState.startX = dragState.lastX = e.clientX;
+    dragState.startY = dragState.lastY = e.clientY;
+    try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+  }
+
+  function onPointerMove(e) {
+    if (!dragState.pending && !dragState.active) return;
+    if (dragState.pointerId !== null && e.pointerId !== dragState.pointerId) return;
+    var dx = e.clientX - dragState.lastX;
+    var dyy = e.clientY - dragState.lastY;
+    var stepPx = Math.sqrt(dx * dx + dyy * dyy);
+    if (!dragState.active) {
+      // classification: below threshold we keep waiting for a possible click
+      var totX = e.clientX - dragState.startX, totY = e.clientY - dragState.startY;
+      if (Math.sqrt(totX * totX + totY * totY) <= CONFIG.dragThresholdPx) return;
+      dragState.active = true;
+      canvas.classList.add('grabbing');
+      dragState.totalEvents++;
+      resetDragScan();
+    }
+    dragState.lastGesture = 'drag';
+    dragState.lastGestureT = tGlobal;
+    dragState.accumulatedPx += stepPx;
+    // direct steering: horizontal delta yaws, vertical delta pitches
+    camera.tYaw += dx * CONFIG.dragGainYaw;
+    camera.yaw += dx * CONFIG.dragGainYaw;   // immediate feedback, no lag
+    camera.tPitch = clamp(camera.tPitch + dyy * CONFIG.dragGainPitch, -1.45, 1.45);
+    camera.pitch = clamp(camera.pitch + dyy * CONFIG.dragGainPitch, -1.45, 1.45);
+    // instantaneous angular rates for audio (rad/s, decays between events)
+    var dtEv = Math.max(0.004, (performance.now() - (dragState._lastMoveT || performance.now() - 8)) / 1000);
+    dragState._instYawRate = (dragState._instYawRate || 0) * 0.6 + (dx * CONFIG.dragGainYaw / dtEv) * 0.4;
+    dragState._instPitchRate = (dragState._instPitchRate || 0) * 0.6 + (dyy * CONFIG.dragGainPitch / dtEv) * 0.4;
+    dragState._lastMoveT = performance.now();
+    dragState.lastX = e.clientX;
+    dragState.lastY = e.clientY;
+    if (!running) renderFrame(tGlobal);
+  }
+
+  function onPointerUp(e) {
+    if (!dragState.pending) return;
+    if (dragState.pointerId !== null && e.pointerId !== dragState.pointerId) return;
+    try { canvas.releasePointerCapture(e.pointerId); } catch (err) {}
+    var wasActive = dragState.active;
+    dragState.pending = false;
+    dragState.active = false;
+    dragState.pointerId = null;
+    canvas.classList.remove('grabbing');
+    dragState._lastMoveT = 0;
+    if (!wasActive) {
+      // sub-threshold press: preserve v4 click-to-aim/selection
+      dragState.lastGesture = 'click';
+      dragState.lastGestureT = tGlobal;
+      aimAt(e.clientX, e.clientY);
+    } else {
+      dragState.lastGesture = 'drag';
+      dragState.lastGestureT = tGlobal;
+      camera.aimTime = tGlobal; // refresh reticle freshness after steering
+    }
+    // v5.3: end-of-drag scan bookkeeping (encounters already counted live)
+    if (wasActive) resetDragScan();
+    // angular rates settle smoothly via the per-frame smoothing in step()
+  }
+
+  function onPointerCancel() {
+    dragState.pending = false;
+    dragState.active = false;
+    dragState.pointerId = null;
+    canvas.classList.remove('grabbing');
+  }
+
+  canvas.addEventListener('pointerdown', onPointerDown);
+  canvas.addEventListener('pointermove', onPointerMove);
+  canvas.addEventListener('pointerup', onPointerUp);
+  canvas.addEventListener('pointercancel', onPointerCancel);
+
+  function aimAt(x, y) {
+    var hit = null, best = 1e9;
+    for (var i = 0; i < lastDrawList.length; i++) {
+      var d = lastDrawList[i];
+      var tol = Math.max(16, d.pr * 1.5 + 6);
+      var ddx = x - d.sx, ddy = y - d.sy;
+      var dd = ddx * ddx + ddy * ddy;
+      if (dd < tol * tol && dd < best) { best = dd; hit = d; }
+    }
+    var ray, selUid = null, selClimate = null;
+    if (hit) {
+      var vx = hit.wx - camera.eye.x, vy = hit.wy - camera.eye.y, vz = hit.wz - camera.eye.z;
+      var l = Math.sqrt(vx * vx + vy * vy + vz * vz) || 1;
+      ray = { x: vx / l, y: vy / l, z: vz / l };
+      selUid = hit.body.uid;
+      var cc = {
+        ci: Math.floor(hit.wx / CONFIG.chunk),
+        cj: Math.floor(hit.wy / CONFIG.chunk),
+        ck: Math.floor(hit.wz / CONFIG.chunk)
+      };
+      var ch = chunks.get(chunkKey(cc.ci, cc.cj, cc.ck));
+      if (ch) selClimate = ch.climate;
+    } else {
+      ray = camDirFromScreen(x, y);
+    }
+    camera.aim = ray;
+    camera.selected = selUid;
+    var yp = desiredYawPitch(ray);
+    camera.tYaw = yp.yaw;
+    camera.tPitch = clamp(yp.pitch, -1.45, 1.45);
+    camera.aimScreen = { x: x, y: y };
+    camera.aimTime = tGlobal;
+    selInfo = { uid: selUid, climateRef: selClimate, time: tGlobal };
+    fireEvent('select', { uid: selUid, screenX: Math.round(x), screenY: Math.round(y) });
+    if (!running) renderFrame(tGlobal);
+  }
+
+  function aboutOpen() {
+    var panel = document.getElementById('about-panel');
+    var btn = document.getElementById('btn-about');
+    if (!panel || !btn) return;
+    panel.hidden = false;
+    btn.setAttribute('aria-expanded', 'true');
+    var closeBtn = document.getElementById('btn-about-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function aboutClose(refocus) {
+    var panel = document.getElementById('about-panel');
+    var btn = document.getElementById('btn-about');
+    if (!panel || !btn) return;
+    panel.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    if (refocus !== false) btn.focus();
+  }
+
+  function aboutToggle() {
+    var panel = document.getElementById('about-panel');
+    if (!panel) return;
+    if (panel.hidden) aboutOpen();
+    else aboutClose();
+  }
+
+  function aboutIsOpen() {
+    var panel = document.getElementById('about-panel');
+    return !!(panel && !panel.hidden);
+  }
+
+  window.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var el = document.activeElement;
+    var onButton = el && el.tagName === 'BUTTON';
+
+    if (e.key === 'Escape') {
+      if (aboutIsOpen()) { aboutClose(); return; }
+    }
+    if (aboutIsOpen()) return; // no travel while reading
+    if (onButton && e.key === ' ') return; // let buttons handle their own space
+
+    var k = e.key ? e.key.toLowerCase() : '';
+    if (e.key === ' ') {
+      e.preventDefault();
+      togglePause();
+    } else if (k === 'p') {
+      togglePause();
+    } else if (k === 'r') {
+      reseed();
+    } else if (k === 'm') {
+      audio.toggle();
+    } else if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      e.preventDefault();
+      applyWheel(reducedMotion ? -CONFIG.rmStep / 0.42 : -320);
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      applyWheel(reducedMotion ? CONFIG.rmStep / 0.42 : 320);
+    }
+  });
+
+  var pauseBtn = document.getElementById('btn-pause');
+  var reseedBtn = document.getElementById('btn-reseed');
+  var audioBtn = document.getElementById('btn-audio');
+  var aboutBtn = document.getElementById('btn-about');
+  var aboutCloseBtn = document.getElementById('btn-about-close');
+  if (pauseBtn) pauseBtn.addEventListener('click', togglePause);
+  if (reseedBtn) reseedBtn.addEventListener('click', reseed);
+  if (audioBtn) audioBtn.addEventListener('click', function () { audio.toggle(); });
+  if (aboutBtn) aboutBtn.addEventListener('click', aboutToggle);
+  if (aboutCloseBtn) aboutCloseBtn.addEventListener('click', function () { aboutClose(); });
+
+  var resizeTimer = 0;
+  window.addEventListener('resize', function () {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(function () {
+      resize();
+      if (!running) renderFrame(tGlobal);
+    }, 120);
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) audio.onHidden();
+    else if (audio.state === 'active' && running && audio.ctx) {
+      audio.ctx.resume().then(function () { audio.fadeMaster(CONFIG.masterLevel, 1.2); }).catch(function () {});
+    }
+  });
+
+  var RM_QUERY = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function applyMotionPreference(prefersReduce) {
+    reducedMotion = prefersReduce;
+    if (prefersReduce && running) setRunning(false);
+  }
+
+  /* ================= boot ================= */
+
+  applyMotionPreference(RM_QUERY.matches);
+  if (RM_QUERY.addEventListener) {
+    RM_QUERY.addEventListener('change', function (e) { applyMotionPreference(e.matches); });
+  } else if (RM_QUERY.addListener) {
+    RM_QUERY.addListener(function (e) { applyMotionPreference(e.matches); });
+  }
+  audio.setUi();
+
+  resize();
+  buildWorld(CONFIG.seed);
+  renderFrame(tGlobal);
+  lastFrame = window.performance.now();
+  window.requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
