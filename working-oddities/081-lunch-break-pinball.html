@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lunch Break Pinball</title>
+<style>
+:root{--paper:#f5f7f8;--ink:#15202a;--blue:#2c5f87;--red:#c64d43;--line:#b8c4cb;--steel:#dce4e8;--mono:ui-monospace,monospace;--sans:system-ui,sans-serif;--serif:Georgia,serif}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;overflow-x:hidden}body{background:var(--paper);color:var(--ink);font-family:var(--sans);padding:28px clamp(16px,4vw,64px) 60px}.page{max-width:1180px;margin:auto}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:2px solid var(--ink);padding-bottom:18px}.eyebrow,.tag,.metric small{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}.eyebrow{color:var(--blue)}h1{font:500 clamp(2.4rem,6vw,5.9rem)/.92 var(--serif);letter-spacing:-.06em;margin:10px 0 14px;max-width:800px}p{line-height:1.5}.dek{max-width:580px;color:#52616c}.score{min-width:170px;text-align:right}.score strong{display:block;font:500 clamp(2.2rem,5vw,4.4rem) var(--serif);color:var(--red)}.tag{display:inline-block;border:1px solid var(--blue);color:var(--blue);padding:6px 9px;margin-top:10px}.board{margin-top:26px;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:20px}.cabinet{background:#e9eef0;border:2px solid var(--ink);box-shadow:8px 8px 0 #c8d1d5;padding:14px;border-radius:6px}.cabinet canvas{display:block;width:100%;height:auto;aspect-ratio:1.62;background:#d8e1e4;border:2px solid var(--ink);border-radius:3px;touch-action:none}.side{display:flex;flex-direction:column;gap:12px}.card{border:1px solid var(--line);background:#fff;padding:16px}.card h2{font:500 1.3rem var(--serif);margin:0 0 8px}.metric{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0}.metric b{font:16px var(--mono)}button{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--ink);background:var(--ink);color:white;border-radius:3px;padding:11px 13px;cursor:pointer}button.alt{background:white;color:var(--ink)}button:hover{background:var(--red)}.keys{display:flex;gap:6px;flex-wrap:wrap}.key{font:12px var(--mono);border:1px solid var(--line);padding:5px 7px;background:var(--steel)}#status{min-height:22px;color:var(--red);font:12px var(--mono)}@media(max-width:760px){body{padding:18px 12px 40px}.top{display:block}.score{text-align:left;margin-top:16px}.score strong{font-size:3rem}.board{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.side .card:last-child{grid-column:1/-1}}@media(max-width:430px){.side{display:block}.cabinet{padding:8px}}
+</style></head><body><main class="page"><header class="top"><div><div class="eyebrow">office arcade / 12:17 pm</div><h1>Lunch break,<br><em>locked in.</em></h1><p class="dek">A rigid-body pinball table assembled from the objects nearest the copier. Keep the ball alive until the calendar reminder loses.</p><span class="tag">no meetings in play</span></div><div class="score"><span class="eyebrow">score</span><strong id="score">0000</strong><span id="status" role="status">click launch or press space</span></div></header><section class="board"><div class="cabinet"><canvas id="game" width="900" height="555" aria-label="Office supply pinball game"></canvas></div><aside class="side"><div class="card"><h2>Table readout</h2><div class="metric"><small>balls</small><b id="balls">3</b></div><div class="metric"><small>combo</small><b id="combo">x1</b></div><div class="metric"><small>speed</small><b id="speed">0</b></div><button id="launch">Launch ball</button> <button class="alt" id="reset">Reset</button></div><div class="card"><h2>Controls</h2><p>Keep both flippers moving. A/D or ←/→. Hit the red binder for a time bonus.</p><div class="keys"><span class="key">A</span><span class="key">D</span><span class="key">←</span><span class="key">→</span><span class="key">SPACE</span></div></div><div class="card"><h2>Object legend</h2><p><b>Binder</b> +100<br><b>Stapler</b> +50<br><b>Paperclip</b> +25<br><b>Desk edge</b> bounce</p></div></aside></section></main>
+<script>
+(()=>{
+const c=document.querySelector('#game'),x=c.getContext('2d');
+const scoreEl=document.querySelector('#score'),ballsEl=document.querySelector('#balls'),comboEl=document.querySelector('#combo'),speedEl=document.querySelector('#speed'),status=document.querySelector('#status');
+let W=900,H=555,score=0,balls=3,combo=1,active=false,last=0,keys={};
+let ball={x:740,y:475,vx:-3.2,vy:-6,r:9}; let fl={l:0,r:0};
+const bumpers=[{x:240,y:150,r:35,c:'#2c5f87',label:'BINDER',value:100},{x:490,y:190,r:28,c:'#c64d43',label:'STAPLER',value:50},{x:665,y:115,r:20,c:'#526873',label:'CLIP',value:25}];
+function resetBall(){ball={x:740,y:475,vx:-3.2,vy:-6,r:9};active=true}
+function fit(){const d=window.devicePixelRatio||1,w=c.clientWidth;c.width=w*d*1.62;c.height=c.width*.617;W=c.width/d;H=c.height/d;x.setTransform(d,0,0,d,0,0)}
+function hit(px,py,r){const dx=ball.x-px,dy=ball.y-py,dist=Math.hypot(dx,dy),min=ball.r+r;if(dist<min){const nx=dx/(dist||1),ny=dy/(dist||1),dot=ball.vx*nx+ball.vy*ny;ball.x=px+nx*min;ball.y=py+ny*min;ball.vx-=2*dot*nx;ball.vy-=2*dot*ny;ball.vx*=1.04;ball.vy*=1.04;return true}return false}
+function add(n){score+=n*combo;combo=Math.min(combo+1,9);scoreEl.textContent=String(score).padStart(4,'0');comboEl.textContent='x'+combo}
+function draw(){
+ x.clearRect(0,0,W,H);x.fillStyle='#d8e1e4';x.fillRect(0,0,W,H);x.strokeStyle='#b8c4cb';x.lineWidth=1;
+ for(let yy=12;yy<H;yy+=22){x.beginPath();x.moveTo(0,yy);x.lineTo(W,yy);x.stroke()}
+ x.fillStyle='#2c5f87';x.fillRect(16,16,W-32,14);x.fillStyle='#15202a';x.font='11px ui-monospace';x.fillText('COPY ROOM // RIGID-BODY TEST TABLE',28,48);
+ bumpers.forEach(b=>{x.fillStyle=b.c;x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.fill();x.strokeStyle='#15202a';x.lineWidth=3;x.stroke();x.fillStyle='#fff';x.font='bold 10px ui-monospace';x.textAlign='center';x.fillText(b.label,b.x,b.y+3);x.textAlign='left'});
+ x.save();x.translate(365,350);x.rotate(-.14);x.fillStyle='#c64d43';x.fillRect(-52,-34,104,68);x.fillStyle='#f2b0aa';x.fillRect(-39,-24,78,8);x.fillStyle='#fff';x.font='bold 12px ui-monospace';x.fillText('Q3',-12,16);x.restore();
+ x.fillStyle='#526873';x.fillRect(535,355,86,28);x.fillStyle='#15202a';x.fillRect(553,347,50,11);x.fillStyle='#f5f7f8';x.fillRect(565,351,25,4);
+ x.fillStyle='#15202a';x.fillRect(690,345,45,12);x.strokeStyle='#15202a';x.strokeRect(695,340,35,18);x.fillStyle='#15202a';x.beginPath();x.arc(718,395,3,0,Math.PI*2);x.fill();
+ x.strokeStyle='#15202a';x.lineWidth=8;x.beginPath();x.moveTo(30,515);x.lineTo(190,505);x.moveTo(W-30,515);x.lineTo(W-190,505);x.stroke();x.strokeStyle='#c64d43';x.lineWidth=12;x.beginPath();x.moveTo(110,500);x.lineTo(205,470);x.moveTo(W-110,500);x.lineTo(W-205,470);x.stroke();
+ if(active){x.fillStyle='#15202a';x.beginPath();x.arc(ball.x,ball.y,ball.r,0,Math.PI*2);x.fill();x.fillStyle='#fff';x.beginPath();x.arc(ball.x-3,ball.y-3,2,0,Math.PI*2);x.fill()}
+ x.fillStyle='#15202a';x.font='11px ui-monospace';x.fillText('A / ←',40,540);x.fillText('D / →',W-90,540)
+}
+function loop(t){
+ const dt=Math.min((t-last)/16.67||1,2);last=t;
+ if(active){
+  ball.vy+=.18*dt;ball.x+=ball.vx*dt;ball.y+=ball.vy*dt;
+  if(ball.x<28||ball.x>W-28){ball.vx*=-.92;ball.x=Math.max(28,Math.min(W-28,ball.x))} if(ball.y<42)ball.vy=Math.abs(ball.vy);
+  bumpers.forEach(b=>{if(hit(b.x,b.y,b.r)){add(b.value);status.textContent=b.label.toLowerCase()+' hit — keep it moving'}});
+  for(const [side,ax,ay,bx,by] of [['l',110,500,205,470],['r',W-110,500,W-205,470]]){const open=side==='l'?fl.l:fl.r,px=ax+(bx-ax)*open,py=ay+(by-ay)*open;if(Math.hypot(ball.x-px,ball.y-py)<ball.r+8&&ball.vy>0){ball.vy=-Math.abs(ball.vy)-2;ball.vx+=(ball.x-px)*.03;add(10)}}
+  if(ball.y>H+18){balls--;ballsEl.textContent=balls;combo=1;comboEl.textContent='x1';active=false;status.textContent=balls>0?'ball lost — press space to relaunch':'table over — reset for another round'} speedEl.textContent=Math.round(Math.hypot(ball.vx,ball.vy));
+ }
+ fl.l+=keys.a||keys.ArrowLeft?-.18:0;fl.r+=keys.d||keys.ArrowRight?-.18:0;fl.l=Math.max(0,Math.min(1,fl.l+.04));fl.r=Math.max(0,Math.min(1,fl.r+.04));draw();requestAnimationFrame(loop)
+}
+function launch(){if(balls>0&&!active){resetBall();status.textContent='live ball — aim for the binder'}}
+document.querySelector('#launch').onclick=launch;document.querySelector('#reset').onclick=()=>{score=0;balls=3;combo=1;scoreEl.textContent='0000';ballsEl.textContent='3';comboEl.textContent='x1';launch()};
+addEventListener('keydown',e=>{keys[e.key]=true;if(e.key===' ')launch()});addEventListener('keyup',e=>keys[e.key]=false);addEventListener('resize',fit);fit();draw();requestAnimationFrame(loop)
+})();
+</script></body></html>

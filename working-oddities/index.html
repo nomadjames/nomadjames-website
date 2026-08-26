@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A cabinet of 100 standalone browser experiments: games, instruments, simulations, generative art, data visualization, and strange interactive tools.">
+<meta property="og:title" content="Cabinet of Working Oddities">
+<meta property="og:description" content="100 standalone browser experiments. Every one works offline, responds to input or time, and opens as its own page.">
+<meta property="og:url" content="https://nomadjames.com/working-oddities/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<title>Cabinet of Working Oddities — 100 Offline Experiments</title>
+<style>
+:root{--paper:#efe9d8;--ink:#171816;--blue:#1746d1;--red:#e3482b;--hair:rgba(23,24,22,.22);--shadow:0 18px 50px rgba(31,27,17,.14)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;background-image:linear-gradient(rgba(23,70,209,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(23,70,209,.12) 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(to bottom,#000,transparent 78%);z-index:-1}
+.mast{min-height:78vh;padding:clamp(22px,4vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.43fr);gap:5vw;align-items:end;border-bottom:2px solid var(--ink);position:relative;overflow:hidden}
+.issue{position:absolute;top:28px;right:clamp(22px,4vw,64px);font:700 11px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;border:1px solid;padding:9px 12px;background:var(--paper)}
+h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(64px,11.6vw,174px);font-weight:400;line-height:.76;letter-spacing:-.075em;margin:0;max-width:10ch}.working{color:var(--blue);font-style:italic;margin-left:.34em}.oddities{display:block;text-transform:uppercase;font:900 clamp(46px,8.4vw,126px)/.8 Arial,Helvetica,sans-serif;letter-spacing:-.08em;transform:skewY(-3deg);transform-origin:left;margin-top:.12em}
+.intro{align-self:end;border-left:5px solid var(--red);padding:0 0 5px 22px;max-width:460px}.intro p{font:400 clamp(18px,1.7vw,27px)/1.2 Georgia,serif;margin:0 0 24px}.intro small{display:block;font:700 11px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:uppercase;letter-spacing:.1em}
+.orbit{position:absolute;width:36vw;aspect-ratio:1;border:1px solid var(--blue);border-radius:50%;top:-18vw;left:48vw;opacity:.5;animation:turn 24s linear infinite}.orbit:before,.orbit:after{content:"";position:absolute;border-radius:50%;border:1px solid var(--red);inset:14%;transform:translateX(42%)}.orbit:after{inset:31%;background:var(--red);border:0;transform:translate(-88%,58%)}@keyframes turn{to{transform:rotate(360deg)}}
+.controls{position:sticky;top:0;z-index:20;background:rgba(239,233,216,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--ink);padding:14px clamp(18px,4vw,64px);display:flex;gap:10px;align-items:center;overflow-x:auto;scrollbar-width:thin}.controls b{font:900 12px/1 Arial;text-transform:uppercase;margin-right:10px;white-space:nowrap}.filter{border:1px solid var(--ink);background:transparent;color:inherit;padding:8px 11px;border-radius:99px;font:700 10px/1 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:nowrap;cursor:pointer;text-transform:uppercase}.filter:hover,.filter.active{background:var(--ink);color:var(--paper)}
+.status{padding:26px clamp(18px,4vw,64px) 0;display:flex;justify-content:space-between;gap:20px;align-items:baseline;font:700 11px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:uppercase;letter-spacing:.08em}.status em{font-family:Georgia,serif;font-size:20px;text-transform:none;font-weight:400;letter-spacing:0}
+.gallery{padding:28px clamp(18px,4vw,64px) 110px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(15px,2.2vw,34px);align-items:start}.card{grid-column:span 4;background:#f8f4e9;border:1px solid var(--ink);box-shadow:var(--shadow);position:relative;transform:rotate(var(--tilt));transition:transform .25s,box-shadow .25s,opacity .25s;min-width:0}.card:nth-child(9n+1),.card:nth-child(9n+6){grid-column:span 5}.card:nth-child(9n+2),.card:nth-child(9n+7){grid-column:span 3}.card:nth-child(9n+3),.card:nth-child(9n+8){grid-column:span 4}.card:hover,.card:focus-within{transform:rotate(0) translateY(-7px);box-shadow:0 26px 70px rgba(31,27,17,.22);z-index:3}.card[hidden]{display:none}.preview{height:clamp(215px,23vw,360px);overflow:hidden;background:#111;position:relative;border-bottom:1px solid var(--ink)}.card:nth-child(7n+1) .preview{height:clamp(260px,30vw,460px)}iframe{width:100%;height:100%;border:0;display:block;pointer-events:none;background:#fff}.open{position:absolute;inset:0;z-index:2;text-indent:-9999px}.open:focus{outline:5px solid var(--blue);outline-offset:-5px}.number{position:absolute;right:0;top:0;z-index:4;background:var(--paper);border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:8px 10px;font:900 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace}.caption{padding:16px 17px 18px;display:grid;grid-template-columns:1fr auto;gap:7px 14px;align-items:start}.caption h2{font:900 clamp(18px,1.65vw,27px)/.92 Arial,Helvetica,sans-serif;letter-spacing:-.045em;text-transform:uppercase;margin:0}.caption p{grid-column:1/-1;margin:0;font:400 14px/1.35 Georgia,serif}.tag{font:700 8px/1 ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:uppercase;border:1px solid;padding:5px 6px;white-space:nowrap;color:var(--blue)}
+.end{border-top:2px solid var(--ink);padding:28px clamp(18px,4vw,64px) 45px;display:flex;justify-content:space-between;gap:25px;align-items:flex-end}.end strong{font:900 clamp(28px,5vw,72px)/.8 Arial;text-transform:uppercase;letter-spacing:-.07em}.end span{font:700 10px/1.5 ui-monospace,monospace;text-align:right;text-transform:uppercase;max-width:38ch}
+.cursor{position:fixed;width:18px;height:18px;border:1px solid var(--red);border-radius:50%;pointer-events:none;z-index:99;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:width .18s,height .18s}.cursor.hot{width:54px;height:54px;background:rgba(227,72,43,.12)}
+@media(max-width:900px){.mast{grid-template-columns:1fr;min-height:680px;padding-top:75px}.intro{margin-left:20vw}.gallery{grid-template-columns:repeat(6,minmax(0,1fr))}.card,.card:nth-child(n){grid-column:span 3}.card:nth-child(5n+1){grid-column:span 4}.card:nth-child(5n+2){grid-column:span 2}}
+@media(max-width:560px){.mast{min-height:620px;display:block;padding:96px 18px 32px}.issue{right:18px}.orbit{width:90vw;top:-40vw;left:45vw}.intro{margin:82px 0 0 12vw}.controls{padding-left:12px}.status{padding-left:18px;padding-right:18px}.gallery{display:block;padding:24px 18px 80px}.card,.card:nth-child(n){margin:0 0 28px;transform:rotate(var(--tilt))}.preview,.card:nth-child(7n+1) .preview{height:255px}.caption h2{font-size:23px}.end{display:block}.end span{display:block;text-align:left;margin-top:18px}.cursor{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="cursor" aria-hidden="true"></div>
+<header class="mast"><div class="orbit" aria-hidden="true"></div><div class="issue">Specimen cabinet · 101 files · entirely offline</div><h1>Cabinet <span class="working">of working</span><span class="oddities">Oddities</span></h1><div class="intro"><p>One hundred small machines that refuse to become landing pages.</p><small>Every specimen is alive. Click a frame to open it in a new window. Audio waits for your gesture, as civilized browsers require.</small></div></header>
+<nav class="controls" aria-label="Filter experiments"><b>Index by behavior</b><button class="filter active" data-filter="all">All 100</button></nav>
+<div class="status"><span id="count">100 specimens visible</span><em>Pointer, keys, time, sound, physics.</em></div>
+<main class="gallery" id="gallery"></main>
+<footer class="end"><strong>Nothing<br>calls home.</strong><span>One hundred standalone experiments plus this index. System fonts. Inline code. Local frames. Zero external requests.</span></footer>
+<script>
+const raw=`
+001~signal-orchard~Signal Orchard~Grow a synthetic orchard whose branches remember how quickly you move.~Generative Art
+002~tidal-arithmetic~Tidal Arithmetic~Drag the moon and rewrite a fictional harbor’s next twenty-four hours.~Data Visualization
+003~the-last-weather-station~The Last Weather Station~Read the final field log while the instrument keeps measuring.~Editorial
+004~pocket-polyrhythm~Pocket Polyrhythm~Tap four eccentric rings into a pocket-sized rhythm engine.~Audio
+005~moth-atlas~Moth Atlas~Breed, mutate, and pin impossible nocturnal specimens.~Generative Art
+006~reactor-seven~Reactor Seven~Keep a micro-reactor inside its narrow operating envelope.~Dashboard
+007~typequake~Typequake~Fracture a headline with the speed and force of your hand.~Typographic Poster
+008~courier-1988~Courier 1988~Route a packet through a hostile dial-up network before the trace lands.~Retro Computing
+009~softbody-picnic~Softbody Picnic~Poke a table of gelatin desserts and watch every spring complain.~Physics & Motion
+010~noon-shadow-lab~Noon Shadow Lab~Place architectural fins and scrub the sun across their shadows.~3D Scene
+011~municipal-noise-budget~Municipal Noise Budget~Reallocate a city’s legal decibels and hear the districts object.~Data Visualization
+012~fold-the-message~Fold the Message~Turn a private note into a geometric cipher by folding it.~3D Scene
+013~the-small-hours~The Small Hours~A literary clock reveals one nocturnal scene at a time.~Editorial
+014~orbit-locksmith~Orbit Locksmith~Spin nested orbital tumblers until the machine agrees.~Interactive Toy
+015~carbon-choir~Carbon Choir~Hear a century of atmospheric measurements become a chorale.~Audio
+016~unstable-bauhaus~Unstable Bauhaus~Drag primary forms until the poster almost finds its balance.~Counter-Style
+017~memory-palace-elevator~Memory Palace Elevator~Type a word and ride an elevator into the room it invents.~3D Scene
+018~rain-syntax~Rain Syntax~Turn punctuation into drops, gusts, pauses, and storms.~Generative Art
+019~black-box-transcript~Black Box Transcript~Scrub the final ninety seconds of an impossible flight.~Tool
+020~seed-vault-44~Seed Vault 44~Thaw a hexagonal seed archive without erasing its diversity.~Simulation
+021~kite-geometry~Kite Geometry~Cut a kite, balance it, and discover whether the wind approves.~Physics & Motion
+022~infinite-receipt~Infinite Receipt~Audit a surreal grocery bill that itemizes your attention.~Typographic Poster
+023~antenna-garden~Antenna Garden~Tune a field of antennas until the hidden transmission clears.~Interactive Toy
+024~one-pixel-ocean~One-Pixel Ocean~Pilot a tiny research vessel across a procedurally restless sea.~Game
+025~museum-of-misheard-machines~Museum of Misheard Machines~Open an exhibition catalog for devices remembered incorrectly.~Editorial
+026~gravity-typesetter~Gravity Typesetter~Drop words into the page and wait for meaning to settle.~Physics & Motion
+027~deep-sea-winch~Deep-Sea Winch~Lower a probe through luminous water without snapping the cable.~Simulation
+028~transit-pulse~Transit Pulse~Dispatch night trains and repair a railway’s uneven breathing.~Data Visualization
+029~chromatic-seismograph~Chromatic Seismograph~Record gesture as tremor, pressure, rhythm, and color.~Interactive Toy
+030~the-argument-machine~The Argument Machine~Wire claims to evidence and test whether the circuit holds.~Tool
+031~ghost-kitchen-console~Ghost Kitchen Console~Route ten menus through one crowded, overheated kitchen.~Dashboard
+032~moon-quarry~Moon Quarry~Excavate regolith before a very short lunar day expires.~Game
+033~breath-architecture~Breath Architecture~Let breath, sound, or touch inflate a responsive pavilion.~Audio
+034~probability-laundromat~Probability Laundromat~Tumble uncertain outcomes until their distribution becomes visible.~Simulation
+035~brutalist-calendar-engine~Brutalist Calendar Engine~Crush a month into blocks that expose overloaded days.~Counter-Style
+036~comet-tail-editor~Comet Tail Editor~Paint invisible forces into a bright particulate wake.~Generative Art
+037~field-guide-to-doorways~Field Guide to Doorways~Cross an essay whose frames change with every threshold.~Editorial
+038~patch-cable-prophet~Patch Cable Prophet~Wire a miniature modular synth and listen for an omen.~Audio
+039~redline-city~Redline City~Drag a lens across the planning decision that divided a neighborhood.~Data Visualization
+040~murmuration-desk~Murmuration Desk~Conduct a flock, freeze the instant, keep the poster.~Generative Art
+041~ceramic-cpu~Ceramic CPU~Operate a computer imagined in clay, cobalt, and kiln heat.~Counter-Style
+042~elevator-music-for-buildings~Elevator Music for Buildings~Mix architectural styles into improbable ambient music.~Audio
+043~avalanche-ledger~Avalanche Ledger~Stress-test seven slopes and watch weak layers collapse.~Data Visualization
+044~captcha-for-poets~Captcha for Poets~Prove your humanity by finding metaphors no system should trust.~Game
+045~elastic-constellations~Elastic Constellations~Pluck the lines between stars and bend the whole sky.~Audio
+046~operating-manual-for-fog~Operating Manual for Fog~Maintain an unmaintainable phenomenon with Swiss precision.~Editorial
+047~signal-to-noise-knife~Signal-to-Noise Knife~Carve a useful band out of a hostile transmission.~Tool
+048~pocket-parliament~Pocket Parliament~Build a coalition from tiny parties with incompatible demands.~Game
+049~vaporwave-tax-office~Vaporwave Tax Office~File taxes for memories purchased during the summer of 1997.~Counter-Style
+050~weather-vane-orchestra~Weather Vane Orchestra~Turn the wind and move brass, reeds, and bells around the room.~Audio
+051~microfiche-explorer~Microfiche Explorer~Search a fictional newspaper by physically scanning the film.~Retro Computing
+052~tectonic-sandwich~Tectonic Sandwich~Stack edible continents and accelerate geological lunch.~Simulation
+053~the-color-of-delay~The Color of Delay~A live essay that reveals itself only when you stop moving.~Editorial
+054~magnetic-poetry-foundry~Magnetic Poetry Foundry~Collide words until the heat fuses them into stranger alloys.~Interactive Toy
+055~radar-for-quiet-things~Radar for Quiet Things~Triangulate cats, dust, and unsent messages in the room.~Dashboard
+056~solar-sail-regatta~Solar Sail Regatta~Set sail angles and race sunlight around a miniature orbit.~Simulation
+057~swiss-army-spreadsheet~Swiss Army Spreadsheet~Turn selected cells into formulas, charts, notes, and tools.~Tool
+058~neon-cave-survey~Neon Cave Survey~Map an underground chamber by placing your own light.~Game
+059~dandelion-forecast~Dandelion Forecast~Blow seeds into a week and watch chance become weather.~Physics & Motion
+060~the-unfinished-index~The Unfinished Index~Follow footnotes that argue openly with their own main text.~Editorial
+061~command-line-aquarium~Command Line Aquarium~Maintain a reef using terse commands and ASCII patience.~Retro Computing
+062~pendulum-bureau~Pendulum Bureau~Let a chaotic double pendulum stamp the municipal permits.~Physics & Motion
+063~heat-death-dashboard~Heat Death Dashboard~Monitor and briefly reverse the entropy of a pocket universe.~Dashboard
+064~memphis-weather-maker~Memphis Weather Maker~Assemble pressure fronts from squiggles, dots, and confetti.~Counter-Style
+065~a-choir-of-switches~A Choir of Switches~Toggle an unlabeled wall until consonance emerges.~Audio
+066~archive-of-future-ruins~Archive of Future Ruins~Scratch through archaeological cards for buildings not yet made.~Editorial
+067~river-meander-simulator~River Meander Simulator~Disturb a bank and watch sediment rewrite the channel.~Simulation
+068~kinetic-kerning~Kinetic Kerning~Tune the literal spring tension between neighboring letters.~Typographic Poster
+069~emergency-broadcast-composer~Emergency Broadcast Composer~Arrange tone, interruption, crawl, and civil-defense authority.~Tool
+070~dream-logistics-map~Dream Logistics Map~Route fragile dreams through customs before dawn.~Data Visualization
+071~impossible-stairwell~Impossible Stairwell~Navigate a looping building whose orientation cannot be trusted.~3D Scene
+072~morse-bloom~Morse Bloom~Type a sentence and grow a flower from its radio rhythm.~Generative Art
+073~the-price-of-light~The Price of Light~Dim a city block and compare cost, comfort, and sleep.~Data Visualization
+074~paper-air-traffic~Paper Air Traffic~Fold and launch planes through the wind lanes above a desk.~Game
+075~organic-settings-panel~Organic Settings Panel~Configure a machine through roots, spores, and moisture.~Counter-Style
+076~teletext-dating-service~Teletext Dating Service~Browse pixelated strangers through six brutally concise lines.~Retro Computing
+077~lighthouse-phase-space~Lighthouse Phase Space~Couple two beams and watch their attractor draw itself.~Data Visualization
+078~museum-label-generator~Museum Label Generator~Give an ordinary object an overconfident institutional history.~Tool
+079~the-shape-of-an-apology~The Shape of an Apology~Choose repair over defense and watch a knot become a line.~Editorial
+080~vacuum-tube-observatory~Vacuum Tube Observatory~Tune glowing valves until their beat matches a pulsar.~Retro Computing
+081~lunch-break-pinball~Lunch Break Pinball~Play a brutal little table made from office supplies.~Game
+082~contour-memory~Contour Memory~Draw a recollection and watch it become topography.~Generative Art
+083~data-fossil-dig~Data Fossil Dig~Brush sediment from a buried scatterplot and infer the loss.~Data Visualization
+084~clockwork-sentence~Clockwork Sentence~Wind a sentence and watch grammar transmit the force.~3D Scene
+085~parking-lot-constellations~Parking Lot Constellations~Move cars until their headlights redraw the night sky.~Game
+086~salt-crystal-radio~Salt Crystal Radio~Hunt a faint station with copper, crystal, wire, and patience.~Audio
+087~anti-productivity-timer~Anti-Productivity Timer~A timer that rewards wandering and punishes optimization.~Tool
+088~sculpture-by-committee~Sculpture by Committee~Vote continuously on a monument no committee can finish.~Generative Art
+089~pressure-map-of-a-sentence~Pressure Map of a Sentence~Read prose through stress, pause, breath, and pulse.~Typographic Poster
+090~subway-vent-synth~Subway Vent Synth~Compose with gusts, rattles, grilles, and platform resonance.~Audio
+091~orbital-kitchen-timer~Orbital Kitchen Timer~Schedule several dishes on intersecting planetary timers.~Tool
+092~ink-diffusion-press~Ink Diffusion Press~Drop virtual ink into wet paper and print through the bloom.~Generative Art
+093~fire-escape-choreography~Fire Escape Choreography~Sequence dancers across an iron façade and cue every exit.~Tool
+094~sundown-memory-game~Sundown Memory Game~Match silhouettes before the horizon loses its light.~Game
+095~census-of-imaginary-birds~Census of Imaginary Birds~Filter, compare, and call species from an unreliable field guide.~Data Visualization
+096~mechanical-moon-phase~Mechanical Moon Phase~Advance a hand-built lunar machine one tooth at a time.~3D Scene
+097~houseplant-negotiator~Houseplant Negotiator~Mediate five plants competing for one apartment window.~Simulation
+098~recursive-postcard~Recursive Postcard~Send a postcard into itself and inspect every nested message.~Interactive Toy
+099~storm-cell-conductor~Storm Cell Conductor~Shape electrical weather and conduct lightning as percussion.~Physics & Motion
+100~afterimage-machine~Afterimage Machine~Paint only with the complementary colors your eye retains.~Typographic Poster`;
+const items=raw.trim().split('\n').map(line=>{const [n,slug,title,desc,cat]=line.split('~');return{n,slug,title,desc,cat,file:`${n}-${slug}.html`}});
+const gallery=document.querySelector('#gallery'),nav=document.querySelector('.controls');
+[...new Set(items.map(x=>x.cat))].sort().forEach(cat=>{const b=document.createElement('button');b.className='filter';b.dataset.filter=cat;b.textContent=cat;nav.appendChild(b)});
+function card(item,i){const article=document.createElement('article');article.className='card';article.dataset.cat=item.cat;article.style.setProperty('--tilt',`${((i*17)%7-3)*.18}deg`);article.innerHTML=`<div class="preview"><iframe src="${item.file}" loading="lazy" title="Live preview: ${item.title}"></iframe><span class="number">${item.n}</span><a class="open" href="${item.file}" target="_blank" rel="noopener" aria-label="Open ${item.title} in a new window">Open ${item.title}</a></div><div class="caption"><h2>${item.title}</h2><span class="tag">${item.cat}</span><p>${item.desc}</p></div>`;return article}
+items.forEach((item,i)=>gallery.appendChild(card(item,i)));
+nav.addEventListener('click',e=>{const b=e.target.closest('.filter');if(!b)return;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));const f=b.dataset.filter;let visible=0;document.querySelectorAll('.card').forEach(card=>{const show=f==='all'||card.dataset.cat===f;card.hidden=!show;if(show)visible++});document.querySelector('#count').textContent=`${visible} specimen${visible===1?'':'s'} visible`;if(innerWidth<600)gallery.scrollIntoView({behavior:'smooth'})});
+let index=-1;addEventListener('keydown',e=>{const cards=[...document.querySelectorAll('.card:not([hidden])')];if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();index=(index+1)%cards.length;cards[index].querySelector('.open').focus();cards[index].scrollIntoView({block:'center',behavior:'smooth'})}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();index=(index-1+cards.length)%cards.length;cards[index].querySelector('.open').focus();cards[index].scrollIntoView({block:'center',behavior:'smooth'})}if(e.key==='Enter'&&index>=0)cards[index].querySelector('.open').click()});
+const cursor=document.querySelector('.cursor');addEventListener('pointermove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px';cursor.classList.toggle('hot',!!e.target.closest('.card,.filter'))},{passive:true});
+</script>
+</body>
+</html>
