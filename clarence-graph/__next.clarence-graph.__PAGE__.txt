@@ -3,7 +3,7 @@
 7:I[97367,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 8:"$Sreact.suspense"
 :HL["/_next/static/chunks/0ewoyzg50cw.z.css","style"]
-3:T370f,<!DOCTYPE html>
+3:T386b,<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -151,8 +151,6 @@
       // --- Filter nodes by type if ?type= param is set ---
       let nodes = data.nodes || [];
       let edges = data.edges || [];
-      const stats = data.stats || {};
-
       if (filterType) {
         const ft = filterType.toLowerCase();
         const allowedIds = new Set(nodes.filter(n => (n.type || '').toLowerCase() === ft).map(n => n.id));
@@ -160,10 +158,20 @@
         edges = edges.filter(e => allowedIds.has(e.from) && allowedIds.has(e.to));
       }
 
+      // The entity catalog contains many records with facts but no graph relation.
+      // Keep this view legible by showing only nodes that participate in an edge.
+      const connectedIds = new Set();
+      edges.forEach(edge => {
+        connectedIds.add(edge.from);
+        connectedIds.add(edge.to);
+      });
+      const unlinkedCount = nodes.filter(node => !connectedIds.has(node.id)).length;
+      nodes = nodes.filter(node => connectedIds.has(node.id));
+
       // --- Build vis-network DataSets ---
       const visNodes = new vis.DataSet(nodes.map(n => {
         const style = getStyle(n.type);
-        const conns = n.connections || 1;
+        const conns = n.connections ?? 0;
         const size = Math.min(35, Math.max(8, 8 + Math.log(conns + 1) * 6));
         return {
           id: n.id,
@@ -262,14 +270,14 @@
       });
 
       // --- Populate Stats Badge ---
-      const nodeCount = filterType ? nodes.length : (stats.total_nodes || nodes.length);
-      const edgeCount = filterType ? edges.length : (stats.total_edges || edges.length);
+      const nodeCount = nodes.length;
+      const edgeCount = edges.length;
       const snapshotDate = data.generated
         ? new Date(data.generated).toLocaleDateString('en-US', {
             month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC',
           })
         : 'date unavailable';
-      document.getElementById('stats').textContent = `${nodeCount} entities · ${edgeCount} connections · snapshot ${snapshotDate}`;
+      document.getElementById('stats').textContent = `${nodeCount} connected · ${edgeCount} links · ${unlinkedCount} unlinked omitted · ${snapshotDate}`;
 
       // --- Populate Legend (only types present in data) ---
       const typesPresent = new Map();
@@ -373,7 +381,7 @@
   </script>
 </body>
 </html>
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[["$","$L2",null,{"data":[{"@context":"https://schema.org","@type":"WebPage","name":"Clarence Knowledge Graph","description":"Interactive public-safe graph view of the Clarence knowledge surface.","url":"https://nomadjames.com/clarence-graph/","datePublished":"2026-04-12","dateModified":"2026-08-25","author":{"@type":"Person","name":"James Dishman","url":"https://nomadjames.com"}}]}],["$","iframe",null,{"srcDoc":"$3","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L4","$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"6tv9vDpYMDJx86QYjcN0w"}
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[["$","$L2",null,{"data":[{"@context":"https://schema.org","@type":"WebPage","name":"Clarence Knowledge Graph","description":"Interactive public-safe graph view of the Clarence knowledge surface.","url":"https://nomadjames.com/clarence-graph/","datePublished":"2026-04-12","dateModified":"2026-08-25","author":{"@type":"Person","name":"James Dishman","url":"https://nomadjames.com"}}]}],["$","iframe",null,{"srcDoc":"$3","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L4","$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"9n1_OtUyVlBS5rxO-hNg8"}
 4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next"}]
 5:["$","script","script-0",{"src":"/_next/static/chunks/04v-6m-nd4sqe.js","async":true}]
 6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
