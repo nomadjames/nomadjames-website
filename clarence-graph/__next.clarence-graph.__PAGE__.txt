@@ -1,9 +1,10 @@
 1:"$Sreact.fragment"
 2:I[12929,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/04v-6m-nd4sqe.js"],"default"]
-7:I[97367,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
-8:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
 :HL["/_next/static/chunks/0ewoyzg50cw.z.css","style"]
-3:T386b,<!DOCTYPE html>
+3:["$","section",null,{"aria-labelledby":"clarence-graph-no-js-title","style":{"position":"fixed","inset":0,"zIndex":1000,"display":"block","padding":"6rem 2rem 2rem","overflowY":"auto","background":"#050505","color":"#f5f5f5"},"children":[["$","h1",null,{"id":"clarence-graph-no-js-title","style":{"color":"inherit"},"children":"Clarence Knowledge Graph"}],["$","p",null,{"children":["This is an interactive, public-safe view of relationships in the Clarence knowledge surface. JavaScript is required to explore the graph; without it, read the"," ",["$","a",null,{"href":"/clarence-memory-system/","children":"public-safe memory-system overview"}],"."]}]]}]
+4:T3a37,<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -80,6 +81,12 @@
   </style>
 </head>
 <body>
+  <noscript>
+    <section aria-labelledby="clarence-graph-no-js-title" style="position:fixed;inset:0;z-index:1000;display:block;padding:2rem;background:#050505;color:#f5f5f5">
+      <h1 id="clarence-graph-no-js-title">Clarence Knowledge Graph</h1>
+      <p>This public-safe graph is interactive and requires JavaScript to explore. Without it, read the <a href="/clarence-memory-system/">public-safe memory-system overview</a>.</p>
+    </section>
+  </noscript>
   <!-- Loading overlay -->
   <div id="loader">
     <div class="spinner"></div>
@@ -381,8 +388,8 @@
   </script>
 </body>
 </html>
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[["$","$L2",null,{"data":[{"@context":"https://schema.org","@type":"WebPage","name":"Clarence Knowledge Graph","description":"Interactive public-safe graph view of the Clarence knowledge surface.","url":"https://nomadjames.com/clarence-graph/","datePublished":"2026-04-12","dateModified":"2026-08-25","author":{"@type":"Person","name":"James Dishman","url":"https://nomadjames.com"}}]}],["$","iframe",null,{"srcDoc":"$3","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L4","$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"r5bS2FVOqJKngi2Kf94ns"}
-4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next"}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/04v-6m-nd4sqe.js","async":true}]
-6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
-9:null
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[["$","$L2",null,{"data":[{"@context":"https://schema.org","@type":"WebPage","name":"Clarence Knowledge Graph","description":"Interactive public-safe graph view of the Clarence knowledge surface.","url":"https://nomadjames.com/clarence-graph/","datePublished":"2026-04-12","dateModified":"2026-08-25","author":{"@type":"Person","name":"James Dishman","url":"https://nomadjames.com"}}]}],["$","noscript",null,{"children":"$3"}],["$","iframe",null,{"srcDoc":"$4","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"AARGw3PoJuRbjxH6uevm0"}
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/04v-6m-nd4sqe.js","async":true}]
+7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null
