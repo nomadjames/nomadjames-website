@@ -1,0 +1,30 @@
+{
+  "format": "nomadjames-ableton-midi-tools-release-v1",
+  "license": "MIT",
+  "status": {
+    "Rhythm-Dice-RD-011.amxd": "LIVE_ACCEPTED",
+    "Cymbal-Phrase-CP-004.amxd": "PUBLIC_BETA_LIVE_FINAL_ACCEPTANCE_PENDING"
+  },
+  "files": [
+    {
+      "name": "Cymbal-Phrase-CP-004-source.zip",
+      "bytes": 54054,
+      "sha256": "f277234fb85f84c6accab827446284547f60ff8420b7742421d5b28a1b70f608"
+    },
+    {
+      "name": "Cymbal-Phrase-CP-004.amxd",
+      "bytes": 29805,
+      "sha256": "21911be56772f2be098fd873c762aee5e3fd7ccf2a5ed46c581ddfa37d24320e"
+    },
+    {
+      "name": "Rhythm-Dice-RD-011-source.zip",
+      "bytes": 79006,
+      "sha256": "c4fff09238d06daacfeeeb5c745a5a77ff3f195754379109b7c2be0242f41acb"
+    },
+    {
+      "name": "Rhythm-Dice-RD-011.amxd",
+      "bytes": 43523,
+      "sha256": "1112290aac3d85a5a341496c9e0576f9ed472f9549e1bf3649f93357e14e1915"
+    }
+  ]
+}
