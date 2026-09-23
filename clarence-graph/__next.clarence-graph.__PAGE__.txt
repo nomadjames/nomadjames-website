@@ -1,10 +1,9 @@
 1:"$Sreact.fragment"
-2:I[12929,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/04v-6m-nd4sqe.js"],"default"]
-8:I[97367,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
-9:"$Sreact.suspense"
+6:I[97367,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
 :HL["/_next/static/chunks/0ewoyzg50cw.z.css","style"]
-3:["$","section",null,{"aria-labelledby":"clarence-graph-no-js-title","style":{"position":"fixed","inset":0,"zIndex":1000,"display":"block","padding":"6rem 2rem 2rem","overflowY":"auto","background":"#050505","color":"#f5f5f5"},"children":[["$","h1",null,{"id":"clarence-graph-no-js-title","style":{"color":"inherit"},"children":"Clarence Knowledge Graph"}],["$","p",null,{"children":["This is an interactive, public-safe view of relationships in the Clarence knowledge surface. JavaScript is required to explore the graph; without it, read the"," ",["$","a",null,{"href":"/clarence-memory-system/","children":"public-safe memory-system overview"}],"."]}]]}]
-4:T3a37,<!DOCTYPE html>
+2:["$","section",null,{"aria-labelledby":"clarence-graph-no-js-title","style":{"position":"fixed","inset":0,"zIndex":1000,"display":"block","padding":"6rem 2rem 2rem","overflowY":"auto","background":"#050505","color":"#f5f5f5"},"children":[["$","h1",null,{"id":"clarence-graph-no-js-title","style":{"color":"inherit"},"children":"Clarence Knowledge Graph"}],["$","p",null,{"children":["This is an interactive, public-safe view of relationships in the Clarence knowledge surface. JavaScript is required to explore the graph; without it, read the"," ",["$","a",null,{"href":"/clarence-memory-system/","children":"public-safe memory-system overview"}],"."]}]]}]
+3:T44d2,<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,6 +17,61 @@
 
     /* === Graph Container === */
     #graph { width: 100%; height: 100%; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    #accessible-explorer {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 70;
+      width: min(360px, calc(100vw - 24px));
+      max-height: 45vh;
+      padding: 10px 12px;
+      color: #f5f5f5;
+      background: rgba(5, 5, 5, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    #accessible-explorer summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    #accessible-explorer p {
+      margin: 8px 0;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.4;
+    }
+    #graph-node-list {
+      max-height: 30vh;
+      overflow: auto;
+      margin: 0;
+      padding-left: 20px;
+    }
+    #graph-node-list button {
+      width: 100%;
+      padding: 5px 6px;
+      color: #f5f5f5;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+    }
+    #graph-node-list button:hover,
+    #graph-node-list button:focus-visible {
+      background: rgba(99, 102, 241, 0.28);
+    }
 
     /* === Loading Overlay === */
     #loader {
@@ -81,6 +135,7 @@
   </style>
 </head>
 <body>
+  <h1 id="graph-title" class="sr-only">Clarence Knowledge Graph</h1>
   <noscript>
     <section aria-labelledby="clarence-graph-no-js-title" style="position:fixed;inset:0;z-index:1000;display:block;padding:2rem;background:#050505;color:#f5f5f5">
       <h1 id="clarence-graph-no-js-title">Clarence Knowledge Graph</h1>
@@ -106,7 +161,14 @@
   </div>
 
   <!-- Graph canvas -->
-  <div id="graph"></div>
+  <div id="graph" role="application" aria-labelledby="graph-title" aria-describedby="graph-instructions"></div>
+
+  <details id="accessible-explorer">
+    <summary>Browse graph nodes without the canvas</summary>
+    <p id="graph-instructions">Use this keyboard-operable list to select a node and hear its type and connection count.</p>
+    <ul id="graph-node-list" aria-label="Connected graph nodes"></ul>
+    <div id="graph-live" class="sr-only" aria-live="polite"></div>
+  </details>
 
   <script>
     // =========================================================================
@@ -260,6 +322,25 @@
       const container = document.getElementById('graph');
       const network = new vis.Network(container, { nodes: visNodes, edges: visEdges }, options);
 
+      const nodeList = document.getElementById('graph-node-list');
+      const graphLive = document.getElementById('graph-live');
+      nodes.forEach((node) => {
+        const style = getStyle(node.type);
+        const connections = node.connections ?? 0;
+        const item = document.createElement('li');
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.nodeId = String(node.id);
+        button.textContent = `${style.label} node ${node.id} · ${connections} ${connections === 1 ? 'connection' : 'connections'}`;
+        button.addEventListener('click', () => {
+          network.selectNodes([node.id]);
+          network.focus(node.id, { scale: 0.8, animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+          graphLive.textContent = `${button.textContent} selected.`;
+        });
+        item.appendChild(button);
+        nodeList.appendChild(item);
+      });
+
       // --- Stabilization Progress ---
       network.on('stabilizationProgress', (p) => {
         const pct = Math.round((p.iterations / p.total) * 100);
@@ -388,8 +469,7 @@
   </script>
 </body>
 </html>
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[["$","$L2",null,{"data":[{"@context":"https://schema.org","@type":"WebPage","name":"Clarence Knowledge Graph","description":"Interactive public-safe graph view of the Clarence knowledge surface.","url":"https://nomadjames.com/clarence-graph/","datePublished":"2026-04-12","dateModified":"2026-08-25","author":{"@type":"Person","name":"James Dishman","url":"https://nomadjames.com"}}]}],["$","noscript",null,{"children":"$3"}],["$","iframe",null,{"srcDoc":"$4","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Ygf9N3eDVMoqEO39xentE"}
-5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next"}]
-6:["$","script","script-0",{"src":"/_next/static/chunks/04v-6m-nd4sqe.js","async":true}]
-7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
-a:null
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Clarence Knowledge Graph\",\"description\":\"Interactive public-safe graph view of the Clarence knowledge surface.\",\"url\":\"https://nomadjames.com/clarence-graph/\",\"datePublished\":\"2026-04-12\",\"dateModified\":\"2026-08-25\",\"author\":{\"@type\":\"Person\",\"name\":\"James Dishman\",\"url\":\"https://nomadjames.com\"}}"}}]],["$","noscript",null,{"children":"$2"}],["$","iframe",null,{"srcDoc":"$3","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L4"],"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"yfYn2UP68f8t9WTUYBTOc"}
+4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next"}]
+5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
+8:null
