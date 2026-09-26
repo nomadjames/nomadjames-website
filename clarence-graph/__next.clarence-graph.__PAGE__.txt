@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-6:I[97367,["/_next/static/chunks/0.z8ao63sfzr6.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+6:I[97367,["/_next/static/chunks/0aq3u693l03fv.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
 :HL["/_next/static/chunks/0ewoyzg50cw.z.css","style"]
 2:["$","section",null,{"aria-labelledby":"clarence-graph-no-js-title","style":{"position":"fixed","inset":0,"zIndex":1000,"display":"block","padding":"6rem 2rem 2rem","overflowY":"auto","background":"#050505","color":"#f5f5f5"},"children":[["$","h1",null,{"id":"clarence-graph-no-js-title","style":{"color":"inherit"},"children":"Clarence Knowledge Graph"}],["$","p",null,{"children":["This is an interactive, public-safe view of relationships in the Clarence knowledge surface. JavaScript is required to explore the graph; without it, read the"," ",["$","a",null,{"href":"/clarence-memory-system/","children":"public-safe memory-system overview"}],"."]}]]}]
@@ -469,7 +469,7 @@
   </script>
 </body>
 </html>
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Clarence Knowledge Graph\",\"description\":\"Interactive public-safe graph view of the Clarence knowledge surface.\",\"url\":\"https://nomadjames.com/clarence-graph/\",\"datePublished\":\"2026-04-12\",\"dateModified\":\"2026-08-25\",\"author\":{\"@type\":\"Person\",\"name\":\"James Dishman\",\"url\":\"https://nomadjames.com\"}}"}}]],["$","noscript",null,{"children":"$2"}],["$","iframe",null,{"srcDoc":"$3","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L4"],"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"KwXXgpYEmdLpDsYiQY7ce"}
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","className":"page-module__U7mUlq__page","data-ember-page":"immersive","children":[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Clarence Knowledge Graph\",\"description\":\"Interactive public-safe graph view of the Clarence knowledge surface.\",\"url\":\"https://nomadjames.com/clarence-graph/\",\"datePublished\":\"2026-04-12\",\"dateModified\":\"2026-08-25\",\"author\":{\"@type\":\"Person\",\"name\":\"James Dishman\",\"url\":\"https://nomadjames.com\"}}"}}]],["$","noscript",null,{"children":"$2"}],["$","iframe",null,{"srcDoc":"$3","title":"Clarence Knowledge Graph","loading":"lazy","className":"page-module__U7mUlq__frame"}]]}],["$L4"],"$L5"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nlO0OlztTSOmbWQNziBvn"}
 4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0ewoyzg50cw.z.css","precedence":"next"}]
 5:["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]
 8:null
