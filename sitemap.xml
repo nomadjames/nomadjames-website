@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nomadjames.com</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://nomadjames.com/about/</loc>
@@ -74,15 +74,15 @@
   </url>
   <url>
     <loc>https://nomadjames.com/building/kb-pomo/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://nomadjames.com/building/music-atlas/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://nomadjames.com/building/oblique-oracle/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://nomadjames.com/building/randycamp-clipcycle/</loc>
@@ -139,6 +139,10 @@
   <url>
     <loc>https://nomadjames.com/lab/scroll-signal/</loc>
     <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://nomadjames.com/oblique-oracle/privacy/</loc>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://nomadjames.com/portfolio/ableton-evaluation-suite/</loc>
@@ -210,7 +214,7 @@
   </url>
   <url>
     <loc>https://nomadjames.com/writing/working-with-clarence/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://nomadjames.com/building/oblique-oracle/demo/</loc>
