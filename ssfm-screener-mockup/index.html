@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<title>SSFM screener mockup | Demonstration only</title>
+<meta name="description" content="Demonstration only. The mockup does not collect responses. The live recruitment questionnaire is distributed separately.">
+<link rel="canonical" href="https://nomadjames.com/ssfm-screener-mockup/">
+<style>
+:root {color-scheme:light; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:#171717; background:#f5f4f0; line-height:1.55}
+* {box-sizing:border-box} [hidden] {display:none!important}
+body {margin:0} main {max-width:800px;margin:auto;padding:32px 24px 56px}
+h1 {font-size:clamp(2rem,6vw,2.8rem);letter-spacing:-.035em;line-height:1.12;margin:24px 0 8px} h2 {font-size:1.5rem;line-height:1.3;margin:0 0 18px}
+p {margin:0 0 18px} .subtitle {color:#484848;font-size:1.1rem} .banner {border-left:4px solid #a53f0a;background:#fff1e7;padding:14px 16px;font-size:.95rem}
+.card {background:white;border:1px solid #cccac5;border-radius:8px;padding:28px;margin-top:24px} .progress {font-size:.9rem;font-weight:650;color:#494949;margin-bottom:12px}
+fieldset {min-width:0;border:0;padding:0;margin:0 0 28px} legend {font-weight:700;font-size:1.05rem;padding:0;margin-bottom:10px;width:100%}
+label {cursor:pointer} .choice {display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid #d5d3ce;border-radius:5px;margin:7px 0;min-height:48px}
+.choice:has(input:checked) {background:#fff6ed;border-color:#ae4914}
+input[type=checkbox],input[type=radio] {flex:none;accent-color:#a53f0a;width:20px;height:20px;margin:2px 0 0}
+input[type=text],input[type=email],textarea,select {display:block;width:100%;min-width:0;border:1px solid #777;border-radius:4px;padding:11px;font:inherit;background:#fff;color:#171717;margin:8px 0 0}
+textarea {resize:vertical;min-height:104px} .field {display:block;font-weight:650;margin:20px 0 6px} .help {font-size:.92rem;color:#484848;margin:8px 0 12px} .limit {font-size:.85rem;color:#555}
+button {font:inherit;font-weight:650;cursor:pointer;border:1px solid #a53f0a;border-radius:5px;min-height:48px;padding:10px 20px;color:white;background:#a53f0a}
+button.secondary {background:white;color:#171717;border-color:#777} button:disabled {cursor:not-allowed;opacity:.5}
+.actions {display:flex;flex-wrap:wrap;gap:12px;margin-top:24px} :focus {outline:3px solid #a53f0a;outline-offset:4px} [aria-invalid=true] {outline:2px solid #a22619;outline-offset:2px}
+.errors {background:#fff3f0;border:2px solid #a22619;padding:16px;margin-bottom:24px} .errors h2 {font-size:1.1rem;margin-bottom:8px} .errors ul {padding-left:20px;margin:0} .errors a {color:#8b2415}
+pre {white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;margin:0} .note {font-size:.9rem;color:#484848;margin-top:20px}
+@media(max-width:500px) {main {padding:20px 16px 40px}.card {padding:20px 16px}.actions button {flex:1 1 130px}}
+</style>
+</head>
+<body>
+<main>
+<div class="banner"><strong>Demonstration only.</strong> Use fake details, never real volunteer information. This page does not collect, send, or save responses. It is an interactive replica, not the Qualtrics interface or a record of participant responses.</div>
+<header><h1>iPad music study</h1><p class="subtitle">Participant questionnaire replica · AI-assisted research artifact</p></header>
+<p>These questions help select participants for an in-person study of a prototype iPad musical instrument. The session takes up to 60 minutes, the iPad is provided, and participants receive a $25 gift card for their time. Completing this questionnaire does not book a session or earn a gift card. Participation is voluntary. No previous synthesizer or music-making experience is needed. Audio and video recording is required to take part. You can separately choose whether James may publish blurred excerpts and whether he may keep your private recording after the project. If you choose deletion, the study-controlled private recording will be deleted by January 2, 2027. These choices will be confirmed in the session consent before recording begins. No preparation is needed; please wait until after the session to look up the project.</p>
+<section aria-labelledby="privacy-heading"><h2 id="privacy-heading">Study privacy notice (demonstration)</h2><p>Study-controlled screening and contact records will be deleted by January 2, 2027. Your answers about public excerpts and keeping the private recording are preferences to confirm in separate session consent, not a recording or publication release. If you choose deletion of your private recording, it will be deleted by January 2, 2027.</p><p class="help">This notice describes the live study. No screening or contact records are created by this mockup.</p></section>
+<p id="js-warning" class="banner">JavaScript is required for this demonstration. The questionnaire is disabled until it can run safely. No answers can be sent from this page.</p>
+<noscript><p>JavaScript is off. You can read the study introduction, but cannot complete this review here.</p></noscript>
+<section class="card" id="questionnaire" aria-label="Participant questionnaire">
+<p id="progress" class="progress">Step 1 of 4 · Age</p>
+<div id="errors" class="errors" tabindex="-1" hidden aria-labelledby="error-title"><h2 id="error-title">Please check your answers</h2><ul id="error-list"></ul></div>
+<form id="screener" novalidate autocomplete="off">
+<fieldset id="controls" disabled>
+<div data-step="0">
+<fieldset id="age-group"><legend>1. Are you 18 or older?</legend>
+<label class="choice"><input type="radio" name="age" value="18 or older" id="age-adult">18 or older</label>
+<label class="choice"><input type="radio" name="age" value="Under 18">Under 18</label>
+<label class="choice"><input type="radio" name="age" value="Prefer not to answer">Prefer not to answer</label>
+</fieldset>
+</div>
+<div data-step="1" hidden>
+<fieldset id="activities-group"><legend>2. Which of these have you done while making or learning music?</legend><p class="help">Select all that apply.</p>
+<label class="choice"><input type="checkbox" name="activities" value="Created or produced electronic music" id="activities-first">Created or produced electronic music</label>
+<label class="choice"><input type="checkbox" name="activities" value="Recorded or arranged music in a computer or tablet app">Recorded or arranged music in a computer or tablet app</label>
+<label class="choice"><input type="checkbox" name="activities" value="Played notes on a hardware or software synthesizer">Played notes on a hardware or software synthesizer</label>
+<label class="choice"><input type="checkbox" name="activities" value="Changed a synthesizer sound using its controls">Changed a synthesizer sound using its controls</label>
+<label class="choice"><input type="checkbox" name="activities" value="Worked with samples or loops">Worked with samples or loops</label>
+<label class="choice"><input type="checkbox" name="activities" value="DJed or mixed tracks">DJed or mixed tracks</label>
+<label class="choice"><input type="checkbox" name="activities" value="Something else" id="activity-other">Something else</label>
+<div id="other-detail" hidden><label for="activity-detail" class="field">Something else (optional short text)</label><input type="text" id="activity-detail" maxlength="200"></div>
+<label class="choice"><input type="checkbox" name="activities" value="None of these" data-none>None of these</label>
+</fieldset>
+<fieldset id="interest-group"><legend>3. How interested are you in trying a new iPad musical instrument and sharing your experience?</legend><p class="help">No previous synthesizer or music-making experience is needed. Choose the answer that best describes you.</p><label class="choice"><input type="radio" name="interest" value="Very interested" id="interest-first">Very interested</label><label class="choice"><input type="radio" name="interest" value="Somewhat interested">Somewhat interested</label><label class="choice"><input type="radio" name="interest" value="Not sure yet">Not sure yet</label><label class="choice"><input type="radio" name="interest" value="Not interested">Not interested</label></fieldset><fieldset><legend><label for="interest-detail">What interests you about taking part, or what questions do you have? (optional)</label></legend><textarea id="interest-detail" maxlength="400"></textarea></fieldset><fieldset><legend><label for="synth">4. If you have used a synthesizer, what instrument or app did you last use, and what did you do with the sound? (optional)</label></legend>
+<p id="synth-help" class="help">Background only. Leave this blank if you have not used a synthesizer or would rather skip it. No experience is needed.</p>
+<textarea id="synth" maxlength="700" aria-describedby="synth-help synth-limit"></textarea><span class="limit" id="synth-limit">Up to 700 characters.</span></fieldset>
+<fieldset id="exposure-group"><legend>5. Before this invitation, what exposure had you had to an iPad instrument or project made by the person running this study?</legend>
+<label class="choice"><input type="radio" name="exposure" value="None that I know of" id="exposure-first">None that I know of</label>
+<label class="choice"><input type="radio" name="exposure" value="Heard about it but have not seen or used it">Heard about it but have not seen or used it</label>
+<label class="choice"><input type="radio" name="exposure" value="Seen a website, photo or demonstration">Seen a website, photo or demonstration</label>
+<label class="choice"><input type="radio" name="exposure" value="Used the instrument">Used the instrument</label>
+<label class="choice"><input type="radio" name="exposure" value="Helped design or build it">Helped design or build it</label>
+<label class="choice"><input type="radio" name="exposure" value="Not sure">Not sure</label>
+</fieldset></div>
+<div data-step="2" hidden>
+<fieldset id="areas-group"><legend>6. Which areas could work for an in-person session?</legend><p class="help">Select all that apply.</p>
+<label class="choice"><input type="checkbox" name="areas" value="Canton / Stark County" id="areas-first">Canton / Stark County</label>
+<label class="choice"><input type="checkbox" name="areas" value="Kent area">Kent area</label>
+<label class="choice"><input type="checkbox" name="areas" value="Youngstown area">Youngstown area</label>
+<label class="choice"><input type="checkbox" name="areas" value="Pittsburgh area">Pittsburgh area</label>
+<label class="choice"><input type="checkbox" name="areas" value="Another location to discuss">Another location to discuss</label>
+<label class="choice"><input type="checkbox" name="areas" value="None of these" data-none>None of these</label>
+</fieldset>
+<fieldset><legend><label for="availability">7. What days or times generally work for you?</label></legend><textarea id="availability" required maxlength="500" aria-describedby="availability-limit"></textarea><span class="limit" id="availability-limit">Up to 500 characters.</span></fieldset>
+<fieldset id="recording-group"><legend>8. This session will be recorded in audio and video. Are you willing to take part on that basis?</legend><p class="help">Recording is required for participation. This screener checks willingness; informed consent is confirmed separately before recording.</p><label class="choice"><input type="radio" name="recording" value="Yes, I am willing to be recorded" id="recording-first">Yes, I am willing to be recorded</label><label class="choice"><input type="radio" name="recording" value="No, I do not want to be recorded">No, I do not want to be recorded</label></fieldset><div id="recording-choices" hidden><fieldset id="publication-group"><legend>9. May James publish excerpts from your session with your face and identifying visual details blurred?</legend><p class="help">Saying no does not affect eligibility or the $25 gift card. Blurring does not guarantee anonymity: your voice may still be recognizable. No publication without separate explicit permission.</p><label class="choice"><input type="radio" name="publication" value="Yes, I am open to this" id="publication-first">Yes, I am open to this</label><label class="choice"><input type="radio" name="publication" value="No, do not publish my recording">No, do not publish my recording</label><label class="choice"><input type="radio" name="publication" value="I have questions before deciding">I have questions before deciding</label></fieldset><fieldset id="retention-group"><legend>10. After the project, may James keep your private interview and session recording?</legend><p class="help">Either answer is acceptable and does not affect eligibility or the $25 gift card. This concerns the private recording, not automatic permission to keep or publish public copies. The final consent will specify the deletion schedule and any separately approved excerpts.</p><label class="choice"><input type="radio" name="retention" value="Yes, he may keep my private recording" id="retention-first">Yes, he may keep my private recording</label><label class="choice"><input type="radio" name="retention" value="No, delete my private recording by January 2, 2027">No, delete my private recording by January 2, 2027</label></fieldset></div></div><div data-step="3" hidden><fieldset><legend>11. Contact for study follow-up</legend>
+<label class="field" for="email">Email (required)</label><input id="email" type="email" maxlength="254" required inputmode="email" autocapitalize="none" spellcheck="false">
+<label class="field" for="preferred-name">Preferred name (optional)</label><input id="preferred-name" type="text" maxlength="80">
+<label class="field" for="arrangements">Access or scheduling arrangements you would like to discuss (optional)</label><p id="arrangements-help" class="help">You do not need to provide a diagnosis or medical history.</p><textarea id="arrangements" maxlength="400" aria-describedby="arrangements-help arrangements-limit"></textarea><span class="limit" id="arrangements-limit">Up to 400 characters.</span>
+<label class="field" for="channel">How did you hear about this study? (optional)</label><select id="channel"><option value="">Choose if you wish</option><option>Canton/Stark flyer</option><option>Kent flyer</option><option>YSU flyer</option><option>Westside Bowl flyer</option><option>Pittsburgh flyer</option><option>Someone I know</option><option>Other</option></select>
+</fieldset>
+<p class="banner">Demonstration only: use a made-up email address. This checkbox previews the follow-up agreement; nobody will contact you from this version.</p>
+<label class="choice"><input id="contact-agreement" type="checkbox" required>I agree to be contacted about this study using the email address I provided.</label>
+<p id="agreement-help" class="help">This agrees to follow-up only, not participation, recording or public use. In this demonstration, no contact details or agreement are sent or saved.</p>
+</div>
+<div class="actions"><button type="button" class="secondary" id="back" hidden>Back</button><button type="button" id="next">Continue</button><button type="button" class="secondary" id="reset-form">Start over</button></div>
+</fieldset></form>
+</section>
+<section id="exit" class="card" hidden aria-labelledby="exit-title"><h2 id="exit-title" tabindex="-1">This study is for adults age 18 or older.</h2><p>No answers have been sent.</p><div class="actions"><button type="button" class="secondary" id="restart-exit">Start over</button></div></section>
+<section id="review" class="card" hidden aria-labelledby="review-title"><h2 id="review-title" tabindex="-1">Demonstration complete. Nothing has been submitted.</h2><p>These answers are only shown on this page. They have not been sent or stored. This is not a booking, acceptance or gift-card confirmation.</p><pre id="answer-summary"></pre><div class="actions"><button type="button" class="secondary" id="edit">Back to edit</button><button type="button" class="secondary" id="restart-review">Start over</button></div></section>
+<p class="note">Demonstration only. Use made-up details. Answers remain in page memory while this tab is open; Start over clears them. Reloading starts a new review. No session is booked.</p>
+</main>
+<script>
+'use strict';
+(() => {
+const $ = id => document.getElementById(id);
+const form = $('screener');
+let step = 0;
+const panels = [...document.querySelectorAll('[data-step]')];
+const checked = name => [...form.querySelectorAll(`input[name="${name}"]:checked`)];
+const values = name => checked(name).map(input => input.value);
+const text = id => $(id).value.trim();
+const titles = ['Age', 'Interest and background', 'Session and recording', 'Contact'];
+function clearErrors() {
+  $('errors').hidden = true;
+  $('error-list').replaceChildren();
+  form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+}
+function showStep(n, focus = true) {
+  step = n;
+  panels.forEach((panel,i) => {panel.hidden = i !== step;});
+  $('questionnaire').hidden = false; $('exit').hidden = true; $('review').hidden = true;
+  $('back').hidden = step === 0;
+  $('next').textContent = step === 3 ? 'Review answers' : 'Continue';
+  $('progress').textContent = `Step ${step + 1} of 4 · ${titles[step]}`;
+  clearErrors();
+  if (focus) { $('progress').tabIndex = -1; $('progress').focus(); }
+}
+function reset() {
+  form.reset(); $('other-detail').hidden = true; $('recording-choices').hidden = true; $('exit-title').textContent = 'This study is for adults age 18 or older.';
+  $('answer-summary').textContent = '';
+  showStep(0);
+}
+function errorsForStep() {
+  const errors = [];
+  const requireGroup = (name,id,message) => {if(!checked(name).length) errors.push([id,message]);};
+  const requireText = (id,message) => {if(!text(id)) errors.push([id,message]);};
+  if (step === 0) requireGroup('age','age-adult','Choose an age answer.');
+  if (step === 1) {
+    requireGroup('activities','activities-first','Select at least one activity, or None of these.');
+    requireGroup('interest','interest-first','Choose an interest level. Any answer is accepted.');
+    requireGroup('exposure','exposure-first','Choose an answer about prior exposure.');
+  }
+  if (step === 2) {
+    requireGroup('recording','recording-first','Choose whether you are willing to be recorded.');
+    if (values('recording')[0] !== 'Yes, I am willing to be recorded') return errors;
+    requireGroup('publication','publication-first','Choose a public-use preference. No or questions are acceptable.');
+    requireGroup('retention','retention-first','Choose whether the private recording may be kept.');
+    requireGroup('areas','areas-first','Select at least one area, or None of these.');
+    requireText('availability','Enter the days or times that generally work for you.');
+  }
+  if (step === 3) {
+    if (!text('email') || !$('email').validity.valid) errors.push(['email','Enter a valid email address for this review.']);
+    if (!$('contact-agreement').checked) errors.push(['contact-agreement','Check the follow-up agreement to preview the completed questionnaire.']);
+  }
+  return errors;
+}
+function validate() {
+  clearErrors();
+  const errors = errorsForStep();
+  errors.forEach(([id,message]) => {
+    $(id).setAttribute('aria-invalid','true');
+    const li = document.createElement('li'); const link = document.createElement('a');
+    link.href = '#' + id; link.textContent = message;
+    link.addEventListener('click',event => {event.preventDefault(); $(id).focus();});
+    li.append(link); $('error-list').append(li);
+  });
+  if(errors.length) { $('errors').hidden = false; $('errors').focus(); return false; }
+  return true;
+}
+function summary() {
+  return [
+    'DEMONSTRATION ONLY. Nothing has been submitted.',
+    `1. Age: ${values('age').join(', ')}`,
+    `2. Music activities: ${values('activities').join('; ')}${$('activity-other').checked && text('activity-detail') ? '\nSomething else: ' + text('activity-detail') : ''}`,
+    `3. Interest: ${values('interest').join(', ')}\nOptional comment: ${text('interest-detail') || '(not provided)'}`,
+    `4. Most recent synthesizer use: ${text('synth')}`,
+    `5. Prior exposure: ${values('exposure').join(', ')}`,
+    `6. Session areas: ${values('areas').join('; ')}`,
+    `7. General availability: ${text('availability')}`,
+    `8. Required recording willingness (not final consent): ${values('recording').join(', ')}`,
+    `9. Public-use preference (not a release): ${values('publication').join(', ')}`,
+    `10. Private-recording retention: ${values('retention').join(', ')}`,
+    `11. Email: ${text('email')}\nPreferred name: ${text('preferred-name') || '(not provided)'}\nAccess or scheduling arrangements: ${text('arrangements') || '(not provided)'}\nHeard about study: ${text('channel') || '(not provided)'}`,
+    'Follow-up agreement: checked for review only. No agreement has been sent.'
+  ].join('\n\n');
+}
+form.addEventListener('submit', event => event.preventDefault());
+form.addEventListener('change', event => {
+  const input = event.target;
+  if (input.name === 'recording') {
+    $('recording-choices').hidden = values('recording')[0] !== 'Yes, I am willing to be recorded';
+    if ($('recording-choices').hidden) ['publication','retention'].forEach(name => checked(name).forEach(x => {x.checked=false;}));
+  }
+  if(input.type === 'checkbox' && ['activities','areas'].includes(input.name)) {
+    if(input.checked) {
+      if(input.hasAttribute('data-none')) checked(input.name).filter(el => el !== input).forEach(el => {el.checked = false;});
+      else form.querySelector(`input[name="${input.name}"][data-none]`).checked = false;
+    }
+    $('other-detail').hidden = !$('activity-other').checked;
+  }
+});
+$('next').addEventListener('click', () => {
+  if(!validate()) return;
+  if(step === 0 && values('age')[0] !== '18 or older') {
+    reset(); $('questionnaire').hidden = true; $('exit').hidden = false; $('exit-title').focus(); return;
+  }
+  if(step === 2 && values('recording')[0] === 'No, I do not want to be recorded') {
+    reset(); $('questionnaire').hidden = true; $('exit-title').textContent = 'Audio and video recording is required for this study.'; $('exit').hidden = false; $('exit-title').focus(); return;
+  }
+  if(step < 3) {showStep(step + 1); return;}
+  $('answer-summary').textContent = summary();
+  $('questionnaire').hidden = true; $('review').hidden = false; $('review-title').focus();
+});
+$('back').addEventListener('click', () => showStep(step - 1));
+$('edit').addEventListener('click', () => {
+  $('answer-summary').textContent = ''; showStep(3);
+});
+['reset-form','restart-exit','restart-review'].forEach(id => $(id).addEventListener('click',reset));
+window.addEventListener('pageshow',event => {if(event.persisted) reset();});
+$('controls').disabled = false; $('js-warning').hidden = true;
+showStep(0,false);
+})();
+</script>
+</body>
+</html>
