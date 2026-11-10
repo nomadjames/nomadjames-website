@@ -3,24 +3,27 @@
   "stories": [
     {
       "title": "AI medicine breakthrough: Could 'good viruses' created by AI, cure deadly viruses?",
-      "source": "Genetic Literacy Project (summarizing The New York Times)",
+      "source": "Genetic Literacy Project",
       "url": "https://geneticliteracyproject.org/2026/11/10/ai-medicine-breakthrough-could-good-viruses-created-by-ai-cure-deadly-viruses/",
-      "synopsis": "For the first time, scientists say they have used viruses designed by AI, called phages, to treat a person with a life-threatening E. coli infection that had resisted antibiotics and every phage doctors could find. The startup Radical Numerics used an AI model called Omnii to redesign the 'legs' of a phage called T7 so they could grab the patient's resistant strain, and the FDA authorized a trial. The work hasn't been peer-reviewed yet and results could take months, but the company's CEO hopes one day to custom-build a patient's phage in just days.",
-      "image": null
+      "synopsis": "For the first time, scientists say they have used viruses designed by AI, called phages, to treat a person with a life-threatening E. coli infection that hadn't responded to antibiotics or any phage doctors could find. The startup Radical Numerics used an AI model called Omnii to redesign a phage so it could grab onto the patient's resistant strain, and the FDA authorized a trial. Results could take months, but the company hopes to one day build a custom phage for a patient in just days.",
+      "image": null,
+      "emoji": "🦠"
     },
     {
-      "title": "AI-guided chest pain care now has randomised trial evidence",
-      "source": "The Future Health",
-      "url": "https://thefuturehealth.substack.com/p/ai-guided-chest-pain-care-now-has",
-      "synopsis": "PARAMOUNT, described as the world's first randomised trial using AI to guide plaque-based heart care, met its primary endpoint at AHA 2026. In the AI-guided group, use of cholesterol-lowering therapy rose from 31% to 75% after testing, though the figures are early and based on 523 patients. The same newsletter reports a 563-patient study of a voice-based AI that aims to flag heart failure events early.",
-      "image": null
+      "title": "How AI glasses are changing the way people communicate",
+      "source": "Euronews",
+      "url": "https://www.euronews.com/2026/11/10/how-ai-glasses-are-changing-the-way-people-communicate",
+      "synopsis": "AI glasses are moving from gadget to everyday tool for travellers and people with hearing loss. Liu Shanshan, who lost her hearing at age three, uses glasses that show speech as captions almost in real time, and says she would wear them at meetings, while eating out, or when hailing a taxi. Others are using real-time translation to speak in their own language and still be understood.",
+      "image": "https://images.euronews.com/articles/stories/09/95/86/39/1200x675_cmsv2_07d0a06f-f455-53cf-998c-fb2ee901a9e8-9958639.jpg",
+      "emoji": "👓"
     },
     {
-      "title": "AI helps Stanford scientists discover a \"natural Ozempic\" with a surprising advantage",
-      "source": "ScienceDaily (Stanford Medicine)",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261104004909.htm",
-      "synopsis": "Scientists at Stanford Medicine used AI to search 20,000 human genes for new hormones and found a naturally occurring molecule that could lead to a new generation of weight-loss medications. In animals, the molecule strongly suppressed appetite and promoted fat loss. It's an exciting early example of AI helping researchers find promising new medicines hidden in our own biology.",
-      "image": "https://www.sciencedaily.com/images/1920/weight-loss-molecule-fit-woman.webp"
+      "title": "Environmental groups embrace AI, even as they warn of data center impacts",
+      "source": "News Tribune",
+      "url": "https://www.newstribune.com/news/2026/nov/09/environmental-groups-embrace-ai-even-as-they-warn-of-data-center-impacts/",
+      "synopsis": "Environmental groups around the world are using AI to analyze climate data, track forest fires and count endangered wildlife, including Save the Elephants researchers flying surveillance drones in Kenya's Samburu National Reserve. With the climate and biodiversity crises growing more urgent, these groups say AI helps them move faster and make better use of the information they collect. Some, like the World Resources Institute, are also using AI carefully to keep its own footprint small.",
+      "image": "https://faughnmedia.media.clients.ellingtoncms.com/img/photos/2026/11/09/2026-11-07T061022Z_2_LYNXNPEMA6058_RTROPTP_4_CLIMATE-COP31-AI_t1200.JPG?57a0c2296240c280e9492005c3cad63e7cbe80f4",
+      "emoji": "🐘"
     }
   ]
 }
