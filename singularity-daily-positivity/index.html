@@ -165,7 +165,16 @@ h1 .c { color: #ffb3d3; animation-delay: -1.2s; }
   border: 4px solid var(--ink); border-radius: 1.1rem;
   background: repeating-conic-gradient(from 0deg at 50% 60%, #ffd23f 0 12deg, #ffb3d3 12deg 24deg);
 }
-div.thumb { display: grid; place-content: center; font-size: 4rem; }
+div.thumb { display: grid; place-content: center; overflow: hidden; }
+div.thumb span {
+  width: 6.5rem; aspect-ratio: 1; display: grid; place-content: center;
+  font-size: 3.6rem; line-height: 1;
+  background: #fff; border: 4px solid var(--ink); border-radius: 50%;
+  box-shadow: 0 6px 0 var(--ink);
+  animation: wobble 3s ease-in-out infinite;
+}
+.card:nth-child(2) div.thumb { background: repeating-conic-gradient(from 0deg at 50% 60%, #7dffc4 0 12deg, #8fe3ff 12deg 24deg); }
+.card:nth-child(3) div.thumb { background: repeating-conic-gradient(from 0deg at 50% 60%, #b38bff 0 12deg, #ffd23f 12deg 24deg); }
 .card h2 { margin: 0; font: 600 1.35rem/1.2 var(--body); text-wrap: balance; }
 .card p { margin: 0; }
 .source { font-weight: 600; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; color: var(--pink-deep); }
@@ -288,9 +297,10 @@ function el(tag, className, text) {
   return node;
 }
 
-function placeholder() {
-  const box = el("div", "thumb", "💖");
+function placeholder(story) {
+  const box = el("div", "thumb");
   box.setAttribute("aria-hidden", "true");
+  box.append(el("span", "", story.emoji || "💖"));
   return box;
 }
 
@@ -303,10 +313,10 @@ function card(story, index) {
     img.alt = "";
     img.loading = "lazy";
     img.referrerPolicy = "no-referrer";
-    img.addEventListener("error", () => img.replaceWith(placeholder()));
+    img.addEventListener("error", () => img.replaceWith(placeholder(story)));
     li.append(img);
   } else {
-    li.append(placeholder());
+    li.append(placeholder(story));
   }
   li.append(el("p", "source", story.source), el("h2", "", story.title), el("p", "", story.synopsis));
   const link = el("a", "read", "Read the story");
