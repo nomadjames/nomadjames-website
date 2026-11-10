@@ -189,7 +189,17 @@ div.thumb span {
 .read:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
 
 footer { position: relative; z-index: 1; padding: 0 1rem 2rem; text-align: center; font-size: .95rem; }
-footer a { color: var(--pink-deep); font-weight: 600; }
+footer p { margin: 0 0 .4rem; }
+footer a { color: var(--pink-deep); font-weight: 600; margin-inline: .5em; }
+.past-title {
+  margin: 2rem 0 0;
+  font: 400 clamp(2rem, 7vw, 3.5rem)/1.05 var(--display);
+  color: #fff; -webkit-text-stroke: .09em var(--ink); paint-order: stroke fill;
+  text-shadow: .07em .09em 0 var(--pink); rotate: -1.5deg;
+}
+.day { width: 100%; display: grid; gap: 1.5rem; justify-items: center; margin-top: 1.5rem; }
+button.read { font: inherit; font-weight: 600; cursor: pointer; justify-self: center; }
+button.read[hidden] { display: none; }
 footer a:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
 
 /* Confetti */
@@ -234,9 +244,19 @@ footer a:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
     <p class="dateline" id="dateline"></p>
     <ol class="cards" id="cards"></ol>
   </section>
+
+  <section class="results" id="past" aria-labelledby="pastTitle" hidden>
+    <h2 class="past-title" id="pastTitle">Past picks</h2>
+    <p class="status" id="pastStatus" role="status"></p>
+    <div class="results" id="days"></div>
+    <button class="read" id="earlier" type="button" hidden>Show earlier days</button>
+  </section>
 </main>
 
-<footer>Made with love. Stories picked each morning by Claude. <a href="/">nomadjames.com</a></footer>
+<footer>
+  <p>Made with love. Stories picked each morning by Claude.</p>
+  <p><a href="#past" id="pastLink">See past picks</a> <a href="/">nomadjames.com</a></p>
+</footer>
 
 <script>
 const go = document.getElementById("go");
@@ -328,9 +348,56 @@ function card(story, index) {
   return li;
 }
 
+function dayName(date, withYear) {
+  const options = { weekday: "long", month: "long", day: "numeric" };
+  if (withYear) options.year = "numeric";
+  return new Date(date + "T12:00:00").toLocaleDateString("en-US", options);
+}
+
+// Past picks: one block per day, newest first, a week at a time.
+const past = document.getElementById("past");
+const pastStatus = document.getElementById("pastStatus");
+const daysBox = document.getElementById("days");
+const earlier = document.getElementById("earlier");
+let pastDays = null;
+
+function showMoreDays() {
+  for (const day of pastDays.splice(0, 7)) {
+    const block = el("div", "day");
+    const list = el("ol", "cards");
+    list.append(...day.stories.slice(0, 3).map(card));
+    block.append(el("p", "dateline", dayName(day.date, true)), list);
+    daysBox.append(block);
+  }
+  earlier.hidden = pastDays.length === 0;
+}
+
+async function openPast() {
+  past.hidden = false;
+  past.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+  if (pastDays) return;
+  pastStatus.textContent = "Fetching the happy memories…";
+  try {
+    const response = await fetch("archive.json?t=" + Date.now());
+    if (!response.ok) throw new Error(response.status);
+    const today = await stories.then((data) => data.date, () => null);
+    pastDays = (await response.json()).days.filter((day) => day.date !== today);
+    pastStatus.textContent = pastDays.length ? "" : "No past picks yet. Come back tomorrow.";
+    showMoreDays();
+  } catch {
+    pastStatus.textContent = "Past picks are not available right now.";
+  }
+}
+
+document.getElementById("pastLink").addEventListener("click", (event) => {
+  event.preventDefault();
+  openPast();
+});
+earlier.addEventListener("click", showMoreDays);
+if (location.hash === "#past") openPast();
+
 function show(data) {
-  const day = new Date(data.date + "T12:00:00");
-  dateline.textContent = "Good news for " + day.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+  dateline.textContent = "Good news for " + dayName(data.date, false);
   cards.replaceChildren(...data.stories.slice(0, 3).map(card));
   results.hidden = false;
   statusEl.textContent = "";
