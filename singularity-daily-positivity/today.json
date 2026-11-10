@@ -2,25 +2,25 @@
   "date": "2026-11-10",
   "stories": [
     {
-      "title": "MIT-led team receives funding to develop next-generation alternatives to modern weed killers",
-      "source": "MIT News",
-      "url": "https://news.mit.edu/2026/mit-led-team-receives-funding-next-generation-alternatives-modern-weed-killers-1110",
-      "synopsis": "An MIT-led team is getting up to $53 million from ARPA-H to design safer weed killers with the help of AI. The goal is gentler ways to protect crops, made closer to home.",
-      "image": "https://news.mit.edu/sites/default/files/images/202611/MIT-VoigtGrant-01-Press.jpg"
+      "title": "AI medicine breakthrough: Could 'good viruses' created by AI, cure deadly viruses?",
+      "source": "Genetic Literacy Project (summarizing The New York Times)",
+      "url": "https://geneticliteracyproject.org/2026/11/10/ai-medicine-breakthrough-could-good-viruses-created-by-ai-cure-deadly-viruses/",
+      "synopsis": "For the first time, scientists say they have used viruses designed by AI, called phages, to treat a person with a life-threatening E. coli infection that had resisted antibiotics and every phage doctors could find. The startup Radical Numerics used an AI model called Omnii to redesign the 'legs' of a phage called T7 so they could grab the patient's resistant strain, and the FDA authorized a trial. The work hasn't been peer-reviewed yet and results could take months, but the company's CEO hopes one day to custom-build a patient's phage in just days.",
+      "image": null
     },
     {
-      "title": "A single AI model simulates the behavior of many substances, from sliding sand to folding proteins",
-      "source": "MIT News",
-      "url": "https://news.mit.edu/2026/single-ai-model-simulates-many-substances-behavior-1109",
-      "synopsis": "A new system called WorldParticle learns how matter moves, whether it is sand sliding or a protein folding. The researchers say it could help with building soft robots and developing medicines.",
-      "image": "https://news.mit.edu/sites/default/files/images/202611/MIT-WorldParticle-01-Press.jpg"
+      "title": "AI-guided chest pain care now has randomised trial evidence",
+      "source": "The Future Health",
+      "url": "https://thefuturehealth.substack.com/p/ai-guided-chest-pain-care-now-has",
+      "synopsis": "PARAMOUNT, described as the world's first randomised trial using AI to guide plaque-based heart care, met its primary endpoint at AHA 2026. In the AI-guided group, use of cholesterol-lowering therapy rose from 31% to 75% after testing, though the figures are early and based on 523 patients. The same newsletter reports a 563-patient study of a voice-based AI that aims to flag heart failure events early.",
+      "image": null
     },
     {
-      "title": "AI-assisted learning platform helps robots reason beyond literal commands",
-      "source": "MIT News",
-      "url": "https://news.mit.edu/2026/ai-assisted-learning-platform-helps-robots-reason-beyond-literal-commands-1109",
-      "synopsis": "A new approach called FLEX helps robots work out what a person means, beyond the literal words. That could make household and assistive robots much better helpers.",
-      "image": "https://news.mit.edu/sites/default/files/images/202611/MIT-FLEX-01-press.jpg"
+      "title": "AI helps Stanford scientists discover a \"natural Ozempic\" with a surprising advantage",
+      "source": "ScienceDaily (Stanford Medicine)",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261104004909.htm",
+      "synopsis": "Scientists at Stanford Medicine used AI to search 20,000 human genes for new hormones and found a naturally occurring molecule that could lead to a new generation of weight-loss medications. In animals, the molecule strongly suppressed appetite and promoted fat loss. It's an exciting early example of AI helping researchers find promising new medicines hidden in our own biology.",
+      "image": "https://www.sciencedaily.com/images/1920/weight-loss-molecule-fit-woman.webp"
     }
   ]
 }
