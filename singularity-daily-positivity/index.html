@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Singularity Daily Positivity Generator</title>
 <meta name="description" content="Three happy AI stories, picked fresh every morning.">
-<meta name="robots" content="noindex">
 <link rel="canonical" href="https://nomadjames.com/singularity-daily-positivity/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28S3 20 3 11a7 7 0 0 1 13-3 7 7 0 0 1 13 3c0 9-13 17-13 17z' fill='%23ff3d8b' stroke='%233b1d4a' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -190,6 +189,8 @@ div.thumb span {
 .read:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
 
 footer { position: relative; z-index: 1; padding: 0 1rem 2rem; text-align: center; font-size: .95rem; }
+footer a { color: var(--pink-deep); font-weight: 600; }
+footer a:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
 
 /* Confetti */
 .bit { position: fixed; z-index: 5; pointer-events: none; font-size: 2rem; animation: burst 1.4s cubic-bezier(.1, .7, .3, 1) forwards; }
@@ -235,7 +236,7 @@ footer { position: relative; z-index: 1; padding: 0 1rem 2rem; text-align: cente
   </section>
 </main>
 
-<footer>Made with love. Stories picked each morning by Claude.</footer>
+<footer>Made with love. Stories picked each morning by Claude. <a href="/">nomadjames.com</a></footer>
 
 <script>
 const go = document.getElementById("go");
