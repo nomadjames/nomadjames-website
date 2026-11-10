@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-10",
+  "stories": [
+    {
+      "title": "MIT-led team receives funding to develop next-generation alternatives to modern weed killers",
+      "source": "MIT News",
+      "url": "https://news.mit.edu/2026/mit-led-team-receives-funding-next-generation-alternatives-modern-weed-killers-1110",
+      "synopsis": "An MIT-led team is getting up to $53 million from ARPA-H to design safer weed killers with the help of AI. The goal is gentler ways to protect crops, made closer to home.",
+      "image": "https://news.mit.edu/sites/default/files/images/202611/MIT-VoigtGrant-01-Press.jpg"
+    },
+    {
+      "title": "A single AI model simulates the behavior of many substances, from sliding sand to folding proteins",
+      "source": "MIT News",
+      "url": "https://news.mit.edu/2026/single-ai-model-simulates-many-substances-behavior-1109",
+      "synopsis": "A new system called WorldParticle learns how matter moves, whether it is sand sliding or a protein folding. The researchers say it could help with building soft robots and developing medicines.",
+      "image": "https://news.mit.edu/sites/default/files/images/202611/MIT-WorldParticle-01-Press.jpg"
+    },
+    {
+      "title": "AI-assisted learning platform helps robots reason beyond literal commands",
+      "source": "MIT News",
+      "url": "https://news.mit.edu/2026/ai-assisted-learning-platform-helps-robots-reason-beyond-literal-commands-1109",
+      "synopsis": "A new approach called FLEX helps robots work out what a person means, beyond the literal words. That could make household and assistive robots much better helpers.",
+      "image": "https://news.mit.edu/sites/default/files/images/202611/MIT-FLEX-01-press.jpg"
+    }
+  ]
+}

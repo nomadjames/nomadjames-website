@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Singularity Daily Positivity Generator</title>
+<meta name="description" content="Three happy AI stories, picked fresh every morning.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://nomadjames.com/singularity-daily-positivity/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28S3 20 3 11a7 7 0 0 1 13-3 7 7 0 0 1 13 3c0 9-13 17-13 17z' fill='%23ff3d8b' stroke='%233b1d4a' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #3b1d4a;
+  --pink: #ff3d8b;
+  --pink-deep: #c81763;
+  --sun: #ffd23f;
+  --sky: #8fe3ff;
+  --mint: #7dffc4;
+  --cream: #fff8ec;
+  --display: "Bagel Fat One", "Fredoka", ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif;
+  --body: "Fredoka", ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { color-scheme: light; }
+body {
+  margin: 0;
+  min-height: 100svh;
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: linear-gradient(#8fe3ff 0%, #ffd9ec 45%, #fff2b8 100%) fixed;
+  overflow-x: hidden;
+}
+
+/* Sky decorations */
+.sky { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.rays {
+  position: absolute; left: 50%; top: 50%;
+  width: 220vmax; height: 220vmax; margin: -110vmax 0 0 -110vmax;
+  background: repeating-conic-gradient(rgb(255 255 255 / .38) 0 9deg, transparent 9deg 18deg);
+  animation: spin 80s linear infinite;
+}
+.rainbow {
+  position: absolute; left: 50%; top: -34vmin;
+  width: 150vmin; height: 150vmin; margin-left: -75vmin; border-radius: 50%;
+  background: radial-gradient(closest-side, transparent 62%,
+    #b38bff 62% 67%, #5cc8ff 67% 72%, #7dffc4 72% 77%,
+    #ffd23f 77% 82%, #ff9d32 82% 87%, #ff5a7a 87% 92%, transparent 92%);
+  opacity: .8;
+}
+.cloud {
+  position: absolute; width: 11rem; height: 3.6rem; border-radius: 99px;
+  background: #fff; border: 4px solid var(--ink);
+  animation: drift 60s linear infinite;
+}
+.cloud::before, .cloud::after {
+  content: ""; position: absolute; background: #fff; border: 4px solid var(--ink);
+  border-bottom-color: transparent; border-radius: 50%;
+}
+.cloud::before { width: 4.4rem; height: 4.4rem; left: 1.4rem; top: -2.3rem; }
+.cloud::after { width: 3.2rem; height: 3.2rem; right: 1.8rem; top: -1.5rem; }
+.cloud:nth-child(3) { top: 12%; left: -14rem; }
+.cloud:nth-child(4) { top: 58%; left: -14rem; scale: .7; animation-duration: 85s; animation-delay: -30s; }
+.cloud:nth-child(5) { top: 80%; left: -14rem; scale: 1.2; animation-duration: 70s; animation-delay: -50s; }
+.floater {
+  position: absolute; bottom: -4rem; font-size: 2rem;
+  animation: rise linear infinite;
+}
+
+/* Layout */
+main {
+  position: relative; z-index: 1;
+  width: min(100% - 2rem, 72rem); margin-inline: auto;
+  padding-block: clamp(1.5rem, 5vh, 4rem) 4rem;
+  display: grid; justify-items: center; gap: clamp(1.25rem, 4vh, 2.5rem);
+  text-align: center;
+}
+.stage { min-height: 82svh; display: grid; align-content: center; justify-items: center; gap: clamp(1.25rem, 4vh, 2.5rem); }
+h1 {
+  margin: 0;
+  font: 400 clamp(2.4rem, 8.5vw, 6rem)/1.02 var(--display);
+  text-wrap: balance;
+  color: #fff;
+  -webkit-text-stroke: .09em var(--ink);
+  paint-order: stroke fill;
+  text-shadow: .07em .09em 0 var(--pink);
+  rotate: -2deg;
+}
+h1 span { display: inline-block; animation: wobble 3s ease-in-out infinite; }
+h1 .a { color: var(--sun); }
+h1 .b { color: var(--mint); animation-delay: -.6s; }
+h1 .c { color: #ffb3d3; animation-delay: -1.2s; }
+.tagline {
+  margin: 0; padding: .35em 1.1em;
+  font-weight: 600; font-size: clamp(1rem, 2.6vw, 1.35rem);
+  background: #fff; border: 4px solid var(--ink); border-radius: 99px;
+  box-shadow: 0 6px 0 var(--ink);
+  rotate: 1.5deg;
+}
+
+/* The button */
+.go {
+  position: relative;
+  width: clamp(15rem, 62vmin, 24rem); aspect-ratio: 1;
+  display: grid; place-content: center; gap: .1em;
+  font: 400 clamp(2rem, 9vmin, 3.6rem)/.95 var(--display);
+  color: #fff; -webkit-text-stroke: .07em var(--ink); paint-order: stroke fill;
+  background: radial-gradient(circle at 32% 26%, #ff9cc6 0 14%, var(--pink) 40%, var(--pink-deep) 100%);
+  border: 7px solid var(--ink); border-radius: 50%;
+  box-shadow: 0 18px 0 var(--ink), 0 18px 0 12px rgb(255 255 255 / .55);
+  cursor: pointer;
+  animation: heartbeat 1.6s ease-in-out infinite;
+  transition: translate .08s, box-shadow .08s;
+  -webkit-tap-highlight-color: transparent;
+}
+.go:hover { animation-duration: .8s; }
+.go:active, .go.busy { translate: 0 14px; box-shadow: 0 4px 0 var(--ink), 0 4px 0 12px rgb(255 255 255 / .55); }
+.go:focus-visible { outline: 6px dashed #fff; outline-offset: 10px; }
+.go .heart { font-size: .9em; -webkit-text-stroke: 0; }
+.go.busy { animation: jiggle .25s linear infinite; cursor: progress; }
+
+.status { min-height: 1.6em; margin: 0; font-weight: 600; font-size: 1.25rem; }
+
+/* Results */
+.results { width: 100%; display: grid; gap: 1.5rem; justify-items: center; }
+.results[hidden] { display: none; }
+.dateline {
+  margin: 0; padding: .3em 1em;
+  font: 400 clamp(1.3rem, 4vw, 2rem)/1.2 var(--display);
+  color: var(--ink); background: var(--sun);
+  border: 4px solid var(--ink); border-radius: 1rem;
+  box-shadow: 0 6px 0 var(--ink); rotate: -1.5deg;
+}
+.cards {
+  width: 100%; margin: 0; padding: 0; list-style: none;
+  display: grid; gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  align-items: start;
+}
+.card {
+  position: relative; display: grid; gap: .75rem; padding: 1rem 1rem 1.25rem;
+  text-align: left; background: var(--cream);
+  border: 5px solid var(--ink); border-radius: 1.75rem;
+  box-shadow: 10px 12px 0 var(--ink);
+  animation: pop .7s cubic-bezier(.2, 1.6, .4, 1) both;
+}
+.card:nth-child(1) { rotate: -2deg; }
+.card:nth-child(2) { rotate: 1.5deg; animation-delay: .25s; }
+.card:nth-child(3) { rotate: -1deg; animation-delay: .5s; }
+.card:nth-child(2) .badge { background: var(--mint); }
+.card:nth-child(3) .badge { background: var(--sky); }
+.badge {
+  position: absolute; top: -1.4rem; left: -1rem;
+  width: 3.6rem; aspect-ratio: 1; display: grid; place-content: center;
+  font: 400 1.7rem/1 var(--display);
+  background: var(--sun); border: 4px solid var(--ink); border-radius: 50%;
+  box-shadow: 0 4px 0 var(--ink); rotate: -12deg; z-index: 1;
+}
+.thumb {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;
+  border: 4px solid var(--ink); border-radius: 1.1rem;
+  background: repeating-conic-gradient(from 0deg at 50% 60%, #ffd23f 0 12deg, #ffb3d3 12deg 24deg);
+}
+div.thumb { display: grid; place-content: center; font-size: 4rem; }
+.card h2 { margin: 0; font: 600 1.35rem/1.2 var(--body); text-wrap: balance; }
+.card p { margin: 0; }
+.source { font-weight: 600; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; color: var(--pink-deep); }
+.read {
+  justify-self: start; padding: .5em 1.1em;
+  font-weight: 600; color: #fff; text-decoration: none;
+  background: var(--pink); border: 4px solid var(--ink); border-radius: 99px;
+  box-shadow: 0 5px 0 var(--ink);
+  transition: translate .08s, box-shadow .08s;
+}
+.read:hover { background: var(--pink-deep); }
+.read:active { translate: 0 4px; box-shadow: 0 1px 0 var(--ink); }
+.read:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
+
+footer { position: relative; z-index: 1; padding: 0 1rem 2rem; text-align: center; font-size: .95rem; }
+
+/* Confetti */
+.bit { position: fixed; z-index: 5; pointer-events: none; font-size: 2rem; animation: burst 1.4s cubic-bezier(.1, .7, .3, 1) forwards; }
+
+@keyframes spin { to { rotate: 1turn; } }
+@keyframes drift { to { translate: calc(100vw + 30rem) 0; } }
+@keyframes rise { to { translate: var(--sway, 2rem) -120svh; rotate: var(--turn, 40deg); } }
+@keyframes wobble { 50% { translate: 0 -.08em; rotate: 3deg; } }
+@keyframes heartbeat { 0%, 100% { scale: 1; } 12% { scale: 1.07; } 24% { scale: 1; } 36% { scale: 1.05; } 48% { scale: 1; } }
+@keyframes jiggle { 25% { rotate: -3deg; } 75% { rotate: 3deg; } }
+@keyframes pop { from { scale: 0; opacity: 0; } }
+@keyframes burst { to { translate: var(--dx) var(--dy); rotate: var(--rot); opacity: 0; scale: .4; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .floater, .bit { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true">
+  <div class="rays"></div>
+  <div class="rainbow"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+</div>
+
+<main>
+  <div class="stage">
+    <h1><span class="a">The Singularity</span> <span class="b">Daily Positivity</span> <span class="c">Generator</span></h1>
+    <p class="tagline">Three happy AI stories, picked fresh every morning.</p>
+    <button class="go" id="go" type="button">
+      <span class="heart" aria-hidden="true">💖</span>
+      <span>Daily<br>Positivity</span>
+    </button>
+    <p class="status" id="status" role="status"></p>
+  </div>
+
+  <section class="results" id="results" aria-label="Today's stories" hidden>
+    <p class="dateline" id="dateline"></p>
+    <ol class="cards" id="cards"></ol>
+  </section>
+</main>
+
+<footer>Made with love. Stories picked each morning by Claude.</footer>
+
+<script>
+const go = document.getElementById("go");
+const statusEl = document.getElementById("status");
+const results = document.getElementById("results");
+const cards = document.getElementById("cards");
+const dateline = document.getElementById("dateline");
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const BITS = ["💖", "💕", "✨", "🌈", "⭐", "🌸", "💛", "🦄"];
+
+// Fetch as soon as the page opens so the button answers instantly.
+const loadStories = () => fetch("today.json?t=" + Date.now()).then((r) => {
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+});
+let stories = loadStories();
+stories.catch(() => {});
+
+// Hearts drifting up the sky.
+if (!calm) {
+  const sky = document.querySelector(".sky");
+  for (let i = 0; i < 14; i++) {
+    const f = document.createElement("span");
+    f.className = "floater";
+    f.textContent = BITS[i % BITS.length];
+    f.style.left = Math.random() * 100 + "%";
+    f.style.fontSize = 1.2 + Math.random() * 2 + "rem";
+    f.style.animationDuration = 12 + Math.random() * 16 + "s";
+    f.style.animationDelay = -Math.random() * 28 + "s";
+    f.style.setProperty("--sway", Math.random() * 10 - 5 + "rem");
+    f.style.setProperty("--turn", Math.random() * 120 - 60 + "deg");
+    sky.append(f);
+  }
+}
+
+function confetti() {
+  if (calm) return;
+  const box = go.getBoundingClientRect();
+  const x = box.left + box.width / 2, y = box.top + box.height / 2;
+  for (let i = 0; i < 44; i++) {
+    const b = document.createElement("span");
+    b.className = "bit";
+    b.textContent = BITS[i % BITS.length];
+    const angle = Math.random() * Math.PI * 2, reach = 140 + Math.random() * 420;
+    b.style.left = x + "px";
+    b.style.top = y + "px";
+    b.style.setProperty("--dx", Math.cos(angle) * reach + "px");
+    b.style.setProperty("--dy", Math.sin(angle) * reach + "px");
+    b.style.setProperty("--rot", Math.random() * 720 - 360 + "deg");
+    b.addEventListener("animationend", () => b.remove());
+    document.body.append(b);
+  }
+}
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text) node.textContent = text;
+  return node;
+}
+
+function placeholder() {
+  const box = el("div", "thumb", "💖");
+  box.setAttribute("aria-hidden", "true");
+  return box;
+}
+
+function card(story, index) {
+  const li = el("li", "card");
+  li.append(el("span", "badge", String(index + 1)));
+  if (/^https:\/\//.test(story.image || "")) {
+    const img = el("img", "thumb");
+    img.src = story.image;
+    img.alt = "";
+    img.loading = "lazy";
+    img.referrerPolicy = "no-referrer";
+    img.addEventListener("error", () => img.replaceWith(placeholder()));
+    li.append(img);
+  } else {
+    li.append(placeholder());
+  }
+  li.append(el("p", "source", story.source), el("h2", "", story.title), el("p", "", story.synopsis));
+  const link = el("a", "read", "Read the story");
+  link.href = /^https?:\/\//.test(story.url) ? story.url : "#";
+  link.target = "_blank";
+  link.rel = "noopener";
+  li.append(link);
+  return li;
+}
+
+function show(data) {
+  const day = new Date(data.date + "T12:00:00");
+  dateline.textContent = "Good news for " + day.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+  cards.replaceChildren(...data.stories.slice(0, 3).map(card));
+  results.hidden = false;
+  statusEl.textContent = "";
+  results.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+}
+
+go.addEventListener("click", async () => {
+  if (go.classList.contains("busy")) return;
+  go.classList.add("busy");
+  statusEl.textContent = "Finding the good stuff…";
+  confetti();
+  try {
+    const [data] = await Promise.all([stories, new Promise((done) => setTimeout(done, calm ? 0 : 1100))]);
+    confetti();
+    show(data);
+  } catch {
+    statusEl.textContent = "The good news is running late. Try again in a minute.";
+    stories = loadStories();
+    stories.catch(() => {});
+  }
+  go.classList.remove("busy");
+});
+</script>
+</body>
+</html>
