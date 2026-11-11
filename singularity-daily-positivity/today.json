@@ -1,29 +1,29 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "stories": [
     {
-      "title": "AI medicine breakthrough: Could 'good viruses' created by AI, cure deadly viruses?",
-      "source": "Genetic Literacy Project",
-      "url": "https://geneticliteracyproject.org/2026/11/10/ai-medicine-breakthrough-could-good-viruses-created-by-ai-cure-deadly-viruses/",
-      "synopsis": "For the first time, scientists say they have used viruses designed by AI, called phages, to treat a person with a life-threatening E. coli infection that hadn't responded to antibiotics or any phage doctors could find. The startup Radical Numerics used an AI model called Omnii to redesign a phage so it could grab onto the patient's resistant strain, and the FDA authorized a trial. Results could take months, but the company hopes to one day build a custom phage for a patient in just days.",
+      "title": "Mayo Clinic AI detects pancreatic cancer up to 3 years before diagnosis in landmark validation study",
+      "source": "Mayo Clinic News Network",
+      "url": "https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-ai-detects-pancreatic-cancer-up-to-3-years-before-diagnosis-in-landmark-validation-study/",
+      "synopsis": "A Mayo Clinic AI model called REDMOD helps specialists spot pancreatic cancer on routine abdominal CT scans up to three years before clinical diagnosis. In a study of nearly 2,000 scans that were originally read as normal, it identified 73% of the prediagnostic cancers about 16 months ahead of diagnosis, nearly double the rate of specialists working without AI. The team is now moving the work into clinical testing, which is hopeful news for earlier treatment of a very hard-to-catch cancer.",
       "image": null,
-      "emoji": "🦠"
+      "emoji": "🎗️"
     },
     {
-      "title": "How AI glasses are changing the way people communicate",
-      "source": "Euronews",
-      "url": "https://www.euronews.com/2026/11/10/how-ai-glasses-are-changing-the-way-people-communicate",
-      "synopsis": "AI glasses are moving from gadget to everyday tool for travellers and people with hearing loss. Liu Shanshan, who lost her hearing at age three, uses glasses that show speech as captions almost in real time, and says she would wear them at meetings, while eating out, or when hailing a taxi. Others are using real-time translation to speak in their own language and still be understood.",
-      "image": "https://images.euronews.com/articles/stories/09/95/86/39/1200x675_cmsv2_07d0a06f-f455-53cf-998c-fb2ee901a9e8-9958639.jpg",
-      "emoji": "👓"
+      "title": "AI is changing cancer treatment — and a new breakthrough shows just how far we've come",
+      "source": "Tom's Guide",
+      "url": "https://tomsguide.com/ai/ai-is-changing-cancer-treatment-and-a-new-breakthrough-shows-just-how-far-weve-come",
+      "synopsis": "Researchers are using AI to understand cancer in far more detail than was possible a decade ago, moving toward treatments matched to the genetic makeup of each person's tumor. One example is the National Cancer Institute's PERCEPTION tool, which reads gene activity in individual cancer cells to predict whether certain drugs might work. The article is clear that lab and patient testing still come next, but it sees encouraging signs for more personalized care.",
+      "image": "https://cdn.mos.cms.futurecdn.net/dS2fewn72KRbX6PSjhKyyL-2560-80.jpg",
+      "emoji": "🧬"
     },
     {
-      "title": "Environmental groups embrace AI, even as they warn of data center impacts",
-      "source": "News Tribune",
-      "url": "https://www.newstribune.com/news/2026/nov/09/environmental-groups-embrace-ai-even-as-they-warn-of-data-center-impacts/",
-      "synopsis": "Environmental groups around the world are using AI to analyze climate data, track forest fires and count endangered wildlife, including Save the Elephants researchers flying surveillance drones in Kenya's Samburu National Reserve. With the climate and biodiversity crises growing more urgent, these groups say AI helps them move faster and make better use of the information they collect. Some, like the World Resources Institute, are also using AI carefully to keep its own footprint small.",
-      "image": "https://faughnmedia.media.clients.ellingtoncms.com/img/photos/2026/11/09/2026-11-07T061022Z_2_LYNXNPEMA6058_RTROPTP_4_CLIMATE-COP31-AI_t1200.JPG?57a0c2296240c280e9492005c3cad63e7cbe80f4",
-      "emoji": "🐘"
+      "title": "AI Forecasts Heart Patients' Survival Slightly Better Than Doctors",
+      "source": "StudyFinds",
+      "url": "https://studyfinds.com/ai-heart-patients-survival-better-than-doctors/",
+      "synopsis": "In a study of 27,382 heart patients in the UK and US, an AI program measured heart function from scans in just three to four seconds. Its numbers also tracked which patients later survived slightly better than the doctors' own readings. Doctors still came out ahead for patients with hypertrophic cardiomyopathy, which points to AI and clinicians working well as a team.",
+      "image": "https://studyfinds.com/wp-content/uploads/2026/11/doctor-heart-AI-scaled.jpeg",
+      "emoji": "❤️"
     }
   ]
 }
