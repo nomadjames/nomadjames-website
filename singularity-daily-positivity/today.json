@@ -1,29 +1,29 @@
 {
-  "date": "2026-11-11",
+  "date": "2026-11-12",
   "stories": [
     {
-      "title": "Mayo Clinic AI detects pancreatic cancer up to 3 years before diagnosis in landmark validation study",
-      "source": "Mayo Clinic News Network",
-      "url": "https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-ai-detects-pancreatic-cancer-up-to-3-years-before-diagnosis-in-landmark-validation-study/",
-      "synopsis": "A Mayo Clinic AI model called REDMOD helps specialists spot pancreatic cancer on routine abdominal CT scans up to three years before clinical diagnosis. In a study of nearly 2,000 scans that were originally read as normal, it identified 73% of the prediagnostic cancers about 16 months ahead of diagnosis, nearly double the rate of specialists working without AI. The team is now moving the work into clinical testing, which is hopeful news for earlier treatment of a very hard-to-catch cancer.",
+      "title": "AI medicine breakthrough: Could 'good viruses' created by AI cure deadly diseases and infections?",
+      "source": "Genetic Literacy Project",
+      "url": "https://geneticliteracyproject.org/2026/11/10/ai-medicine-breakthrough-could-good-viruses-created-by-ai-cure-deadly-infections/",
+      "synopsis": "For the first time, scientists say they have used AI-designed viruses called phages to treat a person with a life-threatening E. coli infection that had resisted antibiotics and every phage doctors could find. The startup Radical Numerics used an AI model called Omnii to redesign a phage known as T7. Outside experts are intrigued but cautious, and results could take months, but it's a hopeful step against drug-resistant infections.",
       "image": null,
-      "emoji": "🎗️"
+      "emoji": "🦠"
     },
     {
-      "title": "AI is changing cancer treatment — and a new breakthrough shows just how far we've come",
-      "source": "Tom's Guide",
-      "url": "https://tomsguide.com/ai/ai-is-changing-cancer-treatment-and-a-new-breakthrough-shows-just-how-far-weve-come",
-      "synopsis": "Researchers are using AI to understand cancer in far more detail than was possible a decade ago, moving toward treatments matched to the genetic makeup of each person's tumor. One example is the National Cancer Institute's PERCEPTION tool, which reads gene activity in individual cancer cells to predict whether certain drugs might work. The article is clear that lab and patient testing still come next, but it sees encouraging signs for more personalized care.",
-      "image": "https://cdn.mos.cms.futurecdn.net/dS2fewn72KRbX6PSjhKyyL-2560-80.jpg",
+      "title": "AI Detects \"Invisible\" Signs of Pancreatic Cancer Years Before Diagnosis",
+      "source": "ScienceDaily",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261024222031.htm",
+      "synopsis": "A new AI system called REDMOD can pick up extremely subtle changes in pancreatic tissue that may signal cancer long before it is visible on conventional scans. It spotted warning signs an average of 475 days before diagnosis and was nearly twice as sensitive as experienced radiologists. The research appeared in the journal Gut, and more study is needed before routine use, but it points toward earlier, potentially lifesaving treatment.",
+      "image": "https://www.sciencedaily.com/images/1920/pancreatic-cancer-male-anatomy.webp",
+      "emoji": "🩺"
+    },
+    {
+      "title": "AI helps Stanford scientists discover a \"natural Ozempic\" with a surprising advantage",
+      "source": "ScienceDaily",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261104004909.htm",
+      "synopsis": "Stanford Medicine scientists used AI to search 20,000 human genes for new hormones. They identified a naturally occurring molecule that dramatically suppresses appetite and promotes fat loss in animals. It could lead to a new generation of weight-loss medications.",
+      "image": "https://www.sciencedaily.com/images/1920/weight-loss-molecule-fit-woman.webp",
       "emoji": "🧬"
-    },
-    {
-      "title": "AI Forecasts Heart Patients' Survival Slightly Better Than Doctors",
-      "source": "StudyFinds",
-      "url": "https://studyfinds.com/ai-heart-patients-survival-better-than-doctors/",
-      "synopsis": "In a study of 27,382 heart patients in the UK and US, an AI program measured heart function from scans in just three to four seconds. Its numbers also tracked which patients later survived slightly better than the doctors' own readings. Doctors still came out ahead for patients with hypertrophic cardiomyopathy, which points to AI and clinicians working well as a team.",
-      "image": "https://studyfinds.com/wp-content/uploads/2026/11/doctor-heart-AI-scaled.jpeg",
-      "emoji": "❤️"
     }
   ]
 }
