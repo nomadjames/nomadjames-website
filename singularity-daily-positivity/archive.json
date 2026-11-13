@@ -4,31 +4,31 @@
    "date": "2026-11-13",
    "stories": [
     {
-     "title": "AI detects \"invisible\" signs of pancreatic cancer years before diagnosis",
-     "source": "ScienceDaily",
-     "url": "https://www.sciencedaily.com/releases/2026/10/261024222031.htm",
-     "synopsis": "A new AI system called REDMOD can pick up extremely subtle changes in pancreatic tissue that may signal cancer more than a year before it shows up on conventional scans, according to research published in the journal Gut. It outperformed experienced radiologists in the study, which raises hopes for earlier, potentially lifesaving treatment. Researchers say more work is needed before it reaches routine care.",
-     "image": "https://www.sciencedaily.com/images/1920/pancreatic-cancer-male-anatomy.webp",
-     "category": "Medicine",
-     "emoji": "🩺"
+     "title": "'Digital advances are reshaping nature conservation' say experts",
+     "source": "Positive News",
+     "url": "https://www.positive.news/environment/digital-advances-are-reshaping-nature-conservation-say-experts/",
+     "synopsis": "Kew Gardens' State of the World's Plants and Fungi 2026 report, which draws on more than 400 scientists from 40 countries, finds that AI is helping to identify challenging plants and even pinpoint species new to science. Specimens are now being analysed at an unprecedented scale, and Kew has digitised 7.4 million plant and fungi specimens. The authors note that AI identifications still need expert validation, but it's a hopeful sign for the race to protect nature.",
+     "image": null,
+     "category": "Environment",
+     "emoji": "🌿"
     },
     {
-     "title": "Microsoft medical AI correctly diagnoses 83% of complex cases in new study",
-     "source": "Fox News",
-     "url": "https://www.foxnews.com/tech/microsoft-ai-beats-doctors-simulated-diagnosis-test",
-     "synopsis": "In a study published in Science, a Microsoft AI diagnostic system correctly identified 83% of complex medical cases, compared with 36% for generalist physicians. It works like a panel of doctors, with several AI agents challenging one another's conclusions as new information arrives. The result came under simulated test conditions, but it suggests AI could one day help doctors solve some of medicine's toughest diagnostic puzzles.",
-     "image": "https://static.foxnews.com/foxnews.com/content/uploads/2025/10/senior-woman-doctor-brain-scan.jpg",
-     "category": "Medicine",
-     "emoji": "🧠"
-    },
-    {
-     "title": "AI Model's Predictions Accurate Enough to Quickly Improve Medical Decisions",
-     "source": "NYU Langone Health",
-     "url": "https://nyulangone.org/news/ai-models-predictions-accurate-enough-quickly-improve-medical-decisions",
-     "synopsis": "NYU Langone researchers have built Lang1, a family of AI models trained on records from more than 10 million patients over 20 years of care. The study describes designing, testing and deploying it in real-world settings. It can help doctors and hospital leaders predict which patients may decline in the hospital or return soon after discharge, so everyday decisions about care can be better informed.",
+     "title": "AlphaGenome 2: Google's New AI Gets Better at Decoding Disease-Linked DNA",
+     "source": "TechRepublic",
+     "url": "https://www.techrepublic.com/article/news-google-deepmind-alphagenome-2-genetic-variants/",
+     "synopsis": "Google DeepMind announced AlphaGenome 2 on Nov. 11. It is a DNA analysis model that predicts how genetic variations affect individual cell types. Trained on more than 107 million single-cell profiles across 68 tissues, it identified 30% of causal variants in one benchmark, up from 16% for the original version. That could bring real benefits to drug research.",
      "image": null,
      "category": "Medicine",
-     "emoji": "🏥"
+     "emoji": "🧬"
+    },
+    {
+     "title": "AI Summit explores technology's role in student success, equity",
+     "source": "School News Network",
+     "url": "https://www.schoolnewsnetwork.org/2026/11/11/ai-summit-explores-technologys-role-in-student-success-equity/",
+     "synopsis": "More than 90 educators from Michigan and several other states gathered for Kent ISD's fourth annual AI Summit in early November. The aim was to explore how AI can make learning more accessible and engaging for students while simplifying teachers' work. Sessions stressed being open with students about when and why AI is used, so they learn to use it well.",
+     "image": "https://snn-images.schoolnewsnetwork.org/wp-content/uploads/2026/11/10161054/Kent-ISD-AI-Summit-3.jpg",
+     "category": "Education",
+     "emoji": "🍎"
     }
    ]
   },
