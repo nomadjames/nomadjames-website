@@ -221,6 +221,52 @@ footer a:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
 /* Confetti */
 .bit { position: fixed; z-index: 5; pointer-events: none; font-size: 2rem; animation: burst 1.4s cubic-bezier(.1, .7, .3, 1) forwards; }
 
+/* Extra fun */
+.rainbow { animation: glow 4s ease-in-out infinite; }
+.tagline { animation: bob 2.6s ease-in-out infinite; }
+.dateline { animation: jiggle 1.2s ease-in-out infinite; }
+h1 .word { display: inline-block; white-space: nowrap; }
+h1 .letter { display: inline-block; animation: hop 1.8s ease-in-out infinite; animation-delay: calc(var(--i) * -.09s); }
+.twinkle { position: absolute; font-size: var(--size, 1.4rem); animation: twinkle 2.4s ease-in-out infinite; }
+.orbit {
+  position: absolute; inset: -3.4rem; container-type: size;
+  pointer-events: none; animation: spin 9s linear infinite;
+}
+.orbit span {
+  position: absolute; left: 50%; top: 50%; font-size: 2.2rem; line-height: 1;
+  -webkit-text-stroke: 0;
+  transform: translate(-50%, -50%) rotate(var(--a)) translateY(-50cqw) rotate(calc(-1 * var(--a)));
+}
+.card { animation: pop .7s cubic-bezier(.2, 1.6, .4, 1) both, bob 3.6s ease-in-out .7s infinite; transition: scale .2s; }
+.card:hover { scale: 1.03; }
+.sparkle { position: fixed; z-index: 6; pointer-events: none; font-size: 1.3rem; translate: -50% -50%; animation: fade-sparkle .9s ease-out forwards; }
+
+/* The party after the button */
+.flash {
+  position: fixed; inset: 0; z-index: 4; pointer-events: none;
+  background: radial-gradient(circle, #fff 0 10%, #ffd23f 25%, #ff3d8b 45%, #b38bff 65%, transparent 80%);
+  animation: flash .7s ease-out forwards;
+}
+.confetti {
+  position: fixed; top: -2rem; z-index: 5; pointer-events: none;
+  width: .7rem; height: 1.1rem; border: 2px solid var(--ink); border-radius: 2px;
+  animation: fall var(--time, 3s) cubic-bezier(.3, .1, .6, 1) forwards, flutter .5s ease-in-out infinite;
+}
+.spark {
+  position: fixed; z-index: 5; pointer-events: none;
+  width: .8rem; height: .8rem; margin: -.4rem 0 0 -.4rem; border-radius: 50%;
+  box-shadow: 0 0 12px 3px currentColor; background: currentColor;
+  animation: burst 1.1s cubic-bezier(.1, .8, .3, 1) forwards;
+}
+.yay {
+  position: fixed; left: 50%; top: 42%; z-index: 7; pointer-events: none;
+  translate: -50% -50%; white-space: nowrap;
+  font: 400 clamp(3.5rem, 16vw, 11rem)/1 var(--display);
+  color: var(--sun); -webkit-text-stroke: .08em var(--ink); paint-order: stroke fill;
+  text-shadow: .06em .08em 0 var(--pink);
+  animation: slam 1.8s cubic-bezier(.2, 1.4, .4, 1) forwards;
+}
+
 @keyframes spin { to { rotate: 1turn; } }
 @keyframes drift { to { translate: calc(100vw + 30rem) 0; } }
 @keyframes rise { to { translate: var(--sway, 2rem) -120svh; rotate: var(--turn, 40deg); } }
@@ -229,10 +275,24 @@ footer a:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
 @keyframes jiggle { 25% { rotate: -3deg; } 75% { rotate: 3deg; } }
 @keyframes pop { from { scale: 0; opacity: 0; } }
 @keyframes burst { to { translate: var(--dx) var(--dy); rotate: var(--rot); opacity: 0; scale: .4; } }
+@keyframes glow { 50% { scale: 1.05; filter: saturate(1.6) brightness(1.08); } }
+@keyframes bob { 50% { translate: 0 -.45rem; } }
+@keyframes hop { 0%, 60%, 100% { translate: 0 0; } 30% { translate: 0 -.16em; } }
+@keyframes twinkle { 0%, 100% { scale: .4; opacity: .25; } 50% { scale: 1.25; opacity: 1; rotate: 30deg; } }
+@keyframes fade-sparkle { to { translate: -50% 1.5rem; scale: 0; opacity: 0; rotate: 120deg; } }
+@keyframes flash { from { opacity: .85; scale: .2; } to { opacity: 0; scale: 2.2; } }
+@keyframes fall { to { translate: var(--sway) 110svh; rotate: var(--spin); } }
+@keyframes flutter { 50% { scale: .25 1; } }
+@keyframes slam {
+  0% { scale: 3.5; rotate: -25deg; opacity: 0; }
+  18% { scale: 1; rotate: -6deg; opacity: 1; }
+  70% { scale: 1.08; rotate: 4deg; opacity: 1; }
+  100% { scale: .6; rotate: 0deg; opacity: 0; translate: -50% -140%; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .floater, .bit { display: none; }
+  .floater, .bit, .twinkle, .sparkle, .flash, .confetti, .spark, .yay { display: none; }
 }
 </style>
 </head>
@@ -250,6 +310,7 @@ footer a:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
     <h1><span class="a">The Singularity</span> <span class="b">Daily Positivity</span> <span class="c">Generator</span></h1>
     <p class="tagline">Three happy AI stories, picked fresh every morning.</p>
     <button class="go" id="go" type="button">
+      <span class="orbit" aria-hidden="true"><span style="--a:0deg">💖</span><span style="--a:60deg">⭐</span><span style="--a:120deg">🌈</span><span style="--a:180deg">🦄</span><span style="--a:240deg">🌸</span><span style="--a:300deg">✨</span></span>
       <span class="heart" aria-hidden="true">💖</span>
       <span>Daily<br>Positivity</span>
     </button>
@@ -300,7 +361,17 @@ stories.catch(() => {});
 // Hearts drifting up the sky.
 if (!calm) {
   const sky = document.querySelector(".sky");
-  for (let i = 0; i < 14; i++) {
+  for (let i = 0; i < 26; i++) {
+    const t = document.createElement("span");
+    t.className = "twinkle";
+    t.textContent = i % 3 ? "✨" : "⭐";
+    t.style.left = Math.random() * 100 + "%";
+    t.style.top = Math.random() * 100 + "%";
+    t.style.setProperty("--size", 0.9 + Math.random() * 1.4 + "rem");
+    t.style.animationDelay = -Math.random() * 2.4 + "s";
+    sky.append(t);
+  }
+  for (let i = 0; i < 28; i++) {
     const f = document.createElement("span");
     f.className = "floater";
     f.textContent = BITS[i % BITS.length];
@@ -311,6 +382,87 @@ if (!calm) {
     f.style.setProperty("--sway", Math.random() * 10 - 5 + "rem");
     f.style.setProperty("--turn", Math.random() * 120 - 60 + "deg");
     sky.append(f);
+  }
+}
+
+// Every letter of the title hops in a wave.
+const title = document.querySelector("h1");
+title.setAttribute("aria-label", title.textContent);
+let letterIndex = 0;
+for (const part of title.children) {
+  part.setAttribute("aria-hidden", "true");
+  const words = part.textContent.split(" ");
+  part.replaceChildren(...words.flatMap((word, w) => {
+    const box = document.createElement("span");
+    box.className = "word";
+    for (const ch of word) {
+      const letter = document.createElement("span");
+      letter.className = "letter";
+      letter.textContent = ch;
+      letter.style.setProperty("--i", letterIndex++);
+      box.append(letter);
+    }
+    return w ? [" ", box] : [box];
+  }));
+}
+
+// A trail of sparkles behind the mouse.
+let lastSparkle = 0;
+if (!calm) {
+  addEventListener("pointermove", (event) => {
+    if (event.pointerType !== "mouse" || event.timeStamp - lastSparkle < 45) return;
+    lastSparkle = event.timeStamp;
+    const s = document.createElement("span");
+    s.className = "sparkle";
+    s.textContent = BITS[Math.floor(Math.random() * BITS.length)];
+    s.style.left = event.clientX + "px";
+    s.style.top = event.clientY + "px";
+    s.addEventListener("animationend", () => s.remove());
+    document.body.append(s);
+  });
+}
+
+const COLORS = ["#ff3d8b", "#ffd23f", "#7dffc4", "#8fe3ff", "#b38bff", "#ff9d32", "#fff"];
+const CHEERS = ["YAY!", "WOOHOO!", "HOORAY!", "GOOD NEWS!", "YIPPEE!"];
+const pick = (list) => list[Math.floor(Math.random() * list.length)];
+function spawn(className, setup) {
+  const node = document.createElement("span");
+  node.className = className;
+  setup(node);
+  node.addEventListener("animationend", (event) => { if (event.target === node && event.animationName !== "flutter") node.remove(); });
+  document.body.append(node);
+}
+
+// The big celebration: a flash, a cheer, fireworks, and confetti raining down.
+function party() {
+  if (calm) return;
+  spawn("flash", () => {});
+  spawn("yay", (n) => { n.textContent = pick(CHEERS); });
+  for (let i = 0; i < 160; i++) {
+    spawn("confetti", (n) => {
+      n.style.left = Math.random() * 100 + "vw";
+      n.style.background = pick(COLORS);
+      n.style.animationDelay = Math.random() * 0.9 + "s, 0s";
+      n.style.setProperty("--time", 2.4 + Math.random() * 2 + "s");
+      n.style.setProperty("--sway", Math.random() * 16 - 8 + "rem");
+      n.style.setProperty("--spin", Math.random() * 1440 - 720 + "deg");
+    });
+  }
+  for (let f = 0; f < 7; f++) {
+    setTimeout(() => {
+      const x = 10 + Math.random() * 80, y = 10 + Math.random() * 50, color = pick(COLORS);
+      for (let i = 0; i < 22; i++) {
+        const angle = (i / 22) * Math.PI * 2, reach = 90 + Math.random() * 70;
+        spawn("spark", (n) => {
+          n.style.left = x + "vw";
+          n.style.top = y + "svh";
+          n.style.color = i % 3 ? color : pick(COLORS);
+          n.style.setProperty("--dx", Math.cos(angle) * reach + "px");
+          n.style.setProperty("--dy", Math.sin(angle) * reach + "px");
+          n.style.setProperty("--rot", "0deg");
+        });
+      }
+    }, f * 260);
   }
 }
 
@@ -486,6 +638,7 @@ go.addEventListener("click", async () => {
   go.classList.add("busy");
   statusEl.textContent = "Finding the good stuff…";
   confetti();
+  party();
   try {
     const [data] = await Promise.all([stories, new Promise((done) => setTimeout(done, calm ? 0 : 1100))]);
     confetti();
