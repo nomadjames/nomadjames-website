@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-14",
+   "stories": [
+    {
+     "title": "AI-powered bionic eye breakthrough could help the blind see again",
+     "source": "ScienceDaily",
+     "url": "https://www.sciencedaily.com/releases/2026/11/261110042553.htm",
+     "synopsis": "Scientists have used AI to make experimental bionic vision technology more precise, helping predict the flashes and shapes of light perceived by a blind man with a brain implant. For people who lost their sight to an inherited eye disease or an accident, it brings the hope of seeing again one step closer.",
+     "image": "https://www.sciencedaily.com/images/1920/beyeler-bionic-eye.webp",
+     "category": "Accessibility",
+     "emoji": "👁️"
+    },
+    {
+     "title": "Using AI to map disaster damage for faster rescue and recovery",
+     "source": "Semafor",
+     "url": "https://www.semafor.com/article/10/26/2026/using-ai-to-map-disaster-damage-for-faster-rescue-and-recovery",
+     "synopsis": "Texas A&M's CLARKE system can assess up to 2,000 homes in seven minutes, even without an internet connection after a drone lands. Researchers estimate it could help emergency managers make decisions roughly a day earlier so help reaches the hardest-hit areas first. It is already part of the standard operating procedure for Florida's disaster drone team.",
+     "image": "https://img.semafor.com/08c281a71487a1b807b9d18d97be4ad0c4560b0a-7087x5315.jpg?rect=0,798,7087,3721&w=1200&h=630&q=75&auto=format",
+     "category": "Safety",
+     "emoji": "🚁"
+    },
+    {
+     "title": "New research could lead to faster, trustworthy AI models for climate prediction",
+     "source": "MIT News",
+     "url": "https://news.mit.edu/2026/new-research-could-lead-faster-trustworthy-ai-models-climate-prediction-1112",
+     "synopsis": "MIT researchers have developed a technique for building fast, trustworthy and adaptable AI climate emulators using only a fraction of the data typically required. These models can run in just a few seconds, which lets scientists explore many future climate scenarios quickly. The team hopes the work will make such tools more useful for policy decisions.",
+     "image": "https://news.mit.edu/sites/default/files/images/202611/MIT-Climate-Emulation-01.jpg",
+     "category": "Environment",
+     "emoji": "🌍"
+    }
+   ]
+  },
+  {
    "date": "2026-11-13",
    "stories": [
     {

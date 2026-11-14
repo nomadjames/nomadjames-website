@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "stories": [
     {
-      "title": "'Digital advances are reshaping nature conservation' say experts",
-      "source": "Positive News",
-      "url": "https://www.positive.news/environment/digital-advances-are-reshaping-nature-conservation-say-experts/",
-      "synopsis": "Kew Gardens' State of the World's Plants and Fungi 2026 report, which draws on more than 400 scientists from 40 countries, finds that AI is helping to identify challenging plants and even pinpoint species new to science. Specimens are now being analysed at an unprecedented scale, and Kew has digitised 7.4 million plant and fungi specimens. The authors note that AI identifications still need expert validation, but it's a hopeful sign for the race to protect nature.",
-      "image": null,
+      "title": "AI-powered bionic eye breakthrough could help the blind see again",
+      "source": "ScienceDaily",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261110042553.htm",
+      "synopsis": "Scientists have used AI to make experimental bionic vision technology more precise, helping predict the flashes and shapes of light perceived by a blind man with a brain implant. For people who lost their sight to an inherited eye disease or an accident, it brings the hope of seeing again one step closer.",
+      "image": "https://www.sciencedaily.com/images/1920/beyeler-bionic-eye.webp",
+      "category": "Accessibility",
+      "emoji": "👁️"
+    },
+    {
+      "title": "Using AI to map disaster damage for faster rescue and recovery",
+      "source": "Semafor",
+      "url": "https://www.semafor.com/article/10/26/2026/using-ai-to-map-disaster-damage-for-faster-rescue-and-recovery",
+      "synopsis": "Texas A&M's CLARKE system can assess up to 2,000 homes in seven minutes, even without an internet connection after a drone lands. Researchers estimate it could help emergency managers make decisions roughly a day earlier so help reaches the hardest-hit areas first. It is already part of the standard operating procedure for Florida's disaster drone team.",
+      "image": "https://img.semafor.com/08c281a71487a1b807b9d18d97be4ad0c4560b0a-7087x5315.jpg?rect=0,798,7087,3721&w=1200&h=630&q=75&auto=format",
+      "category": "Safety",
+      "emoji": "🚁"
+    },
+    {
+      "title": "New research could lead to faster, trustworthy AI models for climate prediction",
+      "source": "MIT News",
+      "url": "https://news.mit.edu/2026/new-research-could-lead-faster-trustworthy-ai-models-climate-prediction-1112",
+      "synopsis": "MIT researchers have developed a technique for building fast, trustworthy and adaptable AI climate emulators using only a fraction of the data typically required. These models can run in just a few seconds, which lets scientists explore many future climate scenarios quickly. The team hopes the work will make such tools more useful for policy decisions.",
+      "image": "https://news.mit.edu/sites/default/files/images/202611/MIT-Climate-Emulation-01.jpg",
       "category": "Environment",
-      "emoji": "🌿"
-    },
-    {
-      "title": "AlphaGenome 2: Google's New AI Gets Better at Decoding Disease-Linked DNA",
-      "source": "TechRepublic",
-      "url": "https://www.techrepublic.com/article/news-google-deepmind-alphagenome-2-genetic-variants/",
-      "synopsis": "Google DeepMind announced AlphaGenome 2 on Nov. 11. It is a DNA analysis model that predicts how genetic variations affect individual cell types. Trained on more than 107 million single-cell profiles across 68 tissues, it identified 30% of causal variants in one benchmark, up from 16% for the original version. That could bring real benefits to drug research.",
-      "image": null,
-      "category": "Medicine",
-      "emoji": "🧬"
-    },
-    {
-      "title": "AI Summit explores technology's role in student success, equity",
-      "source": "School News Network",
-      "url": "https://www.schoolnewsnetwork.org/2026/11/11/ai-summit-explores-technologys-role-in-student-success-equity/",
-      "synopsis": "More than 90 educators from Michigan and several other states gathered for Kent ISD's fourth annual AI Summit in early November. The aim was to explore how AI can make learning more accessible and engaging for students while simplifying teachers' work. Sessions stressed being open with students about when and why AI is used, so they learn to use it well.",
-      "image": "https://snn-images.schoolnewsnetwork.org/wp-content/uploads/2026/11/10161054/Kent-ISD-AI-Summit-3.jpg",
-      "category": "Education",
-      "emoji": "🍎"
+      "emoji": "🌍"
     }
   ]
 }
