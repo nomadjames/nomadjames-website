@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-15",
+   "stories": [
+    {
+     "title": "AI Helps Unlock Hundreds of Theorems in Gödel's Notebooks",
+     "source": "Archyde",
+     "url": "https://www.archyde.com/ai-helps-unlock-hundreds-of-theorems-in-godels-notebooks/",
+     "synopsis": "For years, Helsinki logician Jan von Plato has been decoding 1,009 pages of Kurt Gödel's notes, written largely in an old German shorthand. This September he brought in the AI model Claude, which delivered a 650-page breakdown within days and helped surface hundreds of previously unknown theorems. Every page still had to be checked by hand, and von Plato says the notebooks hold more unexplored ideas in logic, physics and cosmology.",
+     "image": null,
+     "category": "Science",
+     "emoji": "🧮"
+    },
+    {
+     "title": "AI could help hospitals diagnose PTSD in real time",
+     "source": "NPR",
+     "url": "https://www.npr.org/2026/11/13/nx-s1-6031981/ai-ptsd-trauma-prediction-er",
+     "synopsis": "A New York research team has built an AI model that uses patients' answers to a simple emergency-room question, plus their demographics, to estimate how likely they are to develop PTSD a month later. The work, published in Nature Communications, could help busy ER teams prevent mental health disorders before they start.",
+     "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3377x1900+0+0/resize/1400/quality/85/format/webp/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fa9%2Ff0%2F3a0a93054117b2a176fb1bb2b3a4%2F9ed87fec-0d73-40be-aff9-108ebaef972d.jpg",
+     "category": "Medicine",
+     "emoji": "💙"
+    },
+    {
+     "title": "A breakthrough in magnetism could make AI chips use dramatically less energy",
+     "source": "ScienceDaily",
+     "url": "https://www.sciencedaily.com/releases/2026/11/261111005853.htm",
+     "synopsis": "Researchers at Brown University have overcome a long-standing 'dead layer' problem that makes promising materials stop working when they are made extremely thin. Their technique keeps the materials' electrical and magnetic properties intact at nearly atomic thicknesses. That is a step toward ultra-low-power chips that could help slash the energy demands of AI. The findings appear in Nature Materials.",
+     "image": "https://www.sciencedaily.com/images/1920/multiferroic-material-three-layer-system.webp",
+     "category": "Environment",
+     "emoji": "🔋"
+    }
+   ]
+  },
+  {
    "date": "2026-11-14",
    "stories": [
     {
