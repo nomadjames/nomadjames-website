@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-16",
+   "stories": [
+    {
+     "title": "AI discovers a hidden heart signal that could predict sudden death",
+     "source": "ScienceDaily",
+     "url": "https://sciencedaily.com/releases/2026/11/261112230456.htm",
+     "synopsis": "Scientists used AI to find a hidden warning signal in ordinary heart scans that could help predict sudden cardiac death before it strikes. The AI-powered approach outperformed conventional screening methods and could point to thousands of people who are at risk. It's a hopeful step toward catching heart trouble early, and the work was published in Nature.",
+     "image": "https://www.sciencedaily.com/images/1920/cardiology-heart-attack-disease-prevention.webp",
+     "category": "Medicine",
+     "emoji": "❤️"
+    },
+    {
+     "title": "Microsoft, DepEd launch AI literacy program for 2,000 teachers",
+     "source": "Philippine Daily Inquirer",
+     "url": "https://technology.inquirer.net/150346/microsoft-deped-launch-ai-literacy-program-for-2000-teachers",
+     "synopsis": "Microsoft and the Philippines' Department of Education have teamed up to train 2,000 public school teachers in AI literacy. The program launched on November 5 in Makati City with about 100 senior high school teachers in hands-on training. It aims to help teachers bring AI into their classrooms while promoting responsible use and human oversight, with sessions running through May 2027.",
+     "image": "https://technology.inquirer.net/files/2026/11/Microsoft-Elevate-and-Behind-the-Chat-Launch.png",
+     "category": "Education",
+     "emoji": "🍎"
+    },
+    {
+     "title": "Honolulu working to use AI to help early warning detection to be more proactive in threats like storms and wildfire",
+     "source": "KHON2",
+     "url": "https://www.khon2.com/local-news/ai-monitoring-flood-prevention/",
+     "synopsis": "Honolulu city officials are working to add artificial intelligence to their early warning systems for threats like storms, wildfires and tsunamis. The city's emergency management director says the goal is to build on current monitoring, add more in strategic areas, and pair it with AI. That would help the city move from reacting to problems to anticipating them, which could give residents more warning.",
+     "image": null,
+     "category": "Safety",
+     "emoji": "🌺"
+    }
+   ]
+  },
+  {
    "date": "2026-11-15",
    "stories": [
     {
