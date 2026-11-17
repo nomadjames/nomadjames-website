@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-17",
+   "stories": [
+    {
+     "title": "17-YO Builds AI Tool So Blind People Can Read Bank Statements & Textbooks More Independently",
+     "source": "The Better India",
+     "url": "https://thebetterindia.com/innovation/ai-tool-makes-pdfs-accessible-for-the-blind-gurugram-visionably-yash-bhatnagar-12814698",
+     "synopsis": "When 17-year-old Yash Bhatnagar learned that blind users often can't read PDFs, he built Visionably, an AI tool that turns inaccessible documents into ones screen readers can understand. It adds accessibility tags, reading order and image descriptions, so things like bank statements, textbooks and forms become easier to read independently. What a thoughtful way to turn a simple question into real independence!",
+     "image": "https://img-cdn.publive.online/fit-in/1200x675/english-betterindia/media/media_files/2026/11/16/visionably-2026-11-16-18-26-21.png",
+     "category": "Accessibility",
+     "emoji": "👩‍🦯"
+    },
+    {
+     "title": "AI speeds up care with doctors in charge, new November 2026 studies show",
+     "source": "Robauto",
+     "url": "https://robauto.ai/blog/ai-doctors-faster-diagnosis",
+     "synopsis": "A two-year randomized trial reported in NEJM AI found that people with autoimmune disease were diagnosed in a median of 43 days instead of 138 when an AI model supported their care. The trial covered 954 patients in the AI group and 1,006 in the comparison group. Another study found AI cut heart-scan reading time from 8.5 to 4.6 minutes with comparable accuracy, and the doctor still makes the final call. Answers sooner and more time back for doctors is good news for patients.",
+     "image": "https://hkeytqaukllckucnhzey.supabase.co/storage/v1/object/public/email-assets/blog/2026-11-12/ai-doctors-faster-diagnosis-cover-7f9f61f9.png",
+     "category": "Medicine",
+     "emoji": "🩺"
+    },
+    {
+     "title": "The week's most consequential AI news came from labs, not launches",
+     "source": "DEV Community",
+     "url": "https://dev.to/ganesh_sivakumar_359edfcd/the-weeks-most-consequential-ai-news-came-from-labs-not-launches-10be",
+     "synopsis": "At Brookhaven National Laboratory, physicists collide heavy ions at near light speed to recreate matter as it existed a microsecond after the Big Bang. This week the lab announced that an AI system learned to pick out the meaningful particle jets from the background noise on its own, without a single human-labeled example. The result was published in Scientific Reports, and it's a lovely reminder that AI is helping people explore the deepest questions about our universe.",
+     "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fgp2zvxoakwxw6z3u1bmk.png",
+     "category": "Science",
+     "emoji": "🔬"
+    }
+   ]
+  },
+  {
    "date": "2026-11-16",
    "stories": [
     {
