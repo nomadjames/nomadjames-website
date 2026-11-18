@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "stories": [
     {
-      "title": "17-YO Builds AI Tool So Blind People Can Read Bank Statements & Textbooks More Independently",
-      "source": "The Better India",
-      "url": "https://thebetterindia.com/innovation/ai-tool-makes-pdfs-accessible-for-the-blind-gurugram-visionably-yash-bhatnagar-12814698",
-      "synopsis": "When 17-year-old Yash Bhatnagar learned that blind users often can't read PDFs, he built Visionably, an AI tool that turns inaccessible documents into ones screen readers can understand. It adds accessibility tags, reading order and image descriptions, so things like bank statements, textbooks and forms become easier to read independently. What a thoughtful way to turn a simple question into real independence!",
-      "image": "https://img-cdn.publive.online/fit-in/1200x675/english-betterindia/media/media_files/2026/11/16/visionably-2026-11-16-18-26-21.png",
+      "title": "AI learning tool helps blind students excel in Malawi",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/11/16/ai-learning-tool-helps-blind-students-excel-in-malawi",
+      "synopsis": "A 25-year-old Malawian innovator has built an artificial intelligence tool for blind and visually impaired students. It is being used to help them improve their academic performance. It's a great example of a young creator opening up learning for classmates who have too often been left out.",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/16_11_SV_Blind-learning-AI-tools-Malawi_WIDE-THUMB-1794832559.jpg?resize=1920%2C1080&quality=80",
+      "category": "Education",
+      "emoji": "📚"
+    },
+    {
+      "title": "Developing a new accessibility AI app for virtual meetings",
+      "source": "RNID",
+      "url": "https://rnid.org.uk/2026/11/developing-a-new-accessibility-ai-app-for-virtual-meetings/",
+      "synopsis": "RNID, backed by Google.org, has created an Accessibility Assistant app that runs inside a popular video conferencing platform. It uses AI to analyse a meeting's audio, video, transcription and chat, then gives gentle prompts when communication barriers arise. This encourages deaf-aware meeting habits, and RNID is now inviting organisations to join trials of the tool.",
+      "image": "https://rnid.org.uk/wp-content/uploads/2022/09/RNID-logo-landscape.jpg",
       "category": "Accessibility",
-      "emoji": "👩‍🦯"
+      "emoji": "🧏"
     },
     {
-      "title": "AI speeds up care with doctors in charge, new November 2026 studies show",
-      "source": "Robauto",
-      "url": "https://robauto.ai/blog/ai-doctors-faster-diagnosis",
-      "synopsis": "A two-year randomized trial reported in NEJM AI found that people with autoimmune disease were diagnosed in a median of 43 days instead of 138 when an AI model supported their care. The trial covered 954 patients in the AI group and 1,006 in the comparison group. Another study found AI cut heart-scan reading time from 8.5 to 4.6 minutes with comparable accuracy, and the doctor still makes the final call. Answers sooner and more time back for doctors is good news for patients.",
-      "image": "https://hkeytqaukllckucnhzey.supabase.co/storage/v1/object/public/email-assets/blog/2026-11-12/ai-doctors-faster-diagnosis-cover-7f9f61f9.png",
-      "category": "Medicine",
-      "emoji": "🩺"
-    },
-    {
-      "title": "The week's most consequential AI news came from labs, not launches",
-      "source": "DEV Community",
-      "url": "https://dev.to/ganesh_sivakumar_359edfcd/the-weeks-most-consequential-ai-news-came-from-labs-not-launches-10be",
-      "synopsis": "At Brookhaven National Laboratory, physicists collide heavy ions at near light speed to recreate matter as it existed a microsecond after the Big Bang. This week the lab announced that an AI system learned to pick out the meaningful particle jets from the background noise on its own, without a single human-labeled example. The result was published in Scientific Reports, and it's a lovely reminder that AI is helping people explore the deepest questions about our universe.",
-      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fgp2zvxoakwxw6z3u1bmk.png",
+      "title": "AI Learns to Design Enzymes, Cancer Cells Lose an Ally, and Webb Finds a Planet That Reflects the Heat",
+      "source": "Next Horizon",
+      "url": "https://www.nexthorizon.space/2026/11/5-science-news-stories-november-1-2026.html",
+      "synopsis": "This science roundup highlights Vanderbilt chemists' MutexaGPT, a multi-agent AI system that helps turn a chemist's intuition into enzyme designs. The article notes it connects to the wider effort to use AI in drug discovery, where computer-made suggestions still have to survive laboratory and clinical testing. It's a hopeful look at AI working alongside human scientists.",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifaQ-mDAMf7YUDMfeHVblNh5EDqhtb8mkGugAwJZig7K1zFbPB3mfJmtDIWz4iK5L308j2bB_ZF7lgAoZ5jX_cRwHpLfPRPQ9fAJgekHa1aYWkqeBHRez3f8oWDV3_riT75t9rdtA1qwmkL1gw1iN72gk6Zt7tFq_SJBWIvYaLj7lRzZxNt5xzl9gbA0c/w1200-h630-p-k-no-nu/NextHorizon_5_News_2026-11-01_Collage.png",
       "category": "Science",
-      "emoji": "🔬"
+      "emoji": "🧪"
     }
   ]
 }

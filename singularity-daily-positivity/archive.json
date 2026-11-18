@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-18",
+   "stories": [
+    {
+     "title": "AI learning tool helps blind students excel in Malawi",
+     "source": "Al Jazeera",
+     "url": "https://www.aljazeera.com/video/newsfeed/2026/11/16/ai-learning-tool-helps-blind-students-excel-in-malawi",
+     "synopsis": "A 25-year-old Malawian innovator has built an artificial intelligence tool for blind and visually impaired students. It is being used to help them improve their academic performance. It's a great example of a young creator opening up learning for classmates who have too often been left out.",
+     "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/16_11_SV_Blind-learning-AI-tools-Malawi_WIDE-THUMB-1794832559.jpg?resize=1920%2C1080&quality=80",
+     "category": "Education",
+     "emoji": "📚"
+    },
+    {
+     "title": "Developing a new accessibility AI app for virtual meetings",
+     "source": "RNID",
+     "url": "https://rnid.org.uk/2026/11/developing-a-new-accessibility-ai-app-for-virtual-meetings/",
+     "synopsis": "RNID, backed by Google.org, has created an Accessibility Assistant app that runs inside a popular video conferencing platform. It uses AI to analyse a meeting's audio, video, transcription and chat, then gives gentle prompts when communication barriers arise. This encourages deaf-aware meeting habits, and RNID is now inviting organisations to join trials of the tool.",
+     "image": "https://rnid.org.uk/wp-content/uploads/2022/09/RNID-logo-landscape.jpg",
+     "category": "Accessibility",
+     "emoji": "🧏"
+    },
+    {
+     "title": "AI Learns to Design Enzymes, Cancer Cells Lose an Ally, and Webb Finds a Planet That Reflects the Heat",
+     "source": "Next Horizon",
+     "url": "https://www.nexthorizon.space/2026/11/5-science-news-stories-november-1-2026.html",
+     "synopsis": "This science roundup highlights Vanderbilt chemists' MutexaGPT, a multi-agent AI system that helps turn a chemist's intuition into enzyme designs. The article notes it connects to the wider effort to use AI in drug discovery, where computer-made suggestions still have to survive laboratory and clinical testing. It's a hopeful look at AI working alongside human scientists.",
+     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifaQ-mDAMf7YUDMfeHVblNh5EDqhtb8mkGugAwJZig7K1zFbPB3mfJmtDIWz4iK5L308j2bB_ZF7lgAoZ5jX_cRwHpLfPRPQ9fAJgekHa1aYWkqeBHRez3f8oWDV3_riT75t9rdtA1qwmkL1gw1iN72gk6Zt7tFq_SJBWIvYaLj7lRzZxNt5xzl9gbA0c/w1200-h630-p-k-no-nu/NextHorizon_5_News_2026-11-01_Collage.png",
+     "category": "Science",
+     "emoji": "🧪"
+    }
+   ]
+  },
+  {
    "date": "2026-11-17",
    "stories": [
     {
