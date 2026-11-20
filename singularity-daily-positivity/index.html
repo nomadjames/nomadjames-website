@@ -209,8 +209,14 @@ footer a:focus-visible { outline: 4px dashed var(--ink); outline-offset: 4px; }
   background: var(--cream); border: 5px solid var(--ink); border-radius: 1.75rem;
   box-shadow: 10px 12px 0 var(--ink);
 }
-.stats[hidden] { display: none; }
-.stat { display: grid; grid-template-columns: 1fr auto; gap: .2rem .75rem; font-weight: 600; }
+.stats[hidden], .day[hidden] { display: none; }
+.stat button {
+  width: 100%; padding: .4rem .6rem; display: grid; grid-template-columns: 1fr auto; gap: .2rem .75rem;
+  font: inherit; font-weight: 600; color: inherit; text-align: left;
+  background: none; border: 0; border-radius: 1rem; cursor: pointer;
+}
+.stat button:hover, .stat button[aria-pressed="true"] { background: #fff1b8; }
+.stat button:focus-visible { outline: 4px dashed var(--ink); outline-offset: 2px; }
 .bar { grid-column: 1 / -1; height: 1.4rem; border: 4px solid var(--ink); border-radius: 99px; background: #fff; overflow: hidden; }
 .bar span { display: block; height: 100%; background: var(--pink); border-right: 4px solid var(--ink); }
 .stat:nth-child(5n+2) .bar span { background: var(--sun); }
@@ -333,6 +339,10 @@ h1 .letter { display: inline-block; animation: hop 1.8s ease-in-out infinite; an
     <h2 class="past-title" id="statsTitle">The stats</h2>
     <p class="status" id="statsStatus" role="status"></p>
     <ul class="stats" id="stats" hidden></ul>
+    <div class="day" id="kindBox" hidden>
+      <p class="dateline" id="kindTitle"></p>
+      <ol class="cards" id="kindCards"></ol>
+    </div>
   </section>
 </main>
 
@@ -607,16 +617,42 @@ async function openStats() {
       const fill = el("span");
       fill.style.width = share + "%";
       bar.append(fill);
-      li.append(el("span", "", kind), el("span", "", `${count} (${share}%)`), bar);
+      const button = el("button");
+      button.type = "button";
+      button.setAttribute("aria-pressed", "false");
+      button.append(el("span", "", kind), el("span", "", `${count} (${share}%)`), bar);
+      button.addEventListener("click", () => showKind(kind, days, button));
+      li.append(button);
       return li;
     });
     const dayWord = days.length === 1 ? "day" : "days";
-    statsStatus.textContent = `${total} stories over ${days.length} ${dayWord}`;
+    statsStatus.textContent = `${total} stories over ${days.length} ${dayWord}. Tap a kind to see its stories.`;
     statsList.replaceChildren(...rows);
     statsList.hidden = false;
   } catch {
     statsStatus.textContent = "The stats are not available right now.";
   }
+}
+
+// Every story of one kind, newest first, each marked with its day.
+const kindBox = document.getElementById("kindBox");
+const kindTitle = document.getElementById("kindTitle");
+const kindCards = document.getElementById("kindCards");
+
+function showKind(kind, days, button) {
+  for (const b of statsList.querySelectorAll("button")) b.setAttribute("aria-pressed", String(b === button));
+  const picks = days
+    .flatMap((day) => day.stories.slice(0, 3).map((story) => ({ story, date: day.date })))
+    .filter(({ story }) => (story.category || "Not sorted") === kind)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  kindTitle.textContent = `${kind}: ${picks.length} ${picks.length === 1 ? "story" : "stories"}`;
+  kindCards.replaceChildren(...picks.map(({ story, date }, i) => {
+    const item = card(story, i);
+    item.querySelector(".source").textContent += " · " + dayName(date, true);
+    return item;
+  }));
+  kindBox.hidden = false;
+  kindBox.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
 }
 
 document.getElementById("statsLink").addEventListener("click", (event) => {
