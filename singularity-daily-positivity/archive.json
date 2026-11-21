@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-21",
+   "stories": [
+    {
+     "title": "Mencap launches new AI Easy Read tool to make information more accessible",
+     "source": "Learning Disability Today",
+     "url": "https://www.learningdisabilitytoday.co.uk/news/mencap-launches-new-ai-easy-read-tool-to-make-information-more-accessible/",
+     "synopsis": "Mencap and Google DeepMind have launched the Easy Read Co-Creator Tool, which uses AI to turn complex information into simple text with matching images for people with learning disabilities. What used to take weeks can now take minutes, and people check and edit everything before it is used. It was shaped by people with a learning disability, so more organisations can share clear, accessible information.",
+     "image": "https://www.learningdisabilitytoday.co.uk/wp-content/uploads/Mencap-colleague-Vijay-making-an-Easy-Read-with-the-tool.jpg",
+     "category": "Accessibility",
+     "emoji": "📖"
+    },
+    {
+     "title": "AI Is Accelerating Scientific Discovery. What Will It Take to Trust the Results?",
+     "source": "PR Newswire",
+     "url": "https://www.prnewswire.com/news-releases/ai-is-accelerating-scientific-discovery-what-will-it-take-to-trust-the-results-302943295.html",
+     "synopsis": "A recap of the AIAS+ 2026 conference in San Francisco describes how AI is helping scientists identify potential antibiotics, design new materials and explore complex mathematical problems. Researchers there also stressed that careful lab testing and independent human checks are how these promising results turn into real progress. It's a hopeful look at science and people working together.",
+     "image": "https://mmx.prnewswire.com/media/MS1590615/TCCI-logo-blue-800-Logo.jpg?id=OA3082417&p=facebook",
+     "category": "Science",
+     "emoji": "🔬"
+    },
+    {
+     "title": "IntelliVIX Wins Two CES 2027 Innovation Awards, Showcasing Global Competitiveness in Safety AI",
+     "source": "Carroll County News",
+     "url": "https://www.mycarrollcountynews.com/online_features/press_releases/article_c95fcbb0-be81-5b1a-946c-d92bff984c61.html",
+     "synopsis": "Two AI safety tools have won CES 2027 Innovation Awards. One is an autonomous flood safety agent designed to protect motorists and pedestrians at underpasses, tunnels and low-lying roads. The other is a wildfire platform that links early detection, spread prediction, drone monitoring and evacuation support. Both are aimed at protecting lives. This is a company press release from about a week ago.",
+     "image": null,
+     "category": "Safety",
+     "emoji": "🛟"
+    }
+   ]
+  },
+  {
    "date": "2026-11-20",
    "stories": [
     {

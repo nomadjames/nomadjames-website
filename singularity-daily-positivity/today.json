@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "stories": [
     {
-      "title": "How AI Farm Advice on SMS, Voice and WhatsApp Is Reaching African Farmers",
-      "source": "eAgMark",
-      "url": "https://eagmark.net/news/ai-farm-advice-sms-voice-whatsapp-african-farmers",
-      "synopsis": "Simple AI tools that work in local languages, over text, voice calls and WhatsApp, are helping fill a big gap in farm advice, since Kenya has just one extension officer for about 1,100 farm households. Ghana's Darli AI reached 110,000 farmers in more than 27 languages within eight months, and farmers don't even need to read or write to use it. The article notes the services work best when tied to trusted people like cooperatives or extension officers.",
-      "image": "https://firebasestorage.googleapis.com/v0/b/agritoolbox.firebasestorage.app/o/articles%2Ffeatured%2F1794477614843_How%20AI%20Farm%20Advice%20on%20SMS%2C%20Voice%20and%20WhatsApp%20Is%20Reaching%20African%20Farmers.png?alt=media&token=5a0fe1e8-b90d-4375-b1ec-57fe1928d770",
-      "category": "Everyday life",
-      "emoji": "🌾"
+      "title": "Mencap launches new AI Easy Read tool to make information more accessible",
+      "source": "Learning Disability Today",
+      "url": "https://www.learningdisabilitytoday.co.uk/news/mencap-launches-new-ai-easy-read-tool-to-make-information-more-accessible/",
+      "synopsis": "Mencap and Google DeepMind have launched the Easy Read Co-Creator Tool, which uses AI to turn complex information into simple text with matching images for people with learning disabilities. What used to take weeks can now take minutes, and people check and edit everything before it is used. It was shaped by people with a learning disability, so more organisations can share clear, accessible information.",
+      "image": "https://www.learningdisabilitytoday.co.uk/wp-content/uploads/Mencap-colleague-Vijay-making-an-Easy-Read-with-the-tool.jpg",
+      "category": "Accessibility",
+      "emoji": "📖"
     },
     {
-      "title": "AI in science: every researcher now has an AI lab assistant. What that means.",
-      "source": "DEV Community",
-      "url": "https://dev.to/kawsarlog/ai-in-science-every-researcher-now-has-an-ai-lab-assistant-what-that-means-2ii1",
-      "synopsis": "This roundup shows how AI is speeding up discovery in labs. Google DeepMind's GNoME found 2.2 million new crystal structures, including 52,000 novel lithium-ion conductors, and outside researchers have already made 736 of those predicted materials in the lab. A materials science study also found AI-assisted teams discovered 44% more compounds with measurably better properties.",
-      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fajsjhn4rogqqmn5wx6y5.png",
+      "title": "AI Is Accelerating Scientific Discovery. What Will It Take to Trust the Results?",
+      "source": "PR Newswire",
+      "url": "https://www.prnewswire.com/news-releases/ai-is-accelerating-scientific-discovery-what-will-it-take-to-trust-the-results-302943295.html",
+      "synopsis": "A recap of the AIAS+ 2026 conference in San Francisco describes how AI is helping scientists identify potential antibiotics, design new materials and explore complex mathematical problems. Researchers there also stressed that careful lab testing and independent human checks are how these promising results turn into real progress. It's a hopeful look at science and people working together.",
+      "image": "https://mmx.prnewswire.com/media/MS1590615/TCCI-logo-blue-800-Logo.jpg?id=OA3082417&p=facebook",
       "category": "Science",
       "emoji": "🔬"
     },
     {
-      "title": "AI helps uncover critical flaw in widely used internet software amid cyber arms race",
-      "source": "ABC 33/40",
-      "url": "https://abc3340.com/news/nation-world/ai-helps-uncover-critical-flaw-in-widely-used-internet-software-amid-cyber-arms-race",
-      "synopsis": "Amid scary headlines about AI's risks, security researchers put AI's abilities to good use by uncovering a severe flaw in Java before it was too late. It's a reassuring sign that AI can help defenders keep widely used internet software safer for everyone.",
-      "image": "https://abc3340.com/resources/media2/16x9/4480/1320/11x154/90/b4f4411f-816c-4154-b747-88c099549b4d-GettyImages693472226.jpg",
+      "title": "IntelliVIX Wins Two CES 2027 Innovation Awards, Showcasing Global Competitiveness in Safety AI",
+      "source": "Carroll County News",
+      "url": "https://www.mycarrollcountynews.com/online_features/press_releases/article_c95fcbb0-be81-5b1a-946c-d92bff984c61.html",
+      "synopsis": "Two AI safety tools have won CES 2027 Innovation Awards. One is an autonomous flood safety agent designed to protect motorists and pedestrians at underpasses, tunnels and low-lying roads. The other is a wildfire platform that links early detection, spread prediction, drone monitoring and evacuation support. Both are aimed at protecting lives. This is a company press release from about a week ago.",
+      "image": null,
       "category": "Safety",
-      "emoji": "🛡️"
+      "emoji": "🛟"
     }
   ]
 }
