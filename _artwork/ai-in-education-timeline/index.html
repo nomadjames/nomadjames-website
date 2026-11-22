@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex"><base href="/ai-in-education-timeline/" target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An Interactive Timeline of Rules and Research on AI Implementation in Education | James Dishman</title>
+<meta name="description" content="34 laws, proposals, guidance documents, studies and court rulings on AI in schools and colleges from 2022 to 2028, sorted by topic, each linked to its source, with nine guidelines for educators.">
+<link rel="canonical" href="https://nomadjames.com/ai-in-education-timeline/">
+<meta property="og:title" content="An Interactive Timeline of Rules and Research on AI Implementation in Education">
+<meta property="og:description" content="34 laws, proposals, guidance documents, studies and court rulings on AI in schools and colleges from 2022 to 2028, sorted by topic, each linked to its source, with nine guidelines for educators.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nomadjames.com/ai-in-education-timeline/">
+
+<style>
+:root{
+  --bg:#0f1016; --panel:#171923; --panel2:#1d2030; --line:#2c3044; --conn:#5a5f7c;
+  --text:#ecebe6; --muted:#b6b3c0; --accent:#ffa45c; --do:#7fd8a6; --dont:#ff8f8f; --info:#79b9e2;
+  --r:12px; --labelw:9.6em; --todayw:1.6em;
+}
+*{box-sizing:border-box}
+html{font-size:clamp(14px, calc(.75vw + .35vh + 1px), 18px)}
+body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+button{font:inherit;color:inherit}
+:is(a,button,input,summary):focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+h1,h2,h3,p{margin:0}
+
+/* page grid */
+.app{display:grid;gap:.85rem;padding:1rem 1.25rem;max-width:1680px;margin:0 auto;
+  grid-template-columns:minmax(0,1fr) clamp(19rem,27vw,27rem);
+  grid-template-rows:auto minmax(0,1fr) auto;
+  grid-template-areas:"head head" "chart side" "check side"}
+@media (min-width:1100px) and (min-height:640px){.app{height:100dvh}}
+.app>*{min-width:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+
+/* header */
+header{grid-area:head;display:flex;gap:1rem 2rem;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.75rem}
+h1{font-size:clamp(1.3rem,1.9vw,1.9rem);line-height:1.15;margin:.15rem 0 .2rem}
+.audience{color:var(--muted);font-size:.92rem}
+nav.more{display:flex;gap:.4rem;flex-wrap:wrap}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:.3rem .8rem;font-size:.82rem;cursor:pointer;color:var(--text)}
+.chip:hover{border-color:var(--accent)}
+
+/* chart */
+.chart{grid-area:chart;display:flex;flex-direction:column;padding:.7rem .9rem .55rem;min-height:0}
+.plotwrap{flex:1;min-height:0;overflow-x:auto;overflow-y:hidden}
+.plot{display:grid;height:100%;min-width:46rem;min-height:21rem;
+  grid-template-rows:1.7rem repeat(9,minmax(0,1fr)) 1.5rem}
+.band{grid-row:1/-1;border-left:1px solid var(--line);position:relative}
+.band.alt{background:rgba(255,255,255,.025)}
+.band span{position:absolute;top:.2rem;left:.35rem;font-size:.75rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.band.coming span{color:var(--accent)}
+.strip{grid-column:2/-1;border-top:1px solid rgba(60,65,92,.55);pointer-events:none}
+.strip.on{background:rgba(255,164,92,.09)}
+.lane{grid-column:1;text-align:left;background:none;border:0;border-radius:6px;padding:0 .5rem;font-size:.84rem;line-height:1.15;cursor:pointer;display:flex;align-items:center;gap:.45rem}
+.lane .n{color:var(--accent);font-weight:800;font-size:.75rem;min-width:1.1em;text-align:right}
+.lane:hover{background:var(--panel2)}
+.lane[aria-pressed="true"]{background:rgba(255,164,92,.16);color:#fff}
+
+.col{grid-row:2/11;position:relative;z-index:2;background:none;border:0;padding:0;border-radius:7px;cursor:pointer;
+  display:grid;grid-template-rows:repeat(9,minmax(0,1fr));justify-items:center;align-items:center;transition:opacity .2s,background .2s}
+.col::before{content:"";position:absolute;left:calc(50% - 1px);width:2px;top:var(--t);bottom:var(--b);background:var(--conn)}
+.col.coming::before{background:repeating-linear-gradient(var(--conn) 0 4px,transparent 4px 8px)}
+.col.single::before{display:none}
+.dot{grid-column:1;width:.8rem;aspect-ratio:1;border-radius:50%;background:var(--accent);position:relative;
+  box-shadow:0 0 0 3px var(--panel);transition:transform .15s}
+.st-proposed .dot{background:var(--panel);border:2px solid var(--accent)}
+.st-cancelled .dot{background:var(--panel);border:2px solid var(--dont)}
+.st-cancelled .dot::after{content:"";position:absolute;left:-2px;right:-2px;top:calc(50% - 1px);height:2px;background:var(--dont);transform:rotate(-45deg)}
+.st-other .dot{background:var(--info)}
+.col:hover,.col:focus-visible{background:rgba(255,255,255,.06)}
+.col[aria-pressed="true"]{background:rgba(255,164,92,.16)}
+.col[aria-pressed="true"] .dot{transform:scale(1.35);box-shadow:0 0 0 3px var(--panel),0 0 12px 2px rgba(255,164,92,.55)}
+.plot[data-lane] .col:not(.match){opacity:.18}
+.plot[data-lane] .dot.hit{transform:scale(1.35)}
+
+/* the one strange element: the "today" line */
+.today{grid-row:1/-1;position:relative;z-index:1;pointer-events:none}
+.today::before{content:"";position:absolute;top:.2rem;bottom:1.6rem;left:calc(50% - 3px);width:6px;border-radius:3px;
+  background:linear-gradient(180deg,#ff7a59,#ffb35c,#7fe0c2,#7a8cff,#d27aff,#ff7a59,#ffb35c);background-size:100% 300%;
+  animation:flow 14s linear infinite;box-shadow:0 0 16px 3px rgba(255,164,92,.3)}
+.today span{position:absolute;bottom:.1rem;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.72rem;font-weight:700;color:var(--accent)}
+@keyframes flow{to{background-position:0 300%}}
+@media (prefers-reduced-motion:reduce){.today::before{animation:none}.col,.dot{transition:none}}
+
+.legend{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;align-items:center;font-size:.78rem;color:var(--muted);padding-top:.35rem;border-top:1px solid var(--line);margin-top:.2rem}
+.legend i{display:inline-block;vertical-align:-1px;margin-right:.35rem}
+.legend .d{width:.7rem;height:.7rem;border-radius:50%;background:var(--accent)}
+.legend .h{width:.7rem;height:.7rem;border-radius:50%;border:2px solid var(--accent)}
+.legend .x{width:.7rem;height:.7rem;border-radius:50%;border:2px solid var(--dont);position:relative}
+.legend .x::after{content:"";position:absolute;left:-2px;right:-2px;top:calc(50% - 1px);height:2px;background:var(--dont);transform:rotate(-45deg)}
+.legend .o{width:.7rem;height:.7rem;border-radius:50%;background:var(--info)}
+.legend .d,.legend .h,.legend .x,.legend .o{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.legend .l{width:2px;height:.9rem;background:var(--conn);vertical-align:-3px}
+#status{margin-left:auto;color:var(--text)}
+
+/* side panel */
+.side{grid-area:side;display:flex;flex-direction:column;gap:.85rem;min-height:0}
+.detail{flex:1;min-height:0;overflow:auto;padding:1rem 1.15rem}
+.detail h2{font-size:1.15rem;line-height:1.25;margin:.25rem 0 .55rem}
+.detail p{margin:.4rem 0}
+.key strong{color:var(--accent)}
+.key{font-size:1.02rem;border-left:4px solid var(--accent);padding:.1rem 0 .1rem .8rem;margin:.6rem 0 .9rem!important}
+.hint{color:var(--muted);font-size:.88rem}
+.dd{display:grid;gap:.5rem;margin:.7rem 0}
+.dd div{background:var(--panel2);border-radius:8px;padding:.5rem .7rem;font-size:.92rem}
+.dd b,.lbl-do,.lbl-dont{display:block;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800}
+.do b,.lbl-do{color:var(--do)} .dont b,.lbl-dont{color:var(--dont)}
+.lbl-do,.lbl-dont{margin-top:.7rem!important}
+.detail ul{margin:.25rem 0;padding-left:1.1rem}
+.detail li{margin:.2rem 0;font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:.6rem 0 .3rem}
+.tag{font-size:.75rem;border:1px solid var(--line);background:none;border-radius:999px;padding:.1rem .6rem;color:var(--muted);cursor:pointer}
+.tag:hover{border-color:var(--accent);color:var(--text)}
+.src{font-size:.8rem;color:var(--muted)}
+.pager{display:flex;justify-content:space-between;gap:.5rem;margin-top:.8rem}
+.field{padding:.8rem 1.1rem;background:var(--panel2);font-size:.86rem}
+.field h3{color:var(--accent);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.25rem}
+.foot{font-size:.72rem;color:var(--muted);padding:0 .2rem}
+
+/* checklist */
+.check{grid-area:check;padding:.65rem .9rem .7rem}
+.check-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.35rem}
+.check h2{font-size:.98rem}
+.check h2 .n{color:var(--accent);font-weight:800;margin-right:.35rem}
+.count{font-weight:700;color:var(--accent)}
+.answered{font-size:.82rem;color:var(--muted);display:flex;gap:.6rem;align-items:center}
+.checklist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:1.2rem}
+.checklist li{break-inside:avoid}
+.checklist label{display:flex;gap:.55rem;align-items:flex-start;padding:.2rem .3rem;border-radius:6px;cursor:pointer;font-size:.84rem;line-height:1.3}
+.checklist label:hover{background:var(--panel2)}
+.checklist input{width:1.05rem;height:1.05rem;margin:.05rem 0 0;accent-color:var(--accent);flex:none}
+.checklist .why{color:var(--muted)}
+.checklist .why::before{content:" "}
+.checklist input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(255,164,92,.6)}
+
+/* dialogs */
+dialog{max-width:min(52rem,92vw);max-height:86vh;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:var(--r);padding:1.2rem 1.5rem 1.4rem}
+dialog::backdrop{background:rgba(5,6,10,.72)}
+.dlg-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.6rem}
+dialog h2{font-size:1.3rem}
+dialog h2.sub{margin-top:1.4rem;margin-bottom:.4rem}
+dialog p{margin:.55rem 0}
+.muted{color:var(--muted)} .small{font-size:.85rem}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:44rem}
+th,td{border-bottom:1px solid var(--line);padding:.55rem .6rem;text-align:left;vertical-align:top}
+thead th{color:var(--accent);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.refs p{padding-left:2em;text-indent:-2em;font-size:.9rem}
+.print-only{display:none}
+
+/* narrow screens: stack and let the page scroll */
+@media screen and (max-width:1099px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"head" "chart" "side" "check"}
+  .plot{height:26rem}
+  .checklist{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}
+}
+
+@media print{
+  @page{size:letter landscape;margin:.4in}
+  :root{--bg:#fff;--panel:#fff;--panel2:#f2f2f2;--line:#bbb;--conn:#888;--text:#000;--muted:#333;--accent:#b35400;--do:#0a6b3a;--dont:#a01010;--info:#1d5f8a}
+  html{font-size:10.5px}
+  .app{height:7.65in;max-width:none;padding:0;grid-template-columns:minmax(0,1fr) 2.9in}
+  nav.more,.pager,#reset,.foot{display:none}
+  .today::before{animation:none;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .dot,.lane .n{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .plotwrap{overflow:visible}
+  .plot{min-width:0}
+  .print-only{display:block}
+  dialog{display:block;position:static;max-width:none;max-height:none;border:0;padding:0;margin:0;background:none;color:#000;overflow:visible}
+  dialog .dlg-head button{display:none}
+  .appendix,#dlg-rationale,#dlg-vendors{font-size:10pt}
+  .appendix{break-before:page}
+  .appendix h2,dialog h2{font-size:14pt;margin:.15in 0 .08in}
+  .appendix ol{columns:2;column-gap:.3in;list-style:none;padding:0;margin:0}
+  .appendix li{break-inside:avoid;margin:0 0 .08in}
+  .appendix .gl{columns:2;column-gap:.3in}
+  .appendix .gl div{break-inside:avoid;margin-bottom:.08in}
+  #dlg-rationale,#dlg-vendors{break-inside:avoid}
+  #dlg-refs{break-before:page;font-size:10.5pt}
+  table{min-width:0;font-size:9pt}
+}
+
+/* guideline cards below the graphic */
+.guides{max-width:1680px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+.guides>h2{font-size:1.5rem;margin-bottom:.3rem}
+.guides>.hint{margin-bottom:1rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,24rem),1fr));gap:1rem}
+.card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:var(--r);padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.7rem;scroll-margin-top:1rem}
+.card:target{box-shadow:0 0 0 2px var(--accent)}
+.card .n{color:var(--accent);font-weight:800;font-size:.8rem}
+.card h3{font-size:1.2rem;line-height:1.2}
+.fig{display:grid;grid-template-columns:auto 1fr;gap:.2rem .9rem;align-items:center;padding:.7rem .8rem;background:var(--panel2);border-radius:8px}
+.fig b{font-weight:800;font-size:1.8rem;line-height:1;letter-spacing:-.03em;color:var(--accent);white-space:nowrap}
+.fig p{font-size:.9rem;line-height:1.4;margin:0}
+.fig cite{grid-column:1/-1;font-style:normal;font-size:.75rem;color:var(--muted)}
+.fieldnote{font-size:.86rem;color:var(--muted);border-left:3px solid var(--accent);padding-left:.7rem}
+dl.g{display:grid;gap:.45rem;margin:0}
+dl.g div{display:grid;grid-template-columns:4.2rem 1fr;gap:.7rem;align-items:baseline}
+dl.g dt{font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800}
+dl.g .rule dt{color:var(--text)} dl.g .do dt{color:var(--do)} dl.g .dont dt{color:var(--dont)}
+dl.g dd{margin:0;line-height:1.45}
+.slot{color:var(--muted);font-style:italic;border:1px dashed var(--line);border-radius:6px;padding:.1rem .5rem}
+.detail .fig{margin:.6rem 0}
+.detail dl.g{margin:.6rem 0}
+@media print{
+  .guides{break-before:page;padding:0;max-width:none}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:.12in}
+  .card{break-inside:avoid;padding:.08in .1in;gap:.06in}
+  .fig b{font-size:15pt}
+}
+
+.fig .also{grid-column:1/-1;font-size:.75rem;color:var(--muted);line-height:1.5;margin:0}
+.fig .also a{color:var(--muted)}
+.refs h2{margin-bottom:.8rem}
+.refs p{max-width:60rem;line-height:1.6;margin:0 0 .6rem}
+.refs a{overflow-wrap:anywhere}
+.refs .vendnote{padding-left:0;text-indent:0;color:var(--muted);font-size:.82rem;margin-top:1rem}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div>
+      <p class="eyebrow">Responsible AI guidelines</p>
+      <h1>An Interactive Timeline of Rules and Research on AI Implementation in Education</h1>
+      <p class="audience">For teachers, administrators and staff preparing to bring AI tools into a K–12 school or college.</p>
+    </div>
+    <nav class="more" aria-label="Supporting pages">
+      <a class="chip" href="#guidelines" style="text-decoration:none">Guideline cards ↓</a>
+      <button class="chip" type="button" data-open="dlg-vendors">Vendor terms</button>
+      <button class="chip" type="button" data-open="dlg-rationale">Rationale &amp; AI Use Note</button>
+      <a class="chip" href="#references" style="text-decoration:none">References ↓</a>
+      <button class="chip" type="button" id="print">Print</button>
+    </nav>
+  </header>
+
+  <section class="chart panel" aria-labelledby="chart-h">
+    <h2 id="chart-h" class="sr-only">Timeline of AI rules, guidance and studies for schools, October 2022 to April 2028, by guideline topic</h2>
+    <div class="plotwrap"><div class="plot" id="plot"></div></div>
+    <p class="legend">
+      <span><i class="d"></i>Enacted</span>
+      <span><i class="h"></i>Proposed</span>
+      <span><i class="x"></i>Cancelled</span>
+      <span><i class="o"></i>Guidance, research and rulings</span>
+      <span><i class="l"></i>One event, several topics</span>
+      <span id="status" role="status" aria-live="polite"></span>
+    </p>
+  </section>
+
+  <div class="side">
+    <section class="detail panel" id="detail" aria-live="polite" aria-label="Details"></section>
+    <aside class="field panel" aria-labelledby="f-h">
+      <h3 id="f-h">From the field</h3>
+      <p>An instructional designer at an online K–12 school (personal communication, November 14, 2026) described three gaps. The school's AI tool kept student recordings "as long as you have an account," while staff believed nothing personal was saved. Errors in an AI-drafted answer key reached every student. The school posted no AI policy.</p>
+    </aside>
+    <p class="foot">James Dishman · ETEC 67510 AI in Education and Human Performance · November 22, 2026</p>
+  </div>
+
+  <section class="check panel" id="checklist" aria-labelledby="c-h">
+    <div class="check-head">
+      <h2 id="c-h"><span class="n">10</span>Before You Use AI: a checklist</h2>
+      <p class="answered">Answered&nbsp;<span class="count" id="count">0 of 10</span><button class="chip" id="reset" type="button">Clear</button></p>
+    </div>
+    <ol class="checklist">
+  <li><label><input type="checkbox"><span>What problem does this tool solve, and what evidence shows it works?<span class="why">Ask for studies, not testimonials.</span></span></label></li>
+  <li><label><input type="checkbox"><span>Does the vendor train its models on our data? Where does the contract say so?</span></label></li>
+  <li><label><input type="checkbox"><span>How long does it keep data, and when is the data returned or deleted after the contract ends?</span></label></li>
+  <li><label><input type="checkbox"><span>Is the vendor a FERPA "school official" under our control?</span></label></li>
+  <li><label><input type="checkbox"><span>If students are under 13, does it meet the 2025 COPPA rule?</span></label></li>
+  <li><label><input type="checkbox"><span>Does it meet WCAG 2.1 AA and work with students' assistive technology?</span></label></li>
+  <li><label><input type="checkbox"><span>Who reviews its output, and can they override it?</span></label></li>
+  <li><label><input type="checkbox"><span>Have we tested it on our own tasks and checked results across student groups?</span></label></li>
+  <li><label><input type="checkbox"><span>Have we told students, families and staff what it does and what it collects?</span></label></li>
+  <li><label><input type="checkbox"><span>Is this use on our "don't use AI" list?</span></label></li>
+</ol>
+  </section>
+</div>
+
+<section class="guides" id="guidelines" aria-labelledby="gl-h">
+  <h2 id="gl-h">The guidelines, one topic at a time</h2>
+  <p class="hint">Each card is one topic from the timeline. Guideline 10, the checklist, is on the first page.</p>
+  <div class="cards">
+    <article class="card" id="card-1">
+      <p class="n">01</p>
+      <h3>Appropriate uses</h3>
+      <div class="fig"><b>−17%</b><p>High school students who practiced math with an open GPT-4 chat scored 17% lower on a later exam taken without AI. A version that gave hints avoided the loss.</p><cite><a href="https://doi.org/10.1073/pnas.2422633122" target="_blank" rel="noopener">Bastani et al., 2025 ↗</a></cite></div>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>AI is a good fit for learning when it engages the students and makes the material easier for them to understand, and not when it gives them answers.</dd></div>
+        <div class="do"><dt>Do</dt><dd>Choose or make tools that teach every student at their level.</dd></div>
+        <div class="dont"><dt>Don't</dt><dd>Do not provide assignments where students can use AI to cheat.</dd></div>
+      </dl>
+    </article>
+    <article class="card" id="card-2">
+      <p class="n">02</p>
+      <h3>Human oversight and accountability</h3>
+      <div class="fig"><b>p. 25</b><p>UNESCO asks schools to keep people accountable for high-stakes decisions and to validate tools before adopting them.</p><cite><a href="https://unesdoc.unesco.org/ark:/48223/pf0000386693" target="_blank" rel="noopener">Miao &amp; Holmes, 2023 ↗</a></cite></div>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>Educators and administrators will be responsible for the tools that they choose and implement. They should know how they work and what they do.</dd></div>
+        <div class="do"><dt>Do</dt><dd>Keep the educators in the loop.</dd></div>
+        <div class="dont"><dt>Don't</dt><dd>Blindly implement new tools without understanding them and how they function.</dd></div>
+      </dl>
+    </article>
+    <article class="card" id="card-3">
+      <p class="n">03</p>
+      <h3>Accuracy and verification</h3>
+      <div class="fig"><b>51%</b><p>In the same math study, the open GPT-4 chat solved the practice problems correctly about half the time.</p><cite><a href="https://doi.org/10.1073/pnas.2422633122" target="_blank" rel="noopener">Bastani et al., 2025 ↗</a></cite></div>
+      <p class="fieldnote">At an online K–12 school, errors in an AI-drafted answer key reached every student (instructional designer, personal communication, November 14, 2026).</p>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>Educators will remain responsible for the information they present.</dd></div>
+        <div class="do"><dt>Do</dt><dd>Read and understand everything AI produces before you present it.</dd></div>
+        <div class="dont"><dt>Don't</dt><dd>Blindly trust that the system is going to recognize your intention or be correct.</dd></div>
+      </dl>
+    </article>
+    <article class="card" id="card-4">
+      <p class="n">04</p>
+      <h3>Privacy and data protection</h3>
+      <div class="fig"><b>90 days</b><p>In Ohio, student records shared with a technology provider stay the district's property. The provider must generally return or destroy them within 90 days after the contract ends.</p><cite><a href="https://codes.ohio.gov/ohio-revised-code/section-3319.326" target="_blank" rel="noopener">Ohio Rev. Code § 3319.326 ↗</a></cite></div>
+      <p class="fieldnote">The same online school's AI tool kept student recordings "as long as you have an account," while staff believed nothing personal was saved (personal communication, November 14, 2026).</p>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>Schools should understand all applicable legal statutes.</dd></div>
+        <div class="do"><dt>Do</dt><dd>Understand privacy and data retention laws at all levels.</dd></div>
+        <div class="dont"><dt>Don't</dt><dd>Do not trust that a provider is following the laws.</dd></div>
+      </dl>
+    </article>
+    <article class="card" id="card-5">
+      <p class="n">05</p>
+      <h3>Bias, fairness and equity</h3>
+      <div class="fig"><b>600</b><p>Researchers gave four AI models 600 eighth-grade essays. When the prompt stated a student's race, language background or disability, feedback often had more praise and less real critique, even for identical essays.</p><cite><a href="https://doi.org/10.1145/3785022.3785113" target="_blank" rel="noopener">Tan et al., 2026 ↗</a></cite></div>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>Choose products that minimize bias.</dd></div>
+        <div class="do"><dt>Do</dt><dd>Develop a bias-detection protocol and use it when evaluating new technology.</dd></div>
+        <div class="dont"><dt>Don't</dt><dd>Do not assume that any organization fully understands its training data.</dd></div>
+      </dl>
+    </article>
+    <article class="card" id="card-6">
+      <p class="n">06</p>
+      <h3>Accessibility and inclusion</h3>
+      <div class="fig"><b>WCAG 2.1 AA</b><p>Public schools and colleges serving 50,000 or more people must meet this standard for web content and apps by April 26, 2027, and smaller ones by April 26, 2028. Existing disability-access duties apply now.</p><cite><a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener">U.S. Department of Justice, 2026 ↗</a></cite></div>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>AI has the possibility to expand accessible use. Use it.</dd></div>
+        <div class="do"><dt>Do</dt><dd>Understand and consider the accessibility needs of everyone, and adopt products that cater to those needs.</dd></div>
+        <div class="dont"><dt>Don't</dt><dd>Ignore the needs of people with disabilities.</dd></div>
+      </dl>
+    </article>
+    <article class="card" id="card-7">
+      <p class="n">07</p>
+      <h3>Transparency and AI disclosure</h3>
+      <div class="fig"><b>2027</b><p>From January 1, 2027, Colorado requires notice when AI helps decide a person's access to or eligibility for education.</p><cite><a href="https://www.leg.colorado.gov/bills/SB26-189" target="_blank" rel="noopener">S.B. 26-189 (Colo. 2026) ↗</a></cite></div>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>Understanding begins with the adopters. Educators need to learn what these tools do, how they work, and where they are appropriate, then share that with the public.</dd></div>
+        <div class="do"><dt>Do</dt><dd>Always disclose what the tools are and what they do.</dd></div>
+        <div class="dont"><dt>Don't</dt><dd>Leave the broader community in the dark. Educate them about the benefits of these tools.</dd></div>
+      </dl>
+    </article>
+    <article class="card" id="card-8">
+      <p class="n">08</p>
+      <h3>Intellectual property and academic integrity</h3>
+      <div class="fig"><b>Prompts</b><p>The U.S. Copyright Office found that prompts alone do not give a person enough control to be the author of AI output. Human-written expression can still be protected.</p><cite><a href="https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf" target="_blank" rel="noopener">U.S. Copyright Office, 2025 ↗</a></cite></div>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>Make sure the AI tools students use teach them to create, helping them make their own work through learning instead of giving them something to copy.</dd></div>
+        <div class="do"><dt>Do</dt><dd>Educate students on the ethics of intellectual property.</dd></div>
+        <div class="dont"><dt>Don't</dt><dd>Hand out assignments whose answers can be copied from another source.</dd></div>
+      </dl>
+    </article>
+    <article class="card" id="card-9">
+      <p class="n">09</p>
+      <h3>When not to use AI</h3>
+      <div class="fig"><b>Banned</b><p>Since February 2, 2025, the EU has banned AI that infers emotions in schools, except for medical or safety reasons.</p><cite><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" rel="noopener">Regulation (EU) 2024/1689 ↗</a></cite></div>
+      <dl class="g">
+        <div class="rule"><dt>Rule</dt><dd>Educators shouldn't use AI to do their work for them. They should use AI to do their work better.</dd></div>
+        <div class="dont"><dt>Never</dt><dd>Have AI read a student's essay for you. You read the essay. There is context there no AI can see.</dd></div>
+        <div class="dont"><dt>Never</dt><dd>Let a machine decide a person's fate.</dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="guides refs" id="references" aria-labelledby="ref-h">
+  <h2 id="ref-h">References</h2>
+  <p>Anthropic. (2025, April 2). <i>Introducing Claude for Education</i>. <a href="https://www.anthropic.com/news/introducing-claude-for-education" target="_blank" rel="noopener">https://www.anthropic.com/news/introducing-claude-for-education</a></p>
+  <p><i>Bartz v. Anthropic PBC</i>, No. 3:24-cv-05417 (N.D. Cal. June 23, 2025). <a href="https://www.courtlistener.com/docket/69058235/231/bartz-v-anthropic-pbc/" target="_blank" rel="noopener">https://www.courtlistener.com/docket/69058235/231/bartz-v-anthropic-pbc/</a></p>
+  <p>Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., &amp; Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. <i>Proceedings of the National Academy of Sciences, 122</i>(26), Article e2422633122. <a href="https://doi.org/10.1073/pnas.2422633122" target="_blank" rel="noopener">https://doi.org/10.1073/pnas.2422633122</a></p>
+  <p>Children's Online Privacy Protection Rule, 90 Fed. Reg. 16918 (Apr. 22, 2025) (codified at 16 C.F.R. pt. 312). <a href="https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule" target="_blank" rel="noopener">https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule</a></p>
+  <p>De Simone, M. E., Tiberti, F. H., Barron Rodriguez, M. R., Manolio, F. A., Mosuro, W., &amp; Dikoru, E. J. (2025). <i>From chalkboards to chatbots: Evaluating the impact of generative AI on learning outcomes in Nigeria</i> (Policy Research Working Paper No. 11125). World Bank. <a href="https://openknowledge.worldbank.org/entities/publication/15e1ff08-15ae-4f7a-b2a8-d146e6c113ee" target="_blank" rel="noopener">https://openknowledge.worldbank.org/entities/publication/15e1ff08-15ae-4f7a-b2a8-d146e6c113ee</a></p>
+  <p>Family Educational Rights and Privacy, 34 C.F.R. pt. 99 (2026). <a href="https://www.ecfr.gov/current/title-34/subtitle-A/part-99" target="_blank" rel="noopener">https://www.ecfr.gov/current/title-34/subtitle-A/part-99</a></p>
+  <p>Federal Communications Commission. (2026). <i>Ensuring children's safe use of screens and e-rate-funded services</i> (FCC 26-41). <a href="https://docs.fcc.gov/public/attachments/FCC-26-41A1.pdf" target="_blank" rel="noopener">https://docs.fcc.gov/public/attachments/FCC-26-41A1.pdf</a></p>
+  <p>Federal Trade Commission. (2023, May 22). <i>FTC says ed tech provider Edmodo unlawfully used children's personal information for advertising</i> [Press release]. <a href="https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-says-ed-tech-provider-edmodo-unlawfully-used-childrens-personal-information-advertising" target="_blank" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-says-ed-tech-provider-edmodo-unlawfully-used-childrens-personal-information-advertising</a></p>
+  <p>Federal Trade Commission. (2025, September 11). <i>FTC launches inquiry into AI chatbots acting as companions</i> [Press release]. <a href="https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions" target="_blank" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions</a></p>
+  <p>Federal Trade Commission. (2026). <i>Illuminate Education, Inc., in the matter of</i> (File No. 222-3105). <a href="https://www.ftc.gov/legal-library/browse/cases-proceedings/222-3105-illuminate-education-inc-matter" target="_blank" rel="noopener">https://www.ftc.gov/legal-library/browse/cases-proceedings/222-3105-illuminate-education-inc-matter</a></p>
+  <p>H.B. 1630, 113th Gen. Assemb. (Tenn. 2024). <a href="https://www.capitol.tn.gov/Bills/113/Bill/HB1630.pdf" target="_blank" rel="noopener">https://www.capitol.tn.gov/Bills/113/Bill/HB1630.pdf</a></p>
+  <p><i>Kadrey v. Meta Platforms, Inc.</i>, No. 3:23-cv-03417 (N.D. Cal. June 25, 2025). <a href="https://law.justia.com/cases/federal/district-courts/california/candce/3:2023cv03417/415175/598/" target="_blank" rel="noopener">https://law.justia.com/cases/federal/district-courts/california/candce/3:2023cv03417/415175/598/</a></p>
+  <p>Kestin, G., Miller, K., Klales, A., Milbourne, T., &amp; Ponti, G. (2025). AI tutoring outperforms in-class active learning: An RCT introducing a novel research-based design in an authentic educational setting. <i>Scientific Reports, 15</i>, Article 17458. <a href="https://doi.org/10.1038/s41598-025-97652-6" target="_blank" rel="noopener">https://doi.org/10.1038/s41598-025-97652-6</a></p>
+  <p>Langreo, L., &amp; Prothero, A. (2025, March 18). The Ed. Dept. axed its office of ed tech: What that means for schools. <i>Education Week</i>. <a href="https://www.edweek.org/policy-politics/the-ed-dept-axed-its-office-of-ed-tech-what-that-means-for-schools/2025/03" target="_blank" rel="noopener">https://www.edweek.org/policy-politics/the-ed-dept-axed-its-office-of-ed-tech-what-that-means-for-schools/2025/03</a></p>
+  <p>Miao, F., &amp; Holmes, W. (2023). <i>Guidance for generative AI in education and research</i>. UNESCO. <a href="https://unesdoc.unesco.org/ark:/48223/pf0000386693" target="_blank" rel="noopener">https://unesdoc.unesco.org/ark:/48223/pf0000386693</a></p>
+  <p>New York State Office of the Attorney General. (2025, November 6). <i>Attorney General James and multistate coalition secure $5.1 million</i> [Press release]. <a href="https://ag.ny.gov/press-release/2025/attorney-general-james-and-multistate-coalition-secure-51-million-education" target="_blank" rel="noopener">https://ag.ny.gov/press-release/2025/attorney-general-james-and-multistate-coalition-secure-51-million-education</a></p>
+  <p>Office of Science and Technology Policy. (2022). <i>Blueprint for an AI bill of rights</i>. The White House. <a href="https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Blueprint-for-an-AI-Bill-of-Rights.pdf" target="_blank" rel="noopener">https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Blueprint-for-an-AI-Bill-of-Rights.pdf</a></p>
+  <p>Ohio Department of Education and Workforce. (2025, December 30). <i>AI in education: Model policy for Ohio districts and schools</i>. <a href="https://education.ohio.gov/Topics/AI-in-Ohio-s-Education/Model-Policy" target="_blank" rel="noopener">https://education.ohio.gov/Topics/AI-in-Ohio-s-Education/Model-Policy</a></p>
+  <p>Ohio Rev. Code § 3301.24 (2025). <a href="https://codes.ohio.gov/ohio-revised-code/section-3301.24" target="_blank" rel="noopener">https://codes.ohio.gov/ohio-revised-code/section-3301.24</a></p>
+  <p>Ohio Rev. Code § 3319.326 (2024). <a href="https://codes.ohio.gov/ohio-revised-code/section-3319.326" target="_blank" rel="noopener">https://codes.ohio.gov/ohio-revised-code/section-3319.326</a></p>
+  <p>OpenAI. (2025, February 4). <i>OpenAI and the CSU system bring AI to 500,000 students and faculty</i>. <a href="https://openai.com/index/openai-and-the-csu-system" target="_blank" rel="noopener">https://openai.com/index/openai-and-the-csu-system</a></p>
+  <p>Regulation (EU) 2024/1689 of the European Parliament and of the Council (Artificial Intelligence Act), 2024 O.J. (L 1689). <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" rel="noopener">https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng</a></p>
+  <p>Regulation (EU) 2026/1744 of the European Parliament and of the Council (Digital Omnibus on AI), 2026 O.J. (L 1744). <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744" target="_blank" rel="noopener">https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744</a></p>
+  <p>S.B. 26-189, 75th Gen. Assemb., 2d Reg. Sess. (Colo. 2026). <a href="https://www.leg.colorado.gov/bills/SB26-189" target="_blank" rel="noopener">https://www.leg.colorado.gov/bills/SB26-189</a></p>
+  <p>Tan, M., Phalen, L., &amp; Demszky, D. (2026). Marked pedagogies: Examining linguistic biases in personalized automated writing feedback. In <i>Proceedings of the 16th International Learning Analytics and Knowledge Conference</i>. <a href="https://doi.org/10.1145/3785022.3785113" target="_blank" rel="noopener">https://doi.org/10.1145/3785022.3785113</a></p>
+  <p><i>Thomson Reuters Enterprise Centre GmbH v. ROSS Intelligence Inc.</i>, No. 25-2153 (3d Cir. Sept. 29, 2026). <a href="https://www2.ca3.uscourts.gov/opinarch/252153p.pdf" target="_blank" rel="noopener">https://www2.ca3.uscourts.gov/opinarch/252153p.pdf</a></p>
+  <p>U.S. Copyright Office. (2025). <i>Copyright and artificial intelligence, Part 2: Copyrightability</i>. <a href="https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf" target="_blank" rel="noopener">https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf</a></p>
+  <p>U.S. Department of Education. (2026, April 13). Secretary's supplemental priority and definitions on advancing artificial intelligence in education. <i>Federal Register, 91</i>(70), 18774–18780. <a href="https://www.govinfo.gov/content/pkg/FR-2026-04-13/html/2026-07087.htm" target="_blank" rel="noopener">https://www.govinfo.gov/content/pkg/FR-2026-04-13/html/2026-07087.htm</a></p>
+  <p>U.S. Department of Education, Office of Educational Technology. (2023). <i>Artificial intelligence and the future of teaching and learning: Insights and recommendations</i>. <a href="https://www.ed.gov/media/document/ai-reportpdf-43861.pdf" target="_blank" rel="noopener">https://www.ed.gov/media/document/ai-reportpdf-43861.pdf</a></p>
+  <p>U.S. Department of Education, Office of Special Education and Rehabilitative Services. (2024, January 22). <i>Dear colleague letter on assistive technology</i>. <a href="https://sites.ed.gov/idea/idea-files/dcl-assistive-technology-jan-22-2024/" target="_blank" rel="noopener">https://sites.ed.gov/idea/idea-files/dcl-assistive-technology-jan-22-2024/</a></p>
+  <p>U.S. Department of Justice. (2026). <i>Fact sheet: New rule on the accessibility of web content and mobile apps provided by state and local governments</i>. <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener">https://www.ada.gov/resources/2024-03-08-web-rule/</a></p>
+  <p>U.S. Department of Justice. (2026, April 20). Extension of compliance dates for nondiscrimination on the basis of disability; accessibility of web information and services of state and local government entities. <i>Federal Register</i>. <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener">https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web</a></p>
+  <p>The White House. (2025, January 20). <i>Initial rescissions of harmful executive orders and actions</i>. <a href="https://www.whitehouse.gov/presidential-actions/2025/01/initial-rescissions-of-harmful-executive-orders-and-actions/" target="_blank" rel="noopener">https://www.whitehouse.gov/presidential-actions/2025/01/initial-rescissions-of-harmful-executive-orders-and-actions/</a></p>
+  <p>The White House. (2025, April 23). <i>Advancing artificial intelligence education for American youth</i> [Executive order]. <a href="https://www.whitehouse.gov/presidential-actions/2025/04/Advancing-Artificial-Intelligence-Education-For-American-youth/" target="_blank" rel="noopener">https://www.whitehouse.gov/presidential-actions/2025/04/Advancing-Artificial-Intelligence-Education-For-American-youth/</a></p>
+  <p class="vendnote">Vendor terms consulted November 2026: OpenAI enterprise privacy and student data privacy agreement; Anthropic commercial terms and data processing addendum; Google Workspace for Education terms and generative AI privacy hub; Microsoft 365 Copilot privacy documentation and Products and Services Data Protection Addendum. <a href="https://openai.com/enterprise-privacy/" target="_blank" rel="noopener">https://openai.com/enterprise-privacy/</a> · <a href="https://cdn.openai.com/osa/openai-sdpa.pdf" target="_blank" rel="noopener">https://cdn.openai.com/osa/openai-sdpa.pdf</a> · <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener">https://www.anthropic.com/legal/commercial-terms</a> · <a href="https://www.anthropic.com/legal/data-processing-addendum" target="_blank" rel="noopener">https://www.anthropic.com/legal/data-processing-addendum</a> · <a href="https://workspace.google.com/terms/education_terms/" target="_blank" rel="noopener">https://workspace.google.com/terms/education_terms/</a> · <a href="https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub" target="_blank" rel="noopener">https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub</a> · <a href="https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy</a></p>
+</section>
+
+<section class="print-only appendix" id="appendix" aria-hidden="true"></section>
+
+<dialog id="dlg-vendors" aria-labelledby="v-h">
+  <div class="dlg-head"><h2 id="v-h">What the big education AI vendors promise</h2><button class="chip" type="button" data-close>Close</button></div>
+  <p class="muted small">Public terms as of November 2026. A school's signed contract controls.</p>
+<div class="tablewrap"><table>
+  <thead><tr><th scope="col">Product</th><th scope="col">Trains on your data?</th><th scope="col">How long it keeps data</th><th scope="col">After the contract ends</th><th scope="col">FERPA "school official"</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">ChatGPT Edu</th><td>No, by default</td><td>Set by the school's admins</td><td>Deleted within 30 days, with exceptions</td><td>Yes, in OpenAI's student data agreement</td></tr>
+    <tr><th scope="row">Claude for Education</th><td>No</td><td>Deleted chats leave back-end storage within 30 days</td><td>Returned on request and deleted within 30 days, with exceptions</td><td>Not in public higher-ed terms; K–12 has its own addendum</td></tr>
+    <tr><th scope="row">Gemini for Education</th><td>Not outside your domain without permission</td><td>History off: up to 72 hours. On: 3, 18 or 36 months (default 18)</td><td>Up to 30 days to recover, deleted within 180 days</td><td>Yes, in U.S. education terms</td></tr>
+    <tr><th scope="row">Microsoft 365 Copilot</th><td>No</td><td>Set by admins in Purview</td><td>90 days to export, deleted within 90 more</td><td>Yes, for FERPA-covered schools</td></tr>
+  </tbody>
+</table></div>
+</dialog>
+<dialog id="dlg-rationale" aria-labelledby="r-h">
+  <div class="dlg-head"><h2 id="r-h">Rationale</h2><button class="chip" type="button" data-close>Close</button></div>
+  <p>This infographic and web page is for educators trying to understand the timeline of AI adoption in education.</p>
+  <p>I created this timeline because I knew that the Trump administration had disbanded the Office of Educational Technology (OET), and I wanted to bring things up to the current state. I know that how AI is used in education is about to change tremendously. I foresee the large labs buying up existing educational technologies and then working directly with educational institutions to create education products. I see them cultivating forward-deployed engineers who go to schools or school districts and teach educators how to implement these technologies effectively. I believe this will happen more rapidly than most people understand, so I thought a timeline would give perspective.</p>
+  <p>I wanted an interactive design with strong references, and I knew it would be easy to implement.</p>
+  <h2 class="sub">AI Use Note</h2>
+  <p>I used my personal agentic system to compile research from a series of class references I provided. If I had more time, I would have done more of this myself. I checked the references for validity. I double-checked the references with Claude and had it build this web page; I do not write HTML. I edited the results and approved the final version.</p>
+</dialog>
+
+
+<script>
+(function(){
+const D={"events": [{"topics": [2, 7], "date": "October 2022", "title": "White House publishes a \"Blueprint for an AI Bill of Rights\"", "summary": "Five principles, including notice when AI is used and a way to reach a person. It was guidance only and never had the force of law.", "do": "Tell students and families when a tool uses AI and how to reach a person.", "dont": "Treat a statement of principles as a legal protection.", "src": "OSTP, 2022", "year": "2022", "coming": false, "url": [{"l": "White House", "u": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Blueprint-for-an-AI-Bill-of-Rights.pdf"}], "status": "other"}, {"topics": [4], "date": "May 22, 2023", "title": "FTC acts against Edmodo", "summary": "The Federal Trade Commission said the classroom app used children's personal information to serve ads, a non-educational purpose.", "do": "Get it in writing that student data is used only for the school's educational purpose.", "dont": "Assume an app follows school rules because teachers already use it.", "src": "FTC, 2023", "year": "2023", "coming": false, "url": [{"l": "FTC", "u": "https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-says-ed-tech-provider-edmodo-unlawfully-used-childrens-personal-information-advertising"}], "status": "other"}, {"topics": [2, 3, 4, 7], "date": "May 2023", "title": "U.S. Department of Education: \"AI and the Future of Teaching and Learning\"", "summary": "Calls for a human \"in the loop,\" warns that AI models may not fit FERPA, the federal student-privacy law (p. 8), and lists four questions to ask of any AI model (p. 9). Voluntary.", "do": "Keep a teacher responsible for what AI output means and what happens next.", "dont": "Let a recommendation stand unless a person can inspect and override it.", "src": "U.S. Dept. of Education, 2023", "year": "2023", "coming": false, "url": [{"l": "Report (PDF)", "u": "https://www.ed.gov/media/document/ai-reportpdf-43861.pdf"}], "status": "other"}, {"topics": [1, 2, 9], "date": "September 2023", "title": "UNESCO: \"Guidance for Generative AI in Education and Research\"", "summary": "Asks institutions to validate tools before adopting them, audit them, set age limits (p. 23) and keep people accountable for high-stakes decisions (p. 25). Voluntary.", "do": "Test a tool on your own tasks with your own students before rollout.", "dont": "Buy AI through \"passive and non-critical procurement\" (p. 27).", "src": "Miao &amp; Holmes, 2023", "year": "2023", "coming": false, "url": [{"l": "UNESCO", "u": "https://unesdoc.unesco.org/ark:/48223/pf0000386693"}], "status": "other"}, {"topics": [6], "date": "January 22, 2024", "title": "Education Department letter on assistive technology", "summary": "Each time an IEP team writes or revises a student's plan, it must consider whether the student needs assistive technology.", "do": "Check that an AI tool works with the screen readers and other assistive technology students already use.", "dont": "Adopt a tool that a student with an IEP cannot use.", "src": "OSERS, 2024", "year": "2024", "coming": false, "url": [{"l": "Letter", "u": "https://sites.ed.gov/idea/idea-files/dcl-assistive-technology-jan-22-2024/"}], "status": "other"}, {"topics": [2], "date": "March 2024", "title": "Tennessee requires AI policies in schools and public colleges", "summary": "School boards, charter schools and public universities must each adopt a policy on AI use by students and staff. K–12 policies were due for the 2024–25 school year.", "do": "Check whether your state requires an AI policy and what it must cover.", "dont": "Wait for a state mandate before writing one.", "src": "H.B. 1630 (Tenn. 2024)", "year": "2024", "coming": false, "url": [{"l": "Tennessee legislature (PDF)", "u": "https://www.capitol.tn.gov/Bills/113/Bill/HB1630.pdf"}], "status": "enacted"}, {"topics": [6], "date": "April 2024", "title": "Federal web accessibility rule for public schools and colleges", "summary": "Under ADA Title II, public entities must make web content and apps meet WCAG 2.1 AA, including content a contractor provides.", "do": "Ask vendors for a current accessibility report against WCAG 2.1 AA.", "dont": "Accept \"accessible\" without documentation.", "src": "DOJ, 2024", "year": "2024", "coming": false, "url": [{"l": "ADA.gov", "u": "https://www.ada.gov/resources/2024-03-08-web-rule/"}], "status": "enacted"}, {"topics": [4], "date": "December 9, 2024", "title": "Ohio: student records belong to the district", "summary": "Records shared with a technology provider stay the district's property. The provider must keep safeguards, report breaches and, in general, return or destroy the records within 90 days after the contract ends.", "do": "Put a return-or-destroy date in every AI contract, in any state.", "dont": "Accept open-ended retention such as \"as long as you have an account.\"", "src": "Ohio Rev. Code § 3319.326", "year": "2024", "coming": false, "url": [{"l": "Ohio Rev. Code § 3319.326", "u": "https://codes.ohio.gov/ohio-revised-code/section-3319.326"}], "status": "enacted"}, {"topics": [2], "date": "January 20, 2025", "title": "Federal AI safety order revoked", "summary": "Executive Order 14110, which had directed the Education Department's 2024 guide for AI developers, was rescinded.", "do": "Build school rules on laws that remain in force.", "dont": "Rely on federal guidance that can change with an administration.", "src": "White House, 2025", "year": "2025", "coming": false, "url": [{"l": "White House", "u": "https://www.whitehouse.gov/presidential-actions/2025/01/initial-rescissions-of-harmful-executive-orders-and-actions/"}], "status": "cancelled"}, {"topics": [8], "date": "January 29, 2025", "title": "Copyright Office: prompts alone don't make you the author", "summary": "Human-authored expression can be protected. Prompts alone don't give enough control to make the user the author of AI output.", "do": "Ask students and staff to mark which parts of a work are their own.", "dont": "Claim copyright in raw AI output.", "src": "U.S. Copyright Office, 2025", "year": "2025", "coming": false, "url": [{"l": "Report (PDF)", "u": "https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf"}], "status": "other"}, {"topics": [9, 4], "date": "February 2, 2025", "title": "EU bans AI that reads emotions in schools", "summary": "Under the EU AI Act, AI that infers emotions in education institutions is banned except for medical or safety reasons.", "do": "Check whether a tool claims to measure engagement or mood from faces or voices.", "dont": "Use emotion-reading tools on students, in any country.", "src": "Regulation (EU) 2024/1689", "year": "2025", "coming": false, "url": [{"l": "EU AI Act", "u": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng"}], "status": "enacted"}, {"topics": [1, 4], "date": "February to April 2025", "title": "AI companies sign campus-wide deals", "summary": "California State University gave more than 460,000 students ChatGPT Edu in February 2025. In April, Anthropic launched Claude for Education with campus-wide agreements and a learning mode that asks students questions instead of giving answers.", "do": "Settle data, retention and exit terms before a campus-wide deal.", "dont": "Treat a vendor's education product as your own evaluation.", "src": "OpenAI, 2025; Anthropic, 2025", "year": "2025", "coming": false, "url": [{"l": "OpenAI and CSU", "u": "https://openai.com/index/openai-and-the-csu-system"}, {"l": "Claude for Education", "u": "https://www.anthropic.com/news/introducing-claude-for-education"}], "status": "other"}, {"topics": [2], "date": "March 2025", "title": "The office behind the 2023 federal report closes", "summary": "The Office of Educational Technology was eliminated in Education Department cuts. Its guidance survives in archives.", "do": "Read the 2023 report as background on principles.", "dont": "Expect federal follow-up on it.", "src": "Education Week, 2025", "year": "2025", "coming": false, "url": [{"l": "Education Week", "u": "https://www.edweek.org/policy-politics/the-ed-dept-axed-its-office-of-ed-tech-what-that-means-for-schools/2025/03"}], "status": "cancelled"}, {"topics": [4], "date": "April 22, 2025", "title": "Children's privacy rule (COPPA) tightened", "summary": "Services collecting data from children under 13 need separate parental consent before sharing it with third parties such as ad networks. They must keep a written retention policy and may not keep data indefinitely. Compliance was due April 22, 2026.", "do": "Ask any vendor serving under-13 students for its written retention policy.", "dont": "Use tools that share children's data with advertisers.", "src": "FTC, 2025", "year": "2025", "coming": false, "url": [{"l": "Federal Register", "u": "https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule"}], "status": "enacted"}, {"topics": [1, 2], "date": "April 23, 2025", "title": "Federal order promotes AI education", "summary": "Executive Order 14277 created a White House Task Force on AI Education, called for a Presidential AI Challenge for students and told agencies to give AI priority in teacher training. It creates no rule a school must follow.", "do": "Use federal programs for training and funding where they fit your plan.", "dont": "Read federal promotion as a safety review of any tool.", "src": "The White House, 2025", "year": "2025", "coming": false, "url": [{"l": "Executive order", "u": "https://www.whitehouse.gov/presidential-actions/2025/04/Advancing-Artificial-Intelligence-Education-For-American-youth/"}], "status": "enacted"}, {"topics": [1, 5], "date": "May 2025", "title": "Nigeria: supervised AI tutoring raises English scores", "summary": "A six-week program using Microsoft Copilot with teacher supervision raised English scores by 0.23 standard deviations, and the full assessment by 0.31. It is one program, studied in a World Bank working paper.", "do": "Pair AI tutoring with a teacher and a structured plan.", "dont": "Treat one program's result as proof for any product.", "src": "De Simone et al., 2025", "year": "2025", "coming": false, "url": [{"l": "World Bank", "u": "https://openknowledge.worldbank.org/entities/publication/15e1ff08-15ae-4f7a-b2a8-d146e6c113ee"}], "status": "other"}, {"topics": [1, 3], "date": "June 3, 2025", "title": "College physics: a tutor built on instructor solutions", "summary": "In a two-lesson trial, students using an AI tutor built with instructor-written solutions scored higher on the test right after each lesson than students in active-learning class sessions. Long-term retention was not tested.", "do": "Build AI tutors on teacher-checked material.", "dont": "Expect the same result from a general chatbot.", "src": "Kestin et al., 2025", "year": "2025", "coming": false, "url": [{"l": "Study", "u": "https://doi.org/10.1038/s41598-025-97652-6"}], "status": "other"}, {"topics": [1, 3, 9], "date": "June 25, 2025", "title": "High school math: open chat hurt learning", "summary": "Nearly 1,000 students in Türkiye. Those given unrestricted GPT-4 for practice scored 17% lower on a later exam without AI than students with no AI. A version that gave hints avoided the loss. The unrestricted model solved the practice problems correctly only 51% of the time.", "do": "Choose tools that give hints and make students do the work.", "dont": "Hand students an open chatbot for practice assignments.", "src": "Bastani et al., 2025", "year": "2025", "coming": false, "url": [{"l": "Study", "u": "https://doi.org/10.1073/pnas.2422633122"}], "status": "other"}, {"topics": [8], "date": "June 2025", "title": "Two federal rulings on training AI with books", "summary": "In <i>Bartz v. Anthropic</i>, training was fair use but keeping pirated copies was not. In <i>Kadrey v. Meta</i>, Meta won on the evidence before that court. Neither ruling makes all training lawful.", "do": "Use licensed or legally obtained material with AI tools.", "dont": "Upload copyrighted course readings to tools that train on them.", "src": "N.D. Cal., 2025", "year": "2025", "coming": false, "url": [{"l": "Bartz v. Anthropic", "u": "https://www.courtlistener.com/docket/69058235/231/bartz-v-anthropic-pbc/"}, {"l": "Kadrey v. Meta", "u": "https://law.justia.com/cases/federal/district-courts/california/candce/3:2023cv03417/415175/598/"}], "status": "other"}, {"topics": [9], "date": "September 11, 2025", "title": "FTC studies AI chatbots as companions", "summary": "The FTC ordered seven companies, including OpenAI, Meta and Character.AI, to report how they protect children and teens who use chatbots as companions. It is a study, with no finding of wrongdoing.", "do": "Route students' personal and emotional concerns to counselors and staff.", "dont": "Let a chatbot act as a student's counselor or friend.", "src": "FTC, 2025", "year": "2025", "coming": false, "url": [{"l": "FTC", "u": "https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions"}], "status": "other"}, {"topics": [7, 2], "date": "September 30, 2025", "title": "Ohio requires every school to adopt an AI policy", "summary": "Each district, community school and STEM school had to adopt an AI policy by July 1, 2026. The state's model policy is optional; having a policy is not.", "do": "Publish your AI policy where staff, students and families can read it.", "dont": "Let AI use run without a written policy.", "src": "Ohio Rev. Code § 3301.24", "year": "2025", "coming": false, "url": [{"l": "Ohio Rev. Code § 3301.24", "u": "https://codes.ohio.gov/ohio-revised-code/section-3301.24"}], "status": "enacted"}, {"topics": [4], "date": "November 6, 2025", "title": "$5.1 million settlement over a student-data breach", "summary": "New York, California and Connecticut settled with Illuminate Education. The FTC finalized its own order against the company on June 5, 2026.", "do": "Ask vendors how they secure student data and how fast they report a breach.", "dont": "Give a tool more student data than the task needs.", "src": "N.Y. Attorney General, 2025; FTC, 2026", "year": "2025", "coming": false, "url": [{"l": "N.Y. Attorney General", "u": "https://ag.ny.gov/press-release/2025/attorney-general-james-and-multistate-coalition-secure-51-million-education"}, {"l": "FTC order", "u": "https://www.ftc.gov/legal-library/browse/cases-proceedings/222-3105-illuminate-education-inc-matter"}], "status": "other"}, {"topics": [2, 4, 8], "date": "December 30, 2025", "title": "Ohio publishes a model AI policy for schools", "summary": "The Department of Education and Workforce released an optional template for the July 1, 2026 requirement. It covers topics including data privacy, buying and evaluating AI tools, and academic integrity. Districts may adopt it, adapt it or write their own.", "do": "Start from the model and add your own vendor, data and review terms.", "dont": "Adopt a template without naming who enforces it.", "src": "Ohio Dept. of Education and Workforce, 2025", "year": "2025", "coming": false, "url": [{"l": "Ohio model policy", "u": "https://education.ohio.gov/Topics/AI-in-Ohio-s-Education/Model-Policy"}], "status": "other"}, {"topics": [5], "date": "March 2026", "title": "AI feedback shifts with the student's identity", "summary": "Researchers gave four AI models 600 eighth-grade essays and stated the student's race, language background or disability in the prompt. Feedback for those students often had more praise and less real critique, even for identical essays.", "do": "Spot-check AI feedback across student groups.", "dont": "Put demographic labels about students into prompts.", "src": "Tan et al., 2026", "year": "2026", "coming": false, "url": [{"l": "Study", "u": "https://doi.org/10.1145/3785022.3785113"}], "status": "other"}, {"topics": [1], "date": "April 13, 2026", "title": "Education Department favors AI in grants", "summary": "A final priority lets the department give preference to AI-related projects across its discretionary grant programs. It sets no rule a school must follow.", "do": "Look for grant funding that matches a need you have already documented.", "dont": "Let available money decide the plan before the need is clear.", "src": "U.S. Dept. of Education, 2026", "year": "2026", "coming": false, "url": [{"l": "Federal Register", "u": "https://www.govinfo.gov/content/pkg/FR-2026-04-13/html/2026-07087.htm"}], "status": "enacted"}, {"topics": [6], "date": "April 20, 2026", "title": "Web accessibility deadlines extended", "summary": "Public entities serving 50,000 people or more now have until April 26, 2027. Smaller entities and special districts have until April 26, 2028. Existing disability-access duties apply now.", "do": "Write the WCAG 2.1 AA requirement into contracts signed today.", "dont": "Treat the new deadline as permission to buy inaccessible tools.", "src": "DOJ, 2026", "year": "2026", "coming": false, "url": [{"l": "Federal Register", "u": "https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web"}], "status": "enacted"}, {"topics": [2, 7, 9], "date": "May 14, 2026", "title": "Colorado regulates AI in decisions about people", "summary": "SB26-189 replaced Colorado's 2024 AI law. AI used in decisions about access to or eligibility for education brings documentation and notice duties from January 1, 2027. The attorney general enforces it.", "do": "Tell people when AI helps make a decision about them.", "dont": "Use AI for admissions or placement without notice and human review.", "src": "Colo. SB26-189", "year": "2026", "coming": false, "url": [{"l": "Colorado legislature", "u": "https://www.leg.colorado.gov/bills/SB26-189"}], "status": "enacted"}, {"topics": [4, 9], "date": "June 26, 2026", "title": "FCC proposes changes to school internet-safety rules", "summary": "A proposal, not yet a rule, that re-examines the Children's Internet Protection Act. CIPA requires schools on the E-Rate program to filter content and monitor minors online.", "do": "Bring AI tools under your school's internet-safety policy.", "dont": "Treat a proposal as settled law.", "src": "FCC 26-41, 2026", "year": "2026", "coming": false, "url": [{"l": "FCC (PDF)", "u": "https://docs.fcc.gov/public/attachments/FCC-26-41A1.pdf"}], "status": "proposed"}, {"topics": [9], "date": "July 24, 2026", "title": "EU delays its high-risk AI rules for education", "summary": "An amendment moved the rules for high-risk AI, which include admissions, grading, placement and test monitoring, to December 2, 2027.", "do": "Treat admissions, grading, placement and proctoring as high-risk uses now.", "dont": "Read the delay as a judgment that these uses are safe.", "src": "Regulation (EU) 2026/1744", "year": "2026", "coming": false, "url": [{"l": "EU regulation", "u": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744"}], "status": "enacted"}, {"topics": [8], "date": "September 29, 2026", "title": "Appeals court: copying to train an AI tool was not fair use", "summary": "The Third Circuit held that ROSS Intelligence's use of 2,243 Westlaw headnotes to build a competing legal-research tool was not fair use.", "do": "Get permission before using others' material to train or tune a tool.", "dont": "Assume \"it's for AI\" makes copying legal.", "src": "3d Cir., 2026", "year": "2026", "coming": false, "url": [{"l": "Opinion (PDF)", "u": "https://www2.ca3.uscourts.gov/opinarch/252153p.pdf"}], "status": "other"}, {"topics": [2, 7, 9], "date": "January 1, 2027", "title": "Colorado's AI decision rules take effect", "summary": "Developers must document covered systems, and deployers must give notice when AI helps decide access to education.", "do": null, "dont": null, "src": "Colo. SB26-189", "year": "2027", "coming": true, "url": [{"l": "Colorado legislature", "u": "https://www.leg.colorado.gov/bills/SB26-189"}], "status": "enacted"}, {"topics": [6], "date": "April 26, 2027", "title": "Web accessibility deadline: larger public entities", "summary": "WCAG 2.1 AA for entities serving 50,000 or more people.", "do": null, "dont": null, "src": "DOJ, 2026", "year": "2027", "coming": true, "url": [{"l": "Federal Register", "u": "https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web"}], "status": "enacted"}, {"topics": [9], "date": "December 2, 2027", "title": "EU high-risk rules for education apply", "summary": "Admissions, grading, placement and test-monitoring AI must meet the EU's high-risk requirements.", "do": null, "dont": null, "src": "Regulation (EU) 2026/1744", "year": "2027", "coming": true, "url": [{"l": "EU regulation", "u": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744"}], "status": "enacted"}, {"topics": [6], "date": "April 26, 2028", "title": "Web accessibility deadline: smaller entities", "summary": "WCAG 2.1 AA for entities serving fewer than 50,000 people and for special districts.", "do": null, "dont": null, "src": "DOJ, 2026", "year": "2028", "coming": true, "url": [{"l": "Federal Register", "u": "https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web"}], "status": "enacted"}], "guides": {"1": {"title": "Good uses", "do": ["Use AI tutors that give hints and are built on teacher-checked material.", "Use AI to draft materials a teacher then checks."], "dont": ["Give students an open chatbot for practice work."]}, "2": {"title": "Oversight and accountability", "do": ["Name the person responsible for each AI tool and each AI-assisted decision.", "Make sure staff can inspect and override the tool."], "dont": ["Let a recommendation become a decision without review."]}, "3": {"title": "Accuracy and verification", "do": ["Check AI-drafted answer keys, feedback and facts before students see them.", "Re-test after the vendor updates the model."], "dont": ["Trust confident output. In one study the model was right 51% of the time."]}, "4": {"title": "Privacy and data protection", "do": ["Get in writing: no training on your data, a retention limit, return or deletion when the contract ends, and FERPA \"school official\" terms."], "dont": ["Enter student records into a personal AI account."]}, "5": {"title": "Bias, fairness and equity", "do": ["Spot-check output across student groups.", "Review any AI that flags students for enrollment, early intervention or cheating (U.S. Dept. of Education, 2023, p. 8)."], "dont": ["Put demographic labels about students into prompts."]}, "6": {"title": "Accessibility and inclusion", "do": ["Require WCAG 2.1 AA documentation.", "Test the tool with students' assistive technology."], "dont": ["Adopt a tool some students cannot use."]}, "7": {"title": "Transparency and disclosure", "do": ["Tell students and families which tools use AI and what data they collect.", "Ask students and staff to note when they used AI."], "dont": ["Hide AI's role in feedback or grading."]}, "8": {"title": "Copyright and academic integrity", "do": ["State in each course what AI use is allowed and how to credit it.", "Mark the human-written parts of a work."], "dont": ["Upload copyrighted materials to tools that train on them."]}, "9": {"title": "When not to use AI", "list": ["Final decisions on grades, discipline, placement or admissions.", "Reading students' emotions from faces or voices.", "Acting as a student's counselor or companion.", "Any tool for under-13 students without COPPA-compliant parental consent."]}}, "lanes": {"1": "Good uses", "2": "Oversight", "3": "Accuracy", "4": "Privacy", "5": "Bias", "6": "Accessibility", "7": "Disclosure", "8": "Copyright &amp; integrity", "9": "When not to use AI"}};
+const E=D.events, G=D.guides, L=D.lanes;
+const SL={enacted:'Enacted',proposed:'Proposed',cancelled:'Cancelled',other:'Guidance, research or ruling'};
+const plot=document.getElementById('plot'), detail=document.getElementById('detail'), status=document.getElementById('status');
+const nPast=E.filter(e=>!e.coming).length;
+const el=(tag,cls,html)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(html!=null)n.innerHTML=html;return n;};
+const plain=h=>{const t=document.createElement('div');t.innerHTML=h;return t.textContent;};
+const colOf=i=>i<nPast?i+2:i+3;
+
+// year groups; a one-event year gets a wider column so its label fits
+const groups=[];
+E.forEach((e,i)=>{const g=groups[groups.length-1];if(g&&g.year===e.year&&g.coming===e.coming)g.n++;else groups.push({year:e.year,coming:e.coming,start:i,n:1});});
+const w=E.map((e,i)=>groups.find(g=>i>=g.start&&i<g.start+g.n).n===1?'1.6fr':'1fr');
+plot.style.gridTemplateColumns=['var(--labelw)',...w.slice(0,nPast),'var(--todayw)',...w.slice(nPast)].map(x=>`minmax(0,${x})`).join(' ').replace('minmax(0,var(--labelw))','var(--labelw)').replace('minmax(0,var(--todayw))','var(--todayw)');
+groups.forEach((g,k)=>{const b=el('div','band'+(k%2?' alt':'')+(g.coming?' coming':''),`<span>${g.year}</span>`);b.style.gridColumn=`${colOf(g.start)} / span ${g.n}`;b.setAttribute('aria-hidden','true');plot.append(b);});
+
+// lanes
+const laneBtns={}, strips={};
+for(let t=1;t<=9;t++){
+  const s=el('div','strip');s.style.gridRow=t+1;plot.append(s);strips[t]=s;
+  const b=el('button','lane',`<span class="n">${t}</span><span>${L[t]}</span>`);
+  b.type='button';b.style.gridRow=t+1;b.setAttribute('aria-pressed','false');
+  b.addEventListener('click',()=>lane===t?clearLane():selectLane(t));
+  plot.append(b);laneBtns[t]=b;
+}
+
+// today
+const today=el('div','today','<span>Today: November 22, 2026</span>');today.style.gridColumn=nPast+2;plot.append(today);
+
+// event columns
+const cols=E.map((e,i)=>{
+  const b=el('button','col st-'+e.status+(e.coming?' coming':'')+(e.topics.length<2?' single':''));
+  b.type='button';b.style.gridColumn=colOf(i);b.dataset.i=i;
+  b.setAttribute('aria-pressed','false');b.setAttribute('aria-label',plain(`${e.date}, ${SL[e.status]}: ${e.title}`));
+  b.tabIndex=i===0?0:-1;
+  const mn=Math.min(...e.topics),mx=Math.max(...e.topics);
+  b.style.setProperty('--t',((mn-.5)/9*100)+'%');b.style.setProperty('--b',((9-mx+.5)/9*100)+'%');
+  e.topics.forEach(t=>{const d=el('span','dot');d.dataset.t=t;d.style.gridRow=t;b.append(d);});
+  b.addEventListener('click',()=>selectEvent(i));
+  b.addEventListener('mouseenter',()=>render({type:'event',i}));
+  b.addEventListener('mouseleave',()=>render(sel));
+  b.addEventListener('keydown',ev=>{
+    const k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[ev.key];
+    let j=k?i+k:ev.key==='Home'?0:ev.key==='End'?E.length-1:null;
+    if(j==null)return;ev.preventDefault();j=Math.max(0,Math.min(E.length-1,j));selectEvent(j);cols[j].focus();
+  });
+  plot.append(b);return b;
+});
+
+let sel={type:'intro'}, lane=null;
+const intro=`<p class="key"><strong>Start here.</strong> The 2023 AI guidance from UNESCO and the U.S. Department of Education is voluntary. Privacy, accessibility and consumer-protection laws are enforced, with fines and court orders. Each school has to apply both itself.</p>
+<p class="hint">Pick a dot to read an event and what to do about it. Pick a topic name to read its guideline. Arrow keys move between events.</p>`;
+
+function render(s){
+  if(s.type==='event'){
+    const e=E[s.i];
+    const dd=e.do?`<div class="dd"><div class="do"><b>Do</b>${e.do}</div><div class="dont"><b>Don't</b>${e.dont}</div></div>`:'';
+    detail.innerHTML=`<p class="eyebrow">${e.date} · ${SL[e.status]}${e.coming?' · Takes effect later':''}</p><h2>${e.title}</h2><p>${e.summary}</p>${dd}
+<div class="tags">${e.topics.map(t=>`<button class="tag" type="button" data-lane="${t}">${t} ${L[t]}</button>`).join('')}</div>
+<p class="src">${e.src} · ${e.url.map(x=>`<a href="${x.u}" target="_blank" rel="noopener">${x.l} ↗</a>`).join(' · ')}</p>
+<div class="pager"><button class="chip" type="button" data-step="-1" ${s.i===0?'disabled':''}>← Earlier</button><button class="chip" type="button" data-step="1" ${s.i===E.length-1?'disabled':''}>Later →</button></div>`;
+  }else if(s.type==='lane'){
+    const g=G[s.t], n=E.filter(e=>e.topics.includes(s.t)).length;
+    const card=document.getElementById('card-'+s.t);
+    const body=card?card.querySelector('.fig').outerHTML+card.querySelector('dl.g').outerHTML+`<p class="hint"><a href="#card-${s.t}">Open the full card</a></p>`:'';
+    detail.innerHTML=`<p class="eyebrow">Guideline ${s.t}</p><h2>${g.title}</h2>${body}
+<p class="hint">${n} events on this topic are lit in the timeline.</p>
+<div class="pager"><button class="chip" type="button" data-clear>Show all topics</button></div>`;
+  }else detail.innerHTML=intro;
+}
+detail.addEventListener('click',ev=>{
+  const b=ev.target.closest('button');if(!b)return;
+  if(b.dataset.lane)selectLane(+b.dataset.lane);
+  else if(b.dataset.step){const j=sel.i+(+b.dataset.step);selectEvent(j);}
+  else if('clear' in b.dataset)clearLane();
+});
+
+function selectEvent(i){
+  sel={type:'event',i};
+  cols.forEach((c,k)=>{c.setAttribute('aria-pressed',k===i?'true':'false');c.tabIndex=k===i?0:-1;});
+  render(sel);
+}
+function setLane(t){
+  lane=t;
+  if(t)plot.dataset.lane=t;else delete plot.dataset.lane;
+  for(let k=1;k<=9;k++){laneBtns[k].setAttribute('aria-pressed',k===t?'true':'false');strips[k].classList.toggle('on',k===t);}
+  cols.forEach((c,i)=>{c.classList.toggle('match',!!t&&E[i].topics.includes(t));c.querySelectorAll('.dot').forEach(d=>d.classList.toggle('hit',+d.dataset.t===t));});
+  status.textContent=t?`Guideline ${t}, ${plain(L[t])}: ${E.filter(e=>e.topics.includes(t)).length} of ${E.length} events`:`All ${E.length} events`;
+}
+function selectLane(t){setLane(t);sel={type:'lane',t};cols.forEach(c=>c.setAttribute('aria-pressed','false'));render(sel);}
+function clearLane(){setLane(null);sel={type:'intro'};render(sel);}
+
+// checklist
+const boxes=[...document.querySelectorAll('.checklist input')], count=document.getElementById('count');
+const upd=()=>count.textContent=boxes.filter(b=>b.checked).length+' of '+boxes.length;
+boxes.forEach(b=>b.addEventListener('change',upd));
+document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);upd();});
+
+// dialogs
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.open).showModal()));
+document.querySelectorAll('dialog').forEach(d=>{
+  d.addEventListener('click',ev=>{if(ev.target===d||ev.target.closest('[data-close]'))d.close();});
+});
+document.getElementById('print').addEventListener('click',()=>window.print());
+
+// print appendix: every event and every guideline
+const ap=document.getElementById('appendix');
+ap.innerHTML=`<h2>Every event</h2><ol>${E.map(e=>`<li><b>${e.date} (${SL[e.status]}). ${e.title}.</b> ${e.summary}${e.do?` <b>Do:</b> ${e.do} <b>Don't:</b> ${e.dont}`:''} <i>${e.src}</i> ${e.url.map(x=>x.u).join(' ')}</li>`).join('')}</ol>`;
+
+
+// more sources on each card: other timeline sources on the same topic, under the card's own source
+for(let t=1;t<=9;t++){
+  const card=document.getElementById('card-'+t); if(!card)continue;
+  const fig=card.querySelector('.fig'), own=fig.querySelector('cite a');
+  const seen=new Set(own?[own.href]:[]), links=[];
+  E.filter(e=>e.topics.includes(t)).forEach(e=>e.url.forEach(x=>{
+    if(seen.has(x.u))return; seen.add(x.u);
+    links.push(`<a href="${x.u}" target="_blank" rel="noopener">${e.url.length>1?x.l:e.src} ↗</a>`);
+  }));
+  if(links.length)fig.append(el('p','also','Also: '+links.join(' · ')));
+}
+setLane(null);render(sel);
+})();
+</script>
+</body>
+</html>
