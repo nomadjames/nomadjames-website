@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-22",
+   "stories": [
+    {
+     "title": "Community-Focused Academic Brings AI Tools to Colorado Farmers",
+     "source": "IEEE Spectrum",
+     "url": "https://spectrum.ieee.org/ai-tools-for-rural-communities",
+     "synopsis": "Alice Dong built an AI chatbot website that helps Colorado farmers and ranchers plan and run agritourism businesses that welcome visitors to their land. She also teaches workshops showing farmers, many of them older and without technical training, how to use AI tools to manage their businesses. Her assistant even turns raw airport weather data into plain-language guidance and says so when data is missing rather than guessing.",
+     "image": "https://spectrum.ieee.org/media-library/a-young-asian-woman-in-a-suit-jacket-smiling-while-holding-up-a-digital-tablet-with-an-ai-chatbot-on-its-screen-a-mountain-rang.jpg?id=68721300&width=1200&height=600&coordinates=0%2C250%2C0%2C250",
+     "category": "Everyday life",
+     "emoji": "🌾"
+    },
+    {
+     "title": "A sweeter future? AI helps scientists discover new sugar substitutes",
+     "source": "Phys.org",
+     "url": "https://phys.org/news/2026-11-sweeter-future-ai-scientists-sugar.html",
+     "synopsis": "Researchers at the Hebrew University of Jerusalem built a computational framework that identified 92 promising candidates for future sugar substitutes from more than 50 million chemical compounds. The study, published in Food Chemistry, aims to help overcome the unwanted bitter aftertaste that often comes with sweeteners. Many of the molecules look different from known sweeteners, hinting at entirely new kinds of sweet-tasting compounds.",
+     "image": null,
+     "category": "Science",
+     "emoji": "🍬"
+    },
+    {
+     "title": "Artificial intelligence and conservation",
+     "source": "World Wildlife Fund",
+     "url": "https://www.worldwildlife.org/our-work/science/artificial-intelligence-and-conservation/",
+     "synopsis": "WWF describes how AI strengthens traditional conservation work instead of replacing it. Its Wildlife Insights platform can automatically identify thousands of species in minutes, and the underlying SpeciesNet model is freely available for anyone to use and improve. Another project, ManglarIA, uses AI to better understand how climate change affects mangrove ecosystems and the communities that depend on them.",
+     "image": null,
+     "category": "Environment",
+     "emoji": "🌿"
+    }
+   ]
+  },
+  {
    "date": "2026-11-21",
    "stories": [
     {

@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "stories": [
     {
-      "title": "Mencap launches new AI Easy Read tool to make information more accessible",
-      "source": "Learning Disability Today",
-      "url": "https://www.learningdisabilitytoday.co.uk/news/mencap-launches-new-ai-easy-read-tool-to-make-information-more-accessible/",
-      "synopsis": "Mencap and Google DeepMind have launched the Easy Read Co-Creator Tool, which uses AI to turn complex information into simple text with matching images for people with learning disabilities. What used to take weeks can now take minutes, and people check and edit everything before it is used. It was shaped by people with a learning disability, so more organisations can share clear, accessible information.",
-      "image": "https://www.learningdisabilitytoday.co.uk/wp-content/uploads/Mencap-colleague-Vijay-making-an-Easy-Read-with-the-tool.jpg",
-      "category": "Accessibility",
-      "emoji": "📖"
+      "title": "Community-Focused Academic Brings AI Tools to Colorado Farmers",
+      "source": "IEEE Spectrum",
+      "url": "https://spectrum.ieee.org/ai-tools-for-rural-communities",
+      "synopsis": "Alice Dong built an AI chatbot website that helps Colorado farmers and ranchers plan and run agritourism businesses that welcome visitors to their land. She also teaches workshops showing farmers, many of them older and without technical training, how to use AI tools to manage their businesses. Her assistant even turns raw airport weather data into plain-language guidance and says so when data is missing rather than guessing.",
+      "image": "https://spectrum.ieee.org/media-library/a-young-asian-woman-in-a-suit-jacket-smiling-while-holding-up-a-digital-tablet-with-an-ai-chatbot-on-its-screen-a-mountain-rang.jpg?id=68721300&width=1200&height=600&coordinates=0%2C250%2C0%2C250",
+      "category": "Everyday life",
+      "emoji": "🌾"
     },
     {
-      "title": "AI Is Accelerating Scientific Discovery. What Will It Take to Trust the Results?",
-      "source": "PR Newswire",
-      "url": "https://www.prnewswire.com/news-releases/ai-is-accelerating-scientific-discovery-what-will-it-take-to-trust-the-results-302943295.html",
-      "synopsis": "A recap of the AIAS+ 2026 conference in San Francisco describes how AI is helping scientists identify potential antibiotics, design new materials and explore complex mathematical problems. Researchers there also stressed that careful lab testing and independent human checks are how these promising results turn into real progress. It's a hopeful look at science and people working together.",
-      "image": "https://mmx.prnewswire.com/media/MS1590615/TCCI-logo-blue-800-Logo.jpg?id=OA3082417&p=facebook",
-      "category": "Science",
-      "emoji": "🔬"
-    },
-    {
-      "title": "IntelliVIX Wins Two CES 2027 Innovation Awards, Showcasing Global Competitiveness in Safety AI",
-      "source": "Carroll County News",
-      "url": "https://www.mycarrollcountynews.com/online_features/press_releases/article_c95fcbb0-be81-5b1a-946c-d92bff984c61.html",
-      "synopsis": "Two AI safety tools have won CES 2027 Innovation Awards. One is an autonomous flood safety agent designed to protect motorists and pedestrians at underpasses, tunnels and low-lying roads. The other is a wildfire platform that links early detection, spread prediction, drone monitoring and evacuation support. Both are aimed at protecting lives. This is a company press release from about a week ago.",
+      "title": "A sweeter future? AI helps scientists discover new sugar substitutes",
+      "source": "Phys.org",
+      "url": "https://phys.org/news/2026-11-sweeter-future-ai-scientists-sugar.html",
+      "synopsis": "Researchers at the Hebrew University of Jerusalem built a computational framework that identified 92 promising candidates for future sugar substitutes from more than 50 million chemical compounds. The study, published in Food Chemistry, aims to help overcome the unwanted bitter aftertaste that often comes with sweeteners. Many of the molecules look different from known sweeteners, hinting at entirely new kinds of sweet-tasting compounds.",
       "image": null,
-      "category": "Safety",
-      "emoji": "🛟"
+      "category": "Science",
+      "emoji": "🍬"
+    },
+    {
+      "title": "Artificial intelligence and conservation",
+      "source": "World Wildlife Fund",
+      "url": "https://www.worldwildlife.org/our-work/science/artificial-intelligence-and-conservation/",
+      "synopsis": "WWF describes how AI strengthens traditional conservation work instead of replacing it. Its Wildlife Insights platform can automatically identify thousands of species in minutes, and the underlying SpeciesNet model is freely available for anyone to use and improve. Another project, ManglarIA, uses AI to better understand how climate change affects mangrove ecosystems and the communities that depend on them.",
+      "image": null,
+      "category": "Environment",
+      "emoji": "🌿"
     }
   ]
 }
