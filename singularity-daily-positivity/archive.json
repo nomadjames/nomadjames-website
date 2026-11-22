@@ -4,31 +4,31 @@
    "date": "2026-11-22",
    "stories": [
     {
-     "title": "Community-Focused Academic Brings AI Tools to Colorado Farmers",
-     "source": "IEEE Spectrum",
-     "url": "https://spectrum.ieee.org/ai-tools-for-rural-communities",
-     "synopsis": "Alice Dong built an AI chatbot website that helps Colorado farmers and ranchers plan and run agritourism businesses that welcome visitors to their land. She also teaches workshops showing farmers, many of them older and without technical training, how to use AI tools to manage their businesses. Her assistant even turns raw airport weather data into plain-language guidance and says so when data is missing rather than guessing.",
-     "image": "https://spectrum.ieee.org/media-library/a-young-asian-woman-in-a-suit-jacket-smiling-while-holding-up-a-digital-tablet-with-an-ai-chatbot-on-its-screen-a-mountain-rang.jpg?id=68721300&width=1200&height=600&coordinates=0%2C250%2C0%2C250",
-     "category": "Everyday life",
+     "title": "Find My Things: New teachable AI tool helps blind and low-vision people locate lost personal items",
+     "source": "Microsoft Research",
+     "url": "https://www.microsoft.com/en-us/research/story/find-my-things/",
+     "synopsis": "Microsoft researchers built a teachable AI tool that lets blind and low-vision people train it to help with their own daily lives. Find My Things helps users locate lost personal items. It's available to try for free in the Seeing AI app.",
+     "image": "https://www.microsoft.com/en-us/research/wp-content/uploads/2024/10/FMT-Accessibility-Package-TWLIFB-1200x627-1.jpg",
+     "category": "Accessibility",
+     "emoji": "🔎"
+    },
+    {
+     "title": "AI Forecasts Unlock Aid for Farmers Before Floods Strike",
+     "source": "The Xylom",
+     "url": "https://www.thexylom.com/post/google-ai-flood-forecasting-bangladesh-farmer-flooding-aid/",
+     "synopsis": "Google's AI-based Flood Hub gives flood warnings five days in advance, including in river basins without streamflow gauges. A nonprofit trial pairs those warnings with unconditional cash, so farmers can prepare before the water arrives. Trials in Africa suggest farmers improve their livelihoods with early cash, and a planned 2026 trial in northern Bangladesh would cover over 100,000 families.",
+     "image": "https://storage.ghost.io/c/44/6c/446c72c5-161f-43d1-879e-91ea74cefd7d/content/images/size/w1200/wix/154c07_d99276b84df34f15a1013666a3787fd2-mv2.webp",
+     "category": "Safety",
      "emoji": "🌾"
     },
     {
-     "title": "A sweeter future? AI helps scientists discover new sugar substitutes",
-     "source": "Phys.org",
-     "url": "https://phys.org/news/2026-11-sweeter-future-ai-scientists-sugar.html",
-     "synopsis": "Researchers at the Hebrew University of Jerusalem built a computational framework that identified 92 promising candidates for future sugar substitutes from more than 50 million chemical compounds. The study, published in Food Chemistry, aims to help overcome the unwanted bitter aftertaste that often comes with sweeteners. Many of the molecules look different from known sweeteners, hinting at entirely new kinds of sweet-tasting compounds.",
+     "title": "AI gets more diagnoses right than generalist doctors in medical challenge",
+     "source": "Medical Xpress",
+     "url": "https://medicalxpress.com/news/2026-10-ai-generalist-doctors-medical.html",
+     "synopsis": "Microsoft researchers report an AI tool called DxO that outperformed individual generalist physicians at diagnosing complex medical cases, in a paper published in the journal Science. It made an accurate diagnosis 83.2% of the time on complex published cases and reached 80.3% accuracy on emergency department admission cases. The researchers are careful to note this doesn't mean it is better than doctors in real-world practice.",
      "image": null,
-     "category": "Science",
-     "emoji": "🍬"
-    },
-    {
-     "title": "Artificial intelligence and conservation",
-     "source": "World Wildlife Fund",
-     "url": "https://www.worldwildlife.org/our-work/science/artificial-intelligence-and-conservation/",
-     "synopsis": "WWF describes how AI strengthens traditional conservation work instead of replacing it. Its Wildlife Insights platform can automatically identify thousands of species in minutes, and the underlying SpeciesNet model is freely available for anyone to use and improve. Another project, ManglarIA, uses AI to better understand how climate change affects mangrove ecosystems and the communities that depend on them.",
-     "image": null,
-     "category": "Environment",
-     "emoji": "🌿"
+     "category": "Medicine",
+     "emoji": "🩺"
     }
    ]
   },
