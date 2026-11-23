@@ -2,31 +2,31 @@
   "date": "2026-11-23",
   "stories": [
     {
-      "title": "AI-Enabled Video System Monitors ICU Patients for Early Signs of Delirium",
-      "source": "Stanford HAI",
-      "url": "https://hai.stanford.edu/news/ai-enabled-video-system-monitors-icu-patients-for-early-signs-of-delirium",
-      "synopsis": "Stanford computer vision experts and physicians have built a system called TRACER that keeps a 24/7 video watch in the ICU. It links a patient's health records with continuous visual analysis to help doctors spot subtle signs of delirium. Catching those signs early could let care teams step in sooner for patients on ventilators, where delirium is common.",
-      "image": "https://hai.stanford.edu/assets/images/doctor-patient-bed-technology.jpg",
+      "title": "AI uncovers hidden bladder cancer warning signs years before diagnosis",
+      "source": "ScienceDaily",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075604.htm",
+      "synopsis": "Researchers at the University of Plymouth have built an AI system that can spot hidden warning signs of bladder cancer up to five years before a diagnosis. In a major study of nearly 70,000 patients, it identified 85% of cases, and it can sort people into low-risk, uncertain and high-risk groups. That could help doctors catch a hard-to-spot cancer earlier, when treatment has the best chance to help.",
+      "image": "https://www.sciencedaily.com/images/1920/glowing-urinary-bladder-cancer.webp",
       "category": "Medicine",
-      "emoji": "🏥"
+      "emoji": "🩺"
     },
     {
-      "title": "Karnataka introduces AI curriculum in 1,800 government high schools",
-      "source": "NewsBytes",
-      "url": "https://www.newsbytesapp.com/news/science/karnataka-introduces-ai-curriculum-in-1800-government-high-schools/tldr",
-      "synopsis": "Class 9 students in 1,800 government high schools across Karnataka are getting an AI education program for the 2026-27 school year. They will explore AI basics, Python coding, data analytics, computer vision, natural language processing and generative AI. It opens up hands-on digital skills for students in public schools.",
+      "title": "AI scientist autonomously generates and validates new biological discoveries",
+      "source": "Phys.org",
+      "url": "https://phys.org/news/2026-09-ai-scientist-autonomously-generates-validates.html",
+      "synopsis": "Researchers at Sweden's Chalmers University of Technology have created an AI scientist that can come up with hypotheses, design experiments and interpret the results. It works in a closed-loop AI laboratory studying brewer's yeast. The team hopes future systems like this will become valuable partners to human scientists tackling big questions in biology and medicine.",
       "image": null,
-      "category": "Education",
-      "emoji": "🎓"
+      "category": "Science",
+      "emoji": "🔬"
     },
     {
-      "title": "AI can describe your website. Your code decides what it finds.",
-      "source": "Accessible Web",
-      "url": "https://accessibleweb.com/web-accessibility-news/assistive-technologies-ai-visual-assistance-accessible-code/",
-      "synopsis": "Blind and low-vision Mac users can now point to anything on their screen, ask what it is, and get an answer back, thanks to Be My Eyes' AI-powered visual assistance. The Mac version is free for personal use, and a workplace version is available for employers. It joins the Windows version, so people can get on-screen descriptions on either platform.",
-      "image": "https://accessibleweb.com/wp-content/uploads/2026/11/AI-and-your-code.png",
+      "title": "How AI tools can redefine universal design to increase accessibility",
+      "source": "Google Research",
+      "url": "https://research.google/blog/how-ai-agents-can-redefine-universal-design-to-increase-accessibility/",
+      "synopsis": "Google Research introduces Natively Adaptive Interfaces, a framework for building apps that use multimodal AI to adapt to each user's needs, co-designed with disability communities. Examples include StreetReaderAI, which pairs an AI Describer with an AI Chat to answer questions, and Grammar Laboratory, a bilingual American Sign Language and English platform that gives students tutoring and feedback on their writing.",
+      "image": "https://storage.googleapis.com/gweb-research2023-media/images/HO_previewImage1.width-800.format-jpeg.jpg",
       "category": "Accessibility",
-      "emoji": "👁️"
+      "emoji": "♿"
     }
   ]
 }
