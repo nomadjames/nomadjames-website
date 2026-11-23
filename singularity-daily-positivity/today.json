@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "stories": [
     {
-      "title": "Find My Things: New teachable AI tool helps blind and low-vision people locate lost personal items",
-      "source": "Microsoft Research",
-      "url": "https://www.microsoft.com/en-us/research/story/find-my-things/",
-      "synopsis": "Microsoft researchers built a teachable AI tool that lets blind and low-vision people train it to help with their own daily lives. Find My Things helps users locate lost personal items. It's available to try for free in the Seeing AI app.",
-      "image": "https://www.microsoft.com/en-us/research/wp-content/uploads/2024/10/FMT-Accessibility-Package-TWLIFB-1200x627-1.jpg",
-      "category": "Accessibility",
-      "emoji": "🔎"
-    },
-    {
-      "title": "AI Forecasts Unlock Aid for Farmers Before Floods Strike",
-      "source": "The Xylom",
-      "url": "https://www.thexylom.com/post/google-ai-flood-forecasting-bangladesh-farmer-flooding-aid/",
-      "synopsis": "Google's AI-based Flood Hub gives flood warnings five days in advance, including in river basins without streamflow gauges. A nonprofit trial pairs those warnings with unconditional cash, so farmers can prepare before the water arrives. Trials in Africa suggest farmers improve their livelihoods with early cash, and a planned 2026 trial in northern Bangladesh would cover over 100,000 families.",
-      "image": "https://storage.ghost.io/c/44/6c/446c72c5-161f-43d1-879e-91ea74cefd7d/content/images/size/w1200/wix/154c07_d99276b84df34f15a1013666a3787fd2-mv2.webp",
-      "category": "Safety",
-      "emoji": "🌾"
-    },
-    {
-      "title": "AI gets more diagnoses right than generalist doctors in medical challenge",
-      "source": "Medical Xpress",
-      "url": "https://medicalxpress.com/news/2026-10-ai-generalist-doctors-medical.html",
-      "synopsis": "Microsoft researchers report an AI tool called DxO that outperformed individual generalist physicians at diagnosing complex medical cases, in a paper published in the journal Science. It made an accurate diagnosis 83.2% of the time on complex published cases and reached 80.3% accuracy on emergency department admission cases. The researchers are careful to note this doesn't mean it is better than doctors in real-world practice.",
-      "image": null,
+      "title": "AI-Enabled Video System Monitors ICU Patients for Early Signs of Delirium",
+      "source": "Stanford HAI",
+      "url": "https://hai.stanford.edu/news/ai-enabled-video-system-monitors-icu-patients-for-early-signs-of-delirium",
+      "synopsis": "Stanford computer vision experts and physicians have built a system called TRACER that keeps a 24/7 video watch in the ICU. It links a patient's health records with continuous visual analysis to help doctors spot subtle signs of delirium. Catching those signs early could let care teams step in sooner for patients on ventilators, where delirium is common.",
+      "image": "https://hai.stanford.edu/assets/images/doctor-patient-bed-technology.jpg",
       "category": "Medicine",
-      "emoji": "🩺"
+      "emoji": "🏥"
+    },
+    {
+      "title": "Karnataka introduces AI curriculum in 1,800 government high schools",
+      "source": "NewsBytes",
+      "url": "https://www.newsbytesapp.com/news/science/karnataka-introduces-ai-curriculum-in-1800-government-high-schools/tldr",
+      "synopsis": "Class 9 students in 1,800 government high schools across Karnataka are getting an AI education program for the 2026-27 school year. They will explore AI basics, Python coding, data analytics, computer vision, natural language processing and generative AI. It opens up hands-on digital skills for students in public schools.",
+      "image": null,
+      "category": "Education",
+      "emoji": "🎓"
+    },
+    {
+      "title": "AI can describe your website. Your code decides what it finds.",
+      "source": "Accessible Web",
+      "url": "https://accessibleweb.com/web-accessibility-news/assistive-technologies-ai-visual-assistance-accessible-code/",
+      "synopsis": "Blind and low-vision Mac users can now point to anything on their screen, ask what it is, and get an answer back, thanks to Be My Eyes' AI-powered visual assistance. The Mac version is free for personal use, and a workplace version is available for employers. It joins the Windows version, so people can get on-screen descriptions on either platform.",
+      "image": "https://accessibleweb.com/wp-content/uploads/2026/11/AI-and-your-code.png",
+      "category": "Accessibility",
+      "emoji": "👁️"
     }
   ]
 }

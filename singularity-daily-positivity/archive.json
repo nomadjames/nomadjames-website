@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-23",
+   "stories": [
+    {
+     "title": "AI-Enabled Video System Monitors ICU Patients for Early Signs of Delirium",
+     "source": "Stanford HAI",
+     "url": "https://hai.stanford.edu/news/ai-enabled-video-system-monitors-icu-patients-for-early-signs-of-delirium",
+     "synopsis": "Stanford computer vision experts and physicians have built a system called TRACER that keeps a 24/7 video watch in the ICU. It links a patient's health records with continuous visual analysis to help doctors spot subtle signs of delirium. Catching those signs early could let care teams step in sooner for patients on ventilators, where delirium is common.",
+     "image": "https://hai.stanford.edu/assets/images/doctor-patient-bed-technology.jpg",
+     "category": "Medicine",
+     "emoji": "🏥"
+    },
+    {
+     "title": "Karnataka introduces AI curriculum in 1,800 government high schools",
+     "source": "NewsBytes",
+     "url": "https://www.newsbytesapp.com/news/science/karnataka-introduces-ai-curriculum-in-1800-government-high-schools/tldr",
+     "synopsis": "Class 9 students in 1,800 government high schools across Karnataka are getting an AI education program for the 2026-27 school year. They will explore AI basics, Python coding, data analytics, computer vision, natural language processing and generative AI. It opens up hands-on digital skills for students in public schools.",
+     "image": null,
+     "category": "Education",
+     "emoji": "🎓"
+    },
+    {
+     "title": "AI can describe your website. Your code decides what it finds.",
+     "source": "Accessible Web",
+     "url": "https://accessibleweb.com/web-accessibility-news/assistive-technologies-ai-visual-assistance-accessible-code/",
+     "synopsis": "Blind and low-vision Mac users can now point to anything on their screen, ask what it is, and get an answer back, thanks to Be My Eyes' AI-powered visual assistance. The Mac version is free for personal use, and a workplace version is available for employers. It joins the Windows version, so people can get on-screen descriptions on either platform.",
+     "image": "https://accessibleweb.com/wp-content/uploads/2026/11/AI-and-your-code.png",
+     "category": "Accessibility",
+     "emoji": "👁️"
+    }
+   ]
+  },
+  {
    "date": "2026-11-22",
    "stories": [
     {
