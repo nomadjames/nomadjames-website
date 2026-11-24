@@ -1,38 +1,6 @@
 {
  "days": [
   {
-   "date": "2026-11-24",
-   "stories": [
-    {
-     "title": "Google and Watch Duty use Gemini to speed up wildfire alerts",
-     "source": "Digital Watch Observatory",
-     "url": "https://dig.watch/updates/google-watch-duty-gemini-s-wildfire-alerts",
-     "synopsis": "A Gemini-powered tool is helping the nonprofit Watch Duty spot wildfire emergency dispatches faster by turning noisy firefighting radio chatter into searchable text. It now processes over 200 hours of speech a day from about 400 feeds and can flag new dispatches in under 30 seconds. Human reporters still verify every incident before an alert goes out, so neighbors get quicker warnings they can trust.",
-     "image": "https://diplo-media.s3.eu-central-1.amazonaws.com/2026/11/wildfire-alert-Google-Watch-Duty-Gemini.jpg",
-     "category": "Safety",
-     "emoji": "🔥"
-    },
-    {
-     "title": "Can AI help detect breast cancer faster? Major new trial will find out",
-     "source": "Euronews",
-     "url": "https://euronews.com/2026/11/23/can-ai-help-detect-breast-cancer-faster-major-new-trial-will-find-out",
-     "synopsis": "Researchers in the UK are launching the world's largest study of its kind to see whether an AI tool can help radiologists spot breast cancer. About 660,000 women aged 50 to 71 who are due for routine screening will be enrolled, and in one group the AI will review mammograms alongside a radiologist to see if it catches anything that might be missed. Every mammogram will still be checked by at least one radiologist, and the tool will only join routine screening if it proves as safe and effective as today's programme.",
-     "image": "https://images.euronews.com/articles/stories/10/00/45/22/1200x675_cmsv2_c3d4fb4a-c960-5e19-98b0-e0306df0b0ef-10004522.jpg",
-     "category": "Medicine",
-     "emoji": "🎗️"
-    },
-    {
-     "title": "Teacher of the Year says AI is helping special education students learn",
-     "source": "NewsNation",
-     "url": "https://newsnationnow.com/us-news/education/artificial-intelligence-ai-learning-students-teachers",
-     "synopsis": "Kareem Neal, Arizona's 2019 Teacher of the Year, teaches special education in grades nine through 12. He says AI tools have been very helpful for him and his students. They help him create content matched to his students' learning levels, such as government articles that are easy for them to understand, so they can better grasp material that might otherwise be too difficult.",
-     "image": null,
-     "category": "Education",
-     "emoji": "🍎"
-    }
-   ]
-  },
-  {
    "date": "2026-11-23",
    "stories": [
     {

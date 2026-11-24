@@ -7,19 +7,13 @@ on:
 
 permissions:
   contents: read
-  actions: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: https://nomadjames.com/
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout public artifact repo
@@ -60,30 +54,32 @@ jobs:
             ! -name pages-artifact \
             -exec cp -a {} pages-artifact/ \;
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./pages-artifact
 
-      # The deploy step fails if it asks for the artifact before GitHub lists it.
-      - name: Wait for the artifact to be listed
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          for attempt in $(seq 1 36); do
-            count=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" --jq '[.artifacts[] | select(.name == "github-pages")] | length' || echo 0)
-            if [ "$count" -gt 0 ]; then
-              echo "artifact listed after $attempt checks"
-              exit 0
-            fi
-            sleep 5
-          done
-          echo 'artifact was never listed'
-          exit 1
-
+  # A separate job: asked in the same job, right after the upload, GitHub
+  # often reports no artifact yet and the deploy fails.
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: https://nomadjames.com/
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: first
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait before a second try
+        if: steps.first.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy to GitHub Pages, second try
+        if: steps.first.outcome == 'failure'
         uses: actions/deploy-pages@v4

@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-23",
   "stories": [
     {
-      "title": "Google and Watch Duty use Gemini to speed up wildfire alerts",
-      "source": "Digital Watch Observatory",
-      "url": "https://dig.watch/updates/google-watch-duty-gemini-s-wildfire-alerts",
-      "synopsis": "A Gemini-powered tool is helping the nonprofit Watch Duty spot wildfire emergency dispatches faster by turning noisy firefighting radio chatter into searchable text. It now processes over 200 hours of speech a day from about 400 feeds and can flag new dispatches in under 30 seconds. Human reporters still verify every incident before an alert goes out, so neighbors get quicker warnings they can trust.",
-      "image": "https://diplo-media.s3.eu-central-1.amazonaws.com/2026/11/wildfire-alert-Google-Watch-Duty-Gemini.jpg",
-      "category": "Safety",
-      "emoji": "🔥"
-    },
-    {
-      "title": "Can AI help detect breast cancer faster? Major new trial will find out",
-      "source": "Euronews",
-      "url": "https://euronews.com/2026/11/23/can-ai-help-detect-breast-cancer-faster-major-new-trial-will-find-out",
-      "synopsis": "Researchers in the UK are launching the world's largest study of its kind to see whether an AI tool can help radiologists spot breast cancer. About 660,000 women aged 50 to 71 who are due for routine screening will be enrolled, and in one group the AI will review mammograms alongside a radiologist to see if it catches anything that might be missed. Every mammogram will still be checked by at least one radiologist, and the tool will only join routine screening if it proves as safe and effective as today's programme.",
-      "image": "https://images.euronews.com/articles/stories/10/00/45/22/1200x675_cmsv2_c3d4fb4a-c960-5e19-98b0-e0306df0b0ef-10004522.jpg",
+      "title": "AI uncovers hidden bladder cancer warning signs years before diagnosis",
+      "source": "ScienceDaily",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075604.htm",
+      "synopsis": "Researchers at the University of Plymouth have built an AI system that can spot hidden warning signs of bladder cancer up to five years before a diagnosis. In a major study of nearly 70,000 patients, it identified 85% of cases, and it can sort people into low-risk, uncertain and high-risk groups. That could help doctors catch a hard-to-spot cancer earlier, when treatment has the best chance to help.",
+      "image": "https://www.sciencedaily.com/images/1920/glowing-urinary-bladder-cancer.webp",
       "category": "Medicine",
-      "emoji": "🎗️"
+      "emoji": "🩺"
     },
     {
-      "title": "Teacher of the Year says AI is helping special education students learn",
-      "source": "NewsNation",
-      "url": "https://newsnationnow.com/us-news/education/artificial-intelligence-ai-learning-students-teachers",
-      "synopsis": "Kareem Neal, Arizona's 2019 Teacher of the Year, teaches special education in grades nine through 12. He says AI tools have been very helpful for him and his students. They help him create content matched to his students' learning levels, such as government articles that are easy for them to understand, so they can better grasp material that might otherwise be too difficult.",
+      "title": "AI scientist autonomously generates and validates new biological discoveries",
+      "source": "Phys.org",
+      "url": "https://phys.org/news/2026-09-ai-scientist-autonomously-generates-validates.html",
+      "synopsis": "Researchers at Sweden's Chalmers University of Technology have created an AI scientist that can come up with hypotheses, design experiments and interpret the results. It works in a closed-loop AI laboratory studying brewer's yeast. The team hopes future systems like this will become valuable partners to human scientists tackling big questions in biology and medicine.",
       "image": null,
-      "category": "Education",
-      "emoji": "🍎"
+      "category": "Science",
+      "emoji": "🔬"
+    },
+    {
+      "title": "How AI tools can redefine universal design to increase accessibility",
+      "source": "Google Research",
+      "url": "https://research.google/blog/how-ai-agents-can-redefine-universal-design-to-increase-accessibility/",
+      "synopsis": "Google Research introduces Natively Adaptive Interfaces, a framework for building apps that use multimodal AI to adapt to each user's needs, co-designed with disability communities. Examples include StreetReaderAI, which pairs an AI Describer with an AI Chat to answer questions, and Grammar Laboratory, a bilingual American Sign Language and English platform that gives students tutoring and feedback on their writing.",
+      "image": "https://storage.googleapis.com/gweb-research2023-media/images/HO_previewImage1.width-800.format-jpeg.jpg",
+      "category": "Accessibility",
+      "emoji": "♿"
     }
   ]
 }
