@@ -2,31 +2,31 @@
   "date": "2026-11-24",
   "stories": [
     {
-      "title": "IIIT-H Develops Accessibility Tool For Hearing Impaired",
-      "source": "Deccan Chronicle",
-      "url": "https://www.deccanchronicle.com/technology/in-other-news/iiit-h-develops-accessibility-tool-for-hearing-impaired-2005482",
-      "synopsis": "Researchers at IIIT Hyderabad built a simple browser plugin that lets you select text on a web page and watch a 3D avatar sign it in Indian Sign Language. It runs in real time in the browser without special hardware or an AI model on a server. When tested with deaf and hard-of-hearing signers, they understood about 89% of the avatar's signed sentences.",
-      "image": "https://www.deccanchronicle.com/h-upload/2026/11/18/2114862-it.jpg",
-      "category": "Accessibility",
-      "emoji": "🤟"
+      "title": "Google and Watch Duty use Gemini to speed up wildfire alerts",
+      "source": "Digital Watch Observatory",
+      "url": "https://dig.watch/updates/google-watch-duty-gemini-s-wildfire-alerts",
+      "synopsis": "A Gemini-powered tool is helping the nonprofit Watch Duty spot wildfire emergency dispatches faster by turning noisy firefighting radio chatter into searchable text. It now processes over 200 hours of speech a day from about 400 feeds and can flag new dispatches in under 30 seconds. Human reporters still verify every incident before an alert goes out, so neighbors get quicker warnings they can trust.",
+      "image": "https://diplo-media.s3.eu-central-1.amazonaws.com/2026/11/wildfire-alert-Google-Watch-Duty-Gemini.jpg",
+      "category": "Safety",
+      "emoji": "🔥"
     },
     {
-      "title": "AI model helps some patients get diagnoses after years of uncertainty: Study",
-      "source": "ABC News",
-      "url": "https://abcnews.com/Health/ai-model-helps-patients-diagnoses-after-years-uncertainty/story?id=134040827",
-      "synopsis": "A study in the New England Journal of Medicine found an AI model is helping some patients get answers after years of unexplained illness. It acts as an extra set of eyes for specialists, sifting through complex information in about six to 10 minutes per case. The researchers stress it doesn't replace doctors or genetic specialists, and it shows why old genetic test results may be worth a second look.",
-      "image": "https://i.abcnewsfe.com/a/3282504d-5eb1-4a69-b79c-b2c0d51c152e/patient-doctor-gty-jef-260427_1777302185810_hpMain_16x9.jpg?w=1600",
+      "title": "Can AI help detect breast cancer faster? Major new trial will find out",
+      "source": "Euronews",
+      "url": "https://euronews.com/2026/11/23/can-ai-help-detect-breast-cancer-faster-major-new-trial-will-find-out",
+      "synopsis": "Researchers in the UK are launching the world's largest study of its kind to see whether an AI tool can help radiologists spot breast cancer. About 660,000 women aged 50 to 71 who are due for routine screening will be enrolled, and in one group the AI will review mammograms alongside a radiologist to see if it catches anything that might be missed. Every mammogram will still be checked by at least one radiologist, and the tool will only join routine screening if it proves as safe and effective as today's programme.",
+      "image": "https://images.euronews.com/articles/stories/10/00/45/22/1200x675_cmsv2_c3d4fb4a-c960-5e19-98b0-e0306df0b0ef-10004522.jpg",
       "category": "Medicine",
-      "emoji": "🩺"
+      "emoji": "🎗️"
     },
     {
-      "title": "A Sweeter Future? AI Helps Scientists Discover New Sugar Substitutes",
-      "source": "American Friends of the Hebrew University (AFHU)",
-      "url": "https://www.afhu.org/2026/11/23/a-sweeter-future-ai-helps-scientists-discover-new-sugar-substitutes/",
-      "synopsis": "Researchers at the Hebrew University of Jerusalem combined machine learning with molecular modeling to screen more than 50 million chemical compounds. They narrowed the list to 92 promising candidates for future sugar alternatives, aiming for sweetness without the bitter aftertaste. The candidates still need experimental validation, but the study in Food Chemistry offers a hopeful new way to search for tastier sweeteners.",
-      "image": "https://www.afhu.org/wp-content/uploads/2026/11/Website-Featured-Images-Pt.-5-91.png",
-      "category": "Science",
-      "emoji": "🍬"
+      "title": "Teacher of the Year says AI is helping special education students learn",
+      "source": "NewsNation",
+      "url": "https://newsnationnow.com/us-news/education/artificial-intelligence-ai-learning-students-teachers",
+      "synopsis": "Kareem Neal, Arizona's 2019 Teacher of the Year, teaches special education in grades nine through 12. He says AI tools have been very helpful for him and his students. They help him create content matched to his students' learning levels, such as government articles that are easy for them to understand, so they can better grasp material that might otherwise be too difficult.",
+      "image": null,
+      "category": "Education",
+      "emoji": "🍎"
     }
   ]
 }
