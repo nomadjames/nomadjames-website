@@ -2,31 +2,31 @@
   "date": "2026-11-24",
   "stories": [
     {
-      "title": "New trial of AI phone assistant to monitor patients with long-term illness",
-      "source": "Medical Xpress",
-      "url": "https://medicalxpress.com/news/2026-11-trial-ai-patients-term-illness.html",
-      "synopsis": "An AI assistant that holds natural, spoken phone conversations with patients is being trialed in the NHS to help clinicians keep track of people with long-term illness. To keep it from sounding robotic, linguistics experts first studied how human clinicians show empathy. Taking part is voluntary, and the AI calls are in addition to patients' regular NHS care, not a replacement for it.",
-      "image": null,
+      "title": "IIIT-H Develops Accessibility Tool For Hearing Impaired",
+      "source": "Deccan Chronicle",
+      "url": "https://www.deccanchronicle.com/technology/in-other-news/iiit-h-develops-accessibility-tool-for-hearing-impaired-2005482",
+      "synopsis": "Researchers at IIIT Hyderabad built a simple browser plugin that lets you select text on a web page and watch a 3D avatar sign it in Indian Sign Language. It runs in real time in the browser without special hardware or an AI model on a server. When tested with deaf and hard-of-hearing signers, they understood about 89% of the avatar's signed sentences.",
+      "image": "https://www.deccanchronicle.com/h-upload/2026/11/18/2114862-it.jpg",
+      "category": "Accessibility",
+      "emoji": "🤟"
+    },
+    {
+      "title": "AI model helps some patients get diagnoses after years of uncertainty: Study",
+      "source": "ABC News",
+      "url": "https://abcnews.com/Health/ai-model-helps-patients-diagnoses-after-years-uncertainty/story?id=134040827",
+      "synopsis": "A study in the New England Journal of Medicine found an AI model is helping some patients get answers after years of unexplained illness. It acts as an extra set of eyes for specialists, sifting through complex information in about six to 10 minutes per case. The researchers stress it doesn't replace doctors or genetic specialists, and it shows why old genetic test results may be worth a second look.",
+      "image": "https://i.abcnewsfe.com/a/3282504d-5eb1-4a69-b79c-b2c0d51c152e/patient-doctor-gty-jef-260427_1777302185810_hpMain_16x9.jpg?w=1600",
       "category": "Medicine",
-      "emoji": "📞"
+      "emoji": "🩺"
     },
     {
-      "title": "From biology to astrophysics, AI expands the boundaries of discovery",
-      "source": "Stanford Report (Stanford University)",
-      "url": "https://news.stanford.edu/stories/2026/07/ai-expands-the-boundaries-of-discovery",
-      "synopsis": "Stanford researchers are using AI to help scientists model human cells and decode the universe, across nearly every field. One team is building a foundation model that can simulate human cells to speed up drug discovery and personalized treatment. Another project, Biomni, is an AI co-scientist meant to take the tedious legwork out of biomedical research.",
-      "image": null,
+      "title": "A Sweeter Future? AI Helps Scientists Discover New Sugar Substitutes",
+      "source": "American Friends of the Hebrew University (AFHU)",
+      "url": "https://www.afhu.org/2026/11/23/a-sweeter-future-ai-helps-scientists-discover-new-sugar-substitutes/",
+      "synopsis": "Researchers at the Hebrew University of Jerusalem combined machine learning with molecular modeling to screen more than 50 million chemical compounds. They narrowed the list to 92 promising candidates for future sugar alternatives, aiming for sweetness without the bitter aftertaste. The candidates still need experimental validation, but the study in Food Chemistry offers a hopeful new way to search for tastier sweeteners.",
+      "image": "https://www.afhu.org/wp-content/uploads/2026/11/Website-Featured-Images-Pt.-5-91.png",
       "category": "Science",
-      "emoji": "🔬"
-    },
-    {
-      "title": "How AI can support older adults without taking over care",
-      "source": "RMIT University",
-      "url": "https://www.rmit.edu.au/news/acumen/how-ai-can-support-older-adults",
-      "synopsis": "AI can help older adults live safely and independently while keeping people at the center of their care. In the examples described, a home system alerts a community caregiver when someone's behaviour changes, and the caregiver decides how to respond. A tool called PainChek makes pain easier to recognise, while caregivers and health professionals stay in charge of what happens next.",
-      "image": "https://www.rmit.edu.au/assets/au/en/about/schools-colleges/cob/cobl-research/acumen/how-ai-can-support-older-adults2.jpg",
-      "category": "Everyday life",
-      "emoji": "🧓"
+      "emoji": "🍬"
     }
   ]
 }
