@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-24",
+   "stories": [
+    {
+     "title": "Teacher of the Year says AI is helping special education students learn",
+     "source": "NewsNation",
+     "url": "https://www.newsnationnow.com/us-news/education/artificial-intelligence-ai-learning-students-teachers/",
+     "synopsis": "Kareem Neal, Arizona's 2019 Teacher of the Year, says AI tools have been very helpful for his ninth- through 12th-grade special education students. The tools can take complex topics written at a high school level and quickly adapt them for students who read at an elementary level. He says that opens doors that didn't exist before, and the tools help him plan lessons too.",
+     "image": null,
+     "category": "Education",
+     "emoji": "🍎"
+    },
+    {
+     "title": "A Sweeter Future? AI Helps Scientists Discover New Sugar Substitutes",
+     "source": "AFHU",
+     "url": "https://www.afhu.org/2026/11/23/a-sweeter-future-ai-helps-scientists-discover-new-sugar-substitutes/",
+     "synopsis": "Researchers combined machine learning with molecular modeling to screen more than 50 million chemical compounds. They narrowed the list to 92 promising candidates for future sugar alternatives. The study, published in Food Chemistry, aims to tackle the bitter aftertaste that often comes with sweeteners. The compounds are still computational predictions that need experimental validation.",
+     "image": "https://www.afhu.org/wp-content/uploads/2026/11/Website-Featured-Images-Pt.-5-91.png",
+     "category": "Science",
+     "emoji": "🍬"
+    },
+    {
+     "title": "UH researchers use AI to prevent crop damage by predicting spread of invasive beetles",
+     "source": "Big Island Now",
+     "url": "https://bigislandnow.com/2026/11/18/uh-researchers-use-ai-to-prevent-crop-damage-by-predicting-spread-of-invasive-beetles/",
+     "synopsis": "University of Hawaiʻi at Mānoa researchers are developing an AI tool to predict where the invasive coconut rhinoceros beetle is most likely to spread. The $300,000 project will help field crews decide where to place pheromone-baited traps and look for new infestations on Hawaiʻi Island, Kauaʻi and Maui. The goal is to help farmers act early and protect valuable crops and landscapes.",
+     "image": "https://cdn.bigislandnow.com/file/bigislandnow/2026/06/Outlook-zmplveub-copy.jpg",
+     "category": "Environment",
+     "emoji": "🌴"
+    }
+   ]
+  },
+  {
    "date": "2026-11-23",
    "stories": [
     {
