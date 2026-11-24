@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "stories": [
     {
-      "title": "AI uncovers hidden bladder cancer warning signs years before diagnosis",
-      "source": "ScienceDaily",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261120075604.htm",
-      "synopsis": "Researchers at the University of Plymouth have built an AI system that can spot hidden warning signs of bladder cancer up to five years before a diagnosis. In a major study of nearly 70,000 patients, it identified 85% of cases, and it can sort people into low-risk, uncertain and high-risk groups. That could help doctors catch a hard-to-spot cancer earlier, when treatment has the best chance to help.",
-      "image": "https://www.sciencedaily.com/images/1920/glowing-urinary-bladder-cancer.webp",
-      "category": "Medicine",
-      "emoji": "🩺"
+      "title": "Conflict and conservation: How AI is being leveraged to protect Malaysian wildlife",
+      "source": "The Star",
+      "url": "https://thestar.com.my/tech/tech-news/2026/11/23/conflict-and-conservation-how-ai-is-being-leveraged-to-protect-malaysian-wildlife",
+      "synopsis": "In Malaysia, AI is helping to keep elephants away from farms and to detect orang utan nests in remote forests. WWF Malaysia has been researching the nest-detection tool in Sabah since 2023, because sprawling forests make orang utans hard to monitor. Better and faster information can help conservation teams plan and protect habitats.",
+      "image": "https://apicms.thestar.com.my/uploads/images/2026/11/22/4225770.jpg",
+      "category": "Environment",
+      "emoji": "🦧"
     },
     {
-      "title": "AI scientist autonomously generates and validates new biological discoveries",
-      "source": "Phys.org",
-      "url": "https://phys.org/news/2026-09-ai-scientist-autonomously-generates-validates.html",
-      "synopsis": "Researchers at Sweden's Chalmers University of Technology have created an AI scientist that can come up with hypotheses, design experiments and interpret the results. It works in a closed-loop AI laboratory studying brewer's yeast. The team hopes future systems like this will become valuable partners to human scientists tackling big questions in biology and medicine.",
-      "image": null,
+      "title": "A Sweeter Future? AI Helps Scientists Discover New Sugar Substitutes",
+      "source": "American Friends of the Hebrew University",
+      "url": "https://www.afhu.org/2026/11/23/a-sweeter-future-ai-helps-scientists-discover-new-sugar-substitutes/",
+      "synopsis": "Researchers at the Hebrew University of Jerusalem combined machine learning with molecular modeling to screen more than 50 million chemical compounds. They narrowed the field to 92 promising candidates for future sugar substitutes. Many have chemical structures unlike known sweeteners, which hints at entirely new kinds of sweet-tasting compounds.",
+      "image": "https://www.afhu.org/wp-content/uploads/2026/11/Website-Featured-Images-Pt.-5-91.png",
       "category": "Science",
-      "emoji": "🔬"
+      "emoji": "🍬"
     },
     {
-      "title": "How AI tools can redefine universal design to increase accessibility",
-      "source": "Google Research",
-      "url": "https://research.google/blog/how-ai-agents-can-redefine-universal-design-to-increase-accessibility/",
-      "synopsis": "Google Research introduces Natively Adaptive Interfaces, a framework for building apps that use multimodal AI to adapt to each user's needs, co-designed with disability communities. Examples include StreetReaderAI, which pairs an AI Describer with an AI Chat to answer questions, and Grammar Laboratory, a bilingual American Sign Language and English platform that gives students tutoring and feedback on their writing.",
-      "image": "https://storage.googleapis.com/gweb-research2023-media/images/HO_previewImage1.width-800.format-jpeg.jpg",
-      "category": "Accessibility",
-      "emoji": "♿"
+      "title": "An AI-Based Drug Discovery Tool Goes Beyond Protein Structures",
+      "source": "The Scientist",
+      "url": "https://www.the-scientist.com/an-ai-based-drug-discovery-tool-goes-beyond-protein-structures-75258",
+      "synopsis": "Researchers developed Ptarmigan-1, an AI tool that can screen the so-called dark proteome against over a billion drug candidates in a day. It predicts protein-drug interactions without needing a protein's fixed 3D structure, which opens the door to proteins once considered undruggable. In the study, it identified successful drug candidates that a co-folding model could not.",
+      "image": null,
+      "category": "Medicine",
+      "emoji": "💊"
     }
   ]
 }
