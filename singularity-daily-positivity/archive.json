@@ -4,31 +4,31 @@
    "date": "2026-11-24",
    "stories": [
     {
-     "title": "Teacher of the Year says AI is helping special education students learn",
-     "source": "NewsNation",
-     "url": "https://www.newsnationnow.com/us-news/education/artificial-intelligence-ai-learning-students-teachers/",
-     "synopsis": "Kareem Neal, Arizona's 2019 Teacher of the Year, says AI tools have been very helpful for his ninth- through 12th-grade special education students. The tools can take complex topics written at a high school level and quickly adapt them for students who read at an elementary level. He says that opens doors that didn't exist before, and the tools help him plan lessons too.",
+     "title": "New trial of AI phone assistant to monitor patients with long-term illness",
+     "source": "Medical Xpress",
+     "url": "https://medicalxpress.com/news/2026-11-trial-ai-patients-term-illness.html",
+     "synopsis": "An AI assistant that holds natural, spoken phone conversations with patients is being trialed in the NHS to help clinicians keep track of people with long-term illness. To keep it from sounding robotic, linguistics experts first studied how human clinicians show empathy. Taking part is voluntary, and the AI calls are in addition to patients' regular NHS care, not a replacement for it.",
      "image": null,
-     "category": "Education",
-     "emoji": "🍎"
+     "category": "Medicine",
+     "emoji": "📞"
     },
     {
-     "title": "A Sweeter Future? AI Helps Scientists Discover New Sugar Substitutes",
-     "source": "AFHU",
-     "url": "https://www.afhu.org/2026/11/23/a-sweeter-future-ai-helps-scientists-discover-new-sugar-substitutes/",
-     "synopsis": "Researchers combined machine learning with molecular modeling to screen more than 50 million chemical compounds. They narrowed the list to 92 promising candidates for future sugar alternatives. The study, published in Food Chemistry, aims to tackle the bitter aftertaste that often comes with sweeteners. The compounds are still computational predictions that need experimental validation.",
-     "image": "https://www.afhu.org/wp-content/uploads/2026/11/Website-Featured-Images-Pt.-5-91.png",
+     "title": "From biology to astrophysics, AI expands the boundaries of discovery",
+     "source": "Stanford Report (Stanford University)",
+     "url": "https://news.stanford.edu/stories/2026/07/ai-expands-the-boundaries-of-discovery",
+     "synopsis": "Stanford researchers are using AI to help scientists model human cells and decode the universe, across nearly every field. One team is building a foundation model that can simulate human cells to speed up drug discovery and personalized treatment. Another project, Biomni, is an AI co-scientist meant to take the tedious legwork out of biomedical research.",
+     "image": null,
      "category": "Science",
-     "emoji": "🍬"
+     "emoji": "🔬"
     },
     {
-     "title": "UH researchers use AI to prevent crop damage by predicting spread of invasive beetles",
-     "source": "Big Island Now",
-     "url": "https://bigislandnow.com/2026/11/18/uh-researchers-use-ai-to-prevent-crop-damage-by-predicting-spread-of-invasive-beetles/",
-     "synopsis": "University of Hawaiʻi at Mānoa researchers are developing an AI tool to predict where the invasive coconut rhinoceros beetle is most likely to spread. The $300,000 project will help field crews decide where to place pheromone-baited traps and look for new infestations on Hawaiʻi Island, Kauaʻi and Maui. The goal is to help farmers act early and protect valuable crops and landscapes.",
-     "image": "https://cdn.bigislandnow.com/file/bigislandnow/2026/06/Outlook-zmplveub-copy.jpg",
-     "category": "Environment",
-     "emoji": "🌴"
+     "title": "How AI can support older adults without taking over care",
+     "source": "RMIT University",
+     "url": "https://www.rmit.edu.au/news/acumen/how-ai-can-support-older-adults",
+     "synopsis": "AI can help older adults live safely and independently while keeping people at the center of their care. In the examples described, a home system alerts a community caregiver when someone's behaviour changes, and the caregiver decides how to respond. A tool called PainChek makes pain easier to recognise, while caregivers and health professionals stay in charge of what happens next.",
+     "image": "https://www.rmit.edu.au/assets/au/en/about/schools-colleges/cob/cobl-research/acumen/how-ai-can-support-older-adults2.jpg",
+     "category": "Everyday life",
+     "emoji": "🧓"
     }
    ]
   },
