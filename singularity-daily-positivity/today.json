@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "stories": [
     {
-      "title": "Conflict and conservation: How AI is being leveraged to protect Malaysian wildlife",
-      "source": "The Star",
-      "url": "https://thestar.com.my/tech/tech-news/2026/11/23/conflict-and-conservation-how-ai-is-being-leveraged-to-protect-malaysian-wildlife",
-      "synopsis": "In Malaysia, AI is helping to keep elephants away from farms and to detect orang utan nests in remote forests. WWF Malaysia has been researching the nest-detection tool in Sabah since 2023, because sprawling forests make orang utans hard to monitor. Better and faster information can help conservation teams plan and protect habitats.",
-      "image": "https://apicms.thestar.com.my/uploads/images/2026/11/22/4225770.jpg",
-      "category": "Environment",
-      "emoji": "🦧"
+      "title": "Teacher of the Year says AI has been a game changer for special education",
+      "source": "Yahoo News",
+      "url": "https://www.yahoo.com/news/us/articles/teacher-says-ai-game-changer-220737282.html",
+      "synopsis": "Kareem Neal, Arizona's 2019 Teacher of the Year, teaches ninth- through 12th-grade special education students. He says AI has helped him create content tailored to his students' learning levels, and he calls the tools \"very helpful\" for both teachers and students. It's a heartening look at technology helping each learner get material that fits them.",
+      "image": "https://s.yimg.com/lo/mysterio/api/9c2e40fa1dbb73add678406b01823105eae53d23c64dfd3c5cf5ca629aea5a24/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fnewsnation_articles_600%2F91db27dca317ac7b1e723acdc68f6012.jpg_up.jpg",
+      "category": "Education",
+      "emoji": "🍎"
     },
     {
-      "title": "A Sweeter Future? AI Helps Scientists Discover New Sugar Substitutes",
-      "source": "American Friends of the Hebrew University",
-      "url": "https://www.afhu.org/2026/11/23/a-sweeter-future-ai-helps-scientists-discover-new-sugar-substitutes/",
-      "synopsis": "Researchers at the Hebrew University of Jerusalem combined machine learning with molecular modeling to screen more than 50 million chemical compounds. They narrowed the field to 92 promising candidates for future sugar substitutes. Many have chemical structures unlike known sweeteners, which hints at entirely new kinds of sweet-tasting compounds.",
-      "image": "https://www.afhu.org/wp-content/uploads/2026/11/Website-Featured-Images-Pt.-5-91.png",
-      "category": "Science",
-      "emoji": "🍬"
+      "title": "AI Is a Start, Not a Solution, for Digital Accessibility",
+      "source": "Disability Belongs",
+      "url": "https://www.disabilitybelongs.org/2026/11/ai-digital-accessibility/",
+      "synopsis": "AI is expanding access for people with disabilities through better automatic captions, image descriptions and navigation help. The article notes that AI-generated access is better than no access at all. It also reminds us that human care is still needed so these tools work well for everyone.",
+      "image": "https://www.disabilitybelongs.org/wp-content/uploads/2026/11/ai-digital-accessibility-featured.png",
+      "category": "Accessibility",
+      "emoji": "♿"
     },
     {
-      "title": "An AI-Based Drug Discovery Tool Goes Beyond Protein Structures",
-      "source": "The Scientist",
-      "url": "https://www.the-scientist.com/an-ai-based-drug-discovery-tool-goes-beyond-protein-structures-75258",
-      "synopsis": "Researchers developed Ptarmigan-1, an AI tool that can screen the so-called dark proteome against over a billion drug candidates in a day. It predicts protein-drug interactions without needing a protein's fixed 3D structure, which opens the door to proteins once considered undruggable. In the study, it identified successful drug candidates that a co-folding model could not.",
+      "title": "Everything That Happened in AI Today (Wednesday, November 25, 2026)",
+      "source": "The Neuron",
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-november-25-2026/",
+      "synopsis": "The NHS is testing AI-assisted breast cancer screening with nearly 700,000 women. The aim is to find out whether AI can improve detection rates and ease radiologists' workloads. It's an encouraging step toward finding cancer earlier.",
       "image": null,
       "category": "Medicine",
-      "emoji": "💊"
+      "emoji": "🩺"
     }
   ]
 }

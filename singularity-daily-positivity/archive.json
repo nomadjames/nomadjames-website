@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-25",
+   "stories": [
+    {
+     "title": "Teacher of the Year says AI has been a game changer for special education",
+     "source": "Yahoo News",
+     "url": "https://www.yahoo.com/news/us/articles/teacher-says-ai-game-changer-220737282.html",
+     "synopsis": "Kareem Neal, Arizona's 2019 Teacher of the Year, teaches ninth- through 12th-grade special education students. He says AI has helped him create content tailored to his students' learning levels, and he calls the tools \"very helpful\" for both teachers and students. It's a heartening look at technology helping each learner get material that fits them.",
+     "image": "https://s.yimg.com/lo/mysterio/api/9c2e40fa1dbb73add678406b01823105eae53d23c64dfd3c5cf5ca629aea5a24/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fnewsnation_articles_600%2F91db27dca317ac7b1e723acdc68f6012.jpg_up.jpg",
+     "category": "Education",
+     "emoji": "🍎"
+    },
+    {
+     "title": "AI Is a Start, Not a Solution, for Digital Accessibility",
+     "source": "Disability Belongs",
+     "url": "https://www.disabilitybelongs.org/2026/11/ai-digital-accessibility/",
+     "synopsis": "AI is expanding access for people with disabilities through better automatic captions, image descriptions and navigation help. The article notes that AI-generated access is better than no access at all. It also reminds us that human care is still needed so these tools work well for everyone.",
+     "image": "https://www.disabilitybelongs.org/wp-content/uploads/2026/11/ai-digital-accessibility-featured.png",
+     "category": "Accessibility",
+     "emoji": "♿"
+    },
+    {
+     "title": "Everything That Happened in AI Today (Wednesday, November 25, 2026)",
+     "source": "The Neuron",
+     "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-november-25-2026/",
+     "synopsis": "The NHS is testing AI-assisted breast cancer screening with nearly 700,000 women. The aim is to find out whether AI can improve detection rates and ease radiologists' workloads. It's an encouraging step toward finding cancer earlier.",
+     "image": null,
+     "category": "Medicine",
+     "emoji": "🩺"
+    }
+   ]
+  },
+  {
    "date": "2026-11-24",
    "stories": [
     {
