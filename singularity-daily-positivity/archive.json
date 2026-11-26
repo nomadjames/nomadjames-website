@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-26",
+   "stories": [
+    {
+     "title": "Amateur astronomers use OpenAI to hunt down 49 potential planets in public NASA data",
+     "source": "Interesting Engineering",
+     "url": "https://interestingengineering.com/ai-robotics/amateur-astronomers-openai-49-planet-candidates",
+     "synopsis": "Two amateur astronomers used OpenAI's Astra and Codex to search public NASA telescope data for signs of planets around distant stars. Their searches turned up dozens of potential exoplanets, and the findings have now gone to professional astronomers for a closer look. It's a lovely example of curious citizen scientists helping to explore the sky.",
+     "image": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/Untitled-Design-20.jpg",
+     "category": "Science",
+     "emoji": "🔭"
+    },
+    {
+     "title": "NHS begins world's biggest AI breast cancer screening trial involving 700,000 women",
+     "source": "The European",
+     "url": "https://the-european.eu/story-69631/nhs-begins-worlds-biggest-ai-breast-cancer-screening-trial-involving-700000-women.html",
+     "synopsis": "The NHS has begun recruiting women for the world's largest trial of AI in breast cancer screening, with nearly 700,000 women expected to take part. The aim is to find out whether AI can help detect tumours earlier while freeing specialist doctors to spend more time diagnosing and treating patients. The first women have already joined the trial at Addenbrooke's Hospital.",
+     "image": "https://the-european.eu/wp-content/uploads/pexels-michelle-leman-6798682.webp",
+     "category": "Medicine",
+     "emoji": "🎗️"
+    },
+    {
+     "title": "Researchers use AI to unlock data on 10,000 cities in developing countries",
+     "source": "AGI Hunt",
+     "url": "https://agihunt.info/en/p/1a214a5b85059247d519d8dc092",
+     "synopsis": "A research team is using AI to unlock new data across 10,000 cities in developing countries. The data covers construction, housing, local regulations and economic activity. The goal is to power better urban policy for the next century of growth.",
+     "image": null,
+     "category": "Everyday life",
+     "emoji": "🏙️"
+    }
+   ]
+  },
+  {
    "date": "2026-11-25",
    "stories": [
     {
