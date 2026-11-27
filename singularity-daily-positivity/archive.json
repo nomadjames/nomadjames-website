@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-27",
+   "stories": [
+    {
+     "title": "When disaster strikes, AI helps responders reach people more quickly",
+     "source": "Microsoft Source",
+     "url": "https://news.microsoft.com/source/features/ai/when-disaster-strikes-ai-helps-responders-reach-people-more-quickly/",
+     "synopsis": "Microsoft's AI for Good team built a tool called HASTE that uses AI to analyze satellite images, so responders can see where disaster damage is worst and send aid there faster. It helps teams pinpoint the hardest-hit regions within hours instead of weeks, and the UN's humanitarian office (OCHA) has used its data to coordinate search-and-rescue operations. Faster decisions can mean faster help for people in their hardest moments.",
+     "image": "https://news.microsoft.com/source/wp-content/uploads/2026/09/Header_photo.jpg",
+     "category": "Safety",
+     "emoji": "🛟"
+    },
+    {
+     "title": "Historian Says GPT-6.2 Astra Identified the Creator of an Anonymous 1808 Sketchbook in 22 Minutes",
+     "source": "Daily AI Caffeine",
+     "url": "https://dailyaicaffeinenobs.substack.com/p/todays-real-ai-news-27-nov-26",
+     "synopsis": "Historian Mark Humphries reports that GPT-6.2 Astra, which he tested before its public release, autonomously identified the creator of an anonymous 1808 sketchbook held at Yale's Beinecke Library. The AI did it in just 22 minutes. It's a lovely glimpse of how AI could help historians bring forgotten makers back into the story.",
+     "image": null,
+     "category": "Science",
+     "emoji": "🔍"
+    },
+    {
+     "title": "AI imaging techniques for marine biodiversity research",
+     "source": "Frontiers in Marine Science",
+     "url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2026.1805062/full",
+     "synopsis": "A new review in Frontiers in Marine Science explains how AI-based imaging can help researchers study life in the ocean. It describes tools such as abundance counters, monitoring systems and discovery tools, used at a wide range of ocean depths. It is written as an introductory primer so more marine biodiversity researchers can use AI to speed up their data gathering.",
+     "image": "https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/AB731B5E-557C-4DEA-88680B655CE21F43/9C3665D1-80E8-44FC-A115BB703255BBC3/WebsiteWebP_XL-FMARS_Main Visual_Cyan_Website.webp",
+     "category": "Environment",
+     "emoji": "🌊"
+    }
+   ]
+  },
+  {
    "date": "2026-11-26",
    "stories": [
     {

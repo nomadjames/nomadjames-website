@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "stories": [
     {
-      "title": "Amateur astronomers use OpenAI to hunt down 49 potential planets in public NASA data",
-      "source": "Interesting Engineering",
-      "url": "https://interestingengineering.com/ai-robotics/amateur-astronomers-openai-49-planet-candidates",
-      "synopsis": "Two amateur astronomers used OpenAI's Astra and Codex to search public NASA telescope data for signs of planets around distant stars. Their searches turned up dozens of potential exoplanets, and the findings have now gone to professional astronomers for a closer look. It's a lovely example of curious citizen scientists helping to explore the sky.",
-      "image": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/Untitled-Design-20.jpg",
-      "category": "Science",
-      "emoji": "🔭"
+      "title": "When disaster strikes, AI helps responders reach people more quickly",
+      "source": "Microsoft Source",
+      "url": "https://news.microsoft.com/source/features/ai/when-disaster-strikes-ai-helps-responders-reach-people-more-quickly/",
+      "synopsis": "Microsoft's AI for Good team built a tool called HASTE that uses AI to analyze satellite images, so responders can see where disaster damage is worst and send aid there faster. It helps teams pinpoint the hardest-hit regions within hours instead of weeks, and the UN's humanitarian office (OCHA) has used its data to coordinate search-and-rescue operations. Faster decisions can mean faster help for people in their hardest moments.",
+      "image": "https://news.microsoft.com/source/wp-content/uploads/2026/09/Header_photo.jpg",
+      "category": "Safety",
+      "emoji": "🛟"
     },
     {
-      "title": "NHS begins world's biggest AI breast cancer screening trial involving 700,000 women",
-      "source": "The European",
-      "url": "https://the-european.eu/story-69631/nhs-begins-worlds-biggest-ai-breast-cancer-screening-trial-involving-700000-women.html",
-      "synopsis": "The NHS has begun recruiting women for the world's largest trial of AI in breast cancer screening, with nearly 700,000 women expected to take part. The aim is to find out whether AI can help detect tumours earlier while freeing specialist doctors to spend more time diagnosing and treating patients. The first women have already joined the trial at Addenbrooke's Hospital.",
-      "image": "https://the-european.eu/wp-content/uploads/pexels-michelle-leman-6798682.webp",
-      "category": "Medicine",
-      "emoji": "🎗️"
-    },
-    {
-      "title": "Researchers use AI to unlock data on 10,000 cities in developing countries",
-      "source": "AGI Hunt",
-      "url": "https://agihunt.info/en/p/1a214a5b85059247d519d8dc092",
-      "synopsis": "A research team is using AI to unlock new data across 10,000 cities in developing countries. The data covers construction, housing, local regulations and economic activity. The goal is to power better urban policy for the next century of growth.",
+      "title": "Historian Says GPT-6.2 Astra Identified the Creator of an Anonymous 1808 Sketchbook in 22 Minutes",
+      "source": "Daily AI Caffeine",
+      "url": "https://dailyaicaffeinenobs.substack.com/p/todays-real-ai-news-27-nov-26",
+      "synopsis": "Historian Mark Humphries reports that GPT-6.2 Astra, which he tested before its public release, autonomously identified the creator of an anonymous 1808 sketchbook held at Yale's Beinecke Library. The AI did it in just 22 minutes. It's a lovely glimpse of how AI could help historians bring forgotten makers back into the story.",
       "image": null,
-      "category": "Everyday life",
-      "emoji": "🏙️"
+      "category": "Science",
+      "emoji": "🔍"
+    },
+    {
+      "title": "AI imaging techniques for marine biodiversity research",
+      "source": "Frontiers in Marine Science",
+      "url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2026.1805062/full",
+      "synopsis": "A new review in Frontiers in Marine Science explains how AI-based imaging can help researchers study life in the ocean. It describes tools such as abundance counters, monitoring systems and discovery tools, used at a wide range of ocean depths. It is written as an introductory primer so more marine biodiversity researchers can use AI to speed up their data gathering.",
+      "image": "https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/AB731B5E-557C-4DEA-88680B655CE21F43/9C3665D1-80E8-44FC-A115BB703255BBC3/WebsiteWebP_XL-FMARS_Main Visual_Cyan_Website.webp",
+      "category": "Environment",
+      "emoji": "🌊"
     }
   ]
 }
