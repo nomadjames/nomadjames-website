@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "stories": [
     {
-      "title": "When disaster strikes, AI helps responders reach people more quickly",
-      "source": "Microsoft Source",
-      "url": "https://news.microsoft.com/source/features/ai/when-disaster-strikes-ai-helps-responders-reach-people-more-quickly/",
-      "synopsis": "Microsoft's AI for Good team built a tool called HASTE that uses AI to analyze satellite images, so responders can see where disaster damage is worst and send aid there faster. It helps teams pinpoint the hardest-hit regions within hours instead of weeks, and the UN's humanitarian office (OCHA) has used its data to coordinate search-and-rescue operations. Faster decisions can mean faster help for people in their hardest moments.",
-      "image": "https://news.microsoft.com/source/wp-content/uploads/2026/09/Header_photo.jpg",
-      "category": "Safety",
-      "emoji": "🛟"
+      "title": "How artificial intelligence is offering new hope for stroke patients in the Last Frontier",
+      "source": "STAT",
+      "url": "https://www.statnews.com/2026/11/24/alaskan-hospitals-artificial-intelligence-bet-improve-stroke-care/",
+      "synopsis": "In Alaska, a small network of hospitals has used the same AI software since 2023 to spot dangerous brain clots and get stroke patients to the right care faster. In one patient's case, the article says that without the AI assist it would have taken at least an extra hour. Some Alaskan stroke doctors are optimistic about what it means for rural patients.",
+      "image": "https://www.statnews.com/wp-content/uploads/2026/11/261120_STATNEWS_-100-1024x576.jpg",
+      "category": "Medicine",
+      "emoji": "🧠"
     },
     {
-      "title": "Historian Says GPT-6.2 Astra Identified the Creator of an Anonymous 1808 Sketchbook in 22 Minutes",
-      "source": "Daily AI Caffeine",
-      "url": "https://dailyaicaffeinenobs.substack.com/p/todays-real-ai-news-27-nov-26",
-      "synopsis": "Historian Mark Humphries reports that GPT-6.2 Astra, which he tested before its public release, autonomously identified the creator of an anonymous 1808 sketchbook held at Yale's Beinecke Library. The AI did it in just 22 minutes. It's a lovely glimpse of how AI could help historians bring forgotten makers back into the story.",
+      "title": "Access Granted — The Next Curb Cut? AI and the Future of Accessibility",
+      "source": "Charleston Hub",
+      "url": "https://www.charleston-hub.com/2026/11/access-granted-the-next-curb-cut-ai-and-the-future-of-accessibility/",
+      "synopsis": "At the 2026 Accessible Ohio Conference, presenters showed how AI-powered captioning, image descriptions, note-taking and visual assistance are opening up new ways to take part in daily life. Speakers, including a presenter who is blind, focused on tools people already use today, such as Seeing AI and Aira for interpreting printed information and Voxally for helping Deaf creators make sign-language videos accessible. The big idea: AI could become the next curb cut, a small change that helps everyone.",
       "image": null,
-      "category": "Science",
-      "emoji": "🔍"
+      "category": "Accessibility",
+      "emoji": "♿"
     },
     {
-      "title": "AI imaging techniques for marine biodiversity research",
-      "source": "Frontiers in Marine Science",
-      "url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2026.1805062/full",
-      "synopsis": "A new review in Frontiers in Marine Science explains how AI-based imaging can help researchers study life in the ocean. It describes tools such as abundance counters, monitoring systems and discovery tools, used at a wide range of ocean depths. It is written as an introductory primer so more marine biodiversity researchers can use AI to speed up their data gathering.",
-      "image": "https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/AB731B5E-557C-4DEA-88680B655CE21F43/9C3665D1-80E8-44FC-A115BB703255BBC3/WebsiteWebP_XL-FMARS_Main Visual_Cyan_Website.webp",
-      "category": "Environment",
-      "emoji": "🌊"
+      "title": "AI can transform how schools operate, teachers teach and students learn",
+      "source": "Consultancy-ME",
+      "url": "https://www.consultancy-me.com/news/15018/ai-can-transform-how-schools-operate-teachers-teach-and-students-learn",
+      "synopsis": "A new report says AI-powered learning tools could tailor lessons to each student's abilities and pace, help teachers be more productive, and widen access to affordable, high-quality schooling across the Gulf. It points to a World Bank study in Nigeria where six weeks of AI-assisted tutoring produced learning gains equal to 1.5 to two years of conventional schooling. The report adds that schools will need to rethink teaching and assessment to make the most of it.",
+      "image": "https://www.consultancy-me.com/illustrations/news/spotlight/2026-11-27-091045748-AI_can_transform_how_schools_operate__teachers_teach_and_students_learn.jpg?webp",
+      "category": "Education",
+      "emoji": "📚"
     }
   ]
 }

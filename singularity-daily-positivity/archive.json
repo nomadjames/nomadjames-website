@@ -1,6 +1,38 @@
 {
  "days": [
   {
+   "date": "2026-11-28",
+   "stories": [
+    {
+     "title": "How artificial intelligence is offering new hope for stroke patients in the Last Frontier",
+     "source": "STAT",
+     "url": "https://www.statnews.com/2026/11/24/alaskan-hospitals-artificial-intelligence-bet-improve-stroke-care/",
+     "synopsis": "In Alaska, a small network of hospitals has used the same AI software since 2023 to spot dangerous brain clots and get stroke patients to the right care faster. In one patient's case, the article says that without the AI assist it would have taken at least an extra hour. Some Alaskan stroke doctors are optimistic about what it means for rural patients.",
+     "image": "https://www.statnews.com/wp-content/uploads/2026/11/261120_STATNEWS_-100-1024x576.jpg",
+     "category": "Medicine",
+     "emoji": "🧠"
+    },
+    {
+     "title": "Access Granted — The Next Curb Cut? AI and the Future of Accessibility",
+     "source": "Charleston Hub",
+     "url": "https://www.charleston-hub.com/2026/11/access-granted-the-next-curb-cut-ai-and-the-future-of-accessibility/",
+     "synopsis": "At the 2026 Accessible Ohio Conference, presenters showed how AI-powered captioning, image descriptions, note-taking and visual assistance are opening up new ways to take part in daily life. Speakers, including a presenter who is blind, focused on tools people already use today, such as Seeing AI and Aira for interpreting printed information and Voxally for helping Deaf creators make sign-language videos accessible. The big idea: AI could become the next curb cut, a small change that helps everyone.",
+     "image": null,
+     "category": "Accessibility",
+     "emoji": "♿"
+    },
+    {
+     "title": "AI can transform how schools operate, teachers teach and students learn",
+     "source": "Consultancy-ME",
+     "url": "https://www.consultancy-me.com/news/15018/ai-can-transform-how-schools-operate-teachers-teach-and-students-learn",
+     "synopsis": "A new report says AI-powered learning tools could tailor lessons to each student's abilities and pace, help teachers be more productive, and widen access to affordable, high-quality schooling across the Gulf. It points to a World Bank study in Nigeria where six weeks of AI-assisted tutoring produced learning gains equal to 1.5 to two years of conventional schooling. The report adds that schools will need to rethink teaching and assessment to make the most of it.",
+     "image": "https://www.consultancy-me.com/illustrations/news/spotlight/2026-11-27-091045748-AI_can_transform_how_schools_operate__teachers_teach_and_students_learn.jpg?webp",
+     "category": "Education",
+     "emoji": "📚"
+    }
+   ]
+  },
+  {
    "date": "2026-11-27",
    "stories": [
     {
